@@ -83,9 +83,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:af87960ad0b6bdd0235f8a6efcf956b4a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1dsp_1_1osc_1_1_triangle.html#af87960ad0b6bdd0235f8a6efcf956b4a">Triangle</a> ()</td></tr>
 <tr class="memdesc:af87960ad0b6bdd0235f8a6efcf956b4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a default triangle wave.  <a href="structlemons_1_1dsp_1_1osc_1_1_triangle.html#af87960ad0b6bdd0235f8a6efcf956b4a">More...</a><br /></td></tr>
 <tr class="separator:af87960ad0b6bdd0235f8a6efcf956b4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2bc186fc90983db3536a09ad4fbb23f5"><td class="memItemLeft" align="right" valign="top">SampleType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1dsp_1_1osc_1_1_triangle.html#a2bc186fc90983db3536a09ad4fbb23f5">getSample</a> () final</td></tr>
-<tr class="memdesc:a2bc186fc90983db3536a09ad4fbb23f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the next sample of the triangle wave.  <a href="structlemons_1_1dsp_1_1osc_1_1_triangle.html#a2bc186fc90983db3536a09ad4fbb23f5">More...</a><br /></td></tr>
-<tr class="separator:a2bc186fc90983db3536a09ad4fbb23f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a49d6e63b531b0c0a87c86dd8d79a684a"><td class="memItemLeft" align="right" valign="top">SampleType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1dsp_1_1osc_1_1_triangle.html#a49d6e63b531b0c0a87c86dd8d79a684a">getFrequency</a> () const noexcept final</td></tr>
+<tr class="memdesc:a49d6e63b531b0c0a87c86dd8d79a684a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the square wave's frequency.  <a href="structlemons_1_1dsp_1_1osc_1_1_triangle.html#a49d6e63b531b0c0a87c86dd8d79a684a">More...</a><br /></td></tr>
+<tr class="separator:a49d6e63b531b0c0a87c86dd8d79a684a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a58e11fd6ce2733815fd528f4bce17a0f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1dsp_1_1osc_1_1_triangle.html#a58e11fd6ce2733815fd528f4bce17a0f">resetPhase</a> () final</td></tr>
 <tr class="memdesc:a58e11fd6ce2733815fd528f4bce17a0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets the triangle wave's phase.  <a href="structlemons_1_1dsp_1_1osc_1_1_triangle.html#a58e11fd6ce2733815fd528f4bce17a0f">More...</a><br /></td></tr>
 <tr class="separator:a58e11fd6ce2733815fd528f4bce17a0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -130,8 +130,8 @@ template&lt;typename SampleType &gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a2bc186fc90983db3536a09ad4fbb23f5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2bc186fc90983db3536a09ad4fbb23f5">&#9670;&nbsp;</a></span>getSample()</h2>
+<a id="a49d6e63b531b0c0a87c86dd8d79a684a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a49d6e63b531b0c0a87c86dd8d79a684a">&#9670;&nbsp;</a></span>getFrequency()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -142,20 +142,20 @@ template&lt;typename SampleType &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">SampleType <a class="el" href="structlemons_1_1dsp_1_1osc_1_1_triangle.html">lemons::dsp::osc::Triangle</a>&lt; SampleType &gt;::getSample </td>
+          <td class="memname">SampleType <a class="el" href="structlemons_1_1dsp_1_1osc_1_1_triangle.html">lemons::dsp::osc::Triangle</a>&lt; SampleType &gt;::getFrequency </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">final</span></span>  </td>
+<span class="mlabels"><span class="mlabel">final</span><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Returns the next sample of the triangle wave. </p>
+<p>Returns the square wave's frequency. </p>
 
 </div>
 </div>
@@ -234,7 +234,7 @@ template&lt;typename SampleType &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Dec 18 2021 00:47:45 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Dec 18 2021 23:37:54 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

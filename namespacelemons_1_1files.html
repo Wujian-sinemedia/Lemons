@@ -134,11 +134,12 @@ Functions</h2></td></tr>
 
 <p>An enum used to describe various kinds of binary encodings of serialized data. </p>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ad8666caaa02a1d74f5e234b8900b5390a3501bb093d363810b671059b9cfed3f8"></a>XML&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="ad8666caaa02a1d74f5e234b8900b5390a0ecd11c1d7a287401d148a23bbd7a2f8"></a>JSON&#160;</td><td class="fielddoc"><p>Represents an XML file. </p>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ad8666caaa02a1d74f5e234b8900b5390a3501bb093d363810b671059b9cfed3f8"></a>XML&#160;</td><td class="fielddoc"><p>Represents an XML file. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="ad8666caaa02a1d74f5e234b8900b5390afaa90538de35640e4b1e31ccf35b6eb5"></a>Opaque&#160;</td><td class="fielddoc"><p>Represents a JSON file. </p>
-<p>Represents any non-standard/proprietary method of encoding and decoding information to/from binary. May not be human-readable. </p>
+<tr><td class="fieldname"><a id="ad8666caaa02a1d74f5e234b8900b5390a0ecd11c1d7a287401d148a23bbd7a2f8"></a>JSON&#160;</td><td class="fielddoc"><p>Represents a JSON file. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ad8666caaa02a1d74f5e234b8900b5390afaa90538de35640e4b1e31ccf35b6eb5"></a>Opaque&#160;</td><td class="fielddoc"><p>Represents any non-standard/proprietary method of encoding and decoding information to/from binary. </p>
+<p>May not be human-readable. </p>
 </td></tr>
 </table>
 
@@ -225,7 +226,7 @@ template&lt;FileType Type = FileType::JSON&gt; </div>
 </div><div class="memdoc">
 
 <p>Attempts to load a ValueTree from a file of the specified format. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="namespacelemons_1_1files.html#af649a81a1c77e6b8667c62f6276e6d11" title="Saves a ValueTree to a file in the specified format.">saveValueTree()</a> </dd></dl>
+<p>The default format is JSON. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="namespacelemons_1_1files.html#af649a81a1c77e6b8667c62f6276e6d11" title="Saves a ValueTree to a file in the specified format.">saveValueTree()</a> </dd></dl>
 
 </div>
 </div>
@@ -248,7 +249,7 @@ template&lt;FileType Type = FileType::JSON&gt; </div>
 </div><div class="memdoc">
 
 <p>Attempts to load a ValueTree from the contents of a file of the specified format. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="namespacelemons_1_1files.html#af649a81a1c77e6b8667c62f6276e6d11" title="Saves a ValueTree to a file in the specified format.">saveValueTree()</a> </dd></dl>
+<p>The default format is JSON. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="namespacelemons_1_1files.html#af649a81a1c77e6b8667c62f6276e6d11" title="Saves a ValueTree to a file in the specified format.">saveValueTree()</a> </dd></dl>
 
 </div>
 </div>
@@ -319,7 +320,7 @@ template&lt;FileType Type = FileType::JSON&gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Dec 18 2021 00:47:45 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Dec 18 2021 23:37:54 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

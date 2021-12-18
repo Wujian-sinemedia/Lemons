@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['location_2257',['location',['../structlemons_1_1spline_1_1_knot.html#a0d2bdd96e97eba6698c2d274424325f8',1,'lemons::spline::Knot']]]
+  ['mainbypass_2207',['mainBypass',['../classlemons_1_1plugin_1_1_state_base.html#aeb826035e1976ec685c8bf3232d3bdc0',1,'lemons::plugin::StateBase']]],
+  ['modmanager_2208',['modManager',['../classlemons_1_1plugin_1_1_state_base.html#ae139e1bc96f05db7e27391c6d1241340',1,'lemons::plugin::StateBase']]]
 ];

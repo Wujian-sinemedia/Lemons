@@ -74,15 +74,29 @@ $(function() {
 <div class="title">lemons::TranslationsInitializer Struct Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>A struct whose constructor simply calls <a class="el" href="namespacelemons.html#a28f927897886adce8899753965ce2dcd" title="Attempts to load a set of default translations from binary data, chosen based on the user&#39;s display l...">initializeDefaultTranslations()</a>.  
+ <a href="structlemons_1_1_translations_initializer.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a815b7b9420fae919bc42604ad2d06c4a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1_translations_initializer.html#a815b7b9420fae919bc42604ad2d06c4a">TranslationsInitializer</a> ()</td></tr>
+<tr class="memdesc:a815b7b9420fae919bc42604ad2d06c4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">The constructor simply calls <a class="el" href="namespacelemons.html#a28f927897886adce8899753965ce2dcd" title="Attempts to load a set of default translations from binary data, chosen based on the user&#39;s display l...">initializeDefaultTranslations()</a>.  <a href="structlemons_1_1_translations_initializer.html#a815b7b9420fae919bc42604ad2d06c4a">More...</a><br /></td></tr>
 <tr class="separator:a815b7b9420fae919bc42604ad2d06c4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acd4bba35d1551fe591c7a273a94bed10"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1_translations_initializer.html#acd4bba35d1551fe591c7a273a94bed10">~TranslationsInitializer</a> ()=default</td></tr>
+<tr class="memdesc:acd4bba35d1551fe591c7a273a94bed10"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <a href="structlemons_1_1_translations_initializer.html#acd4bba35d1551fe591c7a273a94bed10">More...</a><br /></td></tr>
 <tr class="separator:acd4bba35d1551fe591c7a273a94bed10"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>A struct whose constructor simply calls <a class="el" href="namespacelemons.html#a28f927897886adce8899753965ce2dcd" title="Attempts to load a set of default translations from binary data, chosen based on the user&#39;s display l...">initializeDefaultTranslations()</a>. </p>
+<p>This is useful for initializing the translations system as part of a base class, before the other members of your class are created; for example: </p><div class="fragment"><div class="line"><span class="keyword">struct </span>MyProcessor : <span class="keyword">public</span> juce::AudioProcessor, <span class="keyword">private</span> <a class="code" href="structlemons_1_1_translations_initializer.html">lemons::TranslationsInitializer</a></div>
+<div class="line">{</div>
+<div class="line">    MyProcessor()</div>
+<div class="line">    {</div>
+<div class="line">        <span class="comment">// parameters you create in the constructor can now call juce::translate() or TRANS() to internationalize their display names!</span></div>
+<div class="line">    }</div>
+<div class="line">};</div>
+</div><!-- fragment --> </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a815b7b9420fae919bc42604ad2d06c4a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a815b7b9420fae919bc42604ad2d06c4a">&#9670;&nbsp;</a></span>TranslationsInitializer()</h2>
 
@@ -105,6 +119,8 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>The constructor simply calls <a class="el" href="namespacelemons.html#a28f927897886adce8899753965ce2dcd" title="Attempts to load a set of default translations from binary data, chosen based on the user&#39;s display l...">initializeDefaultTranslations()</a>. </p>
 
 </div>
 </div>
@@ -131,15 +147,18 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Destructor. </p>
+
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
 <li><a class="el" href="localization_8h.html">localization.h</a></li>
 </ul>
 </div><!-- contents -->
+<div class="ttc" id="astructlemons_1_1_translations_initializer_html"><div class="ttname"><a href="structlemons_1_1_translations_initializer.html">lemons::TranslationsInitializer</a></div><div class="ttdoc">A struct whose constructor simply calls initializeDefaultTranslations().</div><div class="ttdef"><b>Definition:</b> localization.h:43</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Dec 18 2021 00:47:45 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Dec 18 2021 23:37:54 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

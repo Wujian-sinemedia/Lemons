@@ -74,47 +74,28 @@ $(function() {
 <div class="title">lemons::dsp::WhiteNoiseGenerator&lt; SampleType &gt; Class Template Reference<span class="mlabels"><span class="mlabel">final</span></span><div class="ingroups"><a class="el" href="group___common.html">Common</a> &raquo; <a class="el" href="group__lemons__musicology.html">lemons_musicology</a><a class="el" href="group___audio.html">Audio</a> &raquo;  &#124; <a class="el" href="group__lemons__dsp.html">lemons_dsp</a><a class="el" href="group___testing.html">Testing</a> &raquo;  &#124; <a class="el" href="group__lemons__unit__testing.html">lemons_unit_testing</a> &raquo; <a class="el" href="group__util.html">util</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>A simple processor that generates random noise.  
+ <a href="classlemons_1_1dsp_1_1_white_noise_generator.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aedb9824eba8d0c5270f317cebe66bcf9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1_white_noise_generator.html#aedb9824eba8d0c5270f317cebe66bcf9">WhiteNoiseGenerator</a> ()=default</td></tr>
-<tr class="separator:aedb9824eba8d0c5270f317cebe66bcf9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae3cab3546e1aea778b0b5a2bf14d80f3"><td class="memItemLeft" align="right" valign="top">SampleType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1_white_noise_generator.html#ae3cab3546e1aea778b0b5a2bf14d80f3">getNextSample</a> ()</td></tr>
+<tr class="memdesc:ae3cab3546e1aea778b0b5a2bf14d80f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the next sample of random noise.  <a href="classlemons_1_1dsp_1_1_white_noise_generator.html#ae3cab3546e1aea778b0b5a2bf14d80f3">More...</a><br /></td></tr>
 <tr class="separator:ae3cab3546e1aea778b0b5a2bf14d80f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9d66e3bcd71e4a2ced912b022babd805"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1_white_noise_generator.html#a9d66e3bcd71e4a2ced912b022babd805">getSamples</a> (<a class="el" href="namespacelemons_1_1dsp.html#a18d4de532efb0450f4f594bfbe9cceb0">AudioBuffer</a>&lt; SampleType &gt; &amp;output, int channel=0)</td></tr>
+<tr class="memdesc:a9d66e3bcd71e4a2ced912b022babd805"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fills all channels of the AudioBuffer with random noise.  <a href="classlemons_1_1dsp_1_1_white_noise_generator.html#a9d66e3bcd71e4a2ced912b022babd805">More...</a><br /></td></tr>
 <tr class="separator:a9d66e3bcd71e4a2ced912b022babd805"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a21f4ea9e6f5ed15f0bb215ee02a1b43b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1_white_noise_generator.html#a21f4ea9e6f5ed15f0bb215ee02a1b43b">getSamples</a> (SampleType *output, int numSamples)</td></tr>
+<tr class="memdesc:a21f4ea9e6f5ed15f0bb215ee02a1b43b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Outputs a stream of random samples.  <a href="classlemons_1_1dsp_1_1_white_noise_generator.html#a21f4ea9e6f5ed15f0bb215ee02a1b43b">More...</a><br /></td></tr>
 <tr class="separator:a21f4ea9e6f5ed15f0bb215ee02a1b43b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="aedb9824eba8d0c5270f317cebe66bcf9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aedb9824eba8d0c5270f317cebe66bcf9">&#9670;&nbsp;</a></span>WhiteNoiseGenerator()</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><h3>template&lt;typename SampleType&gt;<br />
+class lemons::dsp::WhiteNoiseGenerator&lt; SampleType &gt;</h3>
 
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename SampleType &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classlemons_1_1dsp_1_1_white_noise_generator.html">lemons::dsp::WhiteNoiseGenerator</a>&lt; SampleType &gt;::<a class="el" href="classlemons_1_1dsp_1_1_white_noise_generator.html">WhiteNoiseGenerator</a> </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">explicit</span><span class="mlabel">default</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
+<p>A simple processor that generates random noise. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="ae3cab3546e1aea778b0b5a2bf14d80f3"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae3cab3546e1aea778b0b5a2bf14d80f3">&#9670;&nbsp;</a></span>getNextSample()</h2>
 
@@ -131,6 +112,8 @@ template&lt;typename SampleType &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns the next sample of random noise. </p>
 
 </div>
 </div>
@@ -162,6 +145,8 @@ template&lt;typename SampleType &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Fills all channels of the AudioBuffer with random noise. </p>
+
 </div>
 </div>
 <a id="a21f4ea9e6f5ed15f0bb215ee02a1b43b"></a>
@@ -192,6 +177,8 @@ template&lt;typename SampleType &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Outputs a stream of random samples. </p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
@@ -200,7 +187,7 @@ template&lt;typename SampleType &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Dec 18 2021 00:47:45 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Dec 18 2021 23:37:54 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

@@ -96,6 +96,15 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ab01ffcc37bd2c9e5cc355d891afc32d3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1_version.html#ab01ffcc37bd2c9e5cc355d891afc32d3">bumpPatch</a> () noexcept</td></tr>
 <tr class="memdesc:ab01ffcc37bd2c9e5cc355d891afc32d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Increments the patch value.  <a href="structlemons_1_1_version.html#ab01ffcc37bd2c9e5cc355d891afc32d3">More...</a><br /></td></tr>
 <tr class="separator:ab01ffcc37bd2c9e5cc355d891afc32d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9817605e551b61fde1042ec17d1fc023"><td class="memItemLeft" align="right" valign="top">constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1_version.html#a9817605e551b61fde1042ec17d1fc023">getMajor</a> () const noexcept</td></tr>
+<tr class="memdesc:a9817605e551b61fde1042ec17d1fc023"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the major version number.  <a href="structlemons_1_1_version.html#a9817605e551b61fde1042ec17d1fc023">More...</a><br /></td></tr>
+<tr class="separator:a9817605e551b61fde1042ec17d1fc023"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a639a1102bbd6fe113946bd541aa7bce5"><td class="memItemLeft" align="right" valign="top">constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1_version.html#a639a1102bbd6fe113946bd541aa7bce5">getMinor</a> () const noexcept</td></tr>
+<tr class="memdesc:a639a1102bbd6fe113946bd541aa7bce5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the minor version number.  <a href="structlemons_1_1_version.html#a639a1102bbd6fe113946bd541aa7bce5">More...</a><br /></td></tr>
+<tr class="separator:a639a1102bbd6fe113946bd541aa7bce5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a559707e6ec232d063249ca3eff3c47ef"><td class="memItemLeft" align="right" valign="top">constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1_version.html#a559707e6ec232d063249ca3eff3c47ef">getPatch</a> () const noexcept</td></tr>
+<tr class="memdesc:a559707e6ec232d063249ca3eff3c47ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the patch version number.  <a href="structlemons_1_1_version.html#a559707e6ec232d063249ca3eff3c47ef">More...</a><br /></td></tr>
+<tr class="separator:a559707e6ec232d063249ca3eff3c47ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a309963d20eb0e640fed90907c378e5b0"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1_version.html#a309963d20eb0e640fed90907c378e5b0">hasSameMajorVersion</a> (const <a class="el" href="structlemons_1_1_version.html">Version</a> &amp;other) const noexcept</td></tr>
 <tr class="memdesc:a309963d20eb0e640fed90907c378e5b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if this version has the same major release number as the other one.  <a href="structlemons_1_1_version.html#a309963d20eb0e640fed90907c378e5b0">More...</a><br /></td></tr>
 <tr class="separator:a309963d20eb0e640fed90907c378e5b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -327,6 +336,87 @@ Static Public Member Functions</h2></td></tr>
 
 <p>Returns a <a class="el" href="structlemons_1_1_version.html" title="A class that represents a version of something, with major, minor, and patch numbers.">Version</a> object from a String representation. </p>
 <p>The string should be in the format '0.0.1', for example. </p>
+
+</div>
+</div>
+<a id="a9817605e551b61fde1042ec17d1fc023"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9817605e551b61fde1042ec17d1fc023">&#9670;&nbsp;</a></span>getMajor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr int lemons::Version::getMajor </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the major version number. </p>
+
+</div>
+</div>
+<a id="a639a1102bbd6fe113946bd541aa7bce5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a639a1102bbd6fe113946bd541aa7bce5">&#9670;&nbsp;</a></span>getMinor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr int lemons::Version::getMinor </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the minor version number. </p>
+
+</div>
+</div>
+<a id="a559707e6ec232d063249ca3eff3c47ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a559707e6ec232d063249ca3eff3c47ef">&#9670;&nbsp;</a></span>getPatch()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr int lemons::Version::getPatch </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the patch version number. </p>
 
 </div>
 </div>
@@ -726,7 +816,7 @@ Static Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Dec 18 2021 00:47:45 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Dec 18 2021 23:37:54 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

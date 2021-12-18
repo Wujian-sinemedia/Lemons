@@ -70,7 +70,6 @@ $(function() {
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
-<a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="structlemons_1_1binary_1_1_data-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">lemons::binary::Data Struct Reference<span class="mlabels"><span class="mlabel">final</span></span><div class="ingroups"><a class="el" href="group___common.html">Common</a> &raquo; <a class="el" href="group__lemons__binaries.html">lemons_binaries</a> &raquo; <a class="el" href="group__binary__data.html">binary_data</a></div></div>  </div>
@@ -88,15 +87,18 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ad54a181f5bbc3e4b45e8a22f67806dfd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1binary_1_1_data.html#ad54a181f5bbc3e4b45e8a22f67806dfd">Data</a> (const String &amp;fileToFind)</td></tr>
 <tr class="memdesc:ad54a181f5bbc3e4b45e8a22f67806dfd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a <a class="el" href="structlemons_1_1binary_1_1_data.html" title="Represents a wrapper around some data contained in a juce BinaryData target.">Data</a> object referencing a named resource.  <a href="structlemons_1_1binary_1_1_data.html#ad54a181f5bbc3e4b45e8a22f67806dfd">More...</a><br /></td></tr>
 <tr class="separator:ad54a181f5bbc3e4b45e8a22f67806dfd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aadbb926992feee400c25ae1f31deb263"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1binary_1_1_data.html#aadbb926992feee400c25ae1f31deb263">~Data</a> ()=default</td></tr>
-<tr class="memdesc:aadbb926992feee400c25ae1f31deb263"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <a href="structlemons_1_1binary_1_1_data.html#aadbb926992feee400c25ae1f31deb263">More...</a><br /></td></tr>
-<tr class="separator:aadbb926992feee400c25ae1f31deb263"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a74b924703cf18cf60b4931df8cc3ac7b"><td class="memItemLeft" align="right" valign="top">MemoryBlock&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1binary_1_1_data.html#a74b924703cf18cf60b4931df8cc3ac7b">getAsMemoryBlock</a> () const</td></tr>
 <tr class="memdesc:a74b924703cf18cf60b4931df8cc3ac7b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a memory block representing this data.  <a href="structlemons_1_1binary_1_1_data.html#a74b924703cf18cf60b4931df8cc3ac7b">More...</a><br /></td></tr>
 <tr class="separator:a74b924703cf18cf60b4931df8cc3ac7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac830c9dca94282ee57eb55b35730ea0f"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1binary_1_1_data.html#ac830c9dca94282ee57eb55b35730ea0f">getAsString</a> () const</td></tr>
 <tr class="memdesc:ac830c9dca94282ee57eb55b35730ea0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the data as a UTF-8 formatted string.  <a href="structlemons_1_1binary_1_1_data.html#ac830c9dca94282ee57eb55b35730ea0f">More...</a><br /></td></tr>
 <tr class="separator:ac830c9dca94282ee57eb55b35730ea0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a535083ab27134fe4f5275237d17e77f1"><td class="memItemLeft" align="right" valign="top">const char *const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1binary_1_1_data.html#a535083ab27134fe4f5275237d17e77f1">getData</a> () const noexcept</td></tr>
+<tr class="memdesc:a535083ab27134fe4f5275237d17e77f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a pointer to the raw data.  <a href="structlemons_1_1binary_1_1_data.html#a535083ab27134fe4f5275237d17e77f1">More...</a><br /></td></tr>
+<tr class="separator:a535083ab27134fe4f5275237d17e77f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:add7ac113481d2beee64bf54f56846d5e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1binary_1_1_data.html#add7ac113481d2beee64bf54f56846d5e">getSize</a> () const noexcept</td></tr>
+<tr class="memdesc:add7ac113481d2beee64bf54f56846d5e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the size of the data, in bytes.  <a href="structlemons_1_1binary_1_1_data.html#add7ac113481d2beee64bf54f56846d5e">More...</a><br /></td></tr>
+<tr class="separator:add7ac113481d2beee64bf54f56846d5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2fe4061a2be0d157f44ecf92db65cd01"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1binary_1_1_data.html#a2fe4061a2be0d157f44ecf92db65cd01">isValid</a> () const noexcept</td></tr>
 <tr class="memdesc:a2fe4061a2be0d157f44ecf92db65cd01"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the requested data has been loaded successfully from the binary data target.  <a href="structlemons_1_1binary_1_1_data.html#a2fe4061a2be0d157f44ecf92db65cd01">More...</a><br /></td></tr>
 <tr class="separator:a2fe4061a2be0d157f44ecf92db65cd01"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -131,26 +133,18 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:afb121a510a44a8b5160ef6ded21e2e0c"><td class="memItemLeft" align="right" valign="top">static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1binary_1_1_data.html#afb121a510a44a8b5160ef6ded21e2e0c">hasBinaryData</a> () noexcept</td></tr>
 <tr class="memdesc:afb121a510a44a8b5160ef6ded21e2e0c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if this module was compiled with the LEMONS_HAS_BINARY_DATA flag set to 1.  <a href="structlemons_1_1binary_1_1_data.html#afb121a510a44a8b5160ef6ded21e2e0c">More...</a><br /></td></tr>
 <tr class="separator:afb121a510a44a8b5160ef6ded21e2e0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
-Public Attributes</h2></td></tr>
-<tr class="memitem:a3bb5e7c61585e98f0299b20cf263cf40"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1binary_1_1_data.html#a3bb5e7c61585e98f0299b20cf263cf40">data</a> { nullptr }</td></tr>
-<tr class="memdesc:a3bb5e7c61585e98f0299b20cf263cf40"><td class="mdescLeft">&#160;</td><td class="mdescRight">The raw data.  <a href="structlemons_1_1binary_1_1_data.html#a3bb5e7c61585e98f0299b20cf263cf40">More...</a><br /></td></tr>
-<tr class="separator:a3bb5e7c61585e98f0299b20cf263cf40"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afb63c14469a537e76fd151a06a8f1f39"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1binary_1_1_data.html#afb63c14469a537e76fd151a06a8f1f39">size</a> { 0 }</td></tr>
-<tr class="memdesc:afb63c14469a537e76fd151a06a8f1f39"><td class="mdescLeft">&#160;</td><td class="mdescRight">The size of the data, in bytes.  <a href="structlemons_1_1binary_1_1_data.html#afb63c14469a537e76fd151a06a8f1f39">More...</a><br /></td></tr>
-<tr class="separator:afb63c14469a537e76fd151a06a8f1f39"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Represents a wrapper around some data contained in a juce BinaryData target. </p>
-<p>Simply provide the filename and this object will load the data contained by the named resource, if it can be located. <br  />
-Be sure to check <a class="el" href="structlemons_1_1binary_1_1_data.html#a2fe4061a2be0d157f44ecf92db65cd01" title="Returns true if the requested data has been loaded successfully from the binary data target.">isValid()</a> before attempting to use the data! <br  />
-Example: </p><div class="fragment"><div class="line"><a class="code" href="structlemons_1_1binary_1_1_data.html#abfc233b46701a09cef8a5fc3f78ccdb2">Data</a> <a class="code" href="structlemons_1_1binary_1_1_data.html#a3bb5e7c61585e98f0299b20cf263cf40">data</a> {<span class="stringliteral">&quot;MyAudioFile.wav&quot;</span>};</div>
+<p>Simply provide the filename and this object will load the data contained by the named resource, if it can be located. </p><dl class="section attention"><dt>Attention</dt><dd>Be sure to check <a class="el" href="structlemons_1_1binary_1_1_data.html#a2fe4061a2be0d157f44ecf92db65cd01" title="Returns true if the requested data has been loaded successfully from the binary data target.">isValid()</a> before attempting to use the data! <br  />
+For example: <div class="fragment"><div class="line"><a class="code" href="structlemons_1_1binary_1_1_data.html#abfc233b46701a09cef8a5fc3f78ccdb2">Data</a> data {<span class="stringliteral">&quot;MyAudioFile.wav&quot;</span>};</div>
 <div class="line"> </div>
-<div class="line"><span class="keywordflow">if</span> (<a class="code" href="structlemons_1_1binary_1_1_data.html#a3bb5e7c61585e98f0299b20cf263cf40">data</a>.isValid())</div>
-<div class="line">    doSomethingWithData (<a class="code" href="structlemons_1_1binary_1_1_data.html#a3bb5e7c61585e98f0299b20cf263cf40">data</a>.data, <a class="code" href="structlemons_1_1binary_1_1_data.html#a3bb5e7c61585e98f0299b20cf263cf40">data</a>.size);</div>
-</div><!-- fragment --><p> If your project doesn't define the LEMONS_HAS_BINARY_DATA macro to 1, every <a class="el" href="structlemons_1_1binary_1_1_data.html" title="Represents a wrapper around some data contained in a juce BinaryData target.">Data</a> object you create will be invalid.</p>
-<p>To easily access binary data converted into higher level juce types, several static methods are provided. These methods all throw assertions if the data cannot be loaded. </p>
+<div class="line"><span class="keywordflow">if</span> (data.isValid())</div>
+<div class="line">    doSomethingWithData (data.data, data.size);</div>
+</div><!-- fragment --> If your project doesn't define the LEMONS_HAS_BINARY_DATA macro to 1, every <a class="el" href="structlemons_1_1binary_1_1_data.html" title="Represents a wrapper around some data contained in a juce BinaryData target.">Data</a> object you create will be invalid. <br  />
+ To easily access binary data converted into higher level types, several static methods are provided. These methods all throw assertions if the data cannot be loaded. <br  />
+For example: <div class="fragment"><div class="line"><span class="keyword">auto</span> image = <a class="code" href="structlemons_1_1binary_1_1_data.html#a8cf059725220443050eec963b7e3d2ca">Data::getImage</a> (<span class="stringliteral">&quot;myImage.jpg&quot;</span>);</div>
+</div><!-- fragment --> </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="abfc233b46701a09cef8a5fc3f78ccdb2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#abfc233b46701a09cef8a5fc3f78ccdb2">&#9670;&nbsp;</a></span>Data() <span class="overload">[1/2]</span></h2>
@@ -204,33 +198,6 @@ Example: </p><div class="fragment"><div class="line"><a class="code" href="struc
 </div><div class="memdoc">
 
 <p>Creates a <a class="el" href="structlemons_1_1binary_1_1_data.html" title="Represents a wrapper around some data contained in a juce BinaryData target.">Data</a> object referencing a named resource. </p>
-
-</div>
-</div>
-<a id="aadbb926992feee400c25ae1f31deb263"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aadbb926992feee400c25ae1f31deb263">&#9670;&nbsp;</a></span>~Data()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">lemons::binary::Data::~Data </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">default</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Destructor. </p>
 
 </div>
 </div>
@@ -331,6 +298,34 @@ Example: </p><div class="fragment"><div class="line"><a class="code" href="struc
 
 </div>
 </div>
+<a id="a535083ab27134fe4f5275237d17e77f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a535083ab27134fe4f5275237d17e77f1">&#9670;&nbsp;</a></span>getData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char* const lemons::binary::Data::getData </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns a pointer to the raw data. </p>
+<p>This may be null if the data could not be loaded. </p>
+
+</div>
+</div>
 <a id="a2dac74a25c097542a54858482436c40a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2dac74a25c097542a54858482436c40a">&#9670;&nbsp;</a></span>getFont()</h2>
 
@@ -415,6 +410,33 @@ Example: </p><div class="fragment"><div class="line"><a class="code" href="struc
 
 <p>Returns a MIDI buffer object from a MIDI file in the BinaryData target. </p>
 <p>If the MIDI can't be loaded, an assertion will be thrown. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="namespacelemons_1_1serializing.html#ae8e7d43517d8fa847dec1f55b483a504" title="Loads a MidiFile from a file on disk.">serializing::loadMidiFromFile()</a>, <a class="el" href="namespacelemons_1_1serializing.html#a02be9ff9b2eaa39d8ab1119123d88b1d" title="Saves a MidiFile to a file on disk.">serializing::saveMidiToFile()</a> </dd></dl>
+
+</div>
+</div>
+<a id="add7ac113481d2beee64bf54f56846d5e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#add7ac113481d2beee64bf54f56846d5e">&#9670;&nbsp;</a></span>getSize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int lemons::binary::Data::getSize </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Return the size of the data, in bytes. </p>
 
 </div>
 </div>
@@ -503,7 +525,7 @@ template&lt;files::FileType Type = files::FileType::JSON&gt; </div>
 </div><div class="memdoc">
 
 <p>Returns a ValueTree from a serialized file in the BinaryData target in the specified format. </p>
-<p>If the data can't be loaded, an assertion will be thrown. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="namespacelemons_1_1files.html#a83377ad1e44d9e25ff0a5879975230c9" title="Attempts to load a ValueTree from a file of the specified format.">files::loadValueTree()</a>, <a class="el" href="namespacelemons_1_1files.html#af649a81a1c77e6b8667c62f6276e6d11" title="Saves a ValueTree to a file in the specified format.">files::saveValueTree()</a> </dd></dl>
+<p>The default format is JSON. If the data can't be loaded, an assertion will be thrown. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="namespacelemons_1_1files.html#a83377ad1e44d9e25ff0a5879975230c9" title="Attempts to load a ValueTree from a file of the specified format.">files::loadValueTree()</a>, <a class="el" href="namespacelemons_1_1files.html#af649a81a1c77e6b8667c62f6276e6d11" title="Saves a ValueTree to a file in the specified format.">files::saveValueTree()</a> </dd></dl>
 
 </div>
 </div>
@@ -562,49 +584,15 @@ template&lt;files::FileType Type = files::FileType::JSON&gt; </div>
 
 </div>
 </div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a id="a3bb5e7c61585e98f0299b20cf263cf40"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3bb5e7c61585e98f0299b20cf263cf40">&#9670;&nbsp;</a></span>data</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const char* lemons::binary::Data::data { nullptr }</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>The raw data. </p>
-<p>This may be null if the data cannot be found. </p>
-
-</div>
-</div>
-<a id="afb63c14469a537e76fd151a06a8f1f39"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afb63c14469a537e76fd151a06a8f1f39">&#9670;&nbsp;</a></span>size</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int lemons::binary::Data::size { 0 }</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>The size of the data, in bytes. </p>
-
-</div>
-</div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
 <li><a class="el" href="data_8h.html">data.h</a></li>
 </ul>
 </div><!-- contents -->
+<div class="ttc" id="astructlemons_1_1binary_1_1_data_html_a8cf059725220443050eec963b7e3d2ca"><div class="ttname"><a href="structlemons_1_1binary_1_1_data.html#a8cf059725220443050eec963b7e3d2ca">lemons::binary::Data::getImage</a></div><div class="ttdeci">static Image getImage(const String &amp;imageFileName)</div><div class="ttdoc">Returns an image object from an image file in the BinaryData target.</div></div>
 <div class="ttc" id="astructlemons_1_1binary_1_1_data_html_abfc233b46701a09cef8a5fc3f78ccdb2"><div class="ttname"><a href="structlemons_1_1binary_1_1_data.html#abfc233b46701a09cef8a5fc3f78ccdb2">lemons::binary::Data::Data</a></div><div class="ttdeci">Data()=default</div><div class="ttdoc">Creates a default, invalid Data object.</div></div>
-<div class="ttc" id="astructlemons_1_1binary_1_1_data_html_a3bb5e7c61585e98f0299b20cf263cf40"><div class="ttname"><a href="structlemons_1_1binary_1_1_data.html#a3bb5e7c61585e98f0299b20cf263cf40">lemons::binary::Data::data</a></div><div class="ttdeci">const char * data</div><div class="ttdoc">The raw data.</div><div class="ttdef"><b>Definition:</b> data.h:71</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Dec 18 2021 00:47:45 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Dec 18 2021 23:37:54 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

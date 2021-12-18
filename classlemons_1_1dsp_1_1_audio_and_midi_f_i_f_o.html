@@ -83,9 +83,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a6f493e1b09033cad18e8557c46ff37f7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1_audio_and_midi_f_i_f_o.html#a6f493e1b09033cad18e8557c46ff37f7">AudioAndMidiFIFO</a> (int samples=1024)</td></tr>
 <tr class="memdesc:a6f493e1b09033cad18e8557c46ff37f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a FIFO with an initial capacity.  <a href="classlemons_1_1dsp_1_1_audio_and_midi_f_i_f_o.html#a6f493e1b09033cad18e8557c46ff37f7">More...</a><br /></td></tr>
 <tr class="separator:a6f493e1b09033cad18e8557c46ff37f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8093dd96a9941db36322836df8c97324"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1_audio_and_midi_f_i_f_o.html#a8093dd96a9941db36322836df8c97324">~AudioAndMidiFIFO</a> ()=default</td></tr>
-<tr class="memdesc:a8093dd96a9941db36322836df8c97324"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <a href="classlemons_1_1dsp_1_1_audio_and_midi_f_i_f_o.html#a8093dd96a9941db36322836df8c97324">More...</a><br /></td></tr>
-<tr class="separator:a8093dd96a9941db36322836df8c97324"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:accae61ae119545e5c3d9abfeffe4f210"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1_audio_and_midi_f_i_f_o.html#accae61ae119545e5c3d9abfeffe4f210">clear</a> ()</td></tr>
 <tr class="memdesc:accae61ae119545e5c3d9abfeffe4f210"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears the FIFO.  <a href="classlemons_1_1dsp_1_1_audio_and_midi_f_i_f_o.html#accae61ae119545e5c3d9abfeffe4f210">More...</a><br /></td></tr>
 <tr class="separator:accae61ae119545e5c3d9abfeffe4f210"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -107,7 +104,7 @@ Public Member Functions</h2></td></tr>
 class lemons::dsp::AudioAndMidiFIFO&lt; SampleType &gt;</h3>
 
 <p>A FIFO for storing both audio and MIDI data together. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="classlemons_1_1dsp_1_1_audio_fifo.html" title="A multichannel audio FIFO.">AudioFifo</a>, MidiFIFO </dd></dl>
+<p>Note that this class is not thread-safe. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="classlemons_1_1dsp_1_1_audio_fifo.html" title="A multichannel audio FIFO.">AudioFifo</a>, MidiFIFO </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a6f493e1b09033cad18e8557c46ff37f7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6f493e1b09033cad18e8557c46ff37f7">&#9670;&nbsp;</a></span>AudioAndMidiFIFO()</h2>
@@ -136,35 +133,6 @@ template&lt;typename SampleType &gt; </div>
 </div><div class="memdoc">
 
 <p>Creates a FIFO with an initial capacity. </p>
-
-</div>
-</div>
-<a id="a8093dd96a9941db36322836df8c97324"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8093dd96a9941db36322836df8c97324">&#9670;&nbsp;</a></span>~AudioAndMidiFIFO()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename SampleType &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classlemons_1_1dsp_1_1_audio_and_midi_f_i_f_o.html">lemons::dsp::AudioAndMidiFIFO</a>&lt; SampleType &gt;::~<a class="el" href="classlemons_1_1dsp_1_1_audio_and_midi_f_i_f_o.html">AudioAndMidiFIFO</a> </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">default</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Destructor. </p>
 
 </div>
 </div>
@@ -322,7 +290,7 @@ template&lt;typename SampleType &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Dec 18 2021 00:47:45 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Dec 18 2021 23:37:54 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

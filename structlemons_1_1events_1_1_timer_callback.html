@@ -94,7 +94,9 @@ Public Member Functions</h2></td></tr>
 struct lemons::events::TimerCallback&lt; FunctionType &gt;</h3>
 
 <p>A timer callback that calls a lambda function. </p>
-<p>e. g. </p><div class="fragment"><div class="line"><a class="code" href="structlemons_1_1events_1_1_timer_callback.html#ad407c38f7cc06ecd141eaac5e9ec9052">TimerCallback</a> t { []{ callMyFunction(); }; };</div>
+<p>For example: </p><div class="fragment"><div class="line"><span class="keywordtype">void</span> myFunction();</div>
+<div class="line"> </div>
+<div class="line"><a class="code" href="structlemons_1_1events_1_1_timer_callback.html#ad407c38f7cc06ecd141eaac5e9ec9052">TimerCallback</a> t { [&amp;]{ myFunction(); }; };</div>
 </div><!-- fragment --> </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ad407c38f7cc06ecd141eaac5e9ec9052"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad407c38f7cc06ecd141eaac5e9ec9052">&#9670;&nbsp;</a></span>TimerCallback()</h2>
@@ -143,7 +145,7 @@ template&lt;typename FunctionType &gt; </div>
   <table class="params">
     <tr><td class="paramname">callbackToUse</td><td>The function to call as the timer callback. </td></tr>
     <tr><td class="paramname">rateInMs</td><td>The number of milliseconds between successive calls of callbackToUse when the timer is running. </td></tr>
-    <tr><td class="paramname">start</td><td>If true, the timer will be started istantly when this object is created. </td></tr>
+    <tr><td class="paramname">start</td><td>If true, the timer will be started instantly when this object is created. </td></tr>
   </table>
   </dd>
 </dl>
@@ -183,10 +185,10 @@ template&lt;typename FunctionType &gt; </div>
 <li><a class="el" href="_timers_8h.html">Timers.h</a></li>
 </ul>
 </div><!-- contents -->
-<div class="ttc" id="astructlemons_1_1events_1_1_timer_callback_html_ad407c38f7cc06ecd141eaac5e9ec9052"><div class="ttname"><a href="structlemons_1_1events_1_1_timer_callback.html#ad407c38f7cc06ecd141eaac5e9ec9052">lemons::events::TimerCallback::TimerCallback</a></div><div class="ttdeci">TimerCallback(FunctionType &amp;&amp;callbackToUse, int rateInMs=100, bool start=true)</div><div class="ttdoc">Creates a TimerCallback.</div><div class="ttdef"><b>Definition:</b> Timers.h:44</div></div>
+<div class="ttc" id="astructlemons_1_1events_1_1_timer_callback_html_ad407c38f7cc06ecd141eaac5e9ec9052"><div class="ttname"><a href="structlemons_1_1events_1_1_timer_callback.html#ad407c38f7cc06ecd141eaac5e9ec9052">lemons::events::TimerCallback::TimerCallback</a></div><div class="ttdeci">TimerCallback(FunctionType &amp;&amp;callbackToUse, int rateInMs=100, bool start=true)</div><div class="ttdoc">Creates a TimerCallback.</div><div class="ttdef"><b>Definition:</b> Timers.h:46</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Dec 18 2021 00:47:45 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Dec 18 2021 23:37:54 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

@@ -74,31 +74,45 @@ $(function() {
 <div class="title">lemons::dsp::MonoStereoConverter&lt; SampleType &gt; Class Template Reference<span class="mlabels"><span class="mlabel">final</span></span><div class="ingroups"><a class="el" href="group___common.html">Common</a> &raquo; <a class="el" href="group__lemons__musicology.html">lemons_musicology</a><a class="el" href="group___audio.html">Audio</a> &raquo;  &#124; <a class="el" href="group__lemons__dsp.html">lemons_dsp</a><a class="el" href="group___testing.html">Testing</a> &raquo;  &#124; <a class="el" href="group__lemons__unit__testing.html">lemons_unit_testing</a> &raquo; <a class="el" href="group__util.html">util</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>A utility class for converting mono signals to stereo, or stereo signals to mono.  
+ <a href="classlemons_1_1dsp_1_1_mono_stereo_converter.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aafccbb62739798401a8a855cee20df96"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1_mono_stereo_converter.html#aafccbb62739798401a8a855cee20df96">MonoStereoConverter</a> ()</td></tr>
-<tr class="separator:aafccbb62739798401a8a855cee20df96"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aee870d1187f781ae5f2fc32425aeb97e"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1_mono_stereo_converter.html#aee870d1187f781ae5f2fc32425aeb97e">~MonoStereoConverter</a> ()=default</td></tr>
-<tr class="separator:aee870d1187f781ae5f2fc32425aeb97e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ed00ea092e833d40590cd2885fac299"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1_mono_stereo_converter.html#a8ed00ea092e833d40590cd2885fac299">MonoStereoConverter</a> ()=default</td></tr>
+<tr class="memdesc:a8ed00ea092e833d40590cd2885fac299"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor.  <a href="classlemons_1_1dsp_1_1_mono_stereo_converter.html#a8ed00ea092e833d40590cd2885fac299">More...</a><br /></td></tr>
+<tr class="separator:a8ed00ea092e833d40590cd2885fac299"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af792d9ff60c246b31050cbc116115991"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1_mono_stereo_converter.html#af792d9ff60c246b31050cbc116115991">convertMonoToStereo</a> (const <a class="el" href="namespacelemons_1_1dsp.html#a18d4de532efb0450f4f594bfbe9cceb0">AudioBuffer</a>&lt; SampleType &gt; &amp;input, <a class="el" href="namespacelemons_1_1dsp.html#a18d4de532efb0450f4f594bfbe9cceb0">AudioBuffer</a>&lt; SampleType &gt; &amp;output)</td></tr>
+<tr class="memdesc:af792d9ff60c246b31050cbc116115991"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a mono signal to stereo.  <a href="classlemons_1_1dsp_1_1_mono_stereo_converter.html#af792d9ff60c246b31050cbc116115991">More...</a><br /></td></tr>
 <tr class="separator:af792d9ff60c246b31050cbc116115991"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3cdb7b92e421653a74b28f405d69bff5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1_mono_stereo_converter.html#a3cdb7b92e421653a74b28f405d69bff5">convertMonoToStereo</a> (const SampleType *monoIn, SampleType *leftOut, SampleType *rightOut, int numSamples)</td></tr>
+<tr class="memdesc:a3cdb7b92e421653a74b28f405d69bff5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a mono signal to stereo.  <a href="classlemons_1_1dsp_1_1_mono_stereo_converter.html#a3cdb7b92e421653a74b28f405d69bff5">More...</a><br /></td></tr>
 <tr class="separator:a3cdb7b92e421653a74b28f405d69bff5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a55d10549bfa15425124470c2c3534d09"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1_mono_stereo_converter.html#a55d10549bfa15425124470c2c3534d09">convertStereoToMono</a> (const <a class="el" href="namespacelemons_1_1dsp.html#a18d4de532efb0450f4f594bfbe9cceb0">AudioBuffer</a>&lt; SampleType &gt; &amp;input, <a class="el" href="namespacelemons_1_1dsp.html#a18d4de532efb0450f4f594bfbe9cceb0">AudioBuffer</a>&lt; SampleType &gt; &amp;output)</td></tr>
+<tr class="memdesc:a55d10549bfa15425124470c2c3534d09"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a stereo signal to mono.  <a href="classlemons_1_1dsp_1_1_mono_stereo_converter.html#a55d10549bfa15425124470c2c3534d09">More...</a><br /></td></tr>
 <tr class="separator:a55d10549bfa15425124470c2c3534d09"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acd2f6a6c9a82ebab76b55608db724f93"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1_mono_stereo_converter.html#acd2f6a6c9a82ebab76b55608db724f93">convertStereoToMono</a> (const SampleType *leftIn, const SampleType *rightIn, SampleType *monoOut, int numSamples)</td></tr>
+<tr class="memdesc:acd2f6a6c9a82ebab76b55608db724f93"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a stereo signal to mono.  <a href="classlemons_1_1dsp_1_1_mono_stereo_converter.html#acd2f6a6c9a82ebab76b55608db724f93">More...</a><br /></td></tr>
 <tr class="separator:acd2f6a6c9a82ebab76b55608db724f93"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1e74936c76aadd4a85c3eaa141a1f2ed"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacelemons_1_1dsp.html#aaf020aad6edbe51634e978b1d97a37e2">StereoReductionMode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1_mono_stereo_converter.html#a1e74936c76aadd4a85c3eaa141a1f2ed">getStereoReductionMode</a> () const noexcept</td></tr>
+<tr class="memdesc:a1e74936c76aadd4a85c3eaa141a1f2ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the StereoReductionMode the converter is currently using.  <a href="classlemons_1_1dsp_1_1_mono_stereo_converter.html#a1e74936c76aadd4a85c3eaa141a1f2ed">More...</a><br /></td></tr>
 <tr class="separator:a1e74936c76aadd4a85c3eaa141a1f2ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa25f8c949e43c08c408ee96a1f195875"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1_mono_stereo_converter.html#aa25f8c949e43c08c408ee96a1f195875">prepare</a> (int blocksize)</td></tr>
+<tr class="memdesc:aa25f8c949e43c08c408ee96a1f195875"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prepares the converter to process a new maximum blocksize.  <a href="classlemons_1_1dsp_1_1_mono_stereo_converter.html#aa25f8c949e43c08c408ee96a1f195875">More...</a><br /></td></tr>
 <tr class="separator:aa25f8c949e43c08c408ee96a1f195875"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af39fec60e0d74557a70c412d225130e0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1_mono_stereo_converter.html#af39fec60e0d74557a70c412d225130e0">setStereoReductionMode</a> (<a class="el" href="namespacelemons_1_1dsp.html#aaf020aad6edbe51634e978b1d97a37e2">StereoReductionMode</a> newmode)</td></tr>
+<tr class="memdesc:af39fec60e0d74557a70c412d225130e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the StereoReductionMode the converter will use for converting stereo signals to mono.  <a href="classlemons_1_1dsp_1_1_mono_stereo_converter.html#af39fec60e0d74557a70c412d225130e0">More...</a><br /></td></tr>
 <tr class="separator:af39fec60e0d74557a70c412d225130e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="aafccbb62739798401a8a855cee20df96"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aafccbb62739798401a8a855cee20df96">&#9670;&nbsp;</a></span>MonoStereoConverter()</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><h3>template&lt;typename SampleType&gt;<br />
+class lemons::dsp::MonoStereoConverter&lt; SampleType &gt;</h3>
+
+<p>A utility class for converting mono signals to stereo, or stereo signals to mono. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a8ed00ea092e833d40590cd2885fac299"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8ed00ea092e833d40590cd2885fac299">&#9670;&nbsp;</a></span>MonoStereoConverter()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -117,37 +131,12 @@ template&lt;typename SampleType &gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+<span class="mlabels"><span class="mlabel">explicit</span><span class="mlabel">default</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-</div>
-</div>
-<a id="aee870d1187f781ae5f2fc32425aeb97e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aee870d1187f781ae5f2fc32425aeb97e">&#9670;&nbsp;</a></span>~MonoStereoConverter()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename SampleType &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual <a class="el" href="classlemons_1_1dsp_1_1_mono_stereo_converter.html">lemons::dsp::MonoStereoConverter</a>&lt; SampleType &gt;::~<a class="el" href="classlemons_1_1dsp_1_1_mono_stereo_converter.html">MonoStereoConverter</a> </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">default</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
+<p>Default constructor. </p>
 
 </div>
 </div>
@@ -179,6 +168,8 @@ template&lt;typename SampleType &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Converts a mono signal to stereo. </p>
 
 </div>
 </div>
@@ -222,6 +213,8 @@ template&lt;typename SampleType &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Converts a mono signal to stereo. </p>
+
 </div>
 </div>
 <a id="a55d10549bfa15425124470c2c3534d09"></a>
@@ -251,6 +244,8 @@ template&lt;typename SampleType &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Converts a stereo signal to mono. </p>
 
 </div>
 </div>
@@ -294,6 +289,8 @@ template&lt;typename SampleType &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Converts a stereo signal to mono. </p>
+
 </div>
 </div>
 <a id="a1e74936c76aadd4a85c3eaa141a1f2ed"></a>
@@ -321,6 +318,8 @@ template&lt;typename SampleType &gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Returns the StereoReductionMode the converter is currently using. </p>
+
 </div>
 </div>
 <a id="aa25f8c949e43c08c408ee96a1f195875"></a>
@@ -340,6 +339,8 @@ template&lt;typename SampleType &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Prepares the converter to process a new maximum blocksize. </p>
 
 </div>
 </div>
@@ -361,6 +362,8 @@ template&lt;typename SampleType &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Sets the StereoReductionMode the converter will use for converting stereo signals to mono. </p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
@@ -369,7 +372,7 @@ template&lt;typename SampleType &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Dec 18 2021 00:47:45 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Dec 18 2021 23:37:54 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

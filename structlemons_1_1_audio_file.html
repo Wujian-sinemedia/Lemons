@@ -87,9 +87,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ac3bd6ddf46a9b2fa8eeeffb3378f604b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1_audio_file.html#ac3bd6ddf46a9b2fa8eeeffb3378f604b">AudioFile</a> (std::unique_ptr&lt; juce::InputStream &gt; audioStream)</td></tr>
 <tr class="memdesc:ac3bd6ddf46a9b2fa8eeeffb3378f604b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an <a class="el" href="structlemons_1_1_audio_file.html" title="This class represents the data of an audio file, including the AudioBuffer itself,...">AudioFile</a> from any kind of input stream.  <a href="structlemons_1_1_audio_file.html#ac3bd6ddf46a9b2fa8eeeffb3378f604b">More...</a><br /></td></tr>
 <tr class="separator:ac3bd6ddf46a9b2fa8eeeffb3378f604b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5c67263f338d6a172bc84de8c4e1d181"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1_audio_file.html#a5c67263f338d6a172bc84de8c4e1d181">~AudioFile</a> ()=default</td></tr>
-<tr class="memdesc:a5c67263f338d6a172bc84de8c4e1d181"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <a href="structlemons_1_1_audio_file.html#a5c67263f338d6a172bc84de8c4e1d181">More...</a><br /></td></tr>
-<tr class="separator:a5c67263f338d6a172bc84de8c4e1d181"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aba31217c05169d5d953a24bdb1435b30"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1_audio_file.html#aba31217c05169d5d953a24bdb1435b30">existsOnDisk</a> () const noexcept</td></tr>
 <tr class="memdesc:aba31217c05169d5d953a24bdb1435b30"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the file this data represents exists locally on the current device.  <a href="structlemons_1_1_audio_file.html#aba31217c05169d5d953a24bdb1435b30">More...</a><br /></td></tr>
 <tr class="separator:aba31217c05169d5d953a24bdb1435b30"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -136,6 +133,7 @@ Static Public Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This class represents the data of an audio file, including the AudioBuffer itself, as well as the samplerate, bit depth, and metadata information. </p>
+<p>One of these can be created from an audio file on disk, or from any kind of juce::InputStream. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a12926d13271dcbd3c1ec9eb3d6bef544"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a12926d13271dcbd3c1ec9eb3d6bef544">&#9670;&nbsp;</a></span>AudioFile() <span class="overload">[1/2]</span></h2>
@@ -190,33 +188,6 @@ Static Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Creates an <a class="el" href="structlemons_1_1_audio_file.html" title="This class represents the data of an audio file, including the AudioBuffer itself,...">AudioFile</a> from any kind of input stream. </p>
-
-</div>
-</div>
-<a id="a5c67263f338d6a172bc84de8c4e1d181"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5c67263f338d6a172bc84de8c4e1d181">&#9670;&nbsp;</a></span>~AudioFile()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">lemons::AudioFile::~AudioFile </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">default</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Destructor. </p>
 
 </div>
 </div>
@@ -576,7 +547,7 @@ template&lt;typename SampleType &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Dec 18 2021 00:47:45 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Dec 18 2021 23:37:54 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

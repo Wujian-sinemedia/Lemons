@@ -107,7 +107,7 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A default implementation of a basic, generic juce AudioProcessor.  <a href="classlemons_1_1dsp_1_1_basic_processor.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1_circular_buffer.html">CircularBuffer</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A circular buffer meant for storing a single channel's worth of audio samples.  <a href="classlemons_1_1dsp_1_1_circular_buffer.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A thread-safe circular buffer meant for storing a single channel's worth of audio samples.  <a href="classlemons_1_1dsp_1_1_circular_buffer.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1_engine.html">Engine</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base class for an audio engine.  <a href="classlemons_1_1dsp_1_1_engine.html#details">More...</a><br /></td></tr>
@@ -121,6 +121,7 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base class for audio engines that require latency (ie, a consistent block size) for their processing.  <a href="classlemons_1_1dsp_1_1_latency_engine.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1_mono_stereo_converter.html">MonoStereoConverter</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A utility class for converting mono signals to stereo, or stereo signals to mono.  <a href="classlemons_1_1dsp_1_1_mono_stereo_converter.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1dsp_1_1_osc_synth.html">OscSynth</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -139,6 +140,7 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1dsp_1_1_template_synth.html">TemplateSynth</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1_white_noise_generator.html">WhiteNoiseGenerator</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A simple processor that generates random noise.  <a href="classlemons_1_1dsp_1_1_white_noise_generator.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
@@ -153,6 +155,7 @@ Enumerations</h2></td></tr>
 <a class="el" href="namespacelemons_1_1dsp.html#aaf020aad6edbe51634e978b1d97a37e2a97ed31f67756738d6c8d74a1ee8c565d">StereoReductionMode::rightOnly</a>, 
 <a class="el" href="namespacelemons_1_1dsp.html#aaf020aad6edbe51634e978b1d97a37e2a0d2a8602a2cd80a62be55f9bc60e1f22">StereoReductionMode::mixToMono</a>
  }</td></tr>
+<tr class="memdesc:aaf020aad6edbe51634e978b1d97a37e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">An enum used to describe how a MonoStereoConverter will convert stereo signals to mono.  <a href="namespacelemons_1_1dsp.html#aaf020aad6edbe51634e978b1d97a37e2">More...</a><br /></td></tr>
 <tr class="separator:aaf020aad6edbe51634e978b1d97a37e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Typedef Documentation</h2>
@@ -192,10 +195,15 @@ template&lt;typename SampleType &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>An enum used to describe how a <a class="el" href="classlemons_1_1dsp_1_1_mono_stereo_converter.html" title="A utility class for converting mono signals to stereo, or stereo signals to mono.">MonoStereoConverter</a> will convert stereo signals to mono. </p>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="aaf020aad6edbe51634e978b1d97a37e2a1551df77400b2edbe1682fef8b4ee182"></a>leftOnly&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="aaf020aad6edbe51634e978b1d97a37e2a97ed31f67756738d6c8d74a1ee8c565d"></a>rightOnly&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="aaf020aad6edbe51634e978b1d97a37e2a0d2a8602a2cd80a62be55f9bc60e1f22"></a>mixToMono&#160;</td><td class="fielddoc"></td></tr>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="aaf020aad6edbe51634e978b1d97a37e2a1551df77400b2edbe1682fef8b4ee182"></a>leftOnly&#160;</td><td class="fielddoc"><p>In this mode, a <a class="el" href="classlemons_1_1dsp_1_1_mono_stereo_converter.html" title="A utility class for converting mono signals to stereo, or stereo signals to mono.">MonoStereoConverter</a> will output only the left channel of a stereo signal as its mono reduction. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aaf020aad6edbe51634e978b1d97a37e2a97ed31f67756738d6c8d74a1ee8c565d"></a>rightOnly&#160;</td><td class="fielddoc"><p>In this mode, a <a class="el" href="classlemons_1_1dsp_1_1_mono_stereo_converter.html" title="A utility class for converting mono signals to stereo, or stereo signals to mono.">MonoStereoConverter</a> will output only the right channel of a stereo signal as its mono reduction. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aaf020aad6edbe51634e978b1d97a37e2a0d2a8602a2cd80a62be55f9bc60e1f22"></a>mixToMono&#160;</td><td class="fielddoc"><p>In this mode, a <a class="el" href="classlemons_1_1dsp_1_1_mono_stereo_converter.html" title="A utility class for converting mono signals to stereo, or stereo signals to mono.">MonoStereoConverter</a> will mix together the two channels of a stereo signal to create its mono reduction. </p>
+</td></tr>
 </table>
 
 </div>
@@ -203,7 +211,7 @@ template&lt;typename SampleType &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Dec 18 2021 00:47:45 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Dec 18 2021 23:37:54 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>
