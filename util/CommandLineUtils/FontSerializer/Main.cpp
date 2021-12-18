@@ -1,15 +1,6 @@
 #include <lemons_gui/lemons_gui.h>
 
 
-void print_all_font_names()
-{
-	const auto names = juce::Font::findAllTypefaceNames();
-
-	for (const auto& name : names)
-		std::cout << name << std::endl;
-}
-
-
 int main (int argc, char** argv)
 {
 	lemons::ArgParser args { argc, argv };
@@ -29,7 +20,9 @@ int main (int argc, char** argv)
 
 	if (args.containsOption ("--list|-l"))
 	{
-		print_all_font_names();
+        for (const auto& name : juce::Font::findAllTypefaceNames())
+            std::cout << name << std::endl;
+        
 		return EXIT_SUCCESS;
 	}
 
@@ -53,10 +46,10 @@ int main (int argc, char** argv)
 		                    args.getArgumentAsType<float> ("--size|-s"),
 		                    style };
 
-	const auto res = lemons::gui::serializeFont (font,
-	                                             args.getFilepathForOption ("--file|-f"),
-	                                             args.getArgumentAsType<int> ("--chars|-c"),
-	                                             args.getArgumentAsType<juce::juce_wchar> ("--default|-d"));
+	const auto res = lemons::serializing::serializeFont (font,
+                                                         args.getFilepathForOption ("--file|-f"),
+                                                         args.getArgumentAsType<int> ("--chars|-c"),
+                                                         args.getArgumentAsType<juce::juce_wchar> ("--default|-d"));
 
 	if (res)
 		return EXIT_SUCCESS;

@@ -68,6 +68,8 @@ struct VariantConverter<Justification>
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
+#if LEMONS_UNIT_TESTS
+
 namespace lemons::tests
 {
 
@@ -82,3 +84,5 @@ private:
 static GuiSerializingTests guiSerializingTest;
 
 }  // namespace lemons::tests
+
+#endif

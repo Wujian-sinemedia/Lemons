@@ -90,8 +90,10 @@ public:
      */
 	[[nodiscard]] bool checkForRequiredArgs() const;
 
-	/** If '--help' or '-h' was present on the command line, this prints the parser's help to cout and returns true. */
-	[[nodiscard]] bool checkForHelpFlag() const;
+	/** If '--help' or '-h' was present on the command line, this prints the parser's help to cout and returns true.
+        @param printHelpIfEmpty If true, then if the app was invoked with no arguments, then the help message will be printed and this method will return true.
+     */
+	[[nodiscard]] bool checkForHelpFlag (bool printHelpIfEmpty = true) const;
 
 	/** Returns true if the parser contains a given option.
 	    @param argOrFlags The argument flags as they were specified when you called addArgument().

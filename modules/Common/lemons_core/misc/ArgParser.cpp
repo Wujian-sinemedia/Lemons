@@ -116,13 +116,22 @@ bool ArgParser::checkForRequiredArgs() const
 	return true;
 }
 
-bool ArgParser::checkForHelpFlag() const
+bool ArgParser::checkForHelpFlag (bool printHelpIfEmpty) const
 {
 	if (argList.containsOption ("--help|-h"))
 	{
 		printHelp();
 		return true;
 	}
+    
+    if (printHelpIfEmpty)
+    {
+        if (argList.size() == 0)
+        {
+            printHelp();
+            return true;
+        }
+    }
 
 	return false;
 }

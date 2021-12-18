@@ -96,6 +96,8 @@ var VariantConverter<Justification>::toVar (const Justification& j)
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
+#if LEMONS_UNIT_TESTS
+
 namespace lemons::tests
 {
 
@@ -147,3 +149,5 @@ void GuiSerializingTests::runTest()
 }
 
 }  // namespace lemons::tests
+
+#endif

@@ -14,7 +14,7 @@ int main (int argc, char** argv)
 	args.addArgument ("--list|-l", false, "List all test categories");
 	args.addArgument ("--list-all|-a", false, "List all test names");
 
-	if (args.checkForHelpFlag())
+	if (args.checkForHelpFlag (false))
 		return EXIT_SUCCESS;
 
 	if (args.containsOption ("--list|-l"))
