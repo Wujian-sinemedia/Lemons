@@ -21,4 +21,5 @@
 
 #include "binary_data/data.cpp"
 
+#include "localization/languages.cpp"
 #include "localization/localization.cpp"
