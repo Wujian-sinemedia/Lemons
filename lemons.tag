@@ -882,21 +882,43 @@
     <name>localization.h</name>
     <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Common/lemons_binaries/localization/</path>
     <filename>localization_8h.html</filename>
-    <class kind="struct">lemons::TranslationsInitializer</class>
+    <class kind="struct">lemons::locale::TranslationsInitializer</class>
     <namespace>lemons</namespace>
+    <namespace>lemons::locale</namespace>
+    <member kind="function">
+      <type>juce::StringArray</type>
+      <name>getCountryCodesForLanguage</name>
+      <anchorfile>namespacelemons_1_1locale.html</anchorfile>
+      <anchor>ae1bac9fd86166e151ac90a05d3dfbbf2</anchor>
+      <arglist>(const String &amp;languageName)</arglist>
+    </member>
     <member kind="function">
       <type>void</type>
       <name>initializeDefaultTranslations</name>
-      <anchorfile>namespacelemons.html</anchorfile>
-      <anchor>a28f927897886adce8899753965ce2dcd</anchor>
+      <anchorfile>namespacelemons_1_1locale.html</anchorfile>
+      <anchor>af44434a11b41640afde5b60fae745d01</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>initializeTranslations</name>
-      <anchorfile>namespacelemons.html</anchorfile>
-      <anchor>a2132b81f4246c5fae122ee42198b1119</anchor>
+      <anchorfile>namespacelemons_1_1locale.html</anchorfile>
+      <anchor>a4962f8d8921a03dc8a328f6149fa32b5</anchor>
       <arglist>(const binary::Data &amp;data, bool ignoreCaseOfKeys=true)</arglist>
+    </member>
+    <member kind="function">
+      <type>String</type>
+      <name>languageCodeToName</name>
+      <anchorfile>namespacelemons_1_1locale.html</anchorfile>
+      <anchor>a331f94523ca9c638526e3a506662acc0</anchor>
+      <arglist>(const String &amp;countryCode)</arglist>
+    </member>
+    <member kind="function">
+      <type>String</type>
+      <name>languageNameToCode</name>
+      <anchorfile>namespacelemons_1_1locale.html</anchorfile>
+      <anchor>a9377266e261ca703f64e1bf139259520</anchor>
+      <arglist>(const String &amp;name, bool asISO639_2=true)</arglist>
     </member>
   </compound>
   <compound kind="file">
@@ -19746,20 +19768,20 @@
     </member>
   </compound>
   <compound kind="struct">
-    <name>lemons::TranslationsInitializer</name>
-    <filename>structlemons_1_1_translations_initializer.html</filename>
+    <name>lemons::locale::TranslationsInitializer</name>
+    <filename>structlemons_1_1locale_1_1_translations_initializer.html</filename>
     <member kind="function">
       <type></type>
       <name>TranslationsInitializer</name>
-      <anchorfile>structlemons_1_1_translations_initializer.html</anchorfile>
-      <anchor>a815b7b9420fae919bc42604ad2d06c4a</anchor>
+      <anchorfile>structlemons_1_1locale_1_1_translations_initializer.html</anchorfile>
+      <anchor>a27721ff00e78a6bcad09ab359499c833</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function" virtualness="virtual">
       <type>virtual</type>
       <name>~TranslationsInitializer</name>
-      <anchorfile>structlemons_1_1_translations_initializer.html</anchorfile>
-      <anchor>acd4bba35d1551fe591c7a273a94bed10</anchor>
+      <anchorfile>structlemons_1_1locale_1_1_translations_initializer.html</anchorfile>
+      <anchor>a049f088a5459e55769375746424f29d2</anchor>
       <arglist>()=default</arglist>
     </member>
   </compound>
@@ -21710,6 +21732,7 @@
     <namespace>lemons::events</namespace>
     <namespace>lemons::files</namespace>
     <namespace>lemons::gui</namespace>
+    <namespace>lemons::locale</namespace>
     <namespace>lemons::math</namespace>
     <namespace>lemons::midi</namespace>
     <namespace>lemons::music</namespace>
@@ -21727,7 +21750,6 @@
     <class kind="struct">lemons::Dimensions</class>
     <class kind="class">lemons::GuiApp</class>
     <class kind="class">lemons::OnlineUnlock</class>
-    <class kind="struct">lemons::TranslationsInitializer</class>
     <class kind="struct">lemons::ValueSmoother</class>
     <class kind="struct">lemons::Version</class>
     <member kind="typedef">
@@ -21736,20 +21758,6 @@
       <anchorfile>namespacelemons.html</anchorfile>
       <anchor>a14d02d4e2202a02c819ef08ec74cde96</anchor>
       <arglist></arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>initializeDefaultTranslations</name>
-      <anchorfile>namespacelemons.html</anchorfile>
-      <anchor>a28f927897886adce8899753965ce2dcd</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>initializeTranslations</name>
-      <anchorfile>namespacelemons.html</anchorfile>
-      <anchor>a2132b81f4246c5fae122ee42198b1119</anchor>
-      <arglist>(const binary::Data &amp;data, bool ignoreCaseOfKeys=true)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -22082,6 +22090,46 @@
   <compound kind="namespace">
     <name>lemons::gui::colors</name>
     <filename>namespacelemons_1_1gui_1_1colors.html</filename>
+  </compound>
+  <compound kind="namespace">
+    <name>lemons::locale</name>
+    <filename>namespacelemons_1_1locale.html</filename>
+    <class kind="struct">lemons::locale::TranslationsInitializer</class>
+    <member kind="function">
+      <type>juce::StringArray</type>
+      <name>getCountryCodesForLanguage</name>
+      <anchorfile>namespacelemons_1_1locale.html</anchorfile>
+      <anchor>ae1bac9fd86166e151ac90a05d3dfbbf2</anchor>
+      <arglist>(const String &amp;languageName)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>initializeDefaultTranslations</name>
+      <anchorfile>namespacelemons_1_1locale.html</anchorfile>
+      <anchor>af44434a11b41640afde5b60fae745d01</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>initializeTranslations</name>
+      <anchorfile>namespacelemons_1_1locale.html</anchorfile>
+      <anchor>a4962f8d8921a03dc8a328f6149fa32b5</anchor>
+      <arglist>(const binary::Data &amp;data, bool ignoreCaseOfKeys=true)</arglist>
+    </member>
+    <member kind="function">
+      <type>String</type>
+      <name>languageCodeToName</name>
+      <anchorfile>namespacelemons_1_1locale.html</anchorfile>
+      <anchor>a331f94523ca9c638526e3a506662acc0</anchor>
+      <arglist>(const String &amp;countryCode)</arglist>
+    </member>
+    <member kind="function">
+      <type>String</type>
+      <name>languageNameToCode</name>
+      <anchorfile>namespacelemons_1_1locale.html</anchorfile>
+      <anchor>a9377266e261ca703f64e1bf139259520</anchor>
+      <arglist>(const String &amp;name, bool asISO639_2=true)</arglist>
+    </member>
   </compound>
   <compound kind="namespace">
     <name>lemons::math</name>
@@ -23203,6 +23251,9 @@
     <name>localization</name>
     <title>localization</title>
     <filename>group__localization.html</filename>
+    <namespace>lemons</namespace>
+    <namespace>lemons::locale</namespace>
+    <class kind="struct">lemons::locale::TranslationsInitializer</class>
   </compound>
   <compound kind="group">
     <name>math</name>
