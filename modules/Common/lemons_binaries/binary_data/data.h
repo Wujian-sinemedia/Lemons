@@ -142,6 +142,9 @@ namespace lemons::tests
 
 struct BinaryDataTests : public Test
 {
+    static_assert (binary::Data::hasBinaryData(),
+                   "Target must have binary data!");
+    
     BinaryDataTests();
 
 private:

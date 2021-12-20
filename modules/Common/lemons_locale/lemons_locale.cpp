@@ -1,61 +1,22 @@
 /*
  ======================================================================================
-
+ 
  ██╗     ███████╗███╗   ███╗ ██████╗ ███╗   ██╗███████╗
  ██║     ██╔════╝████╗ ████║██╔═══██╗████╗  ██║██╔════╝
  ██║     █████╗  ██╔████╔██║██║   ██║██╔██╗ ██║███████╗
  ██║     ██╔══╝  ██║╚██╔╝██║██║   ██║██║╚██╗██║╚════██║
  ███████╗███████╗██║ ╚═╝ ██║╚██████╔╝██║ ╚████║███████║
  ╚══════╝╚══════╝╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝
-
+ 
  This file is part of the Lemons open source library and is licensed under the terms of the GNU Public License.
-
+ 
  ======================================================================================
  */
 
-#include <lemons_locale/lemons_locale.h>
 
-namespace lemons::locale
-{
-
-void initializeTranslations (const binary::Data& data,
-                             bool                ignoreCaseOfKeys)
-{
-	if (! data.isValid())
-		return;
-
-	juce::LocalisedStrings::setCurrentMappings (new juce::LocalisedStrings (data.getAsString(), ignoreCaseOfKeys));
-}
+#include "lemons_locale.h"
 
 
-[[nodiscard]] String getLanguageToUse()
-{
-	const auto countryCode = juce::SystemStats::getDisplayLanguage().upToFirstOccurrenceOf ("-", false, false);
+#include "languages/languages.cpp"
 
-	return languageCodeToName (countryCode);
-}
-
-
-static constexpr auto TRANSLATION_FILE_PREFIX = "trans_";
-static constexpr auto TRANSLATION_FILE_XTN    = ".txt";
-
-
-void initializeDefaultTranslations()
-{
-	const auto language = getLanguageToUse();
-
-	if (language.isEmpty())
-		return;
-
-	const binary::Data translationData { TRANSLATION_FILE_PREFIX + language + TRANSLATION_FILE_XTN };
-
-	initializeTranslations (translationData);
-}
-
-
-TranslationsInitializer::TranslationsInitializer()
-{
-	initializeDefaultTranslations();
-}
-
-}  // namespace lemons::locale
+#include "translation_files/TranslationFiles.cpp"
