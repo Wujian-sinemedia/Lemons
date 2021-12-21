@@ -480,7 +480,7 @@ struct KnownLanguages final
 		return {};
 	}
 
-	[[nodiscard]] StringArray getLanguagesForCountryCode (const String& code) const
+	[[nodiscard]] StringArray getLanguageNamesForCountryCode (const String& code) const
 	{
 		jassert (code.length() == 2);
 
@@ -489,6 +489,26 @@ struct KnownLanguages final
 		for (const auto& lang : languages)
 			if (lang.countryCodes.contains (code))
 				langs.add (lang.languageName);
+
+		return langs;
+	}
+
+	[[nodiscard]] StringArray getLanguageCodesForCountryCode (const String& code, bool asISO639_2) const
+	{
+		jassert (code.length() == 2);
+
+		StringArray langs;
+
+		for (const auto& lang : languages)
+		{
+			if (lang.countryCodes.contains (code))
+			{
+				if (asISO639_2)
+					langs.add (lang.ISO639_2);
+				else
+					langs.add (lang.ISO639_1);
+			}
+		}
 
 		return langs;
 	}
@@ -519,15 +539,15 @@ String languageNameToCode (const String& name, bool asISO639_2)
 	return data.ISO639_1;
 }
 
-String languageCodeToName (const String& countryCode)
+String languageCodeToName (const String& languageCode)
 {
 	const auto data = [&]() -> LanguageData
 	{
-		if (countryCode.length() == 2)
-			return getLanguages().getDataForISO639_1 (countryCode);
+		if (languageCode.length() == 2)
+			return getLanguages().getDataForISO639_1 (languageCode);
 
-		if (countryCode.length() == 3)
-			return getLanguages().getDataForISO639_2 (countryCode);
+		if (languageCode.length() == 3)
+			return getLanguages().getDataForISO639_2 (languageCode);
 
 		return {};
 	}();
@@ -538,9 +558,17 @@ String languageCodeToName (const String& countryCode)
 	return data.languageName;
 }
 
-StringArray getCountryCodesForLanguage (const String& languageName)
+StringArray getCountryCodesForLanguage (const String& language, bool languageName)
 {
-	const auto data = getLanguages().getDataForLanguageName (languageName);
+	const auto language_name = [&]() -> String
+	{
+		if (languageName)
+			return language;
+
+		return languageCodeToName (language);
+	}();
+
+	const auto data = getLanguages().getDataForLanguageName (language_name);
 
 	if (! data.isValid())
 		return {};
@@ -548,12 +576,20 @@ StringArray getCountryCodesForLanguage (const String& languageName)
 	return data.countryCodes;
 }
 
-StringArray getLanguagesForCountry (const String& countryCode)
+StringArray getLanguageNamesForCountryCode (const String& countryCode)
 {
 	if (countryCode.length() != 2)
 		return {};
 
-	return getLanguages().getLanguagesForCountryCode (countryCode);
+	return getLanguages().getLanguageNamesForCountryCode (countryCode);
+}
+
+StringArray getLanguageCodesForCountry (const String& countryCode, bool asISO639_2)
+{
+	if (countryCode.length() != 2)
+		return {};
+
+	return getLanguages().getLanguageCodesForCountryCode (countryCode, asISO639_2);
 }
 
 }  // namespace lemons::locale
