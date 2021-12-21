@@ -71,7 +71,7 @@ $(function() {
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">lemons::locale Namespace Reference<div class="ingroups"><a class="el" href="group___common.html">Common</a> &raquo; <a class="el" href="group__lemons__binaries.html">lemons_binaries</a> &raquo; <a class="el" href="group__localization.html">localization</a></div></div>  </div>
+<div class="title">lemons::locale Namespace Reference<div class="ingroups"><a class="el" href="group___common.html">Common</a> &raquo; <a class="el" href="group__lemons__binaries.html">lemons_binaries</a> &raquo; <a class="el" href="group__localization.html">localization</a><a class="el" href="group___common.html">Common</a> &raquo; <a class="el" href="group__lemons__locale.html">lemons_locale</a> &raquo;  &#124; <a class="el" href="group__languages.html">languages</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
@@ -83,9 +83,12 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ae1bac9fd86166e151ac90a05d3dfbbf2"><td class="memItemLeft" align="right" valign="top">juce::StringArray&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1locale.html#ae1bac9fd86166e151ac90a05d3dfbbf2">getCountryCodesForLanguage</a> (const String &amp;languageName)</td></tr>
-<tr class="memdesc:ae1bac9fd86166e151ac90a05d3dfbbf2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a list of 2-character ISO 3166 country codes where the specified language is an officially recognized language, or a significant minority language.  <a href="namespacelemons_1_1locale.html#ae1bac9fd86166e151ac90a05d3dfbbf2">More...</a><br /></td></tr>
-<tr class="separator:ae1bac9fd86166e151ac90a05d3dfbbf2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a169720b898ef12c6b788cc85a6fa1f09"><td class="memItemLeft" align="right" valign="top">StringArray&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1locale.html#a169720b898ef12c6b788cc85a6fa1f09">getCountryCodesForLanguage</a> (const String &amp;languageName)</td></tr>
+<tr class="memdesc:a169720b898ef12c6b788cc85a6fa1f09"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a list of 2-character ISO 3166 country codes where the specified language is an officially recognized language, or a significant minority language.  <a href="namespacelemons_1_1locale.html#a169720b898ef12c6b788cc85a6fa1f09">More...</a><br /></td></tr>
+<tr class="separator:a169720b898ef12c6b788cc85a6fa1f09"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e5fefe678daf2b188a5857486c18f36"><td class="memItemLeft" align="right" valign="top">StringArray&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1locale.html#a2e5fefe678daf2b188a5857486c18f36">getLanguagesForCountry</a> (const String &amp;countryCode)</td></tr>
+<tr class="memdesc:a2e5fefe678daf2b188a5857486c18f36"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a list of language names that are officially recognized or are significant minority languages for the specified country.  <a href="namespacelemons_1_1locale.html#a2e5fefe678daf2b188a5857486c18f36">More...</a><br /></td></tr>
+<tr class="separator:a2e5fefe678daf2b188a5857486c18f36"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af44434a11b41640afde5b60fae745d01"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1locale.html#af44434a11b41640afde5b60fae745d01">initializeDefaultTranslations</a> ()</td></tr>
 <tr class="memdesc:af44434a11b41640afde5b60fae745d01"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attempts to load a set of default translations from binary data, chosen based on the user's display language settings.  <a href="namespacelemons_1_1locale.html#af44434a11b41640afde5b60fae745d01">More...</a><br /></td></tr>
 <tr class="separator:af44434a11b41640afde5b60fae745d01"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -100,14 +103,14 @@ Functions</h2></td></tr>
 <tr class="separator:a9377266e261ca703f64e1bf139259520"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="ae1bac9fd86166e151ac90a05d3dfbbf2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae1bac9fd86166e151ac90a05d3dfbbf2">&#9670;&nbsp;</a></span>getCountryCodesForLanguage()</h2>
+<a id="a169720b898ef12c6b788cc85a6fa1f09"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a169720b898ef12c6b788cc85a6fa1f09">&#9670;&nbsp;</a></span>getCountryCodesForLanguage()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">juce::StringArray lemons::locale::getCountryCodesForLanguage </td>
+          <td class="memname">StringArray lemons::locale::getCountryCodesForLanguage </td>
           <td>(</td>
           <td class="paramtype">const String &amp;&#160;</td>
           <td class="paramname"><em>languageName</em></td><td>)</td>
@@ -118,6 +121,33 @@ Functions</h2></td></tr>
 
 <p>Returns a list of 2-character ISO 3166 country codes where the specified language is an officially recognized language, or a significant minority language. </p>
 <p>These country codes are referenced from <a href="https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes">https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes</a>. </p><dl class="section attention"><dt>Attention</dt><dd>This feature is mainly intended for generating translation files, not for selecting an appropriate language at runtime; I recommend choosing the language based on the user's display language settings, which can be obtained using juce::SystemStats::getDisplayLanguage() (which is what <a class="el" href="namespacelemons_1_1locale.html#af44434a11b41640afde5b60fae745d01" title="Attempts to load a set of default translations from binary data, chosen based on the user&#39;s display l...">initializeDefaultTranslations()</a> does under the hood). </dd></dl>
+
+</div>
+</div>
+<a id="a2e5fefe678daf2b188a5857486c18f36"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e5fefe678daf2b188a5857486c18f36">&#9670;&nbsp;</a></span>getLanguagesForCountry()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">StringArray lemons::locale::getLanguagesForCountry </td>
+          <td>(</td>
+          <td class="paramtype">const String &amp;&#160;</td>
+          <td class="paramname"><em>countryCode</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns a list of language names that are officially recognized or are significant minority languages for the specified country. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">countryCode</td><td>A 2-character ISO 3166 country code. If an invalid country code is passed, this method will return an empty StringArray. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section attention"><dt>Attention</dt><dd>This feature is mainly intended for generating translation files, not for selecting an appropriate language at runtime; I recommend choosing the language based on the user's display language settings, which can be obtained using juce::SystemStats::getDisplayLanguage() (which is what <a class="el" href="namespacelemons_1_1locale.html#af44434a11b41640afde5b60fae745d01" title="Attempts to load a set of default translations from binary data, chosen based on the user&#39;s display l...">initializeDefaultTranslations()</a> does under the hood). </dd></dl>
 
 </div>
 </div>
@@ -232,7 +262,7 @@ Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Dec 20 2021 00:46:32 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Dec 21 2021 00:48:53 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

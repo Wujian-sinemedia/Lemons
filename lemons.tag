@@ -739,6 +739,41 @@
     <namespace>lemons::dsp</namespace>
   </compound>
   <compound kind="file">
+    <name>languages.h</name>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Common/lemons_locale/languages/</path>
+    <filename>languages_8h.html</filename>
+    <namespace>lemons</namespace>
+    <namespace>lemons::locale</namespace>
+    <member kind="function">
+      <type>StringArray</type>
+      <name>getCountryCodesForLanguage</name>
+      <anchorfile>namespacelemons_1_1locale.html</anchorfile>
+      <anchor>a169720b898ef12c6b788cc85a6fa1f09</anchor>
+      <arglist>(const String &amp;languageName)</arglist>
+    </member>
+    <member kind="function">
+      <type>StringArray</type>
+      <name>getLanguagesForCountry</name>
+      <anchorfile>namespacelemons_1_1locale.html</anchorfile>
+      <anchor>a2e5fefe678daf2b188a5857486c18f36</anchor>
+      <arglist>(const String &amp;countryCode)</arglist>
+    </member>
+    <member kind="function">
+      <type>String</type>
+      <name>languageCodeToName</name>
+      <anchorfile>namespacelemons_1_1locale.html</anchorfile>
+      <anchor>a331f94523ca9c638526e3a506662acc0</anchor>
+      <arglist>(const String &amp;countryCode)</arglist>
+    </member>
+    <member kind="function">
+      <type>String</type>
+      <name>languageNameToCode</name>
+      <anchorfile>namespacelemons_1_1locale.html</anchorfile>
+      <anchor>a9377266e261ca703f64e1bf139259520</anchor>
+      <arglist>(const String &amp;name, bool asISO639_2=true)</arglist>
+    </member>
+  </compound>
+  <compound kind="file">
     <name>LatencyEngine.h</name>
     <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Audio/lemons_dsp/engines/</path>
     <filename>_latency_engine_8h.html</filename>
@@ -886,13 +921,6 @@
     <namespace>lemons</namespace>
     <namespace>lemons::locale</namespace>
     <member kind="function">
-      <type>juce::StringArray</type>
-      <name>getCountryCodesForLanguage</name>
-      <anchorfile>namespacelemons_1_1locale.html</anchorfile>
-      <anchor>ae1bac9fd86166e151ac90a05d3dfbbf2</anchor>
-      <arglist>(const String &amp;languageName)</arglist>
-    </member>
-    <member kind="function">
       <type>void</type>
       <name>initializeDefaultTranslations</name>
       <anchorfile>namespacelemons_1_1locale.html</anchorfile>
@@ -905,20 +933,6 @@
       <anchorfile>namespacelemons_1_1locale.html</anchorfile>
       <anchor>a4962f8d8921a03dc8a328f6149fa32b5</anchor>
       <arglist>(const binary::Data &amp;data, bool ignoreCaseOfKeys=true)</arglist>
-    </member>
-    <member kind="function">
-      <type>String</type>
-      <name>languageCodeToName</name>
-      <anchorfile>namespacelemons_1_1locale.html</anchorfile>
-      <anchor>a331f94523ca9c638526e3a506662acc0</anchor>
-      <arglist>(const String &amp;countryCode)</arglist>
-    </member>
-    <member kind="function">
-      <type>String</type>
-      <name>languageNameToCode</name>
-      <anchorfile>namespacelemons_1_1locale.html</anchorfile>
-      <anchor>a9377266e261ca703f64e1bf139259520</anchor>
-      <arglist>(const String &amp;name, bool asISO639_2=true)</arglist>
     </member>
   </compound>
   <compound kind="file">
@@ -1908,6 +1922,11 @@
     <class kind="class">lemons::music::TimeSignature</class>
     <namespace>lemons</namespace>
     <namespace>lemons::music</namespace>
+  </compound>
+  <compound kind="file">
+    <name>TranslationFiles.h</name>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Common/lemons_locale/translation_files/</path>
+    <filename>_translation_files_8h.html</filename>
   </compound>
   <compound kind="file">
     <name>TypedParameterHelpers.h</name>
@@ -22096,11 +22115,18 @@
     <filename>namespacelemons_1_1locale.html</filename>
     <class kind="struct">lemons::locale::TranslationsInitializer</class>
     <member kind="function">
-      <type>juce::StringArray</type>
+      <type>StringArray</type>
       <name>getCountryCodesForLanguage</name>
       <anchorfile>namespacelemons_1_1locale.html</anchorfile>
-      <anchor>ae1bac9fd86166e151ac90a05d3dfbbf2</anchor>
+      <anchor>a169720b898ef12c6b788cc85a6fa1f09</anchor>
       <arglist>(const String &amp;languageName)</arglist>
+    </member>
+    <member kind="function">
+      <type>StringArray</type>
+      <name>getLanguagesForCountry</name>
+      <anchorfile>namespacelemons_1_1locale.html</anchorfile>
+      <anchor>a2e5fefe678daf2b188a5857486c18f36</anchor>
+      <arglist>(const String &amp;countryCode)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -22853,6 +22879,7 @@
     <subgroup>lemons_binaries</subgroup>
     <subgroup>lemons_core</subgroup>
     <subgroup>lemons_cryptography</subgroup>
+    <subgroup>lemons_locale</subgroup>
     <subgroup>lemons_musicology</subgroup>
   </compound>
   <compound kind="group">
@@ -23119,6 +23146,13 @@
     <class kind="class">lemons::dsp::synth::VoiceAllocator</class>
   </compound>
   <compound kind="group">
+    <name>languages</name>
+    <title>languages</title>
+    <filename>group__languages.html</filename>
+    <namespace>lemons</namespace>
+    <namespace>lemons::locale</namespace>
+  </compound>
+  <compound kind="group">
     <name>lemons_app_utils</name>
     <title>lemons_app_utils</title>
     <filename>group__lemons__app__utils.html</filename>
@@ -23176,6 +23210,13 @@
     <subgroup>components</subgroup>
     <subgroup>device</subgroup>
     <subgroup>utilities</subgroup>
+  </compound>
+  <compound kind="group">
+    <name>lemons_locale</name>
+    <title>lemons_locale</title>
+    <filename>group__lemons__locale.html</filename>
+    <subgroup>languages</subgroup>
+    <subgroup>translation_files</subgroup>
   </compound>
   <compound kind="group">
     <name>lemons_midi</name>
@@ -23444,6 +23485,11 @@
     <namespace>lemons::dsp</namespace>
     <namespace>lemons::dsp::FX</namespace>
     <class kind="class">lemons::dsp::FX::Delay</class>
+  </compound>
+  <compound kind="group">
+    <name>translation_files</name>
+    <title>translation_files</title>
+    <filename>group__translation__files.html</filename>
   </compound>
   <compound kind="group">
     <name>tuning</name>
