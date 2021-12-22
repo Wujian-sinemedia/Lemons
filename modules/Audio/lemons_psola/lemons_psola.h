@@ -12,7 +12,7 @@ description:        Classes for PSOLA pitch shifting of monophonic audio
 website:            http://benthevining.github.io/Lemons/
 license:            GPL-3.0
 minimumCppStandard: 17
-dependencies:       lemons_core juce_audio_basics
+dependencies:       lemons_dsp juce_audio_basics
 
 END_JUCE_MODULE_DECLARATION
 

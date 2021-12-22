@@ -1,4 +1,17 @@
-#include <lemons_core/lemons_core.h>
+/*
+ ======================================================================================
+
+ ██╗     ███████╗███╗   ███╗ ██████╗ ███╗   ██╗███████╗
+ ██║     ██╔════╝████╗ ████║██╔═══██╗████╗  ██║██╔════╝
+ ██║     █████╗  ██╔████╔██║██║   ██║██╔██╗ ██║███████╗
+ ██║     ██╔══╝  ██║╚██╔╝██║██║   ██║██║╚██╗██║╚════██║
+ ███████╗███████╗██║ ╚═╝ ██║╚██████╔╝██║ ╚████║███████║
+ ╚══════╝╚══════╝╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝
+
+ This file is part of the Lemons open source library and is licensed under the terms of the GNU Public License.
+
+ ======================================================================================
+ */
 
 namespace lemons::dsp::psola
 {
@@ -10,11 +23,17 @@ Analyzer<SampleType>::Analyzer (int minFreqHz)
 }
 
 template <typename SampleType>
-void Analyzer<SampleType>::registerShifter (Shifter<SampleType>* shifter)
+void Analyzer<SampleType>::registerShifter (Shifter<SampleType>& shifter)
 {
-	jassert (! shifters.contains (shifter));
+	jassert (! shifters.contains (&shifter));
 
-	shifters.add (shifter);
+	shifters.add (&shifter);
+}
+
+template <typename SampleType>
+void Analyzer<SampleType>::deregisterShifter (Shifter<SampleType>& shifter)
+{
+	shifters.removeFirstMatchingValue (&shifter);
 }
 
 template <typename SampleType>
@@ -53,25 +72,33 @@ void Analyzer<SampleType>::analyzeInput (const SampleType* inputAudio, int numSa
 
 		jassert (end - start == grainSize);
 
-		Grain newGrain;
+		auto& grain = getGrainToStoreIn();
 
-		newGrain.origStartIndex = start;
-		newGrain.grainSize      = grainSize;
+		grain.origStartIndex = start;
+		grain.grainSize      = grainSize;
 
-		newGrain.samples.setSize (1, grainSize);
+		grain.samples.setSize (1, grainSize, true, true, true);
 
 		using FVO = juce::FloatVectorOperations;
 
-		auto* destSamples = newGrain.samples.getWritePointer (0);
+		auto* const destSamples = grain.samples.getWritePointer (0);
 
 		FVO::copy (destSamples, inputAudio + start, grainSize);
 
 		FVO::multiply (destSamples, window.getRawDataPointer(), grainSize);
-
-		grains.add (newGrain);
 	}
 
 	lastBlocksize = numSamples;
+}
+
+template <typename SampleType>
+typename Analyzer<SampleType>::Grain& Analyzer<SampleType>::getGrainToStoreIn()
+{
+	for (auto* grain : grains)
+		if (grain->getReferenceCount() == 0)
+			return *grain;
+
+	return *grains.add (new Grain);
 }
 
 template <typename SampleType>
@@ -79,8 +106,8 @@ void Analyzer<SampleType>::newBlockStarting()
 {
 	// move up previous grains
 	if (lastBlocksize > 0)
-		for (auto& grain : grains)
-			grain.origStartIndex -= lastBlocksize;
+		for (auto* grain : grains)
+			grain->origStartIndex -= lastBlocksize;
 
 	for (auto* shifter : shifters)
 		shifter->newBlockStarting();
@@ -108,28 +135,30 @@ void Analyzer<SampleType>::makeWindow()
 }
 
 template <typename SampleType>
-const typename Analyzer<SampleType>::Grain* Analyzer<SampleType>::getClosestGrain (int placeInBlock) const
+typename Analyzer<SampleType>::Grain& Analyzer<SampleType>::getClosestGrain (int placeInBlock)
 {
 	jassert (! grains.isEmpty());
 
-	const Grain* closest { nullptr };
-	int          distance { std::numeric_limits<int>::max() };
+	Grain* closest { nullptr };
+	int    distance { std::numeric_limits<int>::max() };
 
-	for (const auto& grain : grains)
+	for (auto* grain : grains)
 	{
-		if (grain.origStartIndex < 0) // || grain.origStartIndex > placeInBlock)
+		if (grain->origStartIndex < 0)
 			continue;
 
-		const auto currentDist = std::abs (grain.origStartIndex - placeInBlock);
+		const auto currentDist = std::abs (grain->origStartIndex - placeInBlock);
 
 		if (currentDist < distance)
 		{
 			distance = currentDist;
-			closest  = &grain;
+			closest  = grain;
 		}
 	}
 
-	return closest;
+	jassert (closest != nullptr);
+
+	return *closest;
 }
 
 template <typename SampleType>
@@ -144,6 +173,10 @@ int Analyzer<SampleType>::setSamplerate (double newSamplerate)
 	jassert (newSamplerate > 0.);
 
 	pitchDetector.setSamplerate (newSamplerate);
+
+	for (auto* shifter : shifters)
+		if (shifter->targetPitchHz > 0)
+			shifter->setPitch (shifter->targetPitchHz, newSamplerate);
 
 	return latencyChanged();
 }
@@ -166,18 +199,27 @@ inline int Analyzer<SampleType>::latencyChanged()
 	peakFinder.prepare (latency);
 	window.ensureStorageAllocated (latency);
 
+	//    while (grains.size() < latency / 2)
+	//        grains.add (new Grain);
+	//
+	//    for (auto* grain : grains)
+	//        grain->samples.setSize (1, latency, true, true, true);
+
 	return latency;
 }
 
 template <typename SampleType>
 void Analyzer<SampleType>::releaseResources()
 {
+	for (auto* shifter : shifters)
+		shifter->releaseResources();
+
 	peakFinder.releaseResources();
 
 	lastBlocksize = 0;
 	currentPeriod = 0.f;
 
-	grains.clearQuick();
+	grains.clearQuick (true);
 	window.clearQuick();
 }
 

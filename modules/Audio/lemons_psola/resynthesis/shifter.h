@@ -1,3 +1,18 @@
+/*
+ ======================================================================================
+
+ ██╗     ███████╗███╗   ███╗ ██████╗ ███╗   ██╗███████╗
+ ██║     ██╔════╝████╗ ████║██╔═══██╗████╗  ██║██╔════╝
+ ██║     █████╗  ██╔████╔██║██║   ██║██╔██╗ ██║███████╗
+ ██║     ██╔══╝  ██║╚██╔╝██║██║   ██║██║╚██╗██║╚════██║
+ ███████╗███████╗██║ ╚═╝ ██║╚██████╔╝██║ ╚████║███████║
+ ╚══════╝╚══════╝╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝
+
+ This file is part of the Lemons open source library and is licensed under the terms of the GNU Public License.
+
+ ======================================================================================
+ */
+
 #pragma once
 
 namespace lemons::dsp::psola
@@ -9,6 +24,8 @@ class Shifter final
 public:
 
 	explicit Shifter (Analyzer<SampleType>& analyzerToUse);
+
+	~Shifter();
 
 	void setPitch (int pitchHz, double samplerate);
 
@@ -27,15 +44,15 @@ private:
 	{
 		using AnalysisGrain = typename Analyzer<SampleType>::Grain;
 
-		explicit Grain (const AnalysisGrain& analysisGrainToUse, int numSilentSamplesFirst);
+		~Grain();
 
 		[[nodiscard]] SampleType getNextSample();
 
-		//        [[nodiscard]] bool isActive() const;
+		[[nodiscard]] bool isActive() const;
 
-		const AnalysisGrain& analysisGrain;
+		void clearGrain();
 
-		int zeroesLeft { 0 };
+		AnalysisGrain* analysisGrain;
 
 		int sampleIdx { 0 };
 	};
@@ -43,6 +60,8 @@ private:
 	void startNewGrain();
 
 	void newBlockStarting();
+
+	[[nodiscard]] Grain& getGrainToStart();
 
 	Analyzer<SampleType>& analyzer;
 
@@ -52,7 +71,40 @@ private:
 
 	int placeInBlock { 0 };
 
-	Array<Grain> grains;
+	int targetPitchHz { 0 };
+
+	juce::OwnedArray<Grain> grains;
 };
 
 }  // namespace lemons::dsp::psola
+
+
+/*---------------------------------------------------------------------------------------------------------------------------*/
+
+#if LEMONS_UNIT_TESTS
+
+namespace lemons::tests
+{
+
+template <typename SampleType>
+struct PsolaTests : public DspTest
+{
+	PsolaTests();
+
+private:
+	void runTest() final;
+
+	dsp::psola::Analyzer<SampleType> analyzer;
+	dsp::psola::Shifter<SampleType>  shifter { analyzer };
+
+	dsp::osc::Sine<SampleType> osc;
+	AudioBuffer<SampleType>    origAudio, shiftedAudio;
+
+	dsp::PitchDetector<SampleType> detector;
+};
+
+LEMONS_CREATE_DSP_TEST (PsolaTests)
+
+}  // namespace lemons::tests
+
+#endif

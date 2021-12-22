@@ -1,5 +1,21 @@
+/*
+ ======================================================================================
+
+ ██╗     ███████╗███╗   ███╗ ██████╗ ███╗   ██╗███████╗
+ ██║     ██╔════╝████╗ ████║██╔═══██╗████╗  ██║██╔════╝
+ ██║     █████╗  ██╔████╔██║██║   ██║██╔██╗ ██║███████╗
+ ██║     ██╔══╝  ██║╚██╔╝██║██║   ██║██║╚██╗██║╚════██║
+ ███████╗███████╗██║ ╚═╝ ██║╚██████╔╝██║ ╚████║███████║
+ ╚══════╝╚══════╝╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝
+
+ This file is part of the Lemons open source library and is licensed under the terms of the GNU Public License.
+
+ ======================================================================================
+ */
+
 #pragma once
 
+#include <lemons_dsp/lemons_dsp.h>
 
 namespace lemons::dsp::psola
 {
@@ -27,16 +43,20 @@ public:
 
 private:
 	friend class Shifter<SampleType>;
+    
+    void registerShifter (Shifter<SampleType>& shifter);
+    
+    void deregisterShifter (Shifter<SampleType>& shifter);
 
 	void newBlockStarting();
 
-	inline int latencyChanged();
+	[[nodiscard]] inline int latencyChanged();
 
 	void makeWindow();
 
 	/*-----------------------------------------------------------------------------------*/
 
-	struct Grain final
+	struct Grain final : public juce::ReferenceCountedObject
 	{
 		int origStartIndex { 0 };
 
@@ -45,9 +65,9 @@ private:
 		AudioBuffer<SampleType> samples;
 	};
 
-	const Grain* getClosestGrain (int placeInBlock) const;
+	[[nodiscard]] Grain& getClosestGrain (int placeInBlock);
 
-	void registerShifter (Shifter<SampleType>* shifter);
+	[[nodiscard]] Grain& getGrainToStoreIn();
 
 	/*-----------------------------------------------------------------------------------*/
 
@@ -58,7 +78,7 @@ private:
 
 	Array<SampleType> window;
 
-	Array<Grain> grains;
+	juce::OwnedArray<Grain> grains;
 
 	int lastBlocksize { 0 };
 
