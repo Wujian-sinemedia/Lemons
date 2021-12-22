@@ -32,7 +32,7 @@ public:
 	void getSamples (SampleType* output, int numSamples);
 
     /** Fills all channels of the AudioBuffer with random noise. */
-	void getSamples (AudioBuffer<SampleType>& output, int channel = 0);
+	void getSamples (AudioBuffer<SampleType>& output);
 
 private:
 	juce::Random rand;

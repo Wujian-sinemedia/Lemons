@@ -31,7 +31,7 @@ void WhiteNoiseGenerator<SampleType>::getSamples (SampleType* output, int numSam
 }
 
 template <typename SampleType>
-void WhiteNoiseGenerator<SampleType>::getSamples (AudioBuffer<SampleType>& output, int channel)
+void WhiteNoiseGenerator<SampleType>::getSamples (AudioBuffer<SampleType>& output)
 {
     const auto numSamples = output.getNumSamples();
     

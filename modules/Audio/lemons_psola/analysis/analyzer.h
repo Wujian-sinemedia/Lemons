@@ -71,11 +71,9 @@ private:
 
 	void deregisterShifter (Shifter<SampleType>& shifter);
 
-	void newBlockStarting();
-
 	[[nodiscard]] inline int latencyChanged();
 
-	void makeWindow();
+	inline void makeWindow (int size);
 
 	/*-----------------------------------------------------------------------------------*/
 
@@ -86,7 +84,7 @@ private:
 		[[nodiscard]] int getSize() const noexcept;
 
 		[[nodiscard]] int getOrigStart() const noexcept;
-
+        
 		void newBlockStarting (int last_blocksize);
 
 		void storeNewGrain (const SampleType* origSamples, int startIndex, const SampleType* windowSamples, int numSamples);
@@ -95,7 +93,7 @@ private:
 
 	private:
 		int origStartIndex { 0 }, grainSize { 0 };
-
+        
 		AudioBuffer<SampleType> samples;
 	};
 

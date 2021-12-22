@@ -48,7 +48,11 @@ void Analyzer<SampleType>::analyzeInput (const SampleType* inputAudio, int numSa
 	jassert (samplerate > 0.);
 	jassert (numSamples >= getLatencySamples());
 
-	newBlockStarting();
+    for (auto* grain : grains)
+        grain->newBlockStarting (lastBlocksize);
+    
+    for (auto* shifter : shifters)
+        shifter->newBlockStarting();
 
 	currentPeriod = [&]() -> float
 	{
@@ -62,18 +66,29 @@ void Analyzer<SampleType>::analyzeInput (const SampleType* inputAudio, int numSa
 
 	jassert (currentPeriod > 0.f && currentPeriod <= numSamples / 2);
 
-	makeWindow();
-
-	const auto intPeriod = juce::roundToInt (currentPeriod);
-	const auto grainSize = intPeriod * 2;
+    const auto grainSize = juce::roundToInt (currentPeriod * 2.f);
+    
+    makeWindow (grainSize);
 
 	for (const auto peak : peakFinder.findPeaks (inputAudio, numSamples, currentPeriod))
 	{
-		const auto start = peak - intPeriod;
-		const auto end   = peak + intPeriod;
+		const auto start = juce::roundToInt (static_cast<float>(peak) - currentPeriod);
+        const auto end   = juce::roundToInt (static_cast<float>(peak) + currentPeriod);
 
-		if (start < 0 || end >= numSamples)  // TO DO
+		if (start < 0 || end >= numSamples)
+        {
+//            const auto realStart = std::max (0, start);
+//            const auto realEnd   = std::min (numSamples, end);
+//
+//            const auto realSize = realEnd - realStart;
+//
+//            jassert (realSize < grainSize);
+//
+//            makeWindow (realSize, altWindow);
+//
+//            getGrainToStoreIn().storeNewGrain (inputAudio, realStart, altWindow.getRawDataPointer(), realSize, grainSize);
 			continue;
+        }
 
 		jassert (end - start == grainSize);
 
@@ -94,21 +109,9 @@ typename Analyzer<SampleType>::Grain& Analyzer<SampleType>::getGrainToStoreIn()
 }
 
 template <typename SampleType>
-void Analyzer<SampleType>::newBlockStarting()
+inline void Analyzer<SampleType>::makeWindow (int size)
 {
-	for (auto* grain : grains)
-		grain->newBlockStarting (lastBlocksize);
-
-	for (auto* shifter : shifters)
-		shifter->newBlockStarting();
-}
-
-template <typename SampleType>
-void Analyzer<SampleType>::makeWindow()
-{
-	window.clearQuick();
-
-	const auto size = juce::roundToInt (currentPeriod) * 2;
+    window.clearQuick();
 
 	// Hanning window function
 	for (int i = 0; i < size; ++i)
@@ -116,7 +119,7 @@ void Analyzer<SampleType>::makeWindow()
 		const auto cos2 = std::cos (static_cast<double> (2 * i)
 		                            * juce::MathConstants<double>::pi / static_cast<double> (size - 1));
 
-		window.set (i, static_cast<SampleType> (0.5 - 0.5 * cos2));
+        window.set (i, static_cast<SampleType> (0.5 - 0.5 * cos2));
 	}
 }
 
@@ -231,11 +234,12 @@ void Analyzer<SampleType>::Grain::storeNewGrain (const SampleType* origSamples, 
                                                  const SampleType* windowSamples, int numSamples)
 {
 	jassert (getReferenceCount() == 0);
+    jassert (numSamples > 0);
 
 	origStartIndex = startIndex;
 	grainSize      = numSamples;
-
-	samples.setSize (1, grainSize, true, true, true);
+    
+	samples.setSize (1, numSamples, true, true, true);
 
 	auto* const destSamples = samples.getWritePointer (0);
 

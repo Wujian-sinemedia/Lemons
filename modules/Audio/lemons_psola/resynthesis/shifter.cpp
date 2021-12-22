@@ -61,6 +61,13 @@ void Shifter<SampleType>::getSamples (SampleType* output, int numSamples)
 }
 
 template <typename SampleType>
+void Shifter<SampleType>::skipSamples (int numSamples)
+{
+    for (int i = 0; i < numSamples; ++i)
+        getNextSample();
+}
+
+template <typename SampleType>
 SampleType Shifter<SampleType>::getNextSample()
 {
 	jassert (targetPeriod > 0.f);
