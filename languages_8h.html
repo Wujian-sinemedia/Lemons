@@ -84,15 +84,18 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a169720b898ef12c6b788cc85a6fa1f09"><td class="memItemLeft" align="right" valign="top">StringArray&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1locale.html#a169720b898ef12c6b788cc85a6fa1f09">lemons::locale::getCountryCodesForLanguage</a> (const String &amp;languageName)</td></tr>
-<tr class="memdesc:a169720b898ef12c6b788cc85a6fa1f09"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a list of 2-character ISO 3166 country codes where the specified language is an officially recognized language, or a significant minority language.  <a href="namespacelemons_1_1locale.html#a169720b898ef12c6b788cc85a6fa1f09">More...</a><br /></td></tr>
-<tr class="separator:a169720b898ef12c6b788cc85a6fa1f09"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2e5fefe678daf2b188a5857486c18f36"><td class="memItemLeft" align="right" valign="top">StringArray&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1locale.html#a2e5fefe678daf2b188a5857486c18f36">lemons::locale::getLanguagesForCountry</a> (const String &amp;countryCode)</td></tr>
-<tr class="memdesc:a2e5fefe678daf2b188a5857486c18f36"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a list of language names that are officially recognized or are significant minority languages for the specified country.  <a href="namespacelemons_1_1locale.html#a2e5fefe678daf2b188a5857486c18f36">More...</a><br /></td></tr>
-<tr class="separator:a2e5fefe678daf2b188a5857486c18f36"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a331f94523ca9c638526e3a506662acc0"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1locale.html#a331f94523ca9c638526e3a506662acc0">lemons::locale::languageCodeToName</a> (const String &amp;countryCode)</td></tr>
-<tr class="memdesc:a331f94523ca9c638526e3a506662acc0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts an ISO language code to the name of the language it represents.  <a href="namespacelemons_1_1locale.html#a331f94523ca9c638526e3a506662acc0">More...</a><br /></td></tr>
-<tr class="separator:a331f94523ca9c638526e3a506662acc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a654c5ab00019f58ce358d8f306b706f8"><td class="memItemLeft" align="right" valign="top">StringArray&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1locale.html#a654c5ab00019f58ce358d8f306b706f8">lemons::locale::getCountryCodesForLanguage</a> (const String &amp;language, bool languageName=true)</td></tr>
+<tr class="memdesc:a654c5ab00019f58ce358d8f306b706f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a list of 2-character ISO 3166 country codes where the specified language is an officially recognized language, a significant minority language, or a local indigenous language.  <a href="namespacelemons_1_1locale.html#a654c5ab00019f58ce358d8f306b706f8">More...</a><br /></td></tr>
+<tr class="separator:a654c5ab00019f58ce358d8f306b706f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a39cc970a4d100be559240b1a6ec42d62"><td class="memItemLeft" align="right" valign="top">StringArray&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1locale.html#a39cc970a4d100be559240b1a6ec42d62">lemons::locale::getLanguageCodesForCountry</a> (const String &amp;countryCode, bool asISO639_2=true)</td></tr>
+<tr class="memdesc:a39cc970a4d100be559240b1a6ec42d62"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a list of language codes for languages that are officially recognized, significant minority languages, or local indigenous languages for the specified country.  <a href="namespacelemons_1_1locale.html#a39cc970a4d100be559240b1a6ec42d62">More...</a><br /></td></tr>
+<tr class="separator:a39cc970a4d100be559240b1a6ec42d62"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ab45cf7ce001bddc0cb8ab349be4372"><td class="memItemLeft" align="right" valign="top">StringArray&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1locale.html#a1ab45cf7ce001bddc0cb8ab349be4372">lemons::locale::getLanguageNamesForCountry</a> (const String &amp;countryCode)</td></tr>
+<tr class="memdesc:a1ab45cf7ce001bddc0cb8ab349be4372"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a list of language names that are officially recognized, significant minority languages, or local indigenous languages for the specified country.  <a href="namespacelemons_1_1locale.html#a1ab45cf7ce001bddc0cb8ab349be4372">More...</a><br /></td></tr>
+<tr class="separator:a1ab45cf7ce001bddc0cb8ab349be4372"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad199ffab3ee7c4e5e8027aaa48986af"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1locale.html#aad199ffab3ee7c4e5e8027aaa48986af">lemons::locale::languageCodeToName</a> (const String &amp;languageCode)</td></tr>
+<tr class="memdesc:aad199ffab3ee7c4e5e8027aaa48986af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts an ISO language code to the name of the language it represents.  <a href="namespacelemons_1_1locale.html#aad199ffab3ee7c4e5e8027aaa48986af">More...</a><br /></td></tr>
+<tr class="separator:aad199ffab3ee7c4e5e8027aaa48986af"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9377266e261ca703f64e1bf139259520"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1locale.html#a9377266e261ca703f64e1bf139259520">lemons::locale::languageNameToCode</a> (const String &amp;name, bool asISO639_2=true)</td></tr>
 <tr class="memdesc:a9377266e261ca703f64e1bf139259520"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts the name of a language to an ISO639-1 or ISO639-2 language code.  <a href="namespacelemons_1_1locale.html#a9377266e261ca703f64e1bf139259520">More...</a><br /></td></tr>
 <tr class="separator:a9377266e261ca703f64e1bf139259520"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -100,7 +103,7 @@ Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Dec 21 2021 00:48:52 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Dec 22 2021 00:09:43 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

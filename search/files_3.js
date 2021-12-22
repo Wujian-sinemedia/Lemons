@@ -1,13 +1,13 @@
 var searchData=
 [
-  ['data_2eh_1409',['data.h',['../data_8h.html',1,'']]],
-  ['deesser_2eh_1410',['DeEsser.h',['../_de_esser_8h.html',1,'']]],
-  ['defaultwindow_2eh_1411',['DefaultWindow.h',['../_default_window_8h.html',1,'']]],
-  ['delay_2eh_1412',['Delay.h',['../_delay_8h.html',1,'']]],
-  ['devicemotion_2eh_1413',['DeviceMotion.h',['../_device_motion_8h.html',1,'']]],
-  ['devicerotation_2eh_1414',['DeviceRotation.h',['../_device_rotation_8h.html',1,'']]],
-  ['dimensions_2eh_1415',['Dimensions.h',['../_dimensions_8h.html',1,'']]],
-  ['drywet_2eh_1416',['DryWet.h',['../_dry_wet_8h.html',1,'']]],
-  ['dsp_5fhelpers_2eh_1417',['dsp_helpers.h',['../dsp__helpers_8h.html',1,'']]],
-  ['dspprotection_2eh_1418',['DspProtection.h',['../_dsp_protection_8h.html',1,'']]]
+  ['data_2eh_1413',['data.h',['../data_8h.html',1,'']]],
+  ['deesser_2eh_1414',['DeEsser.h',['../_de_esser_8h.html',1,'']]],
+  ['defaultwindow_2eh_1415',['DefaultWindow.h',['../_default_window_8h.html',1,'']]],
+  ['delay_2eh_1416',['Delay.h',['../_delay_8h.html',1,'']]],
+  ['devicemotion_2eh_1417',['DeviceMotion.h',['../_device_motion_8h.html',1,'']]],
+  ['devicerotation_2eh_1418',['DeviceRotation.h',['../_device_rotation_8h.html',1,'']]],
+  ['dimensions_2eh_1419',['Dimensions.h',['../_dimensions_8h.html',1,'']]],
+  ['drywet_2eh_1420',['DryWet.h',['../_dry_wet_8h.html',1,'']]],
+  ['dsp_5fhelpers_2eh_1421',['dsp_helpers.h',['../dsp__helpers_8h.html',1,'']]],
+  ['dspprotection_2eh_1422',['DspProtection.h',['../_dsp_protection_8h.html',1,'']]]
 ];

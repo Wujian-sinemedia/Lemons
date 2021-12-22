@@ -748,22 +748,29 @@
       <type>StringArray</type>
       <name>getCountryCodesForLanguage</name>
       <anchorfile>namespacelemons_1_1locale.html</anchorfile>
-      <anchor>a169720b898ef12c6b788cc85a6fa1f09</anchor>
-      <arglist>(const String &amp;languageName)</arglist>
+      <anchor>a654c5ab00019f58ce358d8f306b706f8</anchor>
+      <arglist>(const String &amp;language, bool languageName=true)</arglist>
     </member>
     <member kind="function">
       <type>StringArray</type>
-      <name>getLanguagesForCountry</name>
+      <name>getLanguageCodesForCountry</name>
       <anchorfile>namespacelemons_1_1locale.html</anchorfile>
-      <anchor>a2e5fefe678daf2b188a5857486c18f36</anchor>
+      <anchor>a39cc970a4d100be559240b1a6ec42d62</anchor>
+      <arglist>(const String &amp;countryCode, bool asISO639_2=true)</arglist>
+    </member>
+    <member kind="function">
+      <type>StringArray</type>
+      <name>getLanguageNamesForCountry</name>
+      <anchorfile>namespacelemons_1_1locale.html</anchorfile>
+      <anchor>a1ab45cf7ce001bddc0cb8ab349be4372</anchor>
       <arglist>(const String &amp;countryCode)</arglist>
     </member>
     <member kind="function">
       <type>String</type>
       <name>languageCodeToName</name>
       <anchorfile>namespacelemons_1_1locale.html</anchorfile>
-      <anchor>a331f94523ca9c638526e3a506662acc0</anchor>
-      <arglist>(const String &amp;countryCode)</arglist>
+      <anchor>aad199ffab3ee7c4e5e8027aaa48986af</anchor>
+      <arglist>(const String &amp;languageCode)</arglist>
     </member>
     <member kind="function">
       <type>String</type>
@@ -1927,6 +1934,29 @@
     <name>TranslationFiles.h</name>
     <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Common/lemons_locale/translation_files/</path>
     <filename>_translation_files_8h.html</filename>
+    <namespace>lemons</namespace>
+    <namespace>lemons::locale</namespace>
+    <member kind="function">
+      <type>void</type>
+      <name>generateTranslationFiles</name>
+      <anchorfile>namespacelemons_1_1locale.html</anchorfile>
+      <anchor>a167566328b2afe859895611868787b45</anchor>
+      <arglist>(const File &amp;rootDir, const StringArray &amp;languageCodes, const File &amp;outputDir, const String &amp;filenamePrefix=&quot;trans_&quot;, const String &amp;fileExtension=&quot;.txt&quot;)</arglist>
+    </member>
+    <member kind="function">
+      <type>StringArray</type>
+      <name>getPhrasesToBeTranslated</name>
+      <anchorfile>namespacelemons_1_1locale.html</anchorfile>
+      <anchor>aad21ea7066345222c4f15e3ec9a8ee51</anchor>
+      <arglist>(const File &amp;rootDir)</arglist>
+    </member>
+    <member kind="function">
+      <type>String</type>
+      <name>writeTranslationFileHeader</name>
+      <anchorfile>namespacelemons_1_1locale.html</anchorfile>
+      <anchor>acbae708a4be6cab2552dafbd19ab2598</anchor>
+      <arglist>(const String &amp;language, bool languageName=true)</arglist>
+    </member>
   </compound>
   <compound kind="file">
     <name>TypedParameterHelpers.h</name>
@@ -22115,18 +22145,39 @@
     <filename>namespacelemons_1_1locale.html</filename>
     <class kind="struct">lemons::locale::TranslationsInitializer</class>
     <member kind="function">
-      <type>StringArray</type>
-      <name>getCountryCodesForLanguage</name>
+      <type>void</type>
+      <name>generateTranslationFiles</name>
       <anchorfile>namespacelemons_1_1locale.html</anchorfile>
-      <anchor>a169720b898ef12c6b788cc85a6fa1f09</anchor>
-      <arglist>(const String &amp;languageName)</arglist>
+      <anchor>a167566328b2afe859895611868787b45</anchor>
+      <arglist>(const File &amp;rootDir, const StringArray &amp;languageCodes, const File &amp;outputDir, const String &amp;filenamePrefix=&quot;trans_&quot;, const String &amp;fileExtension=&quot;.txt&quot;)</arglist>
     </member>
     <member kind="function">
       <type>StringArray</type>
-      <name>getLanguagesForCountry</name>
+      <name>getCountryCodesForLanguage</name>
       <anchorfile>namespacelemons_1_1locale.html</anchorfile>
-      <anchor>a2e5fefe678daf2b188a5857486c18f36</anchor>
+      <anchor>a654c5ab00019f58ce358d8f306b706f8</anchor>
+      <arglist>(const String &amp;language, bool languageName=true)</arglist>
+    </member>
+    <member kind="function">
+      <type>StringArray</type>
+      <name>getLanguageCodesForCountry</name>
+      <anchorfile>namespacelemons_1_1locale.html</anchorfile>
+      <anchor>a39cc970a4d100be559240b1a6ec42d62</anchor>
+      <arglist>(const String &amp;countryCode, bool asISO639_2=true)</arglist>
+    </member>
+    <member kind="function">
+      <type>StringArray</type>
+      <name>getLanguageNamesForCountry</name>
+      <anchorfile>namespacelemons_1_1locale.html</anchorfile>
+      <anchor>a1ab45cf7ce001bddc0cb8ab349be4372</anchor>
       <arglist>(const String &amp;countryCode)</arglist>
+    </member>
+    <member kind="function">
+      <type>StringArray</type>
+      <name>getPhrasesToBeTranslated</name>
+      <anchorfile>namespacelemons_1_1locale.html</anchorfile>
+      <anchor>aad21ea7066345222c4f15e3ec9a8ee51</anchor>
+      <arglist>(const File &amp;rootDir)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -22146,8 +22197,8 @@
       <type>String</type>
       <name>languageCodeToName</name>
       <anchorfile>namespacelemons_1_1locale.html</anchorfile>
-      <anchor>a331f94523ca9c638526e3a506662acc0</anchor>
-      <arglist>(const String &amp;countryCode)</arglist>
+      <anchor>aad199ffab3ee7c4e5e8027aaa48986af</anchor>
+      <arglist>(const String &amp;languageCode)</arglist>
     </member>
     <member kind="function">
       <type>String</type>
@@ -22155,6 +22206,13 @@
       <anchorfile>namespacelemons_1_1locale.html</anchorfile>
       <anchor>a9377266e261ca703f64e1bf139259520</anchor>
       <arglist>(const String &amp;name, bool asISO639_2=true)</arglist>
+    </member>
+    <member kind="function">
+      <type>String</type>
+      <name>writeTranslationFileHeader</name>
+      <anchorfile>namespacelemons_1_1locale.html</anchorfile>
+      <anchor>acbae708a4be6cab2552dafbd19ab2598</anchor>
+      <arglist>(const String &amp;language, bool languageName=true)</arglist>
     </member>
   </compound>
   <compound kind="namespace">
@@ -23490,6 +23548,8 @@
     <name>translation_files</name>
     <title>translation_files</title>
     <filename>group__translation__files.html</filename>
+    <namespace>lemons</namespace>
+    <namespace>lemons::locale</namespace>
   </compound>
   <compound kind="group">
     <name>tuning</name>

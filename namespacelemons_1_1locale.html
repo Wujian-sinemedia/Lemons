@@ -71,7 +71,7 @@ $(function() {
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">lemons::locale Namespace Reference<div class="ingroups"><a class="el" href="group___common.html">Common</a> &raquo; <a class="el" href="group__lemons__binaries.html">lemons_binaries</a> &raquo; <a class="el" href="group__localization.html">localization</a><a class="el" href="group___common.html">Common</a> &raquo; <a class="el" href="group__lemons__locale.html">lemons_locale</a> &raquo;  &#124; <a class="el" href="group__languages.html">languages</a></div></div>  </div>
+<div class="title">lemons::locale Namespace Reference<div class="ingroups"><a class="el" href="group___common.html">Common</a> &raquo; <a class="el" href="group__lemons__binaries.html">lemons_binaries</a> &raquo; <a class="el" href="group__localization.html">localization</a><a class="el" href="group___common.html">Common</a> &raquo; <a class="el" href="group__lemons__locale.html">lemons_locale</a> &raquo;  &#124; <a class="el" href="group__languages.html">languages</a><a class="el" href="group___common.html">Common</a> &raquo; <a class="el" href="group__lemons__locale.html">lemons_locale</a> &raquo;  &#124; <a class="el" href="group__translation__files.html">translation_files</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
@@ -83,28 +83,88 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a169720b898ef12c6b788cc85a6fa1f09"><td class="memItemLeft" align="right" valign="top">StringArray&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1locale.html#a169720b898ef12c6b788cc85a6fa1f09">getCountryCodesForLanguage</a> (const String &amp;languageName)</td></tr>
-<tr class="memdesc:a169720b898ef12c6b788cc85a6fa1f09"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a list of 2-character ISO 3166 country codes where the specified language is an officially recognized language, or a significant minority language.  <a href="namespacelemons_1_1locale.html#a169720b898ef12c6b788cc85a6fa1f09">More...</a><br /></td></tr>
-<tr class="separator:a169720b898ef12c6b788cc85a6fa1f09"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2e5fefe678daf2b188a5857486c18f36"><td class="memItemLeft" align="right" valign="top">StringArray&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1locale.html#a2e5fefe678daf2b188a5857486c18f36">getLanguagesForCountry</a> (const String &amp;countryCode)</td></tr>
-<tr class="memdesc:a2e5fefe678daf2b188a5857486c18f36"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a list of language names that are officially recognized or are significant minority languages for the specified country.  <a href="namespacelemons_1_1locale.html#a2e5fefe678daf2b188a5857486c18f36">More...</a><br /></td></tr>
-<tr class="separator:a2e5fefe678daf2b188a5857486c18f36"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a167566328b2afe859895611868787b45"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1locale.html#a167566328b2afe859895611868787b45">generateTranslationFiles</a> (const File &amp;rootDir, const StringArray &amp;languageCodes, const File &amp;outputDir, const String &amp;filenamePrefix=&quot;trans_&quot;, const String &amp;fileExtension=&quot;.txt&quot;)</td></tr>
+<tr class="memdesc:a167566328b2afe859895611868787b45"><td class="mdescLeft">&#160;</td><td class="mdescRight">Scans a directory tree for phrases that need to be translated, and generates JUCE-style translation files for each specified language, placing them in the output directory.  <a href="namespacelemons_1_1locale.html#a167566328b2afe859895611868787b45">More...</a><br /></td></tr>
+<tr class="separator:a167566328b2afe859895611868787b45"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a654c5ab00019f58ce358d8f306b706f8"><td class="memItemLeft" align="right" valign="top">StringArray&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1locale.html#a654c5ab00019f58ce358d8f306b706f8">getCountryCodesForLanguage</a> (const String &amp;language, bool languageName=true)</td></tr>
+<tr class="memdesc:a654c5ab00019f58ce358d8f306b706f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a list of 2-character ISO 3166 country codes where the specified language is an officially recognized language, a significant minority language, or a local indigenous language.  <a href="namespacelemons_1_1locale.html#a654c5ab00019f58ce358d8f306b706f8">More...</a><br /></td></tr>
+<tr class="separator:a654c5ab00019f58ce358d8f306b706f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a39cc970a4d100be559240b1a6ec42d62"><td class="memItemLeft" align="right" valign="top">StringArray&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1locale.html#a39cc970a4d100be559240b1a6ec42d62">getLanguageCodesForCountry</a> (const String &amp;countryCode, bool asISO639_2=true)</td></tr>
+<tr class="memdesc:a39cc970a4d100be559240b1a6ec42d62"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a list of language codes for languages that are officially recognized, significant minority languages, or local indigenous languages for the specified country.  <a href="namespacelemons_1_1locale.html#a39cc970a4d100be559240b1a6ec42d62">More...</a><br /></td></tr>
+<tr class="separator:a39cc970a4d100be559240b1a6ec42d62"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ab45cf7ce001bddc0cb8ab349be4372"><td class="memItemLeft" align="right" valign="top">StringArray&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1locale.html#a1ab45cf7ce001bddc0cb8ab349be4372">getLanguageNamesForCountry</a> (const String &amp;countryCode)</td></tr>
+<tr class="memdesc:a1ab45cf7ce001bddc0cb8ab349be4372"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a list of language names that are officially recognized, significant minority languages, or local indigenous languages for the specified country.  <a href="namespacelemons_1_1locale.html#a1ab45cf7ce001bddc0cb8ab349be4372">More...</a><br /></td></tr>
+<tr class="separator:a1ab45cf7ce001bddc0cb8ab349be4372"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad21ea7066345222c4f15e3ec9a8ee51"><td class="memItemLeft" align="right" valign="top">StringArray&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1locale.html#aad21ea7066345222c4f15e3ec9a8ee51">getPhrasesToBeTranslated</a> (const File &amp;rootDir)</td></tr>
+<tr class="memdesc:aad21ea7066345222c4f15e3ec9a8ee51"><td class="mdescLeft">&#160;</td><td class="mdescRight">Recursively scans a directory tree for instances of juce::translate or the TRANS macro, called with raw string literals, and returns a list of all the string literals that need to be translated.  <a href="namespacelemons_1_1locale.html#aad21ea7066345222c4f15e3ec9a8ee51">More...</a><br /></td></tr>
+<tr class="separator:aad21ea7066345222c4f15e3ec9a8ee51"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af44434a11b41640afde5b60fae745d01"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1locale.html#af44434a11b41640afde5b60fae745d01">initializeDefaultTranslations</a> ()</td></tr>
 <tr class="memdesc:af44434a11b41640afde5b60fae745d01"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attempts to load a set of default translations from binary data, chosen based on the user's display language settings.  <a href="namespacelemons_1_1locale.html#af44434a11b41640afde5b60fae745d01">More...</a><br /></td></tr>
 <tr class="separator:af44434a11b41640afde5b60fae745d01"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4962f8d8921a03dc8a328f6149fa32b5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1locale.html#a4962f8d8921a03dc8a328f6149fa32b5">initializeTranslations</a> (const <a class="el" href="structlemons_1_1binary_1_1_data.html">binary::Data</a> &amp;data, bool ignoreCaseOfKeys=true)</td></tr>
 <tr class="memdesc:a4962f8d8921a03dc8a328f6149fa32b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the juce::LocalisedStrings translation system from a translation file contained in a <a class="el" href="structlemons_1_1binary_1_1_data.html" title="Represents a wrapper around some data contained in a juce BinaryData target.">binary::Data</a> object.  <a href="namespacelemons_1_1locale.html#a4962f8d8921a03dc8a328f6149fa32b5">More...</a><br /></td></tr>
 <tr class="separator:a4962f8d8921a03dc8a328f6149fa32b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a331f94523ca9c638526e3a506662acc0"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1locale.html#a331f94523ca9c638526e3a506662acc0">languageCodeToName</a> (const String &amp;countryCode)</td></tr>
-<tr class="memdesc:a331f94523ca9c638526e3a506662acc0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts an ISO language code to the name of the language it represents.  <a href="namespacelemons_1_1locale.html#a331f94523ca9c638526e3a506662acc0">More...</a><br /></td></tr>
-<tr class="separator:a331f94523ca9c638526e3a506662acc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad199ffab3ee7c4e5e8027aaa48986af"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1locale.html#aad199ffab3ee7c4e5e8027aaa48986af">languageCodeToName</a> (const String &amp;languageCode)</td></tr>
+<tr class="memdesc:aad199ffab3ee7c4e5e8027aaa48986af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts an ISO language code to the name of the language it represents.  <a href="namespacelemons_1_1locale.html#aad199ffab3ee7c4e5e8027aaa48986af">More...</a><br /></td></tr>
+<tr class="separator:aad199ffab3ee7c4e5e8027aaa48986af"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9377266e261ca703f64e1bf139259520"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1locale.html#a9377266e261ca703f64e1bf139259520">languageNameToCode</a> (const String &amp;name, bool asISO639_2=true)</td></tr>
 <tr class="memdesc:a9377266e261ca703f64e1bf139259520"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts the name of a language to an ISO639-1 or ISO639-2 language code.  <a href="namespacelemons_1_1locale.html#a9377266e261ca703f64e1bf139259520">More...</a><br /></td></tr>
 <tr class="separator:a9377266e261ca703f64e1bf139259520"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acbae708a4be6cab2552dafbd19ab2598"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1locale.html#acbae708a4be6cab2552dafbd19ab2598">writeTranslationFileHeader</a> (const String &amp;language, bool languageName=true)</td></tr>
+<tr class="memdesc:acbae708a4be6cab2552dafbd19ab2598"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes a JUCE-style translation file header, including the language name and relevant country codes, for the specified language.  <a href="namespacelemons_1_1locale.html#acbae708a4be6cab2552dafbd19ab2598">More...</a><br /></td></tr>
+<tr class="separator:acbae708a4be6cab2552dafbd19ab2598"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a169720b898ef12c6b788cc85a6fa1f09"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a169720b898ef12c6b788cc85a6fa1f09">&#9670;&nbsp;</a></span>getCountryCodesForLanguage()</h2>
+<a id="a167566328b2afe859895611868787b45"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a167566328b2afe859895611868787b45">&#9670;&nbsp;</a></span>generateTranslationFiles()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lemons::locale::generateTranslationFiles </td>
+          <td>(</td>
+          <td class="paramtype">const File &amp;&#160;</td>
+          <td class="paramname"><em>rootDir</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const StringArray &amp;&#160;</td>
+          <td class="paramname"><em>languageCodes</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const File &amp;&#160;</td>
+          <td class="paramname"><em>outputDir</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const String &amp;&#160;</td>
+          <td class="paramname"><em>filenamePrefix</em> = <code>&quot;trans_&quot;</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const String &amp;&#160;</td>
+          <td class="paramname"><em>fileExtension</em> = <code>&quot;.txt&quot;</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Scans a directory tree for phrases that need to be translated, and generates JUCE-style translation files for each specified language, placing them in the output directory. </p>
+
+</div>
+</div>
+<a id="a654c5ab00019f58ce358d8f306b706f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a654c5ab00019f58ce358d8f306b706f8">&#9670;&nbsp;</a></span>getCountryCodesForLanguage()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -113,25 +173,80 @@ Functions</h2></td></tr>
           <td class="memname">StringArray lemons::locale::getCountryCodesForLanguage </td>
           <td>(</td>
           <td class="paramtype">const String &amp;&#160;</td>
-          <td class="paramname"><em>languageName</em></td><td>)</td>
+          <td class="paramname"><em>language</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>languageName</em> = <code>true</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Returns a list of 2-character ISO 3166 country codes where the specified language is an officially recognized language, or a significant minority language. </p>
-<p>These country codes are referenced from <a href="https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes">https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes</a>. </p><dl class="section attention"><dt>Attention</dt><dd>This feature is mainly intended for generating translation files, not for selecting an appropriate language at runtime; I recommend choosing the language based on the user's display language settings, which can be obtained using juce::SystemStats::getDisplayLanguage() (which is what <a class="el" href="namespacelemons_1_1locale.html#af44434a11b41640afde5b60fae745d01" title="Attempts to load a set of default translations from binary data, chosen based on the user&#39;s display l...">initializeDefaultTranslations()</a> does under the hood). </dd></dl>
+<p>Returns a list of 2-character ISO 3166 country codes where the specified language is an officially recognized language, a significant minority language, or a local indigenous language. </p>
+<p>These country codes are referenced from <a href="https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes">https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes</a>. </p><dl class="section attention"><dt>Attention</dt><dd>This feature is mainly intended for generating translation files, not for selecting an appropriate language at runtime; I recommend choosing the language based on the user's display language settings, which can be obtained using juce::SystemStats::getDisplayLanguage(). </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">language</td><td>The language name or language code. When interpreting this argument as a language code, a 2-character string will be interpreted as an ISO639-1 code; if it is 3 characters long, it will be interpreted as an ISO639-2 code. Other lengths of passed strings are invalid and will cause this method to return an empty string. </td></tr>
+    <tr><td class="paramname">languageName</td><td>If true, the 'language' argument is interpreted as the name of the language; if false, it is interpreted as an ISO language code. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
-<a id="a2e5fefe678daf2b188a5857486c18f36"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2e5fefe678daf2b188a5857486c18f36">&#9670;&nbsp;</a></span>getLanguagesForCountry()</h2>
+<a id="a39cc970a4d100be559240b1a6ec42d62"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a39cc970a4d100be559240b1a6ec42d62">&#9670;&nbsp;</a></span>getLanguageCodesForCountry()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">StringArray lemons::locale::getLanguagesForCountry </td>
+          <td class="memname">StringArray lemons::locale::getLanguageCodesForCountry </td>
+          <td>(</td>
+          <td class="paramtype">const String &amp;&#160;</td>
+          <td class="paramname"><em>countryCode</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>asISO639_2</em> = <code>true</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns a list of language codes for languages that are officially recognized, significant minority languages, or local indigenous languages for the specified country. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">countryCode</td><td>A 2-character ISO 3166 country code. If an invalid country code is passed, this method will return an empty StringArray. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section attention"><dt>Attention</dt><dd>This feature is mainly intended for generating translation files, not for selecting an appropriate language at runtime; I recommend choosing the language based on the user's display language settings, which can be obtained using juce::SystemStats::getDisplayLanguage(). </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="namespacelemons_1_1locale.html#a1ab45cf7ce001bddc0cb8ab349be4372" title="Returns a list of language names that are officially recognized, significant minority languages,...">getLanguageNamesForCountry()</a> </dd></dl>
+
+</div>
+</div>
+<a id="a1ab45cf7ce001bddc0cb8ab349be4372"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1ab45cf7ce001bddc0cb8ab349be4372">&#9670;&nbsp;</a></span>getLanguageNamesForCountry()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">StringArray lemons::locale::getLanguageNamesForCountry </td>
           <td>(</td>
           <td class="paramtype">const String &amp;&#160;</td>
           <td class="paramname"><em>countryCode</em></td><td>)</td>
@@ -140,14 +255,35 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Returns a list of language names that are officially recognized or are significant minority languages for the specified country. </p>
+<p>Returns a list of language names that are officially recognized, significant minority languages, or local indigenous languages for the specified country. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">countryCode</td><td>A 2-character ISO 3166 country code. If an invalid country code is passed, this method will return an empty StringArray. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section attention"><dt>Attention</dt><dd>This feature is mainly intended for generating translation files, not for selecting an appropriate language at runtime; I recommend choosing the language based on the user's display language settings, which can be obtained using juce::SystemStats::getDisplayLanguage() (which is what <a class="el" href="namespacelemons_1_1locale.html#af44434a11b41640afde5b60fae745d01" title="Attempts to load a set of default translations from binary data, chosen based on the user&#39;s display l...">initializeDefaultTranslations()</a> does under the hood). </dd></dl>
+<dl class="section attention"><dt>Attention</dt><dd>This feature is mainly intended for generating translation files, not for selecting an appropriate language at runtime; I recommend choosing the language based on the user's display language settings, which can be obtained using juce::SystemStats::getDisplayLanguage(). </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="namespacelemons_1_1locale.html#a39cc970a4d100be559240b1a6ec42d62" title="Returns a list of language codes for languages that are officially recognized, significant minority l...">getLanguageCodesForCountry()</a> </dd></dl>
+
+</div>
+</div>
+<a id="aad21ea7066345222c4f15e3ec9a8ee51"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aad21ea7066345222c4f15e3ec9a8ee51">&#9670;&nbsp;</a></span>getPhrasesToBeTranslated()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">StringArray lemons::locale::getPhrasesToBeTranslated </td>
+          <td>(</td>
+          <td class="paramtype">const File &amp;&#160;</td>
+          <td class="paramname"><em>rootDir</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Recursively scans a directory tree for instances of juce::translate or the TRANS macro, called with raw string literals, and returns a list of all the string literals that need to be translated. </p>
 
 </div>
 </div>
@@ -200,8 +336,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a331f94523ca9c638526e3a506662acc0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a331f94523ca9c638526e3a506662acc0">&#9670;&nbsp;</a></span>languageCodeToName()</h2>
+<a id="aad199ffab3ee7c4e5e8027aaa48986af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aad199ffab3ee7c4e5e8027aaa48986af">&#9670;&nbsp;</a></span>languageCodeToName()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -210,14 +346,14 @@ Functions</h2></td></tr>
           <td class="memname">String lemons::locale::languageCodeToName </td>
           <td>(</td>
           <td class="paramtype">const String &amp;&#160;</td>
-          <td class="paramname"><em>countryCode</em></td><td>)</td>
+          <td class="paramname"><em>languageCode</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Converts an ISO language code to the name of the language it represents. </p>
-<p>If the passed string is 2 characters long, it will be interpreted as an ISO639-1 code; if it is 3 characters long, it will be interpreted as an ISO639-2 code. Other lengths of passed strings are invalid and will cause this method to return an empty string. If the language cannot be identified in the list of known languages, an empty string will be returned. </p><dl class="section see"><dt>See also</dt><dd>languageNameToCountryCode() </dd></dl>
+<p>If the passed string is 2 characters long, it will be interpreted as an ISO639-1 code; if it is 3 characters long, it will be interpreted as an ISO639-2 code. Other lengths of passed strings are invalid and will cause this method to return an empty string. If the language cannot be identified in the list of known languages, an empty string will be returned. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="namespacelemons_1_1locale.html#a9377266e261ca703f64e1bf139259520" title="Converts the name of a language to an ISO639-1 or ISO639-2 language code.">languageNameToCode()</a> </dd></dl>
 
 </div>
 </div>
@@ -255,14 +391,51 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section see"><dt>See also</dt><dd>countryCodeToLanguageName() </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="namespacelemons_1_1locale.html#aad199ffab3ee7c4e5e8027aaa48986af" title="Converts an ISO language code to the name of the language it represents.">languageCodeToName()</a> </dd></dl>
+
+</div>
+</div>
+<a id="acbae708a4be6cab2552dafbd19ab2598"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acbae708a4be6cab2552dafbd19ab2598">&#9670;&nbsp;</a></span>writeTranslationFileHeader()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">String lemons::locale::writeTranslationFileHeader </td>
+          <td>(</td>
+          <td class="paramtype">const String &amp;&#160;</td>
+          <td class="paramname"><em>language</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>languageName</em> = <code>true</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Writes a JUCE-style translation file header, including the language name and relevant country codes, for the specified language. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">language</td><td>The language name or language code. When interpreting this argument as a language code, a 2-character string will be interpreted as an ISO639-1 code; if it is 3 characters long, it will be interpreted as an ISO639-2 code. Other lengths of passed strings are invalid and will cause this method to return an empty string. </td></tr>
+    <tr><td class="paramname">languageName</td><td>If true, the 'language' argument is interpreted as the name of the language; if false, it is interpreted as an ISO language code. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Dec 21 2021 00:48:53 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Dec 22 2021 00:09:43 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>
