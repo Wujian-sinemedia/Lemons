@@ -23,15 +23,46 @@ public:
 
 	int setMinInputFreq (int minFreqHz);
 
+	void releaseResources();
+
 private:
 	friend class Shifter<SampleType>;
 
+	void newBlockStarting();
+
 	inline int latencyChanged();
+
+	void makeWindow();
+
+	/*-----------------------------------------------------------------------------------*/
+
+	struct Grain final
+	{
+		int origStartIndex { 0 };
+
+		int grainSize { 0 };
+
+		AudioBuffer<SampleType> samples;
+	};
+
+	const Grain* getClosestGrain (int placeInBlock) const;
+
+	void registerShifter (Shifter<SampleType>* shifter);
+
+	/*-----------------------------------------------------------------------------------*/
 
 	PitchDetector<SampleType> pitchDetector;
 	PeakFinder<SampleType>    peakFinder;
 
 	float currentPeriod { 0.f };
+
+	Array<SampleType> window;
+
+	Array<Grain> grains;
+
+	int lastBlocksize { 0 };
+
+	Array<Shifter<SampleType>*> shifters;
 };
 
 }  // namespace lemons::dsp::psola

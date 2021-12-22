@@ -1,15 +1,18 @@
 #pragma once
 
-#include <lemons_dsp/lemons_dsp.h>
+#include <juce_core/juce_core.h>
 
 namespace lemons::dsp::psola
 {
+
+template <typename T>
+using Array = juce::Array<T>;
 
 template <typename SampleType>
 class PeakFinder final
 {
 public:
-	[[nodiscard]] const juce::Array<int>& findPeaks (const SampleType* inputSamples, int numSamples, float period);
+	[[nodiscard]] const Array<int>& findPeaks (const SampleType* inputSamples, int numSamples, float period);
 
 	void prepare (int maxBlocksize);
 
@@ -21,14 +24,16 @@ private:
 
 	void sortSampleIndicesForPeakSearching (int startSample, int endSample, int predictedPeak);
 
-	void getPeakCandidateInRange (const SampleType* inputSamples, int startSample, int endSample, int predictedPeak);
+	[[nodiscard]] int getPeakCandidateInRange (const SampleType* inputSamples, int startSample, int endSample, int predictedPeak) const;
 
 	[[nodiscard]] int choosePeakWithGreatestPower (const SampleType* inputSamples) const;
 
 	[[nodiscard]] int chooseIdealPeakCandidate (const SampleType* inputSamples, int deltaTarget1, int deltaTarget2);
 
-	juce::Array<int>   peakIndices, peakSearchingOrder, peakCandidates, finalHandful;
-	juce::Array<float> candidateDeltas, finalHandfulDeltas;
+	void findMinDelta (float& minDelta, int& index) const;
+
+	Array<int>   peakIndices, peakSearchingOrder, peakCandidates, finalHandful;
+	Array<float> candidateDeltas, finalHandfulDeltas;
 
 	static constexpr auto numPeaksToTest          = 5;
 	static constexpr auto defaultFinalHandfulSize = 3;
@@ -40,6 +45,8 @@ private:
 /*---------------------------------------------------------------------------------------------------------------------------------*/
 
 #if LEMONS_UNIT_TESTS
+
+#  include <lemons_dsp/lemons_dsp.h>
 
 namespace lemons::tests
 {
@@ -64,8 +71,7 @@ private:
 	dsp::osc::Triangle<SampleType> triangle;
 };
 
-static PeakFinderTests<float>  grainDetectorTest_float;
-static PeakFinderTests<double> grainDetectorTest_double;
+LEMONS_CREATE_DSP_TEST (PeakFinderTests)
 
 }  // namespace lemons::tests
 

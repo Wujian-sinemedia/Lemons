@@ -1,3 +1,5 @@
+#include <lemons_core/lemons_core.h>
+
 namespace lemons::dsp::psola
 {
 
@@ -33,7 +35,7 @@ void PeakFinder<SampleType>::releaseResources()
 }
 
 template <typename SampleType>
-const juce::Array<int>& PeakFinder<SampleType>::findPeaks (const SampleType* inputSamples, int numSamples, float period)
+const Array<int>& PeakFinder<SampleType>::findPeaks (const SampleType* inputSamples, int numSamples, float period)
 {
 	peakIndices.clearQuick();
 
@@ -91,7 +93,14 @@ int PeakFinder<SampleType>::findNextPeak (int frameStart, int frameEnd, int pred
 	peakCandidates.clearQuick();
 
 	for (int i = 0; i < numPeaksToTest; ++i)
-		getPeakCandidateInRange (inputSamples, frameStart, frameEnd, predictedPeak);
+	{
+		const auto nextPeak = getPeakCandidateInRange (inputSamples, frameStart, frameEnd, predictedPeak);
+
+		if (nextPeak == -1)
+			break;
+
+		peakCandidates.add (nextPeak);
+	}
 
 	jassert (! peakCandidates.isEmpty());
 
@@ -115,7 +124,8 @@ int PeakFinder<SampleType>::findNextPeak (int frameStart, int frameEnd, int pred
 
 
 template <typename SampleType>
-void PeakFinder<SampleType>::getPeakCandidateInRange (const SampleType* inputSamples, int startSample, int endSample, int predictedPeak)
+int PeakFinder<SampleType>::getPeakCandidateInRange (const SampleType* inputSamples,
+                                                     int startSample, int endSample, int predictedPeak) const
 {
 	jassert (! peakSearchingOrder.isEmpty());
 
@@ -128,7 +138,8 @@ void PeakFinder<SampleType>::getPeakCandidateInRange (const SampleType* inputSam
 		return -1;
 	}();
 
-	if (starting == -1) return;
+	if (starting == -1)
+		return -1;
 
 	jassert (starting >= startSample && starting <= endSample);
 
@@ -147,7 +158,7 @@ void PeakFinder<SampleType>::getPeakCandidateInRange (const SampleType* inputSam
 	auto indexOfLocalMin = starting;
 	auto indexOfLocalMax = starting;
 
-	for (int index : peakSearchingOrder)
+	for (const auto index : peakSearchingOrder)
 	{
 		jassert (index >= startSample && index <= endSample);
 
@@ -169,9 +180,9 @@ void PeakFinder<SampleType>::getPeakCandidateInRange (const SampleType* inputSam
 	}
 
 	if (std::abs (localMin) > std::abs (localMax))
-		peakCandidates.add (indexOfLocalMin);
-	else
-		peakCandidates.add (indexOfLocalMax);
+		return indexOfLocalMin;
+
+	return indexOfLocalMax;
 }
 
 template <typename SampleType>
@@ -180,7 +191,7 @@ int PeakFinder<SampleType>::choosePeakWithGreatestPower (const SampleType* input
 	auto strongestPeakIndex = peakCandidates.getUnchecked (0);
 	auto strongestPeak      = std::abs (inputSamples[strongestPeakIndex]);
 
-	for (int candidate : peakCandidates)
+	for (const auto candidate : peakCandidates)
 	{
 		const auto current = std::abs (inputSamples[candidate]);
 
@@ -205,26 +216,25 @@ int PeakFinder<SampleType>::chooseIdealPeakCandidate (const SampleType* inputSam
 	// 1. calculate delta values for each peak candidate
 	// delta represents how far off this peak candidate is from the expected peak location - in a way it's a measure of the jitter that picking a peak candidate as this frame's peak would introduce to the overall alignment of the stream of grains based on the previous grains
 
-	for (int candidate : peakCandidates)
+	for (const auto candidate : peakCandidates)
 		candidateDeltas.add ((std::abs (candidate - deltaTarget1) + std::abs (candidate - deltaTarget2)));
 
 	// 2. whittle our remaining candidates down to the final candidates with the minimum delta values
 
 	const auto finalHandfulSize = std::min (defaultFinalHandfulSize, candidateDeltas.size());
 
-	float      minimum      = 0.0f;
-	int        minimumIndex = 0;
-	const auto dataSize     = candidateDeltas.size();
+	float minimum      = 0.f;
+	int   minimumIndex = 0;
 
 	for (int i = 0; i < finalHandfulSize; ++i)
 	{
-		vecops::findMinAndMinIndex (candidateDeltas.getRawDataPointer(), dataSize, minimum, minimumIndex);
+		findMinDelta (minimum, minimumIndex);
 
 		finalHandfulDeltas.add (minimum);
 		finalHandful.add (peakCandidates.getUnchecked (minimumIndex));
 
 		// make sure this value won't be chosen again, w/o deleting it from the candidateDeltas array
-		candidateDeltas.set (minimumIndex, 10000.0f);
+		candidateDeltas.set (minimumIndex, 10000.f);
 	}
 
 	jassert (finalHandful.size() == finalHandfulSize
@@ -232,7 +242,9 @@ int PeakFinder<SampleType>::chooseIdealPeakCandidate (const SampleType* inputSam
 
 	// 3. choose the strongest overall peak from these final candidates, with peaks weighted by their delta values
 
-	const auto deltaRange = vecops::findRangeOfExtrema (finalHandfulDeltas.getRawDataPointer(), finalHandfulDeltas.size());
+	const auto deltaRange = juce::FloatVectorOperations::findMinAndMax (finalHandfulDeltas.getRawDataPointer(),
+	                                                                    finalHandfulDeltas.size())
+	                            .getLength();
 
 	if (deltaRange < 0.05f)  // prevent dividing by 0 in the next step...
 		return finalHandful.getUnchecked (0);
@@ -265,6 +277,23 @@ int PeakFinder<SampleType>::chooseIdealPeakCandidate (const SampleType* inputSam
 	}
 
 	return chosenPeak;
+}
+
+template <typename SampleType>
+void PeakFinder<SampleType>::findMinDelta (float& minDelta, int& index) const
+{
+	minDelta = candidateDeltas.getUnchecked (0);
+
+	for (int i = 0; i < candidateDeltas.size(); ++i)
+	{
+		const auto current = candidateDeltas.getUnchecked (i);
+
+		if (current < minDelta)
+		{
+			minDelta = current;
+			index    = i;
+		}
+	}
 }
 
 template <typename SampleType>
@@ -405,8 +434,7 @@ void PeakFinderTests<SampleType>::runOscillatorTest (dsp::osc::Oscillator<Sample
 	 - individual grain onsets are approx 1 period apart
 	 */
 
-	const auto halfPeriod    = period / 2;
-	const auto quarterPeriod = period / 4;
+	const auto halfPeriod = period / 2;
 
 	for (int i = 0; i < indices.size() - 2; ++i)
 	{
@@ -416,7 +444,7 @@ void PeakFinderTests<SampleType>::runOscillatorTest (dsp::osc::Oscillator<Sample
 
 		expectWithinAbsoluteError (index3 - index1, period * 2, halfPeriod);
 
-		expectWithinAbsoluteError (index2 - index1, period, quarterPeriod);
+		expectWithinAbsoluteError (index2 - index1, period, halfPeriod);
 		expectWithinAbsoluteError (index3 - index2, period, halfPeriod);
 	}
 }
