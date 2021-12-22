@@ -45,17 +45,22 @@ void Analyzer<SampleType>::analyzeInput (const AudioBuffer<SampleType>& inputAud
 template <typename SampleType>
 void Analyzer<SampleType>::analyzeInput (const SampleType* inputAudio, int numSamples)
 {
+	jassert (samplerate > 0.);
 	jassert (numSamples >= getLatencySamples());
 
 	newBlockStarting();
 
-	if (const auto detectedPeriod = pitchDetector.detectPeriod (inputAudio, numSamples);
-	    detectedPeriod > 0.f)
-		currentPeriod = detectedPeriod;
-	else
-		currentPeriod = numSamples / 4;  // if frame is unpitched, assign a constant period value to use...
+	currentPeriod = [&]() -> float
+	{
+		const auto detectedPeriod = pitchDetector.detectPeriod (inputAudio, numSamples);
 
-	jassert (currentPeriod > 0.f);
+		if (detectedPeriod > 0.f)
+			return detectedPeriod;
+
+		return static_cast<float> (random.nextInt ({ pitchDetector.getMinHz(), numSamples / 2 }));
+	}();
+
+	jassert (currentPeriod > 0.f && currentPeriod <= numSamples / 2);
 
 	makeWindow();
 
@@ -72,20 +77,7 @@ void Analyzer<SampleType>::analyzeInput (const SampleType* inputAudio, int numSa
 
 		jassert (end - start == grainSize);
 
-		auto& grain = getGrainToStoreIn();
-
-		grain.origStartIndex = start;
-		grain.grainSize      = grainSize;
-
-		grain.samples.setSize (1, grainSize, true, true, true);
-
-		using FVO = juce::FloatVectorOperations;
-
-		auto* const destSamples = grain.samples.getWritePointer (0);
-
-		FVO::copy (destSamples, inputAudio + start, grainSize);
-
-		FVO::multiply (destSamples, window.getRawDataPointer(), grainSize);
+		getGrainToStoreIn().storeNewGrain (inputAudio, start, window.getRawDataPointer(), grainSize);
 	}
 
 	lastBlocksize = numSamples;
@@ -104,19 +96,11 @@ typename Analyzer<SampleType>::Grain& Analyzer<SampleType>::getGrainToStoreIn()
 template <typename SampleType>
 void Analyzer<SampleType>::newBlockStarting()
 {
-	// move up previous grains
-	if (lastBlocksize > 0)
-		for (auto* grain : grains)
-			grain->origStartIndex -= lastBlocksize;
+	for (auto* grain : grains)
+		grain->newBlockStarting (lastBlocksize);
 
 	for (auto* shifter : shifters)
 		shifter->newBlockStarting();
-}
-
-inline double ncos (int order, int i, int size) noexcept
-{
-	return std::cos (static_cast<double> (order * i)
-	                 * juce::MathConstants<double>::pi / static_cast<double> (size - 1));
 }
 
 template <typename SampleType>
@@ -126,28 +110,31 @@ void Analyzer<SampleType>::makeWindow()
 
 	const auto size = juce::roundToInt (currentPeriod) * 2;
 
+	// Hanning window function
 	for (int i = 0; i < size; ++i)
 	{
-		const auto cos2 = ncos (2, i, size);
+		const auto cos2 = std::cos (static_cast<double> (2 * i)
+		                            * juce::MathConstants<double>::pi / static_cast<double> (size - 1));
 
 		window.set (i, static_cast<SampleType> (0.5 - 0.5 * cos2));
 	}
 }
 
 template <typename SampleType>
-typename Analyzer<SampleType>::Grain& Analyzer<SampleType>::getClosestGrain (int placeInBlock)
+typename Analyzer<SampleType>::Grain& Analyzer<SampleType>::getClosestGrain (int placeInBlock) const
 {
 	jassert (! grains.isEmpty());
+	jassert (placeInBlock >= 0);
 
 	Grain* closest { nullptr };
 	int    distance { std::numeric_limits<int>::max() };
 
 	for (auto* grain : grains)
 	{
-		if (grain->origStartIndex < 0)
+		if (grain->getSize() == 0)
 			continue;
 
-		const auto currentDist = std::abs (grain->origStartIndex - placeInBlock);
+		const auto currentDist = placeInBlock - grain->getOrigStart();
 
 		if (currentDist < distance)
 		{
@@ -157,6 +144,7 @@ typename Analyzer<SampleType>::Grain& Analyzer<SampleType>::getClosestGrain (int
 	}
 
 	jassert (closest != nullptr);
+	jassert (closest->getSize() > 0);
 
 	return *closest;
 }
@@ -172,11 +160,12 @@ int Analyzer<SampleType>::setSamplerate (double newSamplerate)
 {
 	jassert (newSamplerate > 0.);
 
+	samplerate = newSamplerate;
+
 	pitchDetector.setSamplerate (newSamplerate);
 
 	for (auto* shifter : shifters)
-		if (shifter->targetPitchHz > 0)
-			shifter->setPitch (shifter->targetPitchHz, newSamplerate);
+		shifter->samplerateChanged();
 
 	return latencyChanged();
 }
@@ -199,11 +188,14 @@ inline int Analyzer<SampleType>::latencyChanged()
 	peakFinder.prepare (latency);
 	window.ensureStorageAllocated (latency);
 
-	//    while (grains.size() < latency / 2)
-	//        grains.add (new Grain);
-	//
-	//    for (auto* grain : grains)
-	//        grain->samples.setSize (1, latency, true, true, true);
+	while (grains.size() < latency / 2)
+		grains.add (new Grain);
+
+	for (auto* grain : grains)
+		grain->reserveSize (latency);
+
+	for (auto* shifter : shifters)
+		shifter->latencyChanged();
 
 	return latency;
 }
@@ -216,11 +208,69 @@ void Analyzer<SampleType>::releaseResources()
 
 	peakFinder.releaseResources();
 
+	samplerate    = 0.;
 	lastBlocksize = 0;
 	currentPeriod = 0.f;
 
 	grains.clearQuick (true);
 	window.clearQuick();
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------*/
+
+template <typename SampleType>
+SampleType Analyzer<SampleType>::Grain::getSample (int index) const noexcept
+{
+	jassert (index >= 0 && index < grainSize);
+
+	return samples.getSample (0, index);
+}
+
+template <typename SampleType>
+void Analyzer<SampleType>::Grain::storeNewGrain (const SampleType* origSamples, int startIndex,
+                                                 const SampleType* windowSamples, int numSamples)
+{
+	jassert (getReferenceCount() == 0);
+
+	origStartIndex = startIndex;
+	grainSize      = numSamples;
+
+	samples.setSize (1, grainSize, true, true, true);
+
+	auto* const destSamples = samples.getWritePointer (0);
+
+	using FVO = juce::FloatVectorOperations;
+
+	FVO::copy (destSamples, origSamples + startIndex, grainSize);
+
+	FVO::multiply (destSamples, windowSamples, grainSize);
+}
+
+template <typename SampleType>
+void Analyzer<SampleType>::Grain::newBlockStarting (int last_blocksize)
+{
+	if (getReferenceCount() > 0)
+		origStartIndex -= last_blocksize;
+	else
+		grainSize = 0;
+}
+
+template <typename SampleType>
+int Analyzer<SampleType>::Grain::getSize() const noexcept
+{
+	return grainSize;
+}
+
+template <typename SampleType>
+int Analyzer<SampleType>::Grain::getOrigStart() const noexcept
+{
+	return origStartIndex;
+}
+
+template <typename SampleType>
+void Analyzer<SampleType>::Grain::reserveSize (int numSamples)
+{
+	samples.setSize (1, numSamples, true, true, true);
 }
 
 template class Analyzer<float>;

@@ -30,9 +30,13 @@ Shifter<SampleType>::~Shifter()
 }
 
 template <typename SampleType>
-void Shifter<SampleType>::setPitch (int pitchHz, double samplerate)
+void Shifter<SampleType>::setPitch (int pitchHz)
 {
+	const auto samplerate = analyzer.samplerate;
+
+	// Did you call Analyzer::setSamplerate() first?
 	jassert (samplerate > 0 && pitchHz > 0);
+
 	targetPeriod  = math::periodInSamples (samplerate, static_cast<float> (pitchHz));
 	targetPitchHz = pitchHz;
 }
@@ -63,7 +67,7 @@ SampleType Shifter<SampleType>::getNextSample()
 
 	if (samplesToNextGrain == 0)
 	{
-		startNewGrain();
+		getGrainToStart().startNewGrain (analyzer.getClosestGrain (placeInBlock));
 		samplesToNextGrain = juce::roundToInt (targetPeriod);
 	}
 
@@ -80,22 +84,6 @@ SampleType Shifter<SampleType>::getNextSample()
 }
 
 template <typename SampleType>
-void Shifter<SampleType>::startNewGrain()
-{
-	auto& analysisGrain = analyzer.getClosestGrain (placeInBlock);
-
-	jassert (analysisGrain.samples.getNumChannels() == 1);
-	jassert (analysisGrain.samples.getNumSamples() > 0);
-
-	auto& grain = getGrainToStart();
-
-	grain.analysisGrain = &analysisGrain;
-	grain.sampleIdx     = 0;
-
-	analysisGrain.incReferenceCount();
-}
-
-template <typename SampleType>
 typename Shifter<SampleType>::Grain& Shifter<SampleType>::getGrainToStart()
 {
 	for (auto* grain : grains)
@@ -103,6 +91,22 @@ typename Shifter<SampleType>::Grain& Shifter<SampleType>::getGrainToStart()
 			return *grain;
 
 	return *grains.add (new Grain);
+}
+
+template <typename SampleType>
+void Shifter<SampleType>::samplerateChanged()
+{
+	if (targetPitchHz > 0)
+		setPitch (targetPitchHz);
+}
+
+template <typename SampleType>
+void Shifter<SampleType>::latencyChanged()
+{
+	const auto latency = analyzer.getLatencySamples();
+
+	while (grains.size() < latency / 2)
+		grains.add (new Grain);
 }
 
 template <typename SampleType>
@@ -116,6 +120,7 @@ void Shifter<SampleType>::releaseResources()
 	placeInBlock       = 0;
 }
 
+/*---------------------------------------------------------------------------------------------------------------------------*/
 
 template <typename SampleType>
 Shifter<SampleType>::Grain::~Grain()
@@ -128,27 +133,37 @@ template <typename SampleType>
 SampleType Shifter<SampleType>::Grain::getNextSample()
 {
 	jassert (analysisGrain != nullptr);
-	jassert (sampleIdx < analysisGrain->grainSize);
-	jassert (analysisGrain->samples.getNumChannels() == 1);
-	jassert (analysisGrain->samples.getNumSamples() > 0);
+	jassert (sampleIdx < analysisGrain->getSize());
 
-	const auto sample = analysisGrain->samples.getSample (0, sampleIdx++);
+	const auto sample = analysisGrain->getSample (sampleIdx++);
 
-	if (sampleIdx >= analysisGrain->grainSize)
+	if (sampleIdx >= analysisGrain->getSize())
 		clearGrain();
 
 	return sample;
 }
 
 template <typename SampleType>
+void Shifter<SampleType>::Grain::startNewGrain (AnalysisGrain& analysisGrainToUse)
+{
+	jassert (analysisGrainToUse.getSize() > 0);
+
+	analysisGrain = &analysisGrainToUse;
+	sampleIdx     = 0;
+
+	analysisGrainToUse.incReferenceCount();
+}
+
+template <typename SampleType>
 void Shifter<SampleType>::Grain::clearGrain()
 {
-	if (analysisGrain == nullptr)
-		return;
+	if (analysisGrain != nullptr)
+	{
+		analysisGrain->decReferenceCountWithoutDeleting();
+		analysisGrain = nullptr;
+	}
 
-	analysisGrain->decReferenceCountWithoutDeleting();
-	analysisGrain = nullptr;
-	sampleIdx     = 0;
+	sampleIdx = 0;
 }
 
 template <typename SampleType>
@@ -157,7 +172,7 @@ bool Shifter<SampleType>::Grain::isActive() const
 	if (analysisGrain == nullptr)
 		return false;
 
-	return sampleIdx < analysisGrain->grainSize;
+	return sampleIdx < analysisGrain->getSize();
 }
 
 template class Shifter<float>;
@@ -206,19 +221,24 @@ void PsolaTests<SampleType>::runTest()
 		{
 			const auto st = beginSubtest ("Shifting down");
 
-			osc.getSamples (origAudio);
+			for (const auto ratio : { 0.75, 0.8, 0.5, 0.4 })
+			{
+				const auto subtest = beginSubtest ("Shifting ratio: " + String (ratio));
 
-			analyzer.analyzeInput (origAudio);
+				const auto targetPitch = origFreq * static_cast<SampleType> (ratio);
 
-			constexpr auto targetPitch = origFreq / 2;
+				osc.getSamples (origAudio);
 
-			shifter.setPitch (juce::roundToInt (targetPitch), samplerate);
+				analyzer.analyzeInput (origAudio);
 
-			shifter.getSamples (shiftedAudio);
+				shifter.setPitch (juce::roundToInt (targetPitch));
 
-			expectWithinAbsoluteError (detector.detectPitch (shiftedAudio),
-			                           static_cast<float> (targetPitch),
-			                           2.f);
+				shifter.getSamples (shiftedAudio);
+
+				expectWithinAbsoluteError (detector.detectPitch (shiftedAudio),
+				                           static_cast<float> (targetPitch),
+				                           5.f);
+			}
 		}
 
 		{
@@ -228,32 +248,37 @@ void PsolaTests<SampleType>::runTest()
 
 			analyzer.analyzeInput (origAudio);
 
-			shifter.setPitch (juce::roundToInt (origFreq), samplerate);
+			shifter.setPitch (juce::roundToInt (origFreq));
 
 			shifter.getSamples (shiftedAudio);
 
 			expectWithinAbsoluteError (detector.detectPitch (shiftedAudio),
 			                           static_cast<float> (origFreq),
-			                           4.f);
+			                           6.f);
 		}
 
-		//        {
-		//            const auto st = beginSubtest ("Shifting up");
-		//
-		//            osc.getSamples (origAudio);
-		//
-		//            analyzer.analyzeInput (origAudio);
-		//
-		//            constexpr auto targetPitch = origFreq * 2;
-		//
-		//            shifter.setPitch (juce::roundToInt (targetPitch), samplerate);
-		//
-		//            shifter.getSamples (shiftedAudio);
-		//
-		//            expectWithinAbsoluteError (detector.detectPitch (shiftedAudio),
-		//                                       static_cast<float> (targetPitch),
-		//                                       2.f);
-		//        }
+		{
+			const auto st = beginSubtest ("Shifting up");
+
+			for (const auto ratio : { 1.3, 1.1 })
+			{
+				const auto subtest = beginSubtest ("Shifting ratio: " + String (ratio));
+
+				const auto targetPitch = origFreq * static_cast<SampleType> (ratio);
+
+				osc.getSamples (origAudio);
+
+				analyzer.analyzeInput (origAudio);
+
+				shifter.setPitch (juce::roundToInt (targetPitch));
+
+				shifter.getSamples (shiftedAudio);
+
+				expectWithinAbsoluteError (detector.detectPitch (shiftedAudio),
+				                           static_cast<float> (targetPitch),
+				                           17.f);
+			}
+		}
 	}
 }
 

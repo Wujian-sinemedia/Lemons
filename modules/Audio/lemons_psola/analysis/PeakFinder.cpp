@@ -74,8 +74,6 @@ const Array<int>& PeakFinder<SampleType>::findPeaks (const SampleType* inputSamp
 		peakIndices.add (findNextPeak (frameStart, frameEnd, std::min (analysisIndex, frameEnd),
 		                               inputSamples, intPeriod, grainSize));
 
-		jassert (! peakIndices.isEmpty());
-
 		const auto prevAnalysisIndex = analysisIndex;
 
 		analysisIndex = [&]() -> int

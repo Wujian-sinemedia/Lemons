@@ -201,6 +201,12 @@ int PitchDetector<SampleType>::setMinHz (int newMinHz)
 }
 
 template <typename SampleType>
+int PitchDetector<SampleType>::getMinHz() const noexcept
+{
+    return minHz;
+}
+
+template <typename SampleType>
 [[nodiscard]] int PitchDetector<SampleType>::getLatencySamples() const noexcept
 {
 	if (samplerate == 0)

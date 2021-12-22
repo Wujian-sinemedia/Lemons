@@ -23,14 +23,21 @@ namespace lemons::dsp::psola
 template <typename T>
 using Array = juce::Array<T>;
 
+/** A class that identifies pitch peaks for PSOLA pitch shifting.
+    You probably won't ever need to use this class directly, as it's mainly intended as a utilty for the Analyzer class.
+ */
 template <typename SampleType>
 class PeakFinder final
 {
 public:
+
+	/** Analyzes a stream of audio and identifies the best set of pitch peaks to use for PSOLA pitch shifting. */
 	[[nodiscard]] const Array<int>& findPeaks (const SampleType* inputSamples, int numSamples, float period);
 
+	/** Prepares the analyzer for a new maximum blocksize. */
 	void prepare (int maxBlocksize);
 
+	/** Releases all resources used by the analyzer. */
 	void releaseResources();
 
 private:
