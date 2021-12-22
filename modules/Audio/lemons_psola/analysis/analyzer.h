@@ -84,16 +84,20 @@ private:
 		[[nodiscard]] int getSize() const noexcept;
 
 		[[nodiscard]] int getOrigStart() const noexcept;
-        
+
 		void newBlockStarting (int last_blocksize);
 
 		void storeNewGrain (const SampleType* origSamples, int startIndex, const SampleType* windowSamples, int numSamples);
+
+		void storeNewGrain (const SampleType* origSamples1, int startIndex1, int blocksize1,
+		                    const SampleType* origSamples2, int blocksize2,
+		                    const SampleType* windowSamples, int totalNumSamples, int grainStartIdx);
 
 		void reserveSize (int numSamples);
 
 	private:
 		int origStartIndex { 0 }, grainSize { 0 };
-        
+
 		AudioBuffer<SampleType> samples;
 	};
 
@@ -119,6 +123,12 @@ private:
 	Array<Shifter<SampleType>*> shifters;
 
 	juce::Random random;
+
+	AudioBuffer<SampleType> prevFrame;
+
+	Array<int> incompleteGrainsFromLastFrame;
+
+	int lastFrameGrainSize { 0 };
 };
 
 }  // namespace lemons::dsp::psola
