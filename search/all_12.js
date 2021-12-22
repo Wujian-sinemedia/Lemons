@@ -62,7 +62,7 @@ var searchData=
   ['setnotestealingenabled_930',['setNoteStealingEnabled',['../classlemons_1_1dsp_1_1_synth_base.html#a1b4b1e3ce9ab3bfefa448edba826e136',1,'lemons::dsp::SynthBase']]],
   ['setosctype_931',['setOscType',['../classlemons_1_1dsp_1_1osc_1_1_choosable_oscillator.html#a39f887a0d50e01b72f1f862d20e43069',1,'lemons::dsp::osc::ChoosableOscillator']]],
   ['setparams_932',['setParams',['../classlemons_1_1dsp_1_1synth_1_1_automated_harmony_voice.html#ada7dabfb1b405bcd3178a875f89405c4',1,'lemons::dsp::synth::AutomatedHarmonyVoice']]],
-  ['setpitch_933',['setPitch',['../classlemons_1_1dsp_1_1psola_1_1_shifter.html#a2c87002a54dcd8f3daa3a6b3787af67e',1,'lemons::dsp::psola::Shifter']]],
+  ['setpitch_933',['setPitch',['../classlemons_1_1dsp_1_1psola_1_1_shifter.html#ad94a42009f71701f57d486e7a17d2416',1,'lemons::dsp::psola::Shifter']]],
   ['setpitchglidetime_934',['setPitchGlideTime',['../classlemons_1_1dsp_1_1_synth_base.html#ab5947c267077d9cd36f30388a3b34372',1,'lemons::dsp::SynthBase::setPitchGlideTime()'],['../classlemons_1_1dsp_1_1_synth_voice_base.html#a4d8dc57f6251d2a144deb227f34ee922',1,'lemons::dsp::SynthVoiceBase::setPitchGlideTime()']]],
   ['setpointcolour_935',['setPointColour',['../classlemons_1_1spline_1_1_editor.html#ae4c5d1bcfca97fc0c18c07eb7273f344',1,'lemons::spline::Editor']]],
   ['setpointthickness_936',['setPointThickness',['../classlemons_1_1spline_1_1_editor.html#a764f3aa896ae86f9d32a80eac2b3e06c',1,'lemons::spline::Editor']]],

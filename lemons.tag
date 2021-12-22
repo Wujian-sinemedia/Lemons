@@ -1283,6 +1283,13 @@
     <namespace>lemons</namespace>
     <namespace>lemons::dsp</namespace>
     <namespace>lemons::dsp::psola</namespace>
+    <member kind="typedef">
+      <type>juce::Array&lt; T &gt;</type>
+      <name>Array</name>
+      <anchorfile>namespacelemons_1_1dsp_1_1psola.html</anchorfile>
+      <anchor>a8ac0fbfc3d89e90587c061caa86c0b4f</anchor>
+      <arglist></arglist>
+    </member>
   </compound>
   <compound kind="file">
     <name>PitchbendTracker.h</name>
@@ -2173,6 +2180,13 @@
       <anchorfile>classlemons_1_1dsp_1_1psola_1_1_analyzer.html</anchorfile>
       <anchor>a392fa0d9e1ce3e05a25f405db613a183</anchor>
       <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>releaseResources</name>
+      <anchorfile>classlemons_1_1dsp_1_1psola_1_1_analyzer.html</anchorfile>
+      <anchor>a8a6ac4f47262969a563155d95a7d3bad</anchor>
+      <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>int</type>
@@ -8737,39 +8751,6 @@
     </member>
   </compound>
   <compound kind="class">
-    <name>lemons::dsp::filters::Filter</name>
-    <filename>classlemons_1_1dsp_1_1filters_1_1_filter.html</filename>
-    <templarg></templarg>
-    <member kind="function">
-      <type>void</type>
-      <name>prepare</name>
-      <anchorfile>classlemons_1_1dsp_1_1filters_1_1_filter.html</anchorfile>
-      <anchor>adb8982b06bdc99e8b8b544318ca9e02a</anchor>
-      <arglist>() noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>process</name>
-      <anchorfile>classlemons_1_1dsp_1_1filters_1_1_filter.html</anchorfile>
-      <anchor>a5fbb9f92bd17682d554077cc3a8c08c5</anchor>
-      <arglist>(SampleType *buffer, int numSamples)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>reset</name>
-      <anchorfile>classlemons_1_1dsp_1_1filters_1_1_filter.html</anchorfile>
-      <anchor>a072e405ea503f6e2a1fc15d3a2818e4f</anchor>
-      <arglist>(SampleType resetToValue=SampleType(0))</arglist>
-    </member>
-    <member kind="variable">
-      <type>Coefficients&lt; SampleType &gt;</type>
-      <name>coefs</name>
-      <anchorfile>classlemons_1_1dsp_1_1filters_1_1_filter.html</anchorfile>
-      <anchor>aa2a2553de95ae712e5d0e74599dd908b</anchor>
-      <arglist></arglist>
-    </member>
-  </compound>
-  <compound kind="class">
     <name>lemons::dsp::FX::Filter</name>
     <filename>classlemons_1_1dsp_1_1_f_x_1_1_filter.html</filename>
     <templarg></templarg>
@@ -8871,6 +8852,39 @@
       <anchorfile>classlemons_1_1dsp_1_1_f_x_1_1_filter.html</anchorfile>
       <anchor>adc6df900e5c38eb40841ae62dd759d0f</anchor>
       <arglist>(float newQ)</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>lemons::dsp::filters::Filter</name>
+    <filename>classlemons_1_1dsp_1_1filters_1_1_filter.html</filename>
+    <templarg></templarg>
+    <member kind="function">
+      <type>void</type>
+      <name>prepare</name>
+      <anchorfile>classlemons_1_1dsp_1_1filters_1_1_filter.html</anchorfile>
+      <anchor>adb8982b06bdc99e8b8b544318ca9e02a</anchor>
+      <arglist>() noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>process</name>
+      <anchorfile>classlemons_1_1dsp_1_1filters_1_1_filter.html</anchorfile>
+      <anchor>a5fbb9f92bd17682d554077cc3a8c08c5</anchor>
+      <arglist>(SampleType *buffer, int numSamples)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>reset</name>
+      <anchorfile>classlemons_1_1dsp_1_1filters_1_1_filter.html</anchorfile>
+      <anchor>a072e405ea503f6e2a1fc15d3a2818e4f</anchor>
+      <arglist>(SampleType resetToValue=SampleType(0))</arglist>
+    </member>
+    <member kind="variable">
+      <type>Coefficients&lt; SampleType &gt;</type>
+      <name>coefs</name>
+      <anchorfile>classlemons_1_1dsp_1_1filters_1_1_filter.html</anchorfile>
+      <anchor>aa2a2553de95ae712e5d0e74599dd908b</anchor>
+      <arglist></arglist>
     </member>
   </compound>
   <compound kind="struct">
@@ -15373,10 +15387,10 @@
     <filename>classlemons_1_1dsp_1_1psola_1_1_peak_finder.html</filename>
     <templarg></templarg>
     <member kind="function">
-      <type>const juce::Array&lt; int &gt; &amp;</type>
+      <type>const Array&lt; int &gt; &amp;</type>
       <name>findPeaks</name>
       <anchorfile>classlemons_1_1dsp_1_1psola_1_1_peak_finder.html</anchorfile>
-      <anchor>a9b307cd1cf5dfa57a16af4edef5257e5</anchor>
+      <anchor>ae3e7902cd3e189ad703708770baf1783</anchor>
       <arglist>(const SampleType *inputSamples, int numSamples, float period)</arglist>
     </member>
     <member kind="function">
@@ -15816,6 +15830,13 @@
       <name>getLatencySamples</name>
       <anchorfile>classlemons_1_1dsp_1_1_pitch_detector.html</anchorfile>
       <anchor>a83fe88a56a998eefee329ccaa5b3c48d</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>getMinHz</name>
+      <anchorfile>classlemons_1_1dsp_1_1_pitch_detector.html</anchorfile>
+      <anchor>ac4c0dd776fec07b647d00e84ac0530a6</anchor>
       <arglist>() const noexcept</arglist>
     </member>
     <member kind="function">
@@ -17280,6 +17301,20 @@
       <arglist>(Analyzer&lt; SampleType &gt; &amp;analyzerToUse)</arglist>
     </member>
     <member kind="function">
+      <type></type>
+      <name>~Shifter</name>
+      <anchorfile>classlemons_1_1dsp_1_1psola_1_1_shifter.html</anchorfile>
+      <anchor>a6268847646c2f7eb3b76a8abf4494b30</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>SampleType</type>
+      <name>getNextSample</name>
+      <anchorfile>classlemons_1_1dsp_1_1psola_1_1_shifter.html</anchorfile>
+      <anchor>a7dbb3e0a44fe503c0a415c4b08d72d67</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
       <type>void</type>
       <name>getSamples</name>
       <anchorfile>classlemons_1_1dsp_1_1psola_1_1_shifter.html</anchorfile>
@@ -17295,17 +17330,24 @@
     </member>
     <member kind="function">
       <type>void</type>
-      <name>newBlockReceived</name>
+      <name>releaseResources</name>
       <anchorfile>classlemons_1_1dsp_1_1psola_1_1_shifter.html</anchorfile>
-      <anchor>a2dbad7cc22405548545fdffa78289297</anchor>
-      <arglist>(int numSamples)</arglist>
+      <anchor>a2c92a63fdfc10ca993486235f0362531</anchor>
+      <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>setPitch</name>
       <anchorfile>classlemons_1_1dsp_1_1psola_1_1_shifter.html</anchorfile>
-      <anchor>a2c87002a54dcd8f3daa3a6b3787af67e</anchor>
-      <arglist>(int pitchHz, double samplerate)</arglist>
+      <anchor>ad94a42009f71701f57d486e7a17d2416</anchor>
+      <arglist>(int pitchHz)</arglist>
+    </member>
+    <member kind="friend" protection="private">
+      <type>friend class</type>
+      <name>Analyzer&lt; SampleType &gt;</name>
+      <anchorfile>classlemons_1_1dsp_1_1psola_1_1_shifter.html</anchorfile>
+      <anchor>a22bbc3f7f1466d647e7b5eb3e4b39204</anchor>
+      <arglist></arglist>
     </member>
   </compound>
   <compound kind="struct">
@@ -22006,6 +22048,13 @@
     <class kind="class">lemons::dsp::psola::Analyzer</class>
     <class kind="class">lemons::dsp::psola::PeakFinder</class>
     <class kind="class">lemons::dsp::psola::Shifter</class>
+    <member kind="typedef">
+      <type>juce::Array&lt; T &gt;</type>
+      <name>Array</name>
+      <anchorfile>namespacelemons_1_1dsp_1_1psola.html</anchorfile>
+      <anchor>a8ac0fbfc3d89e90587c061caa86c0b4f</anchor>
+      <arglist></arglist>
+    </member>
   </compound>
   <compound kind="namespace">
     <name>lemons::dsp::synth</name>

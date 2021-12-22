@@ -74,21 +74,41 @@ $(function() {
 <div class="title">lemons::dsp::psola::Shifter&lt; SampleType &gt; Class Template Reference<div class="ingroups"><a class="el" href="group___audio.html">Audio</a> &raquo; <a class="el" href="group__lemons__psola.html">lemons_psola</a> &raquo; <a class="el" href="group__resynthesis.html">resynthesis</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>A class that repitches a stream of monophonic audio using PSOLA-like techniques.  
+ <a href="classlemons_1_1dsp_1_1psola_1_1_shifter.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a2e3cd2a236f20d876b79789d81866ba4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1psola_1_1_shifter.html#a2e3cd2a236f20d876b79789d81866ba4">Shifter</a> (<a class="el" href="classlemons_1_1dsp_1_1psola_1_1_analyzer.html">Analyzer</a>&lt; SampleType &gt; &amp;analyzerToUse)</td></tr>
+<tr class="memdesc:a2e3cd2a236f20d876b79789d81866ba4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a <a class="el" href="classlemons_1_1dsp_1_1psola_1_1_shifter.html" title="A class that repitches a stream of monophonic audio using PSOLA-like techniques.">Shifter</a>.  <a href="classlemons_1_1dsp_1_1psola_1_1_shifter.html#a2e3cd2a236f20d876b79789d81866ba4">More...</a><br /></td></tr>
 <tr class="separator:a2e3cd2a236f20d876b79789d81866ba4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6268847646c2f7eb3b76a8abf4494b30"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1psola_1_1_shifter.html#a6268847646c2f7eb3b76a8abf4494b30">~Shifter</a> ()</td></tr>
+<tr class="memdesc:a6268847646c2f7eb3b76a8abf4494b30"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <a href="classlemons_1_1dsp_1_1psola_1_1_shifter.html#a6268847646c2f7eb3b76a8abf4494b30">More...</a><br /></td></tr>
+<tr class="separator:a6268847646c2f7eb3b76a8abf4494b30"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7dbb3e0a44fe503c0a415c4b08d72d67"><td class="memItemLeft" align="right" valign="top">SampleType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1psola_1_1_shifter.html#a7dbb3e0a44fe503c0a415c4b08d72d67">getNextSample</a> ()</td></tr>
+<tr class="memdesc:a7dbb3e0a44fe503c0a415c4b08d72d67"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the next repitched sample from the shifter.  <a href="classlemons_1_1dsp_1_1psola_1_1_shifter.html#a7dbb3e0a44fe503c0a415c4b08d72d67">More...</a><br /></td></tr>
+<tr class="separator:a7dbb3e0a44fe503c0a415c4b08d72d67"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2cffdfc5f7a2b191f25b7e2a41e735c6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1psola_1_1_shifter.html#a2cffdfc5f7a2b191f25b7e2a41e735c6">getSamples</a> (<a class="el" href="namespacelemons_1_1dsp.html#a18d4de532efb0450f4f594bfbe9cceb0">AudioBuffer</a>&lt; SampleType &gt; &amp;output)</td></tr>
+<tr class="memdesc:a2cffdfc5f7a2b191f25b7e2a41e735c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the next block of repitched samples from the shifter.  <a href="classlemons_1_1dsp_1_1psola_1_1_shifter.html#a2cffdfc5f7a2b191f25b7e2a41e735c6">More...</a><br /></td></tr>
 <tr class="separator:a2cffdfc5f7a2b191f25b7e2a41e735c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0517efb82243046286fc03585dbe0b6e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1psola_1_1_shifter.html#a0517efb82243046286fc03585dbe0b6e">getSamples</a> (SampleType *output, int numSamples)</td></tr>
+<tr class="memdesc:a0517efb82243046286fc03585dbe0b6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the next block of repitched samples from the shifter.  <a href="classlemons_1_1dsp_1_1psola_1_1_shifter.html#a0517efb82243046286fc03585dbe0b6e">More...</a><br /></td></tr>
 <tr class="separator:a0517efb82243046286fc03585dbe0b6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2dbad7cc22405548545fdffa78289297"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1psola_1_1_shifter.html#a2dbad7cc22405548545fdffa78289297">newBlockReceived</a> (int numSamples)</td></tr>
-<tr class="separator:a2dbad7cc22405548545fdffa78289297"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2c87002a54dcd8f3daa3a6b3787af67e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1psola_1_1_shifter.html#a2c87002a54dcd8f3daa3a6b3787af67e">setPitch</a> (int pitchHz, double samplerate)</td></tr>
-<tr class="separator:a2c87002a54dcd8f3daa3a6b3787af67e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2c92a63fdfc10ca993486235f0362531"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1psola_1_1_shifter.html#a2c92a63fdfc10ca993486235f0362531">releaseResources</a> ()</td></tr>
+<tr class="memdesc:a2c92a63fdfc10ca993486235f0362531"><td class="mdescLeft">&#160;</td><td class="mdescRight">Releases all the resources used by the <a class="el" href="classlemons_1_1dsp_1_1psola_1_1_shifter.html" title="A class that repitches a stream of monophonic audio using PSOLA-like techniques.">Shifter</a>.  <a href="classlemons_1_1dsp_1_1psola_1_1_shifter.html#a2c92a63fdfc10ca993486235f0362531">More...</a><br /></td></tr>
+<tr class="separator:a2c92a63fdfc10ca993486235f0362531"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad94a42009f71701f57d486e7a17d2416"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1psola_1_1_shifter.html#ad94a42009f71701f57d486e7a17d2416">setPitch</a> (int pitchHz)</td></tr>
+<tr class="memdesc:ad94a42009f71701f57d486e7a17d2416"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the pitch, in Hz, of the shifter's output.  <a href="classlemons_1_1dsp_1_1psola_1_1_shifter.html#ad94a42009f71701f57d486e7a17d2416">More...</a><br /></td></tr>
+<tr class="separator:ad94a42009f71701f57d486e7a17d2416"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><h3>template&lt;typename SampleType&gt;<br />
+class lemons::dsp::psola::Shifter&lt; SampleType &gt;</h3>
+
+<p>A class that repitches a stream of monophonic audio using PSOLA-like techniques. </p>
+<p>This class is essentially a "client" of an <a class="el" href="classlemons_1_1dsp_1_1psola_1_1_analyzer.html" title="A class that analyzes and stores a stream of audio, so that Shifter objects can repitch it.">Analyzer</a> object, which allows multiple Shifters to be used simultaneously without requiring the expensive analysis process to be repeated. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a2e3cd2a236f20d876b79789d81866ba4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2e3cd2a236f20d876b79789d81866ba4">&#9670;&nbsp;</a></span>Shifter()</h2>
 
@@ -115,9 +135,54 @@ template&lt;typename SampleType &gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Creates a <a class="el" href="classlemons_1_1dsp_1_1psola_1_1_shifter.html" title="A class that repitches a stream of monophonic audio using PSOLA-like techniques.">Shifter</a>. </p>
+<p>The shifter will reference the specified <a class="el" href="classlemons_1_1dsp_1_1psola_1_1_analyzer.html" title="A class that analyzes and stores a stream of audio, so that Shifter objects can repitch it.">Analyzer</a> for the duration of its lifetime; make sure you don't delete the <a class="el" href="classlemons_1_1dsp_1_1psola_1_1_analyzer.html" title="A class that analyzes and stores a stream of audio, so that Shifter objects can repitch it.">Analyzer</a> before the Shifter! </p>
+
+</div>
+</div>
+<a id="a6268847646c2f7eb3b76a8abf4494b30"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6268847646c2f7eb3b76a8abf4494b30">&#9670;&nbsp;</a></span>~Shifter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename SampleType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classlemons_1_1dsp_1_1psola_1_1_shifter.html">lemons::dsp::psola::Shifter</a>&lt; SampleType &gt;::~<a class="el" href="classlemons_1_1dsp_1_1psola_1_1_shifter.html">Shifter</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Destructor. </p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a7dbb3e0a44fe503c0a415c4b08d72d67"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7dbb3e0a44fe503c0a415c4b08d72d67">&#9670;&nbsp;</a></span>getNextSample()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename SampleType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">SampleType <a class="el" href="classlemons_1_1dsp_1_1psola_1_1_shifter.html">lemons::dsp::psola::Shifter</a>&lt; SampleType &gt;::getNextSample </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the next repitched sample from the shifter. </p>
+
+</div>
+</div>
 <a id="a2cffdfc5f7a2b191f25b7e2a41e735c6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2cffdfc5f7a2b191f25b7e2a41e735c6">&#9670;&nbsp;</a></span>getSamples() <span class="overload">[1/2]</span></h2>
 
@@ -135,6 +200,8 @@ template&lt;typename SampleType &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns the next block of repitched samples from the shifter. </p>
 
 </div>
 </div>
@@ -166,10 +233,12 @@ template&lt;typename SampleType &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Returns the next block of repitched samples from the shifter. </p>
+
 </div>
 </div>
-<a id="a2dbad7cc22405548545fdffa78289297"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2dbad7cc22405548545fdffa78289297">&#9670;&nbsp;</a></span>newBlockReceived()</h2>
+<a id="a2c92a63fdfc10ca993486235f0362531"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2c92a63fdfc10ca993486235f0362531">&#9670;&nbsp;</a></span>releaseResources()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -177,19 +246,21 @@ template&lt;typename SampleType &gt; </div>
 template&lt;typename SampleType &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classlemons_1_1dsp_1_1psola_1_1_shifter.html">lemons::dsp::psola::Shifter</a>&lt; SampleType &gt;::newBlockReceived </td>
+          <td class="memname">void <a class="el" href="classlemons_1_1dsp_1_1psola_1_1_shifter.html">lemons::dsp::psola::Shifter</a>&lt; SampleType &gt;::releaseResources </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>numSamples</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
+<p>Releases all the resources used by the <a class="el" href="classlemons_1_1dsp_1_1psola_1_1_shifter.html" title="A class that repitches a stream of monophonic audio using PSOLA-like techniques.">Shifter</a>. </p>
+<p>Note that this is called for you if you call <a class="el" href="classlemons_1_1dsp_1_1psola_1_1_analyzer.html#a8a6ac4f47262969a563155d95a7d3bad" title="Releases all resources used by the Analyzer object.">Analyzer::releaseResources()</a>. </p>
+
 </div>
 </div>
-<a id="a2c87002a54dcd8f3daa3a6b3787af67e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2c87002a54dcd8f3daa3a6b3787af67e">&#9670;&nbsp;</a></span>setPitch()</h2>
+<a id="ad94a42009f71701f57d486e7a17d2416"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad94a42009f71701f57d486e7a17d2416">&#9670;&nbsp;</a></span>setPitch()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -200,21 +271,14 @@ template&lt;typename SampleType &gt; </div>
           <td class="memname">void <a class="el" href="classlemons_1_1dsp_1_1psola_1_1_shifter.html">lemons::dsp::psola::Shifter</a>&lt; SampleType &gt;::setPitch </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>pitchHz</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"><em>pitchHz</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>samplerate</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Sets the pitch, in Hz, of the shifter's output. </p>
+<p>Note that before calling this, you must set the samplerate of the algorithm using <a class="el" href="classlemons_1_1dsp_1_1psola_1_1_analyzer.html#ad411d4adc2548c7ca7296a861ecf7fcf" title="Sets the samplerate, and informs any Shifter objects that are using this Analyzer.">Analyzer::setSamplerate()</a>. </p>
 
 </div>
 </div>
@@ -225,7 +289,7 @@ template&lt;typename SampleType &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Dec 22 2021 00:47:34 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Dec 22 2021 07:25:56 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

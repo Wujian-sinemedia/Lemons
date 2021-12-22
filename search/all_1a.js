@@ -14,10 +14,11 @@ var searchData=
   ['_7escopedcursor_1129',['~ScopedCursor',['../structlemons_1_1gui_1_1_scoped_cursor.html#acce4fe5f5f21b1f59b34fabdbb172362',1,'lemons::gui::ScopedCursor']]],
   ['_7escopeddisabler_1130',['~ScopedDisabler',['../structlemons_1_1_device_rotation_1_1_scoped_disabler.html#a41ae40f3c61ac009fdce4e732feb0000',1,'lemons::DeviceRotation::ScopedDisabler']]],
   ['_7escopedwaitcursor_1131',['~ScopedWaitCursor',['../structlemons_1_1gui_1_1_scoped_wait_cursor.html#a8a9890039c1e747c97028bf7c0015f3f',1,'lemons::gui::ScopedWaitCursor']]],
-  ['_7esubtest_1132',['~Subtest',['../structlemons_1_1tests_1_1_test_1_1_subtest.html#aacbf687133893950cb1841743dcd98d9',1,'lemons::tests::Test::Subtest']]],
-  ['_7esynthbase_1133',['~SynthBase',['../classlemons_1_1dsp_1_1_synth_base.html#a4d31200bd53189b63751267907358cd9',1,'lemons::dsp::SynthBase']]],
-  ['_7esynthvoicebase_1134',['~SynthVoiceBase',['../classlemons_1_1dsp_1_1_synth_voice_base.html#a52c45a2d148ad2b0334b1bb852d2b67d',1,'lemons::dsp::SynthVoiceBase']]],
-  ['_7etimercallback_1135',['~TimerCallback',['../structlemons_1_1events_1_1_timer_callback.html#a941b01ce2a6e0d0b3e7e8c5b9a7c2916',1,'lemons::events::TimerCallback']]],
-  ['_7etogglebutton_1136',['~ToggleButton',['../classlemons_1_1gui_1_1_toggle_button.html#aafe0e0cbb1115f922e38f607cb88b6d5',1,'lemons::gui::ToggleButton']]],
-  ['_7etranslationsinitializer_1137',['~TranslationsInitializer',['../structlemons_1_1locale_1_1_translations_initializer.html#a049f088a5459e55769375746424f29d2',1,'lemons::locale::TranslationsInitializer']]]
+  ['_7eshifter_1132',['~Shifter',['../classlemons_1_1dsp_1_1psola_1_1_shifter.html#a6268847646c2f7eb3b76a8abf4494b30',1,'lemons::dsp::psola::Shifter']]],
+  ['_7esubtest_1133',['~Subtest',['../structlemons_1_1tests_1_1_test_1_1_subtest.html#aacbf687133893950cb1841743dcd98d9',1,'lemons::tests::Test::Subtest']]],
+  ['_7esynthbase_1134',['~SynthBase',['../classlemons_1_1dsp_1_1_synth_base.html#a4d31200bd53189b63751267907358cd9',1,'lemons::dsp::SynthBase']]],
+  ['_7esynthvoicebase_1135',['~SynthVoiceBase',['../classlemons_1_1dsp_1_1_synth_voice_base.html#a52c45a2d148ad2b0334b1bb852d2b67d',1,'lemons::dsp::SynthVoiceBase']]],
+  ['_7etimercallback_1136',['~TimerCallback',['../structlemons_1_1events_1_1_timer_callback.html#a941b01ce2a6e0d0b3e7e8c5b9a7c2916',1,'lemons::events::TimerCallback']]],
+  ['_7etogglebutton_1137',['~ToggleButton',['../classlemons_1_1gui_1_1_toggle_button.html#aafe0e0cbb1115f922e38f607cb88b6d5',1,'lemons::gui::ToggleButton']]],
+  ['_7etranslationsinitializer_1138',['~TranslationsInitializer',['../structlemons_1_1locale_1_1_translations_initializer.html#a049f088a5459e55769375746424f29d2',1,'lemons::locale::TranslationsInitializer']]]
 ];

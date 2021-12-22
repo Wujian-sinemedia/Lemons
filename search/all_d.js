@@ -1,9 +1,8 @@
 var searchData=
 [
-  ['name_697',['name',['../structlemons_1_1plugin_1_1_processor_holder_1_1_parameter_state_data.html#a56132dfbc8b967ad6897466aa1beae1d',1,'lemons::plugin::ProcessorHolder::ParameterStateData']]],
-  ['namepopup_2eh_698',['NamePopup.h',['../_name_popup_8h.html',1,'']]],
-  ['newblockcoming_699',['newBlockComing',['../classlemons_1_1dsp_1_1_synth_voice_base.html#a2fdfe023fcaebb4ccd8f27e57d564b2b',1,'lemons::dsp::SynthVoiceBase']]],
-  ['newblockreceived_700',['newBlockReceived',['../classlemons_1_1dsp_1_1psola_1_1_shifter.html#a2dbad7cc22405548545fdffa78289297',1,'lemons::dsp::psola::Shifter']]],
+  ['name_698',['name',['../structlemons_1_1plugin_1_1_processor_holder_1_1_parameter_state_data.html#a56132dfbc8b967ad6897466aa1beae1d',1,'lemons::plugin::ProcessorHolder::ParameterStateData']]],
+  ['namepopup_2eh_699',['NamePopup.h',['../_name_popup_8h.html',1,'']]],
+  ['newblockcoming_700',['newBlockComing',['../classlemons_1_1dsp_1_1_synth_voice_base.html#a2fdfe023fcaebb4ccd8f27e57d564b2b',1,'lemons::dsp::SynthVoiceBase']]],
   ['newpitchbendrecieved_701',['newPitchbendRecieved',['../classlemons_1_1midi_1_1_pitch_bend_tracker.html#a209a730f6d0c397bb086da6e0b216312',1,'lemons::midi::PitchBendTracker']]],
   ['next_702',['next',['../structlemons_1_1dsp_1_1osc_1_1_phase.html#a43a5cf0e92b7d5a32b40a6a6aae258c0',1,'lemons::dsp::osc::Phase']]],
   ['node_703',['Node',['../structlemons_1_1dsp_1_1_engine_chain_1_1_node.html',1,'lemons::dsp::EngineChain&lt; SampleType &gt;::Node'],['../structlemons_1_1dsp_1_1_engine_chain_1_1_node.html#a28d3f3af06065f18362eb935f191b6ce',1,'lemons::dsp::EngineChain::Node::Node()']]],

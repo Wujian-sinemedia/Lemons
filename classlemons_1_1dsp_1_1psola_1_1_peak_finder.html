@@ -74,19 +74,31 @@ $(function() {
 <div class="title">lemons::dsp::psola::PeakFinder&lt; SampleType &gt; Class Template Reference<span class="mlabels"><span class="mlabel">final</span></span><div class="ingroups"><a class="el" href="group___audio.html">Audio</a> &raquo; <a class="el" href="group__lemons__psola.html">lemons_psola</a> &raquo; <a class="el" href="group__analysis.html">analysis</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>A class that identifies pitch peaks for PSOLA pitch shifting.  
+ <a href="classlemons_1_1dsp_1_1psola_1_1_peak_finder.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a9b307cd1cf5dfa57a16af4edef5257e5"><td class="memItemLeft" align="right" valign="top">const juce::Array&lt; int &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1psola_1_1_peak_finder.html#a9b307cd1cf5dfa57a16af4edef5257e5">findPeaks</a> (const SampleType *inputSamples, int numSamples, float period)</td></tr>
-<tr class="separator:a9b307cd1cf5dfa57a16af4edef5257e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae3e7902cd3e189ad703708770baf1783"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="namespacelemons_1_1dsp_1_1psola.html#a8ac0fbfc3d89e90587c061caa86c0b4f">Array</a>&lt; int &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1psola_1_1_peak_finder.html#ae3e7902cd3e189ad703708770baf1783">findPeaks</a> (const SampleType *inputSamples, int numSamples, float period)</td></tr>
+<tr class="memdesc:ae3e7902cd3e189ad703708770baf1783"><td class="mdescLeft">&#160;</td><td class="mdescRight">Analyzes a stream of audio and identifies the best set of pitch peaks to use for PSOLA pitch shifting.  <a href="classlemons_1_1dsp_1_1psola_1_1_peak_finder.html#ae3e7902cd3e189ad703708770baf1783">More...</a><br /></td></tr>
+<tr class="separator:ae3e7902cd3e189ad703708770baf1783"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a49ddc1b352013a426319f74133bea934"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1psola_1_1_peak_finder.html#a49ddc1b352013a426319f74133bea934">prepare</a> (int maxBlocksize)</td></tr>
+<tr class="memdesc:a49ddc1b352013a426319f74133bea934"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prepares the analyzer for a new maximum blocksize.  <a href="classlemons_1_1dsp_1_1psola_1_1_peak_finder.html#a49ddc1b352013a426319f74133bea934">More...</a><br /></td></tr>
 <tr class="separator:a49ddc1b352013a426319f74133bea934"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7e094e334ac553f624732849d8821360"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1psola_1_1_peak_finder.html#a7e094e334ac553f624732849d8821360">releaseResources</a> ()</td></tr>
+<tr class="memdesc:a7e094e334ac553f624732849d8821360"><td class="mdescLeft">&#160;</td><td class="mdescRight">Releases all resources used by the analyzer.  <a href="classlemons_1_1dsp_1_1psola_1_1_peak_finder.html#a7e094e334ac553f624732849d8821360">More...</a><br /></td></tr>
 <tr class="separator:a7e094e334ac553f624732849d8821360"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="a9b307cd1cf5dfa57a16af4edef5257e5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9b307cd1cf5dfa57a16af4edef5257e5">&#9670;&nbsp;</a></span>findPeaks()</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><h3>template&lt;typename SampleType&gt;<br />
+class lemons::dsp::psola::PeakFinder&lt; SampleType &gt;</h3>
+
+<p>A class that identifies pitch peaks for PSOLA pitch shifting. </p>
+<p>You probably won't ever need to use this class directly, as it's mainly intended as a utilty for the <a class="el" href="classlemons_1_1dsp_1_1psola_1_1_analyzer.html" title="A class that analyzes and stores a stream of audio, so that Shifter objects can repitch it.">Analyzer</a> class. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="ae3e7902cd3e189ad703708770baf1783"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae3e7902cd3e189ad703708770baf1783">&#9670;&nbsp;</a></span>findPeaks()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -94,7 +106,7 @@ Public Member Functions</h2></td></tr>
 template&lt;typename SampleType &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">const juce::Array&lt;int&gt;&amp; <a class="el" href="classlemons_1_1dsp_1_1psola_1_1_peak_finder.html">lemons::dsp::psola::PeakFinder</a>&lt; SampleType &gt;::findPeaks </td>
+          <td class="memname">const <a class="el" href="namespacelemons_1_1dsp_1_1psola.html#a8ac0fbfc3d89e90587c061caa86c0b4f">Array</a>&lt;int&gt;&amp; <a class="el" href="classlemons_1_1dsp_1_1psola_1_1_peak_finder.html">lemons::dsp::psola::PeakFinder</a>&lt; SampleType &gt;::findPeaks </td>
           <td>(</td>
           <td class="paramtype">const SampleType *&#160;</td>
           <td class="paramname"><em>inputSamples</em>, </td>
@@ -119,6 +131,8 @@ template&lt;typename SampleType &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Analyzes a stream of audio and identifies the best set of pitch peaks to use for PSOLA pitch shifting. </p>
+
 </div>
 </div>
 <a id="a49ddc1b352013a426319f74133bea934"></a>
@@ -139,6 +153,8 @@ template&lt;typename SampleType &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Prepares the analyzer for a new maximum blocksize. </p>
+
 </div>
 </div>
 <a id="a7e094e334ac553f624732849d8821360"></a>
@@ -158,6 +174,8 @@ template&lt;typename SampleType &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Releases all resources used by the analyzer. </p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
@@ -166,7 +184,7 @@ template&lt;typename SampleType &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Dec 22 2021 00:47:34 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Dec 22 2021 07:25:56 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>
