@@ -17342,6 +17342,13 @@
       <anchor>ad94a42009f71701f57d486e7a17d2416</anchor>
       <arglist>(int pitchHz)</arglist>
     </member>
+    <member kind="function">
+      <type>void</type>
+      <name>skipSamples</name>
+      <anchorfile>classlemons_1_1dsp_1_1psola_1_1_shifter.html</anchorfile>
+      <anchor>a4fb7adf9cb876852a54f58dac38cd06f</anchor>
+      <arglist>(int numSamples)</arglist>
+    </member>
     <member kind="friend" protection="private">
       <type>friend class</type>
       <name>Analyzer&lt; SampleType &gt;</name>
@@ -21770,8 +21777,8 @@
       <type>void</type>
       <name>getSamples</name>
       <anchorfile>classlemons_1_1dsp_1_1_white_noise_generator.html</anchorfile>
-      <anchor>a9d66e3bcd71e4a2ced912b022babd805</anchor>
-      <arglist>(AudioBuffer&lt; SampleType &gt; &amp;output, int channel=0)</arglist>
+      <anchor>a7e6686176553ec727430168812234587</anchor>
+      <arglist>(AudioBuffer&lt; SampleType &gt; &amp;output)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
