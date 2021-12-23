@@ -228,7 +228,7 @@ void PsolaTests<SampleType>::runTest()
 		{
 			const auto st = beginSubtest ("Shifting down");
 
-			for (const auto ratio : { 0.75, 0.8, 0.5, 0.4 })
+			for (const auto ratio : { 0.75, 0.8, 0.4, 0.5 })
 			{
 				const auto subtest = beginSubtest ("Shifting ratio: " + String (ratio));
 

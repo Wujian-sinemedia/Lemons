@@ -77,7 +77,7 @@ void Analyzer<SampleType>::analyzeInput (const SampleType* inputAudio, int numSa
 
 		getGrainToStoreIn().storeNewGrain (prevFrame.getReadPointer (0), grainStartInLastFrame, samplesFromLastFrame,
 		                                   inputAudio, lastFrameGrainSize - samplesFromLastFrame,
-		                                   window.getRawDataPointer(), lastFrameGrainSize, grainStartInLastFrame - lastFrameGrainSize);
+		                                   window.getRawDataPointer(), lastFrameGrainSize, -grainStartInLastFrame);
 	}
 
 	incompleteGrainsFromLastFrame.clearQuick();
@@ -161,9 +161,9 @@ typename Analyzer<SampleType>::Grain& Analyzer<SampleType>::getClosestGrain (int
 	{
 		if (grain->getSize() == 0)
 			continue;
-
+        
 		const auto currentDist = placeInBlock - grain->getOrigStart();
-
+        
 		if (currentDist < distance)
 		{
 			distance = currentDist;
