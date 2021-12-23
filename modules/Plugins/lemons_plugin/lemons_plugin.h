@@ -56,3 +56,7 @@
 #include "processors/ProcessorBase.h"
 #include "processors/Editors.h"
 #include "processors/Processors.h"
+
+#include "hosting/ProcessorHolder.h"
+#include "hosting/ProcessorEngine.h"
+

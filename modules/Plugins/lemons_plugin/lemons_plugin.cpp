@@ -29,3 +29,6 @@
 #include "processors/BasicProcessor.cpp"
 #include "processors/PluginState.cpp"
 #include "processors/ProcessorBase.cpp"
+
+#include "hosting/ProcessorHolder.cpp"
+#include "hosting/ProcessorEngine.cpp"
