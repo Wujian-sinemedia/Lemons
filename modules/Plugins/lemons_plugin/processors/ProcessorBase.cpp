@@ -18,7 +18,7 @@ namespace lemons::plugin
 
 ProcessorBase::ProcessorBase (dsp::Engine<float>&                        floatEngineToUse,
                               dsp::Engine<double>&                       doubleEngineToUse,
-                              PluginState& stateToUse,
+                              State& stateToUse,
                               const BusesProperties& busesLayout,
                               const ProcessorAttributes& attributes)
     : BasicProcessor (busesLayout)
@@ -90,7 +90,7 @@ void ProcessorBase::processInternal (dsp::Engine<SampleType>& engine, AudioBuffe
 	juce::ScopedNoDenormals nodenorms;
 
 	if (isBypassed)
-        state.getBypass().setValueNotifyingHost (1.f);
+        state.getBypass().set (true);
 
 	const auto busLayout = getBusesLayout();
 
@@ -113,7 +113,7 @@ void ProcessorBase::processInternal (dsp::Engine<SampleType>& engine, AudioBuffe
 	const auto inBus  = findSubBuffer (true);
 	auto       outBus = findSubBuffer (false);
 
-	engine.process (inBus, outBus, midi, state.getBypass().getValue() > 0.5f);
+	engine.process (inBus, outBus, midi, state.getBypass().get());
 }
 
 template void ProcessorBase::processInternal (dsp::Engine<float>&, AudioBuffer<float>&, MidiBuffer&, bool);
@@ -159,7 +159,7 @@ juce::StringArray ProcessorBase::getAlternateDisplayNames() const
     return processorAttributes.alternateNames;
 }
 
-PluginState& ProcessorBase::getState() noexcept
+State& ProcessorBase::getState() noexcept
 {
     return state;
 }

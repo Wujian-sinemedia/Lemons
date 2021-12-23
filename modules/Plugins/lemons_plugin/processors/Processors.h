@@ -53,7 +53,7 @@ private:
 	EngineType<float>  floatEngine;
 	EngineType<double> doubleEngine;
     
-    PluginState pluginState;
+    State pluginState;
 };
 
 
@@ -95,7 +95,7 @@ struct ProcessorWithEditor final : ProcessorType
 	/** Creates an editor for this processor. */
 	juce::AudioProcessorEditor* createEditor() final
 	{
-		return new PluginEditor<ComponentType> (*this);
+		return new Editor<ComponentType> (*this);
 	}
 };
 

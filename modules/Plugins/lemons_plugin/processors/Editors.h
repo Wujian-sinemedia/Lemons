@@ -20,27 +20,27 @@ namespace lemons::plugin
 
 /** Base class for plugin editors' GUI content components.
  */
-class PluginGUI : public juce::Component
+class GUI : public juce::Component
 {
 public:
-    explicit PluginGUI (PluginState& s)
+    explicit GUI (State& s)
     : state(s)
     { }
     
 protected:
-    PluginState& state;
+    State& state;
 };
 
 
 /** Base class for a plugin editor that simply holds a specified somponent.
     @tparam ContentComponentType The type of your plugin's main component. This must inherit from PluginGUI.
  */
-template <typename ContentComponentType, LEMONS_MUST_INHERIT_FROM (ContentComponentType, PluginGUI)>
-class PluginEditor final : public juce::AudioProcessorEditor
+template <typename ContentComponentType, LEMONS_MUST_INHERIT_FROM (ContentComponentType, GUI)>
+class Editor final : public juce::AudioProcessorEditor
 {
 public:
 	/** Creates a plugin editor. */
-	explicit PluginEditor (ProcessorBase& p)
+	explicit Editor (ProcessorBase& p)
 	    : AudioProcessorEditor (p), content(p.getState())
 	{
         const auto& initialSize = p.getState().editorSize;

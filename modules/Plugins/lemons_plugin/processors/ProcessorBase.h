@@ -35,12 +35,12 @@ public:
 	 */
 	explicit ProcessorBase (dsp::Engine<float>&  floatEngineToUse,
                             dsp::Engine<double>& doubleEngineToUse,
-                            PluginState& stateToUse,
+                            State& stateToUse,
 	                        const BusesProperties& busesLayout = getDefaultBusesLayout(),
                             const ProcessorAttributes& attributes = ProcessorAttributes::fromProjectDefines());
     
     /** Returns the plugin's state object. */
-    [[nodiscard]] PluginState& getState() noexcept;
+    [[nodiscard]] State& getState() noexcept;
 
 private:
 	juce::AudioProcessorParameter* getBypassParameter() const final;
@@ -84,7 +84,7 @@ private:
     dsp::Engine<float>&  floatEngine;
     dsp::Engine<double>& doubleEngine;
     
-    PluginState& state;
+    State& state;
     
     const ProcessorAttributes processorAttributes;
     

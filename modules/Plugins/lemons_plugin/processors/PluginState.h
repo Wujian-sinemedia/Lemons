@@ -22,7 +22,7 @@ namespace lemons::plugin
 
 /** Base class for a plugin's entire state.
  */
-class PluginState
+class State
 {
 public:
     
@@ -30,9 +30,11 @@ public:
     
     // load / save
     
-    juce::AudioProcessorParameter& getBypass() { }
+    [[nodiscard]] ToggleParameter& getBypass() { return bypass; }
     
     Dimensions editorSize { Dimensions::getDefault() };
+    
+    ToggleParameter bypass { "Bypass", false };
 };
 
 }
