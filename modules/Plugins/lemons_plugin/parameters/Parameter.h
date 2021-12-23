@@ -21,6 +21,7 @@ namespace lemons::plugin
 {
 
 using juce::String;
+using juce::ValueTree;
 
 /** A plugin parameter class.
     @see TypedParameter
@@ -160,6 +161,11 @@ public:
 	    @param internationalize If this is true, the returned string will be translated using the juce::LocalisedStrings class. Setting this to false is useful for serialization logic that relies on parameter names.
 	 */
 	[[nodiscard]] String getParameterName (int maxLength = 0, bool internationalize = true) const;
+    
+    
+    [[nodiscard]] virtual ValueTree saveToValueTree() const;
+    
+    virtual void loadFromValueTree (const ValueTree& tree);
 
 	//==============================================================================
 
@@ -200,6 +206,8 @@ protected:
 	[[nodiscard]] float normalize (float input) const noexcept;
 
 	[[nodiscard]] float denormalize (float input) const noexcept;
+    
+    static constexpr auto valueTreeType = "PARAM", id_prop = "id", value_prop = "value", default_prop = "default", controller_prop = "controllerNumber";
 
 private:
 	bool isMetaParameter() const final;

@@ -303,6 +303,34 @@ const juce::NormalisableRange<float>& Parameter::getNormalisableRange() const
 	return range;
 }
 
+ValueTree Parameter::saveToValueTree() const
+{
+    ValueTree tree { valueTreeType };
+    
+    tree.setProperty (id_prop, getParameterID(), nullptr);
+    
+    tree.setProperty (value_prop, getDenormalizedValue(), nullptr);
+    tree.setProperty (default_prop, getDenormalizedDefault(), nullptr);
+    tree.setProperty (controller_prop, midiControllerNumber.load(), nullptr);
+    
+    return tree;
+}
+
+void Parameter::loadFromValueTree (const ValueTree& tree)
+{
+    if (! tree.hasType (valueTreeType))
+        return;
+    
+    if (tree.hasProperty (value_prop))
+        setDenormalizedValue ((float) tree.getProperty (value_prop));
+    
+    if (tree.hasProperty (default_prop))
+        setDenormalizedDefault ((float) tree.getProperty (default_prop));
+    
+    if (tree.hasProperty (controller_prop))
+        midiControllerNumber.store ((int) tree.getProperty (controller_prop));
+}
+
 
 Parameter::Listener::Listener (Parameter& paramToUse)
     : param (paramToUse)

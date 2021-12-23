@@ -127,6 +127,36 @@ template <typename ValueType>
 }
 
 template <typename ValueType>
+ValueTree TypedParameter<ValueType>::saveToValueTree() const
+{
+    ValueTree tree { valueTreeType };
+    
+    tree.setProperty (id_prop, getParameterID(), nullptr);
+    
+    tree.setProperty (value_prop, get(), nullptr);
+    tree.setProperty (default_prop, getDefault(), nullptr);
+    tree.setProperty (controller_prop, getMidiControllerNumber(), nullptr);
+    
+    return tree;
+}
+
+template <typename ValueType>
+void TypedParameter<ValueType>::loadFromValueTree (const ValueTree& tree)
+{
+    if (! tree.hasType (valueTreeType))
+        return;
+    
+    if (tree.hasProperty (value_prop))
+        set ((ValueType) tree.getProperty (value_prop));
+    
+    if (tree.hasProperty (default_prop))
+        setDefault ((ValueType) tree.getProperty (default_prop));
+    
+    if (tree.hasProperty (controller_prop))
+        setMidiControllerNumber ((int) tree.getProperty (controller_prop));
+}
+
+template <typename ValueType>
 TypedParameter<ValueType>::Listener::Listener (TypedParameter<ValueType>& param)
     : Parameter::Listener (param)
     , parameter (param)

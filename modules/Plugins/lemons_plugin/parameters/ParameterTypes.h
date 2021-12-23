@@ -75,6 +75,11 @@ public:
 
 	/** Converts some user input text to a possible representation as a parameter value. */
 	[[nodiscard]] ValueType getValueForString (const String& string) const;
+    
+    
+    [[nodiscard]] virtual ValueTree saveToValueTree() const final;
+    
+    virtual void loadFromValueTree (const ValueTree& tree) final;
 
 	//--------------------------------------
 
