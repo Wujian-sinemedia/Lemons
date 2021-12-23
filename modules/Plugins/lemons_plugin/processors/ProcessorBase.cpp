@@ -75,10 +75,14 @@ void ProcessorBase::releaseResources()
 
 void ProcessorBase::getStateInformation (juce::MemoryBlock& block)
 {
+    juce::MemoryOutputStream os {block, false};
+    
+    state.saveToValueTree().writeToStream (os);
 }
 
 void ProcessorBase::setStateInformation (const void* data, int size)
 {
+    state.loadFromValueTree (ValueTree::readFromData (data, static_cast<size_t>(size)));
 }
 
 void ProcessorBase::processBlock (AudioBuffer<float>& audio, MidiBuffer& midi)

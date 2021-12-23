@@ -26,10 +26,13 @@ class State
 {
 public:
 
-	// load / save
-
 	[[nodiscard]] ToggleParameter& getBypass() { return bypass; }
+    
+    [[nodiscard]] ValueTree saveToValueTree() const { return {}; }
+    
+    void loadFromValueTree (const ValueTree& tree) { };
 
+    
 	Dimensions editorSize { Dimensions::getDefault() };
 
 	ToggleParameter bypass { "Bypass", false };
