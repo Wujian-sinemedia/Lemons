@@ -43,6 +43,7 @@
 #include "parameters/Parameter.h"
 #include "parameters/ParameterTypes.h"
 #include "parameters/Specializations.h"
+#include "parameters/MeterParameter.h"
 //#include "parameters/MetaParameter.h"
 
 #include "parameters/utils/ParamUpdater.h"

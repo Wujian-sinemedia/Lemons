@@ -17,12 +17,12 @@ namespace lemons::plugin
 {
 [[nodiscard]] static inline String paramNameToID (const String& name)
 {
-	return name.removeCharacters (" ");
+    return name.trim().replaceCharacter (' ', '_');
 }
 
 static inline std::function<String (float)> createDefaultValueToTextFunction (const String& paramLabel)
 {
-	return [&] (float value) -> String
+	return [=] (float value) -> String
 	{
 		return String (value) + " " + paramLabel;
 	};
@@ -56,7 +56,6 @@ Parameter::Parameter (String paramName,
     , currentDefault (paramDefaultValue)
     , valueToTextFunc (valueToTextFuncToUse)
     , textToValueFunc (textToValueFuncToUse)
-    , parameterName (paramName)
     , valueChangeTransactionName (TRANS ("Changed") + " " + getParameterName())
     , defaultChangeTransactionName (TRANS ("Changed default value of") + " " + getParameterName())
     , midiControllerChangeTransactionName (TRANS ("Changed MIDI controller number for") + " " + getParameterName())
@@ -73,53 +72,42 @@ float Parameter::getValueForText (const String& text) const
 	return textToValueFunc (text);
 }
 
-[[nodiscard]] String Parameter::getTextForNormalizedValue (float value) const
+String Parameter::getTextForNormalizedValue (float value) const
 {
 	return valueToTextFunc (value);
 }
 
-[[nodiscard]] String Parameter::getTextForDenormalizedValue (float value) const
+String Parameter::getTextForDenormalizedValue (float value) const
 {
 	return getTextForNormalizedValue (normalize (value));
 }
 
-[[nodiscard]] String Parameter::getTextForMax() const
+String Parameter::getTextForMax() const
 {
-	return getTextForDenormalizedValue (getMax());
+	return getTextForDenormalizedValue (range.end);
 }
 
-[[nodiscard]] String Parameter::getTextForMin() const
+String Parameter::getTextForMin() const
 {
-	return getTextForDenormalizedValue (getMin());
+	return getTextForDenormalizedValue (range.start);
 }
 
-/* returns the normalized value */
 float Parameter::getValue() const
 {
-	return convertTo0to1 (currentValue.load());
+    return currentValue.load();
 }
 
 void Parameter::setValue (float newValue)
 {
-	currentValue.store (convertFrom0to1 (newValue));
+	currentValue.store (newValue);
 }
 
-[[nodiscard]] float Parameter::getMax() const
-{
-	return range.start;
-}
-
-[[nodiscard]] float Parameter::getMin() const
-{
-	return range.end;
-}
-
-[[nodiscard]] int Parameter::getMidiControllerNumber() const
+int Parameter::getMidiControllerNumber() const noexcept
 {
 	return midiControllerNumber.load();
 }
 
-[[nodiscard]] bool Parameter::isMidiControllerMapped() const
+bool Parameter::isMidiControllerMapped() const noexcept
 {
 	return getMidiControllerNumber() > -1;
 }
@@ -129,24 +117,21 @@ void Parameter::setMidiControllerNumber (int newControllerNumber)
 	if (newControllerNumber == getMidiControllerNumber()) return;
 
 	//	UndoManager::ScopedTransaction s { um, midiControllerChangeTransactionName };
-	setMidiControllerInternal (newControllerNumber);
+    
+    midiControllerNumber.store (newControllerNumber);
+    
+    listeners.call ([=] (Listener& l)
+                    { l.controllerNumberChanged (newControllerNumber); });
 }
 
-void Parameter::setMidiControllerInternal (int controller)
-{
-	midiControllerNumber.store (controller);
-	listeners.call ([controller] (Listener& l)
-	                { l.controllerNumberChanged (controller); });
-}
-
-void Parameter::removeMidiControllerMapping()
+void Parameter::removeMidiControllerMapping() noexcept
 {
 	midiControllerNumber.store (-1);
 }
 
 void Parameter::processNewControllerMessage (int controllerNumber, int controllerValue)
 {
-	if (controllerNumber == getMidiControllerNumber())
+	if (controllerNumber == midiControllerNumber.load())
 	{
 		setDenormalizedValue (juce::jmap (static_cast<float> (controllerValue),
 		                                  0.f, 127.f,
@@ -184,12 +169,12 @@ void Parameter::endGesture()
 	                { l.gestureStateChanged (false); });
 }
 
-[[nodiscard]] bool Parameter::isChanging() const
+bool Parameter::isChanging() const noexcept
 {
 	return changing.load();
 }
 
-[[nodiscard]] float Parameter::getNormalizedDefault() const
+float Parameter::getNormalizedDefault() const noexcept
 {
 	return currentDefault.load();
 }
@@ -199,7 +184,7 @@ float Parameter::getDefaultValue() const
 	return getNormalizedDefault();
 }
 
-[[nodiscard]] float Parameter::getDenormalizedDefault() const
+float Parameter::getDenormalizedDefault() const noexcept
 {
 	return denormalize (getNormalizedDefault());
 }
@@ -269,22 +254,22 @@ void Parameter::setDenormalizedValue (float value)
 	setNormalizedValue (normalize (value));
 }
 
-[[nodiscard]] float Parameter::getNormalizedValue() const
+float Parameter::getNormalizedValue() const noexcept
 {
-	return this->getValue();
+    return currentValue.load();
 }
 
-[[nodiscard]] float Parameter::getDenormalizedValue() const
+float Parameter::getDenormalizedValue() const noexcept
 {
-	return denormalize (getNormalizedValue());
+	return denormalize (currentValue.load());
 }
 
-[[nodiscard]] float Parameter::normalize (float input) const
+float Parameter::normalize (float input) const noexcept
 {
 	return this->convertTo0to1 (input);
 }
 
-[[nodiscard]] float Parameter::denormalize (float input) const
+float Parameter::denormalize (float input) const noexcept
 {
 	return this->convertFrom0to1 (input);
 }
@@ -304,9 +289,9 @@ bool Parameter::isMetaParameter() const
 	return metaParameter;
 }
 
-[[nodiscard]] String Parameter::getParameterName (int maxLength, bool internationalize) const
+String Parameter::getParameterName (int maxLength, bool internationalize) const
 {
-	const auto str = internationalize ? TRANS (parameterName) : parameterName;
+	const auto str = internationalize ? TRANS (name) : name;
 
 	if (maxLength < 1) return str;
 

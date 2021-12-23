@@ -50,27 +50,27 @@ public:
 	                juce::AudioProcessorParameter::Category  parameterCategory = juce::AudioProcessorParameter::genericParameter);
 
 	/** Returns the parameter's current value. */
-	[[nodiscard]] ValueType get() const;
+	[[nodiscard]] ValueType get() const noexcept;
 
 	/** Sets the parameter's value. */
 	void set (ValueType newValue);
 
 	/** Returns the parameter's current default value. */
-	[[nodiscard]] ValueType getDefault() const;
+	[[nodiscard]] ValueType getDefault() const noexcept;
 
 	/** Sets the parameter's default value. */
 	void setDefault (ValueType newDefault);
 
 	/** Returns the minimum possible value for this parameter. */
-	[[nodiscard]] ValueType getMinimum() const;
+	[[nodiscard]] ValueType getMinimum() const noexcept;
 
 	/** Returns the maximum possible value for this parameter. */
-	[[nodiscard]] ValueType getMaximum() const;
+	[[nodiscard]] ValueType getMaximum() const noexcept;
 
 	/** Returns a textual description for a parameter value. */
 	[[nodiscard]] String getStringForValue (ValueType value, int maxLength = 50) const;
 
-	/** Returns a textual description of the parameter;'s current value. */
+	/** Returns a textual description of the parameter's current value. */
 	[[nodiscard]] String getStringForCurrentValue (int maxLength = 50) const;
 
 	/** Converts some user input text to a possible representation as a parameter value. */

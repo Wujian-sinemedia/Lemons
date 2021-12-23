@@ -49,19 +49,19 @@ TypedParameter<ValueType>::TypedParameter (ValueType minimum,
 }
 
 template <>
-[[nodiscard]] float TypedParameter<float>::get() const
+[[nodiscard]] float TypedParameter<float>::get() const noexcept
 {
 	return this->getDenormalizedValue();
 }
 
 template <>
-[[nodiscard]] int TypedParameter<int>::get() const
+[[nodiscard]] int TypedParameter<int>::get() const noexcept
 {
 	return juce::roundToInt (this->getDenormalizedValue());
 }
 
 template <>
-[[nodiscard]] bool TypedParameter<bool>::get() const
+[[nodiscard]] bool TypedParameter<bool>::get() const noexcept
 {
 	return this->getNormalizedValue() >= 0.5f;
 }
@@ -73,19 +73,19 @@ void TypedParameter<ValueType>::set (ValueType newValue)
 }
 
 template <>
-[[nodiscard]] float TypedParameter<float>::getDefault() const
+[[nodiscard]] float TypedParameter<float>::getDefault() const noexcept
 {
 	return this->getDenormalizedDefault();
 }
 
 template <>
-[[nodiscard]] int TypedParameter<int>::getDefault() const
+[[nodiscard]] int TypedParameter<int>::getDefault() const noexcept
 {
 	return juce::roundToInt (this->getDenormalizedDefault());
 }
 
 template <>
-[[nodiscard]] bool TypedParameter<bool>::getDefault() const
+[[nodiscard]] bool TypedParameter<bool>::getDefault() const noexcept
 {
 	return this->getNormalizedDefault() >= 0.5f;
 }
@@ -115,15 +115,15 @@ template <typename ValueType>
 }
 
 template <typename ValueType>
-[[nodiscard]] ValueType TypedParameter<ValueType>::getMinimum() const
+[[nodiscard]] ValueType TypedParameter<ValueType>::getMinimum() const noexcept
 {
-	return static_cast<ValueType> (this->getMin());
+	return static_cast<ValueType> (this->getNormalisableRange().start);
 }
 
 template <typename ValueType>
-[[nodiscard]] ValueType TypedParameter<ValueType>::getMaximum() const
+[[nodiscard]] ValueType TypedParameter<ValueType>::getMaximum() const noexcept
 {
-	return static_cast<ValueType> (this->getMax());
+	return static_cast<ValueType> (this->getNormalisableRange().end);
 }
 
 template <typename ValueType>

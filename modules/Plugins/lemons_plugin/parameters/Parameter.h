@@ -49,31 +49,60 @@ public:
 	           bool                                    isAutomatable        = true,
 	           bool                                    metaParam            = false,
 	           juce::AudioProcessorParameter::Category parameterCategory    = AudioProcessorParameter::genericParameter);
-
-	/** Returns the maximum possible value for this parameter. */
-	[[nodiscard]] float getMax() const;
-
-	/** Returns the minimum possible value for this parameter. */
-	[[nodiscard]] float getMin() const;
+    
+    /** Returns the parameter's current value, in a normalized 0-1 range.
+     @see getDenormalizedValue()
+     */
+    [[nodiscard]] float getNormalizedValue() const noexcept;
+    
+    /** Returns the parameter's current value, in the parameter's denormalized range.
+     @see getNormalizedValue()
+     */
+    [[nodiscard]] float getDenormalizedValue() const noexcept;
+    
+    /** Sets the parameter's value, in a normalized 0-1 range.
+     @see setDenormalizedValue()
+     */
+    void setNormalizedValue (float value);
+    
+    /** Sets the parameter's value, in the parameter's denormalized range.
+     @see setNormalizedValue()
+     */
+    void setDenormalizedValue (float value);
 
 	/** Returns this parameter's range object. */
     [[nodiscard]] const juce::NormalisableRange<float>& getNormalisableRange() const final;
+    
+    /** Begins a change gesture for this parameter. */
+    void beginGesture();
+    
+    /** Ends any active change gesture for this parameter. */
+    void endGesture();
+    
+    /** Returns true if this parameter is currently in the middle of a change gesture. */
+    [[nodiscard]] bool isChanging() const noexcept;
+    
+    
+    // functions for MIDI controller mapping
 
 	/** Returns the number of the MIDI controller mapped to this parameter, or -1 if this parameter is unmapped. */
-	[[nodiscard]] int getMidiControllerNumber() const;
+	[[nodiscard]] int getMidiControllerNumber() const noexcept;
 
 	/** Returns true if this parameter is currently mapped to a MIDI controller. */
-	[[nodiscard]] bool isMidiControllerMapped() const;
+	[[nodiscard]] bool isMidiControllerMapped() const noexcept;
 
 	/** Maps this parameter to listen for changes in a specified MIDI controller number. */
 	void setMidiControllerNumber (int newControllerNumber);
 
 	/** Removes the MIDI controller mapping, if any. */
-	void removeMidiControllerMapping();
+	void removeMidiControllerMapping() noexcept;
 
 	/** Call this function with each MIDI CC message your plugin recieves, and the Parameter class will automatically update itself with changes in the appropriate controller, if a mapping is active. */
 	void processNewControllerMessage (int controllerNumber, int controllerValue);
 
+    
+    // functions related to the default value
+    
 	/** Sets the parameter's current value as the default value. */
 	void refreshDefault();
 
@@ -83,12 +112,12 @@ public:
 	/** Returns the parameter's default value, in a normalized 0-1 range.
 	    @see getDenormalizedDefault()
 	 */
-	[[nodiscard]] float getNormalizedDefault() const;
+	[[nodiscard]] float getNormalizedDefault() const noexcept;
 
 	/** Returns the parameter's default value, in the parameter's denormalized range.
 	    @see getNormalizedDefault()
 	 */
-	[[nodiscard]] float getDenormalizedDefault() const;
+	[[nodiscard]] float getDenormalizedDefault() const noexcept;
 
 	/** Sets the parameter's default, in a normalized 0-1 range.
 	    @see setDenormalizedDefault()
@@ -100,47 +129,7 @@ public:
 	 */
 	void setDenormalizedDefault (float value);
 
-	/** Returns the parameter's current value, in a normalized 0-1 range.
-	    @see getDenormalizedValue()
-	 */
-	[[nodiscard]] float getNormalizedValue() const;
-
-	/** Returns the parameter's current value, in the parameter's denormalized range.
-	    @see getNormalizedValue()
-	 */
-	[[nodiscard]] float getDenormalizedValue() const;
-
-	/** Sets the parameter's value, in a normalized 0-1 range.
-	    @see setDenormalizedValue()
-	 */
-	void setNormalizedValue (float value);
-
-	/** Sets the parameter's value, in the parameter's denormalized range.
-	    @see setNormalizedValue()
-	 */
-	void setDenormalizedValue (float value);
-
-	/** Begins a change gesture for this parameter. */
-	void beginGesture();
-
-	/** Ends any active change gesture for this parameter. */
-	void endGesture();
-
-	/** Returns true if this parameter is currently in the middle of a change gesture. */
-	[[nodiscard]] bool isChanging() const;
-
-	/** Normalizes a float using this parameter's normalizable range object.
-	    @param input Denormalized float, within the parameter's denormalized range
-	    @return Normalized float in the range 0-1
-	 */
-	[[nodiscard]] float normalize (float input) const;
-
-	/** Denormalizes a float using this parameter's normalizable range object.
-	    @param input Float within the normalized range 0-1
-	    @return Denormalized float within the parameter's denormal range.
-	 */
-	[[nodiscard]] float denormalize (float input) const;
-
+    
 	/** Sets an UndoManager to use to manage this parameter's transactions.
 	    The UndoManager will track change gestures, changing the default value, and changing the MIDI CC mapping.
 	    @see UndoManager
@@ -205,9 +194,12 @@ public:
 	};
 
 	//==============================================================================
-
+    
 protected:
-	void setMidiControllerInternal (int controller);
+    
+    [[nodiscard]] float normalize (float input) const noexcept;
+    
+    [[nodiscard]] float denormalize (float input) const noexcept;
 
 private:
 	bool isMetaParameter() const final;
@@ -221,8 +213,7 @@ private:
 
 	float getValueForText (const String& text) const final;
 
-	const bool automatable;
-	const bool metaParameter;
+	const bool automatable, metaParameter;
 
 	const juce::NormalisableRange<float> range;
 
@@ -237,7 +228,7 @@ private:
 
 	juce::ListenerList<Listener> listeners;
 
-	const String parameterName, valueChangeTransactionName, defaultChangeTransactionName, midiControllerChangeTransactionName;
+	const String valueChangeTransactionName, defaultChangeTransactionName, midiControllerChangeTransactionName;
     
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (Parameter)
 };
