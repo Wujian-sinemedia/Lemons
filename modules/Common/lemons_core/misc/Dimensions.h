@@ -27,24 +27,28 @@ struct Dimensions final
 	constexpr explicit Dimensions() = default;
 
 	/** Creates a valid Dimensions object with a specified width and height. */
-	constexpr explicit Dimensions (int widthToUse, int heightToUse);
+	constexpr explicit Dimensions (int widthToUse, int heightToUse)
+	    : width (widthToUse)
+	    , height (heightToUse)
+	{
+	}
 
 	/** Returns true if the passed Dimensions object is equal to this one. */
 	[[nodiscard]] constexpr bool operator== (const Dimensions& other) const noexcept;
 
 	/** Returns true if the width and height are both greater than 0. */
 	[[nodiscard]] constexpr bool isValid() const noexcept;
-    
-    /** Returns the width of these dimensions. */
-    [[nodiscard]] constexpr int getWidth() const noexcept;
-    
-    /** Returns the height of these dimensions. */
-    [[nodiscard]] constexpr int getHeight() const noexcept;
+
+	/** Returns the width of these dimensions. */
+	[[nodiscard]] constexpr int getWidth() const noexcept;
+
+	/** Returns the height of these dimensions. */
+	[[nodiscard]] constexpr int getHeight() const noexcept;
 
 	/** Returns the aspect ratio of the represented dimensions, calculated as width / height.
 	    If isValid() return false, then this function will return 0.
 	 */
-	[[nodiscard]] constexpr float getAspectRatio() const noexcept;
+	[[nodiscard]] constexpr double getAspectRatio() const noexcept;
 
 	/** Returns true if the passed Dimensions object has the same aspect ratio as this one. */
 	[[nodiscard]] constexpr bool hasSameAspectRatioAs (const Dimensions& other) const noexcept;
@@ -56,11 +60,10 @@ struct Dimensions final
 	[[nodiscard]] static Dimensions fromString (const String& string);
 
 	/** Returns a Dimensions object representing the size 1060 x 640. */
-	[[nodiscard]] static constexpr Dimensions getDefault();
+	[[nodiscard]] static constexpr Dimensions getDefault() { return Dimensions { 1060, 640 }; }
 
 private:
-	int width { 0 };
-	int height { 0 };
+    int width { 0 }, height { 0 };
 };
 
 }  // namespace lemons

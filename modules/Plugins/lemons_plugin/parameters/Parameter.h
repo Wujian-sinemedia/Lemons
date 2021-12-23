@@ -4,9 +4,11 @@
 
 namespace lemons::plugin
 {
-/** A plugin parameter class that allows you to use my Serializing API, and has a few other cool bells and whistles.
-    To actually use one, I recommend you stick it inside a ParameterHolder, to make your life easier accessing it once you've added it to your AudioProcessor.
-    @see ParameterHolder, ParameterList, TypedParameter
+
+using juce::String;
+
+/** A plugin parameter class.
+    @see TypedParameter
  */
 class Parameter : public juce::RangedAudioParameter
 {
@@ -22,7 +24,7 @@ public:
 	    @param metaParam Boolean flag that indicates whether this parameter represents a "meta-parameter" -- that is, a parameter that controls other parameters.
 	    @param parameterCategory An optional parameter category. See juce::AudioProcessorParameter::Category.
 	 */
-	Parameter (String paramName,
+	explicit Parameter (String paramName,
 	           juce::NormalisableRange<float>
 	                                                   paramRange,
 	           float                                   paramDefaultValue    = 1.f,
@@ -40,7 +42,7 @@ public:
 	[[nodiscard]] float getMin() const;
 
 	/** Returns this parameter's range object. */
-	const juce::NormalisableRange<float>& getNormalisableRange() const final;
+    [[nodiscard]] const juce::NormalisableRange<float>& getNormalisableRange() const final;
 
 	/** Returns the number of the MIDI controller mapped to this parameter, or -1 if this parameter is unmapped. */
 	[[nodiscard]] int getMidiControllerNumber() const;
@@ -131,7 +133,7 @@ public:
 	//	void setUndoManager (UndoManager& managerToUse);
 
 	/** Returns true if this parameter is automatable by the user's DAW. */
-	bool isAutomatable() const final;
+    [[nodiscard]] bool isAutomatable() const final;
 
 	/** Returns a textual description of a normalized value in the range 0-1.
 	    @see getTextForDenormalizedValue()
@@ -221,6 +223,8 @@ private:
 	juce::ListenerList<Listener> listeners;
 
 	const String parameterName, valueChangeTransactionName, defaultChangeTransactionName, midiControllerChangeTransactionName;
+    
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (Parameter)
 };
 
 }  // namespace lemons::plugin

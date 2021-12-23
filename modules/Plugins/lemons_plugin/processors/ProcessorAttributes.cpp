@@ -13,30 +13,31 @@
  ======================================================================================
  */
 
+namespace lemons::plugin
+{
 
-#include "lemons_dsp.h"
+ProcessorAttributes ProcessorAttributes::fromProjectDefines()
+{
+    ProcessorAttributes attributes;
+    
+#ifdef JucePlugin_WantsMidiInput
+    attributes.acceptsMidi = JucePlugin_WantsMidiInput;
+#endif
+    
+#ifdef JucePlugin_ProducesMidiOutput
+    attributes.producesMidi = JucePlugin_ProducesMidiOutput;
+#endif
+    
+#ifdef JucePlugin_IsMidiEffect
+    attributes.isMidiEffect = JucePlugin_IsMidiEffect;
+#endif
+    
+#ifdef JucePlugin_Name
+    attributes.name = JucePlugin_Name;
+#endif
 
+    return attributes;
+}
 
-#include "fifos/CircularBuffer.cpp"
-#include "fifos/AudioFifo.cpp"
-#include "fifos/AudioAndMidiFIFO.cpp"
+}
 
-#include "engines/AudioEngine.cpp"
-#include "engines/LatencyEngine.cpp"
-#include "engines/AudioFilePlayer.cpp"
-#include "engines/EngineChain.cpp"
-#include "engines/DspProtection.cpp"
-
-#include "filters/Coeffecients.cpp"
-#include "filters/Filter.cpp"
-
-#include "util/serializing.cpp"
-#include "util/ValueSmoother.cpp"
-#include "util/BufferUtils.cpp"
-#include "util/WhiteNoiseGenerator.cpp"
-#include "util/MonoStereoConverter.cpp"
-#include "util/PitchDetector.cpp"
-
-#include "oscillators/oscillators.cpp"
-#include "oscillators/SuperSaw.cpp"
-#include "oscillators/choosable.cpp"

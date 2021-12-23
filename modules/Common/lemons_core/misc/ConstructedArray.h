@@ -42,7 +42,7 @@ namespace lemons
 template <typename ObjectType>
 struct ConstructedArray final
 {
-    /** The function signature used to create new objects to add to the array. The function should return a pointer to the new object, and should not retain the pointer. */
+	/** The function signature used to create new objects to add to the array. The function should return a pointer to the new object, and should not retain the pointer. */
 	using ObjectCreationFunction = std::function<ObjectType*()>;
 
 	/** Creates an array with a specified initial number of objects, and an optional lambda function that will be called to create new objects. */

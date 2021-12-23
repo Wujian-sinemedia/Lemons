@@ -86,13 +86,13 @@ public:
 	[[nodiscard]] Type getArgumentAsType (const String& argOrFlags) const;
 
 	/** Returns true if all arguments marked as required were specified on the command line.
-        This also verifies that, for any arguments with a list of valid options specified, the argument passed on the command line is one of the valid options.
-     */
+	    This also verifies that, for any arguments with a list of valid options specified, the argument passed on the command line is one of the valid options.
+	 */
 	[[nodiscard]] bool checkForRequiredArgs() const;
 
 	/** If '--help' or '-h' was present on the command line, this prints the parser's help to cout and returns true.
-        @param printHelpIfEmpty If true, then if the app was invoked with no arguments, then the help message will be printed and this method will return true.
-     */
+	    @param printHelpIfEmpty If true, then if the app was invoked with no arguments, then the help message will be printed and this method will return true.
+	 */
 	[[nodiscard]] bool checkForHelpFlag (bool printHelpIfEmpty = true) const;
 
 	/** Returns true if the parser contains a given option.

@@ -1,103 +1,167 @@
+/*
+ ======================================================================================
+
+ ██╗     ███████╗███╗   ███╗ ██████╗ ███╗   ██╗███████╗
+ ██║     ██╔════╝████╗ ████║██╔═══██╗████╗  ██║██╔════╝
+ ██║     █████╗  ██╔████╔██║██║   ██║██╔██╗ ██║███████╗
+ ██║     ██╔══╝  ██║╚██╔╝██║██║   ██║██║╚██╗██║╚════██║
+ ███████╗███████╗██║ ╚═╝ ██║╚██████╔╝██║ ╚████║███████║
+ ╚══════╝╚══════╝╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝
+
+ This file is part of the Lemons open source library and is licensed under the terms of the GNU Public License.
+
+ ======================================================================================
+ */
 
 namespace lemons::plugin
 {
-ProcessorBase::ProcessorBase (StateBase&                            stateToUse,
-                              dsp::Engine<float>&                   floatEngineToUse,
-                              dsp::Engine<double>&                  doubleEngineToUse,
-                              juce::AudioProcessor::BusesProperties busesLayout)
+
+ProcessorBase::ProcessorBase (dsp::Engine<float>&                        floatEngineToUse,
+                              dsp::Engine<double>&                       doubleEngineToUse,
+                              PluginState& stateToUse,
+                              const BusesProperties& busesLayout,
+                              const ProcessorAttributes& attributes)
     : BasicProcessor (busesLayout)
-    , state (stateToUse)
-    , floatEngine (*this, state, floatEngineToUse)
-    , doubleEngine (*this, state, doubleEngineToUse)
+    , floatEngine (floatEngineToUse)
+    , doubleEngine (doubleEngineToUse), state(stateToUse)
+, processorAttributes (attributes)
 {
-}
-
-void ProcessorBase::saveEditorSize (int width, int height)
-{
-	state.dimensions = { width, height };
-}
-
-[[nodiscard]] juce::Point<int> ProcessorBase::getSavedEditorSize() const noexcept
-{
-	return state.dimensions;
-}
-
-juce::AudioProcessorParameter* ProcessorBase::getBypassParameter() const
-{
-	// return state.mainBypass.get();
 }
 
 void ProcessorBase::prepareToPlay (double sampleRate, int samplesPerBlock)
 {
+	const auto numChannels = std::max (getTotalNumInputChannels(), getTotalNumOutputChannels());
+
 	if (isUsingDoublePrecision())
-		prepareToPlayInternal (sampleRate, samplesPerBlock, doubleEngine, floatEngine);
+		prepareToPlayInternal (sampleRate, samplesPerBlock, numChannels, doubleEngine, floatEngine);
 	else
-		prepareToPlayInternal (sampleRate, samplesPerBlock, floatEngine, doubleEngine);
+		prepareToPlayInternal (sampleRate, samplesPerBlock, numChannels, floatEngine, doubleEngine);
 }
 
 template <typename SampleType1, typename SampleType2>
-void ProcessorBase::prepareToPlayInternal (double                       sampleRate,
-                                           int                          samplesPerBlock,
-                                           InternalEngine<SampleType1>& activeEngine,
-                                           InternalEngine<SampleType2>& idleEngine)
+void ProcessorBase::prepareToPlayInternal (double               sampleRate,
+                                           int                  samplesPerBlock,
+                                           int                  numChannels,
+                                           dsp::Engine<SampleType1>& activeEngine,
+                                           dsp::Engine<SampleType2>& idleEngine)
 {
-	if (idleEngine->isInitialized())
-		idleEngine->releaseResources();
+	if (idleEngine.isInitialized())
+		idleEngine.releaseResources();
 
-	jassert (sampleRate > 0 && samplesPerBlock > 0);
+	jassert (sampleRate > 0. && samplesPerBlock > 0);
 
-	activeEngine.prepareToPlay (sampleRate, samplesPerBlock);
+	activeEngine.prepare (sampleRate, samplesPerBlock, numChannels);
 
-	setLatencySamples (activeEngine->reportLatency());
+	setLatencySamples (activeEngine.reportLatency());
 }
+
+template void ProcessorBase::prepareToPlayInternal (double, int, int, dsp::Engine<float>&, dsp::Engine<double>&);
+template void ProcessorBase::prepareToPlayInternal (double, int, int, dsp::Engine<double>&, dsp::Engine<float>&);
 
 void ProcessorBase::releaseResources()
 {
-	doubleEngine->releaseResources();
-	floatEngine->releaseResources();
-}
-
-void ProcessorBase::getStateInformation (juce::MemoryBlock& block)
-{
-	// serializing::toBinary (state, block);
-}
-
-void ProcessorBase::setStateInformation (const void* data, int size)
-{
-	// serializing::fromBinary (data, size, state);
-
-	if (auto* e = getActiveEditor())
-		e->setSize (state.dimensions.x, state.dimensions.y);
+	doubleEngine.releaseResources();
+	floatEngine.releaseResources();
 }
 
 void ProcessorBase::processBlock (AudioBuffer<float>& audio, MidiBuffer& midi)
 {
-	juce::ScopedNoDenormals nodenorms;
-
-	floatEngine.process (audio, midi);
+	processInternal (floatEngine, audio, midi, false);
 }
 
 void ProcessorBase::processBlock (AudioBuffer<double>& audio, MidiBuffer& midi)
 {
-	juce::ScopedNoDenormals nodenorms;
-
-	doubleEngine.process (audio, midi);
+	processInternal (doubleEngine, audio, midi, false);
 }
 
 void ProcessorBase::processBlockBypassed (AudioBuffer<float>& audio, MidiBuffer& midi)
 {
-	juce::ScopedNoDenormals nodenorms;
-
-	// state.mainBypass->set (true);
-	floatEngine.process (audio, midi);
+	processInternal (floatEngine, audio, midi, true);
 }
 
 void ProcessorBase::processBlockBypassed (AudioBuffer<double>& audio, MidiBuffer& midi)
 {
-	juce::ScopedNoDenormals nodenorms;
-
-	// state.mainBypass->set (true);
-	doubleEngine.process (audio, midi);
+	processInternal (doubleEngine, audio, midi, true);
 }
 
-}  // namespace lemons::plugin
+template <typename SampleType>
+void ProcessorBase::processInternal (dsp::Engine<SampleType>& engine, AudioBuffer<SampleType>& audio, MidiBuffer& midi, bool isBypassed)
+{
+	juce::ScopedNoDenormals nodenorms;
+
+	if (isBypassed)
+        state.getBypass().setValueNotifyingHost (1.f);
+
+	const auto busLayout = getBusesLayout();
+
+	const auto findSubBuffer = [&] (bool isInput) -> AudioBuffer<SampleType>
+	{
+		const auto channelSetIndex = [&]() -> int
+		{
+			const auto numBuses = isInput ? busLayout.inputBuses.size() : busLayout.outputBuses.size();
+
+			for (int i = 0; i < numBuses; ++i)
+				if (! busLayout.getChannelSet (isInput, i).isDisabled())
+					return i;
+
+			return 0;
+		}();
+
+		return getBusBuffer (audio, isInput, channelSetIndex);
+	};
+
+	const auto inBus  = findSubBuffer (true);
+	auto       outBus = findSubBuffer (false);
+
+	engine.process (inBus, outBus, midi, state.getBypass().getValue() > 0.5f);
+}
+
+template void ProcessorBase::processInternal (dsp::Engine<float>&, AudioBuffer<float>&, MidiBuffer&, bool);
+template void ProcessorBase::processInternal (dsp::Engine<double>&, AudioBuffer<double>&, MidiBuffer&, bool);
+
+juce::AudioProcessorParameter* ProcessorBase::getBypassParameter() const
+{
+    return &state.getBypass();
+}
+
+bool ProcessorBase::supportsDoublePrecisionProcessing() const
+{
+	return true;
+}
+
+bool ProcessorBase::acceptsMidi() const
+{
+    return processorAttributes.acceptsMidi;
+}
+
+bool ProcessorBase::producesMidi() const
+{
+    return processorAttributes.producesMidi;
+}
+
+bool ProcessorBase::supportsMPE() const
+{
+    return processorAttributes.supportsMPE;
+}
+
+bool ProcessorBase::isMidiEffect() const
+{
+    return processorAttributes.isMidiEffect;
+}
+
+const String ProcessorBase::getName() const
+{
+    return TRANS (processorAttributes.name);
+}
+
+juce::StringArray ProcessorBase::getAlternateDisplayNames() const
+{
+    return processorAttributes.alternateNames;
+}
+
+PluginState& ProcessorBase::getState() noexcept
+{
+    return state;
+}
+
+}  // namespace lemons::dsp

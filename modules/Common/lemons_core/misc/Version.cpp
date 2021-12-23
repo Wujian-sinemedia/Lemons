@@ -92,17 +92,17 @@ constexpr bool Version::hasSameMajorVersion (const Version& other) const noexcep
 
 constexpr int Version::getMajor() const noexcept
 {
-    return major;
+	return major;
 }
 
 constexpr int Version::getMinor() const noexcept
 {
-    return minor;
+	return minor;
 }
 
 constexpr int Version::getPatch() const noexcept
 {
-    return patch;
+	return patch;
 }
 
 void Version::bumpMajor() noexcept

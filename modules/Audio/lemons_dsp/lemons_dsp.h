@@ -63,6 +63,5 @@ END_JUCE_MODULE_DECLARATION
 #include "util/ValueSmoother.h"
 #include "util/BufferUtils.h"
 #include "util/WhiteNoiseGenerator.h"
-#include "util/BasicProcessor.h"
 #include "util/MonoStereoConverter.h"
 #include "util/PitchDetector.h"

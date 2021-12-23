@@ -123,15 +123,15 @@ bool ArgParser::checkForHelpFlag (bool printHelpIfEmpty) const
 		printHelp();
 		return true;
 	}
-    
-    if (printHelpIfEmpty)
-    {
-        if (argList.size() == 0)
-        {
-            printHelp();
-            return true;
-        }
-    }
+
+	if (printHelpIfEmpty)
+	{
+		if (argList.size() == 0)
+		{
+			printHelp();
+			return true;
+		}
+	}
 
 	return false;
 }

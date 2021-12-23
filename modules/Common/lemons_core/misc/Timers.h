@@ -24,7 +24,7 @@ namespace lemons::events
     For example:
     @code
     void myFunction();
- 
+
     TimerCallback t { [&]{ myFunction(); }; };
     @endcode
  */

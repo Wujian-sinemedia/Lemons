@@ -1,4 +1,4 @@
-#include <lemons_core/lemons_core.h>
+#include <lemons_musicology/lemons_musicology.h>
 
 namespace lemons::plugin
 {
@@ -136,6 +136,8 @@ FrequencyParameter::FrequencyParameter (String paramName,
 
 /*-----------------------------------------------------------------------------------------------------------------------
  -----------------------------------------------------------------------------------------------------------------------*/
+
+using namespace lemons::music;
 
 static const auto
     pitch_stringFromInt = [] (int value, int maxLength) -> String

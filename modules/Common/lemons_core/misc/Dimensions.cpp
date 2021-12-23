@@ -17,12 +17,6 @@
 namespace lemons
 {
 
-constexpr Dimensions::Dimensions (int widthToUse, int heightToUse)
-    : width (widthToUse)
-    , height (heightToUse)
-{
-}
-
 constexpr bool Dimensions::operator== (const Dimensions& other) const noexcept
 {
 	return width == other.width && height == other.height;
@@ -35,20 +29,20 @@ constexpr bool Dimensions::isValid() const noexcept
 
 constexpr int Dimensions::getWidth() const noexcept
 {
-    return width;
+	return width;
 }
 
 constexpr int Dimensions::getHeight() const noexcept
 {
-    return height;
+	return height;
 }
 
-constexpr float Dimensions::getAspectRatio() const noexcept
+constexpr double Dimensions::getAspectRatio() const noexcept
 {
 	if (! isValid())
-		return 0.f;
+		return 0.;
 
-	return static_cast<float> (width) / static_cast<float> (height);
+	return static_cast<double> (width) / static_cast<double> (height);
 }
 
 constexpr bool Dimensions::hasSameAspectRatioAs (const Dimensions& other) const noexcept
@@ -68,11 +62,6 @@ Dimensions Dimensions::fromString (const String& string)
 	jassert (arr.size() == 2);
 
 	return Dimensions { arr[0].getIntValue(), arr[1].getIntValue() };
-}
-
-constexpr Dimensions Dimensions::getDefault()
-{
-	return Dimensions { 1060, 640 };
 }
 
 }  // namespace lemons
