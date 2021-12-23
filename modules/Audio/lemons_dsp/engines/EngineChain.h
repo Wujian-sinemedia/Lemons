@@ -225,8 +225,10 @@ private:
 	void latencyChanged (int newLatency) final;
 
 	void onRelease() final;
+    
+    void onReset() final;
 
-	int getNextNodeIndex() const;
+	[[nodiscard]] int getNextNodeIndex() const;
 
 	juce::OwnedArray<Node> nodes;
 };

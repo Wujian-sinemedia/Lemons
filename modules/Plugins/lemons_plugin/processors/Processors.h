@@ -39,8 +39,8 @@ class Processor : public ProcessorBase
 {
 public:
 	/** Creates a processor with the specified bus layout. */
-	explicit Processor (const BusesProperties& busesLayout = getDefaultBusesLayout(),
-                        const ProcessorAttributes& attributes = ProcessorAttributes::fromProjectDefines())
+	explicit Processor (const BusesProperties&     busesLayout = getDefaultBusesLayout(),
+	                    const ProcessorAttributes& attributes  = ProcessorAttributes::fromProjectDefines())
 	    : ProcessorBase (floatEngine, doubleEngine, pluginState, busesLayout, attributes)
 	{
 	}
@@ -52,8 +52,8 @@ private:
 
 	EngineType<float>  floatEngine;
 	EngineType<double> doubleEngine;
-    
-    State pluginState;
+
+	State pluginState;
 };
 
 
@@ -99,4 +99,4 @@ struct ProcessorWithEditor final : ProcessorType
 	}
 };
 
-}  // namespace lemons::dsp
+}  // namespace lemons::plugin

@@ -156,6 +156,13 @@ void Engine<SampleType>::processInternal (const AudioBuffer<SampleType>& input, 
 }
 
 template <typename SampleType>
+void Engine<SampleType>::reset()
+{
+    wasBypassedLastCallback = true;
+    onReset();
+}
+
+template <typename SampleType>
 void Engine<SampleType>::prepared (int, double, int)
 {
 }

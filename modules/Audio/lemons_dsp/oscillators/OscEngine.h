@@ -86,6 +86,12 @@ private:
 			osc->setFrequency (frequency, static_cast<SampleType> (samplerate));
 		}
 	}
+    
+    void onReset() final
+    {
+        for (auto* osc : oscillators)
+            osc->resetPhase();
+    }
 
 	void released() final
 	{

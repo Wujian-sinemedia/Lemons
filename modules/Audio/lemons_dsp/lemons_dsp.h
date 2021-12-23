@@ -52,8 +52,7 @@ END_JUCE_MODULE_DECLARATION
 
 #include "oscillators/oscillators.h"
 #include "oscillators/SuperSaw.h"
-
-#include "engines/OscEngine.h"
+#include "oscillators/OscEngine.h"
 
 #include "oscillators/choosable.h"
 

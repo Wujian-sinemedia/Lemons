@@ -47,4 +47,4 @@ void BasicProcessor::repaintEditor() const
                                             e->repaint(); });
 }
 
-}  // namespace lemons::dsp
+}  // namespace lemons::plugin

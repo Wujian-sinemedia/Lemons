@@ -23,12 +23,13 @@ namespace lemons::plugin
 class GUI : public juce::Component
 {
 public:
-    explicit GUI (State& s)
-    : state(s)
-    { }
-    
+	explicit GUI (State& s)
+	    : state (s)
+	{
+	}
+
 protected:
-    State& state;
+	State& state;
 };
 
 
@@ -41,10 +42,11 @@ class Editor final : public juce::AudioProcessorEditor
 public:
 	/** Creates a plugin editor. */
 	explicit Editor (ProcessorBase& p)
-	    : AudioProcessorEditor (p), content(p.getState())
+	    : AudioProcessorEditor (p)
+	    , content (p.getState())
 	{
-        const auto& initialSize = p.getState().editorSize;
-        
+		const auto& initialSize = p.getState().editorSize;
+
 		jassert (initialSize.isValid());
 
 		setResizable (true, true);
@@ -59,8 +61,8 @@ public:
 		c->setFixedAspectRatio (initialSize.getAspectRatio());
 
 		addAndMakeVisible (content);
-        
-        setSize (width, height);
+
+		setSize (width, height);
 	}
 
 private:
@@ -79,4 +81,4 @@ private:
 	juce::TooltipWindow tooltipWindow { this, 700 };
 };
 
-}  // namespace lemons::dsp
+}  // namespace lemons::plugin

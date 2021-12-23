@@ -20,7 +20,7 @@
 namespace lemons::plugin
 {
 
-template<typename T>
+template <typename T>
 using AudioBuffer = juce::AudioBuffer<T>;
 
 using juce::MidiBuffer;
@@ -81,7 +81,7 @@ private:
 };
 
 
-}  // namespace lemons::dsp
+}  // namespace lemons::plugin
 
 
 #if LEMONS_UNIT_TESTS

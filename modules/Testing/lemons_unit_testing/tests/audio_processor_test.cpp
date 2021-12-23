@@ -90,8 +90,10 @@ void AudioProcessorTestBase::runTest()
 
 	beginTest ("Programs API");
 
-	expect (! processor->getProgramName (processor->getCurrentProgram()).isEmpty());
 	expectGreaterThan (processor->getNumPrograms(), 0);
+    
+    for (int i = 0; i < processor->getNumPrograms(); ++i)
+        expect (! processor->getProgramName(i).isEmpty());
 
 
 	runTypedTests<float>();

@@ -16,15 +16,16 @@
 namespace lemons::plugin
 {
 
-ProcessorBase::ProcessorBase (dsp::Engine<float>&                        floatEngineToUse,
-                              dsp::Engine<double>&                       doubleEngineToUse,
-                              State& stateToUse,
-                              const BusesProperties& busesLayout,
+ProcessorBase::ProcessorBase (dsp::Engine<float>&        floatEngineToUse,
+                              dsp::Engine<double>&       doubleEngineToUse,
+                              State&                     stateToUse,
+                              const BusesProperties&     busesLayout,
                               const ProcessorAttributes& attributes)
     : BasicProcessor (busesLayout)
     , floatEngine (floatEngineToUse)
-    , doubleEngine (doubleEngineToUse), state(stateToUse)
-, processorAttributes (attributes)
+    , doubleEngine (doubleEngineToUse)
+    , state (stateToUse)
+    , processorAttributes (attributes)
 {
 }
 
@@ -39,9 +40,9 @@ void ProcessorBase::prepareToPlay (double sampleRate, int samplesPerBlock)
 }
 
 template <typename SampleType1, typename SampleType2>
-void ProcessorBase::prepareToPlayInternal (double               sampleRate,
-                                           int                  samplesPerBlock,
-                                           int                  numChannels,
+void ProcessorBase::prepareToPlayInternal (double                    sampleRate,
+                                           int                       samplesPerBlock,
+                                           int                       numChannels,
                                            dsp::Engine<SampleType1>& activeEngine,
                                            dsp::Engine<SampleType2>& idleEngine)
 {
@@ -58,10 +59,26 @@ void ProcessorBase::prepareToPlayInternal (double               sampleRate,
 template void ProcessorBase::prepareToPlayInternal (double, int, int, dsp::Engine<float>&, dsp::Engine<double>&);
 template void ProcessorBase::prepareToPlayInternal (double, int, int, dsp::Engine<double>&, dsp::Engine<float>&);
 
+void ProcessorBase::reset()
+{
+	if (isUsingDoublePrecision())
+		doubleEngine.reset();
+	else
+		floatEngine.reset();
+}
+
 void ProcessorBase::releaseResources()
 {
 	doubleEngine.releaseResources();
 	floatEngine.releaseResources();
+}
+
+void ProcessorBase::getStateInformation (juce::MemoryBlock& block)
+{
+}
+
+void ProcessorBase::setStateInformation (const void* data, int size)
+{
 }
 
 void ProcessorBase::processBlock (AudioBuffer<float>& audio, MidiBuffer& midi)
@@ -90,7 +107,26 @@ void ProcessorBase::processInternal (dsp::Engine<SampleType>& engine, AudioBuffe
 	juce::ScopedNoDenormals nodenorms;
 
 	if (isBypassed)
-        state.getBypass().set (true);
+		state.getBypass().set (true);
+
+	for (const auto& m : midi)
+	{
+		const auto message = m.getMessage();
+
+		if (message.isAllNotesOff() || message.isAllSoundOff())
+		{
+			engine.reset();
+		}
+		else if (message.isProgramChange())
+		{
+			setCurrentProgram (message.getProgramChangeNumber());
+		}
+		else if (message.isController())
+		{
+			//            const auto number = message.getControllerNumber();
+			//            const auto value  = message.getControllerValue();
+		}
+	}
 
 	const auto busLayout = getBusesLayout();
 
@@ -119,9 +155,34 @@ void ProcessorBase::processInternal (dsp::Engine<SampleType>& engine, AudioBuffe
 template void ProcessorBase::processInternal (dsp::Engine<float>&, AudioBuffer<float>&, MidiBuffer&, bool);
 template void ProcessorBase::processInternal (dsp::Engine<double>&, AudioBuffer<double>&, MidiBuffer&, bool);
 
+int ProcessorBase::getNumPrograms()
+{
+	return 1;
+}
+
+int ProcessorBase::getCurrentProgram()
+{
+	return 0;
+}
+
+void ProcessorBase::setCurrentProgram (int index)
+{
+	if (index < 0 || index >= getNumPrograms())
+		return;
+}
+
+const String ProcessorBase::getProgramName (int index)
+{
+	return TRANS ("Program");
+}
+
+void ProcessorBase::changeProgramName (int index, const String& newName)
+{
+}
+
 juce::AudioProcessorParameter* ProcessorBase::getBypassParameter() const
 {
-    return &state.getBypass();
+	return &state.getBypass();
 }
 
 bool ProcessorBase::supportsDoublePrecisionProcessing() const
@@ -131,37 +192,37 @@ bool ProcessorBase::supportsDoublePrecisionProcessing() const
 
 bool ProcessorBase::acceptsMidi() const
 {
-    return processorAttributes.acceptsMidi;
+	return processorAttributes.acceptsMidi;
 }
 
 bool ProcessorBase::producesMidi() const
 {
-    return processorAttributes.producesMidi;
+	return processorAttributes.producesMidi;
 }
 
 bool ProcessorBase::supportsMPE() const
 {
-    return processorAttributes.supportsMPE;
+	return processorAttributes.supportsMPE;
 }
 
 bool ProcessorBase::isMidiEffect() const
 {
-    return processorAttributes.isMidiEffect;
+	return processorAttributes.isMidiEffect;
 }
 
 const String ProcessorBase::getName() const
 {
-    return TRANS (processorAttributes.name);
+	return TRANS (processorAttributes.name);
 }
 
 juce::StringArray ProcessorBase::getAlternateDisplayNames() const
 {
-    return processorAttributes.alternateNames;
+	return processorAttributes.alternateNames;
 }
 
 State& ProcessorBase::getState() noexcept
 {
-    return state;
+	return state;
 }
 
-}  // namespace lemons::dsp
+}  // namespace lemons::plugin

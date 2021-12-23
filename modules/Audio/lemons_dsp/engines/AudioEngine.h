@@ -104,6 +104,10 @@ public:
 	    This will return 0 if the engine is unprepared.
 	 */
 	[[nodiscard]] int getBlocksize() const noexcept;
+    
+    /** Call this method to reset the engine, without deallocating resources -- for example, stopping all voices of a synth.
+     */
+    void reset();
 
 private:
 	void processInternal (const AudioBuffer<SampleType>& input, AudioBuffer<SampleType>& output, MidiBuffer& midiMessages, bool isBypassed);
@@ -116,6 +120,11 @@ private:
 
 	/** Your subclass may implement this to be informed when the engine is released. */
 	virtual void released() { }
+    
+    /** Your subclass may implement this to be informed when reset() is called.
+        @attention You should NOT deallocate any resources in here, as process() may be called again before another call to prepare()!
+     */
+    virtual void onReset() { }
 
 	MidiBuffer dummyMidiBuffer;
 	bool       wasBypassedLastCallback { true };

@@ -1,15 +1,15 @@
 /*
  ======================================================================================
- 
+
  ██╗     ███████╗███╗   ███╗ ██████╗ ███╗   ██╗███████╗
  ██║     ██╔════╝████╗ ████║██╔═══██╗████╗  ██║██╔════╝
  ██║     █████╗  ██╔████╔██║██║   ██║██╔██╗ ██║███████╗
  ██║     ██╔══╝  ██║╚██╔╝██║██║   ██║██║╚██╗██║╚════██║
  ███████╗███████╗██║ ╚═╝ ██║╚██████╔╝██║ ╚████║███████║
  ╚══════╝╚══════╝╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝
- 
+
  This file is part of the Lemons open source library and is licensed under the terms of the GNU Public License.
- 
+
  ======================================================================================
  */
 
@@ -40,50 +40,50 @@ public:
 	    @param parameterCategory An optional parameter category. See juce::AudioProcessorParameter::Category.
 	 */
 	explicit Parameter (String paramName,
-	           juce::NormalisableRange<float>
-	                                                   paramRange,
-	           float                                   paramDefaultValue    = 1.f,
-	           std::function<String (float)>           valueToTextFuncToUse = nullptr,
-	           std::function<float (const String&)>    textToValueFuncToUse = nullptr,
-	           String                                  paramLabel           = {},
-	           bool                                    isAutomatable        = true,
-	           bool                                    metaParam            = false,
-	           juce::AudioProcessorParameter::Category parameterCategory    = AudioProcessorParameter::genericParameter);
-    
-    /** Returns the parameter's current value, in a normalized 0-1 range.
-     @see getDenormalizedValue()
-     */
-    [[nodiscard]] float getNormalizedValue() const noexcept;
-    
-    /** Returns the parameter's current value, in the parameter's denormalized range.
-     @see getNormalizedValue()
-     */
-    [[nodiscard]] float getDenormalizedValue() const noexcept;
-    
-    /** Sets the parameter's value, in a normalized 0-1 range.
-     @see setDenormalizedValue()
-     */
-    void setNormalizedValue (float value);
-    
-    /** Sets the parameter's value, in the parameter's denormalized range.
-     @see setNormalizedValue()
-     */
-    void setDenormalizedValue (float value);
+	                    juce::NormalisableRange<float>
+	                                                            paramRange,
+	                    float                                   paramDefaultValue    = 1.f,
+	                    std::function<String (float)>           valueToTextFuncToUse = nullptr,
+	                    std::function<float (const String&)>    textToValueFuncToUse = nullptr,
+	                    String                                  paramLabel           = {},
+	                    bool                                    isAutomatable        = true,
+	                    bool                                    metaParam            = false,
+	                    juce::AudioProcessorParameter::Category parameterCategory    = AudioProcessorParameter::genericParameter);
+
+	/** Returns the parameter's current value, in a normalized 0-1 range.
+	 @see getDenormalizedValue()
+	 */
+	[[nodiscard]] float getNormalizedValue() const noexcept;
+
+	/** Returns the parameter's current value, in the parameter's denormalized range.
+	 @see getNormalizedValue()
+	 */
+	[[nodiscard]] float getDenormalizedValue() const noexcept;
+
+	/** Sets the parameter's value, in a normalized 0-1 range.
+	 @see setDenormalizedValue()
+	 */
+	void setNormalizedValue (float value);
+
+	/** Sets the parameter's value, in the parameter's denormalized range.
+	 @see setNormalizedValue()
+	 */
+	void setDenormalizedValue (float value);
 
 	/** Returns this parameter's range object. */
-    [[nodiscard]] const juce::NormalisableRange<float>& getNormalisableRange() const final;
-    
-    /** Begins a change gesture for this parameter. */
-    void beginGesture();
-    
-    /** Ends any active change gesture for this parameter. */
-    void endGesture();
-    
-    /** Returns true if this parameter is currently in the middle of a change gesture. */
-    [[nodiscard]] bool isChanging() const noexcept;
-    
-    
-    // functions for MIDI controller mapping
+	[[nodiscard]] const juce::NormalisableRange<float>& getNormalisableRange() const final;
+
+	/** Begins a change gesture for this parameter. */
+	void beginGesture();
+
+	/** Ends any active change gesture for this parameter. */
+	void endGesture();
+
+	/** Returns true if this parameter is currently in the middle of a change gesture. */
+	[[nodiscard]] bool isChanging() const noexcept;
+
+
+	// functions for MIDI controller mapping
 
 	/** Returns the number of the MIDI controller mapped to this parameter, or -1 if this parameter is unmapped. */
 	[[nodiscard]] int getMidiControllerNumber() const noexcept;
@@ -100,9 +100,9 @@ public:
 	/** Call this function with each MIDI CC message your plugin recieves, and the Parameter class will automatically update itself with changes in the appropriate controller, if a mapping is active. */
 	void processNewControllerMessage (int controllerNumber, int controllerValue);
 
-    
-    // functions related to the default value
-    
+
+	// functions related to the default value
+
 	/** Sets the parameter's current value as the default value. */
 	void refreshDefault();
 
@@ -129,7 +129,7 @@ public:
 	 */
 	void setDenormalizedDefault (float value);
 
-    
+
 	/** Sets an UndoManager to use to manage this parameter's transactions.
 	    The UndoManager will track change gestures, changing the default value, and changing the MIDI CC mapping.
 	    @see UndoManager
@@ -137,7 +137,7 @@ public:
 	//	void setUndoManager (UndoManager& managerToUse);
 
 	/** Returns true if this parameter is automatable by the user's DAW. */
-    [[nodiscard]] bool isAutomatable() const final;
+	[[nodiscard]] bool isAutomatable() const final;
 
 	/** Returns a textual description of a normalized value in the range 0-1.
 	    @see getTextForDenormalizedValue()
@@ -194,12 +194,12 @@ public:
 	};
 
 	//==============================================================================
-    
+
 protected:
-    
-    [[nodiscard]] float normalize (float input) const noexcept;
-    
-    [[nodiscard]] float denormalize (float input) const noexcept;
+
+	[[nodiscard]] float normalize (float input) const noexcept;
+
+	[[nodiscard]] float denormalize (float input) const noexcept;
 
 private:
 	bool isMetaParameter() const final;
@@ -229,8 +229,8 @@ private:
 	juce::ListenerList<Listener> listeners;
 
 	const String valueChangeTransactionName, defaultChangeTransactionName, midiControllerChangeTransactionName;
-    
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (Parameter)
+
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (Parameter)
 };
 
 }  // namespace lemons::plugin

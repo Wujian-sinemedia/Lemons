@@ -126,6 +126,13 @@ void EngineChain<SampleType>::latencyChanged (int newLatency)
 }
 
 template <typename SampleType>
+void EngineChain<SampleType>::onReset()
+{
+    for (auto* node : nodes)
+        node->engine->reset();
+}
+
+template <typename SampleType>
 void EngineChain<SampleType>::onRelease()
 {
 	for (auto* node : nodes)

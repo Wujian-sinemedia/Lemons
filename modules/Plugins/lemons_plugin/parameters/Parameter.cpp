@@ -1,15 +1,15 @@
 /*
  ======================================================================================
- 
+
  ██╗     ███████╗███╗   ███╗ ██████╗ ███╗   ██╗███████╗
  ██║     ██╔════╝████╗ ████║██╔═══██╗████╗  ██║██╔════╝
  ██║     █████╗  ██╔████╔██║██║   ██║██╔██╗ ██║███████╗
  ██║     ██╔══╝  ██║╚██╔╝██║██║   ██║██║╚██╗██║╚════██║
  ███████╗███████╗██║ ╚═╝ ██║╚██████╔╝██║ ╚████║███████║
  ╚══════╝╚══════╝╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝
- 
+
  This file is part of the Lemons open source library and is licensed under the terms of the GNU Public License.
- 
+
  ======================================================================================
  */
 
@@ -17,7 +17,7 @@ namespace lemons::plugin
 {
 [[nodiscard]] static inline String paramNameToID (const String& name)
 {
-    return name.trim().replaceCharacter (' ', '_');
+	return name.trim().replaceCharacter (' ', '_');
 }
 
 static inline std::function<String (float)> createDefaultValueToTextFunction (const String& paramLabel)
@@ -94,7 +94,7 @@ String Parameter::getTextForMin() const
 
 float Parameter::getValue() const
 {
-    return currentValue.load();
+	return currentValue.load();
 }
 
 void Parameter::setValue (float newValue)
@@ -117,11 +117,11 @@ void Parameter::setMidiControllerNumber (int newControllerNumber)
 	if (newControllerNumber == getMidiControllerNumber()) return;
 
 	//	UndoManager::ScopedTransaction s { um, midiControllerChangeTransactionName };
-    
-    midiControllerNumber.store (newControllerNumber);
-    
-    listeners.call ([=] (Listener& l)
-                    { l.controllerNumberChanged (newControllerNumber); });
+
+	midiControllerNumber.store (newControllerNumber);
+
+	listeners.call ([=] (Listener& l)
+	                { l.controllerNumberChanged (newControllerNumber); });
 }
 
 void Parameter::removeMidiControllerMapping() noexcept
@@ -256,7 +256,7 @@ void Parameter::setDenormalizedValue (float value)
 
 float Parameter::getNormalizedValue() const noexcept
 {
-    return currentValue.load();
+	return currentValue.load();
 }
 
 float Parameter::getDenormalizedValue() const noexcept
