@@ -2,5 +2,5 @@
 <area shape="rect" id="node1" title="A parameter that represents a general kind of meter, used for reporting things like level or gain red..." alt="" coords="5,155,236,181"/>
 <area shape="rect" id="node4" href="$structlemons_1_1plugin_1_1_gain_meter_parameter.html" title="A parameter that represents a meter displaying values in decibels." alt="" coords="23,229,218,271"/>
 <area shape="rect" id="node2" href="$classlemons_1_1plugin_1_1_typed_parameter.html" title="A parameter that can be stored as a type other than a float, but still inherits from my Parameter bas..." alt="" coords="59,80,182,107"/>
-<area shape="rect" id="node3" href="$classlemons_1_1plugin_1_1_parameter.html" title="A plugin parameter class that allows you to use my Serializing API, and has a few other cool bells an..." alt="" coords="24,5,217,32"/>
+<area shape="rect" id="node3" href="$classlemons_1_1plugin_1_1_parameter.html" title="A plugin parameter class." alt="" coords="24,5,217,32"/>
 </map>

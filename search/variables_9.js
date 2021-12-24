@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['name_2236',['name',['../structlemons_1_1plugin_1_1_processor_holder_1_1_parameter_state_data.html#a56132dfbc8b967ad6897466aa1beae1d',1,'lemons::plugin::ProcessorHolder::ParameterStateData']]]
+  ['location_2204',['location',['../structlemons_1_1spline_1_1_knot.html#a0d2bdd96e97eba6698c2d274424325f8',1,'lemons::spline::Knot']]]
 ];

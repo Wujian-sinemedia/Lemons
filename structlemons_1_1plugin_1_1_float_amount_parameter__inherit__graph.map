@@ -1,5 +1,5 @@
 <map id="lemons::plugin::FloatAmountParameter" name="lemons::plugin::FloatAmountParameter">
 <area shape="rect" id="node1" title="A parameter that represents a value in a normalized 0&#45;1 range." alt="" coords="5,155,216,196"/>
 <area shape="rect" id="node2" href="$classlemons_1_1plugin_1_1_typed_parameter.html" title="A parameter that can be stored as a type other than a float, but still inherits from my Parameter bas..." alt="" coords="49,80,172,107"/>
-<area shape="rect" id="node3" href="$classlemons_1_1plugin_1_1_parameter.html" title="A plugin parameter class that allows you to use my Serializing API, and has a few other cool bells an..." alt="" coords="14,5,207,32"/>
+<area shape="rect" id="node3" href="$classlemons_1_1plugin_1_1_parameter.html" title="A plugin parameter class." alt="" coords="14,5,207,32"/>
 </map>

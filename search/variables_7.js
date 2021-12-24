@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['location_2233',['location',['../structlemons_1_1spline_1_1_knot.html#a0d2bdd96e97eba6698c2d274424325f8',1,'lemons::spline::Knot']]]
+  ['id_5fprop_2200',['id_prop',['../classlemons_1_1plugin_1_1_parameter.html#abdadb6b6c30b331538a7843dba59ba19',1,'lemons::plugin::Parameter']]],
+  ['ismidieffect_2201',['isMidiEffect',['../structlemons_1_1plugin_1_1_processor_attributes.html#a5c02f443c5847eeaa20118cedca0da6c',1,'lemons::plugin::ProcessorAttributes']]]
 ];

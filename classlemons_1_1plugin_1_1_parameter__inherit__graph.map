@@ -1,5 +1,5 @@
 <map id="lemons::plugin::Parameter" name="lemons::plugin::Parameter">
-<area shape="rect" id="node1" title="A plugin parameter class that allows you to use my Serializing API, and has a few other cool bells an..." alt="" coords="5,325,199,352"/>
+<area shape="rect" id="node1" title="A plugin parameter class." alt="" coords="5,325,199,352"/>
 <area shape="rect" id="node2" href="$classlemons_1_1plugin_1_1_typed_parameter.html" title="A parameter that can be stored as a type other than a float, but still inherits from my Parameter bas..." alt="" coords="248,318,479,359"/>
 <area shape="rect" id="node13" href="$classlemons_1_1plugin_1_1_typed_parameter.html" title=" " alt="" coords="597,57,828,98"/>
 <area shape="rect" id="node17" href="$classlemons_1_1plugin_1_1_typed_parameter.html" title=" " alt="" coords="597,579,828,621"/>

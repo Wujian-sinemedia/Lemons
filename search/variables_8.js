@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['mainbypass_2234',['mainBypass',['../classlemons_1_1plugin_1_1_state_base.html#aeb826035e1976ec685c8bf3232d3bdc0',1,'lemons::plugin::StateBase']]],
-  ['modmanager_2235',['modManager',['../classlemons_1_1plugin_1_1_state_base.html#ae139e1bc96f05db7e27391c6d1241340',1,'lemons::plugin::StateBase']]]
+  ['keyboardstate_2202',['keyboardState',['../classlemons_1_1dsp_1_1_synth_base.html#a32ddb3597cd3ae6fcb3669b664c775e5',1,'lemons::dsp::SynthBase']]],
+  ['knots_2203',['knots',['../structlemons_1_1spline_1_1_spline.html#aa660f86709ba2bc361ffd6873b2af5e9',1,'lemons::spline::Spline']]]
 ];

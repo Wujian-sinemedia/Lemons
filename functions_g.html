@@ -79,7 +79,7 @@ $(function() {
 : <a class="el" href="structlemons_1_1plugin_1_1_parameter_1_1_listener.html#ac0db7beb485e9164070104f5da7e7b40">lemons::plugin::Parameter::Listener</a>
 </li>
 <li>get()
-: <a class="el" href="classlemons_1_1plugin_1_1_typed_parameter.html#a9333a81bf01432310fc49d52816c6a86">lemons::plugin::TypedParameter&lt; ValueType &gt;</a>
+: <a class="el" href="classlemons_1_1plugin_1_1_typed_parameter.html#aac2600420bfa3b388674c19d3fb47fdf">lemons::plugin::TypedParameter&lt; ValueType &gt;</a>
 </li>
 <li>getAcceleration()
 : <a class="el" href="classlemons_1_1_device_motion.html#ad1866774a2ac81f4d4479aef10d60973">lemons::DeviceMotion</a>
@@ -103,7 +103,7 @@ $(function() {
 : <a class="el" href="structlemons_1_1binary_1_1_data.html#a74b924703cf18cf60b4931df8cc3ac7b">lemons::binary::Data</a>
 </li>
 <li>getAspectRatio()
-: <a class="el" href="structlemons_1_1_dimensions.html#a521fc010aefa94263df8e45fd640dc86">lemons::Dimensions</a>
+: <a class="el" href="structlemons_1_1_dimensions.html#a03bf5f2929ef7ada5d88c78033859057">lemons::Dimensions</a>
 </li>
 <li>getAsString()
 : <a class="el" href="structlemons_1_1binary_1_1_data.html#ac830c9dca94282ee57eb55b35730ea0f">lemons::binary::Data</a>
@@ -138,6 +138,9 @@ $(function() {
 <li>getBlocksize()
 : <a class="el" href="classlemons_1_1dsp_1_1_engine.html#ac58db70a45245363b4cde47e068c93f1">lemons::dsp::Engine&lt; SampleType &gt;</a>
 </li>
+<li>getBypass()
+: <a class="el" href="classlemons_1_1plugin_1_1_state.html#af45354a6bfa6f3a247198b682deedbec">lemons::plugin::State</a>
+</li>
 <li>getCapacity()
 : <a class="el" href="classlemons_1_1dsp_1_1_circular_buffer.html#a501fc09d80b85274e0bebe94af474991">lemons::dsp::CircularBuffer&lt; SampleType &gt;</a>
 </li>
@@ -156,16 +159,19 @@ $(function() {
 </li>
 <li>getDefault()
 : <a class="el" href="structlemons_1_1_dimensions.html#aa5e46b5ec4646920cdc7c128b939683a">lemons::Dimensions</a>
-, <a class="el" href="classlemons_1_1plugin_1_1_typed_parameter.html#aaad0266372079085c094947faa57ce2b">lemons::plugin::TypedParameter&lt; ValueType &gt;</a>
+, <a class="el" href="classlemons_1_1plugin_1_1_typed_parameter.html#adaf54a9afaf18ec3f02dc3bb568c3d68">lemons::plugin::TypedParameter&lt; ValueType &gt;</a>
+</li>
+<li>getDefaultBusesLayout()
+: <a class="el" href="classlemons_1_1plugin_1_1_basic_processor.html#a5113130e547ceaeeb43fdeb856062a33">lemons::plugin::BasicProcessor</a>
 </li>
 <li>getDenormalizedDefault()
-: <a class="el" href="classlemons_1_1plugin_1_1_parameter.html#a0f20a4d166dd1ce9a161608b31b9ccbd">lemons::plugin::Parameter</a>
+: <a class="el" href="classlemons_1_1plugin_1_1_parameter.html#a4815cd22a7e631c838df23c0988534c4">lemons::plugin::Parameter</a>
 </li>
 <li>getDenormalizedPoint()
 : <a class="el" href="structlemons_1_1spline_1_1_knot.html#a3c3702c98b168a559b8dc81f7b574a6f">lemons::spline::Knot</a>
 </li>
 <li>getDenormalizedValue()
-: <a class="el" href="classlemons_1_1plugin_1_1_parameter.html#a1ad216ffc9c5b688b21d2896165de0d3">lemons::plugin::Parameter</a>
+: <a class="el" href="classlemons_1_1plugin_1_1_parameter.html#a061e9f2ed26f90bcd070567f735874b7">lemons::plugin::Parameter</a>
 </li>
 <li>getDspTestName()
 : <a class="el" href="classlemons_1_1tests_1_1_test.html#aca1fe9f7077f88d26de28011d924ecef">lemons::tests::Test</a>
@@ -305,11 +311,8 @@ $(function() {
 <li>getMajor()
 : <a class="el" href="structlemons_1_1_version.html#a9817605e551b61fde1042ec17d1fc023">lemons::Version</a>
 </li>
-<li>getMax()
-: <a class="el" href="classlemons_1_1plugin_1_1_parameter.html#a039379ee8787e3d1e2dd797ff83df122">lemons::plugin::Parameter</a>
-</li>
 <li>getMaximum()
-: <a class="el" href="classlemons_1_1plugin_1_1_typed_parameter.html#ab475aed3afd4247a7c5afc53e5b74c0b">lemons::plugin::TypedParameter&lt; ValueType &gt;</a>
+: <a class="el" href="classlemons_1_1plugin_1_1_typed_parameter.html#aa6e3f06f8c429fdc2b9dd8b6a6b8a442">lemons::plugin::TypedParameter&lt; ValueType &gt;</a>
 </li>
 <li>getMetadata()
 : <a class="el" href="structlemons_1_1_audio_file.html#af4d614c526fd7ce9f51f6245022f4b06">lemons::AudioFile</a>
@@ -321,19 +324,16 @@ $(function() {
 : <a class="el" href="classlemons_1_1dsp_1_1_synth_voice_base.html#a03608e1f2fa8a9419a5de9cd92021d4d">lemons::dsp::SynthVoiceBase&lt; SampleType &gt;</a>
 </li>
 <li>getMidiControllerNumber()
-: <a class="el" href="classlemons_1_1plugin_1_1_parameter.html#a26767145588fbdb49127be4a3e1bd12c">lemons::plugin::Parameter</a>
+: <a class="el" href="classlemons_1_1plugin_1_1_parameter.html#ae04873e41210558565f97b2a98a5a621">lemons::plugin::Parameter</a>
 </li>
 <li>getMidiForFrequency()
 : <a class="el" href="structlemons_1_1midi_1_1_pitch_pipeline.html#ac6310064c54059187bc85fef3e0dcc7a">lemons::midi::PitchPipeline</a>
-</li>
-<li>getMin()
-: <a class="el" href="classlemons_1_1plugin_1_1_parameter.html#ab5ccf172d8184a14cc1d70e5d160859b">lemons::plugin::Parameter</a>
 </li>
 <li>getMinHz()
 : <a class="el" href="classlemons_1_1dsp_1_1_pitch_detector.html#ac4c0dd776fec07b647d00e84ac0530a6">lemons::dsp::PitchDetector&lt; SampleType &gt;</a>
 </li>
 <li>getMinimum()
-: <a class="el" href="classlemons_1_1plugin_1_1_typed_parameter.html#a3f385a1ada429e1f7cd8e16d3f5a7635">lemons::plugin::TypedParameter&lt; ValueType &gt;</a>
+: <a class="el" href="classlemons_1_1plugin_1_1_typed_parameter.html#a65d1ef5ca52f5dcbeb4f754970dad0dc">lemons::plugin::TypedParameter&lt; ValueType &gt;</a>
 </li>
 <li>getMinor()
 : <a class="el" href="structlemons_1_1_version.html#a639a1102bbd6fe113946bd541aa7bce5">lemons::Version</a>
@@ -355,10 +355,10 @@ $(function() {
 : <a class="el" href="classlemons_1_1plugin_1_1_parameter.html#ad607d23979bbdbb9a78f1b3d013fc5b4">lemons::plugin::Parameter</a>
 </li>
 <li>getNormalizedDefault()
-: <a class="el" href="classlemons_1_1plugin_1_1_parameter.html#a4a21e8181dabc81dc9a159a686c10d73">lemons::plugin::Parameter</a>
+: <a class="el" href="classlemons_1_1plugin_1_1_parameter.html#af316987b7b43cd284bc0b2afdc3cf38a">lemons::plugin::Parameter</a>
 </li>
 <li>getNormalizedValue()
-: <a class="el" href="classlemons_1_1plugin_1_1_parameter.html#ac624ce0059aa3c873b2e0920ff973332">lemons::plugin::Parameter</a>
+: <a class="el" href="classlemons_1_1plugin_1_1_parameter.html#a50c120129b715a15b0b610fd55b2492b">lemons::plugin::Parameter</a>
 </li>
 <li>getNumActiveVoices()
 : <a class="el" href="classlemons_1_1dsp_1_1_synth_base.html#a38007d9c531b80d4ea64875f881be8cf">lemons::dsp::SynthBase&lt; SampleType &gt;</a>
@@ -447,13 +447,10 @@ $(function() {
 , <a class="el" href="classlemons_1_1dsp_1_1_engine.html#a0c87ce560c5a841ae19764adb67e4dfc">lemons::dsp::Engine&lt; SampleType &gt;</a>
 </li>
 <li>getSamples()
-: <a class="el" href="classlemons_1_1dsp_1_1_circular_buffer.html#a596b725d5dcfc529a1c7273630bf9ed3">lemons::dsp::CircularBuffer&lt; SampleType &gt;</a>
+: <a class="el" href="classlemons_1_1dsp_1_1_circular_buffer.html#a719fb2a904df96cb3942259fbd0d71ef">lemons::dsp::CircularBuffer&lt; SampleType &gt;</a>
 , <a class="el" href="structlemons_1_1dsp_1_1osc_1_1_oscillator.html#af0f2907b70a8c366e9a14e178b850f4e">lemons::dsp::osc::Oscillator&lt; SampleType &gt;</a>
 , <a class="el" href="classlemons_1_1dsp_1_1psola_1_1_shifter.html#a2cffdfc5f7a2b191f25b7e2a41e735c6">lemons::dsp::psola::Shifter&lt; SampleType &gt;</a>
-, <a class="el" href="classlemons_1_1dsp_1_1_white_noise_generator.html#a21f4ea9e6f5ed15f0bb215ee02a1b43b">lemons::dsp::WhiteNoiseGenerator&lt; SampleType &gt;</a>
-</li>
-<li>getSavedEditorSize()
-: <a class="el" href="classlemons_1_1plugin_1_1_processor_base.html#a3814788aae0eff4e449e29dbcd16352f">lemons::plugin::ProcessorBase</a>
+, <a class="el" href="classlemons_1_1dsp_1_1_white_noise_generator.html#a7e6686176553ec727430168812234587">lemons::dsp::WhiteNoiseGenerator&lt; SampleType &gt;</a>
 </li>
 <li>getScaleName()
 : <a class="el" href="classlemons_1_1dsp_1_1_synth_base.html#a16a6e5209b303a6347c07b70a33a3069">lemons::dsp::SynthBase&lt; SampleType &gt;</a>
@@ -466,7 +463,7 @@ $(function() {
 : <a class="el" href="structlemons_1_1binary_1_1_data.html#add7ac113481d2beee64bf54f56846d5e">lemons::binary::Data</a>
 </li>
 <li>getState()
-: <a class="el" href="classlemons_1_1plugin_1_1_processor.html#a2acf59f798cea2401c7cad31d4ab190a">lemons::plugin::Processor&lt; StateType, EngineType,, &gt;</a>
+: <a class="el" href="classlemons_1_1plugin_1_1_processor_base.html#a45813074aded389252f9291b1c3d9b3c">lemons::plugin::ProcessorBase</a>
 </li>
 <li>getStateOfParameters()
 : <a class="el" href="structlemons_1_1plugin_1_1_processor_holder.html#a38bb667bbdace1b14a4774562ff3556d">lemons::plugin::ProcessorHolder</a>
@@ -508,7 +505,7 @@ $(function() {
 : <a class="el" href="classlemons_1_1plugin_1_1_parameter.html#a07202aa895f5c0e7a49dba3ffb5e275e">lemons::plugin::Parameter</a>
 </li>
 <li>getTypedParameter()
-: <a class="el" href="structlemons_1_1plugin_1_1_processor_holder.html#ae0bea34ef084d7b28d5707632664b77c">lemons::plugin::ProcessorHolder</a>
+: <a class="el" href="structlemons_1_1plugin_1_1_processor_holder.html#a20fe18c9676e7ba8475c935257ec0028">lemons::plugin::ProcessorHolder</a>
 </li>
 <li>getValueForString()
 : <a class="el" href="classlemons_1_1plugin_1_1_typed_parameter.html#ab115e4682d29dba03b949c7aace71f7d">lemons::plugin::TypedParameter&lt; ValueType &gt;</a>
@@ -526,19 +523,16 @@ $(function() {
 : <a class="el" href="structlemons_1_1_device_motion_1_1_listener.html#a26cd203521fa3258187221cbd0244a9a">lemons::DeviceMotion::Listener</a>
 </li>
 <li>GUI()
-: <a class="el" href="classlemons_1_1plugin_1_1_g_u_i.html#a7de4aaf74c7c900d105782ed26bf6442">lemons::plugin::GUI&lt; StateType &gt;</a>
+: <a class="el" href="classlemons_1_1plugin_1_1_g_u_i.html#aeb1c796fac21b4d98768337d13344bc3">lemons::plugin::GUI</a>
 </li>
 <li>GuiApp()
 : <a class="el" href="classlemons_1_1_gui_app.html#a4ab064de98227affff397cc18357dbf8">lemons::GuiApp&lt; ContentComponentType, &gt;</a>
-</li>
-<li>GUIBase()
-: <a class="el" href="classlemons_1_1plugin_1_1_g_u_i_base.html#ab5fa92e62959c4e759db8530053ad368">lemons::plugin::GUIBase</a>
 </li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Dec 23 2021 00:45:24 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Dec 24 2021 00:44:28 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

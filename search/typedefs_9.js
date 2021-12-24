@@ -1,7 +1,8 @@
 var searchData=
 [
-  ['parameterstate_2273',['ParameterState',['../structlemons_1_1plugin_1_1_processor_holder.html#a7809bb749782bf4a6ade6451e7217f54',1,'lemons::plugin::ProcessorHolder']]],
-  ['point_2274',['Point',['../namespacelemons_1_1spline.html#a4815e51376e33169aa821c5b402e1462',1,'lemons::spline']]],
-  ['points_2275',['Points',['../namespacelemons_1_1spline.html#addc7a93d56f97a7f73b2a53cba567b4e',1,'lemons::spline']]],
-  ['processorholder_2276',['ProcessorHolder',['../structlemons_1_1tests_1_1_audio_processor_test_base.html#a522421ccd4232df183993cd8f2c0484e',1,'lemons::tests::AudioProcessorTestBase']]]
+  ['saw_2247',['Saw',['../namespacelemons_1_1dsp_1_1synth.html#afa3b1f52ea29a71fffd789388337adbc',1,'lemons::dsp::synth']]],
+  ['sine_2248',['Sine',['../namespacelemons_1_1dsp_1_1synth.html#ac2e323c6263a32217314b8041f56f87d',1,'lemons::dsp::synth']]],
+  ['size_2249',['Size',['../classlemons_1_1_gui_app.html#a949045cb0fd51b25fc0630aeb604c6b5',1,'lemons::GuiApp']]],
+  ['square_2250',['Square',['../namespacelemons_1_1dsp_1_1synth.html#a903fbb43adf3eea72eb6a42fae56330c',1,'lemons::dsp::synth']]],
+  ['supersaw_2251',['SuperSaw',['../namespacelemons_1_1dsp_1_1synth.html#a903e1e1d9351ec01537078f87a6446ee',1,'lemons::dsp::synth']]]
 ];

@@ -2,7 +2,7 @@ var searchData=
 [
   ['band_57',['Band',['../classlemons_1_1dsp_1_1_f_x_1_1_e_q.html#a9da162b53c264d8f4ed4ad8fc1e91aef',1,'lemons::dsp::FX::EQ']]],
   ['bandpass_58',['BandPass',['../namespacelemons_1_1dsp_1_1_f_x.html#a2a75c0c88cd8cbd576add3c0d4db1d14a39c9e9c45a479147bf5f74156421c744',1,'lemons::dsp::FX']]],
-  ['basicprocessor_59',['BasicProcessor',['../classlemons_1_1dsp_1_1_basic_processor.html',1,'lemons::dsp::BasicProcessor'],['../classlemons_1_1dsp_1_1_basic_processor.html#a65c7255934f835b4a3cf755b78f9193e',1,'lemons::dsp::BasicProcessor::BasicProcessor()']]],
+  ['basicprocessor_59',['BasicProcessor',['../classlemons_1_1plugin_1_1_basic_processor.html',1,'lemons::plugin::BasicProcessor'],['../classlemons_1_1plugin_1_1_basic_processor.html#affeaf4386c68d1b5dc11a8710c153177',1,'lemons::plugin::BasicProcessor::BasicProcessor()']]],
   ['basicprocessor_2eh_60',['BasicProcessor.h',['../_basic_processor_8h.html',1,'']]],
   ['basicsynths_61',['BasicSynths',['../group___basic_synths.html',1,'']]],
   ['begin_62',['begin',['../structlemons_1_1_constructed_array.html#ac844a8c41bec3b7f5409c41823ce1ed1',1,'lemons::ConstructedArray::begin() noexcept'],['../structlemons_1_1_constructed_array.html#adc90f3a2224c032716d006652fe232a7',1,'lemons::ConstructedArray::begin() const noexcept']]],
@@ -19,9 +19,11 @@ var searchData=
   ['bumpmajor_73',['bumpMajor',['../structlemons_1_1_version.html#a2b906ed4d93957ad4e93e4c712236081',1,'lemons::Version']]],
   ['bumpminor_74',['bumpMinor',['../structlemons_1_1_version.html#abc6b9609562d8f6ea37b71bdc1d6b366',1,'lemons::Version']]],
   ['bumppatch_75',['bumpPatch',['../structlemons_1_1_version.html#ab01ffcc37bd2c9e5cc355d891afc32d3',1,'lemons::Version']]],
-  ['buttons_76',['buttons',['../group__buttons.html',1,'']]],
-  ['bvbrandflags_77',['BVBrandFlags',['../_b_v_brand_flags.html',1,'']]],
-  ['bvbrandflags_2emd_78',['BVBrandFlags.md',['../_b_v_brand_flags_8md.html',1,'']]],
-  ['bypassedblock_79',['bypassedBlock',['../structlemons_1_1dsp_1_1_f_x_1_1_audio_effect.html#a0e2734ec1b7a89c566cbd2fe9b3592c8',1,'lemons::dsp::FX::AudioEffect::bypassedBlock()'],['../classlemons_1_1dsp_1_1_f_x_1_1_smoothed_gain.html#a8335b506c3444b98f063652352100d65',1,'lemons::dsp::FX::SmoothedGain::bypassedBlock()'],['../classlemons_1_1dsp_1_1_synth_base.html#a56641cc1e3f530f450c37855553d403e',1,'lemons::dsp::SynthBase::bypassedBlock()'],['../classlemons_1_1dsp_1_1_synth_voice_base.html#a41811700a1db4d05074f7e4717201b64',1,'lemons::dsp::SynthVoiceBase::bypassedBlock()']]],
-  ['bypassedblockrecieved_80',['bypassedBlockRecieved',['../classlemons_1_1dsp_1_1_synth_voice_base.html#a66792c4e9f40d929865adb20d7d7a6aa',1,'lemons::dsp::SynthVoiceBase']]]
+  ['busesproperties_76',['BusesProperties',['../classlemons_1_1plugin_1_1_basic_processor.html#abf03b92410766c2112bba4cd7236b484',1,'lemons::plugin::BasicProcessor']]],
+  ['buttons_77',['buttons',['../group__buttons.html',1,'']]],
+  ['bvbrandflags_78',['BVBrandFlags',['../_b_v_brand_flags.html',1,'']]],
+  ['bvbrandflags_2emd_79',['BVBrandFlags.md',['../_b_v_brand_flags_8md.html',1,'']]],
+  ['bypass_80',['bypass',['../classlemons_1_1plugin_1_1_state.html#a78aec85518e22c2ae3d71cfca8f3d738',1,'lemons::plugin::State']]],
+  ['bypassedblock_81',['bypassedBlock',['../structlemons_1_1dsp_1_1_f_x_1_1_audio_effect.html#a0e2734ec1b7a89c566cbd2fe9b3592c8',1,'lemons::dsp::FX::AudioEffect::bypassedBlock()'],['../classlemons_1_1dsp_1_1_f_x_1_1_smoothed_gain.html#a8335b506c3444b98f063652352100d65',1,'lemons::dsp::FX::SmoothedGain::bypassedBlock()'],['../classlemons_1_1dsp_1_1_synth_base.html#a56641cc1e3f530f450c37855553d403e',1,'lemons::dsp::SynthBase::bypassedBlock()'],['../classlemons_1_1dsp_1_1_synth_voice_base.html#a41811700a1db4d05074f7e4717201b64',1,'lemons::dsp::SynthVoiceBase::bypassedBlock()']]],
+  ['bypassedblockrecieved_82',['bypassedBlockRecieved',['../classlemons_1_1dsp_1_1_synth_voice_base.html#a66792c4e9f40d929865adb20d7d7a6aa',1,'lemons::dsp::SynthVoiceBase']]]
 ];

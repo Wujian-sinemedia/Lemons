@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['tooltipwindow_2249',['tooltipWindow',['../classlemons_1_1plugin_1_1_g_u_i_base.html#ad2e032dba9ae1e80997bd38a2fc87561',1,'lemons::plugin::GUIBase']]],
-  ['tuning_2250',['tuning',['../structlemons_1_1midi_1_1_pitch_pipeline.html#abf3dee92140fdc8097df95e653f04a89',1,'lemons::midi::PitchPipeline']]],
-  ['type_2251',['type',['../structlemons_1_1dsp_1_1_synth_base_1_1_timbre_mod_params.html#a4b3584a6f4bc5bf2cf3087a805b6afa1',1,'lemons::dsp::SynthBase::TimbreModParams']]],
-  ['typedprocessor_2252',['typedProcessor',['../structlemons_1_1plugin_1_1_typed_processor_engine.html#adc0abd61eeff3a9520f1a684909a6c0a',1,'lemons::plugin::TypedProcessorEngine::typedProcessor()'],['../structlemons_1_1plugin_1_1_typed_processor_holder.html#a2f1bcd57b42de98539435abc4de2c9e6',1,'lemons::plugin::TypedProcessorHolder::typedProcessor()']]]
+  ['softpedal_2216',['softPedal',['../classlemons_1_1dsp_1_1_synth_base.html#a99921455c45ede8e43c3dcdc30ee0ff7',1,'lemons::dsp::SynthBase']]],
+  ['state_2217',['state',['../classlemons_1_1plugin_1_1_g_u_i.html#ae519503620b63caf631fe504d2c22020',1,'lemons::plugin::GUI']]],
+  ['supportsmpe_2218',['supportsMPE',['../structlemons_1_1plugin_1_1_processor_attributes.html#ab1c0c1eb3797f7e583cf575cc825300b',1,'lemons::plugin::ProcessorAttributes']]]
 ];

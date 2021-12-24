@@ -1,4 +1,0 @@
-<map id="lemons::plugin::EditorBase" name="lemons::plugin::EditorBase">
-<area shape="rect" id="node1" title="Base class for plugin editors." alt="" coords="47,5,243,32"/>
-<area shape="rect" id="node2" href="$classlemons_1_1plugin_1_1_plugin_editor.html" title="Base class for a plugin editor that instantiates the owned content for you." alt="" coords="5,80,285,121"/>
-</map>

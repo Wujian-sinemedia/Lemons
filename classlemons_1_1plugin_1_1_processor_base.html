@@ -68,7 +68,9 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="classlemons_1_1plugin_1_1_processor_base-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">lemons::plugin::ProcessorBase Class Reference<div class="ingroups"><a class="el" href="group___audio.html">Audio</a> &raquo; <a class="el" href="group__lemons__midi.html">lemons_midi</a><a class="el" href="group___plugins.html">Plugins</a> &raquo;  &#124; <a class="el" href="group__lemons__plugin.html">lemons_plugin</a> &raquo; <a class="el" href="group__processors.html">processors</a></div></div>  </div>
@@ -82,46 +84,72 @@ $(function() {
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classlemons_1_1plugin_1_1_processor_base__inherit__graph.svg" width="232" height="202"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classlemons_1_1plugin_1_1_processor_base__inherit__graph.svg" width="235" height="202"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:abf03b92410766c2112bba4cd7236b484"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_basic_processor.html#abf03b92410766c2112bba4cd7236b484">BusesProperties</a> = juce::AudioProcessor::BusesProperties</td></tr>
+<tr class="separator:abf03b92410766c2112bba4cd7236b484"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a594b9c70fa57b4a8021d32b364e20dbc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_processor_base.html#a594b9c70fa57b4a8021d32b364e20dbc">ProcessorBase</a> (<a class="el" href="classlemons_1_1plugin_1_1_state_base.html">StateBase</a> &amp;stateToUse, <a class="el" href="classlemons_1_1dsp_1_1_engine.html">dsp::Engine</a>&lt; float &gt; &amp;floatEngineToUse, <a class="el" href="classlemons_1_1dsp_1_1_engine.html">dsp::Engine</a>&lt; double &gt; &amp;doubleEngineToUse, juce::AudioProcessor::BusesProperties busesLayout=BusesProperties() .withInput(TRANS(&quot;Input&quot;), juce::AudioChannelSet::stereo(), true) .withOutput(TRANS(&quot;Output&quot;), juce::AudioChannelSet::stereo(), true))</td></tr>
-<tr class="memdesc:a594b9c70fa57b4a8021d32b364e20dbc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a processor.  <a href="classlemons_1_1plugin_1_1_processor_base.html#a594b9c70fa57b4a8021d32b364e20dbc">More...</a><br /></td></tr>
-<tr class="separator:a594b9c70fa57b4a8021d32b364e20dbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3814788aae0eff4e449e29dbcd16352f"><td class="memItemLeft" align="right" valign="top">juce::Point&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_processor_base.html#a3814788aae0eff4e449e29dbcd16352f">getSavedEditorSize</a> () const noexcept</td></tr>
-<tr class="memdesc:a3814788aae0eff4e449e29dbcd16352f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the state's saved editor dimensions.  <a href="classlemons_1_1plugin_1_1_processor_base.html#a3814788aae0eff4e449e29dbcd16352f">More...</a><br /></td></tr>
-<tr class="separator:a3814788aae0eff4e449e29dbcd16352f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a28488d2ac54436ff69d1da67dc4d3dac"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1_basic_processor.html#a28488d2ac54436ff69d1da67dc4d3dac">repaintEditor</a> () const</td></tr>
-<tr class="memdesc:a28488d2ac54436ff69d1da67dc4d3dac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Repaints the editor, if one exists.  <a href="classlemons_1_1dsp_1_1_basic_processor.html#a28488d2ac54436ff69d1da67dc4d3dac">More...</a><br /></td></tr>
-<tr class="separator:a28488d2ac54436ff69d1da67dc4d3dac"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ace19860eb53c8057f2bed4b7e819fd41"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_processor_base.html#ace19860eb53c8057f2bed4b7e819fd41">saveEditorSize</a> (int width, int height)</td></tr>
-<tr class="memdesc:ace19860eb53c8057f2bed4b7e819fd41"><td class="mdescLeft">&#160;</td><td class="mdescRight">Saves the editor's current dimensions in the plugin state.  <a href="classlemons_1_1plugin_1_1_processor_base.html#ace19860eb53c8057f2bed4b7e819fd41">More...</a><br /></td></tr>
-<tr class="separator:ace19860eb53c8057f2bed4b7e819fd41"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4695891e0af90a1c3493e7262d233939"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_processor_base.html#a4695891e0af90a1c3493e7262d233939">ProcessorBase</a> (<a class="el" href="classlemons_1_1dsp_1_1_engine.html">dsp::Engine</a>&lt; float &gt; &amp;floatEngineToUse, <a class="el" href="classlemons_1_1dsp_1_1_engine.html">dsp::Engine</a>&lt; double &gt; &amp;doubleEngineToUse, <a class="el" href="classlemons_1_1plugin_1_1_state.html">State</a> &amp;stateToUse, const <a class="el" href="classlemons_1_1plugin_1_1_basic_processor.html#abf03b92410766c2112bba4cd7236b484">BusesProperties</a> &amp;busesLayout=<a class="el" href="classlemons_1_1plugin_1_1_basic_processor.html#a5113130e547ceaeeb43fdeb856062a33">getDefaultBusesLayout</a>(), const <a class="el" href="structlemons_1_1plugin_1_1_processor_attributes.html">ProcessorAttributes</a> &amp;attributes=<a class="el" href="structlemons_1_1plugin_1_1_processor_attributes.html#ac2f50da82c87f3f07cfe01b296f96c49">ProcessorAttributes::fromProjectDefines</a>())</td></tr>
+<tr class="memdesc:a4695891e0af90a1c3493e7262d233939"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a processor.  <a href="classlemons_1_1plugin_1_1_processor_base.html#a4695891e0af90a1c3493e7262d233939">More...</a><br /></td></tr>
+<tr class="separator:a4695891e0af90a1c3493e7262d233939"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a45813074aded389252f9291b1c3d9b3c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classlemons_1_1plugin_1_1_state.html">State</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_processor_base.html#a45813074aded389252f9291b1c3d9b3c">getState</a> () noexcept</td></tr>
+<tr class="memdesc:a45813074aded389252f9291b1c3d9b3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the plugin's state object.  <a href="classlemons_1_1plugin_1_1_processor_base.html#a45813074aded389252f9291b1c3d9b3c">More...</a><br /></td></tr>
+<tr class="separator:a45813074aded389252f9291b1c3d9b3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac6e8eacfeda348419aa05cbfb338198c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_basic_processor.html#ac6e8eacfeda348419aa05cbfb338198c">repaintEditor</a> () const</td></tr>
+<tr class="memdesc:ac6e8eacfeda348419aa05cbfb338198c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Repaints the editor, if one exists.  <a href="classlemons_1_1plugin_1_1_basic_processor.html#ac6e8eacfeda348419aa05cbfb338198c">More...</a><br /></td></tr>
+<tr class="separator:ac6e8eacfeda348419aa05cbfb338198c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a5113130e547ceaeeb43fdeb856062a33"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classlemons_1_1plugin_1_1_basic_processor.html#abf03b92410766c2112bba4cd7236b484">BusesProperties</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_basic_processor.html#a5113130e547ceaeeb43fdeb856062a33">getDefaultBusesLayout</a> ()</td></tr>
+<tr class="memdesc:a5113130e547ceaeeb43fdeb856062a33"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a BusesLayout with stereo in and out buses that are enabled by default.  <a href="classlemons_1_1plugin_1_1_basic_processor.html#a5113130e547ceaeeb43fdeb856062a33">More...</a><br /></td></tr>
+<tr class="separator:a5113130e547ceaeeb43fdeb856062a33"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Base class for a plugin processor. </p>
-<p>This class manages two instances of a <a class="el" href="classlemons_1_1dsp_1_1_engine.html" title="Base class for an audio engine.">dsp::Engine</a> and uses the appropriate one &ndash; if the host uses double precision processing, the double engine will be used; otherwise, the float engine will be used. <br  />
- <br  />
-This class is a SystemInitializer, meaning it sets up translations for you. This class also holds a <a class="el" href="classlemons_1_1plugin_1_1_parameter_processor.html" title="This class processes incoming MIDI messages and quantizes the audio output with any MIDI CC messages ...">ParameterProcessor</a> internally. </p><dl class="section see"><dt>See also</dt><dd>SystemInitializer, <a class="el" href="classlemons_1_1dsp_1_1_engine.html" title="Base class for an audio engine.">dsp::Engine</a>, dsp::BasicProcessorBase, <a class="el" href="classlemons_1_1plugin_1_1_state_base.html" title="The default plugin state toggler has 3 states, A/B/C.">StateBase</a> </dd></dl>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a594b9c70fa57b4a8021d32b364e20dbc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a594b9c70fa57b4a8021d32b364e20dbc">&#9670;&nbsp;</a></span>ProcessorBase()</h2>
+<p>This class manages two instances of a <a class="el" href="classlemons_1_1dsp_1_1_engine.html" title="Base class for an audio engine.">dsp::Engine</a> and uses the appropriate one &ndash; if the host uses double precision processing, the double engine will be used; otherwise, the float engine will be used. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="classlemons_1_1plugin_1_1_processor.html" title="A processor class that can simply be told the templated engine type, and takes care of instantiating ...">Processor</a>, Engine, <a class="el" href="classlemons_1_1plugin_1_1_basic_processor.html" title="A default implementation of a basic, generic juce AudioProcessor.">BasicProcessor</a> </dd></dl>
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="abf03b92410766c2112bba4cd7236b484"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abf03b92410766c2112bba4cd7236b484">&#9670;&nbsp;</a></span>BusesProperties</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="classlemons_1_1plugin_1_1_basic_processor.html#abf03b92410766c2112bba4cd7236b484">lemons::plugin::BasicProcessor::BusesProperties</a> =  juce::AudioProcessor::BusesProperties</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a4695891e0af90a1c3493e7262d233939"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4695891e0af90a1c3493e7262d233939">&#9670;&nbsp;</a></span>ProcessorBase()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">lemons::plugin::ProcessorBase::ProcessorBase </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classlemons_1_1plugin_1_1_state_base.html">StateBase</a> &amp;&#160;</td>
-          <td class="paramname"><em>stateToUse</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
           <td class="paramtype"><a class="el" href="classlemons_1_1dsp_1_1_engine.html">dsp::Engine</a>&lt; float &gt; &amp;&#160;</td>
           <td class="paramname"><em>floatEngineToUse</em>, </td>
         </tr>
@@ -134,8 +162,20 @@ This class is a SystemInitializer, meaning it sets up translations for you. This
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">juce::AudioProcessor::BusesProperties&#160;</td>
-          <td class="paramname"><em>busesLayout</em> = <code>BusesProperties()&#160;.withInput(TRANS(&quot;Input&quot;),&#160;juce::AudioChannelSet::stereo(),&#160;true)&#160;.withOutput(TRANS(&quot;Output&quot;),&#160;juce::AudioChannelSet::stereo(),&#160;true)</code>&#160;</td>
+          <td class="paramtype"><a class="el" href="classlemons_1_1plugin_1_1_state.html">State</a> &amp;&#160;</td>
+          <td class="paramname"><em>stateToUse</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classlemons_1_1plugin_1_1_basic_processor.html#abf03b92410766c2112bba4cd7236b484">BusesProperties</a> &amp;&#160;</td>
+          <td class="paramname"><em>busesLayout</em> = <code><a class="el" href="classlemons_1_1plugin_1_1_basic_processor.html#a5113130e547ceaeeb43fdeb856062a33">getDefaultBusesLayout</a>()</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structlemons_1_1plugin_1_1_processor_attributes.html">ProcessorAttributes</a> &amp;&#160;</td>
+          <td class="paramname"><em>attributes</em> = <code><a class="el" href="structlemons_1_1plugin_1_1_processor_attributes.html#ac2f50da82c87f3f07cfe01b296f96c49">ProcessorAttributes::fromProjectDefines</a>()</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -143,15 +183,21 @@ This class is a SystemInitializer, meaning it sets up translations for you. This
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Creates a processor. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">stateToUse</td><td>The state object to reference. The internal <a class="el" href="classlemons_1_1plugin_1_1_parameter_processor.html" title="This class processes incoming MIDI messages and quantizes the audio output with any MIDI CC messages ...">ParameterProcessor</a> will reference stateToUse.getParameters(). </td></tr>
-    <tr><td class="paramname">floatEngineToUse</td><td>The float specialization of the <a class="el" href="classlemons_1_1dsp_1_1_engine.html" title="Base class for an audio engine.">dsp::Engine</a> to use. </td></tr>
-    <tr><td class="paramname">doubleEngineToUse</td><td>The double specialization of the <a class="el" href="classlemons_1_1dsp_1_1_engine.html" title="Base class for an audio engine.">dsp::Engine</a> to use. </td></tr>
+    <tr><td class="paramname">floatEngineToUse</td><td>The float specialization of the Engine to use. </td></tr>
+    <tr><td class="paramname">doubleEngineToUse</td><td>The double specialization of the Engine to use. </td></tr>
+    <tr><td class="paramname">stateToUse</td><td>The plugin state to reference. </td></tr>
     <tr><td class="paramname">busesLayout</td><td>The buses layout to pass to the underlying juce::AudioProcessor. </td></tr>
+    <tr><td class="paramname">attributes</td><td>The <a class="el" href="structlemons_1_1plugin_1_1_processor_attributes.html">ProcessorAttributes</a> object to use. </td></tr>
   </table>
   </dd>
 </dl>
@@ -159,8 +205,8 @@ This class is a SystemInitializer, meaning it sets up translations for you. This
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a3814788aae0eff4e449e29dbcd16352f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3814788aae0eff4e449e29dbcd16352f">&#9670;&nbsp;</a></span>getSavedEditorSize()</h2>
+<a id="a5113130e547ceaeeb43fdeb856062a33"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5113130e547ceaeeb43fdeb856062a33">&#9670;&nbsp;</a></span>getDefaultBusesLayout()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -169,10 +215,37 @@ This class is a SystemInitializer, meaning it sets up translations for you. This
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">juce::Point&lt;int&gt; lemons::plugin::ProcessorBase::getSavedEditorSize </td>
+          <td class="memname">static <a class="el" href="classlemons_1_1plugin_1_1_basic_processor.html#abf03b92410766c2112bba4cd7236b484">BusesProperties</a> lemons::plugin::BasicProcessor::getDefaultBusesLayout </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td> const</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns a BusesLayout with stereo in and out buses that are enabled by default. </p>
+
+</div>
+</div>
+<a id="a45813074aded389252f9291b1c3d9b3c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a45813074aded389252f9291b1c3d9b3c">&#9670;&nbsp;</a></span>getState()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classlemons_1_1plugin_1_1_state.html">State</a>&amp; lemons::plugin::ProcessorBase::getState </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
         </tr>
       </table>
   </td>
@@ -182,12 +255,14 @@ This class is a SystemInitializer, meaning it sets up translations for you. This
 </table>
 </div><div class="memdoc">
 
-<p>Returns the state's saved editor dimensions. </p>
+<p>Returns the plugin's state object. </p>
+
+<p class="reference">Referenced by <a class="el" href="classlemons_1_1plugin_1_1_editor.html#afb5c3217692ffbb6d7131a7821928249">lemons::plugin::Editor&lt; ContentComponentType, &gt;::Editor()</a>.</p>
 
 </div>
 </div>
-<a id="a28488d2ac54436ff69d1da67dc4d3dac"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a28488d2ac54436ff69d1da67dc4d3dac">&#9670;&nbsp;</a></span>repaintEditor()</h2>
+<a id="ac6e8eacfeda348419aa05cbfb338198c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac6e8eacfeda348419aa05cbfb338198c">&#9670;&nbsp;</a></span>repaintEditor()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -196,7 +271,7 @@ This class is a SystemInitializer, meaning it sets up translations for you. This
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void lemons::dsp::BasicProcessor::repaintEditor </td>
+          <td class="memname">void lemons::plugin::BasicProcessor::repaintEditor </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -214,43 +289,13 @@ This class is a SystemInitializer, meaning it sets up translations for you. This
 
 </div>
 </div>
-<a id="ace19860eb53c8057f2bed4b7e819fd41"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ace19860eb53c8057f2bed4b7e819fd41">&#9670;&nbsp;</a></span>saveEditorSize()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void lemons::plugin::ProcessorBase::saveEditorSize </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>width</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>height</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Saves the editor's current dimensions in the plugin state. </p>
-
-</div>
-</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li><a class="el" href="_processor_base_8h.html">ProcessorBase.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Dec 23 2021 00:45:23 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Dec 24 2021 00:44:27 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

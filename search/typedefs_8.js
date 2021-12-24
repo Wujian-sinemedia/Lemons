@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['objectcreationfunction_2270',['ObjectCreationFunction',['../structlemons_1_1_constructed_array.html#a36ef6faf6ae33e0cfc133d4a584addb2',1,'lemons::ConstructedArray']]],
-  ['orientation_2271',['Orientation',['../structlemons_1_1_device_rotation.html#a693951b64b01d378a1d19199fbaced2e',1,'lemons::DeviceRotation']]],
-  ['osc_2272',['Osc',['../structlemons_1_1plugin_1_1_l_f_o.html#a47b72909f6b14e0773810a4d3bed5ee0',1,'lemons::plugin::LFO']]]
+  ['parameterstate_2243',['ParameterState',['../structlemons_1_1plugin_1_1_processor_holder.html#a7809bb749782bf4a6ade6451e7217f54',1,'lemons::plugin::ProcessorHolder']]],
+  ['point_2244',['Point',['../namespacelemons_1_1spline.html#a4815e51376e33169aa821c5b402e1462',1,'lemons::spline']]],
+  ['points_2245',['Points',['../namespacelemons_1_1spline.html#addc7a93d56f97a7f73b2a53cba567b4e',1,'lemons::spline']]],
+  ['processorholder_2246',['ProcessorHolder',['../structlemons_1_1tests_1_1_audio_processor_test_base.html#a522421ccd4232df183993cd8f2c0484e',1,'lemons::tests::AudioProcessorTestBase']]]
 ];

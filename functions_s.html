@@ -66,11 +66,10 @@ $(function() {
 <div class="textblock">Here is a list of all class members with links to the classes they belong to:</div>
 
 <h3><a id="index_s"></a>- s -</h3><ul>
-<li>saveEditorSize()
-: <a class="el" href="classlemons_1_1plugin_1_1_processor_base.html#ace19860eb53c8057f2bed4b7e819fd41">lemons::plugin::ProcessorBase</a>
-</li>
-<li>SavingFunc
-: <a class="el" href="classlemons_1_1_online_unlock.html#a5d653677a237f191749477c6656b1b27">lemons::OnlineUnlock</a>
+<li>saveToValueTree()
+: <a class="el" href="classlemons_1_1plugin_1_1_parameter.html#a421551f74a17bc31fa3488aae8407a4c">lemons::plugin::Parameter</a>
+, <a class="el" href="classlemons_1_1plugin_1_1_state.html#a047ab301dd250595167096cf1c16074b">lemons::plugin::State</a>
+, <a class="el" href="classlemons_1_1plugin_1_1_typed_parameter.html#abd570ac36a0393b2a12a30a8d6952387">lemons::plugin::TypedParameter&lt; ValueType &gt;</a>
 </li>
 <li>Saw()
 : <a class="el" href="structlemons_1_1dsp_1_1osc_1_1_saw.html#a158a37dab3759be9e39f00ab1a72663f">lemons::dsp::osc::Saw&lt; SampleType &gt;</a>
@@ -200,9 +199,6 @@ $(function() {
 <li>setLowestNote()
 : <a class="el" href="classlemons_1_1dsp_1_1synth_1_1_panning_manager.html#a7b73b4c94091e682da9442aa66e214a2">lemons::dsp::synth::PanningManager&lt; SampleType &gt;</a>
 </li>
-<li>setMidiControllerInternal()
-: <a class="el" href="classlemons_1_1plugin_1_1_parameter.html#a01f6abc488d0130e83ee7aa664c139c8">lemons::plugin::Parameter</a>
-</li>
 <li>setMidiControllerNumber()
 : <a class="el" href="classlemons_1_1plugin_1_1_parameter.html#a22cc2b06fd785195c7658ea32a00216b">lemons::plugin::Parameter</a>
 </li>
@@ -328,7 +324,6 @@ $(function() {
 </li>
 <li>Size
 : <a class="el" href="classlemons_1_1_gui_app.html#a949045cb0fd51b25fc0630aeb604c6b5">lemons::GuiApp&lt; ContentComponentType, &gt;</a>
-, <a class="el" href="structlemons_1_1plugin_1_1_processor_with_editor.html#a939a5483bfaea7a8010c2ad570807ac2">lemons::plugin::ProcessorWithEditor&lt; ProcessorType, ComponentType, &gt;</a>
 </li>
 <li>skipSamples()
 : <a class="el" href="structlemons_1_1dsp_1_1osc_1_1_oscillator.html#a0b8e5aa0764eecf8eeaa0d24b879a5ab">lemons::dsp::osc::Oscillator&lt; SampleType &gt;</a>
@@ -354,17 +349,7 @@ $(function() {
 : <a class="el" href="classlemons_1_1_device_motion.html#ab6d611e59ab04698ab7e7ff0666e63c0">lemons::DeviceMotion</a>
 </li>
 <li>state
-: <a class="el" href="classlemons_1_1plugin_1_1_g_u_i.html#ab3aa4183884b14a9f09d0a99373576ae">lemons::plugin::GUI&lt; StateType &gt;</a>
-, <a class="el" href="classlemons_1_1plugin_1_1_processor.html#ac0cb2050def44fe149c33f32ec217077">lemons::plugin::Processor&lt; StateType, EngineType,, &gt;</a>
-</li>
-<li>State_Type_t
-: <a class="el" href="classlemons_1_1plugin_1_1_processor.html#ab81dd6fd31a40605ab4e5b68ae05f7dc">lemons::plugin::Processor&lt; StateType, EngineType,, &gt;</a>
-</li>
-<li>stateBase
-: <a class="el" href="classlemons_1_1plugin_1_1_g_u_i_base.html#a282b917402312585cff6316028b9f5a8">lemons::plugin::GUIBase</a>
-</li>
-<li>StateBase()
-: <a class="el" href="classlemons_1_1plugin_1_1_state_base.html#a4ef7cf313673af40abda31d93f8ac1cf">lemons::plugin::StateBase</a>
+: <a class="el" href="classlemons_1_1plugin_1_1_g_u_i.html#ae519503620b63caf631fe504d2c22020">lemons::plugin::GUI</a>
 </li>
 <li>stop()
 : <a class="el" href="classlemons_1_1_device_motion.html#a2dcc14bb19993a58bb04f4003622ae78">lemons::DeviceMotion</a>
@@ -373,13 +358,16 @@ $(function() {
 : <a class="el" href="structlemons_1_1dsp_1_1filters_1_1_coefficients_1_1_storage.html#a6f29c40ffdcf28f2b8b4ec08b05b6f40">lemons::dsp::filters::Coefficients&lt; NumericType &gt;::Storage</a>
 </li>
 <li>storeSamples()
-: <a class="el" href="classlemons_1_1dsp_1_1_circular_buffer.html#ace39516126a8df18306ac337d29d9321">lemons::dsp::CircularBuffer&lt; SampleType &gt;</a>
+: <a class="el" href="classlemons_1_1dsp_1_1_circular_buffer.html#a2a4e8eed89a54f705eaf8d64ba2516c0">lemons::dsp::CircularBuffer&lt; SampleType &gt;</a>
 </li>
 <li>Subtest()
 : <a class="el" href="structlemons_1_1tests_1_1_test_1_1_subtest.html#ae3c4208cb073662962ba76080d7115e8">lemons::tests::Test::Subtest</a>
 </li>
 <li>SuperSaw()
 : <a class="el" href="classlemons_1_1dsp_1_1osc_1_1_super_saw.html#a394f803e344df738e0a3da085bfc6792">lemons::dsp::osc::SuperSaw&lt; SampleType &gt;</a>
+</li>
+<li>supportsMPE
+: <a class="el" href="structlemons_1_1plugin_1_1_processor_attributes.html#ab1c0c1eb3797f7e583cf575cc825300b">lemons::plugin::ProcessorAttributes</a>
 </li>
 <li>swapNodes()
 : <a class="el" href="classlemons_1_1dsp_1_1_engine_chain.html#aa00c719441f5aa43ef0512e434b878e8">lemons::dsp::EngineChain&lt; SampleType &gt;</a>
@@ -394,7 +382,7 @@ $(function() {
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Dec 23 2021 00:45:24 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Dec 24 2021 00:44:28 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

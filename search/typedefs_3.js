@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['dimensions_2263',['Dimensions',['../namespacelemons_1_1plugin.html#a47c63ce964844d24e40ca6dad594907e',1,'lemons::plugin']]]
+  ['floatparameter_2235',['FloatParameter',['../namespacelemons_1_1plugin.html#a6aa457b145fb2649ae90850e6ea7a18c',1,'lemons::plugin']]]
 ];

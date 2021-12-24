@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['keyboardstate_2231',['keyboardState',['../classlemons_1_1dsp_1_1_synth_base.html#a32ddb3597cd3ae6fcb3669b664c775e5',1,'lemons::dsp::SynthBase']]],
-  ['knots_2232',['knots',['../structlemons_1_1spline_1_1_spline.html#aa660f86709ba2bc361ffd6873b2af5e9',1,'lemons::spline::Spline']]]
+  ['gain_2199',['gain',['../structlemons_1_1dsp_1_1_synth_base_1_1_timbre_mod_params.html#a55a72d269ec00d1571442f14a484b422',1,'lemons::dsp::SynthBase::TimbreModParams']]]
 ];

@@ -1,5 +1,5 @@
-<map id="lemons::plugin::Processor&lt; StateType, EngineType,, &gt;" name="lemons::plugin::Processor&lt; StateType, EngineType,, &gt;">
-<area shape="rect" id="node1" title="A processor class for a plugin that can simply be told the state type and engine type,..." alt="" coords="13,155,219,196"/>
-<area shape="rect" id="node2" href="$classlemons_1_1plugin_1_1_processor_base.html" title="Base class for a plugin processor." alt="" coords="5,80,227,107"/>
-<area shape="rect" id="node3" href="$classlemons_1_1dsp_1_1_basic_processor.html" title="A default implementation of a basic, generic juce AudioProcessor." alt="" coords="13,5,219,32"/>
+<map id="lemons::plugin::Processor&lt; EngineType, &gt;" name="lemons::plugin::Processor&lt; EngineType, &gt;">
+<area shape="rect" id="node1" title="A processor class that can simply be told the templated engine type, and takes care of instantiating ..." alt="" coords="23,155,212,196"/>
+<area shape="rect" id="node2" href="$classlemons_1_1plugin_1_1_processor_base.html" title="Base class for a plugin processor." alt="" coords="7,80,228,107"/>
+<area shape="rect" id="node3" href="$classlemons_1_1plugin_1_1_basic_processor.html" title="A default implementation of a basic, generic juce AudioProcessor." alt="" coords="5,5,229,32"/>
 </map>
