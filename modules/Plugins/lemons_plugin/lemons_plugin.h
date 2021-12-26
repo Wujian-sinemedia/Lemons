@@ -47,15 +47,18 @@
 //#include "parameters/MetaParameter.h"
 
 #include "parameters/utils/ParamUpdater.h"
-//#include "parameters/utils/ParameterProcessor.h"
 
 // modulation manager
 
 #include "processors/ProcessorAttributes.h"
 #include "processors/BasicProcessor.h"
-#include "processors/PluginState.h"
+
+#include "state/PluginState.h"
+
 #include "processors/ProcessorBase.h"
-#include "processors/Editors.h"
+
+#include "editors/Editors.h"
+
 #include "processors/Processors.h"
 
 #include "hosting/ProcessorHolder.h"

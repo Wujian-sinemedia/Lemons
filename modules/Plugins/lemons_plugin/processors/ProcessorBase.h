@@ -42,6 +42,9 @@ public:
 	/** Returns the plugin's state object. */
 	[[nodiscard]] State& getState() noexcept;
 
+	/** Returns the ProcessorAttributes object. */
+	[[nodiscard]] const ProcessorAttributes& getAttributes() const noexcept;
+
 private:
 	juce::AudioProcessorParameter* getBypassParameter() const final;
 

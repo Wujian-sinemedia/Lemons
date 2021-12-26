@@ -53,12 +53,13 @@ public:
 
 		const auto width  = initialSize.getWidth();
 		const auto height = initialSize.getHeight();
-
-		auto* c = getConstrainer();
-
-		c->setMinimumSize (width / 2, height / 2);
-		c->setMaximumSize (width * 2, height * 2);
-		c->setFixedAspectRatio (initialSize.getAspectRatio());
+        
+        if (auto* c = getConstrainer())
+        {
+            c->setMinimumSize (width / 2, height / 2);
+            c->setMaximumSize (width * 2, height * 2);
+            c->setFixedAspectRatio (initialSize.getAspectRatio());
+        }
 
 		addAndMakeVisible (content);
 

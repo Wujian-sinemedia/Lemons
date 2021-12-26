@@ -12,15 +12,15 @@
  website:            http://benthevining.github.io/Lemons/
  license:            GPL-3.0
  minimumCppStandard: 17
- dependencies:       lemons_gui lemons_plugin_parameters
+ dependencies:       lemons_gui lemons_plugin
 
  END_JUCE_MODULE_DECLARATION
 
  -------------------------------------------------------------------------------------*/
 
 
-#include "sliders/Sliders.h"
-
-#include "buttons/Buttons.h"
-
-#include "PresetBar/PresetBar.h"
+//#include "sliders/Sliders.h"
+//
+//#include "buttons/Buttons.h"
+//
+//#include "PresetBar/PresetBar.h"

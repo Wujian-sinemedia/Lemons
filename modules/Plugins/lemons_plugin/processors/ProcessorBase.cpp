@@ -75,14 +75,14 @@ void ProcessorBase::releaseResources()
 
 void ProcessorBase::getStateInformation (juce::MemoryBlock& block)
 {
-    juce::MemoryOutputStream os {block, false};
-    
-    state.saveToValueTree().writeToStream (os);
+	juce::MemoryOutputStream os { block, false };
+
+	state.saveToValueTree().writeToStream (os);
 }
 
 void ProcessorBase::setStateInformation (const void* data, int size)
 {
-    state.loadFromValueTree (ValueTree::readFromData (data, static_cast<size_t>(size)));
+	state.loadFromValueTree (ValueTree::readFromData (data, static_cast<size_t> (size)));
 }
 
 void ProcessorBase::processBlock (AudioBuffer<float>& audio, MidiBuffer& midi)
@@ -108,7 +108,7 @@ void ProcessorBase::processBlockBypassed (AudioBuffer<double>& audio, MidiBuffer
 template <typename SampleType>
 void ProcessorBase::processInternal (dsp::Engine<SampleType>& engine, AudioBuffer<SampleType>& audio, MidiBuffer& midi, bool isBypassed)
 {
-	juce::ScopedNoDenormals nodenorms;
+	const juce::ScopedNoDenormals nodenorms;
 
 	if (isBypassed)
 		state.getBypass().set (true);
@@ -227,6 +227,11 @@ juce::StringArray ProcessorBase::getAlternateDisplayNames() const
 State& ProcessorBase::getState() noexcept
 {
 	return state;
+}
+
+const ProcessorAttributes& ProcessorBase::getAttributes() const noexcept
+{
+	return processorAttributes;
 }
 
 }  // namespace lemons::plugin

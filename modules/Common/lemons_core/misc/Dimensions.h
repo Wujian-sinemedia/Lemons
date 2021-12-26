@@ -34,24 +34,45 @@ struct Dimensions final
 	}
 
 	/** Returns true if the passed Dimensions object is equal to this one. */
-	[[nodiscard]] constexpr bool operator== (const Dimensions& other) const noexcept;
+	[[nodiscard]] constexpr bool operator== (const Dimensions& other) const noexcept
+	{
+		return width == other.width && height == other.height;
+	}
 
 	/** Returns true if the width and height are both greater than 0. */
-	[[nodiscard]] constexpr bool isValid() const noexcept;
+	[[nodiscard]] constexpr bool isValid() const noexcept
+	{
+		return width > 0 && height > 0;
+	}
 
 	/** Returns the width of these dimensions. */
-	[[nodiscard]] constexpr int getWidth() const noexcept;
+	[[nodiscard]] constexpr int getWidth() const noexcept
+	{
+		return width;
+	}
 
 	/** Returns the height of these dimensions. */
-	[[nodiscard]] constexpr int getHeight() const noexcept;
+	[[nodiscard]] constexpr int getHeight() const noexcept
+	{
+		return height;
+	}
 
 	/** Returns the aspect ratio of the represented dimensions, calculated as width / height.
 	    If isValid() return false, then this function will return 0.
 	 */
-	[[nodiscard]] constexpr double getAspectRatio() const noexcept;
+	[[nodiscard]] constexpr double getAspectRatio() const noexcept
+	{
+		if (! isValid())
+			return 0.;
+
+		return static_cast<double> (width) / static_cast<double> (height);
+	}
 
 	/** Returns true if the passed Dimensions object has the same aspect ratio as this one. */
-	[[nodiscard]] constexpr bool hasSameAspectRatioAs (const Dimensions& other) const noexcept;
+	[[nodiscard]] constexpr bool hasSameAspectRatioAs (const Dimensions& other) const noexcept
+	{
+		return getAspectRatio() == other.getAspectRatio();
+	}
 
 	/** Returns a string representation of these dimensions, eg '400x600'. */
 	[[nodiscard]] String toString() const noexcept;
@@ -63,7 +84,7 @@ struct Dimensions final
 	[[nodiscard]] static constexpr Dimensions getDefault() { return Dimensions { 1060, 640 }; }
 
 private:
-    int width { 0 }, height { 0 };
+	int width { 0 }, height { 0 };
 };
 
 }  // namespace lemons

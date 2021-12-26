@@ -24,11 +24,12 @@
 //#include "parameters/MetaParameter.cpp"
 
 #include "parameters/utils/ParamUpdater.cpp"
-//#include "parameters/utils/ParameterProcessor.cpp"
 
 #include "processors/ProcessorAttributes.cpp"
 #include "processors/BasicProcessor.cpp"
-#include "processors/PluginState.cpp"
+
+#include "state/PluginState.cpp"
+
 #include "processors/ProcessorBase.cpp"
 
 #include "hosting/ProcessorHolder.cpp"
