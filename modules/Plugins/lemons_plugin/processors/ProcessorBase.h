@@ -45,6 +45,12 @@ public:
 	/** Returns the ProcessorAttributes object. */
 	[[nodiscard]] const ProcessorAttributes& getAttributes() const noexcept;
 
+	/** Captures a snapshot of the processor's current state as a ValueTree. */
+	[[nodiscard]] ValueTree saveState (bool currentProgramOnly = false) const;
+
+	/** Reloads a previously saved state from a ValueTree. */
+	void loadState (const ValueTree& tree);
+
 private:
 	juce::AudioProcessorParameter* getBypassParameter() const final;
 
@@ -53,13 +59,7 @@ private:
 	void getCurrentProgramStateInformation (juce::MemoryBlock& block) final;
 	void setCurrentProgramStateInformation (const void* data, int size) final;
 
-	void saveStateInternal (juce::MemoryBlock& block, bool currentProgramOnly);
-	void loadStateInternal (const void* data, int size);
-
 	void prepareToPlay (double sampleRate, int samplesPerBlock) final;
-
-	template <typename SampleType>
-	void prepareToPlayInternal (double sampleRate, int samplesPerBlock, int numChannels);
 
 	void reset() final;
 	void releaseResources() final;

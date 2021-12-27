@@ -33,6 +33,9 @@ struct Dimensions final
 	{
 	}
     
+    /** Copy constructor. */
+    Dimensions (const Dimensions& other);
+    
     /** Assignment operator. */
     Dimensions& operator= (const Dimensions& other);
     
@@ -61,7 +64,7 @@ struct Dimensions final
 
 	/** Returns a string representation of these dimensions, eg '400x600'. */
 	[[nodiscard]] String toString() const noexcept;
-
+    
 	/** Returns a Dimensions object from a string representation. The string should be formatted like '400x600'. */
 	[[nodiscard]] static Dimensions fromString (const String& string);
 

@@ -32,32 +32,13 @@ ProcessorBase::ProcessorBase (dsp::Engine<float>&        floatEngineToUse,
 
 void ProcessorBase::prepareToPlay (double sampleRate, int samplesPerBlock)
 {
+	jassert (sampleRate > 0. && samplesPerBlock > 0);
+
 	const auto numChannels = std::max (getTotalNumInputChannels(), getTotalNumOutputChannels());
 
+	jassert (numChannels > 0);
+
 	if (isUsingDoublePrecision())
-		prepareToPlayInternal<double> (sampleRate, samplesPerBlock, numChannels);
-	else
-		prepareToPlayInternal<float> (sampleRate, samplesPerBlock, numChannels);
-}
-
-template <typename SampleType>
-void ProcessorBase::prepareToPlayInternal (double sampleRate,
-                                           int    samplesPerBlock,
-                                           int    numChannels)
-{
-	jassert (sampleRate > 0. && samplesPerBlock > 0 && numChannels > 0);
-
-	if constexpr (std::is_same_v<SampleType, float>)
-	{
-		doubleEngine.releaseResources();
-		doubleProcessor.releaseResources();
-
-		floatEngine.prepare (sampleRate, samplesPerBlock, numChannels);
-		floatProcessor.prepare (samplesPerBlock);
-
-		setLatencySamples (floatEngine.reportLatency());
-	}
-	else
 	{
 		floatEngine.releaseResources();
 		floatProcessor.releaseResources();
@@ -67,10 +48,17 @@ void ProcessorBase::prepareToPlayInternal (double sampleRate,
 
 		setLatencySamples (doubleEngine.reportLatency());
 	}
-}
+	else
+	{
+		doubleEngine.releaseResources();
+		doubleProcessor.releaseResources();
 
-template void ProcessorBase::prepareToPlayInternal<float> (double, int, int);
-template void ProcessorBase::prepareToPlayInternal<double> (double, int, int);
+		floatEngine.prepare (sampleRate, samplesPerBlock, numChannels);
+		floatProcessor.prepare (samplesPerBlock);
+
+		setLatencySamples (floatEngine.reportLatency());
+	}
+}
 
 void ProcessorBase::reset()
 {
@@ -91,47 +79,32 @@ void ProcessorBase::releaseResources()
 
 static constexpr auto processorVersionProperty = "ProcessorVersion";
 
-void ProcessorBase::getStateInformation (juce::MemoryBlock& block)
-{
-	saveStateInternal (block, false);
-}
-
-void ProcessorBase::getCurrentProgramStateInformation (juce::MemoryBlock& block)
-{
-	saveStateInternal (block, true);
-}
-
-void ProcessorBase::saveStateInternal (juce::MemoryBlock& block, bool currentProgramOnly)
+ValueTree ProcessorBase::saveState (bool currentProgramOnly) const
 {
 	auto tree = state.saveToValueTree (currentProgramOnly);
 
 	tree.setProperty (processorVersionProperty, processorAttributes.version.toString(), nullptr);
 
+	return tree;
+}
+
+void ProcessorBase::getStateInformation (juce::MemoryBlock& block)
+{
 	juce::MemoryOutputStream os { block, false };
 
-	tree.writeToStream (os);
+	saveState (false).writeToStream (os);
 }
 
-void ProcessorBase::setStateInformation (const void* data, int size)
+void ProcessorBase::getCurrentProgramStateInformation (juce::MemoryBlock& block)
 {
-	loadStateInternal (data, size);
+	juce::MemoryOutputStream os { block, false };
 
-	callEditorMethod ([&] (juce::AudioProcessorEditor& e)
-	                  { e.setSize (state.editorSize.getWidth(),
-		                           state.editorSize.getHeight()); });
+	saveState (true).writeToStream (os);
 }
 
-void ProcessorBase::setCurrentProgramStateInformation (const void* data, int size)
+
+void ProcessorBase::loadState (const ValueTree& tree)
 {
-	loadStateInternal (data, size);
-
-	repaintEditor();
-}
-
-void ProcessorBase::loadStateInternal (const void* data, int size)
-{
-	const auto tree = ValueTree::readFromData (data, static_cast<size_t> (size));
-
 	if (tree.hasProperty (processorVersionProperty))
 	{
 		const auto loadedVersion = Version::fromString (tree.getProperty (processorVersionProperty).toString());
@@ -148,6 +121,23 @@ void ProcessorBase::loadStateInternal (const void* data, int size)
 
 	state.loadFromValueTree (tree);
 }
+
+void ProcessorBase::setStateInformation (const void* data, int size)
+{
+	loadState (ValueTree::readFromData (data, static_cast<size_t> (size)));
+
+	callEditorMethod ([&] (juce::AudioProcessorEditor& e)
+	                  { e.setSize (state.editorSize.getWidth(),
+		                           state.editorSize.getHeight()); });
+}
+
+void ProcessorBase::setCurrentProgramStateInformation (const void* data, int size)
+{
+	loadState (ValueTree::readFromData (data, static_cast<size_t> (size)));
+
+	repaintEditor();
+}
+
 
 void ProcessorBase::processBlock (AudioBuffer<float>& audio, MidiBuffer& midi)
 {

@@ -24,6 +24,12 @@ Dimensions& Dimensions::operator= (const Dimensions& other)
     return *this;
 }
 
+Dimensions::Dimensions (const Dimensions& other)
+{
+    width.store (other.width.load());
+    height.store (other.height.load());
+}
+
 void Dimensions::set (int newWidth, int newHeight)
 {
     width.store (newWidth);
