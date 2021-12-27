@@ -5,9 +5,9 @@ namespace lemons::midi
 
 void copyRangeOfMidiBuffer (const MidiBuffer& readingBuffer,
                             MidiBuffer&       destBuffer,
-                            const int         startSampleOfInput,
-                            const int         startSampleOfOutput,
-                            const int         numSamples)
+                            int               startSampleOfInput,
+                            int               startSampleOfOutput,
+                            int               numSamples)
 {
 	if (numSamples == 0) return;
 
@@ -16,6 +16,25 @@ void copyRangeOfMidiBuffer (const MidiBuffer& readingBuffer,
 	                      startSampleOfInput,
 	                      numSamples,
 	                      startSampleOfOutput - startSampleOfInput);
+}
+
+
+ScopedMidiBufferAlias::ScopedMidiBufferAlias (MidiBuffer& originalBuffer,
+                                              MidiBuffer& aliasBufferToUse,
+                                              int         startSampleInOrigBuffer,
+                                              int         numSamplesToCopy)
+    : origBuffer (originalBuffer)
+    , aliasBuffer (aliasBufferToUse)
+    , startSample (startSampleInOrigBuffer)
+    , numSamples (numSamplesToCopy)
+{
+	aliasBuffer.clear();
+	copyRangeOfMidiBuffer (origBuffer, aliasBuffer, startSample, 0, numSamples);
+}
+
+ScopedMidiBufferAlias::~ScopedMidiBufferAlias()
+{
+	copyRangeOfMidiBuffer (aliasBuffer, origBuffer, 0, startSample, numSamples);
 }
 
 

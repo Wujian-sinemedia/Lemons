@@ -31,8 +31,17 @@ void State::add (Parameter& parameter)
 
 void State::processControllerMessage (int number, int value)
 {
-	for (auto* param : params)
-		param->processNewControllerMessage (number, value);
+    for (auto* param : params)
+        param->processNewControllerMessage (number, value);
+}
+
+bool State::isControllerMapped (int number) const
+{
+    for (const auto* param : params)
+        if (param->getMidiControllerNumber() == number)
+            return true;
+    
+    return false;
 }
 
 

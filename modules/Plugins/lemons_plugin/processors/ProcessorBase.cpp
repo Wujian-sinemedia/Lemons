@@ -52,6 +52,8 @@ void ProcessorBase::prepareToPlayInternal (double                    sampleRate,
 
 	jassert (sampleRate > 0. && samplesPerBlock > 0 && numChannels > 0);
 
+	scratchMidiBuffer.ensureSize (static_cast<size_t> (samplesPerBlock));
+
 	activeEngine.prepare (sampleRate, samplesPerBlock, numChannels);
 
 	setLatencySamples (activeEngine.reportLatency());
@@ -72,6 +74,8 @@ void ProcessorBase::releaseResources()
 {
 	doubleEngine.releaseResources();
 	floatEngine.releaseResources();
+
+	scratchMidiBuffer.clear();
 }
 
 void ProcessorBase::getStateInformation (juce::MemoryBlock& block)
@@ -128,14 +132,55 @@ void ProcessorBase::processBlockBypassed (AudioBuffer<double>& audio, MidiBuffer
 	processInternal (doubleEngine, audio, midi);
 }
 
+
 template <typename SampleType>
 void ProcessorBase::processInternal (dsp::Engine<SampleType>& engine, AudioBuffer<SampleType>& audio, MidiBuffer& midi)
 {
+	const auto findNextCriticalMidiMessage = [&] (juce::MidiBufferIterator it) -> juce::MidiBufferIterator
+	{
+		while (it != midi.cend())
+		{
+			++it;
+
+			if (it == midi.cend())
+				return it;
+
+			const auto isCriticalMidiMessage = [&]() -> bool
+			{
+				const auto message = (*it).getMessage();
+
+				if (message.isAllNotesOff() || message.isAllSoundOff() || message.isProgramChange())
+					return true;
+
+				if (message.isController())
+					return state.isControllerMapped (message.getControllerNumber());
+
+				return false;
+			}();
+
+			if (isCriticalMidiMessage)
+				return it;
+		}
+
+		return midi.cend();
+	};
+
+
 	const juce::ScopedNoDenormals nodenorms;
 
-	for (const auto& m : midi)
+	const auto numSamples = audio.getNumSamples();
+
+	int  lastChunkEnd = 0;
+	auto it           = findNextCriticalMidiMessage (midi.cbegin());
+
+	while (it != midi.cend())
 	{
-		const auto message = m.getMessage();
+		const auto meta      = *it;
+		const auto message   = meta.getMessage();
+		const auto timestamp = meta.samplePosition;
+
+		if (timestamp > lastChunkEnd)
+			processChunk (engine, audio, midi, lastChunkEnd, timestamp);
 
 		if (message.isAllNotesOff() || message.isAllSoundOff())
 		{
@@ -145,12 +190,55 @@ void ProcessorBase::processInternal (dsp::Engine<SampleType>& engine, AudioBuffe
 		{
 			setCurrentProgram (message.getProgramChangeNumber());
 		}
-		else if (message.isController())
+		else
 		{
-			state.processControllerMessage (message.getControllerNumber(),
-			                                message.getControllerValue());
+			jassert (message.isController());
+
+			const auto number = message.getControllerNumber();
+
+			jassert (state.isControllerMapped (number));
+
+			state.processControllerMessage (number, message.getControllerValue());
 		}
+
+		const auto next = findNextCriticalMidiMessage (it);
+
+		const auto nextTimestamp = [&]() -> int
+		{
+			if (next == midi.cend())
+				return numSamples;
+
+			return (*next).samplePosition;
+		}();
+
+		if (nextTimestamp > timestamp)
+			processChunk (engine, audio, midi, timestamp, nextTimestamp);
+
+		lastChunkEnd = nextTimestamp;
+		it           = next;
 	}
+
+	if (lastChunkEnd < numSamples)
+		processChunk (engine, audio, midi, lastChunkEnd, numSamples);
+}
+
+template void ProcessorBase::processInternal (dsp::Engine<float>&, AudioBuffer<float>&, MidiBuffer&);
+template void ProcessorBase::processInternal (dsp::Engine<double>&, AudioBuffer<double>&, MidiBuffer&);
+
+template <typename SampleType>
+void ProcessorBase::processChunk (dsp::Engine<SampleType>& engine, AudioBuffer<SampleType>& audio, MidiBuffer& midi,
+                                  int startSample, int endSample)
+{
+	const auto numSamples = endSample - startSample;
+
+	if (numSamples == 0)
+		return;
+
+	jassert (numSamples > 0);
+
+	const midi::ScopedMidiBufferAlias midiAlias { midi, scratchMidiBuffer, startSample, numSamples };
+
+	auto audioAlias = dsp::buffers::getAliasBuffer (audio, startSample, numSamples);
 
 	const auto busLayout = getBusesLayout();
 
@@ -167,17 +255,17 @@ void ProcessorBase::processInternal (dsp::Engine<SampleType>& engine, AudioBuffe
 			return 0;
 		}();
 
-		return getBusBuffer (audio, isInput, channelSetIndex);
+		return getBusBuffer (audioAlias, isInput, channelSetIndex);
 	};
 
 	const auto inBus  = findSubBuffer (true);
 	auto       outBus = findSubBuffer (false);
 
-	engine.process (inBus, outBus, midi, state.bypass.get());
+	engine.process (inBus, outBus, scratchMidiBuffer, state.bypass.get());
 }
 
-template void ProcessorBase::processInternal (dsp::Engine<float>&, AudioBuffer<float>&, MidiBuffer&);
-template void ProcessorBase::processInternal (dsp::Engine<double>&, AudioBuffer<double>&, MidiBuffer&);
+template void ProcessorBase::processChunk (dsp::Engine<float>&, AudioBuffer<float>&, MidiBuffer&, int, int);
+template void ProcessorBase::processChunk (dsp::Engine<double>&, AudioBuffer<double>&, MidiBuffer&, int, int);
 
 int ProcessorBase::getNumPrograms()
 {

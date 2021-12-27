@@ -38,6 +38,8 @@ public:
 	}
 
 	void processControllerMessage (int number, int value);
+    
+    [[nodiscard]] bool isControllerMapped (int number) const;
 
 	[[nodiscard]] ValueTree saveToValueTree (bool currentProgramOnly) const;
 

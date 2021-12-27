@@ -74,6 +74,11 @@ private:
 	void processInternal (dsp::Engine<SampleType>& engine,
 	                      AudioBuffer<SampleType>& audio, MidiBuffer& midi);
 
+	template <typename SampleType>
+	void processChunk (dsp::Engine<SampleType>& engine,
+	                   AudioBuffer<SampleType>& audio, MidiBuffer& midi,
+	                   int startSample, int endSample);
+
 	bool acceptsMidi() const final;
 	bool producesMidi() const final;
 	bool supportsMPE() const final;
@@ -96,6 +101,8 @@ private:
 	State& state;
 
 	const ProcessorAttributes processorAttributes;
+
+	MidiBuffer scratchMidiBuffer;
 
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (ProcessorBase)
 };

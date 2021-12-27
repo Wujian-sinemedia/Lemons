@@ -129,7 +129,7 @@ void Parameter::removeMidiControllerMapping() noexcept
 	midiControllerNumber.store (-1);
 }
 
-void Parameter::processNewControllerMessage (int controllerNumber, int controllerValue)
+bool Parameter::processNewControllerMessage (int controllerNumber, int controllerValue)
 {
     jassert (controllerNumber >= 0);
     jassert (controllerValue >= 0 && controllerValue <= 127);
@@ -139,7 +139,11 @@ void Parameter::processNewControllerMessage (int controllerNumber, int controlle
 		setDenormalizedValue (juce::jmap (static_cast<float> (controllerValue),
 		                                  0.f, 127.f,
 		                                  range.start, range.end));
+        
+        return true;
 	}
+    
+    return false;
 }
 
 void Parameter::beginGesture()

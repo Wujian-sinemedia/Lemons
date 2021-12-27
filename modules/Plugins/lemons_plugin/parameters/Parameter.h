@@ -98,8 +98,10 @@ public:
 	/** Removes the MIDI controller mapping, if any. */
 	void removeMidiControllerMapping() noexcept;
 
-	/** Call this function with each MIDI CC message your plugin recieves, and the Parameter class will automatically update itself with changes in the appropriate controller, if a mapping is active. */
-	void processNewControllerMessage (int controllerNumber, int controllerValue);
+	/** Call this function with each MIDI CC message your plugin recieves, and the Parameter class will automatically update itself with changes in the appropriate controller, if a mapping is active.
+        @returns True if this parameter is mapped to the passed controller number.
+     */
+	bool processNewControllerMessage (int controllerNumber, int controllerValue);
 
 
 	// functions related to the default value
