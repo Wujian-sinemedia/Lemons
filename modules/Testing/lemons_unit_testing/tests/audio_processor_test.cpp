@@ -169,13 +169,20 @@ void AudioProcessorTestBase::runTypedTests()
 
 			processor->processBlock (audioIO, midiIO);
 
-			expect (! bufferIsSilent (audioIO));
+            if (! processor->isMidiEffect())
+                expect (! bufferIsSilent (audioIO));
 
 			for (int i = 0; i < getNumTestingRepetitions(); ++i)
 				processor->processBlock (audioIO, midiIO);
 
 			{
 				const auto subtest = beginSubtest ("Bypassed processing");
+                
+                processor->processBlockBypassed (audioIO, midiIO);
+                processor->processBlockBypassed (audioIO, midiIO);
+                
+                auto out = processor->getBusBuffer (audioIO, false, 0);
+                expect (bufferIsSilent (out));
 
 				if (auto* bypass = processor->getBypassParameter())
 				{
@@ -185,22 +192,13 @@ void AudioProcessorTestBase::runTypedTests()
 
 					bypass->setValueNotifyingHost (1.f);
 					processor->processBlock (audioIO, midiIO);
+                    processor->processBlock (audioIO, midiIO);
 
-					auto out = processor->getBusBuffer (audioIO, false, 0);
-					expect (bufferIsSilent (out));
-
-					fillAudioBufferWithRandomNoise (audioIO, getRandom());
+					auto outBuf = processor->getBusBuffer (audioIO, false, 0);
+					expect (bufferIsSilent (outBuf));
 
 					bypass->setValueNotifyingHost (0.f);
-					processor->processBlockBypassed (audioIO, midiIO);
-
-					expect (bufferIsSilent (out));
 				}
-
-				processor->processBlockBypassed (audioIO, midiIO);
-				processor->processBlockBypassed (audioIO, midiIO);
-				processor->processBlockBypassed (audioIO, midiIO);
-				processor->processBlock (audioIO, midiIO);
 
 				{
 					const auto st = beginSubtest ("Alternate bypassed and normal processing");

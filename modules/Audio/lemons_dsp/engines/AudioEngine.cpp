@@ -171,6 +171,25 @@ void Engine<SampleType>::prepared (int, double, int)
 template class Engine<float>;
 template class Engine<double>;
 
+
+#if LEMONS_UNIT_TESTS
+
+template<typename SampleType>
+void PassThroughEngine<SampleType>::renderBlock (const AudioBuffer<SampleType>& input,
+                                                 AudioBuffer<SampleType>&       output,
+                                                 MidiBuffer& midiMessages, bool isBypassed)
+{
+    if (isBypassed)
+        output.clear();
+    else
+        buffers::copy (input, output);
+}
+
+template class PassThroughEngine<float>;
+template class PassThroughEngine<double>;
+
+#endif
+
 }  // namespace lemons::dsp
 
 
@@ -262,15 +281,6 @@ void AudioEngineTests<FloatType>::runTest()
 		expectEquals (engine.getSamplerate(), 0.);
 		expectEquals (engine.getNumChannels(), 0);
 	}
-}
-
-template <typename FloatType>
-void AudioEngineTests<FloatType>::PassThroughEngine::renderBlock (const AudioBuffer<FloatType>& input,
-                                                                  AudioBuffer<FloatType>&       output,
-                                                                  MidiBuffer&, bool bypassed)
-{
-	if (! bypassed)
-		dsp::buffers::copy (input, output);
 }
 
 template struct AudioEngineTests<float>;

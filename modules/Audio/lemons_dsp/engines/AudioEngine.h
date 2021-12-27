@@ -136,6 +136,19 @@ private:
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (Engine)
 };
 
+
+#if LEMONS_UNIT_TESTS
+
+template<typename SampleType>
+class PassThroughEngine : public Engine<SampleType>
+{
+    void renderBlock (const AudioBuffer<SampleType>& input,
+                      AudioBuffer<SampleType>&       output,
+                      MidiBuffer& midiMessages, bool isBypassed) final;
+};
+
+#endif
+
 }  // namespace lemons::dsp
 
 
@@ -156,14 +169,7 @@ public:
 private:
 	void runTest() final;
 
-	struct PassThroughEngine : public dsp::Engine<FloatType>
-	{
-		void renderBlock (const AudioBuffer<FloatType>& input,
-		                  AudioBuffer<FloatType>&       output,
-		                  MidiBuffer& midiMessages, bool isBypassed) final;
-	};
-
-	PassThroughEngine engine;
+	dsp::PassThroughEngine<FloatType> engine;
 
 	AudioBuffer<FloatType> audioIn, audioOut;
 

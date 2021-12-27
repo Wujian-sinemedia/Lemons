@@ -38,6 +38,8 @@ public:
 	}
 
 	void processControllerMessage (int number, int value);
+    
+    void resetAllControllerMappedParams();
 
 	[[nodiscard]] bool isControllerMapped (int number) const;
 

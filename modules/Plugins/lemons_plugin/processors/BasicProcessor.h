@@ -58,6 +58,8 @@ private:
 
 	void processBlock (AudioBuffer<float>&, MidiBuffer&) override { }
 	void processBlock (AudioBuffer<double>&, MidiBuffer&) override { }
+	void processBlockBypassed (AudioBuffer<float>& audio, MidiBuffer&) override;
+	void processBlockBypassed (AudioBuffer<double>& audio, MidiBuffer&) override;
 
 	bool supportsDoublePrecisionProcessing() const override { return true; }
 

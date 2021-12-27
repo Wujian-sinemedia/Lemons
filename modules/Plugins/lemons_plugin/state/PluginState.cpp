@@ -44,6 +44,13 @@ bool State::isControllerMapped (int number) const
 	return false;
 }
 
+void State::resetAllControllerMappedParams()
+{
+    for (auto* param : params)
+        if (param->isMidiControllerMapped())
+            param->resetToDefault();
+}
+
 
 namespace StateVTProperties
 {

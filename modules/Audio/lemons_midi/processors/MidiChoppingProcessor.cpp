@@ -33,8 +33,8 @@ void ChoppingProcessor<SampleType>::process (AudioBuffer<SampleType>& audio, Mid
 
 	const auto numSamples = audio.getNumSamples();
 
-	int  lastChunkEnd = 0;
 	auto it           = findNextMessageToChopAround (midi.cbegin());
+	int  lastChunkEnd = 0;
 
 	while (it != midi.cend())
 	{
@@ -42,34 +42,30 @@ void ChoppingProcessor<SampleType>::process (AudioBuffer<SampleType>& audio, Mid
 		const auto message   = meta.getMessage();
 		const auto timestamp = meta.samplePosition;
 
+		jassert (shouldChopAroundMidiMessage (message));
+
 		if (timestamp > lastChunkEnd)
 			processInternal (audio, midi, lastChunkEnd, timestamp);
 
 		handleMidiMessage (message);
 
-		it = findNextMessageToChopAround (++it);
+		it           = findNextMessageToChopAround (midi.findNextSamplePosition (timestamp + 1));
+		lastChunkEnd = it == midi.cend() ? numSamples : (*it).samplePosition;
 
-		const auto nextTimestamp = [&]() -> int
-		{
-			if (it == midi.cend())
-				return numSamples;
-
-			return (*it).samplePosition;
-		}();
-
-		if (nextTimestamp >= numSamples)
+		if (lastChunkEnd >= numSamples)
 		{
 			processInternal (audio, midi, timestamp, numSamples);
 			break;
 		}
 
-		processInternal (audio, midi, timestamp, nextTimestamp);
-
-		lastChunkEnd = nextTimestamp;
+		processInternal (audio, midi, timestamp, lastChunkEnd);
 	}
 
 	if (lastChunkEnd < numSamples)
+	{
 		processInternal (audio, midi, lastChunkEnd, numSamples);
+		it = findNextMessageToChopAround (midi.findNextSamplePosition (numSamples));
+	}
 
 	std::for_each (it, midi.cend(), [&] (const juce::MidiMessageMetadata& meta)
 	               {

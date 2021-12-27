@@ -57,9 +57,9 @@ private:
 	void loadStateInternal (const void* data, int size);
 
 	void prepareToPlay (double sampleRate, int samplesPerBlock) final;
-    
-    template <typename SampleType>
-    void prepareToPlayInternal (double sampleRate, int samplesPerBlock, int numChannels);
+
+	template <typename SampleType>
+	void prepareToPlayInternal (double sampleRate, int samplesPerBlock, int numChannels);
 
 	void reset() final;
 	void releaseResources() final;
@@ -94,30 +94,57 @@ private:
 
 	const ProcessorAttributes processorAttributes;
 
-    template<typename SampleType>
-    class InternalProcessor : public midi::ChoppingProcessor<SampleType>
-    {
-    public:
-        explicit InternalProcessor (dsp::Engine<SampleType>& engineToUse, ProcessorBase& processorBase);
-        
-    private:
-        [[nodiscard]] bool shouldChopAroundMidiMessage (const juce::MidiMessage& m) const final;
-        
-        void handleMidiMessage (const juce::MidiMessage& m) final;
-        
-        void renderChunk (AudioBuffer<SampleType>& audio, MidiBuffer& midi) final;
-        
-        dsp::Engine<SampleType>& engine;
-        
-        juce::AudioProcessor& audioProcessor;
-        
-        State& state;
-    };
-    
-    InternalProcessor<float> floatProcessor { floatEngine, *this };
-    InternalProcessor<double> doubleProcessor { doubleEngine, *this };
-    
+	template <typename SampleType>
+	class InternalProcessor : public midi::ChoppingProcessor<SampleType>
+	{
+	public:
+		explicit InternalProcessor (dsp::Engine<SampleType>& engineToUse, ProcessorBase& processorBase);
+
+	private:
+		[[nodiscard]] bool shouldChopAroundMidiMessage (const juce::MidiMessage& m) const final;
+
+		void handleMidiMessage (const juce::MidiMessage& m) final;
+
+		void renderChunk (AudioBuffer<SampleType>& audio, MidiBuffer& midi) final;
+
+		dsp::Engine<SampleType>& engine;
+
+		juce::AudioProcessor& audioProcessor;
+
+		State& state;
+	};
+
+	InternalProcessor<float>  floatProcessor { floatEngine, *this };
+	InternalProcessor<double> doubleProcessor { doubleEngine, *this };
+
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (ProcessorBase)
 };
 
 }  // namespace lemons::plugin
+
+
+#if LEMONS_UNIT_TESTS
+
+namespace lemons::tests
+{
+
+class ProcessorBaseTest : public AudioProcessorTestBase
+{
+public:
+	ProcessorBaseTest();
+
+private:
+
+	plugin::State state;
+
+	dsp::PassThroughEngine<float>  floatEngine;
+	dsp::PassThroughEngine<double> doubleEngine;
+
+	plugin::ProcessorBase processor { floatEngine, doubleEngine, state };
+};
+
+// static ProcessorBaseTest processorBaseTest;
+
+}  // namespace lemons::tests
+
+#endif

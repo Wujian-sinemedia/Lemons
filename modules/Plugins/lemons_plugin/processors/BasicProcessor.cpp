@@ -30,6 +30,16 @@ BasicProcessor::BasicProcessor (const BusesProperties& busesLayout)
 {
 }
 
+void BasicProcessor::processBlockBypassed (AudioBuffer<float>& audio, MidiBuffer&)
+{
+	audio.clear();
+}
+
+void BasicProcessor::processBlockBypassed (AudioBuffer<double>& audio, MidiBuffer&)
+{
+	audio.clear();
+}
+
 bool BasicProcessor::isBusesLayoutSupported (const BusesLayout& layout) const
 {
 	const auto disabled = juce::AudioChannelSet::disabled();

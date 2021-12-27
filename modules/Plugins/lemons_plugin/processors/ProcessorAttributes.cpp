@@ -34,6 +34,8 @@ ProcessorAttributes ProcessorAttributes::fromProjectDefines()
 
 #ifdef JucePlugin_Name
 	attributes.name = JucePlugin_Name;
+#else
+	attributes.name = "AudioProcessor";
 #endif
 
 	attributes.version = Version::projectVersion();
