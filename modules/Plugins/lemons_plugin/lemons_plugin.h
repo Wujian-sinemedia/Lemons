@@ -53,6 +53,7 @@
 #include "processors/ProcessorAttributes.h"
 #include "processors/BasicProcessor.h"
 
+#include "state/ProgramManager.h"
 #include "state/PluginState.h"
 
 #include "processors/ProcessorBase.h"

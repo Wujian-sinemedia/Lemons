@@ -19,34 +19,39 @@ namespace lemons::plugin
 {
 
 /** Base class for plugin editors' GUI content components.
+    @tparam StateType The type of the plugin's state object. This type must inherit from State.
  */
+template<typename StateType, LEMONS_MUST_INHERIT_FROM (StateType, State)>
 class GUI : public juce::Component
 {
 public:
-	explicit GUI (State& s)
+	explicit GUI (StateType& s)
 	    : state (s)
 	{
 	}
 
 protected:
-	State& state;
+    StateType& state;
 };
 
 
-/** Base class for a plugin editor that simply holds a specified somponent.
-    @tparam ContentComponentType The type of your plugin's main component. This must inherit from GUI.
+/** Base class for a plugin editor that simply holds a specified GUI component.
+    @tparam ContentComponentType The type of your plugin's main component. This type must inherit from GUI<StateType>.
+    @tparam StateType The type of the plugin's state object. This type must inherit from State.
  */
-template <typename ContentComponentType, LEMONS_MUST_INHERIT_FROM (ContentComponentType, GUI)>
+template <typename ContentComponentType, typename StateType,
+            LEMONS_MUST_INHERIT_FROM (ContentComponentType, GUI<StateType>),
+            LEMONS_MUST_INHERIT_FROM (StateType, State)>
 class Editor final : public juce::AudioProcessorEditor
 {
 public:
 	/** Creates a plugin editor. */
-	explicit Editor (ProcessorBase& p)
+	explicit Editor (ProcessorBase& p, StateType& state)
 	    : AudioProcessorEditor (p)
-	    , content (p.getState())
-	    , state (p.getState())
+	    , content (state)
+	    , stateBase (p.getState())
 	{
-		const auto& initialSize = state.editorSize;
+		const auto& initialSize = stateBase.editorSize;
 
 		jassert (initialSize.isValid());
 
@@ -71,7 +76,7 @@ private:
 	void resized() final
 	{
 		const auto bounds = getLocalBounds();
-		state.editorSize.set (bounds.getWidth(), bounds.getHeight());
+        stateBase.editorSize.set (bounds.getWidth(), bounds.getHeight());
 		content.setBounds (bounds);
 	}
 
@@ -82,7 +87,7 @@ private:
 
 	ContentComponentType content;
 
-	State& state;
+	State& stateBase;
 
 	juce::TooltipWindow tooltipWindow { this, 700 };
 };

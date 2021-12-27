@@ -171,29 +171,35 @@ void ProcessorBase::processBlockBypassed (AudioBuffer<double>& audio, MidiBuffer
 	doubleProcessor.process (audio, midi);
 }
 
+
 int ProcessorBase::getNumPrograms()
 {
-	return 1;
+    return std::max (1, state.programs.numPrograms());
 }
 
 int ProcessorBase::getCurrentProgram()
 {
-	return 0;
+    return 0;
 }
 
 void ProcessorBase::setCurrentProgram (int index)
 {
-	if (index < 0 || index >= getNumPrograms())
-		return;
+    if (const auto* program = state.programs.getProgramAtIndex (index))
+        loadState (program->state);
 }
 
 const String ProcessorBase::getProgramName (int index)
 {
-	return TRANS ("Program");
+    if (const auto* program = state.programs.getProgramAtIndex (index))
+        return TRANS (program->name);
+    
+    return TRANS ("Program");
 }
 
 void ProcessorBase::changeProgramName (int index, const String& newName)
 {
+    if (auto* program = state.programs.getProgramAtIndex (index))
+        program->name = newName;
 }
 
 juce::AudioProcessorParameter* ProcessorBase::getBypassParameter() const

@@ -25,6 +25,8 @@ namespace lemons::plugin
 class State
 {
 public:
+    
+    virtual ~State() = default;
 
 	void addTo (juce::AudioProcessor& processor) const;
 
@@ -37,10 +39,10 @@ public:
 		add (std::forward<Args> (rest)...);
 	}
     
-    [[nodiscard]] Parameter* getNamedParameter (const String& name);
+    [[nodiscard]] Parameter* getNamedParameter (const String& name) const;
     
     template<typename ParameterType, LEMONS_MUST_INHERIT_FROM(ParameterType, Parameter)>
-    [[nodiscard]] ParameterType* getTypedParameter (const String& name)
+    [[nodiscard]] ParameterType* getTypedParameter (const String& name) const
     {
         if (auto* param = getNamedParameter (name))
             return dynamic_cast<ParameterType*> (param);
@@ -59,14 +61,12 @@ public:
 	void loadFromValueTree (const ValueTree& tree);
 
 
-	struct Listener
+	struct Listener final
 	{
 		explicit Listener (const State& state,
 		                   std::function<void (Parameter&)>
 		                                                          onParamChange,
 		                   std::function<void (Parameter&, bool)> onGestureGhange = {});
-
-		virtual ~Listener() = default;
 
 	private:
 		juce::OwnedArray<ParamUpdater> updaters;
@@ -76,8 +76,14 @@ public:
 	Dimensions editorSize { Dimensions::getDefault() };
 
 	ToggleParameter bypass { "Bypass", false };
+    
+    ProgramManager programs;
 
 private:
+    [[nodiscard]] virtual ValueTree saveCustomStateData (const String& valueTreeType, bool currentProgramOnly) const;
+    
+    virtual void loadCustomStateData (const ValueTree& tree);
+    
 	juce::Array<Parameter*> params { &bypass };
 };
 

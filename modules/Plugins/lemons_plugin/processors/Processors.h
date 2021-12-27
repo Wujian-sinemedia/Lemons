@@ -17,7 +17,7 @@
 
 namespace lemons::plugin
 {
-/** A processor class that can simply be told the templated engine type, and takes care of instantiating a float and double one and passing them to the ProcessorBase class.
+/** A processor class that can simply be told the templated engine type and the state type, and takes care of instantiating a float and double one and passing them to the ProcessorBase class.
     Example usage:
     @code
     using namespace lemons;
@@ -27,14 +27,22 @@ namespace lemons::plugin
     {
         // implement your audio processing here...
     };
+ 
+    struct MyState : plugin::State
+    {
+        // add your parameters here...
+    };
 
-    using MyPluginProcessor = plugin::Processor< MyEngine >;
+    using MyPluginProcessor = plugin::Processor< MyEngine, MyState >;
     @endcode
     By default, this processor class does not have an editor; use the ProcessorWithEditor class to create a processor with an editor.
-    @tparam EngineType A class template for your plugin's engine class. This must inherit from Engine.
+    @tparam EngineType A class template for your plugin's engine class. This type must inherit from Engine.
+    @tparam StateType The type of the plugin's state object. This type must inherit from State.
     @see ProcessorBase, Engine, ProcessorWithEditor
  */
-template <template <typename SampleType> class EngineType, LEMONS_MUST_INHERIT_FROM (EngineType<float>, dsp::Engine<float>)>
+template <template <typename SampleType> class EngineType, typename StateType,
+            LEMONS_MUST_INHERIT_FROM (EngineType<float>, dsp::Engine<float>),
+            LEMONS_MUST_INHERIT_FROM (StateType, State)>
 class Processor : public ProcessorBase
 {
 public:
@@ -44,12 +52,15 @@ public:
 	    : ProcessorBase (floatEngine, doubleEngine, pluginState, busesLayout, attributes)
 	{
 	}
+    
+protected:
+    using PluginStateType = StateType;
+    
+    StateType pluginState;
 
 private:
 	EngineType<float>  floatEngine;
 	EngineType<double> doubleEngine;
-
-	State pluginState;
 };
 
 
@@ -63,12 +74,17 @@ private:
     {
         // implement your audio processing here...
     };
+ 
+    struct MyState : plugin::State
+    {
+        // add your parameters here...
+    };
 
     // now we can declare our plugin's GUI-less processor type:
-    using HeadlessProcessor = plugin::Processor< MyEngine >;
+    using HeadlessProcessor = plugin::Processor< MyEngine, MyState >;
 
     // now, let's define our processor's GUI:
-    struct MyEditor : plugin::GUI
+    struct MyEditor : plugin::GUI<MyState>
     {
         // implement your GUI here
     };
@@ -80,7 +96,8 @@ private:
     @tparam ComponentType The type of component for your plugin's editor to display. This type must inherit from PluginGUI.
     @see Processor, ProcessorBase, Engine
  */
-template <class ProcessorType, class ComponentType, LEMONS_MUST_INHERIT_FROM (ProcessorType, ProcessorBase), LEMONS_MUST_INHERIT_FROM (ComponentType, GUI)>
+template <class ProcessorType, class ComponentType,
+            LEMONS_MUST_INHERIT_FROM (ProcessorType, ProcessorBase)>
 struct ProcessorWithEditor final : ProcessorType
 {
 	using ProcessorType::ProcessorType;
@@ -91,7 +108,7 @@ struct ProcessorWithEditor final : ProcessorType
 	/** Creates an editor for this processor. */
 	juce::AudioProcessorEditor* createEditor() final
 	{
-		return new Editor<ComponentType> (*this);
+		return new Editor<ComponentType, typename ProcessorType::PluginStateType> (*this, this->pluginState);
 	}
 };
 

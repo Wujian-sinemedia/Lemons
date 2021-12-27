@@ -13,25 +13,39 @@
  ======================================================================================
  */
 
+#pragma once
 
-#include "lemons_plugin.h"
+namespace lemons::plugin
+{
+
+struct Program
+{
+    [[nodiscard]] ValueTree saveToValueTree() const;
+    
+    [[nodiscard]] static Program fromValueTree (const ValueTree& tree);
+    
+    ValueTree state;
+    String    name;
+};
 
 
-#include "parameters/Parameter.cpp"
-#include "parameters/ParameterTypes.cpp"
-#include "parameters/Specializations.cpp"
-#include "parameters/MeterParameter.cpp"
-//#include "parameters/MetaParameter.cpp"
+struct ProgramManager final
+{
+    [[nodiscard]] Program* getProgramAtIndex (int index);
+    
+    [[nodiscard]] const Program* getProgramAtIndex (int index) const;
+    
+    [[nodiscard]] int numPrograms() const noexcept;
+    
+    [[nodiscard]] ValueTree saveAllToValueTree() const;
+    
+    void restoreAllFromValueTree (const ValueTree& tree);
+    
+    
+    static constexpr auto valueTreeType = "Programs";
+    
+private:
+    juce::Array<Program> programs;
+};
 
-#include "parameters/utils/ParamUpdater.cpp"
-
-#include "processors/ProcessorAttributes.cpp"
-#include "processors/BasicProcessor.cpp"
-
-#include "state/ProgramManager.cpp"
-#include "state/PluginState.cpp"
-
-#include "processors/ProcessorBase.cpp"
-
-#include "hosting/ProcessorHolder.cpp"
-#include "hosting/ProcessorEngine.cpp"
+}
