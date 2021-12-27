@@ -200,6 +200,9 @@ public:
 	};
 
 	//==============================================================================
+    
+    /** @internal */
+    static constexpr auto id_prop = "id";
 
 protected:
 
@@ -207,7 +210,7 @@ protected:
 
 	[[nodiscard]] float denormalize (float input) const noexcept;
     
-    static constexpr auto valueTreeType = "PARAM", id_prop = "id", value_prop = "value", default_prop = "default", controller_prop = "controllerNumber";
+    static constexpr auto valueTreeType = "PARAM", value_prop = "value", default_prop = "default", controller_prop = "controllerNumber";
 
 private:
 	bool isMetaParameter() const final;

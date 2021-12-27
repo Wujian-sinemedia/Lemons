@@ -27,6 +27,7 @@ ProcessorBase::ProcessorBase (dsp::Engine<float>&        floatEngineToUse,
     , state (stateToUse)
     , processorAttributes (attributes)
 {
+	state.addTo (*this);
 }
 
 void ProcessorBase::prepareToPlay (double sampleRate, int samplesPerBlock)
@@ -49,7 +50,7 @@ void ProcessorBase::prepareToPlayInternal (double                    sampleRate,
 	if (idleEngine.isInitialized())
 		idleEngine.releaseResources();
 
-	jassert (sampleRate > 0. && samplesPerBlock > 0);
+	jassert (sampleRate > 0. && samplesPerBlock > 0 && numChannels > 0);
 
 	activeEngine.prepare (sampleRate, samplesPerBlock, numChannels);
 
@@ -77,41 +78,60 @@ void ProcessorBase::getStateInformation (juce::MemoryBlock& block)
 {
 	juce::MemoryOutputStream os { block, false };
 
-	state.saveToValueTree().writeToStream (os);
+	state.saveToValueTree (false).writeToStream (os);
 }
 
 void ProcessorBase::setStateInformation (const void* data, int size)
 {
 	state.loadFromValueTree (ValueTree::readFromData (data, static_cast<size_t> (size)));
+
+	callEditorMethod ([&] (juce::AudioProcessorEditor& e)
+	                  { e.setSize (state.editorSize.getWidth(),
+		                           state.editorSize.getHeight()); });
+}
+
+void ProcessorBase::getCurrentProgramStateInformation (juce::MemoryBlock& block)
+{
+	juce::MemoryOutputStream os { block, false };
+
+	state.saveToValueTree (true).writeToStream (os);
+}
+
+void ProcessorBase::setCurrentProgramStateInformation (const void* data, int size)
+{
+	state.loadFromValueTree (ValueTree::readFromData (data, static_cast<size_t> (size)));
+
+	repaintEditor();
 }
 
 void ProcessorBase::processBlock (AudioBuffer<float>& audio, MidiBuffer& midi)
 {
-	processInternal (floatEngine, audio, midi, false);
+	processInternal (floatEngine, audio, midi);
 }
 
 void ProcessorBase::processBlock (AudioBuffer<double>& audio, MidiBuffer& midi)
 {
-	processInternal (doubleEngine, audio, midi, false);
+	processInternal (doubleEngine, audio, midi);
 }
 
 void ProcessorBase::processBlockBypassed (AudioBuffer<float>& audio, MidiBuffer& midi)
 {
-	processInternal (floatEngine, audio, midi, true);
+	state.bypass.set (true);
+
+	processInternal (floatEngine, audio, midi);
 }
 
 void ProcessorBase::processBlockBypassed (AudioBuffer<double>& audio, MidiBuffer& midi)
 {
-	processInternal (doubleEngine, audio, midi, true);
+	state.bypass.set (true);
+
+	processInternal (doubleEngine, audio, midi);
 }
 
 template <typename SampleType>
-void ProcessorBase::processInternal (dsp::Engine<SampleType>& engine, AudioBuffer<SampleType>& audio, MidiBuffer& midi, bool isBypassed)
+void ProcessorBase::processInternal (dsp::Engine<SampleType>& engine, AudioBuffer<SampleType>& audio, MidiBuffer& midi)
 {
 	const juce::ScopedNoDenormals nodenorms;
-
-	if (isBypassed)
-		state.getBypass().set (true);
 
 	for (const auto& m : midi)
 	{
@@ -127,8 +147,8 @@ void ProcessorBase::processInternal (dsp::Engine<SampleType>& engine, AudioBuffe
 		}
 		else if (message.isController())
 		{
-			//            const auto number = message.getControllerNumber();
-			//            const auto value  = message.getControllerValue();
+			state.processControllerMessage (message.getControllerNumber(),
+			                                message.getControllerValue());
 		}
 	}
 
@@ -153,11 +173,11 @@ void ProcessorBase::processInternal (dsp::Engine<SampleType>& engine, AudioBuffe
 	const auto inBus  = findSubBuffer (true);
 	auto       outBus = findSubBuffer (false);
 
-	engine.process (inBus, outBus, midi, state.getBypass().get());
+	engine.process (inBus, outBus, midi, state.bypass.get());
 }
 
-template void ProcessorBase::processInternal (dsp::Engine<float>&, AudioBuffer<float>&, MidiBuffer&, bool);
-template void ProcessorBase::processInternal (dsp::Engine<double>&, AudioBuffer<double>&, MidiBuffer&, bool);
+template void ProcessorBase::processInternal (dsp::Engine<float>&, AudioBuffer<float>&, MidiBuffer&);
+template void ProcessorBase::processInternal (dsp::Engine<double>&, AudioBuffer<double>&, MidiBuffer&);
 
 int ProcessorBase::getNumPrograms()
 {
@@ -186,7 +206,7 @@ void ProcessorBase::changeProgramName (int index, const String& newName)
 
 juce::AudioProcessorParameter* ProcessorBase::getBypassParameter() const
 {
-	return &state.getBypass();
+	return &state.bypass;
 }
 
 bool ProcessorBase::supportsDoublePrecisionProcessing() const

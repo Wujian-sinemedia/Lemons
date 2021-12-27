@@ -39,13 +39,18 @@ public:
 	 */
 	explicit BasicProcessor (const BusesProperties& busesLayout = getDefaultBusesLayout());
 
-	/** Repaints the editor, if one exists.
-	    Internally, this uses the Juce MessageManager's callAsync method. Calling this on the audio thread should be avoided at all costs. I would personally only use this method in setStateInformation().
-	 */
-	void repaintEditor() const;
-
 	/** Returns a BusesLayout with stereo in and out buses that are enabled by default. */
 	[[nodiscard]] static BusesProperties getDefaultBusesLayout();
+
+protected:
+	/** Asynchronously calls a method of the current editor, if there is one, on the message thread.
+	    Internally, this uses the Juce MessageManager's callAsync method. Calling this on the audio thread should be avoided at all costs. I would personally only use this method in setStateInformation().
+	 */
+	void callEditorMethod (std::function<void (juce::AudioProcessorEditor&)> func) const;
+
+	/** Repaints the editor, if one exists. This is a utility function that uses callEditorMethod() under the hood. Calling this on the audio thread should be avoided at all costs.
+	 */
+	void repaintEditor() const;
 
 private:
 	void prepareToPlay (double /* samplerate */, int /* blocksize */) override { }
@@ -74,8 +79,8 @@ private:
 
 	const String getName() const override { return TRANS ("BasicProcessor"); }
 
-	bool                        hasEditor() const override { return true; }
-	juce::AudioProcessorEditor* createEditor() override;
+	bool                        hasEditor() const override { return false; }
+	juce::AudioProcessorEditor* createEditor() override { return nullptr; }
 
 	bool isBusesLayoutSupported (const BusesLayout& layout) const override;
 };

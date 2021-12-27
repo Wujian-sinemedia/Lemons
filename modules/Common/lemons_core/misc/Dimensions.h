@@ -32,29 +32,44 @@ struct Dimensions final
 	    , height (heightToUse)
 	{
 	}
+    
+    /** Assignment operator. */
+    constexpr Dimensions& operator= (const Dimensions& other)
+    {
+        width.store (other.width.load());
+        height.store (other.height.load());
+        return *this;
+    }
+    
+    /** Assignment operator. */
+    void set (int newWidth, int newHeight)
+    {
+        width.store (newWidth);
+        height.store (newHeight);
+    }
 
 	/** Returns true if the passed Dimensions object is equal to this one. */
 	[[nodiscard]] constexpr bool operator== (const Dimensions& other) const noexcept
 	{
-		return width == other.width && height == other.height;
+		return width.load() == other.width.load() && height.load() == other.height.load();
 	}
 
 	/** Returns true if the width and height are both greater than 0. */
 	[[nodiscard]] constexpr bool isValid() const noexcept
 	{
-		return width > 0 && height > 0;
+		return width.load() > 0 && height.load() > 0;
 	}
 
 	/** Returns the width of these dimensions. */
 	[[nodiscard]] constexpr int getWidth() const noexcept
 	{
-		return width;
+		return width.load();
 	}
 
 	/** Returns the height of these dimensions. */
 	[[nodiscard]] constexpr int getHeight() const noexcept
 	{
-		return height;
+		return height.load();
 	}
 
 	/** Returns the aspect ratio of the represented dimensions, calculated as width / height.
@@ -65,7 +80,7 @@ struct Dimensions final
 		if (! isValid())
 			return 0.;
 
-		return static_cast<double> (width) / static_cast<double> (height);
+		return static_cast<double> (width.load()) / static_cast<double> (height.load());
 	}
 
 	/** Returns true if the passed Dimensions object has the same aspect ratio as this one. */
@@ -84,7 +99,7 @@ struct Dimensions final
 	[[nodiscard]] static constexpr Dimensions getDefault() { return Dimensions { 1060, 640 }; }
 
 private:
-	int width { 0 }, height { 0 };
+	std::atomic<int> width { 0 }, height { 0 };
 };
 
 }  // namespace lemons

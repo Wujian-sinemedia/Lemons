@@ -34,7 +34,7 @@ protected:
 
 
 /** Base class for a plugin editor that simply holds a specified somponent.
-    @tparam ContentComponentType The type of your plugin's main component. This must inherit from PluginGUI.
+    @tparam ContentComponentType The type of your plugin's main component. This must inherit from GUI.
  */
 template <typename ContentComponentType, LEMONS_MUST_INHERIT_FROM (ContentComponentType, GUI)>
 class Editor final : public juce::AudioProcessorEditor
@@ -44,8 +44,9 @@ public:
 	explicit Editor (ProcessorBase& p)
 	    : AudioProcessorEditor (p)
 	    , content (p.getState())
+	    , state (p.getState())
 	{
-		const auto& initialSize = p.getState().editorSize;
+		const auto& initialSize = state.editorSize;
 
 		jassert (initialSize.isValid());
 
@@ -53,13 +54,13 @@ public:
 
 		const auto width  = initialSize.getWidth();
 		const auto height = initialSize.getHeight();
-        
-        if (auto* c = getConstrainer())
-        {
-            c->setMinimumSize (width / 2, height / 2);
-            c->setMaximumSize (width * 2, height * 2);
-            c->setFixedAspectRatio (initialSize.getAspectRatio());
-        }
+
+		if (auto* c = getConstrainer())
+		{
+			c->setMinimumSize (width / 2, height / 2);
+			c->setMaximumSize (width * 2, height * 2);
+			c->setFixedAspectRatio (initialSize.getAspectRatio());
+		}
 
 		addAndMakeVisible (content);
 
@@ -69,7 +70,9 @@ public:
 private:
 	void resized() final
 	{
-		content.setBounds (getLocalBounds());
+		const auto bounds = getLocalBounds();
+		state.editorSize.set (bounds.getWidth(), bounds.getHeight());
+		content.setBounds (bounds);
 	}
 
 	void paint (juce::Graphics& g) final
@@ -78,6 +81,8 @@ private:
 	}
 
 	ContentComponentType content;
+
+	State& state;
 
 	juce::TooltipWindow tooltipWindow { this, 700 };
 };

@@ -26,16 +26,30 @@ class State
 {
 public:
 
-	[[nodiscard]] ToggleParameter& getBypass() { return bypass; }
-    
-    [[nodiscard]] ValueTree saveToValueTree() const { return {}; }
-    
-    void loadFromValueTree (const ValueTree& tree) { };
+	void addTo (juce::AudioProcessor& processor) const;
 
-    
+	void add (Parameter& parameter);
+
+	template <typename... Args>
+	void add (Parameter& first, Args&&... rest)
+	{
+		add (first);
+		add (std::forward<Args> (rest)...);
+	}
+
+	void processControllerMessage (int number, int value);
+
+	[[nodiscard]] ValueTree saveToValueTree (bool currentProgramOnly) const;
+
+	void loadFromValueTree (const ValueTree& tree);
+
+
 	Dimensions editorSize { Dimensions::getDefault() };
 
 	ToggleParameter bypass { "Bypass", false };
+
+private:
+	juce::Array<Parameter*> params { &bypass };
 };
 
 }  // namespace lemons::plugin

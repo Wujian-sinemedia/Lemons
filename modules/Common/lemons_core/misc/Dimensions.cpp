@@ -19,7 +19,7 @@ namespace lemons
 
 String Dimensions::toString() const noexcept
 {
-	return String (width) + "x" + String (height);
+	return String (width.load()) + "x" + String (height.load());
 }
 
 Dimensions Dimensions::fromString (const String& string)

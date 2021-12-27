@@ -49,7 +49,9 @@ private:
 	juce::AudioProcessorParameter* getBypassParameter() const final;
 
 	void getStateInformation (juce::MemoryBlock& block) final;
+	void getCurrentProgramStateInformation (juce::MemoryBlock& block) final;
 	void setStateInformation (const void* data, int size) final;
+	void setCurrentProgramStateInformation (const void* data, int size) final;
 
 	void prepareToPlay (double sampleRate, int samplesPerBlock) final;
 
@@ -70,8 +72,7 @@ private:
 
 	template <typename SampleType>
 	void processInternal (dsp::Engine<SampleType>& engine,
-	                      AudioBuffer<SampleType>& audio, MidiBuffer& midi,
-	                      bool isBypassed);
+	                      AudioBuffer<SampleType>& audio, MidiBuffer& midi);
 
 	bool acceptsMidi() const final;
 	bool producesMidi() const final;

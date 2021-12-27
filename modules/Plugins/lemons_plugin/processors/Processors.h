@@ -20,15 +20,15 @@ namespace lemons::plugin
 /** A processor class that can simply be told the templated engine type, and takes care of instantiating a float and double one and passing them to the ProcessorBase class.
     Example usage:
     @code
-    using namespace lemons::dsp;
+    using namespace lemons;
 
     template<typename SampleType>
-    struct MyEngine : Engine<SampleType>
+    struct MyEngine : dsp::Engine<SampleType>
     {
         // implement your audio processing here...
     };
 
-    using MyPluginProcessor = Processor< MyEngine >;
+    using MyPluginProcessor = plugin::Processor< MyEngine >;
     @endcode
     By default, this processor class does not have an editor; use the ProcessorWithEditor class to create a processor with an editor.
     @tparam EngineType A class template for your plugin's engine class. This must inherit from Engine.
@@ -46,10 +46,6 @@ public:
 	}
 
 private:
-	bool hasEditor() const override { return false; }
-
-	juce::AudioProcessorEditor* createEditor() override { return nullptr; }
-
 	EngineType<float>  floatEngine;
 	EngineType<double> doubleEngine;
 
@@ -60,31 +56,31 @@ private:
 /** A processor class that has a GUI editor.
     Example usage:
     @code
-    using namespace lemons::dsp;
+    using namespace lemons;
 
     template<typename SampleType>
-    struct MyEngine : Engine<SampleType>
+    struct MyEngine : dsp::Engine<SampleType>
     {
         // implement your audio processing here...
     };
 
     // now we can declare our plugin's GUI-less processor type:
-    using HeadlessProcessor = Processor< MyEngine >;
+    using HeadlessProcessor = plugin::Processor< MyEngine >;
 
     // now, let's define our processor's GUI:
-    struct MyEditor : juce::Component
+    struct MyEditor : plugin::GUI
     {
         // implement your GUI here
     };
 
     // and now we can declare the processor with editor:
-    using Plugin = ProcessorWithEditor < HeadlessProcessor, MyEditor >;
+    using Plugin = plugin::ProcessorWithEditor < HeadlessProcessor, MyEditor >;
     @endcode
     @tparam ProcessorType The type of your plugin's editor-less Processor; for example, Processor<YourEngine>. This type must be a specialization of Processor.
     @tparam ComponentType The type of component for your plugin's editor to display. This type must inherit from PluginGUI.
     @see Processor, ProcessorBase, Engine
  */
-template <class ProcessorType, class ComponentType, LEMONS_MUST_INHERIT_FROM (ProcessorType, ProcessorBase), LEMONS_MUST_INHERIT_FROM (ComponentType, juce::Component)>
+template <class ProcessorType, class ComponentType, LEMONS_MUST_INHERIT_FROM (ProcessorType, ProcessorBase), LEMONS_MUST_INHERIT_FROM (ComponentType, GUI)>
 struct ProcessorWithEditor final : ProcessorType
 {
 	using ProcessorType::ProcessorType;

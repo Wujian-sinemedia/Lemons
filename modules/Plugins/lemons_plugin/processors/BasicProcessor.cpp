@@ -30,8 +30,6 @@ BasicProcessor::BasicProcessor (const BusesProperties& busesLayout)
 {
 }
 
-juce::AudioProcessorEditor* BasicProcessor::createEditor() { return new juce::GenericAudioProcessorEditor (*this); }
-
 bool BasicProcessor::isBusesLayoutSupported (const BusesLayout& layout) const
 {
 	const auto disabled = juce::AudioChannelSet::disabled();
@@ -39,12 +37,21 @@ bool BasicProcessor::isBusesLayoutSupported (const BusesLayout& layout) const
 	return layout.getMainInputChannelSet() != disabled && layout.getMainOutputChannelSet() != disabled;
 }
 
+void BasicProcessor::callEditorMethod (std::function<void (juce::AudioProcessorEditor&)> func) const
+{
+	if (! hasEditor())
+		return;
+
+	juce::MessageManager::callAsync ([editor = juce::Component::SafePointer<juce::AudioProcessorEditor> (getActiveEditor()), func]
+	                                 {
+        if (auto* e = editor.getComponent())
+            func (*e); });
+}
+
 void BasicProcessor::repaintEditor() const
 {
-	juce::MessageManager::callAsync ([editor = juce::Component::SafePointer<juce::AudioProcessorEditor> (getActiveEditor())]
-	                                 {
-                                        if (auto* e = editor.getComponent())
-                                            e->repaint(); });
+	callEditorMethod ([&] (juce::AudioProcessorEditor& e)
+	                  { e.repaint(); });
 }
 
 }  // namespace lemons::plugin

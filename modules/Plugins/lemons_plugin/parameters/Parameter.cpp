@@ -131,6 +131,9 @@ void Parameter::removeMidiControllerMapping() noexcept
 
 void Parameter::processNewControllerMessage (int controllerNumber, int controllerValue)
 {
+    jassert (controllerNumber >= 0);
+    jassert (controllerValue >= 0 && controllerValue <= 127);
+    
 	if (controllerNumber == midiControllerNumber.load())
 	{
 		setDenormalizedValue (juce::jmap (static_cast<float> (controllerValue),
