@@ -51,6 +51,17 @@ void State::resetAllControllerMappedParams()
             param->resetToDefault();
 }
 
+Parameter* State::getNamedParameter (const String& name)
+{
+    if (auto* res = std::find_if (params.begin(), params.end(),
+                                  [&](Parameter* p){ return p->getParameterName() == name; }))
+    {
+        return *res;
+    }
+    
+    return nullptr;
+}
+
 
 namespace StateVTProperties
 {

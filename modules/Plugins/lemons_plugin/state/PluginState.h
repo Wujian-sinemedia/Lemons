@@ -36,6 +36,17 @@ public:
 		add (first);
 		add (std::forward<Args> (rest)...);
 	}
+    
+    [[nodiscard]] Parameter* getNamedParameter (const String& name);
+    
+    template<typename ParameterType, LEMONS_MUST_INHERIT_FROM(ParameterType, Parameter)>
+    [[nodiscard]] ParameterType* getTypedParameter (const String& name)
+    {
+        if (auto* param = getNamedParameter (name))
+            return dynamic_cast<ParameterType*> (param);
+            
+        return nullptr;
+    }
 
 	void processControllerMessage (int number, int value);
     
