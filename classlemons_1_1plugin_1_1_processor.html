@@ -71,6 +71,7 @@ $(function() {
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="classlemons_1_1plugin_1_1_processor-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">lemons::plugin::Processor&lt; EngineType, &gt; Class Template Reference<div class="ingroups"><a class="el" href="group___audio.html">Audio</a> &raquo; <a class="el" href="group__lemons__midi.html">lemons_midi</a><a class="el" href="group___plugins.html">Plugins</a> &raquo;  &#124; <a class="el" href="group__lemons__plugin.html">lemons_plugin</a> &raquo; <a class="el" href="group__processors.html">processors</a></div></div>  </div>
@@ -98,33 +99,42 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a86dd748017d5fb86071162d4904e2277"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_processor.html#a86dd748017d5fb86071162d4904e2277">Processor</a> (const <a class="el" href="classlemons_1_1plugin_1_1_basic_processor.html#abf03b92410766c2112bba4cd7236b484">BusesProperties</a> &amp;busesLayout=<a class="el" href="classlemons_1_1plugin_1_1_basic_processor.html#a5113130e547ceaeeb43fdeb856062a33">getDefaultBusesLayout</a>(), const <a class="el" href="structlemons_1_1plugin_1_1_processor_attributes.html">ProcessorAttributes</a> &amp;attributes=<a class="el" href="structlemons_1_1plugin_1_1_processor_attributes.html#ac2f50da82c87f3f07cfe01b296f96c49">ProcessorAttributes::fromProjectDefines</a>())</td></tr>
 <tr class="memdesc:a86dd748017d5fb86071162d4904e2277"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a processor with the specified bus layout.  <a href="classlemons_1_1plugin_1_1_processor.html#a86dd748017d5fb86071162d4904e2277">More...</a><br /></td></tr>
 <tr class="separator:a86dd748017d5fb86071162d4904e2277"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abdd2b947b1f7c377f3e0bffecca7dfd5"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structlemons_1_1plugin_1_1_processor_attributes.html">ProcessorAttributes</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_processor_base.html#abdd2b947b1f7c377f3e0bffecca7dfd5">getAttributes</a> () const noexcept</td></tr>
+<tr class="memdesc:abdd2b947b1f7c377f3e0bffecca7dfd5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the <a class="el" href="structlemons_1_1plugin_1_1_processor_attributes.html">ProcessorAttributes</a> object.  <a href="classlemons_1_1plugin_1_1_processor_base.html#abdd2b947b1f7c377f3e0bffecca7dfd5">More...</a><br /></td></tr>
+<tr class="separator:abdd2b947b1f7c377f3e0bffecca7dfd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a45813074aded389252f9291b1c3d9b3c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classlemons_1_1plugin_1_1_state.html">State</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_processor_base.html#a45813074aded389252f9291b1c3d9b3c">getState</a> () noexcept</td></tr>
 <tr class="memdesc:a45813074aded389252f9291b1c3d9b3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the plugin's state object.  <a href="classlemons_1_1plugin_1_1_processor_base.html#a45813074aded389252f9291b1c3d9b3c">More...</a><br /></td></tr>
 <tr class="separator:a45813074aded389252f9291b1c3d9b3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac6e8eacfeda348419aa05cbfb338198c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_basic_processor.html#ac6e8eacfeda348419aa05cbfb338198c">repaintEditor</a> () const</td></tr>
-<tr class="memdesc:ac6e8eacfeda348419aa05cbfb338198c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Repaints the editor, if one exists.  <a href="classlemons_1_1plugin_1_1_basic_processor.html#ac6e8eacfeda348419aa05cbfb338198c">More...</a><br /></td></tr>
-<tr class="separator:ac6e8eacfeda348419aa05cbfb338198c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a5113130e547ceaeeb43fdeb856062a33"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classlemons_1_1plugin_1_1_basic_processor.html#abf03b92410766c2112bba4cd7236b484">BusesProperties</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_basic_processor.html#a5113130e547ceaeeb43fdeb856062a33">getDefaultBusesLayout</a> ()</td></tr>
 <tr class="memdesc:a5113130e547ceaeeb43fdeb856062a33"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a BusesLayout with stereo in and out buses that are enabled by default.  <a href="classlemons_1_1plugin_1_1_basic_processor.html#a5113130e547ceaeeb43fdeb856062a33">More...</a><br /></td></tr>
 <tr class="separator:a5113130e547ceaeeb43fdeb856062a33"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:a265e973d843c470029e50920d2e53464"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_basic_processor.html#a265e973d843c470029e50920d2e53464">callEditorMethod</a> (std::function&lt; void(juce::AudioProcessorEditor &amp;)&gt; func) const</td></tr>
+<tr class="memdesc:a265e973d843c470029e50920d2e53464"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asynchronously calls a method of the current editor, if there is one, on the message thread.  <a href="classlemons_1_1plugin_1_1_basic_processor.html#a265e973d843c470029e50920d2e53464">More...</a><br /></td></tr>
+<tr class="separator:a265e973d843c470029e50920d2e53464"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac6e8eacfeda348419aa05cbfb338198c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_basic_processor.html#ac6e8eacfeda348419aa05cbfb338198c">repaintEditor</a> () const</td></tr>
+<tr class="memdesc:ac6e8eacfeda348419aa05cbfb338198c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Repaints the editor, if one exists.  <a href="classlemons_1_1plugin_1_1_basic_processor.html#ac6e8eacfeda348419aa05cbfb338198c">More...</a><br /></td></tr>
+<tr class="separator:ac6e8eacfeda348419aa05cbfb338198c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;template&lt; typename SampleType &gt; class EngineType, LEMONS_MUST_INHERIT_FROM(EngineType&lt; float &gt;, dsp::Engine&lt; float &gt;)&gt;<br />
 class lemons::plugin::Processor&lt; EngineType, &gt;</h3>
 
 <p>A processor class that can simply be told the templated engine type, and takes care of instantiating a float and double one and passing them to the <a class="el" href="classlemons_1_1plugin_1_1_processor_base.html" title="Base class for a plugin processor.">ProcessorBase</a> class. </p>
-<p>Example usage: </p><div class="fragment"><div class="line"><span class="keyword">using namespace </span><a class="code" href="namespacelemons_1_1dsp.html">lemons::dsp</a>;</div>
+<p>Example usage: </p><div class="fragment"><div class="line"><span class="keyword">using namespace </span><a class="code" href="namespacelemons.html">lemons</a>;</div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> SampleType&gt;</div>
-<div class="line"><span class="keyword">struct </span>MyEngine : <a class="code" href="classlemons_1_1dsp_1_1_engine.html">Engine</a>&lt;SampleType&gt;</div>
+<div class="line"><span class="keyword">struct </span>MyEngine : <a class="code" href="classlemons_1_1dsp_1_1_engine.html">dsp::Engine</a>&lt;SampleType&gt;</div>
 <div class="line">{</div>
 <div class="line">    <span class="comment">// implement your audio processing here...</span></div>
 <div class="line">};</div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">using</span> MyPluginProcessor = Processor&lt; MyEngine &gt;;</div>
+<div class="line"><span class="keyword">using</span> MyPluginProcessor = <a class="code" href="classlemons_1_1plugin_1_1_processor.html">plugin::Processor&lt; MyEngine &gt;</a>;</div>
 </div><!-- fragment --><p> By default, this processor class does not have an editor; use the <a class="el" href="structlemons_1_1plugin_1_1_processor_with_editor.html" title="A processor class that has a GUI editor.">ProcessorWithEditor</a> class to create a processor with an editor. </p><dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">EngineType</td><td>A class template for your plugin's engine class. This must inherit from Engine. </td></tr>
@@ -197,6 +207,62 @@ template&lt;template&lt; typename SampleType &gt; class EngineType, LEMONS_MUST_
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a265e973d843c470029e50920d2e53464"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a265e973d843c470029e50920d2e53464">&#9670;&nbsp;</a></span>callEditorMethod()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lemons::plugin::BasicProcessor::callEditorMethod </td>
+          <td>(</td>
+          <td class="paramtype">std::function&lt; void(juce::AudioProcessorEditor &amp;)&gt;&#160;</td>
+          <td class="paramname"><em>func</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Asynchronously calls a method of the current editor, if there is one, on the message thread. </p>
+<p>Internally, this uses the Juce MessageManager's callAsync method. Calling this on the audio thread should be avoided at all costs. I would personally only use this method in setStateInformation(). </p>
+
+</div>
+</div>
+<a id="abdd2b947b1f7c377f3e0bffecca7dfd5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abdd2b947b1f7c377f3e0bffecca7dfd5">&#9670;&nbsp;</a></span>getAttributes()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="structlemons_1_1plugin_1_1_processor_attributes.html">ProcessorAttributes</a>&amp; lemons::plugin::ProcessorBase::getAttributes </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the <a class="el" href="structlemons_1_1plugin_1_1_processor_attributes.html">ProcessorAttributes</a> object. </p>
+
+</div>
+</div>
 <a id="a5113130e547ceaeeb43fdeb856062a33"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5113130e547ceaeeb43fdeb856062a33">&#9670;&nbsp;</a></span>getDefaultBusesLayout()</h2>
 
@@ -249,8 +315,6 @@ template&lt;template&lt; typename SampleType &gt; class EngineType, LEMONS_MUST_
 
 <p>Returns the plugin's state object. </p>
 
-<p class="reference">Referenced by <a class="el" href="classlemons_1_1plugin_1_1_editor.html#afb5c3217692ffbb6d7131a7821928249">lemons::plugin::Editor&lt; ContentComponentType, &gt;::Editor()</a>.</p>
-
 </div>
 </div>
 <a id="ac6e8eacfeda348419aa05cbfb338198c"></a>
@@ -271,13 +335,13 @@ template&lt;template&lt; typename SampleType &gt; class EngineType, LEMONS_MUST_
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">inherited</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 <p>Repaints the editor, if one exists. </p>
-<p>Internally, this uses the Juce MessageManager's callAsync method. Calling this on the audio thread should be avoided at all costs. I would personally only use this method in setStateInformation(). </p>
+<p>This is a utility function that uses <a class="el" href="classlemons_1_1plugin_1_1_basic_processor.html#a265e973d843c470029e50920d2e53464" title="Asynchronously calls a method of the current editor, if there is one, on the message thread.">callEditorMethod()</a> under the hood. Calling this on the audio thread should be avoided at all costs. </p>
 
 </div>
 </div>
@@ -285,11 +349,12 @@ template&lt;template&lt; typename SampleType &gt; class EngineType, LEMONS_MUST_
 <li><a class="el" href="_processors_8h.html">Processors.h</a></li>
 </ul>
 </div><!-- contents -->
-<div class="ttc" id="anamespacelemons_1_1dsp_html"><div class="ttname"><a href="namespacelemons_1_1dsp.html">lemons::dsp</a></div><div class="ttdef"><b>Definition:</b> AudioEffect.h:9</div></div>
+<div class="ttc" id="aclasslemons_1_1plugin_1_1_processor_html"><div class="ttname"><a href="classlemons_1_1plugin_1_1_processor.html">lemons::plugin::Processor</a></div><div class="ttdoc">A processor class that can simply be told the templated engine type, and takes care of instantiating ...</div><div class="ttdef"><b>Definition:</b> Processors.h:42</div></div>
 <div class="ttc" id="aclasslemons_1_1dsp_1_1_engine_html"><div class="ttname"><a href="classlemons_1_1dsp_1_1_engine.html">lemons::dsp::Engine</a></div><div class="ttdoc">Base class for an audio engine.</div><div class="ttdef"><b>Definition:</b> AudioEngine.h:30</div></div>
+<div class="ttc" id="anamespacelemons_html"><div class="ttname"><a href="namespacelemons.html">lemons</a></div><div class="ttdef"><b>Definition:</b> DefaultWindow.h:9</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Dec 26 2021 00:48:37 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Dec 27 2021 00:47:38 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

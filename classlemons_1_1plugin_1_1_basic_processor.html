@@ -71,6 +71,7 @@ $(function() {
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="classlemons_1_1plugin_1_1_basic_processor-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">lemons::plugin::BasicProcessor Class Reference<div class="ingroups"><a class="el" href="group___audio.html">Audio</a> &raquo; <a class="el" href="group__lemons__midi.html">lemons_midi</a><a class="el" href="group___plugins.html">Plugins</a> &raquo;  &#124; <a class="el" href="group__lemons__plugin.html">lemons_plugin</a> &raquo; <a class="el" href="group__processors.html">processors</a></div></div>  </div>
@@ -98,15 +99,21 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:affeaf4386c68d1b5dc11a8710c153177"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_basic_processor.html#affeaf4386c68d1b5dc11a8710c153177">BasicProcessor</a> (const <a class="el" href="classlemons_1_1plugin_1_1_basic_processor.html#abf03b92410766c2112bba4cd7236b484">BusesProperties</a> &amp;busesLayout=<a class="el" href="classlemons_1_1plugin_1_1_basic_processor.html#a5113130e547ceaeeb43fdeb856062a33">getDefaultBusesLayout</a>())</td></tr>
 <tr class="memdesc:affeaf4386c68d1b5dc11a8710c153177"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a basic processor.  <a href="classlemons_1_1plugin_1_1_basic_processor.html#affeaf4386c68d1b5dc11a8710c153177">More...</a><br /></td></tr>
 <tr class="separator:affeaf4386c68d1b5dc11a8710c153177"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac6e8eacfeda348419aa05cbfb338198c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_basic_processor.html#ac6e8eacfeda348419aa05cbfb338198c">repaintEditor</a> () const</td></tr>
-<tr class="memdesc:ac6e8eacfeda348419aa05cbfb338198c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Repaints the editor, if one exists.  <a href="classlemons_1_1plugin_1_1_basic_processor.html#ac6e8eacfeda348419aa05cbfb338198c">More...</a><br /></td></tr>
-<tr class="separator:ac6e8eacfeda348419aa05cbfb338198c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a5113130e547ceaeeb43fdeb856062a33"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classlemons_1_1plugin_1_1_basic_processor.html#abf03b92410766c2112bba4cd7236b484">BusesProperties</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_basic_processor.html#a5113130e547ceaeeb43fdeb856062a33">getDefaultBusesLayout</a> ()</td></tr>
 <tr class="memdesc:a5113130e547ceaeeb43fdeb856062a33"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a BusesLayout with stereo in and out buses that are enabled by default.  <a href="classlemons_1_1plugin_1_1_basic_processor.html#a5113130e547ceaeeb43fdeb856062a33">More...</a><br /></td></tr>
 <tr class="separator:a5113130e547ceaeeb43fdeb856062a33"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:a265e973d843c470029e50920d2e53464"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_basic_processor.html#a265e973d843c470029e50920d2e53464">callEditorMethod</a> (std::function&lt; void(juce::AudioProcessorEditor &amp;)&gt; func) const</td></tr>
+<tr class="memdesc:a265e973d843c470029e50920d2e53464"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asynchronously calls a method of the current editor, if there is one, on the message thread.  <a href="classlemons_1_1plugin_1_1_basic_processor.html#a265e973d843c470029e50920d2e53464">More...</a><br /></td></tr>
+<tr class="separator:a265e973d843c470029e50920d2e53464"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac6e8eacfeda348419aa05cbfb338198c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_basic_processor.html#ac6e8eacfeda348419aa05cbfb338198c">repaintEditor</a> () const</td></tr>
+<tr class="memdesc:ac6e8eacfeda348419aa05cbfb338198c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Repaints the editor, if one exists.  <a href="classlemons_1_1plugin_1_1_basic_processor.html#ac6e8eacfeda348419aa05cbfb338198c">More...</a><br /></td></tr>
+<tr class="separator:ac6e8eacfeda348419aa05cbfb338198c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A default implementation of a basic, generic juce AudioProcessor. </p>
@@ -157,6 +164,35 @@ Static Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a265e973d843c470029e50920d2e53464"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a265e973d843c470029e50920d2e53464">&#9670;&nbsp;</a></span>callEditorMethod()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lemons::plugin::BasicProcessor::callEditorMethod </td>
+          <td>(</td>
+          <td class="paramtype">std::function&lt; void(juce::AudioProcessorEditor &amp;)&gt;&#160;</td>
+          <td class="paramname"><em>func</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Asynchronously calls a method of the current editor, if there is one, on the message thread. </p>
+<p>Internally, this uses the Juce MessageManager's callAsync method. Calling this on the audio thread should be avoided at all costs. I would personally only use this method in setStateInformation(). </p>
+
+</div>
+</div>
 <a id="a5113130e547ceaeeb43fdeb856062a33"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5113130e547ceaeeb43fdeb856062a33">&#9670;&nbsp;</a></span>getDefaultBusesLayout()</h2>
 
@@ -189,6 +225,9 @@ Static Public Member Functions</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void lemons::plugin::BasicProcessor::repaintEditor </td>
@@ -197,10 +236,15 @@ Static Public Member Functions</h2></td></tr>
           <td> const</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Repaints the editor, if one exists. </p>
-<p>Internally, this uses the Juce MessageManager's callAsync method. Calling this on the audio thread should be avoided at all costs. I would personally only use this method in setStateInformation(). </p>
+<p>This is a utility function that uses <a class="el" href="classlemons_1_1plugin_1_1_basic_processor.html#a265e973d843c470029e50920d2e53464" title="Asynchronously calls a method of the current editor, if there is one, on the message thread.">callEditorMethod()</a> under the hood. Calling this on the audio thread should be avoided at all costs. </p>
 
 </div>
 </div>
@@ -210,7 +254,7 @@ Static Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Dec 26 2021 00:48:37 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Dec 27 2021 00:47:37 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

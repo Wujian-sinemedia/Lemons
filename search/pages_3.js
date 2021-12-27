@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['welcome_20to_20the_20lemons_20online_20documentation_21_2385',['Welcome to the Lemons online documentation!',['../index.html',1,'']]]
+  ['welcome_20to_20the_20lemons_20online_20documentation_21_2403',['Welcome to the Lemons online documentation!',['../index.html',1,'']]]
 ];

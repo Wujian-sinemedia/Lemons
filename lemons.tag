@@ -506,7 +506,7 @@
   </compound>
   <compound kind="file">
     <name>Editors.h</name>
-    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Plugins/lemons_plugin/processors/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Plugins/lemons_plugin/editors/</path>
     <filename>_editors_8h.html</filename>
     <class kind="class">lemons::plugin::Editor</class>
     <class kind="class">lemons::plugin::GUI</class>
@@ -1245,14 +1245,6 @@
     <namespace>lemons::plugin</namespace>
   </compound>
   <compound kind="file">
-    <name>ParameterProcessor.h</name>
-    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Plugins/lemons_plugin/parameters/utils/</path>
-    <filename>_parameter_processor_8h.html</filename>
-    <class kind="class">lemons::plugin::ParameterProcessor</class>
-    <namespace>lemons</namespace>
-    <namespace>lemons::plugin</namespace>
-  </compound>
-  <compound kind="file">
     <name>ParameterTypes.h</name>
     <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Plugins/lemons_plugin/parameters/</path>
     <filename>_parameter_types_8h.html</filename>
@@ -1326,7 +1318,7 @@
   </compound>
   <compound kind="file">
     <name>PluginState.h</name>
-    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Plugins/lemons_plugin/processors/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Plugins/lemons_plugin/state/</path>
     <filename>_plugin_state_8h.html</filename>
     <class kind="class">lemons::plugin::State</class>
     <namespace>lemons</namespace>
@@ -2079,6 +2071,90 @@
     <filename>_version_8h.html</filename>
     <class kind="struct">lemons::Version</class>
     <namespace>lemons</namespace>
+    <member kind="define">
+      <type>#define</type>
+      <name>LEMONS_PROJECT_VERSION_MAJOR</name>
+      <anchorfile>group__misc.html</anchorfile>
+      <anchor>ga52ab1f8b6b9e166d12b4b96739838d5a</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>LEMONS_PROJECT_VERSION_MINOR</name>
+      <anchorfile>group__misc.html</anchorfile>
+      <anchor>ga906eafb2e72e1937dae95a1154cb1d4d</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>LEMONS_PROJECT_VERSION_PATCH</name>
+      <anchorfile>group__misc.html</anchorfile>
+      <anchor>ga656cf0efe739619c0fc96e8f70387727</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>LEMONS_VERSION_MAJOR</name>
+      <anchorfile>group__misc.html</anchorfile>
+      <anchor>ga745cbaf7407f78551a03e6033abc2624</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>LEMONS_VERSION_MINOR</name>
+      <anchorfile>group__misc.html</anchorfile>
+      <anchor>ga1fbe1a2b0c90a5464db0037161a6b21b</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>LEMONS_VERSION_PATCH</name>
+      <anchorfile>group__misc.html</anchorfile>
+      <anchor>ga537f07f6a8c6eb77ec4b1a2ab925f6c3</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>LEMONS_PROJECT_VERSION_MAJOR</name>
+      <anchorfile>group__misc.html</anchorfile>
+      <anchor>ga52ab1f8b6b9e166d12b4b96739838d5a</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>LEMONS_PROJECT_VERSION_MINOR</name>
+      <anchorfile>group__misc.html</anchorfile>
+      <anchor>ga906eafb2e72e1937dae95a1154cb1d4d</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>LEMONS_PROJECT_VERSION_PATCH</name>
+      <anchorfile>group__misc.html</anchorfile>
+      <anchor>ga656cf0efe739619c0fc96e8f70387727</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>LEMONS_VERSION_MAJOR</name>
+      <anchorfile>group__misc.html</anchorfile>
+      <anchor>ga745cbaf7407f78551a03e6033abc2624</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>LEMONS_VERSION_MINOR</name>
+      <anchorfile>group__misc.html</anchorfile>
+      <anchor>ga1fbe1a2b0c90a5464db0037161a6b21b</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>LEMONS_VERSION_PATCH</name>
+      <anchorfile>group__misc.html</anchorfile>
+      <anchor>ga537f07f6a8c6eb77ec4b1a2ab925f6c3</anchor>
+      <arglist></arglist>
+    </member>
   </compound>
   <compound kind="file">
     <name>VoiceAllocator.h</name>
@@ -2960,19 +3036,26 @@
       <anchor>affeaf4386c68d1b5dc11a8710c153177</anchor>
       <arglist>(const BusesProperties &amp;busesLayout=getDefaultBusesLayout())</arglist>
     </member>
-    <member kind="function">
-      <type>void</type>
-      <name>repaintEditor</name>
-      <anchorfile>classlemons_1_1plugin_1_1_basic_processor.html</anchorfile>
-      <anchor>ac6e8eacfeda348419aa05cbfb338198c</anchor>
-      <arglist>() const</arglist>
-    </member>
     <member kind="function" static="yes">
       <type>static BusesProperties</type>
       <name>getDefaultBusesLayout</name>
       <anchorfile>classlemons_1_1plugin_1_1_basic_processor.html</anchorfile>
       <anchor>a5113130e547ceaeeb43fdeb856062a33</anchor>
       <arglist>()</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>void</type>
+      <name>callEditorMethod</name>
+      <anchorfile>classlemons_1_1plugin_1_1_basic_processor.html</anchorfile>
+      <anchor>a265e973d843c470029e50920d2e53464</anchor>
+      <arglist>(std::function&lt; void(juce::AudioProcessorEditor &amp;)&gt; func) const</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>void</type>
+      <name>repaintEditor</name>
+      <anchorfile>classlemons_1_1plugin_1_1_basic_processor.html</anchorfile>
+      <anchor>ac6e8eacfeda348419aa05cbfb338198c</anchor>
+      <arglist>() const</arglist>
     </member>
   </compound>
   <compound kind="struct">
@@ -3245,6 +3328,13 @@
       <anchor>a4fd0b7b94418f9101ded10541e67c3d2</anchor>
       <arglist>(float value)</arglist>
     </member>
+    <member kind="variable" static="yes">
+      <type>static constexpr auto</type>
+      <name>id_prop</name>
+      <anchorfile>classlemons_1_1plugin_1_1_parameter.html</anchorfile>
+      <anchor>abdadb6b6c30b331538a7843dba59ba19</anchor>
+      <arglist></arglist>
+    </member>
     <member kind="function" protection="protected">
       <type>float</type>
       <name>denormalize</name>
@@ -3271,13 +3361,6 @@
       <name>default_prop</name>
       <anchorfile>classlemons_1_1plugin_1_1_parameter.html</anchorfile>
       <anchor>af2ad0f1de12d933fee42ba40691e5d1e</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="protected" static="yes">
-      <type>static constexpr auto</type>
-      <name>id_prop</name>
-      <anchorfile>classlemons_1_1plugin_1_1_parameter.html</anchorfile>
-      <anchor>abdadb6b6c30b331538a7843dba59ba19</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected" static="yes">
@@ -6150,6 +6233,13 @@
       <anchor>a4fd0b7b94418f9101ded10541e67c3d2</anchor>
       <arglist>(float value)</arglist>
     </member>
+    <member kind="variable" static="yes">
+      <type>static constexpr auto</type>
+      <name>id_prop</name>
+      <anchorfile>classlemons_1_1plugin_1_1_parameter.html</anchorfile>
+      <anchor>abdadb6b6c30b331538a7843dba59ba19</anchor>
+      <arglist></arglist>
+    </member>
     <member kind="function" protection="protected">
       <type>float</type>
       <name>denormalize</name>
@@ -6176,13 +6266,6 @@
       <name>default_prop</name>
       <anchorfile>classlemons_1_1plugin_1_1_parameter.html</anchorfile>
       <anchor>af2ad0f1de12d933fee42ba40691e5d1e</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="protected" static="yes">
-      <type>static constexpr auto</type>
-      <name>id_prop</name>
-      <anchorfile>classlemons_1_1plugin_1_1_parameter.html</anchorfile>
-      <anchor>abdadb6b6c30b331538a7843dba59ba19</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected" static="yes">
@@ -6499,11 +6582,25 @@
       <arglist>() const noexcept</arglist>
     </member>
     <member kind="function">
+      <type>constexpr Dimensions &amp;</type>
+      <name>operator=</name>
+      <anchorfile>structlemons_1_1_dimensions.html</anchorfile>
+      <anchor>a3cbbd2d86dfc503d0a59015d61a9b36a</anchor>
+      <arglist>(const Dimensions &amp;other)</arglist>
+    </member>
+    <member kind="function">
       <type>constexpr bool</type>
       <name>operator==</name>
       <anchorfile>structlemons_1_1_dimensions.html</anchorfile>
       <anchor>a78be7eb317710033619126c61d5c2729</anchor>
       <arglist>(const Dimensions &amp;other) const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>set</name>
+      <anchorfile>structlemons_1_1_dimensions.html</anchorfile>
+      <anchor>a1f9380254252678f6f56661b280ba86c</anchor>
+      <arglist>(int newWidth, int newHeight)</arglist>
     </member>
     <member kind="function">
       <type>String</type>
@@ -9463,6 +9560,13 @@
       <anchor>a4fd0b7b94418f9101ded10541e67c3d2</anchor>
       <arglist>(float value)</arglist>
     </member>
+    <member kind="variable" static="yes">
+      <type>static constexpr auto</type>
+      <name>id_prop</name>
+      <anchorfile>classlemons_1_1plugin_1_1_parameter.html</anchorfile>
+      <anchor>abdadb6b6c30b331538a7843dba59ba19</anchor>
+      <arglist></arglist>
+    </member>
     <member kind="function" protection="protected">
       <type>float</type>
       <name>denormalize</name>
@@ -9489,13 +9593,6 @@
       <name>default_prop</name>
       <anchorfile>classlemons_1_1plugin_1_1_parameter.html</anchorfile>
       <anchor>af2ad0f1de12d933fee42ba40691e5d1e</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="protected" static="yes">
-      <type>static constexpr auto</type>
-      <name>id_prop</name>
-      <anchorfile>classlemons_1_1plugin_1_1_parameter.html</anchorfile>
-      <anchor>abdadb6b6c30b331538a7843dba59ba19</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected" static="yes">
@@ -9817,6 +9914,13 @@
       <anchor>a4fd0b7b94418f9101ded10541e67c3d2</anchor>
       <arglist>(float value)</arglist>
     </member>
+    <member kind="variable" static="yes">
+      <type>static constexpr auto</type>
+      <name>id_prop</name>
+      <anchorfile>classlemons_1_1plugin_1_1_parameter.html</anchorfile>
+      <anchor>abdadb6b6c30b331538a7843dba59ba19</anchor>
+      <arglist></arglist>
+    </member>
     <member kind="function" protection="protected">
       <type>float</type>
       <name>denormalize</name>
@@ -9843,13 +9947,6 @@
       <name>default_prop</name>
       <anchorfile>classlemons_1_1plugin_1_1_parameter.html</anchorfile>
       <anchor>af2ad0f1de12d933fee42ba40691e5d1e</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="protected" static="yes">
-      <type>static constexpr auto</type>
-      <name>id_prop</name>
-      <anchorfile>classlemons_1_1plugin_1_1_parameter.html</anchorfile>
-      <anchor>abdadb6b6c30b331538a7843dba59ba19</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected" static="yes">
@@ -10137,6 +10234,13 @@
       <anchor>a4fd0b7b94418f9101ded10541e67c3d2</anchor>
       <arglist>(float value)</arglist>
     </member>
+    <member kind="variable" static="yes">
+      <type>static constexpr auto</type>
+      <name>id_prop</name>
+      <anchorfile>classlemons_1_1plugin_1_1_parameter.html</anchorfile>
+      <anchor>abdadb6b6c30b331538a7843dba59ba19</anchor>
+      <arglist></arglist>
+    </member>
     <member kind="function" protection="protected">
       <type>float</type>
       <name>denormalize</name>
@@ -10163,13 +10267,6 @@
       <name>default_prop</name>
       <anchorfile>classlemons_1_1plugin_1_1_parameter.html</anchorfile>
       <anchor>af2ad0f1de12d933fee42ba40691e5d1e</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="protected" static="yes">
-      <type>static constexpr auto</type>
-      <name>id_prop</name>
-      <anchorfile>classlemons_1_1plugin_1_1_parameter.html</anchorfile>
-      <anchor>abdadb6b6c30b331538a7843dba59ba19</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected" static="yes">
@@ -10457,6 +10554,13 @@
       <anchor>a4fd0b7b94418f9101ded10541e67c3d2</anchor>
       <arglist>(float value)</arglist>
     </member>
+    <member kind="variable" static="yes">
+      <type>static constexpr auto</type>
+      <name>id_prop</name>
+      <anchorfile>classlemons_1_1plugin_1_1_parameter.html</anchorfile>
+      <anchor>abdadb6b6c30b331538a7843dba59ba19</anchor>
+      <arglist></arglist>
+    </member>
     <member kind="function" protection="protected">
       <type>float</type>
       <name>denormalize</name>
@@ -10483,13 +10587,6 @@
       <name>default_prop</name>
       <anchorfile>classlemons_1_1plugin_1_1_parameter.html</anchorfile>
       <anchor>af2ad0f1de12d933fee42ba40691e5d1e</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="protected" static="yes">
-      <type>static constexpr auto</type>
-      <name>id_prop</name>
-      <anchorfile>classlemons_1_1plugin_1_1_parameter.html</anchorfile>
-      <anchor>abdadb6b6c30b331538a7843dba59ba19</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected" static="yes">
@@ -12028,6 +12125,13 @@
       <anchor>a4fd0b7b94418f9101ded10541e67c3d2</anchor>
       <arglist>(float value)</arglist>
     </member>
+    <member kind="variable" static="yes">
+      <type>static constexpr auto</type>
+      <name>id_prop</name>
+      <anchorfile>classlemons_1_1plugin_1_1_parameter.html</anchorfile>
+      <anchor>abdadb6b6c30b331538a7843dba59ba19</anchor>
+      <arglist></arglist>
+    </member>
     <member kind="function" protection="protected">
       <type>float</type>
       <name>denormalize</name>
@@ -12054,13 +12158,6 @@
       <name>default_prop</name>
       <anchorfile>classlemons_1_1plugin_1_1_parameter.html</anchorfile>
       <anchor>af2ad0f1de12d933fee42ba40691e5d1e</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="protected" static="yes">
-      <type>static constexpr auto</type>
-      <name>id_prop</name>
-      <anchorfile>classlemons_1_1plugin_1_1_parameter.html</anchorfile>
-      <anchor>abdadb6b6c30b331538a7843dba59ba19</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected" static="yes">
@@ -12397,6 +12494,13 @@
       <anchor>a4fd0b7b94418f9101ded10541e67c3d2</anchor>
       <arglist>(float value)</arglist>
     </member>
+    <member kind="variable" static="yes">
+      <type>static constexpr auto</type>
+      <name>id_prop</name>
+      <anchorfile>classlemons_1_1plugin_1_1_parameter.html</anchorfile>
+      <anchor>abdadb6b6c30b331538a7843dba59ba19</anchor>
+      <arglist></arglist>
+    </member>
     <member kind="function" protection="protected">
       <type>float</type>
       <name>denormalize</name>
@@ -12423,13 +12527,6 @@
       <name>default_prop</name>
       <anchorfile>classlemons_1_1plugin_1_1_parameter.html</anchorfile>
       <anchor>af2ad0f1de12d933fee42ba40691e5d1e</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="protected" static="yes">
-      <type>static constexpr auto</type>
-      <name>id_prop</name>
-      <anchorfile>classlemons_1_1plugin_1_1_parameter.html</anchorfile>
-      <anchor>abdadb6b6c30b331538a7843dba59ba19</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected" static="yes">
@@ -12717,6 +12814,13 @@
       <anchor>a4fd0b7b94418f9101ded10541e67c3d2</anchor>
       <arglist>(float value)</arglist>
     </member>
+    <member kind="variable" static="yes">
+      <type>static constexpr auto</type>
+      <name>id_prop</name>
+      <anchorfile>classlemons_1_1plugin_1_1_parameter.html</anchorfile>
+      <anchor>abdadb6b6c30b331538a7843dba59ba19</anchor>
+      <arglist></arglist>
+    </member>
     <member kind="function" protection="protected">
       <type>float</type>
       <name>denormalize</name>
@@ -12743,13 +12847,6 @@
       <name>default_prop</name>
       <anchorfile>classlemons_1_1plugin_1_1_parameter.html</anchorfile>
       <anchor>af2ad0f1de12d933fee42ba40691e5d1e</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="protected" static="yes">
-      <type>static constexpr auto</type>
-      <name>id_prop</name>
-      <anchorfile>classlemons_1_1plugin_1_1_parameter.html</anchorfile>
-      <anchor>abdadb6b6c30b331538a7843dba59ba19</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected" static="yes">
@@ -13207,6 +13304,13 @@
       <anchor>a4fd0b7b94418f9101ded10541e67c3d2</anchor>
       <arglist>(float value)</arglist>
     </member>
+    <member kind="variable" static="yes">
+      <type>static constexpr auto</type>
+      <name>id_prop</name>
+      <anchorfile>classlemons_1_1plugin_1_1_parameter.html</anchorfile>
+      <anchor>abdadb6b6c30b331538a7843dba59ba19</anchor>
+      <arglist></arglist>
+    </member>
     <member kind="function" protection="protected">
       <type>float</type>
       <name>denormalize</name>
@@ -13233,13 +13337,6 @@
       <name>default_prop</name>
       <anchorfile>classlemons_1_1plugin_1_1_parameter.html</anchorfile>
       <anchor>af2ad0f1de12d933fee42ba40691e5d1e</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="protected" static="yes">
-      <type>static constexpr auto</type>
-      <name>id_prop</name>
-      <anchorfile>classlemons_1_1plugin_1_1_parameter.html</anchorfile>
-      <anchor>abdadb6b6c30b331538a7843dba59ba19</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected" static="yes">
@@ -13534,6 +13631,13 @@
       <anchor>a4fd0b7b94418f9101ded10541e67c3d2</anchor>
       <arglist>(float value)</arglist>
     </member>
+    <member kind="variable" static="yes">
+      <type>static constexpr auto</type>
+      <name>id_prop</name>
+      <anchorfile>classlemons_1_1plugin_1_1_parameter.html</anchorfile>
+      <anchor>abdadb6b6c30b331538a7843dba59ba19</anchor>
+      <arglist></arglist>
+    </member>
     <member kind="function" protection="protected">
       <type>float</type>
       <name>denormalize</name>
@@ -13560,13 +13664,6 @@
       <name>default_prop</name>
       <anchorfile>classlemons_1_1plugin_1_1_parameter.html</anchorfile>
       <anchor>af2ad0f1de12d933fee42ba40691e5d1e</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="protected" static="yes">
-      <type>static constexpr auto</type>
-      <name>id_prop</name>
-      <anchorfile>classlemons_1_1plugin_1_1_parameter.html</anchorfile>
-      <anchor>abdadb6b6c30b331538a7843dba59ba19</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected" static="yes">
@@ -15512,6 +15609,13 @@
       <anchor>a4fd0b7b94418f9101ded10541e67c3d2</anchor>
       <arglist>(float value)</arglist>
     </member>
+    <member kind="variable" static="yes">
+      <type>static constexpr auto</type>
+      <name>id_prop</name>
+      <anchorfile>classlemons_1_1plugin_1_1_parameter.html</anchorfile>
+      <anchor>abdadb6b6c30b331538a7843dba59ba19</anchor>
+      <arglist></arglist>
+    </member>
     <member kind="function" protection="protected">
       <type>float</type>
       <name>denormalize</name>
@@ -15542,13 +15646,6 @@
     </member>
     <member kind="variable" protection="protected" static="yes">
       <type>static constexpr auto</type>
-      <name>id_prop</name>
-      <anchorfile>classlemons_1_1plugin_1_1_parameter.html</anchorfile>
-      <anchor>abdadb6b6c30b331538a7843dba59ba19</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="protected" static="yes">
-      <type>static constexpr auto</type>
       <name>value_prop</name>
       <anchorfile>classlemons_1_1plugin_1_1_parameter.html</anchorfile>
       <anchor>a695a00350c2324e17f368702dbcff4b2</anchor>
@@ -15560,40 +15657,6 @@
       <anchorfile>classlemons_1_1plugin_1_1_parameter.html</anchorfile>
       <anchor>a596074b9fb98e7cf1c4701a2644c2396</anchor>
       <arglist></arglist>
-    </member>
-  </compound>
-  <compound kind="class">
-    <name>lemons::plugin::ParameterProcessor</name>
-    <filename>classlemons_1_1plugin_1_1_parameter_processor.html</filename>
-    <templarg></templarg>
-    <base>lemons::midi::MidiChoppingProcessor</base>
-    <member kind="typedef">
-      <type>juce::AudioBuffer&lt; SampleType &gt;</type>
-      <name>AudioBuffer</name>
-      <anchorfile>classlemons_1_1midi_1_1_midi_chopping_processor.html</anchorfile>
-      <anchor>a56cf4271a5f87161e1f3b6fafc34419d</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>prepare</name>
-      <anchorfile>classlemons_1_1midi_1_1_midi_chopping_processor.html</anchorfile>
-      <anchor>ac574396cc2c8da65977f78acb441cdd5</anchor>
-      <arglist>(int maxBlocksize)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>process</name>
-      <anchorfile>classlemons_1_1midi_1_1_midi_chopping_processor.html</anchorfile>
-      <anchor>af6c4e2f047fa6e4210ebc80e3700e976</anchor>
-      <arglist>(AudioBuffer &amp;audio, MidiBuffer &amp;midi)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>processBypassed</name>
-      <anchorfile>classlemons_1_1midi_1_1_midi_chopping_processor.html</anchorfile>
-      <anchor>a976060982ac295d28a12bec7c4c7ab13</anchor>
-      <arglist>(const MidiBuffer &amp;midi)</arglist>
     </member>
   </compound>
   <compound kind="struct">
@@ -15943,6 +16006,13 @@
       <anchor>a4fd0b7b94418f9101ded10541e67c3d2</anchor>
       <arglist>(float value)</arglist>
     </member>
+    <member kind="variable" static="yes">
+      <type>static constexpr auto</type>
+      <name>id_prop</name>
+      <anchorfile>classlemons_1_1plugin_1_1_parameter.html</anchorfile>
+      <anchor>abdadb6b6c30b331538a7843dba59ba19</anchor>
+      <arglist></arglist>
+    </member>
     <member kind="function" protection="protected">
       <type>float</type>
       <name>denormalize</name>
@@ -15969,13 +16039,6 @@
       <name>default_prop</name>
       <anchorfile>classlemons_1_1plugin_1_1_parameter.html</anchorfile>
       <anchor>af2ad0f1de12d933fee42ba40691e5d1e</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="protected" static="yes">
-      <type>static constexpr auto</type>
-      <name>id_prop</name>
-      <anchorfile>classlemons_1_1plugin_1_1_parameter.html</anchorfile>
-      <anchor>abdadb6b6c30b331538a7843dba59ba19</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected" static="yes">
@@ -16312,18 +16375,18 @@
       <arglist>(const BusesProperties &amp;busesLayout=getDefaultBusesLayout(), const ProcessorAttributes &amp;attributes=ProcessorAttributes::fromProjectDefines())</arglist>
     </member>
     <member kind="function">
+      <type>const ProcessorAttributes &amp;</type>
+      <name>getAttributes</name>
+      <anchorfile>classlemons_1_1plugin_1_1_processor_base.html</anchorfile>
+      <anchor>abdd2b947b1f7c377f3e0bffecca7dfd5</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="function">
       <type>State &amp;</type>
       <name>getState</name>
       <anchorfile>classlemons_1_1plugin_1_1_processor_base.html</anchorfile>
       <anchor>a45813074aded389252f9291b1c3d9b3c</anchor>
       <arglist>() noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>repaintEditor</name>
-      <anchorfile>classlemons_1_1plugin_1_1_basic_processor.html</anchorfile>
-      <anchor>ac6e8eacfeda348419aa05cbfb338198c</anchor>
-      <arglist>() const</arglist>
     </member>
     <member kind="function" static="yes">
       <type>static BusesProperties</type>
@@ -16332,10 +16395,45 @@
       <anchor>a5113130e547ceaeeb43fdeb856062a33</anchor>
       <arglist>()</arglist>
     </member>
+    <member kind="function" protection="protected">
+      <type>void</type>
+      <name>callEditorMethod</name>
+      <anchorfile>classlemons_1_1plugin_1_1_basic_processor.html</anchorfile>
+      <anchor>a265e973d843c470029e50920d2e53464</anchor>
+      <arglist>(std::function&lt; void(juce::AudioProcessorEditor &amp;)&gt; func) const</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>void</type>
+      <name>repaintEditor</name>
+      <anchorfile>classlemons_1_1plugin_1_1_basic_processor.html</anchorfile>
+      <anchor>ac6e8eacfeda348419aa05cbfb338198c</anchor>
+      <arglist>() const</arglist>
+    </member>
   </compound>
   <compound kind="struct">
     <name>lemons::plugin::ProcessorAttributes</name>
     <filename>structlemons_1_1plugin_1_1_processor_attributes.html</filename>
+    <member kind="function">
+      <type>void</type>
+      <name>fromValueTree</name>
+      <anchorfile>structlemons_1_1plugin_1_1_processor_attributes.html</anchorfile>
+      <anchor>a609d1dd2bc8eaa72445e9df2c205af63</anchor>
+      <arglist>(const ValueTree &amp;tree)</arglist>
+    </member>
+    <member kind="function">
+      <type>ValueTree</type>
+      <name>toValueTree</name>
+      <anchorfile>structlemons_1_1plugin_1_1_processor_attributes.html</anchorfile>
+      <anchor>ad403b31abf2759254c7f44f3738e0c7b</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static ProcessorAttributes</type>
+      <name>fromFile</name>
+      <anchorfile>structlemons_1_1plugin_1_1_processor_attributes.html</anchorfile>
+      <anchor>a5404b4e2a0a7c7ddcf33577193386741</anchor>
+      <arglist>(const juce::File &amp;file)</arglist>
+    </member>
     <member kind="function" static="yes">
       <type>static ProcessorAttributes</type>
       <name>fromProjectDefines</name>
@@ -16385,6 +16483,13 @@
       <anchor>ab1c0c1eb3797f7e583cf575cc825300b</anchor>
       <arglist></arglist>
     </member>
+    <member kind="variable">
+      <type>Version</type>
+      <name>version</name>
+      <anchorfile>structlemons_1_1plugin_1_1_processor_attributes.html</anchorfile>
+      <anchor>abd62469e4e1ca948ec91cbf8d2c89373</anchor>
+      <arglist></arglist>
+    </member>
   </compound>
   <compound kind="class">
     <name>lemons::plugin::ProcessorBase</name>
@@ -16405,18 +16510,18 @@
       <arglist>(dsp::Engine&lt; float &gt; &amp;floatEngineToUse, dsp::Engine&lt; double &gt; &amp;doubleEngineToUse, State &amp;stateToUse, const BusesProperties &amp;busesLayout=getDefaultBusesLayout(), const ProcessorAttributes &amp;attributes=ProcessorAttributes::fromProjectDefines())</arglist>
     </member>
     <member kind="function">
+      <type>const ProcessorAttributes &amp;</type>
+      <name>getAttributes</name>
+      <anchorfile>classlemons_1_1plugin_1_1_processor_base.html</anchorfile>
+      <anchor>abdd2b947b1f7c377f3e0bffecca7dfd5</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="function">
       <type>State &amp;</type>
       <name>getState</name>
       <anchorfile>classlemons_1_1plugin_1_1_processor_base.html</anchorfile>
       <anchor>a45813074aded389252f9291b1c3d9b3c</anchor>
       <arglist>() noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>repaintEditor</name>
-      <anchorfile>classlemons_1_1plugin_1_1_basic_processor.html</anchorfile>
-      <anchor>ac6e8eacfeda348419aa05cbfb338198c</anchor>
-      <arglist>() const</arglist>
     </member>
     <member kind="function" static="yes">
       <type>static BusesProperties</type>
@@ -16424,6 +16529,20 @@
       <anchorfile>classlemons_1_1plugin_1_1_basic_processor.html</anchorfile>
       <anchor>a5113130e547ceaeeb43fdeb856062a33</anchor>
       <arglist>()</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>void</type>
+      <name>callEditorMethod</name>
+      <anchorfile>classlemons_1_1plugin_1_1_basic_processor.html</anchorfile>
+      <anchor>a265e973d843c470029e50920d2e53464</anchor>
+      <arglist>(std::function&lt; void(juce::AudioProcessorEditor &amp;)&gt; func) const</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>void</type>
+      <name>repaintEditor</name>
+      <anchorfile>classlemons_1_1plugin_1_1_basic_processor.html</anchorfile>
+      <anchor>ac6e8eacfeda348419aa05cbfb338198c</anchor>
+      <arglist>() const</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -17299,6 +17418,13 @@
       <anchor>a4fd0b7b94418f9101ded10541e67c3d2</anchor>
       <arglist>(float value)</arglist>
     </member>
+    <member kind="variable" static="yes">
+      <type>static constexpr auto</type>
+      <name>id_prop</name>
+      <anchorfile>classlemons_1_1plugin_1_1_parameter.html</anchorfile>
+      <anchor>abdadb6b6c30b331538a7843dba59ba19</anchor>
+      <arglist></arglist>
+    </member>
     <member kind="function" protection="protected">
       <type>float</type>
       <name>denormalize</name>
@@ -17325,13 +17451,6 @@
       <name>default_prop</name>
       <anchorfile>classlemons_1_1plugin_1_1_parameter.html</anchorfile>
       <anchor>af2ad0f1de12d933fee42ba40691e5d1e</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="protected" static="yes">
-      <type>static constexpr auto</type>
-      <name>id_prop</name>
-      <anchorfile>classlemons_1_1plugin_1_1_parameter.html</anchorfile>
-      <anchor>abdadb6b6c30b331538a7843dba59ba19</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected" static="yes">
@@ -17619,6 +17738,13 @@
       <anchor>a4fd0b7b94418f9101ded10541e67c3d2</anchor>
       <arglist>(float value)</arglist>
     </member>
+    <member kind="variable" static="yes">
+      <type>static constexpr auto</type>
+      <name>id_prop</name>
+      <anchorfile>classlemons_1_1plugin_1_1_parameter.html</anchorfile>
+      <anchor>abdadb6b6c30b331538a7843dba59ba19</anchor>
+      <arglist></arglist>
+    </member>
     <member kind="function" protection="protected">
       <type>float</type>
       <name>denormalize</name>
@@ -17645,13 +17771,6 @@
       <name>default_prop</name>
       <anchorfile>classlemons_1_1plugin_1_1_parameter.html</anchorfile>
       <anchor>af2ad0f1de12d933fee42ba40691e5d1e</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="protected" static="yes">
-      <type>static constexpr auto</type>
-      <name>id_prop</name>
-      <anchorfile>classlemons_1_1plugin_1_1_parameter.html</anchorfile>
-      <anchor>abdadb6b6c30b331538a7843dba59ba19</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected" static="yes">
@@ -18174,11 +18293,25 @@
     <name>lemons::plugin::State</name>
     <filename>classlemons_1_1plugin_1_1_state.html</filename>
     <member kind="function">
-      <type>ToggleParameter &amp;</type>
-      <name>getBypass</name>
+      <type>void</type>
+      <name>add</name>
       <anchorfile>classlemons_1_1plugin_1_1_state.html</anchorfile>
-      <anchor>af45354a6bfa6f3a247198b682deedbec</anchor>
-      <arglist>()</arglist>
+      <anchor>a225b3522ffc2924ca7a911f19a0c276e</anchor>
+      <arglist>(Parameter &amp;first, Args &amp;&amp;... rest)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>add</name>
+      <anchorfile>classlemons_1_1plugin_1_1_state.html</anchorfile>
+      <anchor>af2ed75ddc516c7e7c7d418217a6ae4c5</anchor>
+      <arglist>(Parameter &amp;parameter)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>addTo</name>
+      <anchorfile>classlemons_1_1plugin_1_1_state.html</anchorfile>
+      <anchor>af63eb6460515ae9164b6d644b678dd90</anchor>
+      <arglist>(juce::AudioProcessor &amp;processor) const</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -18188,11 +18321,18 @@
       <arglist>(const ValueTree &amp;tree)</arglist>
     </member>
     <member kind="function">
+      <type>void</type>
+      <name>processControllerMessage</name>
+      <anchorfile>classlemons_1_1plugin_1_1_state.html</anchorfile>
+      <anchor>a2d9c429ee6d15d9bc6cdcc11c3beb424</anchor>
+      <arglist>(int number, int value)</arglist>
+    </member>
+    <member kind="function">
       <type>ValueTree</type>
       <name>saveToValueTree</name>
       <anchorfile>classlemons_1_1plugin_1_1_state.html</anchorfile>
-      <anchor>a047ab301dd250595167096cf1c16074b</anchor>
-      <arglist>() const</arglist>
+      <anchor>a746b2efd2b9ce30e5eab88a69c6a59db</anchor>
+      <arglist>(bool currentProgramOnly) const</arglist>
     </member>
     <member kind="variable">
       <type>ToggleParameter</type>
@@ -20211,6 +20351,13 @@
       <anchor>a4fd0b7b94418f9101ded10541e67c3d2</anchor>
       <arglist>(float value)</arglist>
     </member>
+    <member kind="variable" static="yes">
+      <type>static constexpr auto</type>
+      <name>id_prop</name>
+      <anchorfile>classlemons_1_1plugin_1_1_parameter.html</anchorfile>
+      <anchor>abdadb6b6c30b331538a7843dba59ba19</anchor>
+      <arglist></arglist>
+    </member>
     <member kind="function" protection="protected">
       <type>float</type>
       <name>denormalize</name>
@@ -20237,13 +20384,6 @@
       <name>default_prop</name>
       <anchorfile>classlemons_1_1plugin_1_1_parameter.html</anchorfile>
       <anchor>af2ad0f1de12d933fee42ba40691e5d1e</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="protected" static="yes">
-      <type>static constexpr auto</type>
-      <name>id_prop</name>
-      <anchorfile>classlemons_1_1plugin_1_1_parameter.html</anchorfile>
-      <anchor>abdadb6b6c30b331538a7843dba59ba19</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected" static="yes">
@@ -20589,6 +20729,13 @@
       <anchor>a4fd0b7b94418f9101ded10541e67c3d2</anchor>
       <arglist>(float value)</arglist>
     </member>
+    <member kind="variable" static="yes">
+      <type>static constexpr auto</type>
+      <name>id_prop</name>
+      <anchorfile>classlemons_1_1plugin_1_1_parameter.html</anchorfile>
+      <anchor>abdadb6b6c30b331538a7843dba59ba19</anchor>
+      <arglist></arglist>
+    </member>
     <member kind="function" protection="protected">
       <type>float</type>
       <name>denormalize</name>
@@ -20615,13 +20762,6 @@
       <name>default_prop</name>
       <anchorfile>classlemons_1_1plugin_1_1_parameter.html</anchorfile>
       <anchor>af2ad0f1de12d933fee42ba40691e5d1e</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="protected" static="yes">
-      <type>static constexpr auto</type>
-      <name>id_prop</name>
-      <anchorfile>classlemons_1_1plugin_1_1_parameter.html</anchorfile>
-      <anchor>abdadb6b6c30b331538a7843dba59ba19</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected" static="yes">
@@ -20909,6 +21049,13 @@
       <anchor>a4fd0b7b94418f9101ded10541e67c3d2</anchor>
       <arglist>(float value)</arglist>
     </member>
+    <member kind="variable" static="yes">
+      <type>static constexpr auto</type>
+      <name>id_prop</name>
+      <anchorfile>classlemons_1_1plugin_1_1_parameter.html</anchorfile>
+      <anchor>abdadb6b6c30b331538a7843dba59ba19</anchor>
+      <arglist></arglist>
+    </member>
     <member kind="function" protection="protected">
       <type>float</type>
       <name>denormalize</name>
@@ -20935,13 +21082,6 @@
       <name>default_prop</name>
       <anchorfile>classlemons_1_1plugin_1_1_parameter.html</anchorfile>
       <anchor>af2ad0f1de12d933fee42ba40691e5d1e</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="protected" static="yes">
-      <type>static constexpr auto</type>
-      <name>id_prop</name>
-      <anchorfile>classlemons_1_1plugin_1_1_parameter.html</anchorfile>
-      <anchor>abdadb6b6c30b331538a7843dba59ba19</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected" static="yes">
@@ -21229,6 +21369,13 @@
       <anchor>a4fd0b7b94418f9101ded10541e67c3d2</anchor>
       <arglist>(float value)</arglist>
     </member>
+    <member kind="variable" static="yes">
+      <type>static constexpr auto</type>
+      <name>id_prop</name>
+      <anchorfile>classlemons_1_1plugin_1_1_parameter.html</anchorfile>
+      <anchor>abdadb6b6c30b331538a7843dba59ba19</anchor>
+      <arglist></arglist>
+    </member>
     <member kind="function" protection="protected">
       <type>float</type>
       <name>denormalize</name>
@@ -21255,13 +21402,6 @@
       <name>default_prop</name>
       <anchorfile>classlemons_1_1plugin_1_1_parameter.html</anchorfile>
       <anchor>af2ad0f1de12d933fee42ba40691e5d1e</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="protected" static="yes">
-      <type>static constexpr auto</type>
-      <name>id_prop</name>
-      <anchorfile>classlemons_1_1plugin_1_1_parameter.html</anchorfile>
-      <anchor>abdadb6b6c30b331538a7843dba59ba19</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected" static="yes">
@@ -22898,7 +23038,6 @@
     <class kind="struct">lemons::plugin::MidiPitchParameter</class>
     <class kind="class">lemons::plugin::ModulationManager</class>
     <class kind="class">lemons::plugin::Parameter</class>
-    <class kind="class">lemons::plugin::ParameterProcessor</class>
     <class kind="struct">lemons::plugin::ParamUpdater</class>
     <class kind="struct">lemons::plugin::PercentParameter</class>
     <class kind="class">lemons::plugin::PresetBar</class>
@@ -23613,6 +23752,15 @@
     <class kind="class">lemons::spline::Editor</class>
   </compound>
   <compound kind="group">
+    <name>editors</name>
+    <title>editors</title>
+    <filename>group__editors.html</filename>
+    <namespace>lemons</namespace>
+    <namespace>lemons::plugin</namespace>
+    <class kind="class">lemons::plugin::Editor</class>
+    <class kind="class">lemons::plugin::GUI</class>
+  </compound>
+  <compound kind="group">
     <name>engines</name>
     <title>engines</title>
     <filename>group__engines.html</filename>
@@ -23775,9 +23923,11 @@
     <name>lemons_plugin</name>
     <title>lemons_plugin</title>
     <filename>group__lemons__plugin.html</filename>
+    <subgroup>editors</subgroup>
     <subgroup>hosting</subgroup>
     <subgroup>parameters</subgroup>
     <subgroup>processors</subgroup>
+    <subgroup>state</subgroup>
   </compound>
   <compound kind="group">
     <name>lemons_plugin_gui</name>
@@ -23853,6 +24003,48 @@
       <anchor>ga4be31aa0be590eae843d1a0be27e95a8</anchor>
       <arglist>(classToTest, requiredBaseClass)</arglist>
     </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>LEMONS_VERSION_MAJOR</name>
+      <anchorfile>group__misc.html</anchorfile>
+      <anchor>ga745cbaf7407f78551a03e6033abc2624</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>LEMONS_VERSION_MINOR</name>
+      <anchorfile>group__misc.html</anchorfile>
+      <anchor>ga1fbe1a2b0c90a5464db0037161a6b21b</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>LEMONS_VERSION_PATCH</name>
+      <anchorfile>group__misc.html</anchorfile>
+      <anchor>ga537f07f6a8c6eb77ec4b1a2ab925f6c3</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>LEMONS_PROJECT_VERSION_MAJOR</name>
+      <anchorfile>group__misc.html</anchorfile>
+      <anchor>ga52ab1f8b6b9e166d12b4b96739838d5a</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>LEMONS_PROJECT_VERSION_MINOR</name>
+      <anchorfile>group__misc.html</anchorfile>
+      <anchor>ga906eafb2e72e1937dae95a1154cb1d4d</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>LEMONS_PROJECT_VERSION_PATCH</name>
+      <anchorfile>group__misc.html</anchorfile>
+      <anchor>ga656cf0efe739619c0fc96e8f70387727</anchor>
+      <arglist></arglist>
+    </member>
   </compound>
   <compound kind="group">
     <name>oscillators</name>
@@ -23905,7 +24097,6 @@
     <class kind="struct">lemons::plugin::MidiPitchParameter</class>
     <class kind="class">lemons::plugin::ModulationManager</class>
     <class kind="class">lemons::plugin::Parameter</class>
-    <class kind="class">lemons::plugin::ParameterProcessor</class>
     <class kind="struct">lemons::plugin::ParamUpdater</class>
     <class kind="struct">lemons::plugin::PercentParameter</class>
     <class kind="struct">lemons::plugin::SecondsParameter</class>
@@ -23921,15 +24112,12 @@
     <namespace>lemons::midi</namespace>
     <namespace>lemons::plugin</namespace>
     <class kind="class">lemons::plugin::BasicProcessor</class>
-    <class kind="class">lemons::plugin::Editor</class>
-    <class kind="class">lemons::plugin::GUI</class>
     <class kind="class">lemons::midi::MidiChoppingProcessor</class>
     <class kind="class">lemons::midi::MidiProcessor</class>
     <class kind="class">lemons::plugin::Processor</class>
     <class kind="struct">lemons::plugin::ProcessorAttributes</class>
     <class kind="class">lemons::plugin::ProcessorBase</class>
     <class kind="struct">lemons::plugin::ProcessorWithEditor</class>
-    <class kind="class">lemons::plugin::State</class>
   </compound>
   <compound kind="group">
     <name>resynthesis</name>
@@ -23980,6 +24168,14 @@
     <namespace>lemons</namespace>
     <namespace>lemons::spline</namespace>
     <class kind="struct">lemons::spline::Spline</class>
+  </compound>
+  <compound kind="group">
+    <name>state</name>
+    <title>state</title>
+    <filename>group__state.html</filename>
+    <namespace>lemons</namespace>
+    <namespace>lemons::plugin</namespace>
+    <class kind="class">lemons::plugin::State</class>
   </compound>
   <compound kind="group">
     <name>synth_impl</name>
@@ -24060,7 +24256,6 @@
     <filename>group__utils.html</filename>
     <namespace>lemons</namespace>
     <namespace>lemons::plugin</namespace>
-    <class kind="class">lemons::plugin::ParameterProcessor</class>
     <class kind="struct">lemons::plugin::ParamUpdater</class>
   </compound>
   <compound kind="page">

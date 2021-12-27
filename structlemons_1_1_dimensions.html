@@ -102,9 +102,15 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ab6174a680d342d6daedf0f7fc5f31d88"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1_dimensions.html#ab6174a680d342d6daedf0f7fc5f31d88">isValid</a> () const noexcept</td></tr>
 <tr class="memdesc:ab6174a680d342d6daedf0f7fc5f31d88"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the width and height are both greater than 0.  <a href="structlemons_1_1_dimensions.html#ab6174a680d342d6daedf0f7fc5f31d88">More...</a><br /></td></tr>
 <tr class="separator:ab6174a680d342d6daedf0f7fc5f31d88"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3cbbd2d86dfc503d0a59015d61a9b36a"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="structlemons_1_1_dimensions.html">Dimensions</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1_dimensions.html#a3cbbd2d86dfc503d0a59015d61a9b36a">operator=</a> (const <a class="el" href="structlemons_1_1_dimensions.html">Dimensions</a> &amp;other)</td></tr>
+<tr class="memdesc:a3cbbd2d86dfc503d0a59015d61a9b36a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assignment operator.  <a href="structlemons_1_1_dimensions.html#a3cbbd2d86dfc503d0a59015d61a9b36a">More...</a><br /></td></tr>
+<tr class="separator:a3cbbd2d86dfc503d0a59015d61a9b36a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a78be7eb317710033619126c61d5c2729"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1_dimensions.html#a78be7eb317710033619126c61d5c2729">operator==</a> (const <a class="el" href="structlemons_1_1_dimensions.html">Dimensions</a> &amp;other) const noexcept</td></tr>
 <tr class="memdesc:a78be7eb317710033619126c61d5c2729"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the passed <a class="el" href="structlemons_1_1_dimensions.html" title="A simple struct that represents the dimensions of a GUI.">Dimensions</a> object is equal to this one.  <a href="structlemons_1_1_dimensions.html#a78be7eb317710033619126c61d5c2729">More...</a><br /></td></tr>
 <tr class="separator:a78be7eb317710033619126c61d5c2729"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f9380254252678f6f56661b280ba86c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1_dimensions.html#a1f9380254252678f6f56661b280ba86c">set</a> (int newWidth, int newHeight)</td></tr>
+<tr class="memdesc:a1f9380254252678f6f56661b280ba86c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assignment operator.  <a href="structlemons_1_1_dimensions.html#a1f9380254252678f6f56661b280ba86c">More...</a><br /></td></tr>
+<tr class="separator:a1f9380254252678f6f56661b280ba86c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aebbf6f2f2f2674fd975c67e0c0dc7c16"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1_dimensions.html#aebbf6f2f2f2674fd975c67e0c0dc7c16">toString</a> () const noexcept</td></tr>
 <tr class="memdesc:aebbf6f2f2f2674fd975c67e0c0dc7c16"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a string representation of these dimensions, eg '400x600'.  <a href="structlemons_1_1_dimensions.html#aebbf6f2f2f2674fd975c67e0c0dc7c16">More...</a><br /></td></tr>
 <tr class="separator:aebbf6f2f2f2674fd975c67e0c0dc7c16"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -242,6 +248,10 @@ Static Public Member Functions</h2></td></tr>
 <p>Returns the aspect ratio of the represented dimensions, calculated as width / height. </p>
 <p>If <a class="el" href="structlemons_1_1_dimensions.html#ab6174a680d342d6daedf0f7fc5f31d88" title="Returns true if the width and height are both greater than 0.">isValid()</a> return false, then this function will return 0. </p>
 
+<p class="reference">References <a class="el" href="structlemons_1_1_dimensions.html#ab6174a680d342d6daedf0f7fc5f31d88">isValid()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="structlemons_1_1_dimensions.html#a42effd3677b88fe02afb4dc430dff14f">hasSameAspectRatioAs()</a>.</p>
+
 </div>
 </div>
 <a id="aa5e46b5ec4646920cdc7c128b939683a"></a>
@@ -351,6 +361,8 @@ Static Public Member Functions</h2></td></tr>
 
 <p>Returns true if the passed <a class="el" href="structlemons_1_1_dimensions.html" title="A simple struct that represents the dimensions of a GUI.">Dimensions</a> object has the same aspect ratio as this one. </p>
 
+<p class="reference">References <a class="el" href="structlemons_1_1_dimensions.html#a03bf5f2929ef7ada5d88c78033859057">getAspectRatio()</a>.</p>
+
 </div>
 </div>
 <a id="ab6174a680d342d6daedf0f7fc5f31d88"></a>
@@ -377,6 +389,36 @@ Static Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Returns true if the width and height are both greater than 0. </p>
+
+<p class="reference">Referenced by <a class="el" href="structlemons_1_1_dimensions.html#a03bf5f2929ef7ada5d88c78033859057">getAspectRatio()</a>.</p>
+
+</div>
+</div>
+<a id="a3cbbd2d86dfc503d0a59015d61a9b36a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3cbbd2d86dfc503d0a59015d61a9b36a">&#9670;&nbsp;</a></span>operator=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr <a class="el" href="structlemons_1_1_dimensions.html">Dimensions</a>&amp; lemons::Dimensions::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structlemons_1_1_dimensions.html">Dimensions</a> &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Assignment operator. </p>
 
 </div>
 </div>
@@ -405,6 +447,36 @@ Static Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Returns true if the passed <a class="el" href="structlemons_1_1_dimensions.html" title="A simple struct that represents the dimensions of a GUI.">Dimensions</a> object is equal to this one. </p>
+
+</div>
+</div>
+<a id="a1f9380254252678f6f56661b280ba86c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1f9380254252678f6f56661b280ba86c">&#9670;&nbsp;</a></span>set()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lemons::Dimensions::set </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>newWidth</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>newHeight</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Assignment operator. </p>
 
 </div>
 </div>
@@ -441,7 +513,7 @@ Static Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Dec 26 2021 00:48:37 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Dec 27 2021 00:47:37 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>
