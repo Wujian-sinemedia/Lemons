@@ -57,7 +57,4 @@ private:
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (ScopedMidiBufferAlias)
 };
 
-// returns the default name for a specified MIDI controller number
-String getControllerName (int controllerNumber);
-
 }  // namespace lemons::midi

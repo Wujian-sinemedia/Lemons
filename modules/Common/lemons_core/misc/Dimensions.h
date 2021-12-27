@@ -34,60 +34,30 @@ struct Dimensions final
 	}
     
     /** Assignment operator. */
-    constexpr Dimensions& operator= (const Dimensions& other)
-    {
-        width.store (other.width.load());
-        height.store (other.height.load());
-        return *this;
-    }
+    Dimensions& operator= (const Dimensions& other);
     
-    /** Assignment operator. */
-    void set (int newWidth, int newHeight)
-    {
-        width.store (newWidth);
-        height.store (newHeight);
-    }
+    /** Changes the dimensions. */
+    void set (int newWidth, int newHeight);
 
 	/** Returns true if the passed Dimensions object is equal to this one. */
-	[[nodiscard]] constexpr bool operator== (const Dimensions& other) const noexcept
-	{
-		return width.load() == other.width.load() && height.load() == other.height.load();
-	}
+    [[nodiscard]] bool operator== (const Dimensions& other) const noexcept;
 
 	/** Returns true if the width and height are both greater than 0. */
-	[[nodiscard]] constexpr bool isValid() const noexcept
-	{
-		return width.load() > 0 && height.load() > 0;
-	}
+    [[nodiscard]] bool isValid() const noexcept;
 
 	/** Returns the width of these dimensions. */
-	[[nodiscard]] constexpr int getWidth() const noexcept
-	{
-		return width.load();
-	}
+    [[nodiscard]] int getWidth() const noexcept;
 
 	/** Returns the height of these dimensions. */
-	[[nodiscard]] constexpr int getHeight() const noexcept
-	{
-		return height.load();
-	}
+    [[nodiscard]] int getHeight() const noexcept;
 
 	/** Returns the aspect ratio of the represented dimensions, calculated as width / height.
 	    If isValid() return false, then this function will return 0.
 	 */
-	[[nodiscard]] constexpr double getAspectRatio() const noexcept
-	{
-		if (! isValid())
-			return 0.;
-
-		return static_cast<double> (width.load()) / static_cast<double> (height.load());
-	}
+    [[nodiscard]] double getAspectRatio() const noexcept;
 
 	/** Returns true if the passed Dimensions object has the same aspect ratio as this one. */
-	[[nodiscard]] constexpr bool hasSameAspectRatioAs (const Dimensions& other) const noexcept
-	{
-		return getAspectRatio() == other.getAspectRatio();
-	}
+    [[nodiscard]] bool hasSameAspectRatioAs (const Dimensions& other) const noexcept;
 
 	/** Returns a string representation of these dimensions, eg '400x600'. */
 	[[nodiscard]] String toString() const noexcept;
