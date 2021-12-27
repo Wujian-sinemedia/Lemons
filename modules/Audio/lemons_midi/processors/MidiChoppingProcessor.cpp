@@ -2,87 +2,103 @@
 namespace lemons::midi
 {
 template <typename SampleType>
-void MidiChoppingProcessor<SampleType>::prepare (int maxBlocksize)
+void ChoppingProcessor<SampleType>::prepare (int maxBlocksize)
 {
 	midiStorage.ensureSize (static_cast<size_t> (maxBlocksize));
 }
 
 template <typename SampleType>
-void MidiChoppingProcessor<SampleType>::processBypassed (const MidiBuffer& midi)
+void ChoppingProcessor<SampleType>::releaseResources()
 {
-	std::for_each (midi.findNextSamplePosition (0), midi.cend(), [&] (const juce::MidiMessageMetadata& meta)
-	               { handleMidiMessage (meta.getMessage()); });
+	midiStorage.clear();
 }
 
 template <typename SampleType>
-void MidiChoppingProcessor<SampleType>::process (AudioBuffer& audio, MidiBuffer& midi)
+bool ChoppingProcessor<SampleType>::shouldChopAroundMidiMessage (const MidiMessage&) const
 {
-	auto samplesLeft = audio.getNumSamples();
+	return true;
+}
 
-	if (samplesLeft == 0 || audio.getNumChannels() == 0)
+template <typename SampleType>
+void ChoppingProcessor<SampleType>::process (AudioBuffer<SampleType>& audio, MidiBuffer& midi)
+{
+	const auto findNextMessageToChopAround = [&] (juce::MidiBufferIterator it) -> juce::MidiBufferIterator
 	{
-		processInternal (audio, midi, 0, 0);
-		return;
-	}
+		for (; it != midi.cend(); ++it)
+			if (shouldChopAroundMidiMessage ((*it).getMessage()))
+				return it;
 
-	auto midiIterator = midi.findNextSamplePosition (0);
-	int  startSample  = 0;
+		return midi.cend();
+	};
 
-	for (; samplesLeft > 0; ++midiIterator)
+	const auto numSamples = audio.getNumSamples();
+
+	int  lastChunkEnd = 0;
+	auto it           = findNextMessageToChopAround (midi.cbegin());
+
+	while (it != midi.cend())
 	{
-		if (midiIterator == midi.cend())
-		{
-			processInternal (audio, midi, startSample, samplesLeft);
-			return;
-		}
+		const auto meta      = *it;
+		const auto message   = meta.getMessage();
+		const auto timestamp = meta.samplePosition;
 
-		const auto metadata                 = *midiIterator;
-		const auto samplesToNextMidiMessage = metadata.samplePosition - startSample;
-		const auto nextMidiMessage          = metadata.getMessage();
+		if (timestamp > lastChunkEnd)
+			processInternal (audio, midi, lastChunkEnd, timestamp);
 
-		if (samplesToNextMidiMessage >= samplesLeft)
+		handleMidiMessage (message);
+
+		it = findNextMessageToChopAround (++it);
+
+		const auto nextTimestamp = [&]() -> int
 		{
-			processInternal (audio, midi, startSample, samplesLeft);
-			handleMidiMessage (nextMidiMessage);
+			if (it == midi.cend())
+				return numSamples;
+
+			return (*it).samplePosition;
+		}();
+
+		if (nextTimestamp >= numSamples)
+		{
+			processInternal (audio, midi, timestamp, numSamples);
 			break;
 		}
 
-		if (samplesToNextMidiMessage == 0)
-		{
-			handleMidiMessage (nextMidiMessage);
-			continue;
-		}
+		processInternal (audio, midi, timestamp, nextTimestamp);
 
-		handleMidiMessage (nextMidiMessage);
-		processInternal (audio, midi, startSample, samplesToNextMidiMessage);
-
-		startSample += samplesToNextMidiMessage;
-		samplesLeft -= samplesToNextMidiMessage;
+		lastChunkEnd = nextTimestamp;
 	}
 
-	std::for_each (
-	    midiIterator, midi.cend(), [&] (const juce::MidiMessageMetadata& meta)
-	    { handleMidiMessage (meta.getMessage()); });
+	if (lastChunkEnd < numSamples)
+		processInternal (audio, midi, lastChunkEnd, numSamples);
+
+	std::for_each (it, midi.cend(), [&] (const juce::MidiMessageMetadata& meta)
+	               {
+        const auto message = meta.getMessage();
+        
+        if (shouldChopAroundMidiMessage (message))
+            handleMidiMessage (message); });
 }
 
 template <typename SampleType>
-void MidiChoppingProcessor<SampleType>::processInternal (AudioBuffer& audio, MidiBuffer& midi,
-                                                         int startSample, int numSamples)
+void ChoppingProcessor<SampleType>::processInternal (AudioBuffer<SampleType>& audio, MidiBuffer& midi,
+                                                     int startSample, int endSample)
 {
-	AudioBuffer alias { audio.getArrayOfWritePointers(),
-		                audio.getNumChannels(),
-		                startSample,
-		                numSamples };
+	const auto numSamples = endSample - startSample;
 
-	copyRangeOfMidiBuffer (midi, midiStorage, startSample, 0, numSamples);
+	if (numSamples == 0)
+		return;
 
-	renderChunk (alias, midiStorage);
+	jassert (numSamples > 0);
 
-	copyRangeOfMidiBuffer (midiStorage, midi, 0, startSample, numSamples);
+	const ScopedMidiBufferAlias midiAlias { midi, midiStorage, startSample, numSamples };
+
+	AudioBuffer<SampleType> audioAlias { audio.getArrayOfWritePointers(), audio.getNumChannels(), startSample, numSamples };
+
+	renderChunk (audioAlias, midiStorage);
 }
 
 
-template class MidiChoppingProcessor<float>;
-template class MidiChoppingProcessor<double>;
+template class ChoppingProcessor<float>;
+template class ChoppingProcessor<double>;
 
 }  // namespace lemons::midi

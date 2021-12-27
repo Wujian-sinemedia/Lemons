@@ -2,26 +2,30 @@
 
 namespace lemons::midi
 {
+
+template <typename T>
+using AudioBuffer = juce::AudioBuffer<T>;
+
 template <typename SampleType>
-class MidiChoppingProcessor
+class ChoppingProcessor
 {
 public:
-	using AudioBuffer = juce::AudioBuffer<SampleType>;
-
-	virtual ~MidiChoppingProcessor() = default;
+	virtual ~ChoppingProcessor() = default;
 
 	void prepare (int maxBlocksize);
 
-	void process (AudioBuffer& audio, MidiBuffer& midi);
+	void process (AudioBuffer<SampleType>& audio, MidiBuffer& midi);
 
-	void processBypassed (const MidiBuffer& midi);
+	void releaseResources();
 
 private:
-	void processInternal (AudioBuffer& audio, MidiBuffer& midi,
-	                      int startSample, int numSamples);
+	void processInternal (AudioBuffer<SampleType>& audio, MidiBuffer& midi,
+	                      int startSample, int endSample);
 
-	virtual void handleMidiMessage (const MidiMessage& m)           = 0;
-	virtual void renderChunk (AudioBuffer& audio, MidiBuffer& midi) = 0;
+	[[nodiscard]] virtual bool shouldChopAroundMidiMessage (const MidiMessage& m) const;
+
+	virtual void handleMidiMessage (const MidiMessage& m)                       = 0;
+	virtual void renderChunk (AudioBuffer<SampleType>& audio, MidiBuffer& midi) = 0;
 
 	MidiBuffer midiStorage;
 };
