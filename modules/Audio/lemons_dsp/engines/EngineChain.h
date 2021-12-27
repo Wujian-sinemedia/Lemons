@@ -97,109 +97,77 @@ public:
 	}
 
 	/** Adds a node to the end of the chain.
-	    @return The index at which the node was added
+	    @return Reference to the node.
 	 */
-	int addNode (Node* newNode);
+	Node& addNode (Node& newNode);
 
 	/** Creates a node holding an engine of the specified type, and forwards all arguments to the engine's constructor. Adds the node to the end of the chain.
 	    @tparam EngineType The type of Engine object that the new node will hold. This type must inherit from Engine<SampleType>.
+	    @return Reference to the node.
 	 */
 	template <typename EngineType, typename... Args, LEMONS_MUST_INHERIT_FROM (EngineType, Engine<SampleType>)>
-	Node* createAndAddNode (Args&&... args)
+	Node& createAndAddNode (Args&&... args)
 	{
-		auto* node = new Node (std::make_unique<EngineType> (std::forward<Args> (args)...));
-
-		node->index = getNextNodeIndex();
-
-		return nodes.add (node);
+		return addNode (*new Node (std::make_unique<EngineType> (std::forward<Args> (args)...)));
 	}
 
 	/** Adds a node to the front of the chain, at index 0.
 	    Note that this may change the indices of any other nodes already in the chain!
+	    @return Reference to the node.
 	 */
-	void addNodeToFront (Node* newNode);
+	Node& addNodeToFront (Node& newNode);
 
 	/** Creates a node holding an engine of the specified type, and forwards all arguments to the engine's constructor. Adds the node to the front of the chain, at index 0.
 	    Note that this may change the indices of any other nodes already in the chain!
 	    @tparam EngineType The type of Engine object that the new node will hold. This type must inherit from Engine<SampleType>.
+	    @return Reference to the node.
 	 */
 	template <typename EngineType, typename... Args, LEMONS_MUST_INHERIT_FROM (EngineType, Engine<SampleType>)>
-	Node* createAndAddNodeToFront (Args&&... args)
+	Node& createAndAddNodeToFront (Args&&... args)
 	{
-		auto* node = new Node (std::make_unique<EngineType> (std::forward<Args> (args)...));
-
-		node->index = 0;
-
-		for (auto* n : nodes)
-			n->index += 1;
-
-		return nodes.add (node);
+		return addNodeToFront (*new Node (std::make_unique<EngineType> (std::forward<Args> (args)...)));
 	}
 
 	/** Adds a node after the specified other node.
 	    Note that this may change the indices of any other nodes already in the chain!
-	    @return The index at which newNode was added
+	    @return Reference to the node.
 	 */
-	int addNodeAfter (Node* newNode, const Node* nodeToInsertAfter);
+	Node& addNodeAfter (Node& newNode, const Node& nodeToInsertAfter);
 
 	/** Creates a node holding an engine of the specified type, and forwards all arguments to the engine's constructor. Adds the node to the chain after the specified other node.
 	    Note that this may change the indices of any other nodes already in the chain!
 	    @tparam EngineType The type of Engine object that the new node will hold. This type must inherit from Engine<SampleType>.
+	    @return Reference to the node.
 	 */
 	template <typename EngineType, typename... Args, LEMONS_MUST_INHERIT_FROM (EngineType, Engine<SampleType>)>
-	Node* createAndAddNodeAfter (const Node* nodeToInsertAfter, Args&&... args)
+	Node& createAndAddNodeAfter (const Node& nodeToInsertAfter, Args&&... args)
 	{
-		if (! nodes.contains (nodeToInsertAfter))
-		{
-			jassertfalse;
-			return nullptr;
-		}
-
-		auto* newNode = new Node (std::make_unique<EngineType> (std::forward<Args> (args)...));
-
-		newNode->index = nodeToInsertAfter->index + 1;
-
-		for (int i = newNode->index; i < getNextNodeIndex(); ++i)
-			if (auto* node = getNode (i))
-				node->index += 1;
-
-		return nodes.add (newNode);
+		return addNodeAfter (*new Node (std::make_unique<EngineType> (std::forward<Args> (args)...)),
+		                     nodeToInsertAfter);
 	}
 
 	/** Adds a node before the specified other node.
 	    Note that this may change the indices of any other nodes already in the chain!
-	    @return The index at which newNode was added
+	    @return Reference to the node.
 	 */
-	int addNodeBefore (Node* newNode, const Node* nodeToInsertBefore);
+	Node& addNodeBefore (Node& newNode, const Node& nodeToInsertBefore);
 
 	/** Creates a node holding an engine of the specified type, and forwards all arguments to the engine's constructor. Adds the node to the chain before the specified other node.
 	    Note that this may change the indices of any other nodes already in the chain!
 	    @tparam EngineType The type of Engine object that the new node will hold. This type must inherit from Engine<SampleType>.
+	    @return Reference to the node.
 	 */
 	template <typename EngineType, typename... Args, LEMONS_MUST_INHERIT_FROM (EngineType, Engine<SampleType>)>
-	Node* createAndAddNodeBefore (const Node* nodeToInsertBefore, Args&&... args)
+	Node& createAndAddNodeBefore (const Node& nodeToInsertBefore, Args&&... args)
 	{
-		if (! nodes.contains (nodeToInsertBefore))
-		{
-			jassertfalse;
-			return nullptr;
-		}
-
-		auto* newNode = new Node (std::make_unique<EngineType> (std::forward<Args> (args)...));
-
-		newNode->index = std::max (0, nodeToInsertBefore->index - 1);
-
-		for (int i = newNode->index; i < getNextNodeIndex(); ++i)
-			if (auto* node = getNode (i))
-				node->index += 1;
-
-		return nodes.add (newNode);
+		return addNodeBefore (*new Node (std::make_unique<EngineType> (std::forward<Args> (args)...)),
+		                      nodeToInsertBefore);
 	}
 
 	/** Swaps the indices of two nodes in the chain.
 	    @return True if the operation was successful
 	 */
-	bool swapNodes (Node* node1, Node* node2);
+	bool swapNodes (Node& node1, Node& node2);
 
 	/** Swaps the indices of the two nodes in the chain at the given indices.
 	    @return True if the operation was successful
@@ -209,7 +177,7 @@ public:
 	/** Removes and deletes a node object from the chain.
 	    @return True if the operation succeeds. This will really only fail if you pass a pointer to a Node object that is not in this chain.
 	 */
-	bool removeNode (Node* node);
+	bool removeNode (Node& node);
 
 	/** Removes and deletes a node object at the specified index from the chain.
 	    @return True if the operation succeeds.
@@ -249,7 +217,7 @@ private:
     using MyChain = BuiltEngineChain<float, MyFirstEngine, MySecondEngine>;
     @endcode
     @tparam SampleType The floating-point type that will be used for all the nodes.
-    @tparam EngineTypes A list of unspecialized templated types. Each one of these types must inherit from Engine<SampleType>.
+    @tparam EngineTypes A list of unspecialized templated types. Each one of these types must inherit from Engine<SampleType> and must be default constructable.
     @see Engine, EngineChain
  */
 template <typename SampleType, template <typename T> typename... EngineTypes>

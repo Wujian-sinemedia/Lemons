@@ -140,81 +140,68 @@ void EngineChain<SampleType>::onRelease()
 }
 
 template <typename SampleType>
-int EngineChain<SampleType>::addNode (Node* newNode)
+typename EngineChain<SampleType>::Node& EngineChain<SampleType>::addNode (Node& newNode)
 {
-	if (nodes.contains (newNode))
-	{
-		jassertfalse;
-		return 0;
-	}
+	jassert (! nodes.contains (&newNode));
 
-	newNode->index = getNextNodeIndex();
-	return nodes.add (newNode)->index;
+	newNode.index = getNextNodeIndex();
+	return *nodes.add (&newNode);
 }
 
 template <typename SampleType>
-void EngineChain<SampleType>::addNodeToFront (Node* newNode)
+typename EngineChain<SampleType>::Node& EngineChain<SampleType>::addNodeToFront (Node& newNode)
 {
-	if (nodes.contains (newNode))
-		jassertfalse;
+	jassert (! nodes.contains (&newNode));
 
-	newNode->index = 0;
+	newNode.index = 0;
 
 	for (auto* node : nodes)
 		node->index += 1;
 
-	nodes.add (newNode);
+	return *nodes.add (&newNode);
 }
 
 template <typename SampleType>
-int EngineChain<SampleType>::addNodeAfter (Node* newNode, const Node* nodeToInsertAfter)
+typename EngineChain<SampleType>::Node& EngineChain<SampleType>::addNodeAfter (Node& newNode, const Node& nodeToInsertAfter)
 {
-	if (! nodes.contains (nodeToInsertAfter))
-	{
-		jassertfalse;
-		return 0;
-	}
+	jassert (nodes.contains (&nodeToInsertAfter));
 
-	newNode->index = nodeToInsertAfter->index + 1;
+	newNode.index = nodeToInsertAfter.index + 1;
 
-	for (int i = newNode->index; i < getNextNodeIndex(); ++i)
+	for (int i = newNode.index; i < getNextNodeIndex(); ++i)
 		if (auto* node = getNode (i))
 			node->index += 1;
 
-	return nodes.add (newNode)->index;
+	return *nodes.add (&newNode);
 }
 
 template <typename SampleType>
-int EngineChain<SampleType>::addNodeBefore (Node* newNode, const Node* nodeToInsertBefore)
+typename EngineChain<SampleType>::Node& EngineChain<SampleType>::addNodeBefore (Node& newNode, const Node& nodeToInsertBefore)
 {
-	if (! nodes.contains (nodeToInsertBefore))
-	{
-		jassertfalse;
-		return 0;
-	}
+	jassert (nodes.contains (&nodeToInsertBefore));
 
-	newNode->index = std::max (0, nodeToInsertBefore->index - 1);
+	newNode.index = std::max (0, nodeToInsertBefore.index - 1);
 
-	for (int i = newNode->index; i < getNextNodeIndex(); ++i)
+	for (int i = newNode.index; i < getNextNodeIndex(); ++i)
 		if (auto* node = getNode (i))
 			node->index += 1;
 
-	return nodes.add (newNode)->index;
+	return *nodes.add (&newNode);
 }
 
 template <typename SampleType>
-bool EngineChain<SampleType>::swapNodes (Node* node1, Node* node2)
+bool EngineChain<SampleType>::swapNodes (Node& node1, Node& node2)
 {
-	if (! nodes.contains (node1) || ! nodes.contains (node2))
+	if (! nodes.contains (&node1) || ! nodes.contains (&node2))
 		return false;
 
-	const auto prevIdx1 = node1->index;
-	const auto prevIdx2 = node2->index;
+	const auto prevIdx1 = node1.index;
+	const auto prevIdx2 = node2.index;
 
 	jassert (prevIdx1 != prevIdx2);
 
-	node2->index = prevIdx1;
-	node1->index = prevIdx2;
+	node2.index = prevIdx1;
+	node1.index = prevIdx2;
 
 	return true;
 }
@@ -226,24 +213,19 @@ bool EngineChain<SampleType>::swapNodesAtIndices (int index1, int index2)
 		return false;
 
 	if (auto* node1 = getNode (index1))
-	{
 		if (auto* node2 = getNode (index2))
-		{
-			swapNodes (node1, node2);
-			return true;
-		}
-	}
+			return swapNodes (*node1, *node2);
 
 	return false;
 }
 
 template <typename SampleType>
-bool EngineChain<SampleType>::removeNode (Node* node)
+bool EngineChain<SampleType>::removeNode (Node& node)
 {
-	if (! nodes.contains (node))
+	if (! nodes.contains (&node))
 		return false;
 
-	nodes.removeObject (node);
+	nodes.removeObject (&node);
 	return true;
 }
 
@@ -251,10 +233,7 @@ template <typename SampleType>
 bool EngineChain<SampleType>::removeNode (int index)
 {
 	if (auto* node = getNode (index))
-	{
-		nodes.removeObject (node);
-		return true;
-	}
+		return removeNode (*node);
 
 	return false;
 }
