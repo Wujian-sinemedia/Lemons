@@ -38,12 +38,26 @@ public:
 	}
 
 	void processControllerMessage (int number, int value);
-    
-    [[nodiscard]] bool isControllerMapped (int number) const;
+
+	[[nodiscard]] bool isControllerMapped (int number) const;
 
 	[[nodiscard]] ValueTree saveToValueTree (bool currentProgramOnly) const;
 
 	void loadFromValueTree (const ValueTree& tree);
+
+
+	struct Listener
+	{
+		explicit Listener (const State& state,
+		                   std::function<void (Parameter&)>
+		                                                          onParamChange,
+		                   std::function<void (Parameter&, bool)> onGestureGhange = {});
+
+		virtual ~Listener() = default;
+
+	private:
+		juce::OwnedArray<ParamUpdater> updaters;
+	};
 
 
 	Dimensions editorSize { Dimensions::getDefault() };

@@ -31,17 +31,17 @@ void State::add (Parameter& parameter)
 
 void State::processControllerMessage (int number, int value)
 {
-    for (auto* param : params)
-        param->processNewControllerMessage (number, value);
+	for (auto* param : params)
+		param->processNewControllerMessage (number, value);
 }
 
 bool State::isControllerMapped (int number) const
 {
-    for (const auto* param : params)
-        if (param->getMidiControllerNumber() == number)
-            return true;
-    
-    return false;
+	for (const auto* param : params)
+		if (param->getMidiControllerNumber() == number)
+			return true;
+
+	return false;
 }
 
 
@@ -86,7 +86,37 @@ void State::loadFromValueTree (const ValueTree& tree)
 	}
 
 	for (auto* param : params)
+	{
 		param->loadFromValueTree (tree.getChildWithProperty (Parameter::id_prop, param->getParameterID()));
+		param->refreshDefault();
+	}
+}
+
+
+/*-----------------------------------------------------------------------------------------------------------------*/
+
+State::Listener::Listener (const State& state,
+                           std::function<void (Parameter&)>
+                               onParamChange,
+                           std::function<void (Parameter&, bool)>
+                               onGestureGhange)
+{
+	for (auto* param : state.params)
+	{
+		const auto change = [=]
+		{
+			if (onParamChange)
+				onParamChange (*param);
+		};
+
+		const auto gesture = [=] (bool starting)
+		{
+			if (onGestureGhange)
+				onGestureGhange (*param, starting);
+		};
+
+		updaters.add (new ParamUpdater (*param, std::move (change), std::move (gesture)));
+	}
 }
 
 }  // namespace lemons::plugin
