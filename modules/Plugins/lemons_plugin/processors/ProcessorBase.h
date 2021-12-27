@@ -49,9 +49,12 @@ private:
 	juce::AudioProcessorParameter* getBypassParameter() const final;
 
 	void getStateInformation (juce::MemoryBlock& block) final;
-	void getCurrentProgramStateInformation (juce::MemoryBlock& block) final;
 	void setStateInformation (const void* data, int size) final;
+	void getCurrentProgramStateInformation (juce::MemoryBlock& block) final;
 	void setCurrentProgramStateInformation (const void* data, int size) final;
+
+	void saveStateInternal (juce::MemoryBlock& block, bool currentProgramOnly);
+	void loadStateInternal (const void* data, int size);
 
 	void prepareToPlay (double sampleRate, int samplesPerBlock) final;
 

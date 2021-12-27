@@ -78,34 +78,64 @@ void ProcessorBase::releaseResources()
 	scratchMidiBuffer.clear();
 }
 
+static constexpr auto processorVersionProperty = "ProcessorVersion";
+
 void ProcessorBase::getStateInformation (juce::MemoryBlock& block)
 {
+	saveStateInternal (block, false);
+}
+
+void ProcessorBase::getCurrentProgramStateInformation (juce::MemoryBlock& block)
+{
+	saveStateInternal (block, true);
+}
+
+void ProcessorBase::saveStateInternal (juce::MemoryBlock& block, bool currentProgramOnly)
+{
+	auto tree = state.saveToValueTree (currentProgramOnly);
+
+	tree.setProperty (processorVersionProperty, processorAttributes.version.toString(), nullptr);
+
 	juce::MemoryOutputStream os { block, false };
 
-	state.saveToValueTree (false).writeToStream (os);
+	tree.writeToStream (os);
 }
 
 void ProcessorBase::setStateInformation (const void* data, int size)
 {
-	state.loadFromValueTree (ValueTree::readFromData (data, static_cast<size_t> (size)));
+	loadStateInternal (data, size);
 
 	callEditorMethod ([&] (juce::AudioProcessorEditor& e)
 	                  { e.setSize (state.editorSize.getWidth(),
 		                           state.editorSize.getHeight()); });
 }
 
-void ProcessorBase::getCurrentProgramStateInformation (juce::MemoryBlock& block)
-{
-	juce::MemoryOutputStream os { block, false };
-
-	state.saveToValueTree (true).writeToStream (os);
-}
-
 void ProcessorBase::setCurrentProgramStateInformation (const void* data, int size)
 {
-	state.loadFromValueTree (ValueTree::readFromData (data, static_cast<size_t> (size)));
+	loadStateInternal (data, size);
 
 	repaintEditor();
+}
+
+void ProcessorBase::loadStateInternal (const void* data, int size)
+{
+	const auto tree = ValueTree::readFromData (data, static_cast<size_t> (size));
+
+	if (tree.hasProperty (processorVersionProperty))
+	{
+		const auto loadedVersion = Version::fromString (tree.getProperty (processorVersionProperty).toString());
+
+		if (loadedVersion != processorAttributes.version)
+		{
+			DBG ("Processor version is " + processorAttributes.version.toString() + "; version of loaded state is " + loadedVersion.toString());
+		}
+	}
+	else
+	{
+		DBG ("Version property not present in loaded state!");
+	}
+
+	state.loadFromValueTree (tree);
 }
 
 void ProcessorBase::processBlock (AudioBuffer<float>& audio, MidiBuffer& midi)
