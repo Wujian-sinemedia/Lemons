@@ -3,4 +3,5 @@
 <area shape="rect" id="node3" href="$classlemons_1_1dsp_1_1_audio_file_player.html" title="A kind of AudioEngine that plays audio from an AudioFile object." alt="" coords="5,184,216,225"/>
 <area shape="rect" id="node4" href="$classlemons_1_1dsp_1_1_engine_chain.html" title="A kind of engine that contains a chain of other Engine objects." alt="" coords="241,184,431,225"/>
 <area shape="rect" id="node2" href="$classlemons_1_1dsp_1_1_engine.html" title="Base class for an audio engine." alt="" coords="146,5,299,47"/>
+<area shape="rect" id="node5" href="$classlemons_1_1dsp_1_1_built_engine_chain.html" title="An EngineChain that you can pass templated Engine types to and it will instantiate them all and add t..." alt="" coords="245,273,427,315"/>
 </map>

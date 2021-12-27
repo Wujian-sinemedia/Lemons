@@ -84,32 +84,35 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a8456cb2b7a5a5bdef3fa30f2a319d904"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1_dimensions.html#a8456cb2b7a5a5bdef3fa30f2a319d904">Dimensions</a> ()=default</td></tr>
 <tr class="memdesc:a8456cb2b7a5a5bdef3fa30f2a319d904"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an invalid <a class="el" href="structlemons_1_1_dimensions.html" title="A simple struct that represents the dimensions of a GUI.">Dimensions</a> object.  <a href="structlemons_1_1_dimensions.html#a8456cb2b7a5a5bdef3fa30f2a319d904">More...</a><br /></td></tr>
 <tr class="separator:a8456cb2b7a5a5bdef3fa30f2a319d904"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa154cf58814520ed94fc42c9481595f6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1_dimensions.html#aa154cf58814520ed94fc42c9481595f6">Dimensions</a> (const <a class="el" href="structlemons_1_1_dimensions.html">Dimensions</a> &amp;other)</td></tr>
+<tr class="memdesc:aa154cf58814520ed94fc42c9481595f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy constructor.  <a href="structlemons_1_1_dimensions.html#aa154cf58814520ed94fc42c9481595f6">More...</a><br /></td></tr>
+<tr class="separator:aa154cf58814520ed94fc42c9481595f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af24b0d1facb1ac43c326868fa3c9b973"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1_dimensions.html#af24b0d1facb1ac43c326868fa3c9b973">Dimensions</a> (int widthToUse, int heightToUse)</td></tr>
 <tr class="memdesc:af24b0d1facb1ac43c326868fa3c9b973"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a valid <a class="el" href="structlemons_1_1_dimensions.html" title="A simple struct that represents the dimensions of a GUI.">Dimensions</a> object with a specified width and height.  <a href="structlemons_1_1_dimensions.html#af24b0d1facb1ac43c326868fa3c9b973">More...</a><br /></td></tr>
 <tr class="separator:af24b0d1facb1ac43c326868fa3c9b973"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a03bf5f2929ef7ada5d88c78033859057"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1_dimensions.html#a03bf5f2929ef7ada5d88c78033859057">getAspectRatio</a> () const noexcept</td></tr>
-<tr class="memdesc:a03bf5f2929ef7ada5d88c78033859057"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the aspect ratio of the represented dimensions, calculated as width / height.  <a href="structlemons_1_1_dimensions.html#a03bf5f2929ef7ada5d88c78033859057">More...</a><br /></td></tr>
-<tr class="separator:a03bf5f2929ef7ada5d88c78033859057"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab1e333d1e2418505aed2a0a7ae6f57ee"><td class="memItemLeft" align="right" valign="top">constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1_dimensions.html#ab1e333d1e2418505aed2a0a7ae6f57ee">getHeight</a> () const noexcept</td></tr>
-<tr class="memdesc:ab1e333d1e2418505aed2a0a7ae6f57ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the height of these dimensions.  <a href="structlemons_1_1_dimensions.html#ab1e333d1e2418505aed2a0a7ae6f57ee">More...</a><br /></td></tr>
-<tr class="separator:ab1e333d1e2418505aed2a0a7ae6f57ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a17cf4a59d1bf8aea992c2c88478b4275"><td class="memItemLeft" align="right" valign="top">constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1_dimensions.html#a17cf4a59d1bf8aea992c2c88478b4275">getWidth</a> () const noexcept</td></tr>
-<tr class="memdesc:a17cf4a59d1bf8aea992c2c88478b4275"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the width of these dimensions.  <a href="structlemons_1_1_dimensions.html#a17cf4a59d1bf8aea992c2c88478b4275">More...</a><br /></td></tr>
-<tr class="separator:a17cf4a59d1bf8aea992c2c88478b4275"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a42effd3677b88fe02afb4dc430dff14f"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1_dimensions.html#a42effd3677b88fe02afb4dc430dff14f">hasSameAspectRatioAs</a> (const <a class="el" href="structlemons_1_1_dimensions.html">Dimensions</a> &amp;other) const noexcept</td></tr>
-<tr class="memdesc:a42effd3677b88fe02afb4dc430dff14f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the passed <a class="el" href="structlemons_1_1_dimensions.html" title="A simple struct that represents the dimensions of a GUI.">Dimensions</a> object has the same aspect ratio as this one.  <a href="structlemons_1_1_dimensions.html#a42effd3677b88fe02afb4dc430dff14f">More...</a><br /></td></tr>
-<tr class="separator:a42effd3677b88fe02afb4dc430dff14f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab6174a680d342d6daedf0f7fc5f31d88"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1_dimensions.html#ab6174a680d342d6daedf0f7fc5f31d88">isValid</a> () const noexcept</td></tr>
-<tr class="memdesc:ab6174a680d342d6daedf0f7fc5f31d88"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the width and height are both greater than 0.  <a href="structlemons_1_1_dimensions.html#ab6174a680d342d6daedf0f7fc5f31d88">More...</a><br /></td></tr>
-<tr class="separator:ab6174a680d342d6daedf0f7fc5f31d88"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3cbbd2d86dfc503d0a59015d61a9b36a"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="structlemons_1_1_dimensions.html">Dimensions</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1_dimensions.html#a3cbbd2d86dfc503d0a59015d61a9b36a">operator=</a> (const <a class="el" href="structlemons_1_1_dimensions.html">Dimensions</a> &amp;other)</td></tr>
-<tr class="memdesc:a3cbbd2d86dfc503d0a59015d61a9b36a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assignment operator.  <a href="structlemons_1_1_dimensions.html#a3cbbd2d86dfc503d0a59015d61a9b36a">More...</a><br /></td></tr>
-<tr class="separator:a3cbbd2d86dfc503d0a59015d61a9b36a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a78be7eb317710033619126c61d5c2729"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1_dimensions.html#a78be7eb317710033619126c61d5c2729">operator==</a> (const <a class="el" href="structlemons_1_1_dimensions.html">Dimensions</a> &amp;other) const noexcept</td></tr>
-<tr class="memdesc:a78be7eb317710033619126c61d5c2729"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the passed <a class="el" href="structlemons_1_1_dimensions.html" title="A simple struct that represents the dimensions of a GUI.">Dimensions</a> object is equal to this one.  <a href="structlemons_1_1_dimensions.html#a78be7eb317710033619126c61d5c2729">More...</a><br /></td></tr>
-<tr class="separator:a78be7eb317710033619126c61d5c2729"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a66f8da576657f96c466f2726563cf799"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1_dimensions.html#a66f8da576657f96c466f2726563cf799">getAspectRatio</a> () const noexcept</td></tr>
+<tr class="memdesc:a66f8da576657f96c466f2726563cf799"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the aspect ratio of the represented dimensions, calculated as width / height.  <a href="structlemons_1_1_dimensions.html#a66f8da576657f96c466f2726563cf799">More...</a><br /></td></tr>
+<tr class="separator:a66f8da576657f96c466f2726563cf799"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad3676c1e14f768b01db30f7d4c8b51f2"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1_dimensions.html#ad3676c1e14f768b01db30f7d4c8b51f2">getHeight</a> () const noexcept</td></tr>
+<tr class="memdesc:ad3676c1e14f768b01db30f7d4c8b51f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the height of these dimensions.  <a href="structlemons_1_1_dimensions.html#ad3676c1e14f768b01db30f7d4c8b51f2">More...</a><br /></td></tr>
+<tr class="separator:ad3676c1e14f768b01db30f7d4c8b51f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a983cfe964151fc65a3561fdca5532612"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1_dimensions.html#a983cfe964151fc65a3561fdca5532612">getWidth</a> () const noexcept</td></tr>
+<tr class="memdesc:a983cfe964151fc65a3561fdca5532612"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the width of these dimensions.  <a href="structlemons_1_1_dimensions.html#a983cfe964151fc65a3561fdca5532612">More...</a><br /></td></tr>
+<tr class="separator:a983cfe964151fc65a3561fdca5532612"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac784c9887251c92ee4a3c475035fca2c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1_dimensions.html#ac784c9887251c92ee4a3c475035fca2c">hasSameAspectRatioAs</a> (const <a class="el" href="structlemons_1_1_dimensions.html">Dimensions</a> &amp;other) const noexcept</td></tr>
+<tr class="memdesc:ac784c9887251c92ee4a3c475035fca2c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the passed <a class="el" href="structlemons_1_1_dimensions.html" title="A simple struct that represents the dimensions of a GUI.">Dimensions</a> object has the same aspect ratio as this one.  <a href="structlemons_1_1_dimensions.html#ac784c9887251c92ee4a3c475035fca2c">More...</a><br /></td></tr>
+<tr class="separator:ac784c9887251c92ee4a3c475035fca2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9af142c13ec1f52cb9b2348d6ed485f8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1_dimensions.html#a9af142c13ec1f52cb9b2348d6ed485f8">isValid</a> () const noexcept</td></tr>
+<tr class="memdesc:a9af142c13ec1f52cb9b2348d6ed485f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the width and height are both greater than 0.  <a href="structlemons_1_1_dimensions.html#a9af142c13ec1f52cb9b2348d6ed485f8">More...</a><br /></td></tr>
+<tr class="separator:a9af142c13ec1f52cb9b2348d6ed485f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e292a07a6952e448998fef524559f26"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structlemons_1_1_dimensions.html">Dimensions</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1_dimensions.html#a2e292a07a6952e448998fef524559f26">operator=</a> (const <a class="el" href="structlemons_1_1_dimensions.html">Dimensions</a> &amp;other)</td></tr>
+<tr class="memdesc:a2e292a07a6952e448998fef524559f26"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assignment operator.  <a href="structlemons_1_1_dimensions.html#a2e292a07a6952e448998fef524559f26">More...</a><br /></td></tr>
+<tr class="separator:a2e292a07a6952e448998fef524559f26"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6528576b8271024ac06daeceebad8316"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1_dimensions.html#a6528576b8271024ac06daeceebad8316">operator==</a> (const <a class="el" href="structlemons_1_1_dimensions.html">Dimensions</a> &amp;other) const noexcept</td></tr>
+<tr class="memdesc:a6528576b8271024ac06daeceebad8316"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the passed <a class="el" href="structlemons_1_1_dimensions.html" title="A simple struct that represents the dimensions of a GUI.">Dimensions</a> object is equal to this one.  <a href="structlemons_1_1_dimensions.html#a6528576b8271024ac06daeceebad8316">More...</a><br /></td></tr>
+<tr class="separator:a6528576b8271024ac06daeceebad8316"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1f9380254252678f6f56661b280ba86c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1_dimensions.html#a1f9380254252678f6f56661b280ba86c">set</a> (int newWidth, int newHeight)</td></tr>
-<tr class="memdesc:a1f9380254252678f6f56661b280ba86c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assignment operator.  <a href="structlemons_1_1_dimensions.html#a1f9380254252678f6f56661b280ba86c">More...</a><br /></td></tr>
+<tr class="memdesc:a1f9380254252678f6f56661b280ba86c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Changes the dimensions.  <a href="structlemons_1_1_dimensions.html#a1f9380254252678f6f56661b280ba86c">More...</a><br /></td></tr>
 <tr class="separator:a1f9380254252678f6f56661b280ba86c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aebbf6f2f2f2674fd975c67e0c0dc7c16"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1_dimensions.html#aebbf6f2f2f2674fd975c67e0c0dc7c16">toString</a> () const noexcept</td></tr>
 <tr class="memdesc:aebbf6f2f2f2674fd975c67e0c0dc7c16"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a string representation of these dimensions, eg '400x600'.  <a href="structlemons_1_1_dimensions.html#aebbf6f2f2f2674fd975c67e0c0dc7c16">More...</a><br /></td></tr>
@@ -128,7 +131,7 @@ Static Public Member Functions</h2></td></tr>
 <div class="textblock"><p>A simple struct that represents the dimensions of a GUI. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a8456cb2b7a5a5bdef3fa30f2a319d904"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8456cb2b7a5a5bdef3fa30f2a319d904">&#9670;&nbsp;</a></span>Dimensions() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a8456cb2b7a5a5bdef3fa30f2a319d904">&#9670;&nbsp;</a></span>Dimensions() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -155,7 +158,7 @@ Static Public Member Functions</h2></td></tr>
 </div>
 </div>
 <a id="af24b0d1facb1ac43c326868fa3c9b973"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af24b0d1facb1ac43c326868fa3c9b973">&#9670;&nbsp;</a></span>Dimensions() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#af24b0d1facb1ac43c326868fa3c9b973">&#9670;&nbsp;</a></span>Dimensions() <span class="overload">[2/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -192,6 +195,26 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="aa154cf58814520ed94fc42c9481595f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa154cf58814520ed94fc42c9481595f6">&#9670;&nbsp;</a></span>Dimensions() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">lemons::Dimensions::Dimensions </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structlemons_1_1_dimensions.html">Dimensions</a> &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Copy constructor. </p>
+
+</div>
+</div>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="ab7c9e7c94935e817968e84851f35256b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab7c9e7c94935e817968e84851f35256b">&#9670;&nbsp;</a></span>fromString()</h2>
@@ -222,8 +245,8 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a03bf5f2929ef7ada5d88c78033859057"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a03bf5f2929ef7ada5d88c78033859057">&#9670;&nbsp;</a></span>getAspectRatio()</h2>
+<a id="a66f8da576657f96c466f2726563cf799"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a66f8da576657f96c466f2726563cf799">&#9670;&nbsp;</a></span>getAspectRatio()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -232,7 +255,7 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr double lemons::Dimensions::getAspectRatio </td>
+          <td class="memname">double lemons::Dimensions::getAspectRatio </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -240,17 +263,13 @@ Static Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 <p>Returns the aspect ratio of the represented dimensions, calculated as width / height. </p>
-<p>If <a class="el" href="structlemons_1_1_dimensions.html#ab6174a680d342d6daedf0f7fc5f31d88" title="Returns true if the width and height are both greater than 0.">isValid()</a> return false, then this function will return 0. </p>
-
-<p class="reference">References <a class="el" href="structlemons_1_1_dimensions.html#ab6174a680d342d6daedf0f7fc5f31d88">isValid()</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="structlemons_1_1_dimensions.html#a42effd3677b88fe02afb4dc430dff14f">hasSameAspectRatioAs()</a>.</p>
+<p>If <a class="el" href="structlemons_1_1_dimensions.html#a9af142c13ec1f52cb9b2348d6ed485f8" title="Returns true if the width and height are both greater than 0.">isValid()</a> return false, then this function will return 0. </p>
 
 </div>
 </div>
@@ -281,8 +300,8 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ab1e333d1e2418505aed2a0a7ae6f57ee"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab1e333d1e2418505aed2a0a7ae6f57ee">&#9670;&nbsp;</a></span>getHeight()</h2>
+<a id="ad3676c1e14f768b01db30f7d4c8b51f2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad3676c1e14f768b01db30f7d4c8b51f2">&#9670;&nbsp;</a></span>getHeight()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -291,7 +310,7 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr int lemons::Dimensions::getHeight </td>
+          <td class="memname">int lemons::Dimensions::getHeight </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -299,7 +318,7 @@ Static Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -308,8 +327,8 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a17cf4a59d1bf8aea992c2c88478b4275"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a17cf4a59d1bf8aea992c2c88478b4275">&#9670;&nbsp;</a></span>getWidth()</h2>
+<a id="a983cfe964151fc65a3561fdca5532612"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a983cfe964151fc65a3561fdca5532612">&#9670;&nbsp;</a></span>getWidth()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -318,7 +337,7 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr int lemons::Dimensions::getWidth </td>
+          <td class="memname">int lemons::Dimensions::getWidth </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -326,7 +345,7 @@ Static Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -335,8 +354,8 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a42effd3677b88fe02afb4dc430dff14f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a42effd3677b88fe02afb4dc430dff14f">&#9670;&nbsp;</a></span>hasSameAspectRatioAs()</h2>
+<a id="ac784c9887251c92ee4a3c475035fca2c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac784c9887251c92ee4a3c475035fca2c">&#9670;&nbsp;</a></span>hasSameAspectRatioAs()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -345,7 +364,7 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr bool lemons::Dimensions::hasSameAspectRatioAs </td>
+          <td class="memname">bool lemons::Dimensions::hasSameAspectRatioAs </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="structlemons_1_1_dimensions.html">Dimensions</a> &amp;&#160;</td>
           <td class="paramname"><em>other</em></td><td>)</td>
@@ -354,19 +373,17 @@ Static Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 <p>Returns true if the passed <a class="el" href="structlemons_1_1_dimensions.html" title="A simple struct that represents the dimensions of a GUI.">Dimensions</a> object has the same aspect ratio as this one. </p>
 
-<p class="reference">References <a class="el" href="structlemons_1_1_dimensions.html#a03bf5f2929ef7ada5d88c78033859057">getAspectRatio()</a>.</p>
-
 </div>
 </div>
-<a id="ab6174a680d342d6daedf0f7fc5f31d88"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab6174a680d342d6daedf0f7fc5f31d88">&#9670;&nbsp;</a></span>isValid()</h2>
+<a id="a9af142c13ec1f52cb9b2348d6ed485f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9af142c13ec1f52cb9b2348d6ed485f8">&#9670;&nbsp;</a></span>isValid()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -375,7 +392,7 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr bool lemons::Dimensions::isValid </td>
+          <td class="memname">bool lemons::Dimensions::isValid </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -383,47 +400,37 @@ Static Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 <p>Returns true if the width and height are both greater than 0. </p>
 
-<p class="reference">Referenced by <a class="el" href="structlemons_1_1_dimensions.html#a03bf5f2929ef7ada5d88c78033859057">getAspectRatio()</a>.</p>
-
 </div>
 </div>
-<a id="a3cbbd2d86dfc503d0a59015d61a9b36a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3cbbd2d86dfc503d0a59015d61a9b36a">&#9670;&nbsp;</a></span>operator=()</h2>
+<a id="a2e292a07a6952e448998fef524559f26"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e292a07a6952e448998fef524559f26">&#9670;&nbsp;</a></span>operator=()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr <a class="el" href="structlemons_1_1_dimensions.html">Dimensions</a>&amp; lemons::Dimensions::operator= </td>
+          <td class="memname"><a class="el" href="structlemons_1_1_dimensions.html">Dimensions</a>&amp; lemons::Dimensions::operator= </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="structlemons_1_1_dimensions.html">Dimensions</a> &amp;&#160;</td>
           <td class="paramname"><em>other</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Assignment operator. </p>
 
 </div>
 </div>
-<a id="a78be7eb317710033619126c61d5c2729"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a78be7eb317710033619126c61d5c2729">&#9670;&nbsp;</a></span>operator==()</h2>
+<a id="a6528576b8271024ac06daeceebad8316"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6528576b8271024ac06daeceebad8316">&#9670;&nbsp;</a></span>operator==()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -432,7 +439,7 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr bool lemons::Dimensions::operator== </td>
+          <td class="memname">bool lemons::Dimensions::operator== </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="structlemons_1_1_dimensions.html">Dimensions</a> &amp;&#160;</td>
           <td class="paramname"><em>other</em></td><td>)</td>
@@ -441,7 +448,7 @@ Static Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -476,7 +483,7 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Assignment operator. </p>
+<p>Changes the dimensions. </p>
 
 </div>
 </div>
@@ -513,7 +520,7 @@ Static Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Dec 27 2021 00:47:37 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Dec 27 2021 23:05:11 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

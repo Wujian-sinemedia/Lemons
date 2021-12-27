@@ -105,6 +105,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a45813074aded389252f9291b1c3d9b3c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classlemons_1_1plugin_1_1_state.html">State</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_processor_base.html#a45813074aded389252f9291b1c3d9b3c">getState</a> () noexcept</td></tr>
 <tr class="memdesc:a45813074aded389252f9291b1c3d9b3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the plugin's state object.  <a href="classlemons_1_1plugin_1_1_processor_base.html#a45813074aded389252f9291b1c3d9b3c">More...</a><br /></td></tr>
 <tr class="separator:a45813074aded389252f9291b1c3d9b3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a93d4cfaaa37c0b29eebf687075aaf67a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_processor_base.html#a93d4cfaaa37c0b29eebf687075aaf67a">loadState</a> (const ValueTree &amp;tree)</td></tr>
+<tr class="memdesc:a93d4cfaaa37c0b29eebf687075aaf67a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reloads a previously saved state from a ValueTree.  <a href="classlemons_1_1plugin_1_1_processor_base.html#a93d4cfaaa37c0b29eebf687075aaf67a">More...</a><br /></td></tr>
+<tr class="separator:a93d4cfaaa37c0b29eebf687075aaf67a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1411aae1d03c1aba62936b208ef0a16b"><td class="memItemLeft" align="right" valign="top">ValueTree&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_processor_base.html#a1411aae1d03c1aba62936b208ef0a16b">saveState</a> (bool currentProgramOnly=false) const</td></tr>
+<tr class="memdesc:a1411aae1d03c1aba62936b208ef0a16b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Captures a snapshot of the processor's current state as a ValueTree.  <a href="classlemons_1_1plugin_1_1_processor_base.html#a1411aae1d03c1aba62936b208ef0a16b">More...</a><br /></td></tr>
+<tr class="separator:a1411aae1d03c1aba62936b208ef0a16b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -123,7 +129,7 @@ Protected Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Base class for a plugin processor. </p>
-<p>This class manages two instances of a <a class="el" href="classlemons_1_1dsp_1_1_engine.html" title="Base class for an audio engine.">dsp::Engine</a> and uses the appropriate one &ndash; if the host uses double precision processing, the double engine will be used; otherwise, the float engine will be used. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="classlemons_1_1plugin_1_1_processor.html" title="A processor class that can simply be told the templated engine type, and takes care of instantiating ...">Processor</a>, Engine, <a class="el" href="classlemons_1_1plugin_1_1_basic_processor.html" title="A default implementation of a basic, generic juce AudioProcessor.">BasicProcessor</a> </dd></dl>
+<p>This class manages two instances of a <a class="el" href="classlemons_1_1dsp_1_1_engine.html" title="Base class for an audio engine.">dsp::Engine</a> and uses the appropriate one &ndash; if the host uses double precision processing, the double engine will be used; otherwise, the float engine will be used. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="classlemons_1_1plugin_1_1_processor.html" title="A processor class that can simply be told the templated engine type and the state type,...">Processor</a>, Engine, <a class="el" href="classlemons_1_1plugin_1_1_basic_processor.html" title="A default implementation of a basic, generic juce AudioProcessor.">BasicProcessor</a> </dd></dl>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="abf03b92410766c2112bba4cd7236b484"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#abf03b92410766c2112bba4cd7236b484">&#9670;&nbsp;</a></span>BusesProperties</h2>
@@ -325,6 +331,26 @@ Protected Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a93d4cfaaa37c0b29eebf687075aaf67a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a93d4cfaaa37c0b29eebf687075aaf67a">&#9670;&nbsp;</a></span>loadState()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lemons::plugin::ProcessorBase::loadState </td>
+          <td>(</td>
+          <td class="paramtype">const ValueTree &amp;&#160;</td>
+          <td class="paramname"><em>tree</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Reloads a previously saved state from a ValueTree. </p>
+
+</div>
+</div>
 <a id="ac6e8eacfeda348419aa05cbfb338198c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac6e8eacfeda348419aa05cbfb338198c">&#9670;&nbsp;</a></span>repaintEditor()</h2>
 
@@ -353,13 +379,33 @@ Protected Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a1411aae1d03c1aba62936b208ef0a16b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1411aae1d03c1aba62936b208ef0a16b">&#9670;&nbsp;</a></span>saveState()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ValueTree lemons::plugin::ProcessorBase::saveState </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>currentProgramOnly</em> = <code>false</code></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Captures a snapshot of the processor's current state as a ValueTree. </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li><a class="el" href="_processor_base_8h.html">ProcessorBase.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Dec 27 2021 00:47:38 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Dec 27 2021 23:05:11 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

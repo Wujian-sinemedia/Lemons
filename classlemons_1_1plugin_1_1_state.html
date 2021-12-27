@@ -68,8 +68,10 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="classlemons_1_1plugin_1_1_state-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">lemons::plugin::State Class Reference<div class="ingroups"><a class="el" href="group___plugins.html">Plugins</a> &raquo; <a class="el" href="group__lemons__plugin.html">lemons_plugin</a> &raquo; <a class="el" href="group__state.html">state</a></div></div>  </div>
@@ -79,8 +81,15 @@ $(function() {
 <p>Base class for a plugin's entire state.  
  <a href="classlemons_1_1plugin_1_1_state.html#details">More...</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1plugin_1_1_state_1_1_listener.html">Listener</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:a64951daa6d4e5c7ea2c8fa52c03b3c08"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_state.html#a64951daa6d4e5c7ea2c8fa52c03b3c08">~State</a> ()=default</td></tr>
+<tr class="separator:a64951daa6d4e5c7ea2c8fa52c03b3c08"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a225b3522ffc2924ca7a911f19a0c276e"><td class="memTemplParams" colspan="2">template&lt;typename... Args&gt; </td></tr>
 <tr class="memitem:a225b3522ffc2924ca7a911f19a0c276e"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_state.html#a225b3522ffc2924ca7a911f19a0c276e">add</a> (<a class="el" href="classlemons_1_1plugin_1_1_parameter.html">Parameter</a> &amp;first, Args &amp;&amp;... rest)</td></tr>
 <tr class="separator:a225b3522ffc2924ca7a911f19a0c276e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -88,10 +97,19 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:af2ed75ddc516c7e7c7d418217a6ae4c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af63eb6460515ae9164b6d644b678dd90"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_state.html#af63eb6460515ae9164b6d644b678dd90">addTo</a> (juce::AudioProcessor &amp;processor) const</td></tr>
 <tr class="separator:af63eb6460515ae9164b6d644b678dd90"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af6644e1fd89805cf8e11c49553b1c989"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html">Parameter</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_state.html#af6644e1fd89805cf8e11c49553b1c989">getNamedParameter</a> (const String &amp;name) const</td></tr>
+<tr class="separator:af6644e1fd89805cf8e11c49553b1c989"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a46a1f028f3baf5e198577933276d7b0b"><td class="memTemplParams" colspan="2">template&lt;typename ParameterType , LEMONS_MUST_INHERIT_FROM(ParameterType, Parameter) &gt; </td></tr>
+<tr class="memitem:a46a1f028f3baf5e198577933276d7b0b"><td class="memTemplItemLeft" align="right" valign="top">ParameterType *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_state.html#a46a1f028f3baf5e198577933276d7b0b">getTypedParameter</a> (const String &amp;name) const</td></tr>
+<tr class="separator:a46a1f028f3baf5e198577933276d7b0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a92bc0813e2699c954fcc7ff1c4110cde"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_state.html#a92bc0813e2699c954fcc7ff1c4110cde">isControllerMapped</a> (int number) const</td></tr>
+<tr class="separator:a92bc0813e2699c954fcc7ff1c4110cde"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a50faf5e2b80732f8a279dc03d875c29c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_state.html#a50faf5e2b80732f8a279dc03d875c29c">loadFromValueTree</a> (const ValueTree &amp;tree)</td></tr>
 <tr class="separator:a50faf5e2b80732f8a279dc03d875c29c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2d9c429ee6d15d9bc6cdcc11c3beb424"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_state.html#a2d9c429ee6d15d9bc6cdcc11c3beb424">processControllerMessage</a> (int number, int value)</td></tr>
 <tr class="separator:a2d9c429ee6d15d9bc6cdcc11c3beb424"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a41155f00f6a0cf39044d223cf5aeb41a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_state.html#a41155f00f6a0cf39044d223cf5aeb41a">resetAllControllerMappedParams</a> ()</td></tr>
+<tr class="separator:a41155f00f6a0cf39044d223cf5aeb41a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a746b2efd2b9ce30e5eab88a69c6a59db"><td class="memItemLeft" align="right" valign="top">ValueTree&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_state.html#a746b2efd2b9ce30e5eab88a69c6a59db">saveToValueTree</a> (bool currentProgramOnly) const</td></tr>
 <tr class="separator:a746b2efd2b9ce30e5eab88a69c6a59db"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -101,10 +119,45 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a78aec85518e22c2ae3d71cfca8f3d738"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2ea14f3f7bc539a92413bda61ceddd5e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structlemons_1_1_dimensions.html">Dimensions</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_state.html#a2ea14f3f7bc539a92413bda61ceddd5e">editorSize</a> { <a class="el" href="structlemons_1_1_dimensions.html#aa5e46b5ec4646920cdc7c128b939683a">Dimensions::getDefault</a>() }</td></tr>
 <tr class="separator:a2ea14f3f7bc539a92413bda61ceddd5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aba707cf5fd5c67b3c27859c872d60f3a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structlemons_1_1plugin_1_1_program_manager.html">ProgramManager</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_state.html#aba707cf5fd5c67b3c27859c872d60f3a">programs</a></td></tr>
+<tr class="separator:aba707cf5fd5c67b3c27859c872d60f3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a5942e494d0375ef0f5873cef328cd315"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_state.html#a5942e494d0375ef0f5873cef328cd315">loadCustomStateData</a> (const ValueTree &amp;tree)</td></tr>
+<tr class="separator:a5942e494d0375ef0f5873cef328cd315"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a511869edeaeb554f18d88b70bbe21088"><td class="memItemLeft" align="right" valign="top">virtual ValueTree&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_state.html#a511869edeaeb554f18d88b70bbe21088">saveCustomStateData</a> (const String &amp;valueTreeType, bool currentProgramOnly) const</td></tr>
+<tr class="separator:a511869edeaeb554f18d88b70bbe21088"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Base class for a plugin's entire state. </p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a64951daa6d4e5c7ea2c8fa52c03b3c08"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a64951daa6d4e5c7ea2c8fa52c03b3c08">&#9670;&nbsp;</a></span>~State()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual lemons::plugin::State::~State </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
 <a id="a225b3522ffc2924ca7a911f19a0c276e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a225b3522ffc2924ca7a911f19a0c276e">&#9670;&nbsp;</a></span>add() <span class="overload">[1/2]</span></h2>
 
@@ -175,6 +228,92 @@ template&lt;typename... Args&gt; </div>
 
 </div>
 </div>
+<a id="af6644e1fd89805cf8e11c49553b1c989"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af6644e1fd89805cf8e11c49553b1c989">&#9670;&nbsp;</a></span>getNamedParameter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html">Parameter</a>* lemons::plugin::State::getNamedParameter </td>
+          <td>(</td>
+          <td class="paramtype">const String &amp;&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="reference">Referenced by <a class="el" href="classlemons_1_1plugin_1_1_state.html#a46a1f028f3baf5e198577933276d7b0b">getTypedParameter()</a>.</p>
+
+</div>
+</div>
+<a id="a46a1f028f3baf5e198577933276d7b0b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a46a1f028f3baf5e198577933276d7b0b">&#9670;&nbsp;</a></span>getTypedParameter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename ParameterType , LEMONS_MUST_INHERIT_FROM(ParameterType, Parameter) &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">ParameterType* lemons::plugin::State::getTypedParameter </td>
+          <td>(</td>
+          <td class="paramtype">const String &amp;&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="classlemons_1_1plugin_1_1_state.html#af6644e1fd89805cf8e11c49553b1c989">getNamedParameter()</a>.</p>
+
+</div>
+</div>
+<a id="a92bc0813e2699c954fcc7ff1c4110cde"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a92bc0813e2699c954fcc7ff1c4110cde">&#9670;&nbsp;</a></span>isControllerMapped()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool lemons::plugin::State::isControllerMapped </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>number</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5942e494d0375ef0f5873cef328cd315"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5942e494d0375ef0f5873cef328cd315">&#9670;&nbsp;</a></span>loadCustomStateData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void lemons::plugin::State::loadCustomStateData </td>
+          <td>(</td>
+          <td class="paramtype">const ValueTree &amp;&#160;</td>
+          <td class="paramname"><em>tree</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a50faf5e2b80732f8a279dc03d875c29c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a50faf5e2b80732f8a279dc03d875c29c">&#9670;&nbsp;</a></span>loadFromValueTree()</h2>
 
@@ -217,6 +356,59 @@ template&lt;typename... Args&gt; </div>
           <td></td><td></td>
         </tr>
       </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a41155f00f6a0cf39044d223cf5aeb41a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a41155f00f6a0cf39044d223cf5aeb41a">&#9670;&nbsp;</a></span>resetAllControllerMappedParams()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lemons::plugin::State::resetAllControllerMappedParams </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a511869edeaeb554f18d88b70bbe21088"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a511869edeaeb554f18d88b70bbe21088">&#9670;&nbsp;</a></span>saveCustomStateData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual ValueTree lemons::plugin::State::saveCustomStateData </td>
+          <td>(</td>
+          <td class="paramtype">const String &amp;&#160;</td>
+          <td class="paramname"><em>valueTreeType</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>currentProgramOnly</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>
@@ -266,7 +458,21 @@ template&lt;typename... Args&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="classlemons_1_1plugin_1_1_editor.html#afb5c3217692ffbb6d7131a7821928249">lemons::plugin::Editor&lt; ContentComponentType, &gt;::Editor()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classlemons_1_1plugin_1_1_editor.html#a7ac839eeca3d97d5c87ba6a759dab743">lemons::plugin::Editor&lt; ContentComponentType, StateType,, &gt;::Editor()</a>.</p>
+
+</div>
+</div>
+<a id="aba707cf5fd5c67b3c27859c872d60f3a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aba707cf5fd5c67b3c27859c872d60f3a">&#9670;&nbsp;</a></span>programs</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structlemons_1_1plugin_1_1_program_manager.html">ProgramManager</a> lemons::plugin::State::programs</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -276,7 +482,7 @@ template&lt;typename... Args&gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Dec 27 2021 00:47:38 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Dec 27 2021 23:05:11 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

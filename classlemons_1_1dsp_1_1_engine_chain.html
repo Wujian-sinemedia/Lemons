@@ -69,10 +69,11 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="classlemons_1_1dsp_1_1_engine_chain-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">lemons::dsp::EngineChain&lt; SampleType &gt; Class Template Reference<span class="mlabels"><span class="mlabel">final</span></span><div class="ingroups"><a class="el" href="group___audio.html">Audio</a> &raquo; <a class="el" href="group__lemons__dsp.html">lemons_dsp</a> &raquo; <a class="el" href="group__engines.html">engines</a></div></div>  </div>
+<div class="title">lemons::dsp::EngineChain&lt; SampleType &gt; Class Template Reference<div class="ingroups"><a class="el" href="group___audio.html">Audio</a> &raquo; <a class="el" href="group__lemons__dsp.html">lemons_dsp</a> &raquo; <a class="el" href="group__engines.html">engines</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
@@ -83,7 +84,7 @@ $(function() {
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classlemons_1_1dsp_1_1_engine_chain__inherit__graph.svg" width="215" height="231"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classlemons_1_1dsp_1_1_engine_chain__inherit__graph.svg" width="215" height="320"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -93,8 +94,16 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a node in an <a class="el" href="classlemons_1_1dsp_1_1_engine_chain.html" title="A kind of engine that contains a chain of other Engine objects.">EngineChain</a>.  <a href="structlemons_1_1dsp_1_1_engine_chain_1_1_node.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:a8c824f87e190d825154aaa919925f40f"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1_engine.html#a8c824f87e190d825154aaa919925f40f">ValueType</a> = SampleType</td></tr>
+<tr class="memdesc:a8c824f87e190d825154aaa919925f40f"><td class="mdescLeft">&#160;</td><td class="mdescRight">The engine's sample type is publicly accessible via this typedef.  <a href="classlemons_1_1dsp_1_1_engine.html#a8c824f87e190d825154aaa919925f40f">More...</a><br /></td></tr>
+<tr class="separator:a8c824f87e190d825154aaa919925f40f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:a39baec401a59d5e5a97a2f23d0bf08fd"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1_engine_chain.html#a39baec401a59d5e5a97a2f23d0bf08fd">~EngineChain</a> ()=default</td></tr>
+<tr class="separator:a39baec401a59d5e5a97a2f23d0bf08fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afad0718056f6ffd6913adf6bcfcf4f79"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1_engine_chain.html#afad0718056f6ffd6913adf6bcfcf4f79">addNode</a> (<a class="el" href="structlemons_1_1dsp_1_1_engine_chain_1_1_node.html">Node</a> *newNode)</td></tr>
 <tr class="memdesc:afad0718056f6ffd6913adf6bcfcf4f79"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a node to the end of the chain.  <a href="classlemons_1_1dsp_1_1_engine_chain.html#afad0718056f6ffd6913adf6bcfcf4f79">More...</a><br /></td></tr>
 <tr class="separator:afad0718056f6ffd6913adf6bcfcf4f79"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -194,8 +203,63 @@ Public Member Functions</h2></td></tr>
 class lemons::dsp::EngineChain&lt; SampleType &gt;</h3>
 
 <p>A kind of engine that contains a chain of other <a class="el" href="classlemons_1_1dsp_1_1_engine.html" title="Base class for an audio engine.">Engine</a> objects. </p>
-<p>Each node in the chain must inherit from AudioEngine, and each node has an individual bypass setting. The latency of the entire chain will be the latency of the node with the greatest individual latency. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="classlemons_1_1dsp_1_1_engine.html" title="Base class for an audio engine.">Engine</a> </dd></dl>
-</div><h2 class="groupheader">Member Function Documentation</h2>
+<p>Each node in the chain must inherit from AudioEngine, and each node has an individual bypass setting. The latency of the entire chain will be the latency of the node with the greatest individual latency. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="classlemons_1_1dsp_1_1_engine.html" title="Base class for an audio engine.">Engine</a>, <a class="el" href="classlemons_1_1dsp_1_1_built_engine_chain.html" title="An EngineChain that you can pass templated Engine types to and it will instantiate them all and add t...">BuiltEngineChain</a> </dd></dl>
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="a8c824f87e190d825154aaa919925f40f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8c824f87e190d825154aaa919925f40f">&#9670;&nbsp;</a></span>ValueType</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename SampleType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="classlemons_1_1dsp_1_1_engine.html">lemons::dsp::Engine</a>&lt; SampleType &gt;::<a class="el" href="classlemons_1_1dsp_1_1_engine.html#a8c824f87e190d825154aaa919925f40f">ValueType</a> =  SampleType</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The engine's sample type is publicly accessible via this typedef. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a39baec401a59d5e5a97a2f23d0bf08fd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a39baec401a59d5e5a97a2f23d0bf08fd">&#9670;&nbsp;</a></span>~EngineChain()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename SampleType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="classlemons_1_1dsp_1_1_engine_chain.html">lemons::dsp::EngineChain</a>&lt; SampleType &gt;::~<a class="el" href="classlemons_1_1dsp_1_1_engine_chain.html">EngineChain</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
 <a id="afad0718056f6ffd6913adf6bcfcf4f79"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#afad0718056f6ffd6913adf6bcfcf4f79">&#9670;&nbsp;</a></span>addNode()</h2>
 
@@ -1196,7 +1260,7 @@ template&lt;typename SampleType &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Dec 27 2021 00:47:37 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Dec 27 2021 23:05:11 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

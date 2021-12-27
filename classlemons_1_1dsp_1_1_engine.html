@@ -68,6 +68,7 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="classlemons_1_1dsp_1_1_engine-members.html">List of all members</a>  </div>
@@ -87,6 +88,12 @@ $(function() {
 </div>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:a8c824f87e190d825154aaa919925f40f"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1_engine.html#a8c824f87e190d825154aaa919925f40f">ValueType</a> = SampleType</td></tr>
+<tr class="memdesc:a8c824f87e190d825154aaa919925f40f"><td class="mdescLeft">&#160;</td><td class="mdescRight">The engine's sample type is publicly accessible via this typedef.  <a href="classlemons_1_1dsp_1_1_engine.html#a8c824f87e190d825154aaa919925f40f">More...</a><br /></td></tr>
+<tr class="separator:a8c824f87e190d825154aaa919925f40f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:aff2070d0265ee64b3377e7551525efa6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1_engine.html#aff2070d0265ee64b3377e7551525efa6">Engine</a> ()=default</td></tr>
@@ -153,7 +160,26 @@ class lemons::dsp::Engine&lt; SampleType &gt;</h3>
 
 <p>Base class for an audio engine. </p>
 <p>This should be a self-contained signal chain. This class handles pop-preventing between succesive bypassed/unbypassed frames, and provides several options for top-level <a class="el" href="classlemons_1_1dsp_1_1_engine.html#a48b37b72835d34fc060a1010a1fe2499" title="Processes the audio engine with in-place audio I/O and MIDI.">process()</a> function APIs while allowing you to implement only one internal <a class="el" href="classlemons_1_1dsp_1_1_engine.html#a20e2f81d84b335b507e34eb129e87820" title="Your subclass should implement this with your audio algorithm&#39;s rendering logic.">renderBlock()</a> function. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="classlemons_1_1dsp_1_1_latency_engine.html" title="Base class for audio engines that require latency (ie, a consistent block size) for their processing.">LatencyEngine</a> </dd></dl>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="a8c824f87e190d825154aaa919925f40f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8c824f87e190d825154aaa919925f40f">&#9670;&nbsp;</a></span>ValueType</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename SampleType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="classlemons_1_1dsp_1_1_engine.html">lemons::dsp::Engine</a>&lt; SampleType &gt;::<a class="el" href="classlemons_1_1dsp_1_1_engine.html#a8c824f87e190d825154aaa919925f40f">ValueType</a> =  SampleType</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The engine's sample type is publicly accessible via this typedef. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="aff2070d0265ee64b3377e7551525efa6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aff2070d0265ee64b3377e7551525efa6">&#9670;&nbsp;</a></span>Engine()</h2>
 
@@ -793,7 +819,7 @@ template&lt;typename SampleType &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Dec 27 2021 00:47:37 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Dec 27 2021 23:05:11 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

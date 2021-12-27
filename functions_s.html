@@ -66,8 +66,18 @@ $(function() {
 <div class="textblock">Here is a list of all class members with links to the classes they belong to:</div>
 
 <h3><a id="index_s"></a>- s -</h3><ul>
+<li>saveAllToValueTree()
+: <a class="el" href="structlemons_1_1plugin_1_1_program_manager.html#a9a8e111725fb685754c9bd0396cd17a4">lemons::plugin::ProgramManager</a>
+</li>
+<li>saveCustomStateData()
+: <a class="el" href="classlemons_1_1plugin_1_1_state.html#a511869edeaeb554f18d88b70bbe21088">lemons::plugin::State</a>
+</li>
+<li>saveState()
+: <a class="el" href="classlemons_1_1plugin_1_1_processor_base.html#a1411aae1d03c1aba62936b208ef0a16b">lemons::plugin::ProcessorBase</a>
+</li>
 <li>saveToValueTree()
 : <a class="el" href="classlemons_1_1plugin_1_1_parameter.html#a421551f74a17bc31fa3488aae8407a4c">lemons::plugin::Parameter</a>
+, <a class="el" href="structlemons_1_1plugin_1_1_program.html#ab77962b6326f78647c279a3f6095764e">lemons::plugin::Program</a>
 , <a class="el" href="classlemons_1_1plugin_1_1_state.html#a746b2efd2b9ce30e5eab88a69c6a59db">lemons::plugin::State</a>
 , <a class="el" href="classlemons_1_1plugin_1_1_typed_parameter.html#abd570ac36a0393b2a12a30a8d6952387">lemons::plugin::TypedParameter&lt; ValueType &gt;</a>
 </li>
@@ -79,6 +89,9 @@ $(function() {
 </li>
 <li>ScopedDisabler()
 : <a class="el" href="structlemons_1_1_device_rotation_1_1_scoped_disabler.html#a9bfc785ca38bf274cfb5fe55b235a161">lemons::DeviceRotation::ScopedDisabler</a>
+</li>
+<li>ScopedMidiBufferAlias()
+: <a class="el" href="structlemons_1_1midi_1_1_scoped_midi_buffer_alias.html#ae7060562fb9777dd432a23cf448cac89">lemons::midi::ScopedMidiBufferAlias</a>
 </li>
 <li>ScopedWaitCursor()
 : <a class="el" href="structlemons_1_1gui_1_1_scoped_wait_cursor.html#a7c14d3032c6540c445b95d5be76ab76a">lemons::gui::ScopedWaitCursor</a>
@@ -272,7 +285,7 @@ $(function() {
 : <a class="el" href="classlemons_1_1spline_1_1_editor.html#a8d046d58e4a4bee4c97ead87f35ecb6a">lemons::spline::Editor</a>
 </li>
 <li>setSensitivity()
-: <a class="el" href="structlemons_1_1midi_1_1_velocity_helper.html#a21b24a158808039e7812e80f5f83bdc2">lemons::midi::VelocityHelper</a>
+: <a class="el" href="structlemons_1_1midi_1_1_velocity_helper.html#a21ab77678a01a8567bc0cb7bf9d0a8c0">lemons::midi::VelocityHelper</a>
 </li>
 <li>setSize()
 : <a class="el" href="classlemons_1_1dsp_1_1_audio_and_midi_f_i_f_o.html#a4edd7711409ec84103fd5cb81b47df1a">lemons::dsp::AudioAndMidiFIFO&lt; SampleType &gt;</a>
@@ -314,6 +327,9 @@ $(function() {
 <li>Shifter()
 : <a class="el" href="classlemons_1_1dsp_1_1psola_1_1_shifter.html#a2e3cd2a236f20d876b79789d81866ba4">lemons::dsp::psola::Shifter&lt; SampleType &gt;</a>
 </li>
+<li>shouldChopAroundMidiMessage()
+: <a class="el" href="classlemons_1_1midi_1_1_chopping_processor.html#aa5093954f0601f45d5442fb70b88282d">lemons::midi::ChoppingProcessor&lt; SampleType &gt;</a>
+</li>
 <li>shouldFilterNote()
 : <a class="el" href="classlemons_1_1midi_1_1_mts_client.html#a2cc6e40d495b2716bcd3aa4a70aa64e8">lemons::midi::MtsClient</a>
 </li>
@@ -335,7 +351,7 @@ $(function() {
 : <a class="el" href="classlemons_1_1gui_1_1_slider_base.html#adf590f6a1d1c75ed0e8dbc67d6284724">lemons::gui::SliderBase</a>
 </li>
 <li>SmoothedGain()
-: <a class="el" href="classlemons_1_1dsp_1_1_f_x_1_1_smoothed_gain.html#af47c7b82ba55f1eebe16eb7c5f94bf5c">lemons::dsp::FX::SmoothedGain&lt; SampleType, channels &gt;</a>
+: <a class="el" href="classlemons_1_1dsp_1_1_f_x_1_1_smoothed_gain.html#a793fe0ab3a62e6cb9e81d5af115bf507">lemons::dsp::FX::SmoothedGain&lt; SampleType, channels &gt;</a>
 </li>
 <li>softPedal
 : <a class="el" href="classlemons_1_1dsp_1_1_synth_base.html#a99921455c45ede8e43c3dcdc30ee0ff7">lemons::dsp::SynthBase&lt; SampleType &gt;</a>
@@ -350,7 +366,8 @@ $(function() {
 : <a class="el" href="classlemons_1_1_device_motion.html#ab6d611e59ab04698ab7e7ff0666e63c0">lemons::DeviceMotion</a>
 </li>
 <li>state
-: <a class="el" href="classlemons_1_1plugin_1_1_g_u_i.html#ae519503620b63caf631fe504d2c22020">lemons::plugin::GUI</a>
+: <a class="el" href="classlemons_1_1plugin_1_1_g_u_i.html#aae19c84eb95b93b6b1cab498bdd5ebec">lemons::plugin::GUI&lt; StateType, &gt;</a>
+, <a class="el" href="structlemons_1_1plugin_1_1_program.html#a79d919546a6a365b319ca5061fa97c65">lemons::plugin::Program</a>
 </li>
 <li>stop()
 : <a class="el" href="classlemons_1_1_device_motion.html#a2dcc14bb19993a58bb04f4003622ae78">lemons::DeviceMotion</a>
@@ -383,7 +400,7 @@ $(function() {
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Dec 27 2021 00:47:38 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Dec 27 2021 23:05:11 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

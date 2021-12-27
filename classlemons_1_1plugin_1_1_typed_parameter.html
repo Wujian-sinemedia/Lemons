@@ -172,9 +172,9 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a346ce12afd9df2e4b7bc14470cdce2fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6a858a5c7ffbbc6e60da088a2c1373d9"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_typed_parameter.html#a6a858a5c7ffbbc6e60da088a2c1373d9">loadFromValueTree</a> (const ValueTree &amp;tree) final</td></tr>
 <tr class="separator:a6a858a5c7ffbbc6e60da088a2c1373d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a06e51ea134d132a97a30da7b699f4dd5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#a06e51ea134d132a97a30da7b699f4dd5">processNewControllerMessage</a> (int controllerNumber, int controllerValue)</td></tr>
-<tr class="memdesc:a06e51ea134d132a97a30da7b699f4dd5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Call this function with each MIDI CC message your plugin recieves, and the <a class="el" href="classlemons_1_1plugin_1_1_parameter.html" title="A plugin parameter class.">Parameter</a> class will automatically update itself with changes in the appropriate controller, if a mapping is active.  <a href="classlemons_1_1plugin_1_1_parameter.html#a06e51ea134d132a97a30da7b699f4dd5">More...</a><br /></td></tr>
-<tr class="separator:a06e51ea134d132a97a30da7b699f4dd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af4b036bf5f1e1dcb75d3289ccf3f8f5b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#af4b036bf5f1e1dcb75d3289ccf3f8f5b">processNewControllerMessage</a> (int controllerNumber, int controllerValue)</td></tr>
+<tr class="memdesc:af4b036bf5f1e1dcb75d3289ccf3f8f5b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Call this function with each MIDI CC message your plugin recieves, and the <a class="el" href="classlemons_1_1plugin_1_1_parameter.html" title="A plugin parameter class.">Parameter</a> class will automatically update itself with changes in the appropriate controller, if a mapping is active.  <a href="classlemons_1_1plugin_1_1_parameter.html#af4b036bf5f1e1dcb75d3289ccf3f8f5b">More...</a><br /></td></tr>
+<tr class="separator:af4b036bf5f1e1dcb75d3289ccf3f8f5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a06ee7850537979ed797fbe016f8700b5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#a06ee7850537979ed797fbe016f8700b5">refreshDefault</a> ()</td></tr>
 <tr class="memdesc:a06ee7850537979ed797fbe016f8700b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the parameter's current value as the default value.  <a href="classlemons_1_1plugin_1_1_parameter.html#a06ee7850537979ed797fbe016f8700b5">More...</a><br /></td></tr>
 <tr class="separator:a06ee7850537979ed797fbe016f8700b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1075,8 +1075,8 @@ template&lt;typename ValueType &gt; </div>
 
 </div>
 </div>
-<a id="a06e51ea134d132a97a30da7b699f4dd5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a06e51ea134d132a97a30da7b699f4dd5">&#9670;&nbsp;</a></span>processNewControllerMessage()</h2>
+<a id="af4b036bf5f1e1dcb75d3289ccf3f8f5b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af4b036bf5f1e1dcb75d3289ccf3f8f5b">&#9670;&nbsp;</a></span>processNewControllerMessage()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1085,7 +1085,7 @@ template&lt;typename ValueType &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void lemons::plugin::Parameter::processNewControllerMessage </td>
+          <td class="memname">bool lemons::plugin::Parameter::processNewControllerMessage </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>controllerNumber</em>, </td>
@@ -1110,6 +1110,7 @@ template&lt;typename ValueType &gt; </div>
 </div><div class="memdoc">
 
 <p>Call this function with each MIDI CC message your plugin recieves, and the <a class="el" href="classlemons_1_1plugin_1_1_parameter.html" title="A plugin parameter class.">Parameter</a> class will automatically update itself with changes in the appropriate controller, if a mapping is active. </p>
+<dl class="section return"><dt>Returns</dt><dd>True if this parameter is mapped to the passed controller number. </dd></dl>
 
 </div>
 </div>
@@ -1528,7 +1529,7 @@ template&lt;typename ValueType &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Dec 27 2021 00:47:38 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Dec 27 2021 23:05:11 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>
