@@ -1,15 +1,15 @@
 /*
  ======================================================================================
- 
+
  ██╗     ███████╗███╗   ███╗ ██████╗ ███╗   ██╗███████╗
  ██║     ██╔════╝████╗ ████║██╔═══██╗████╗  ██║██╔════╝
  ██║     █████╗  ██╔████╔██║██║   ██║██╔██╗ ██║███████╗
  ██║     ██╔══╝  ██║╚██╔╝██║██║   ██║██║╚██╗██║╚════██║
  ███████╗███████╗██║ ╚═╝ ██║╚██████╔╝██║ ╚████║███████║
  ╚══════╝╚══════╝╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝
- 
+
  This file is part of the Lemons open source library and is licensed under the terms of the GNU Public License.
- 
+
  ======================================================================================
  */
 
@@ -158,8 +158,8 @@ void Engine<SampleType>::processInternal (const AudioBuffer<SampleType>& input, 
 template <typename SampleType>
 void Engine<SampleType>::reset()
 {
-    wasBypassedLastCallback = true;
-    onReset();
+	wasBypassedLastCallback = true;
+	onReset();
 }
 
 template <typename SampleType>
@@ -174,15 +174,15 @@ template class Engine<double>;
 
 #if LEMONS_UNIT_TESTS
 
-template<typename SampleType>
+template <typename SampleType>
 void PassThroughEngine<SampleType>::renderBlock (const AudioBuffer<SampleType>& input,
                                                  AudioBuffer<SampleType>&       output,
                                                  MidiBuffer& midiMessages, bool isBypassed)
 {
-    if (isBypassed)
-        output.clear();
-    else
-        buffers::copy (input, output);
+	if (isBypassed)
+		output.clear();
+	else
+		buffers::copy (input, output);
 }
 
 template class PassThroughEngine<float>;

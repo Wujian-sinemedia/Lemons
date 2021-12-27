@@ -1,15 +1,15 @@
 /*
  ======================================================================================
- 
+
  ██╗     ███████╗███╗   ███╗ ██████╗ ███╗   ██╗███████╗
  ██║     ██╔════╝████╗ ████║██╔═══██╗████╗  ██║██╔════╝
  ██║     █████╗  ██╔████╔██║██║   ██║██╔██╗ ██║███████╗
  ██║     ██╔══╝  ██║╚██╔╝██║██║   ██║██║╚██╗██║╚════██║
  ███████╗███████╗██║ ╚═╝ ██║╚██████╔╝██║ ╚████║███████║
  ╚══════╝╚══════╝╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝
- 
+
  This file is part of the Lemons open source library and is licensed under the terms of the GNU Public License.
- 
+
  ======================================================================================
  */
 
@@ -104,10 +104,13 @@ public:
 	    This will return 0 if the engine is unprepared.
 	 */
 	[[nodiscard]] int getBlocksize() const noexcept;
-    
-    /** Call this method to reset the engine, without deallocating resources -- for example, stopping all voices of a synth.
-     */
-    void reset();
+
+	/** Call this method to reset the engine, without deallocating resources -- for example, stopping all voices of a synth.
+	 */
+	void reset();
+
+	/** The engine's sample type is publicly accessible via this typedef. */
+	using ValueType = SampleType;
 
 private:
 	void processInternal (const AudioBuffer<SampleType>& input, AudioBuffer<SampleType>& output, MidiBuffer& midiMessages, bool isBypassed);
@@ -120,11 +123,11 @@ private:
 
 	/** Your subclass may implement this to be informed when the engine is released. */
 	virtual void released() { }
-    
-    /** Your subclass may implement this to be informed when reset() is called.
-        @attention You should NOT deallocate any resources in here, as process() may be called again before another call to prepare()!
-     */
-    virtual void onReset() { }
+
+	/** Your subclass may implement this to be informed when reset() is called.
+	    @attention You should NOT deallocate any resources in here, as process() may be called again before another call to prepare()!
+	 */
+	virtual void onReset() { }
 
 	MidiBuffer dummyMidiBuffer;
 	bool       wasBypassedLastCallback { true };
@@ -139,12 +142,12 @@ private:
 
 #if LEMONS_UNIT_TESTS
 
-template<typename SampleType>
+template <typename SampleType>
 class PassThroughEngine : public Engine<SampleType>
 {
-    void renderBlock (const AudioBuffer<SampleType>& input,
-                      AudioBuffer<SampleType>&       output,
-                      MidiBuffer& midiMessages, bool isBypassed) final;
+	void renderBlock (const AudioBuffer<SampleType>& input,
+	                  AudioBuffer<SampleType>&       output,
+	                  MidiBuffer& midiMessages, bool isBypassed) final;
 };
 
 #endif

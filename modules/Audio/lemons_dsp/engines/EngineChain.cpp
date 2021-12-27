@@ -1,15 +1,15 @@
 /*
  ======================================================================================
- 
+
  ██╗     ███████╗███╗   ███╗ ██████╗ ███╗   ██╗███████╗
  ██║     ██╔════╝████╗ ████║██╔═══██╗████╗  ██║██╔════╝
  ██║     █████╗  ██╔████╔██║██║   ██║██╔██╗ ██║███████╗
  ██║     ██╔══╝  ██║╚██╔╝██║██║   ██║██║╚██╗██║╚════██║
  ███████╗███████╗██║ ╚═╝ ██║╚██████╔╝██║ ╚████║███████║
  ╚══════╝╚══════╝╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝
- 
+
  This file is part of the Lemons open source library and is licensed under the terms of the GNU Public License.
- 
+
  ======================================================================================
  */
 
@@ -128,8 +128,8 @@ void EngineChain<SampleType>::latencyChanged (int newLatency)
 template <typename SampleType>
 void EngineChain<SampleType>::onReset()
 {
-    for (auto* node : nodes)
-        node->engine->reset();
+	for (auto* node : nodes)
+		node->engine->reset();
 }
 
 template <typename SampleType>

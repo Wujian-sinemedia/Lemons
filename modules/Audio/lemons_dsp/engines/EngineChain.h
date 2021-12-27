@@ -1,15 +1,15 @@
 /*
  ======================================================================================
- 
+
  ██╗     ███████╗███╗   ███╗ ██████╗ ███╗   ██╗███████╗
  ██║     ██╔════╝████╗ ████║██╔═══██╗████╗  ██║██╔════╝
  ██║     █████╗  ██╔████╔██║██║   ██║██╔██╗ ██║███████╗
  ██║     ██╔══╝  ██║╚██╔╝██║██║   ██║██║╚██╗██║╚════██║
  ███████╗███████╗██║ ╚═╝ ██║╚██████╔╝██║ ╚████║███████║
  ╚══════╝╚══════╝╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝
- 
+
  This file is part of the Lemons open source library and is licensed under the terms of the GNU Public License.
- 
+
  ======================================================================================
  */
 
@@ -22,21 +22,20 @@ namespace lemons::dsp
 /** A kind of engine that contains a chain of other Engine objects.
     Each node in the chain must inherit from AudioEngine, and each node has an individual bypass setting.
     The latency of the entire chain will be the latency of the node with the greatest individual latency.
-    @see Engine
+    @see Engine, BuiltEngineChain
  */
 template <typename SampleType>
-class EngineChain final : public LatencyEngine<SampleType>
+class EngineChain : public LatencyEngine<SampleType>
 {
 public:
+
+	virtual ~EngineChain() = default;
 
 	/** Represents a node in an EngineChain. */
 	struct Node final
 	{
 		/** Creates a Node holding the given Engine object. */
 		explicit Node (std::unique_ptr<Engine<SampleType>> engineToUse);
-
-		/** Destructor. */
-		~Node() = default;
 
 		/** Returns the managed Engine object. */
 		[[nodiscard]] Engine<SampleType>& getEngine();
@@ -90,7 +89,7 @@ public:
 	template <typename EngineType, LEMONS_MUST_INHERIT_FROM (EngineType, Engine<SampleType>)>
 	[[nodiscard]] EngineType* getEngineOfType()
 	{
-		for (auto* node : nodes)
+		for (const auto* node : nodes)
 			if (auto* engine = dynamic_cast<EngineType*> (node->engine.get()))
 				return engine;
 
@@ -225,12 +224,42 @@ private:
 	void latencyChanged (int newLatency) final;
 
 	void onRelease() final;
-    
-    void onReset() final;
+
+	void onReset() final;
 
 	[[nodiscard]] int getNextNodeIndex() const;
 
 	juce::OwnedArray<Node> nodes;
+};
+
+
+/** An EngineChain that you can pass templated Engine types to and it will instantiate them all and add them as nodes to the chain for you.
+    For example:
+    @code
+    template<typename SampleType>
+    struct MyFirstEngine : pubic Engine<SampleType>
+    {
+    };
+
+    template<typename SampleType>
+    struct MySecondEngine : pubic Engine<SampleType>
+    {
+    };
+
+    using MyChain = BuiltEngineChain<float, MyFirstEngine, MySecondEngine>;
+    @endcode
+    @tparam SampleType The floating-point type that will be used for all the nodes.
+    @tparam EngineTypes A list of unspecialized templated types. Each one of these types must inherit from Engine<SampleType>.
+    @see Engine, EngineChain
+ */
+template <typename SampleType, template <typename T> typename... EngineTypes>
+class BuiltEngineChain final : public EngineChain<SampleType>
+{
+public:
+	BuiltEngineChain()
+	{
+		(this->template createAndAddNode<EngineTypes<SampleType>>(), ...);
+	}
 };
 
 }  // namespace lemons::dsp
