@@ -27,7 +27,7 @@ namespace lemons::plugin
     {
         // implement your audio processing here...
     };
- 
+
     struct MyState : plugin::State
     {
         // add your parameters here...
@@ -40,9 +40,7 @@ namespace lemons::plugin
     @tparam StateType The type of the plugin's state object. This type must inherit from State.
     @see ProcessorBase, Engine, ProcessorWithEditor
  */
-template <template <typename SampleType> class EngineType, typename StateType,
-            LEMONS_MUST_INHERIT_FROM (EngineType<float>, dsp::Engine<float>),
-            LEMONS_MUST_INHERIT_FROM (StateType, State)>
+template <template <typename SampleType> class EngineType, typename StateType, LEMONS_MUST_INHERIT_FROM (EngineType<float>, dsp::Engine<float>), LEMONS_MUST_INHERIT_FROM (StateType, State)>
 class Processor : public ProcessorBase
 {
 public:
@@ -52,11 +50,11 @@ public:
 	    : ProcessorBase (floatEngine, doubleEngine, pluginState, busesLayout, attributes)
 	{
 	}
-    
+
 protected:
-    using PluginStateType = StateType;
-    
-    StateType pluginState;
+	using PluginStateType = StateType;
+
+	StateType pluginState;
 
 private:
 	EngineType<float>  floatEngine;
@@ -74,7 +72,7 @@ private:
     {
         // implement your audio processing here...
     };
- 
+
     struct MyState : plugin::State
     {
         // add your parameters here...
@@ -96,8 +94,7 @@ private:
     @tparam ComponentType The type of component for your plugin's editor to display. This type must inherit from PluginGUI.
     @see Processor, ProcessorBase, Engine
  */
-template <class ProcessorType, class ComponentType,
-            LEMONS_MUST_INHERIT_FROM (ProcessorType, ProcessorBase)>
+template <class ProcessorType, class ComponentType, LEMONS_MUST_INHERIT_FROM (ProcessorType, ProcessorBase)>
 struct ProcessorWithEditor final : ProcessorType
 {
 	using ProcessorType::ProcessorType;
@@ -113,3 +110,12 @@ struct ProcessorWithEditor final : ProcessorType
 };
 
 }  // namespace lemons::plugin
+
+
+/** A handy macro to define Juce's createPluginFilter() function for you; simply hand this macro the fully-specialized type of your plugin's processor.
+ */
+#define LEMONS_DEFINE_PLUGIN_CREATOR(ProcessorClass)       \
+  juce::AudioProcessor* JUCE_CALLTYPE createPluginFilter() \
+  {                                                        \
+	return new ProcessorClass;                             \
+  }
