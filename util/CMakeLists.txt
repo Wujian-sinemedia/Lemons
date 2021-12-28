@@ -18,5 +18,3 @@ endif()
 if (LEMONS_BUILD_UTILS)
 	add_subdirectory (CommandLineUtils)
 endif()
-
-add_subdirectory (psola_test)
