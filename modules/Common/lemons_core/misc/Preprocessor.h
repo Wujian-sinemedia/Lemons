@@ -67,15 +67,7 @@ static_assert (! is_specialization<std::vector<int>, std::list>(), "is_specializ
     template < class VectorType, LEMONS_MUST_BE_SPECIALIZATION(VectorType, std::vector) >
     class SomeClass { };
     @endcode
-    With the above code, instantiating
-    @code
-    SomeClass< std::vector<int> >
-    @endcode
-    will succeed, and attempting to instantiate
-    @code
-    SomeClass< std::list<int> >;
-    @endcode
-    will throw a compile-time error. \n
+    With the above code, instantiating @code SomeClass< std::vector<int> > @endcode will succeed, and attempting to instantiate @code SomeClass< std::list<int> >; @endcode will throw a compile-time error. \n
     Note that the first argument to this macro should be a fully-specialized type, and the second argument to this macro must be an unspecialized template!
  */
 #define LEMONS_MUST_BE_SPECIALIZATION(classToTest, requiredTemplate) \

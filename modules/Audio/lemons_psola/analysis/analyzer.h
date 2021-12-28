@@ -48,7 +48,9 @@ public:
 	 */
 	void analyzeInput (const SampleType* inputAudio, int numSamples);
 
-	/** Returns the latency in samples of the PSOLA algorithm. The latency is the same as the latency of the analyzer's internal PitchDetector object, so you can see that documentation for more details. */
+	/** Returns the latency in samples of the PSOLA algorithm. The latency is the same as the latency of the analyzer's internal PitchDetector object, so you can see that documentation for more details.
+	    @see setMinInputFreq(), dsp::PitchDetector
+	 */
 	[[nodiscard]] int getLatencySamples() const noexcept;
 
 	/** Sets the samplerate, and informs any Shifter objects that are using this Analyzer.
@@ -60,6 +62,9 @@ public:
 	    @returns The new latency, in samples, of the PSOLA algorithm with the new minimum frequency.
 	 */
 	int setMinInputFreq (int minFreqHz);
+
+	/** Resets the analyzer to its initial state, without releasing any resources. This also calls reset() on all Shifter objects using this Analyzer. */
+	void reset();
 
 	/** Releases all resources used by the Analyzer object. This also calls releaseResources() on all Shifter objects using this Analyzer. */
 	void releaseResources();
@@ -85,7 +90,7 @@ private:
 
 		[[nodiscard]] int getOrigStart() const noexcept;
 
-		void newBlockStarting (int last_blocksize);
+		void newBlockStarting (int last_blocksize) noexcept;
 
 		void storeNewGrain (const SampleType* origSamples, int startIndex, const SampleType* windowSamples, int numSamples);
 
@@ -110,17 +115,13 @@ private:
 	PitchDetector<SampleType> pitchDetector;
 	PeakFinder<SampleType>    peakFinder;
 
-	float currentPeriod { 0.f };
-
 	Array<SampleType> window;
 
 	juce::OwnedArray<Grain> grains;
 
-	int lastBlocksize { 0 };
+	int lastBlocksize { 0 }, lastFrameGrainSize { 0 };
 
 	double samplerate { 0. };
-
-	Array<Shifter<SampleType>*> shifters;
 
 	juce::Random random;
 
@@ -128,7 +129,7 @@ private:
 
 	Array<int> incompleteGrainsFromLastFrame;
 
-	int lastFrameGrainSize { 0 };
+	Array<Shifter<SampleType>*> shifters;
 };
 
 }  // namespace lemons::dsp::psola

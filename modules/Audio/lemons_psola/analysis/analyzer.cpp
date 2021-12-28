@@ -54,42 +54,54 @@ void Analyzer<SampleType>::analyzeInput (const SampleType* inputAudio, int numSa
 	for (auto* shifter : shifters)
 		shifter->newBlockStarting();
 
-	currentPeriod = [&]() -> float
+	if (! incompleteGrainsFromLastFrame.isEmpty())
+	{
+		makeWindow (lastFrameGrainSize);
+
+		const auto* prevFrameSamples = prevFrame.getReadPointer (0);
+		const auto* windowSamples    = window.getRawDataPointer();
+
+		for (const auto grainStartInLastFrame : incompleteGrainsFromLastFrame)
+		{
+			jassert (lastFrameGrainSize > 0 && lastBlocksize > 0);
+
+			const auto samplesFromLastFrame = lastBlocksize - grainStartInLastFrame;
+
+			jassert (samplesFromLastFrame > 0);
+
+			getGrainToStoreIn().storeNewGrain (prevFrameSamples, grainStartInLastFrame, samplesFromLastFrame,
+			                                   inputAudio, lastFrameGrainSize - samplesFromLastFrame,
+			                                   windowSamples, lastFrameGrainSize, -grainStartInLastFrame);
+		}
+
+		incompleteGrainsFromLastFrame.clearQuick();
+	}
+
+	const auto currentPeriod = [&]() -> float
 	{
 		const auto detectedPeriod = pitchDetector.detectPeriod (inputAudio, numSamples);
 
 		if (detectedPeriod > 0.f)
 			return detectedPeriod;
 
-		return static_cast<float> (random.nextInt ({ pitchDetector.getMinHz(), numSamples / 2 }));
+		const auto maxPeriod = std::min (math::periodInSamples (samplerate, pitchDetector.getMinHz()), numSamples / 2);
+		const auto minPeriod = std::min (numSamples / 4, maxPeriod - 1);
+
+		return static_cast<float> (random.nextInt ({ minPeriod, maxPeriod + 1 }));
 	}();
 
 	jassert (currentPeriod > 0.f && currentPeriod <= numSamples / 2);
-
-	if (! incompleteGrainsFromLastFrame.isEmpty())
-		makeWindow (lastFrameGrainSize);
-
-	for (const auto grainStartInLastFrame : incompleteGrainsFromLastFrame)
-	{
-		jassert (lastFrameGrainSize > 0);
-
-		const auto samplesFromLastFrame = lastBlocksize - grainStartInLastFrame;
-
-		getGrainToStoreIn().storeNewGrain (prevFrame.getReadPointer (0), grainStartInLastFrame, samplesFromLastFrame,
-		                                   inputAudio, lastFrameGrainSize - samplesFromLastFrame,
-		                                   window.getRawDataPointer(), lastFrameGrainSize, -grainStartInLastFrame);
-	}
-
-	incompleteGrainsFromLastFrame.clearQuick();
 
 	const auto grainSize = juce::roundToInt (currentPeriod * 2.f);
 
 	makeWindow (grainSize);
 
+	const auto* windowSamples    = window.getRawDataPointer();
+	const auto* prevFrameSamples = prevFrame.getReadPointer (0);
+
 	for (const auto peak : peakFinder.findPeaks (inputAudio, numSamples, currentPeriod))
 	{
 		const auto start = juce::roundToInt (static_cast<float> (peak) - currentPeriod);
-		const auto end   = juce::roundToInt (static_cast<float> (peak) + currentPeriod);
 
 		if (start < 0)
 		{
@@ -99,12 +111,14 @@ void Analyzer<SampleType>::analyzeInput (const SampleType* inputAudio, int numSa
 			const auto samplesFromPrevFrame = grainSize + start;
 			jassert (samplesFromPrevFrame > 0);
 
-			getGrainToStoreIn().storeNewGrain (prevFrame.getReadPointer (0), lastBlocksize - samplesFromPrevFrame, samplesFromPrevFrame,
+			getGrainToStoreIn().storeNewGrain (prevFrameSamples, lastBlocksize - samplesFromPrevFrame, samplesFromPrevFrame,
 			                                   inputAudio, grainSize - samplesFromPrevFrame,
-			                                   window.getRawDataPointer(), grainSize, start);
+			                                   windowSamples, grainSize, start);
 
 			continue;
 		}
+
+		const auto end = juce::roundToInt (static_cast<float> (peak) + currentPeriod);
 
 		if (end >= numSamples)
 		{
@@ -114,7 +128,7 @@ void Analyzer<SampleType>::analyzeInput (const SampleType* inputAudio, int numSa
 
 		jassert (end - start == grainSize);
 
-		getGrainToStoreIn().storeNewGrain (inputAudio, start, window.getRawDataPointer(), grainSize);
+		getGrainToStoreIn().storeNewGrain (inputAudio, start, windowSamples, grainSize);
 	}
 
 	juce::FloatVectorOperations::copy (prevFrame.getWritePointer (0), inputAudio, numSamples);
@@ -136,7 +150,12 @@ typename Analyzer<SampleType>::Grain& Analyzer<SampleType>::getGrainToStoreIn()
 template <typename SampleType>
 inline void Analyzer<SampleType>::makeWindow (int size)
 {
+	if (window.size() == size)
+		return;
+
 	window.clearQuick();
+
+	jassert (size > 1);
 
 	// Hanning window function
 	for (int i = 0; i < size; ++i)
@@ -146,6 +165,8 @@ inline void Analyzer<SampleType>::makeWindow (int size)
 
 		window.set (i, static_cast<SampleType> (0.5 - 0.5 * cos2));
 	}
+
+	jassert (window.size() == size);
 }
 
 template <typename SampleType>
@@ -161,9 +182,11 @@ typename Analyzer<SampleType>::Grain& Analyzer<SampleType>::getClosestGrain (int
 	{
 		if (grain->getSize() == 0)
 			continue;
-        
-		const auto currentDist = placeInBlock - grain->getOrigStart();
-        
+
+		const auto currentDist = std::abs (grain->getOrigStart() - placeInBlock);
+
+		[[unlikely]] if (currentDist == 0) return *grain;
+
 		if (currentDist < distance)
 		{
 			distance = currentDist;
@@ -211,7 +234,7 @@ int Analyzer<SampleType>::setMinInputFreq (int minFreqHz)
 template <typename SampleType>
 inline int Analyzer<SampleType>::latencyChanged()
 {
-	const auto latency = getLatencySamples();
+	const auto latency = pitchDetector.getLatencySamples();
 
 	peakFinder.prepare (latency);
 	window.ensureStorageAllocated (latency);
@@ -226,9 +249,18 @@ inline int Analyzer<SampleType>::latencyChanged()
 		grain->reserveSize (latency);
 
 	for (auto* shifter : shifters)
-		shifter->latencyChanged();
+		shifter->latencyChanged (latency);
 
 	return latency;
+}
+
+template <typename SampleType>
+void Analyzer<SampleType>::reset()
+{
+	peakFinder.reset();
+
+	for (auto* shifter : shifters)
+		shifter->reset();
 }
 
 template <typename SampleType>
@@ -241,14 +273,13 @@ void Analyzer<SampleType>::releaseResources()
 
 	samplerate         = 0.;
 	lastBlocksize      = 0;
-	currentPeriod      = 0.f;
 	lastFrameGrainSize = 0;
 
 	prevFrame.setSize (0, 0);
 
-	grains.clearQuick (true);
-	window.clearQuick();
-	incompleteGrainsFromLastFrame.clearQuick();
+	grains.clear();
+	window.clear();
+	incompleteGrainsFromLastFrame.clear();
 }
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
@@ -299,12 +330,15 @@ void Analyzer<SampleType>::Grain::storeNewGrain (const SampleType* origSamples1,
 }
 
 template <typename SampleType>
-void Analyzer<SampleType>::Grain::newBlockStarting (int last_blocksize)
+void Analyzer<SampleType>::Grain::newBlockStarting (int last_blocksize) noexcept
 {
 	if (getReferenceCount() > 0)
 		origStartIndex -= last_blocksize;
 	else
-		grainSize = 0;
+	{
+		grainSize      = 0;
+		origStartIndex = 0;
+	}
 }
 
 template <typename SampleType>

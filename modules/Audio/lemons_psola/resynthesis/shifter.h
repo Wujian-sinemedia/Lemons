@@ -34,21 +34,24 @@ public:
 	~Shifter();
 
 	/** Sets the pitch, in Hz, of the shifter's output.
-	    Note that before calling this, you must set the samplerate of the algorithm using Analyzer::setSamplerate().
+	    Note that before calling this, you must set the samplerate of the algorithm using Analyzer::setSamplerate()!
 	 */
-	void setPitch (int pitchHz);
+	void setPitch (int pitchHz) noexcept;
 
 	/** Returns the next block of repitched samples from the shifter. */
 	void getSamples (AudioBuffer<SampleType>& output);
 
 	/** Returns the next block of repitched samples from the shifter. */
 	void getSamples (SampleType* output, int numSamples);
-    
-    /** Skips a number of samples in the shifter's output (ie, for when it is bypassed). */
-    void skipSamples (int numSamples);
+
+	/** Skips a number of samples in the shifter's output (ie, for when it is bypassed). */
+	void skipSamples (int numSamples);
 
 	/** Returns the next repitched sample from the shifter. */
-	SampleType getNextSample();
+	[[nodiscard]] SampleType getNextSample();
+
+	/** Resets the shifter to its initial state, without releasing any resources. Note that this is called for you if you call Analyzer::reset(). */
+	void reset() noexcept;
 
 	/** Releases all the resources used by the Shifter. Note that this is called for you if you call Analyzer::releaseResources(). */
 	void releaseResources();
@@ -56,11 +59,11 @@ public:
 private:
 	friend class Analyzer<SampleType>;
 
-	void newBlockStarting();
+	void newBlockStarting() noexcept;
 
-	void samplerateChanged();
+	void samplerateChanged() noexcept;
 
-	void latencyChanged();
+	void latencyChanged (int newLatency);
 
 	/*-----------------------------------------------------------------------------------*/
 
@@ -70,13 +73,13 @@ private:
 
 		~Grain();
 
-		[[nodiscard]] SampleType getNextSample();
+		[[nodiscard]] SampleType getNextSample() noexcept;
 
-		[[nodiscard]] bool isActive() const;
+		[[nodiscard]] bool isActive() const noexcept;
 
-		void clearGrain();
+		void clearGrain() noexcept;
 
-		void startNewGrain (AnalysisGrain& analysisGrainToUse);
+		void startNewGrain (AnalysisGrain& analysisGrainToUse) noexcept;
 
 	private:
 		AnalysisGrain* analysisGrain { nullptr };

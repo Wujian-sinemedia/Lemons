@@ -30,19 +30,19 @@ Shifter<SampleType>::~Shifter()
 }
 
 template <typename SampleType>
-void Shifter<SampleType>::setPitch (int pitchHz)
+void Shifter<SampleType>::setPitch (int pitchHz) noexcept
 {
 	const auto samplerate = analyzer.samplerate;
 
 	// Did you call Analyzer::setSamplerate() first?
 	jassert (samplerate > 0 && pitchHz > 0);
 
-	targetPeriod  = math::periodInSamples (samplerate, static_cast<float> (pitchHz));
+	targetPeriod  = math::periodInSamples (samplerate, static_cast<decltype (targetPeriod)> (pitchHz));
 	targetPitchHz = pitchHz;
 }
 
 template <typename SampleType>
-void Shifter<SampleType>::newBlockStarting()
+void Shifter<SampleType>::newBlockStarting() noexcept
 {
 	placeInBlock = 0;
 }
@@ -63,8 +63,8 @@ void Shifter<SampleType>::getSamples (SampleType* output, int numSamples)
 template <typename SampleType>
 void Shifter<SampleType>::skipSamples (int numSamples)
 {
-    for (int i = 0; i < numSamples; ++i)
-        getNextSample();
+	for (int i = 0; i < numSamples; ++i)
+		[[maybe_unused]] const auto sample = getNextSample();
 }
 
 template <typename SampleType>
@@ -101,26 +101,34 @@ typename Shifter<SampleType>::Grain& Shifter<SampleType>::getGrainToStart()
 }
 
 template <typename SampleType>
-void Shifter<SampleType>::samplerateChanged()
+void Shifter<SampleType>::samplerateChanged() noexcept
 {
 	if (targetPitchHz > 0)
 		setPitch (targetPitchHz);
 }
 
 template <typename SampleType>
-void Shifter<SampleType>::latencyChanged()
+void Shifter<SampleType>::latencyChanged (int newLatency)
 {
-	const auto latency = analyzer.getLatencySamples();
-
-	while (grains.size() < latency / 2)
+	while (grains.size() < newLatency / 2)
 		grains.add (new Grain);
+}
+
+template <typename SampleType>
+void Shifter<SampleType>::reset() noexcept
+{
+	for (auto* grain : grains)
+		grain->clearGrain();
+
+	samplesToNextGrain = 0;
+	targetPeriod       = 0.f;
+	placeInBlock       = 0;
 }
 
 template <typename SampleType>
 void Shifter<SampleType>::releaseResources()
 {
-	for (auto* grain : grains)
-		grain->clearGrain();
+	grains.clear();
 
 	samplesToNextGrain = 0;
 	targetPeriod       = 0.f;
@@ -137,7 +145,7 @@ Shifter<SampleType>::Grain::~Grain()
 }
 
 template <typename SampleType>
-SampleType Shifter<SampleType>::Grain::getNextSample()
+SampleType Shifter<SampleType>::Grain::getNextSample() noexcept
 {
 	jassert (analysisGrain != nullptr);
 	jassert (sampleIdx < analysisGrain->getSize());
@@ -151,8 +159,9 @@ SampleType Shifter<SampleType>::Grain::getNextSample()
 }
 
 template <typename SampleType>
-void Shifter<SampleType>::Grain::startNewGrain (AnalysisGrain& analysisGrainToUse)
+void Shifter<SampleType>::Grain::startNewGrain (AnalysisGrain& analysisGrainToUse) noexcept
 {
+	jassert (analysisGrain == nullptr);
 	jassert (analysisGrainToUse.getSize() > 0);
 
 	analysisGrain = &analysisGrainToUse;
@@ -162,7 +171,7 @@ void Shifter<SampleType>::Grain::startNewGrain (AnalysisGrain& analysisGrainToUs
 }
 
 template <typename SampleType>
-void Shifter<SampleType>::Grain::clearGrain()
+void Shifter<SampleType>::Grain::clearGrain() noexcept
 {
 	if (analysisGrain != nullptr)
 	{
@@ -174,12 +183,9 @@ void Shifter<SampleType>::Grain::clearGrain()
 }
 
 template <typename SampleType>
-bool Shifter<SampleType>::Grain::isActive() const
+bool Shifter<SampleType>::Grain::isActive() const noexcept
 {
-	if (analysisGrain == nullptr)
-		return false;
-
-	return sampleIdx < analysisGrain->getSize();
+	return analysisGrain != nullptr;
 }
 
 template class Shifter<float>;
@@ -267,7 +273,7 @@ void PsolaTests<SampleType>::runTest()
 		{
 			const auto st = beginSubtest ("Shifting up");
 
-			for (const auto ratio : { 1.3, 1.1 })
+			for (const auto ratio : { 1.3, 1.1, 1.4 })
 			{
 				const auto subtest = beginSubtest ("Shifting ratio: " + String (ratio));
 

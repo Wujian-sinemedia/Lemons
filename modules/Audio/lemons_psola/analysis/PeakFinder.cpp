@@ -39,6 +39,19 @@ void PeakFinder<SampleType>::prepare (int maxBlocksize)
 }
 
 template <typename SampleType>
+void PeakFinder<SampleType>::reset()
+{
+	peakIndices.clearQuick();
+	peakSearchingOrder.clearQuick();
+	peakCandidates.clearQuick();
+	candidateDeltas.clearQuick();
+	finalHandful.clearQuick();
+	finalHandfulDeltas.clearQuick();
+
+	analysisFrameStart = 0;
+}
+
+template <typename SampleType>
 void PeakFinder<SampleType>::releaseResources()
 {
 	peakIndices.clear();
@@ -47,34 +60,42 @@ void PeakFinder<SampleType>::releaseResources()
 	finalHandful.clear();
 	candidateDeltas.clear();
 	finalHandfulDeltas.clear();
+
+	analysisFrameStart = 0;
 }
 
 template <typename SampleType>
 const Array<int>& PeakFinder<SampleType>::findPeaks (const SampleType* inputSamples, int numSamples, float period)
 {
+	jassert (period > 0.f && numSamples > 0);
+
 	peakIndices.clearQuick();
 
-	// output grains are 2 periods long w/ 50% overlap
-	const auto grainSize  = juce::roundToInt (2.f * period);
+	const auto grainSize  = juce::roundToInt (period * 2.f);
 	const auto halfPeriod = juce::roundToInt (period * 0.5f);
 	const auto intPeriod  = juce::roundToInt (period);
 
 	jassert (numSamples >= grainSize);
 
 	// marks the center of the analysis windows, which are 1 period long
-	auto analysisIndex = halfPeriod;
+	auto analysisIndex = analysisFrameStart + halfPeriod;
+
+	int lastFrameRealEnd = 0;
 
 	do
 	{
 		const auto frameStart = analysisIndex - halfPeriod;
-		const auto frameEnd   = std::min (numSamples, frameStart + intPeriod);
 
-		jassert (frameStart >= 0 && frameEnd <= numSamples);
+		lastFrameRealEnd = frameStart + intPeriod;
+
+		const auto frameEnd = std::min (numSamples, lastFrameRealEnd);
+
+		jassert (frameStart >= 0 && frameEnd <= numSamples && frameEnd > frameStart);
 
 		peakIndices.add (findNextPeak (frameStart, frameEnd, std::min (analysisIndex, frameEnd),
 		                               inputSamples, intPeriod, grainSize));
 
-		const auto prevAnalysisIndex = analysisIndex;
+		[[maybe_unused]] const auto prevAnalysisIndex = analysisIndex;
 
 		analysisIndex = [&]() -> int
 		{
@@ -88,6 +109,12 @@ const Array<int>& PeakFinder<SampleType>::findPeaks (const SampleType* inputSamp
 
 		jassert (analysisIndex > prevAnalysisIndex);
 	} while (analysisIndex - halfPeriod < numSamples);
+
+	jassert (! peakIndices.isEmpty());
+
+	analysisFrameStart = lastFrameRealEnd - numSamples;
+
+	jassert (analysisFrameStart >= 0);
 
 	return peakIndices;
 }
@@ -250,8 +277,7 @@ int PeakFinder<SampleType>::chooseIdealPeakCandidate (const SampleType* inputSam
 		candidateDeltas.set (minimumIndex, 10000.f);
 	}
 
-	jassert (finalHandful.size() == finalHandfulSize
-	         && finalHandfulDeltas.size() == finalHandfulSize);
+	jassert (finalHandful.size() == finalHandfulSize && finalHandfulDeltas.size() == finalHandfulSize);
 
 	// 3. choose the strongest overall peak from these final candidates, with peaks weighted by their delta values
 
@@ -418,7 +444,7 @@ void PeakFinderTests<SampleType>::runOscillatorTest (dsp::osc::Oscillator<Sample
 
 	{
 		const auto subtest = beginSubtest ("Grains identified");
-		expectGreaterOrEqual (indices.size(), blocksize / period);
+		expectGreaterOrEqual (indices.size(), (blocksize / period) - 1);
 	}
 
 	{

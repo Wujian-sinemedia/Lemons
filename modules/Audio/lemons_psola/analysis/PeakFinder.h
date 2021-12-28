@@ -25,17 +25,23 @@ using Array = juce::Array<T>;
 
 /** A class that identifies pitch peaks for PSOLA pitch shifting.
     You probably won't ever need to use this class directly, as it's mainly intended as a utilty for the Analyzer class.
+    @see Analyzer
  */
 template <typename SampleType>
 class PeakFinder final
 {
 public:
 
-	/** Analyzes a stream of audio and identifies the best set of pitch peaks to use for PSOLA pitch shifting. */
+	/** Analyzes a stream of audio and identifies the best set of pitch peaks to use for PSOLA pitch shifting.
+	    The heuristics are that the grains should be approximately 2 periods long, with approximately 50% overlap, approximately centered on pitch peaks. This algorithm attempts to maximize all three criteria in the stream of selected peaks. To obtain the actual grains' start and end indices from the list of peak indices, you should do @code peak - period @endcode and @code peak + period @endcode, respectively, because the grains are 2 periods long and centered on the peaks.
+	 */
 	[[nodiscard]] const Array<int>& findPeaks (const SampleType* inputSamples, int numSamples, float period);
 
 	/** Prepares the analyzer for a new maximum blocksize. */
 	void prepare (int maxBlocksize);
+
+	/** Resets the analyzer to its initial state, without freeing any resources. */
+	void reset();
 
 	/** Releases all resources used by the analyzer. */
 	void releaseResources();
@@ -57,8 +63,9 @@ private:
 	Array<int>   peakIndices, peakSearchingOrder, peakCandidates, finalHandful;
 	Array<float> candidateDeltas, finalHandfulDeltas;
 
-	static constexpr auto numPeaksToTest          = 5;
-	static constexpr auto defaultFinalHandfulSize = 3;
+	int analysisFrameStart { 0 };
+
+	static constexpr auto numPeaksToTest = 5, defaultFinalHandfulSize = 3;
 };
 
 }  // namespace lemons::dsp::psola
