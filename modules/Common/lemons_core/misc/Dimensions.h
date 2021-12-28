@@ -32,39 +32,39 @@ struct Dimensions final
 	    , height (heightToUse)
 	{
 	}
-    
-    /** Copy constructor. */
-    Dimensions (const Dimensions& other);
-    
-    /** Assignment operator. */
-    Dimensions& operator= (const Dimensions& other);
-    
-    /** Changes the dimensions. */
-    void set (int newWidth, int newHeight);
+
+	/** Copy constructor. */
+	Dimensions (const Dimensions& other);
+
+	/** Assignment operator. */
+	Dimensions& operator= (const Dimensions& other);
+
+	/** Changes the dimensions. */
+	void set (int newWidth, int newHeight);
 
 	/** Returns true if the passed Dimensions object is equal to this one. */
-    [[nodiscard]] bool operator== (const Dimensions& other) const noexcept;
+	[[nodiscard]] bool operator== (const Dimensions& other) const noexcept;
 
 	/** Returns true if the width and height are both greater than 0. */
-    [[nodiscard]] bool isValid() const noexcept;
+	[[nodiscard]] bool isValid() const noexcept;
 
 	/** Returns the width of these dimensions. */
-    [[nodiscard]] int getWidth() const noexcept;
+	[[nodiscard]] int getWidth() const noexcept;
 
 	/** Returns the height of these dimensions. */
-    [[nodiscard]] int getHeight() const noexcept;
+	[[nodiscard]] int getHeight() const noexcept;
 
 	/** Returns the aspect ratio of the represented dimensions, calculated as width / height.
 	    If isValid() return false, then this function will return 0.
 	 */
-    [[nodiscard]] double getAspectRatio() const noexcept;
+	[[nodiscard]] double getAspectRatio() const noexcept;
 
 	/** Returns true if the passed Dimensions object has the same aspect ratio as this one. */
-    [[nodiscard]] bool hasSameAspectRatioAs (const Dimensions& other) const noexcept;
+	[[nodiscard]] bool hasSameAspectRatioAs (const Dimensions& other) const noexcept;
 
 	/** Returns a string representation of these dimensions, eg '400x600'. */
 	[[nodiscard]] String toString() const noexcept;
-    
+
 	/** Returns a Dimensions object from a string representation. The string should be formatted like '400x600'. */
 	[[nodiscard]] static Dimensions fromString (const String& string);
 
