@@ -39,12 +39,6 @@ target_link_libraries (${PROJECT_NAME} PUBLIC LemonsTestingModules)
 
 #
 
-include (LemonsDSPChains)
-
-lemons_configure_dsp_chain (TARGET ${PROJECT_NAME} HEADER_NAME "ChainTest.h" JSON "/Users/benvining/Desktop/chain_test.json")
-
-#
-
 enable_testing()
 
 add_test (NAME LemonsUnitTests 
