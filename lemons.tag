@@ -852,6 +852,11 @@
     <filename>_lemons_default_platform_settings_8md.html</filename>
   </compound>
   <compound kind="file">
+    <name>LemonsDSPChains.md</name>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/CMake/</path>
+    <filename>_lemons_d_s_p_chains_8md.html</filename>
+  </compound>
+  <compound kind="file">
     <name>LemonsFileUtils.md</name>
     <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/CMake/</path>
     <filename>_lemons_file_utils_8md.html</filename>
@@ -3418,32 +3423,32 @@
       <arglist>()</arglist>
     </member>
     <member kind="function">
-      <type>int</type>
+      <type>Node &amp;</type>
       <name>addNode</name>
       <anchorfile>classlemons_1_1dsp_1_1_engine_chain.html</anchorfile>
-      <anchor>afad0718056f6ffd6913adf6bcfcf4f79</anchor>
-      <arglist>(Node *newNode)</arglist>
+      <anchor>a083bbaa4f9a3a440bff24a92ed44b84f</anchor>
+      <arglist>(Node &amp;newNode)</arglist>
     </member>
     <member kind="function">
-      <type>int</type>
+      <type>Node &amp;</type>
       <name>addNodeAfter</name>
       <anchorfile>classlemons_1_1dsp_1_1_engine_chain.html</anchorfile>
-      <anchor>a6a71481569b0800c49963b8bf316eb96</anchor>
-      <arglist>(Node *newNode, const Node *nodeToInsertAfter)</arglist>
+      <anchor>ae3be246dd031fbe239c1ac3805954546</anchor>
+      <arglist>(Node &amp;newNode, const Node &amp;nodeToInsertAfter)</arglist>
     </member>
     <member kind="function">
-      <type>int</type>
+      <type>Node &amp;</type>
       <name>addNodeBefore</name>
       <anchorfile>classlemons_1_1dsp_1_1_engine_chain.html</anchorfile>
-      <anchor>a905aaf2a522be292d19c4823db83d4b9</anchor>
-      <arglist>(Node *newNode, const Node *nodeToInsertBefore)</arglist>
+      <anchor>aea0c7b26a68a93fe048e7de049c31ea0</anchor>
+      <arglist>(Node &amp;newNode, const Node &amp;nodeToInsertBefore)</arglist>
     </member>
     <member kind="function">
-      <type>void</type>
+      <type>Node &amp;</type>
       <name>addNodeToFront</name>
       <anchorfile>classlemons_1_1dsp_1_1_engine_chain.html</anchorfile>
-      <anchor>aa53b499b28aa301ea7ca54bbbfaf3829</anchor>
-      <arglist>(Node *newNode)</arglist>
+      <anchor>a190f7c2944b4fb1b60d41425185d44a5</anchor>
+      <arglist>(Node &amp;newNode)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -3453,31 +3458,31 @@
       <arglist>(int newInternalBlocksize, bool setTopLevelEngineBlocksize=false)</arglist>
     </member>
     <member kind="function">
-      <type>Node *</type>
+      <type>Node &amp;</type>
       <name>createAndAddNode</name>
       <anchorfile>classlemons_1_1dsp_1_1_engine_chain.html</anchorfile>
-      <anchor>a5d119e4e86f6cb30ae033287bd47d600</anchor>
+      <anchor>a85f4ec3ebe8c07676223bcb3958845f4</anchor>
       <arglist>(Args &amp;&amp;... args)</arglist>
     </member>
     <member kind="function">
-      <type>Node *</type>
+      <type>Node &amp;</type>
       <name>createAndAddNodeAfter</name>
       <anchorfile>classlemons_1_1dsp_1_1_engine_chain.html</anchorfile>
-      <anchor>adbd043f8d6ebc977d37fa206683b6c6e</anchor>
-      <arglist>(const Node *nodeToInsertAfter, Args &amp;&amp;... args)</arglist>
+      <anchor>add97e94e5efb7551b2656acefd901b60</anchor>
+      <arglist>(const Node &amp;nodeToInsertAfter, Args &amp;&amp;... args)</arglist>
     </member>
     <member kind="function">
-      <type>Node *</type>
+      <type>Node &amp;</type>
       <name>createAndAddNodeBefore</name>
       <anchorfile>classlemons_1_1dsp_1_1_engine_chain.html</anchorfile>
-      <anchor>a190c3181f527fe4f21aaaf06a276273b</anchor>
-      <arglist>(const Node *nodeToInsertBefore, Args &amp;&amp;... args)</arglist>
+      <anchor>ae1407e6fe248cd0114bb71fc4145dd28</anchor>
+      <arglist>(const Node &amp;nodeToInsertBefore, Args &amp;&amp;... args)</arglist>
     </member>
     <member kind="function">
-      <type>Node *</type>
+      <type>Node &amp;</type>
       <name>createAndAddNodeToFront</name>
       <anchorfile>classlemons_1_1dsp_1_1_engine_chain.html</anchorfile>
-      <anchor>a160574baa0f416fd1ec2a7385feac38e</anchor>
+      <anchor>a53d8d227a44c7cf50bfc26e887481b97</anchor>
       <arglist>(Args &amp;&amp;... args)</arglist>
     </member>
     <member kind="function">
@@ -3589,8 +3594,8 @@
       <type>bool</type>
       <name>removeNode</name>
       <anchorfile>classlemons_1_1dsp_1_1_engine_chain.html</anchorfile>
-      <anchor>a4e915887f1435a6b980f36f010175a75</anchor>
-      <arglist>(Node *node)</arglist>
+      <anchor>a98f2f2aef46aeb208dd9788536b3d8ed</anchor>
+      <arglist>(Node &amp;node)</arglist>
     </member>
     <member kind="function">
       <type>int</type>
@@ -3610,8 +3615,8 @@
       <type>bool</type>
       <name>swapNodes</name>
       <anchorfile>classlemons_1_1dsp_1_1_engine_chain.html</anchorfile>
-      <anchor>aa00c719441f5aa43ef0512e434b878e8</anchor>
-      <arglist>(Node *node1, Node *node2)</arglist>
+      <anchor>ae9f7a80cc7a6ad012fe73a8468bc0f57</anchor>
+      <arglist>(Node &amp;node1, Node &amp;node2)</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
@@ -9301,32 +9306,32 @@
       <arglist>()=default</arglist>
     </member>
     <member kind="function">
-      <type>int</type>
+      <type>Node &amp;</type>
       <name>addNode</name>
       <anchorfile>classlemons_1_1dsp_1_1_engine_chain.html</anchorfile>
-      <anchor>afad0718056f6ffd6913adf6bcfcf4f79</anchor>
-      <arglist>(Node *newNode)</arglist>
+      <anchor>a083bbaa4f9a3a440bff24a92ed44b84f</anchor>
+      <arglist>(Node &amp;newNode)</arglist>
     </member>
     <member kind="function">
-      <type>int</type>
+      <type>Node &amp;</type>
       <name>addNodeAfter</name>
       <anchorfile>classlemons_1_1dsp_1_1_engine_chain.html</anchorfile>
-      <anchor>a6a71481569b0800c49963b8bf316eb96</anchor>
-      <arglist>(Node *newNode, const Node *nodeToInsertAfter)</arglist>
+      <anchor>ae3be246dd031fbe239c1ac3805954546</anchor>
+      <arglist>(Node &amp;newNode, const Node &amp;nodeToInsertAfter)</arglist>
     </member>
     <member kind="function">
-      <type>int</type>
+      <type>Node &amp;</type>
       <name>addNodeBefore</name>
       <anchorfile>classlemons_1_1dsp_1_1_engine_chain.html</anchorfile>
-      <anchor>a905aaf2a522be292d19c4823db83d4b9</anchor>
-      <arglist>(Node *newNode, const Node *nodeToInsertBefore)</arglist>
+      <anchor>aea0c7b26a68a93fe048e7de049c31ea0</anchor>
+      <arglist>(Node &amp;newNode, const Node &amp;nodeToInsertBefore)</arglist>
     </member>
     <member kind="function">
-      <type>void</type>
+      <type>Node &amp;</type>
       <name>addNodeToFront</name>
       <anchorfile>classlemons_1_1dsp_1_1_engine_chain.html</anchorfile>
-      <anchor>aa53b499b28aa301ea7ca54bbbfaf3829</anchor>
-      <arglist>(Node *newNode)</arglist>
+      <anchor>a190f7c2944b4fb1b60d41425185d44a5</anchor>
+      <arglist>(Node &amp;newNode)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -9336,31 +9341,31 @@
       <arglist>(int newInternalBlocksize, bool setTopLevelEngineBlocksize=false)</arglist>
     </member>
     <member kind="function">
-      <type>Node *</type>
+      <type>Node &amp;</type>
       <name>createAndAddNode</name>
       <anchorfile>classlemons_1_1dsp_1_1_engine_chain.html</anchorfile>
-      <anchor>a5d119e4e86f6cb30ae033287bd47d600</anchor>
+      <anchor>a85f4ec3ebe8c07676223bcb3958845f4</anchor>
       <arglist>(Args &amp;&amp;... args)</arglist>
     </member>
     <member kind="function">
-      <type>Node *</type>
+      <type>Node &amp;</type>
       <name>createAndAddNodeAfter</name>
       <anchorfile>classlemons_1_1dsp_1_1_engine_chain.html</anchorfile>
-      <anchor>adbd043f8d6ebc977d37fa206683b6c6e</anchor>
-      <arglist>(const Node *nodeToInsertAfter, Args &amp;&amp;... args)</arglist>
+      <anchor>add97e94e5efb7551b2656acefd901b60</anchor>
+      <arglist>(const Node &amp;nodeToInsertAfter, Args &amp;&amp;... args)</arglist>
     </member>
     <member kind="function">
-      <type>Node *</type>
+      <type>Node &amp;</type>
       <name>createAndAddNodeBefore</name>
       <anchorfile>classlemons_1_1dsp_1_1_engine_chain.html</anchorfile>
-      <anchor>a190c3181f527fe4f21aaaf06a276273b</anchor>
-      <arglist>(const Node *nodeToInsertBefore, Args &amp;&amp;... args)</arglist>
+      <anchor>ae1407e6fe248cd0114bb71fc4145dd28</anchor>
+      <arglist>(const Node &amp;nodeToInsertBefore, Args &amp;&amp;... args)</arglist>
     </member>
     <member kind="function">
-      <type>Node *</type>
+      <type>Node &amp;</type>
       <name>createAndAddNodeToFront</name>
       <anchorfile>classlemons_1_1dsp_1_1_engine_chain.html</anchorfile>
-      <anchor>a160574baa0f416fd1ec2a7385feac38e</anchor>
+      <anchor>a53d8d227a44c7cf50bfc26e887481b97</anchor>
       <arglist>(Args &amp;&amp;... args)</arglist>
     </member>
     <member kind="function">
@@ -9472,8 +9477,8 @@
       <type>bool</type>
       <name>removeNode</name>
       <anchorfile>classlemons_1_1dsp_1_1_engine_chain.html</anchorfile>
-      <anchor>a4e915887f1435a6b980f36f010175a75</anchor>
-      <arglist>(Node *node)</arglist>
+      <anchor>a98f2f2aef46aeb208dd9788536b3d8ed</anchor>
+      <arglist>(Node &amp;node)</arglist>
     </member>
     <member kind="function">
       <type>int</type>
@@ -9493,8 +9498,8 @@
       <type>bool</type>
       <name>swapNodes</name>
       <anchorfile>classlemons_1_1dsp_1_1_engine_chain.html</anchorfile>
-      <anchor>aa00c719441f5aa43ef0512e434b878e8</anchor>
-      <arglist>(Node *node1, Node *node2)</arglist>
+      <anchor>ae9f7a80cc7a6ad012fe73a8468bc0f57</anchor>
+      <arglist>(Node &amp;node1, Node &amp;node2)</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
@@ -25040,6 +25045,11 @@
     <name>LemonsDefaultPlatformSettings</name>
     <title>LemonsDefaultPlatformSettings</title>
     <filename>_lemons_default_platform_settings</filename>
+  </compound>
+  <compound kind="page">
+    <name>LemonsDSPChains</name>
+    <title>LemonsDSPChains</title>
+    <filename>_lemons_d_s_p_chains</filename>
   </compound>
   <compound kind="page">
     <name>LemonsFileUtils</name>
