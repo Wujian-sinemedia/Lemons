@@ -2,11 +2,10 @@
 
 #include <lemons_dsp/lemons_dsp.h>
 
-namespace @LEMONS_DSP_HEADER_NAMESPACE@
+namespace @NAMESPACE@
 {
 
-	struct @LEMONS_DSP_CHAIN_CLASS_NAME@ : public lemons::dsp::DspChain< @LEMONS_DSP_CHAIN_CLASSES@ >
-	{
-	};
+template<typename SampleType>
+using @CLASS_NAME@ = lemons::dsp::BuiltEngineChain<SampleType, @ENGINE_TYPES@>;
 
 }

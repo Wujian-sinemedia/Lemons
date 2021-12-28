@@ -25,8 +25,11 @@ if __name__ == "__main__":
 
 	args = parser.parse_args()
 
-	script_dir = os.path.abspath (os.path.dirname (__file__))
-	template_file = os.path.join (script_dir, "DSP_chain_template.h")
+	if not os.path.exists (args.input_file):
+		print ("Error - JSON input file '{f}' does not exist!".format(f=args.input_file))
+		exit (1)
+
+	template_file = os.path.join (os.path.abspath (os.path.dirname (__file__)), "DSP_chain_template.h")
 
 	with open (template_file, "r") as f:
 		file_contents = f.read()
@@ -36,9 +39,11 @@ if __name__ == "__main__":
 
 	json = load_json (json_contents)
 
-	file_contents = file_contents.replace ("@LEMONS_DSP_HEADER_NAMESPACE@", json["namespace"])
-	file_contents = file_contents.replace ("@LEMONS_DSP_CHAIN_CLASS_NAME@", json["class_name"])
-	file_contents = file_contents.replace ("@LEMONS_DSP_CHAIN_CLASSES@", get_classes_list (json["nodes"]))
+	chainJson = json["DSP_chain"]
+
+	file_contents = file_contents.replace ("@NAMESPACE@", chainJson["namespace"])
+	file_contents = file_contents.replace ("@CLASS_NAME@", chainJson["class_name"])
+	file_contents = file_contents.replace ("@ENGINE_TYPES@", get_classes_list (chainJson["nodes"]))
 
 	output_dir = os.path.abspath (os.path.dirname (args.output_file))
 
