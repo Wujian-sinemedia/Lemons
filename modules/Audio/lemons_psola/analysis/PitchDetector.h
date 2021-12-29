@@ -21,7 +21,7 @@
 namespace lemons::dsp::psola
 {
 
-template<typename SampleType>
+template <typename SampleType>
 using AudioBuffer = juce::AudioBuffer<SampleType>;
 
 /** A pitch detector based on the YIN algorithm.
@@ -46,8 +46,8 @@ public:
 	[[nodiscard]] float detectPitch (const AudioBuffer<SampleType>& inputAudio);
 
 	/** Detects the pitch in Hz for a frame of audio.
-        This can only be used for one channel at a time. If you need to track the pitch of multiple channels of audio, you need one PitchDetector object for each channel.
-        The caller must ensure that there are at least enough samples in this frame of audio for analysis to be performed; ie, that numSamples is greater than or equal to getLatencySamples().
+	    This can only be used for one channel at a time. If you need to track the pitch of multiple channels of audio, you need one PitchDetector object for each channel.
+	    The caller must ensure that there are at least enough samples in this frame of audio for analysis to be performed; ie, that numSamples is greater than or equal to getLatencySamples().
 	    @return The pitch in Hz for this frame of audio, or 0.f if the frame is unpitched.
 	 */
 	[[nodiscard]] float detectPitch (const SampleType* inputAudio, int numSamples);
@@ -81,9 +81,9 @@ public:
 	    @return The latency, in samples, of the pitch detection algorithm with the new minimum frequency.
 	 */
 	int setMinHz (int newMinHz);
-    
-    /** Returns the minimum frequency in Hz that this pitch detector is configured to detect. */
-    [[nodiscard]] int getMinHz() const noexcept;
+
+	/** Returns the minimum frequency in Hz that this pitch detector is configured to detect. */
+	[[nodiscard]] int getMinHz() const noexcept;
 
 	/** Sets the confidence threshold of the pitch detection algorithm.
 	    This value should be between 0 and 1, inclusive, and can be thought of as the amount of aperiodic power tolerable in a signal determined to be pitched.
@@ -111,7 +111,7 @@ private:
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (PitchDetector)
 };
 
-}  // namespace lemons::dsp
+}  // namespace lemons::dsp::psola
 
 
 /*---------------------------------------------------------------------------------------------------------------------------------*/

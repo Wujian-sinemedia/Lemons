@@ -90,6 +90,10 @@ private:
 
 	void runOscillatorTest (dsp::osc::Oscillator<SampleType>& osc, double samplerate, double freq, int blocksize, int period, const String& waveName);
 
+	void runBufferTest (int blocksize, int period);
+
+	[[nodiscard]] int nextRandomPeriod (double samplerate, int minHz, int numSamples);
+
 	dsp::psola::PeakFinder<SampleType> peakFinder;
 
 	AudioBuffer<SampleType> audioStorage;

@@ -18,8 +18,8 @@ namespace lemons::plugin
 
 void State::addTo (juce::AudioProcessor& processor) const
 {
-	for (auto* param : params)
-		processor.addParameter (param);
+//	for (auto* param : params)
+//		processor.addParameter (param);
 }
 
 void State::add (Parameter& parameter)

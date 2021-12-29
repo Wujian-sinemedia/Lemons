@@ -100,6 +100,8 @@ private:
 
 		void reserveSize (int numSamples);
 
+		void clearGrain();
+
 	private:
 		int origStartIndex { 0 }, grainSize { 0 };
 
@@ -130,8 +132,8 @@ private:
 	Array<int> incompleteGrainsFromLastFrame;
 
 	Array<Shifter<SampleType>*> shifters;
-    
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (Analyzer)
+
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (Analyzer)
 };
 
 }  // namespace lemons::dsp::psola

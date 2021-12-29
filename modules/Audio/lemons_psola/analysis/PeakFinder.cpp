@@ -423,6 +423,26 @@ void PeakFinderTests<SampleType>::runTest()
 		runOscillatorTest (square, samplerate, freq, blocksize, period, "Square");
 		runOscillatorTest (triangle, samplerate, freq, blocksize, period, "Triangle");
 	}
+
+	{
+		const auto subtest = beginSubtest ("Random noise");
+
+		fillAudioBufferWithRandomNoise (audioStorage, getRandom());
+
+		const auto numSamples = audioStorage.getNumSamples();
+
+		runBufferTest (numSamples, nextRandomPeriod (samplerate, 60, numSamples));
+	}
+
+	{
+		const auto subtest = beginSubtest ("Silence");
+
+		audioStorage.clear();
+
+		const auto numSamples = audioStorage.getNumSamples();
+
+		runBufferTest (numSamples, nextRandomPeriod (samplerate, 60, numSamples));
+	}
 }
 
 template <typename SampleType>
@@ -440,6 +460,12 @@ void PeakFinderTests<SampleType>::runOscillatorTest (dsp::osc::Oscillator<Sample
 
 	osc.getSamples (audioStorage);
 
+	runBufferTest (blocksize, period);
+}
+
+template <typename SampleType>
+void PeakFinderTests<SampleType>::runBufferTest (int blocksize, int period)
+{
 	const auto& indices = peakFinder.findPeaks (audioStorage.getReadPointer (0), blocksize, period);
 
 	{
@@ -486,6 +512,15 @@ void PeakFinderTests<SampleType>::runOscillatorTest (dsp::osc::Oscillator<Sample
 		expectWithinAbsoluteError (index2 - index1, period, halfPeriod);
 		expectWithinAbsoluteError (index3 - index2, period, halfPeriod);
 	}
+}
+
+template <typename SampleType>
+int PeakFinderTests<SampleType>::nextRandomPeriod (double samplerate, int minHz, int numSamples)
+{
+	const auto maxPeriod = std::min (math::periodInSamples (samplerate, minHz), numSamples / 2);
+	const auto minPeriod = std::min (numSamples / 4, maxPeriod - 1);
+
+	return getRandom().nextInt ({ minPeriod, maxPeriod + 1 });
 }
 
 template struct PeakFinderTests<float>;

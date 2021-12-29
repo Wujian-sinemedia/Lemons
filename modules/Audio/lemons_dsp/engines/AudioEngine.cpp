@@ -115,9 +115,7 @@ void Engine<SampleType>::processInternal (const AudioBuffer<SampleType>& input, 
 	if (numSamples == 0)
 		return;
 
-	jassert (input.getNumChannels() == output.getNumChannels());
-
-	if (input.getNumChannels() == 0)
+	if (input.getNumChannels() == 0 || output.getNumChannels() == 0)
 		return;
 
 	jassert (isInitialized());

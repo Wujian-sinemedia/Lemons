@@ -98,8 +98,8 @@ private:
 	int samplesToNextGrain { 0 }, placeInBlock { 0 }, targetPitchHz { 0 };
 
 	juce::OwnedArray<Grain> grains;
-    
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (Shifter)
+
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (Shifter)
 };
 
 }  // namespace lemons::dsp::psola
@@ -120,11 +120,17 @@ struct PsolaTests : public DspTest
 private:
 	void runTest() final;
 
+	void runOscillatorTest (dsp::osc::Oscillator<SampleType>& osc, const String& waveName, double samplerate);
+
 	dsp::psola::Analyzer<SampleType> analyzer;
 	dsp::psola::Shifter<SampleType>  shifter { analyzer };
 
-	dsp::osc::Sine<SampleType> osc;
-	AudioBuffer<SampleType>    origAudio, shiftedAudio;
+	dsp::osc::Sine<SampleType>     sine;
+	dsp::osc::Saw<SampleType>      saw;
+	dsp::osc::Square<SampleType>   square;
+	dsp::osc::Triangle<SampleType> triangle;
+
+	AudioBuffer<SampleType> origAudio, shiftedAudio;
 
 	dsp::psola::PitchDetector<SampleType> detector;
 };

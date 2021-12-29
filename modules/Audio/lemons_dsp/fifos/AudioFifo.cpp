@@ -61,10 +61,10 @@ int AudioFifo<SampleType>::numStoredSamples() const noexcept
 	if (buffers->isEmpty())
 		return 0;
 
-	auto num = buffers->getUnchecked (0)->getNumStoredSamples();
+	auto num = buffers[0]->getNumStoredSamples();
 
-	for (auto* buffer : buffers)
-		if (buffer->getNumStoredSamples() < num)
+	for (const auto* buffer : buffers)
+		if (buffer->getNumStoredSamples() > num)
 			num = buffer->getNumStoredSamples();
 
 	return num;

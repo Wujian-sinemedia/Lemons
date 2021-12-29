@@ -99,7 +99,7 @@ struct KnownLanguages final
 		languages.emplace_back ("Bini", "", "bin", StringArray { "NG" });
 		languages.emplace_back ("Bislama", "bi", "bis", StringArray { "VU" });
 		languages.emplace_back ("Bilin", "", "byn", StringArray { "ER" });
-		languages.emplace_back ("Bokmål", "", "nob", StringArray { "NO" });
+		languages.emplace_back (CharPointer_UTF8("Bokmål"), "", "nob", StringArray { "NO" });
 		languages.emplace_back ("Bosnian", "bs", "bos", StringArray { "BA", "MK", "ME" });
 		languages.emplace_back ("Braj", "", "bra", StringArray { "IN" });
 		languages.emplace_back ("Breton", "br", "bre", StringArray { "FR" });

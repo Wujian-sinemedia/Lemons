@@ -144,6 +144,8 @@ typename Analyzer<SampleType>::Grain& Analyzer<SampleType>::getGrainToStoreIn()
 		if (grain->getReferenceCount() == 0)
 			return *grain;
 
+	DBG ("Allocating analysis grain!");
+
 	return *grains.add (new Grain);
 }
 
@@ -212,15 +214,17 @@ typename Analyzer<SampleType>::Grain& Analyzer<SampleType>::getClosestGrain (int
 			after.test (grain, currentDist);
 	}
 
+	jassert (! (before.grain == nullptr && after.grain == nullptr));
+
 	if (before.grain != nullptr)
 	{
-		if (after.grain != nullptr)
-		{
-			jassert (lastFrameGrainSize > 0);
+		if (after.grain == nullptr)
+			return *before.grain;
 
-			if (before.distance > after.distance + (lastFrameGrainSize / 2))
-				return *after.grain;
-		}
+		jassert (lastFrameGrainSize > 0);
+
+		if (before.distance > after.distance + (lastFrameGrainSize / 2))
+			return *after.grain;
 
 		return *before.grain;
 	}
@@ -288,6 +292,9 @@ template <typename SampleType>
 void Analyzer<SampleType>::reset()
 {
 	peakFinder.reset();
+
+	for (auto* grain : grains)
+		grain->clearGrain();
 
 	for (auto* shifter : shifters)
 		shifter->reset();
@@ -387,6 +394,14 @@ template <typename SampleType>
 void Analyzer<SampleType>::Grain::reserveSize (int numSamples)
 {
 	samples.setSize (1, numSamples, true, true, true);
+}
+
+template <typename SampleType>
+void Analyzer<SampleType>::Grain::clearGrain()
+{
+	samples.clear();
+	origStartIndex = 0;
+	grainSize      = 0;
 }
 
 template class Analyzer<float>;

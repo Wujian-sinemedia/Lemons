@@ -330,8 +330,6 @@ void ProcessorBase::InternalProcessor<SampleType>::renderChunk (AudioBuffer<Samp
 	const auto inBus  = findSubBuffer (true);
 	auto       outBus = findSubBuffer (false);
 
-	jassert (inBus.getNumChannels() == outBus.getNumChannels());
-
 	engine.process (inBus, outBus, midi, state.bypass.get());
 }
 

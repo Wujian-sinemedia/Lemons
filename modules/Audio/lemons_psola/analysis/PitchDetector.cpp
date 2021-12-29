@@ -61,7 +61,7 @@ template <typename SampleType>
 
 	auto* yinData = yinBuffer.getWritePointer (0);
 
-    juce::FloatVectorOperations::fill (yinData, SampleType (1), halfNumSamples);
+	juce::FloatVectorOperations::fill (yinData, SampleType (1), halfNumSamples);
 
 	// difference function
 	for (auto tau = 0; tau < halfNumSamples; ++tau)
@@ -203,7 +203,7 @@ int PitchDetector<SampleType>::setMinHz (int newMinHz)
 template <typename SampleType>
 int PitchDetector<SampleType>::getMinHz() const noexcept
 {
-    return minHz;
+	return minHz;
 }
 
 template <typename SampleType>
@@ -218,7 +218,7 @@ template <typename SampleType>
 template class PitchDetector<float>;
 template class PitchDetector<double>;
 
-}  // namespace lemons::dsp
+}  // namespace lemons::dsp::psola
 
 
 /*---------------------------------------------------------------------------------------------------------------------------------*/

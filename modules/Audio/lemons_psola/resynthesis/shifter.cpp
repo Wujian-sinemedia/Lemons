@@ -98,6 +98,8 @@ typename Shifter<SampleType>::Grain& Shifter<SampleType>::getGrainToStart()
 		if (! grain->isActive())
 			return *grain;
 
+	DBG ("Allocating synthesis grain!");
+
 	return *grains.add (new Grain);
 }
 
@@ -214,86 +216,100 @@ void PsolaTests<SampleType>::runTest()
 
 	for (const auto samplerate : getTestingSamplerates())
 	{
-		analyzer.releaseResources();
-
 		const auto srSubtest = beginSubtest ("Samplerate: " + String (samplerate));
 
-		const auto latency = analyzer.setSamplerate (samplerate);
+		runOscillatorTest (sine, "Sine", samplerate);
+		runOscillatorTest (saw, "Saw", samplerate);
+		runOscillatorTest (square, "Square", samplerate);
+		runOscillatorTest (triangle, "Triangle", samplerate);
+	}
+}
 
-		const auto detectorLatency = detector.setSamplerate (samplerate);
+template <typename SampleType>
+void PsolaTests<SampleType>::runOscillatorTest (dsp::osc::Oscillator<SampleType>& osc, const String& waveName, double samplerate)
+{
+	const auto oscSubtest = beginSubtest (waveName + " wave");
 
-		expectEquals (detectorLatency, latency);
+	analyzer.releaseResources();
 
-		origAudio.setSize (1, latency);
-		shiftedAudio.setSize (1, latency);
+	const auto latency = analyzer.setSamplerate (samplerate);
 
-		constexpr auto origFreq = SampleType (440);
+	const auto detectorLatency = detector.setSamplerate (samplerate);
 
-		osc.setFrequency (origFreq, static_cast<SampleType> (samplerate));
+	expectEquals (detectorLatency, latency);
 
+	origAudio.setSize (1, latency);
+	shiftedAudio.setSize (1, latency);
+
+	constexpr auto origFreq = SampleType (440);
+
+	osc.setFrequency (origFreq, static_cast<SampleType> (samplerate));
+
+	{
+		const auto st = beginSubtest ("Shifting down");
+
+		for (const auto ratio : { 0.75, 0.8, 0.9 })
 		{
-			const auto st = beginSubtest ("Shifting down");
+			const auto subtest = beginSubtest ("Shifting ratio: " + String (ratio));
 
-			for (const auto ratio : { 0.75, 0.8, 0.4, 0.5, 0.9 })
-			{
-				const auto subtest = beginSubtest ("Shifting ratio: " + String (ratio));
-
-				const auto targetPitch = origFreq * static_cast<SampleType> (ratio);
-
-				osc.getSamples (origAudio);
-
-				analyzer.analyzeInput (origAudio);
-
-				shifter.setPitch (juce::roundToInt (targetPitch));
-
-				shifter.getSamples (shiftedAudio);
-
-				expectWithinAbsoluteError (detector.detectPitch (shiftedAudio),
-				                           static_cast<float> (targetPitch),
-				                           5.f);
-			}
-		}
-
-		{
-			const auto st = beginSubtest ("No shifting");
+			const auto targetPitch = origFreq * static_cast<SampleType> (ratio);
 
 			osc.getSamples (origAudio);
 
 			analyzer.analyzeInput (origAudio);
 
-			shifter.setPitch (juce::roundToInt (origFreq));
+			shifter.setPitch (juce::roundToInt (targetPitch));
 
 			shifter.getSamples (shiftedAudio);
 
 			expectWithinAbsoluteError (detector.detectPitch (shiftedAudio),
-			                           static_cast<float> (origFreq),
+			                           static_cast<float> (targetPitch),
 			                           7.f);
 		}
+	}
 
+	{
+		const auto st = beginSubtest ("No shifting");
+
+		osc.getSamples (origAudio);
+
+		analyzer.analyzeInput (origAudio);
+
+		shifter.setPitch (juce::roundToInt (origFreq));
+
+		shifter.getSamples (shiftedAudio);
+
+		expectWithinAbsoluteError (detector.detectPitch (shiftedAudio),
+		                           static_cast<float> (origFreq),
+		                           7.f);
+	}
+
+	{
+		const auto st = beginSubtest ("Shifting up");
+
+		for (const auto ratio : { 1.3, 1.1, 1.2 })
 		{
-			const auto st = beginSubtest ("Shifting up");
+			const auto subtest = beginSubtest ("Shifting ratio: " + String (ratio));
 
-			for (const auto ratio : { 1.3, 1.1, 1.2, 1.4, 1.5 })
-			{
-				const auto subtest = beginSubtest ("Shifting ratio: " + String (ratio));
+			const auto targetPitch = origFreq * static_cast<SampleType> (ratio);
 
-				const auto targetPitch = origFreq * static_cast<SampleType> (ratio);
+			osc.getSamples (origAudio);
 
-				osc.getSamples (origAudio);
+			analyzer.analyzeInput (origAudio);
 
-				analyzer.analyzeInput (origAudio);
+			shifter.setPitch (juce::roundToInt (targetPitch));
 
-				shifter.setPitch (juce::roundToInt (targetPitch));
+			shifter.getSamples (shiftedAudio);
 
-				shifter.getSamples (shiftedAudio);
-
-				expectWithinAbsoluteError (detector.detectPitch (shiftedAudio),
-				                           static_cast<float> (targetPitch),
-				                           20.f);
-			}
+			expectWithinAbsoluteError (detector.detectPitch (shiftedAudio),
+			                           static_cast<float> (targetPitch),
+			                           20.f);
 		}
 	}
 }
+
+template struct PsolaTests<float>;
+template struct PsolaTests<double>;
 
 }  // namespace lemons::tests
 
