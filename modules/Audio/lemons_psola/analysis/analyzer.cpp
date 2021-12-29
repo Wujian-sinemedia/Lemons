@@ -158,10 +158,11 @@ inline void Analyzer<SampleType>::makeWindow (int size)
 	jassert (size > 1);
 
 	// Hanning window function
+	const auto denom = static_cast<double> (size - 1);
+
 	for (int i = 0; i < size; ++i)
 	{
-		const auto cos2 = std::cos (static_cast<double> (2 * i)
-		                            * juce::MathConstants<double>::pi / static_cast<double> (size - 1));
+		const auto cos2 = std::cos (static_cast<double> (2 * i) * juce::MathConstants<double>::pi / denom);
 
 		window.set (i, static_cast<SampleType> (0.5 - 0.5 * cos2));
 	}
@@ -175,29 +176,58 @@ typename Analyzer<SampleType>::Grain& Analyzer<SampleType>::getClosestGrain (int
 	jassert (! grains.isEmpty());
 	jassert (placeInBlock >= 0);
 
-	Grain* closest { nullptr };
-	auto   distance { std::numeric_limits<int>::max() };
+	struct GainDistanceData final
+	{
+		void test (Grain* newGrain, int newDistance) noexcept
+		{
+			if (newDistance < distance)
+			{
+				distance = newDistance;
+				grain    = newGrain;
+			}
+		}
+
+		Grain* grain { nullptr };
+		int    distance { std::numeric_limits<int>::max() };
+	};
+
+	GainDistanceData before, after;
 
 	for (auto* grain : grains)
 	{
 		if (grain->getSize() == 0)
 			continue;
 
-		const auto currentDist = std::abs (grain->getOrigStart() - placeInBlock);
+		const auto origStart = grain->getOrigStart();
 
-		[[unlikely]] if (currentDist == 0) return *grain;
+		[[unlikely]] if (origStart == placeInBlock) return *grain;
 
-		if (currentDist < distance)
-		{
-			distance = currentDist;
-			closest  = grain;
-		}
+		const auto currentDist = std::abs (origStart - placeInBlock);
+
+		jassert (currentDist > 0);
+
+		if (origStart < placeInBlock)
+			before.test (grain, currentDist);
+		else
+			after.test (grain, currentDist);
 	}
 
-	jassert (closest != nullptr);
-	jassert (closest->getSize() > 0);
+	if (before.grain != nullptr)
+	{
+		if (after.grain != nullptr)
+		{
+			jassert (lastFrameGrainSize > 0);
 
-	return *closest;
+			if (before.distance > after.distance + (lastFrameGrainSize / 2))
+				return *after.grain;
+		}
+
+		return *before.grain;
+	}
+
+	jassert (after.grain != nullptr);
+
+	return *after.grain;
 }
 
 template <typename SampleType>

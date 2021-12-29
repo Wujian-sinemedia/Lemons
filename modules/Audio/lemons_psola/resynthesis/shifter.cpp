@@ -70,6 +70,7 @@ void Shifter<SampleType>::skipSamples (int numSamples)
 template <typename SampleType>
 SampleType Shifter<SampleType>::getNextSample()
 {
+	// did you call setPitch() first?
 	jassert (targetPeriod > 0.f);
 
 	if (samplesToNextGrain == 0)
@@ -148,7 +149,6 @@ template <typename SampleType>
 SampleType Shifter<SampleType>::Grain::getNextSample() noexcept
 {
 	jassert (analysisGrain != nullptr);
-	jassert (sampleIdx < analysisGrain->getSize());
 
 	const auto sample = analysisGrain->getSample (sampleIdx++);
 
@@ -234,7 +234,7 @@ void PsolaTests<SampleType>::runTest()
 		{
 			const auto st = beginSubtest ("Shifting down");
 
-			for (const auto ratio : { 0.75, 0.8, 0.4, 0.5 })
+			for (const auto ratio : { 0.75, 0.8, 0.4, 0.5, 0.9 })
 			{
 				const auto subtest = beginSubtest ("Shifting ratio: " + String (ratio));
 
@@ -267,13 +267,13 @@ void PsolaTests<SampleType>::runTest()
 
 			expectWithinAbsoluteError (detector.detectPitch (shiftedAudio),
 			                           static_cast<float> (origFreq),
-			                           6.f);
+			                           7.f);
 		}
 
 		{
 			const auto st = beginSubtest ("Shifting up");
 
-			for (const auto ratio : { 1.3, 1.1, 1.4 })
+			for (const auto ratio : { 1.3, 1.1, 1.2, 1.4, 1.5 })
 			{
 				const auto subtest = beginSubtest ("Shifting ratio: " + String (ratio));
 
@@ -289,7 +289,7 @@ void PsolaTests<SampleType>::runTest()
 
 				expectWithinAbsoluteError (detector.detectPitch (shiftedAudio),
 				                           static_cast<float> (targetPitch),
-				                           17.f);
+				                           20.f);
 			}
 		}
 	}
