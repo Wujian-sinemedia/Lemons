@@ -46,6 +46,10 @@ include (LemonsDefaultPlatformSettings)
 set (LEMONS_JUCE_BRANCH "develop" CACHE STRING "The branch of the JUCE GitHub repository to use. Should be develop or master.")
 mark_as_advanced (FORCE LEMONS_JUCE_BRANCH)
 
+if (NOT DEFINED ENV{CPM_SOURCE_CACHE})
+    set (ENV{CPM_SOURCE_CACHE} "${CPM_Lemons_SOURCE}/Cache")
+endif()
+
 CPMAddPackage (
         NAME JUCE
         GITHUB_REPOSITORY juce-framework/JUCE

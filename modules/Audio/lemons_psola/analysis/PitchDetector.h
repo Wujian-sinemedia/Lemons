@@ -16,8 +16,14 @@
 
 #pragma once
 
+#include <juce_audio_basics/juce_audio_basics.h>
+
 namespace lemons::dsp::psola
 {
+
+template<typename SampleType>
+using AudioBuffer = juce::AudioBuffer<SampleType>;
+
 /** A pitch detector based on the YIN algorithm.
  */
 template <typename SampleType>

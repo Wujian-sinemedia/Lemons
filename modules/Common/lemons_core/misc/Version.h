@@ -185,18 +185,18 @@ struct Version final
 	}
 
 	/** Returns a Version object representing the version of Lemons this module was compiled with. */
-	[[nodiscard]] constexpr static Version lemonsVersion()
-	{
-		return Version { LEMONS_VERSION_MAJOR, LEMONS_VERSION_MINOR, LEMONS_VERSION_PATCH };
-	}
+//	[[nodiscard]] constexpr static Version lemonsVersion()
+//	{
+//		return Version { LEMONS_VERSION_MAJOR, LEMONS_VERSION_MINOR, LEMONS_VERSION_PATCH };
+//	}
 
 	/** Returns a Version object representing the version of the current project that this module was compiled as a part of.
 	    Note that this will only be correct if you use the Lemons repo's CMake configuration scripts, or manually define the macros LEMONS_PROJECT_VERSION_MAJOR, LEMONS_PROJECT_VERSION_MINOR, and LEMONS_PROJECT_VERSION_PATCH.
 	 */
-	[[nodiscard]] constexpr static Version projectVersion()
-	{
-		return Version { LEMONS_PROJECT_VERSION_MAJOR, LEMONS_PROJECT_VERSION_MINOR, LEMONS_PROJECT_VERSION_PATCH };
-	}
+//	[[nodiscard]] constexpr static Version projectVersion()
+//	{
+//		return Version { LEMONS_PROJECT_VERSION_MAJOR, LEMONS_PROJECT_VERSION_MINOR, LEMONS_PROJECT_VERSION_PATCH };
+//	}
 
 private:
 	int major { 0 }, minor { 0 }, patch { 1 };

@@ -38,7 +38,7 @@ ProcessorAttributes ProcessorAttributes::fromProjectDefines()
 	attributes.name = "AudioProcessor";
 #endif
 
-	attributes.version = Version::projectVersion();
+//	attributes.version = Version::projectVersion();
 
 	return attributes;
 }

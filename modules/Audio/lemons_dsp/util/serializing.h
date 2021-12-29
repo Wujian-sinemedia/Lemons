@@ -80,12 +80,12 @@ struct VariantConverter<AudioBuffer<double>>
 	static var                 toVar (const AudioBuffer<double>& b);
 };
 
-template <>
-struct VariantConverter<PluginDescription>
-{
-	static PluginDescription fromVar (const var& v);
-	static var               toVar (const PluginDescription& d);
-};
+//template <>
+//struct VariantConverter<PluginDescription>
+//{
+//	static PluginDescription fromVar (const var& v);
+//	static var               toVar (const PluginDescription& d);
+//};
 
 }  // namespace juce
 
