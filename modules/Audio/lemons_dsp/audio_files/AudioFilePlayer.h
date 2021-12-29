@@ -13,49 +13,43 @@
  ======================================================================================
  */
 
-#include <lemons_locale/lemons_locale.h>
 
-namespace lemons::locale
+#pragma once
+
+namespace lemons::dsp
 {
 
-void initializeTranslations (const binary::Data& data,
-                             bool                ignoreCaseOfKeys)
+/** A kind of AudioEngine that plays audio from an AudioFile object.
+    @see AudioFile
+ */
+template <typename SampleType>
+class AudioFilePlayer final : public LatencyEngine<SampleType>
 {
-	if (! data.isValid())
-		return;
+public:
+	/** Constructor. */
+	explicit AudioFilePlayer (AudioFile& file);
 
-	juce::LocalisedStrings::setCurrentMappings (new juce::LocalisedStrings (data.getAsString(), ignoreCaseOfKeys));
-}
+private:
+	using InterpolatorType = juce::Interpolators::Lagrange;
 
+	void renderChunk (const AudioBuffer<SampleType>&, AudioBuffer<SampleType>& output, MidiBuffer&, bool isBypassed) final;
 
-[[nodiscard]] String getLanguageToUse()
-{
-	const auto countryCode = juce::SystemStats::getDisplayLanguage().upToFirstOccurrenceOf ("-", false, false);
+	void prepared (int, double samplerate, int) final;
 
-	return languageCodeToName (countryCode);
-}
+	void onRelease() final;
 
+	const AudioBuffer<float>& origAudio;
 
-static constexpr auto TRANSLATION_FILE_PREFIX = "trans_";
-static constexpr auto TRANSLATION_FILE_XTN    = ".txt";
+	const double origSamplerate;
+	const int    origNumSamples;
 
+	double speedRatio { 0. };
 
-void initializeDefaultTranslations()
-{
-	const auto language = getLanguageToUse();
+	juce::Array<int> readPositions;
 
-	if (language.isEmpty())
-		return;
+	ConstructedArray<InterpolatorType> interpolators;
 
-	const binary::Data translationData { TRANSLATION_FILE_PREFIX + language + TRANSLATION_FILE_XTN };
+	AudioBuffer<float> conversionBuffer;  // needed for double version only
+};
 
-	initializeTranslations (translationData);
-}
-
-
-TranslationsInitializer::TranslationsInitializer()
-{
-	initializeDefaultTranslations();
-}
-
-}  // namespace lemons::locale
+}  // namespace lemons::dsp

@@ -13,9 +13,7 @@
  ======================================================================================
  */
 
-#include <lemons_core/lemons_core.h>
-
-namespace lemons
+namespace lemons::dsp
 {
 
 juce::AudioFormatManager& AudioFile::getFormatManager()
@@ -152,3 +150,20 @@ const juce::StringPairArray& AudioFile::getMetadata() const noexcept
 }
 
 }  // namespace lemons
+
+
+/*---------------------------------------------------------------------------------------------------------------------------------*/
+
+namespace lemons::binary
+{
+
+dsp::AudioFile getAudio (const String& audioFileName)
+{
+    dsp::AudioFile audio { std::make_unique<juce::MemoryInputStream> (Data::getBlob (audioFileName), false) };
+    
+    jassert (audio.isValid());
+    
+    return audio;
+}
+
+}

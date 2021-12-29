@@ -13,45 +13,47 @@
  ======================================================================================
  */
 
-
-#pragma once
-
-#include <lemons_binaries/lemons_binaries.h>
-
-namespace lemons::dsp
+namespace lemons::locale
 {
 
-/** A kind of AudioEngine that plays audio from an AudioFile object.
-    @see AudioFile
- */
-template <typename SampleType>
-class AudioFilePlayer final : public LatencyEngine<SampleType>
+void initializeTranslations (const binary::Data& data,
+                             bool                ignoreCaseOfKeys)
 {
-public:
-	/** Constructor. */
-	explicit AudioFilePlayer (AudioFile& file);
+	if (! data.isValid())
+		return;
 
-private:
-	using InterpolatorType = juce::Interpolators::Lagrange;
+	juce::LocalisedStrings::setCurrentMappings (new juce::LocalisedStrings (data.getAsString(), ignoreCaseOfKeys));
+}
 
-	void renderChunk (const AudioBuffer<SampleType>&, AudioBuffer<SampleType>& output, MidiBuffer&, bool isBypassed) final;
 
-	void prepared (int, double samplerate, int) final;
+[[nodiscard]] String getLanguageToUse()
+{
+	const auto countryCode = juce::SystemStats::getDisplayLanguage().upToFirstOccurrenceOf ("-", false, false);
 
-	void onRelease() final;
+	return languageCodeToName (countryCode);
+}
 
-	const AudioBuffer<float>& origAudio;
 
-	const double origSamplerate;
-	const int    origNumSamples;
+static constexpr auto TRANSLATION_FILE_PREFIX = "trans_";
+static constexpr auto TRANSLATION_FILE_XTN    = ".txt";
 
-	double speedRatio { 0. };
 
-	juce::Array<int> readPositions;
+void initializeDefaultTranslations()
+{
+	const auto language = getLanguageToUse();
 
-	ConstructedArray<InterpolatorType> interpolators;
+	if (language.isEmpty())
+		return;
 
-	AudioBuffer<float> conversionBuffer;  // needed for double version only
-};
+	const binary::Data translationData { TRANSLATION_FILE_PREFIX + language + TRANSLATION_FILE_XTN };
 
-}  // namespace lemons::dsp
+	initializeTranslations (translationData);
+}
+
+
+TranslationsInitializer::TranslationsInitializer()
+{
+	initializeDefaultTranslations();
+}
+
+}  // namespace lemons::locale

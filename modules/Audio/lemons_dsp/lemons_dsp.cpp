@@ -23,7 +23,6 @@
 
 #include "engines/AudioEngine.cpp"
 #include "engines/LatencyEngine.cpp"
-#include "engines/AudioFilePlayer.cpp"
 #include "engines/EngineChain.cpp"
 #include "engines/DspProtection.cpp"
 
@@ -40,3 +39,6 @@
 #include "oscillators/oscillators.cpp"
 #include "oscillators/SuperSaw.cpp"
 #include "oscillators/choosable.cpp"
+
+#include "audio_files/AudioFile.cpp"
+#include "audio_files/AudioFilePlayer.cpp"

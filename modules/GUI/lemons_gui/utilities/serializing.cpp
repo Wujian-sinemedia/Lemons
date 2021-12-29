@@ -57,6 +57,31 @@ bool serializeFont (const juce::Font& font, const File& destFile, int maxNumChar
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
+namespace lemons::binary
+{
+
+juce::Image getImage (const String& imageFileName)
+{
+    const Data d { imageFileName };
+    
+    jassert (d.isValid());
+    
+    return juce::ImageCache::getFromMemory (d.getData(), d.getSize());
+}
+
+std::unique_ptr<juce::CustomTypeface> getFont (const String& fontFileName)
+{
+    const auto block = Data::getBlob (fontFileName);
+    
+    juce::MemoryInputStream is { block, false };
+    
+    return std::make_unique<juce::CustomTypeface> (is);
+}
+
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------*/
+
 namespace juce
 {
 

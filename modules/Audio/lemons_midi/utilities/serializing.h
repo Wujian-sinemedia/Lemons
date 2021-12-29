@@ -64,6 +64,19 @@ bool saveMidiToFile (const MidiBuffer& midi, const File& file);
 
 }  // namespace lemons::serializing
 
+
+namespace lemons::binary
+{
+
+using juce::String;
+
+/** Returns a MIDI buffer object from a MIDI file in the BinaryData target. If the MIDI can't be loaded, an assertion will be thrown.
+    @see serializing::loadMidiFromFile(), serializing::saveMidiToFile()
+ */
+[[nodiscard]] juce::MidiFile getMidi (const String& midiFileName);
+
+}
+
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
 namespace juce

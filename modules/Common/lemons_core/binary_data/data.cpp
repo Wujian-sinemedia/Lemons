@@ -110,28 +110,6 @@ template ValueTree Data::getValueTree<files::FileType::XML> (const String&);
 template ValueTree Data::getValueTree<files::FileType::JSON> (const String&);
 template ValueTree Data::getValueTree<files::FileType::Opaque> (const String&);
 
-Image Data::getImage (const String& imageFileName)
-{
-	const Data d { imageFileName };
-
-	jassert (d.isValid());
-
-	return juce::ImageCache::getFromMemory (d.data, d.size);
-}
-
-AudioFile Data::getAudio (const String& audioFileName)
-{
-	AudioFile audio { std::make_unique<juce::MemoryInputStream> (getBlob (audioFileName), false) };
-
-	jassert (audio.isValid());
-
-	return audio;
-}
-
-MidiFile Data::getMidi (const String& midiFileName)
-{
-	return serializing::midiFileFromBinary (getBlob (midiFileName));
-}
 
 String Data::getString (const String& textFileName)
 {
@@ -145,15 +123,6 @@ String Data::getString (const String& textFileName)
 juce::StringArray Data::getStrings (const String& textFileName)
 {
 	return juce::StringArray::fromTokens (getString (textFileName), "\n\r\n", "");
-}
-
-std::unique_ptr<juce::CustomTypeface> Data::getFont (const String& fontFileName)
-{
-	const auto block = getBlob (fontFileName);
-
-	juce::MemoryInputStream is { block, false };
-
-	return std::make_unique<juce::CustomTypeface> (is);
 }
 
 }  // namespace lemons::binary

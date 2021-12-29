@@ -15,18 +15,14 @@
 
 #pragma once
 
-#include <juce_audio_basics/juce_audio_basics.h>
 #include <juce_audio_formats/juce_audio_formats.h>
 
 
-namespace lemons
+namespace lemons::dsp
 {
 
 using juce::String;
 using juce::File;
-
-template <typename T>
-using AudioBuffer = juce::AudioBuffer<T>;
 
 
 /** This class represents the data of an audio file, including the AudioBuffer itself, as well as the samplerate, bit depth, and metadata information.
@@ -94,9 +90,7 @@ private:
 	AudioBuffer<double> double_data;
 
 	double samplerate { 0. };
-	int    lengthInSamples { 0 };
-	int    numChannels { 0 };
-	int    bitsPerSample { 0 };
+    int    lengthInSamples { 0 }, numChannels { 0 }, bitsPerSample { 0 };
 
 	File file;
 
@@ -106,3 +100,14 @@ private:
 };
 
 }  // namespace lemons
+
+
+
+namespace lemons::binary
+{
+
+/** Returns an AudioFile object from a file stored in the BinaryData target. If the audio can't be loaded, an assertion will be thrown.
+ */
+[[nodiscard]] dsp::AudioFile getAudio (const String& audioFileName);
+
+}

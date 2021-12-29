@@ -16,16 +16,13 @@
 
 #pragma once
 
-#include <juce_graphics/juce_graphics.h>
 #include <lemons_core/lemons_core.h>
 
 
 namespace lemons::binary
 {
 
-using juce::Image;
 using juce::MemoryBlock;
-using juce::MidiFile;
 using juce::String;
 using juce::ValueTree;
 
@@ -88,23 +85,6 @@ struct Data final
 	template <files::FileType Type = files::FileType::JSON>
 	[[nodiscard]] static ValueTree getValueTree (const String& filename);
 
-	/** Returns an image object from an image file in the BinaryData target.
-	    If the image can't be loaded, an assertion will be thrown.
-	    @see serializing::loadImageFromFile(), serializing::saveImageToFile()
-	 */
-	[[nodiscard]] static Image getImage (const String& imageFileName);
-
-	/** Returns an audio file from the BinaryData target. If the audio can't be loaded, an assertion will be thrown.
-	    @see AudioFile
-	 */
-	[[nodiscard]] static AudioFile getAudio (const String& audioFileName);
-
-	/** Returns a MIDI buffer object from a MIDI file in the BinaryData target.
-	    If the MIDI can't be loaded, an assertion will be thrown.
-	    @see serializing::loadMidiFromFile(), serializing::saveMidiToFile()
-	 */
-	[[nodiscard]] static MidiFile getMidi (const String& midiFileName);
-
 	/** Returns a text file in the BinaryData target as one string.
 	    If the data can't be loaded, an assertion will be thrown.
 	    @see getStrings()
@@ -118,12 +98,6 @@ struct Data final
 	 */
 	[[nodiscard]] static juce::StringArray getStrings (const String& textFileName);
 
-	/** Returns a font that has been previously serialized with the serializing::serializeFont() method.
-	    If the font can't be loaded, an assertion will be thrown.
-	    @see serializing::serializeFont()
-	 */
-	[[nodiscard]] static std::unique_ptr<juce::CustomTypeface> getFont (const String& filename);
-    
 private:
     const char* data { nullptr };
     

@@ -25,7 +25,13 @@
 
 #include "files/FileUtilities.cpp"
 
+#include "binary_data/data.cpp"
+#include "binary_data/translations.cpp"
+
 #include "serializing/ValueTrees.cpp"
 #include "serializing/serializing.cpp"
 #include "serializing/VariantConversions.cpp"
 #include "serializing/VariantConversions_tests.cpp"
+
+#include "localization/languages.cpp"
+#include "localization/TranslationFiles.cpp"

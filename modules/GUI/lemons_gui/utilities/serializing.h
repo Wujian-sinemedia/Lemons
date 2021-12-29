@@ -38,6 +38,25 @@ bool serializeFont (const juce::Font& font, const File& destFile, int maxNumChar
 
 }  // namespace lemons::serializing
 
+namespace lemons::binary
+{
+
+using juce::String;
+
+/** Returns an image object from an image file in the BinaryData target.
+    If the image can't be loaded, an assertion will be thrown.
+    @see serializing::loadImageFromFile(), serializing::saveImageToFile()
+ */
+[[nodiscard]] juce::Image getImage (const String& imageFileName);
+
+/** Returns a font that has been previously serialized with the serializing::serializeFont() method.
+    If the font can't be loaded, an assertion will be thrown.
+    @see serializing::serializeFont()
+ */
+[[nodiscard]] std::unique_ptr<juce::CustomTypeface> getFont (const String& filename);
+
+}
+
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
 namespace juce

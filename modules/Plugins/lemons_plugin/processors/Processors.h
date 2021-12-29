@@ -41,7 +41,7 @@ namespace lemons::plugin
     @see ProcessorBase, Engine, ProcessorWithEditor
  */
 template <template <typename SampleType> class EngineType, typename StateType, LEMONS_MUST_INHERIT_FROM (EngineType<float>, dsp::Engine<float>), LEMONS_MUST_INHERIT_FROM (StateType, State)>
-class Processor : public ProcessorBase
+class Processor : public ProcessorBase, private locale::TranslationsInitializer
 {
 public:
 	/** Creates a processor with the specified bus layout. */

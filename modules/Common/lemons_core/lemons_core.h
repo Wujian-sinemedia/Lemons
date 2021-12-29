@@ -60,8 +60,14 @@
 
 #include "files/FileUtilities.h"
 
+#include "binary_data/data.h"
+#include "binary_data/translations.h"
+
 #include "serializing/serializing.h"
 #include "serializing/VariantConversions.h"
+
+#include "localization/languages.h"
+#include "localization/TranslationFiles.h"
 
 #include "math/mathHelpers.h"
 #include "misc/ArgParser.h"
