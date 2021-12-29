@@ -98,9 +98,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a2c92a63fdfc10ca993486235f0362531"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1psola_1_1_shifter.html#a2c92a63fdfc10ca993486235f0362531">releaseResources</a> ()</td></tr>
 <tr class="memdesc:a2c92a63fdfc10ca993486235f0362531"><td class="mdescLeft">&#160;</td><td class="mdescRight">Releases all the resources used by the <a class="el" href="classlemons_1_1dsp_1_1psola_1_1_shifter.html" title="A class that repitches a stream of monophonic audio using PSOLA-like techniques.">Shifter</a>.  <a href="classlemons_1_1dsp_1_1psola_1_1_shifter.html#a2c92a63fdfc10ca993486235f0362531">More...</a><br /></td></tr>
 <tr class="separator:a2c92a63fdfc10ca993486235f0362531"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad94a42009f71701f57d486e7a17d2416"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1psola_1_1_shifter.html#ad94a42009f71701f57d486e7a17d2416">setPitch</a> (int pitchHz)</td></tr>
-<tr class="memdesc:ad94a42009f71701f57d486e7a17d2416"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the pitch, in Hz, of the shifter's output.  <a href="classlemons_1_1dsp_1_1psola_1_1_shifter.html#ad94a42009f71701f57d486e7a17d2416">More...</a><br /></td></tr>
-<tr class="separator:ad94a42009f71701f57d486e7a17d2416"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a475f995541abd17def52ea48beeb6a70"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1psola_1_1_shifter.html#a475f995541abd17def52ea48beeb6a70">reset</a> () noexcept</td></tr>
+<tr class="memdesc:a475f995541abd17def52ea48beeb6a70"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets the shifter to its initial state, without releasing any resources.  <a href="classlemons_1_1dsp_1_1psola_1_1_shifter.html#a475f995541abd17def52ea48beeb6a70">More...</a><br /></td></tr>
+<tr class="separator:a475f995541abd17def52ea48beeb6a70"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a740765bb7eae2ca43726f39c30f94c9f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1psola_1_1_shifter.html#a740765bb7eae2ca43726f39c30f94c9f">setPitch</a> (int pitchHz) noexcept</td></tr>
+<tr class="memdesc:a740765bb7eae2ca43726f39c30f94c9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the pitch, in Hz, of the shifter's output.  <a href="classlemons_1_1dsp_1_1psola_1_1_shifter.html#a740765bb7eae2ca43726f39c30f94c9f">More...</a><br /></td></tr>
+<tr class="separator:a740765bb7eae2ca43726f39c30f94c9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4fb7adf9cb876852a54f58dac38cd06f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1psola_1_1_shifter.html#a4fb7adf9cb876852a54f58dac38cd06f">skipSamples</a> (int numSamples)</td></tr>
 <tr class="memdesc:a4fb7adf9cb876852a54f58dac38cd06f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Skips a number of samples in the shifter's output (ie, for when it is bypassed).  <a href="classlemons_1_1dsp_1_1psola_1_1_shifter.html#a4fb7adf9cb876852a54f58dac38cd06f">More...</a><br /></td></tr>
 <tr class="separator:a4fb7adf9cb876852a54f58dac38cd06f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -262,13 +265,46 @@ template&lt;typename SampleType &gt; </div>
 
 </div>
 </div>
-<a id="ad94a42009f71701f57d486e7a17d2416"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad94a42009f71701f57d486e7a17d2416">&#9670;&nbsp;</a></span>setPitch()</h2>
+<a id="a475f995541abd17def52ea48beeb6a70"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a475f995541abd17def52ea48beeb6a70">&#9670;&nbsp;</a></span>reset()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;typename SampleType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classlemons_1_1dsp_1_1psola_1_1_shifter.html">lemons::dsp::psola::Shifter</a>&lt; SampleType &gt;::reset </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Resets the shifter to its initial state, without releasing any resources. </p>
+<p>Note that this is called for you if you call <a class="el" href="classlemons_1_1dsp_1_1psola_1_1_analyzer.html#a7cefce058b4abe6ac87b298f7722c276" title="Resets the analyzer to its initial state, without releasing any resources.">Analyzer::reset()</a>. </p>
+
+</div>
+</div>
+<a id="a740765bb7eae2ca43726f39c30f94c9f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a740765bb7eae2ca43726f39c30f94c9f">&#9670;&nbsp;</a></span>setPitch()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename SampleType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void <a class="el" href="classlemons_1_1dsp_1_1psola_1_1_shifter.html">lemons::dsp::psola::Shifter</a>&lt; SampleType &gt;::setPitch </td>
@@ -278,10 +314,15 @@ template&lt;typename SampleType &gt; </div>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Sets the pitch, in Hz, of the shifter's output. </p>
-<p>Note that before calling this, you must set the samplerate of the algorithm using <a class="el" href="classlemons_1_1dsp_1_1psola_1_1_analyzer.html#ad411d4adc2548c7ca7296a861ecf7fcf" title="Sets the samplerate, and informs any Shifter objects that are using this Analyzer.">Analyzer::setSamplerate()</a>. </p>
+<p>Note that before calling this, you must set the samplerate of the algorithm using <a class="el" href="classlemons_1_1dsp_1_1psola_1_1_analyzer.html#ad411d4adc2548c7ca7296a861ecf7fcf" title="Sets the samplerate, and informs any Shifter objects that are using this Analyzer.">Analyzer::setSamplerate()</a>! </p>
 
 </div>
 </div>
@@ -314,7 +355,7 @@ template&lt;typename SampleType &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Dec 28 2021 00:46:44 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Dec 29 2021 00:44:58 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

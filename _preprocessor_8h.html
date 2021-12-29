@@ -67,22 +67,41 @@ $(function() {
 </div>
 </div><!-- top -->
 <div class="header">
+  <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
 <div class="title">Preprocessor.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1is__specialization.html">lemons::is_specialization&lt; T, Template &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utility struct that evaluates to std::true_type if the given class specializes the given template, and false otherwise.  <a href="structlemons_1_1is__specialization.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1is__specialization_3_01_template_3_01_args_8_8_8_01_4_00_01_template_01_4.html">lemons::is_specialization&lt; Template&lt; Args... &gt;, Template &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
+Namespaces</h2></td></tr>
+<tr class="memitem:namespacelemons"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons.html">lemons</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
 <tr><td colspan="2"><div class="groupHeader"></div></td></tr>
+<tr class="memitem:ga89cf7df0319b16fb00f65e1b82ac3a33"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__misc.html#ga89cf7df0319b16fb00f65e1b82ac3a33">LEMONS_MUST_BE_SPECIALIZATION</a>(classToTest,  requiredTemplate)&#160;&#160;&#160;std::enable_if_t&lt;<a class="el" href="structlemons_1_1is__specialization.html">lemons::is_specialization</a>&lt;classToTest, requiredTemplate&gt;::value&gt;* = nullptr</td></tr>
+<tr class="memdesc:ga89cf7df0319b16fb00f65e1b82ac3a33"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this macro inside a template declaration to ensure that classToTest is a specialization of the required template.  <a href="group__misc.html#ga89cf7df0319b16fb00f65e1b82ac3a33">More...</a><br /></td></tr>
+<tr class="separator:ga89cf7df0319b16fb00f65e1b82ac3a33"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga4be31aa0be590eae843d1a0be27e95a8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__misc.html#ga4be31aa0be590eae843d1a0be27e95a8">LEMONS_MUST_INHERIT_FROM</a>(classToTest,  requiredBaseClass)&#160;&#160;&#160;std::enable_if_t&lt;std::is_base_of&lt;requiredBaseClass, classToTest&gt;::value&gt;* = nullptr</td></tr>
-<tr class="memdesc:ga4be31aa0be590eae843d1a0be27e95a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this macro inside a class template to place inheritance constraints on a template argument.  <a href="group__misc.html#ga4be31aa0be590eae843d1a0be27e95a8">More...</a><br /></td></tr>
+<tr class="memdesc:ga4be31aa0be590eae843d1a0be27e95a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this macro inside a template declaration to place inheritance constraints on a template argument.  <a href="group__misc.html#ga4be31aa0be590eae843d1a0be27e95a8">More...</a><br /></td></tr>
 <tr class="separator:ga4be31aa0be590eae843d1a0be27e95a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Dec 28 2021 00:46:44 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Dec 29 2021 00:44:58 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

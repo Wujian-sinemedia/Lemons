@@ -99,8 +99,11 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A timer callback that calls a lambda function.  <a href="structlemons_1_1events_1_1_timer_callback.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga4be31aa0be590eae843d1a0be27e95a8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__misc.html#ga4be31aa0be590eae843d1a0be27e95a8">LEMONS_MUST_INHERIT_FROM</a>(classToTest,  requiredBaseClass)&#160;&#160;&#160;std::enable_if_t&lt;std::is_base_of&lt;requiredBaseClass, classToTest&gt;::value&gt;* = nullptr</td></tr>
-<tr class="memdesc:ga4be31aa0be590eae843d1a0be27e95a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this macro inside a class template to place inheritance constraints on a template argument.  <a href="group__misc.html#ga4be31aa0be590eae843d1a0be27e95a8">More...</a><br /></td></tr>
+<tr class="memdesc:ga4be31aa0be590eae843d1a0be27e95a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this macro inside a template declaration to place inheritance constraints on a template argument.  <a href="group__misc.html#ga4be31aa0be590eae843d1a0be27e95a8">More...</a><br /></td></tr>
 <tr class="separator:ga4be31aa0be590eae843d1a0be27e95a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga89cf7df0319b16fb00f65e1b82ac3a33"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__misc.html#ga89cf7df0319b16fb00f65e1b82ac3a33">LEMONS_MUST_BE_SPECIALIZATION</a>(classToTest,  requiredTemplate)&#160;&#160;&#160;std::enable_if_t&lt;<a class="el" href="structlemons_1_1is__specialization.html">lemons::is_specialization</a>&lt;classToTest, requiredTemplate&gt;::value&gt;* = nullptr</td></tr>
+<tr class="memdesc:ga89cf7df0319b16fb00f65e1b82ac3a33"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this macro inside a template declaration to ensure that classToTest is a specialization of the required template.  <a href="group__misc.html#ga89cf7df0319b16fb00f65e1b82ac3a33">More...</a><br /></td></tr>
+<tr class="separator:ga89cf7df0319b16fb00f65e1b82ac3a33"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga745cbaf7407f78551a03e6033abc2624"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__misc.html#ga745cbaf7407f78551a03e6033abc2624">LEMONS_VERSION_MAJOR</a>&#160;&#160;&#160;0</td></tr>
 <tr class="separator:ga745cbaf7407f78551a03e6033abc2624"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga1fbe1a2b0c90a5464db0037161a6b21b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__misc.html#ga1fbe1a2b0c90a5464db0037161a6b21b">LEMONS_VERSION_MINOR</a>&#160;&#160;&#160;0</td></tr>
@@ -116,6 +119,42 @@ Classes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="ga89cf7df0319b16fb00f65e1b82ac3a33"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga89cf7df0319b16fb00f65e1b82ac3a33">&#9670;&nbsp;</a></span>LEMONS_MUST_BE_SPECIALIZATION</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LEMONS_MUST_BE_SPECIALIZATION</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">classToTest, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">requiredTemplate&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;std::enable_if_t&lt;<a class="el" href="structlemons_1_1is__specialization.html">lemons::is_specialization</a>&lt;classToTest, requiredTemplate&gt;::value&gt;* = nullptr</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Use this macro inside a template declaration to ensure that classToTest is a specialization of the required template. </p>
+<p>For example: </p><div class="fragment"><div class="line"><span class="keyword">template</span> &lt; <span class="keyword">class</span> VectorType, LEMONS_MUST_BE_SPECIALIZATION(VectorType, std::vector) &gt;</div>
+<div class="line"><span class="keyword">class </span>SomeClass { };</div>
+</div><!-- fragment --><p> With the above code, instantiating</p><div class="fragment"><div class="line">SomeClass&lt; std::vector&lt;int&gt; &gt; </div>
+</div><!-- fragment --><p> will succeed, and attempting to instantiate</p><div class="fragment"><div class="line">SomeClass&lt; std::list&lt;int&gt; &gt;; </div>
+</div><!-- fragment --><p> will throw a compile-time error. <br  />
+Note that the first argument to this macro should be a fully-specialized type, and the second argument to this macro must be an unspecialized template! </p>
+
+</div>
+</div>
 <a id="ga4be31aa0be590eae843d1a0be27e95a8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ga4be31aa0be590eae843d1a0be27e95a8">&#9670;&nbsp;</a></span>LEMONS_MUST_INHERIT_FROM</h2>
 
@@ -142,7 +181,7 @@ Classes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Use this macro inside a class template to place inheritance constraints on a template argument. </p>
+<p>Use this macro inside a template declaration to place inheritance constraints on a template argument. </p>
 <p>For example: </p><div class="fragment"><div class="line"><span class="keyword">template</span> &lt; <span class="keyword">class</span> ParameterType, LEMONS_MUST_INHERIT_FROM(ParameterType, juce::AudioProcessorParameter) &gt;</div>
 <div class="line"><span class="keyword">class </span>SomeClass { };</div>
 </div><!-- fragment --><p> With the above code, attempting to instantiate a specialization of SomeClass where the template argument is not a type that inherits from juce::AudioProcessorParameter will throw a compile-time error. <br  />
@@ -237,7 +276,7 @@ Note that both arguments to this macro must be fully specialized types. </p>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Dec 28 2021 00:46:44 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Dec 29 2021 00:44:58 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

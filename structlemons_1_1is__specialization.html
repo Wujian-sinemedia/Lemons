@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Lemons: Member List</title>
+<title>Lemons: lemons::is_specialization&lt; T, Template &gt; Struct Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -63,24 +63,34 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="namespacelemons.html">lemons</a></li><li class="navelem"><a class="el" href="namespacelemons_1_1dsp.html">dsp</a></li><li class="navelem"><a class="el" href="namespacelemons_1_1dsp_1_1psola.html">psola</a></li><li class="navelem"><a class="el" href="classlemons_1_1dsp_1_1psola_1_1_peak_finder.html">PeakFinder</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespacelemons.html">lemons</a></li><li class="navelem"><a class="el" href="structlemons_1_1is__specialization.html">is_specialization</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">lemons::dsp::psola::PeakFinder&lt; SampleType &gt; Member List</div>  </div>
+<div class="title">lemons::is_specialization&lt; T, Template &gt; Struct Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>This is the complete list of members for <a class="el" href="classlemons_1_1dsp_1_1psola_1_1_peak_finder.html">lemons::dsp::psola::PeakFinder&lt; SampleType &gt;</a>, including all inherited members.</p>
-<table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="classlemons_1_1dsp_1_1psola_1_1_peak_finder.html#ae3e7902cd3e189ad703708770baf1783">findPeaks</a>(const SampleType *inputSamples, int numSamples, float period)</td><td class="entry"><a class="el" href="classlemons_1_1dsp_1_1psola_1_1_peak_finder.html">lemons::dsp::psola::PeakFinder&lt; SampleType &gt;</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="classlemons_1_1dsp_1_1psola_1_1_peak_finder.html#a49ddc1b352013a426319f74133bea934">prepare</a>(int maxBlocksize)</td><td class="entry"><a class="el" href="classlemons_1_1dsp_1_1psola_1_1_peak_finder.html">lemons::dsp::psola::PeakFinder&lt; SampleType &gt;</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classlemons_1_1dsp_1_1psola_1_1_peak_finder.html#a7e094e334ac553f624732849d8821360">releaseResources</a>()</td><td class="entry"><a class="el" href="classlemons_1_1dsp_1_1psola_1_1_peak_finder.html">lemons::dsp::psola::PeakFinder&lt; SampleType &gt;</a></td><td class="entry"></td></tr>
-</table></div><!-- contents -->
+<p>Utility struct that evaluates to std::true_type if the given class specializes the given template, and false otherwise.  
+ <a href="structlemons_1_1is__specialization.html#details">More...</a></p>
+
+<p>Inherits false_type.</p>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><h3>template&lt;class T, template&lt; class... &gt; class Template&gt;<br />
+struct lemons::is_specialization&lt; T, Template &gt;</h3>
+
+<p>Utility struct that evaluates to std::true_type if the given class specializes the given template, and false otherwise. </p>
+<p>For example: </p><div class="fragment"><div class="line">is_specialization&lt; std::vector&lt;int&gt;, std::vector &gt;()</div>
+</div><!-- fragment --><p> evaluates to a compile-time true value, and </p><div class="fragment"><div class="line">is_specialization&lt; std::vector&lt;int&gt;, std::list &gt;()</div>
+</div><!-- fragment --><p> evaluates to a compile-time false value. </p>
+</div><hr/>The documentation for this struct was generated from the following file:<ul>
+<li><a class="el" href="_preprocessor_8h.html">Preprocessor.h</a></li>
+</ul>
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Dec 28 2021 00:46:44 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Dec 29 2021 00:44:58 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

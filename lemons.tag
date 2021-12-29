@@ -967,17 +967,17 @@
     <namespace>lemons</namespace>
     <namespace>lemons::math</namespace>
     <member kind="function">
-      <type>constexpr PeriodType</type>
+      <type>PeriodType</type>
       <name>freqFromPeriod</name>
       <anchorfile>namespacelemons_1_1math.html</anchorfile>
-      <anchor>a808d4a3a3c59ce792e245ac0a2ca22e6</anchor>
+      <anchor>a604aadb59f9c6905d7ba046cfbbd526b</anchor>
       <arglist>(double samplerate, PeriodType period) noexcept</arglist>
     </member>
     <member kind="function">
-      <type>constexpr T</type>
+      <type>T</type>
       <name>freqToMidi</name>
       <anchorfile>namespacelemons_1_1math.html</anchorfile>
-      <anchor>a379a4863edaf6befd18862e926c4435e</anchor>
+      <anchor>ac4ac101ae2e62adde035af820402b5a0</anchor>
       <arglist>(T freqHz) noexcept</arglist>
     </member>
     <member kind="function">
@@ -988,17 +988,17 @@
       <arglist>(int number, int divisor) noexcept</arglist>
     </member>
     <member kind="function">
-      <type>constexpr T</type>
+      <type>T</type>
       <name>midiToFreq</name>
       <anchorfile>namespacelemons_1_1math.html</anchorfile>
-      <anchor>a2f7ba670ce937b76f6646b9505643fd0</anchor>
+      <anchor>a8e334d4926a3b6dc44ea8c3cacf56070</anchor>
       <arglist>(T midiNote) noexcept</arglist>
     </member>
     <member kind="function">
-      <type>constexpr int</type>
+      <type>int</type>
       <name>msToSamps</name>
       <anchorfile>namespacelemons_1_1math.html</anchorfile>
-      <anchor>a81114ea3689f2b578a269d06ea295c76</anchor>
+      <anchor>a0b61a87fdde626a08a8dd466f3327bb9</anchor>
       <arglist>(double samplerate, msType ms) noexcept</arglist>
     </member>
     <member kind="function">
@@ -1009,10 +1009,10 @@
       <arglist>(int number) noexcept</arglist>
     </member>
     <member kind="function">
-      <type>constexpr int</type>
+      <type>int</type>
       <name>periodInSamples</name>
       <anchorfile>namespacelemons_1_1math.html</anchorfile>
-      <anchor>a0d3d657c9d1a4f9bcc2aafa9fd912c94</anchor>
+      <anchor>a835effc5b0e5514f7fd19d24db5acd66</anchor>
       <arglist>(double samplerate, FreqType freqHz) noexcept</arglist>
     </member>
     <member kind="function">
@@ -1287,17 +1287,6 @@
     <name>PeakFinder.h</name>
     <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Audio/lemons_psola/analysis/</path>
     <filename>_peak_finder_8h.html</filename>
-    <class kind="class">lemons::dsp::psola::PeakFinder</class>
-    <namespace>lemons</namespace>
-    <namespace>lemons::dsp</namespace>
-    <namespace>lemons::dsp::psola</namespace>
-    <member kind="typedef">
-      <type>juce::Array&lt; T &gt;</type>
-      <name>Array</name>
-      <anchorfile>namespacelemons_1_1dsp_1_1psola.html</anchorfile>
-      <anchor>a8ac0fbfc3d89e90587c061caa86c0b4f</anchor>
-      <arglist></arglist>
-    </member>
   </compound>
   <compound kind="file">
     <name>PitchbendTracker.h</name>
@@ -1345,12 +1334,29 @@
     <name>Preprocessor.h</name>
     <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Common/lemons_core/misc/</path>
     <filename>_preprocessor_8h.html</filename>
+    <class kind="struct">lemons::is_specialization</class>
+    <class kind="struct">lemons::is_specialization&lt; Template&lt; Args... &gt;, Template &gt;</class>
+    <namespace>lemons</namespace>
+    <member kind="define">
+      <type>#define</type>
+      <name>LEMONS_MUST_BE_SPECIALIZATION</name>
+      <anchorfile>group__misc.html</anchorfile>
+      <anchor>ga89cf7df0319b16fb00f65e1b82ac3a33</anchor>
+      <arglist>(classToTest, requiredTemplate)</arglist>
+    </member>
     <member kind="define">
       <type>#define</type>
       <name>LEMONS_MUST_INHERIT_FROM</name>
       <anchorfile>group__misc.html</anchorfile>
       <anchor>ga4be31aa0be590eae843d1a0be27e95a8</anchor>
       <arglist>(classToTest, requiredBaseClass)</arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>LEMONS_MUST_BE_SPECIALIZATION</name>
+      <anchorfile>group__misc.html</anchorfile>
+      <anchor>ga89cf7df0319b16fb00f65e1b82ac3a33</anchor>
+      <arglist>(classToTest, requiredTemplate)</arglist>
     </member>
     <member kind="define">
       <type>#define</type>
@@ -1426,6 +1432,20 @@
     <class kind="struct">lemons::plugin::ProcessorWithEditor</class>
     <namespace>lemons</namespace>
     <namespace>lemons::plugin</namespace>
+    <member kind="define">
+      <type>#define</type>
+      <name>LEMONS_DEFINE_PLUGIN_CREATOR</name>
+      <anchorfile>_processors_8h.html</anchorfile>
+      <anchor>af649a3a424a181538b5b2ea686561b75</anchor>
+      <arglist>(ProcessorClass)</arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>LEMONS_DEFINE_PLUGIN_CREATOR</name>
+      <anchorfile>_processors_8h.html</anchorfile>
+      <anchor>af649a3a424a181538b5b2ea686561b75</anchor>
+      <arglist>(ProcessorClass)</arglist>
+    </member>
   </compound>
   <compound kind="file">
     <name>ProgramManager.h</name>
@@ -2227,6 +2247,13 @@
       <name>releaseResources</name>
       <anchorfile>classlemons_1_1dsp_1_1psola_1_1_analyzer.html</anchorfile>
       <anchor>a8a6ac4f47262969a563155d95a7d3bad</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>reset</name>
+      <anchorfile>classlemons_1_1dsp_1_1psola_1_1_analyzer.html</anchorfile>
+      <anchor>a7cefce058b4abe6ac87b298f7722c276</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
@@ -11304,6 +11331,18 @@
       <arglist></arglist>
     </member>
   </compound>
+  <compound kind="struct">
+    <name>lemons::is_specialization</name>
+    <filename>structlemons_1_1is__specialization.html</filename>
+    <templarg></templarg>
+    <templarg>Template</templarg>
+  </compound>
+  <compound kind="struct">
+    <name>lemons::is_specialization&lt; Template&lt; Args... &gt;, Template &gt;</name>
+    <filename>structlemons_1_1is__specialization_3_01_template_3_01_args_8_8_8_01_4_00_01_template_01_4.html</filename>
+    <templarg>Template</templarg>
+    <templarg>Args</templarg>
+  </compound>
   <compound kind="class">
     <name>lemons::music::KeySignature</name>
     <filename>classlemons_1_1music_1_1_key_signature.html</filename>
@@ -16197,32 +16236,6 @@
       <arglist>(float newNormalizedDefault)</arglist>
     </member>
   </compound>
-  <compound kind="class">
-    <name>lemons::dsp::psola::PeakFinder</name>
-    <filename>classlemons_1_1dsp_1_1psola_1_1_peak_finder.html</filename>
-    <templarg></templarg>
-    <member kind="function">
-      <type>const Array&lt; int &gt; &amp;</type>
-      <name>findPeaks</name>
-      <anchorfile>classlemons_1_1dsp_1_1psola_1_1_peak_finder.html</anchorfile>
-      <anchor>ae3e7902cd3e189ad703708770baf1783</anchor>
-      <arglist>(const SampleType *inputSamples, int numSamples, float period)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>prepare</name>
-      <anchorfile>classlemons_1_1dsp_1_1psola_1_1_peak_finder.html</anchorfile>
-      <anchor>a49ddc1b352013a426319f74133bea934</anchor>
-      <arglist>(int maxBlocksize)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>releaseResources</name>
-      <anchorfile>classlemons_1_1dsp_1_1psola_1_1_peak_finder.html</anchorfile>
-      <anchor>a7e094e334ac553f624732849d8821360</anchor>
-      <arglist>()</arglist>
-    </member>
-  </compound>
   <compound kind="struct">
     <name>lemons::plugin::PercentParameter</name>
     <filename>structlemons_1_1plugin_1_1_percent_parameter.html</filename>
@@ -18483,10 +18496,17 @@
     </member>
     <member kind="function">
       <type>void</type>
+      <name>reset</name>
+      <anchorfile>classlemons_1_1dsp_1_1psola_1_1_shifter.html</anchorfile>
+      <anchor>a475f995541abd17def52ea48beeb6a70</anchor>
+      <arglist>() noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
       <name>setPitch</name>
       <anchorfile>classlemons_1_1dsp_1_1psola_1_1_shifter.html</anchorfile>
-      <anchor>ad94a42009f71701f57d486e7a17d2416</anchor>
-      <arglist>(int pitchHz)</arglist>
+      <anchor>a740765bb7eae2ca43726f39c30f94c9f</anchor>
+      <arglist>(int pitchHz) noexcept</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -23191,6 +23211,8 @@
     <class kind="struct">lemons::DeviceRotation</class>
     <class kind="struct">lemons::Dimensions</class>
     <class kind="class">lemons::GuiApp</class>
+    <class kind="struct">lemons::is_specialization</class>
+    <class kind="struct">lemons::is_specialization&lt; Template&lt; Args... &gt;, Template &gt;</class>
     <class kind="struct">lemons::ValueSmoother</class>
     <class kind="struct">lemons::Version</class>
     <member kind="typedef">
@@ -23357,15 +23379,7 @@
     <name>lemons::dsp::psola</name>
     <filename>namespacelemons_1_1dsp_1_1psola.html</filename>
     <class kind="class">lemons::dsp::psola::Analyzer</class>
-    <class kind="class">lemons::dsp::psola::PeakFinder</class>
     <class kind="class">lemons::dsp::psola::Shifter</class>
-    <member kind="typedef">
-      <type>juce::Array&lt; T &gt;</type>
-      <name>Array</name>
-      <anchorfile>namespacelemons_1_1dsp_1_1psola.html</anchorfile>
-      <anchor>a8ac0fbfc3d89e90587c061caa86c0b4f</anchor>
-      <arglist></arglist>
-    </member>
   </compound>
   <compound kind="namespace">
     <name>lemons::dsp::synth</name>
@@ -23579,17 +23593,17 @@
     <name>lemons::math</name>
     <filename>namespacelemons_1_1math.html</filename>
     <member kind="function">
-      <type>constexpr PeriodType</type>
+      <type>PeriodType</type>
       <name>freqFromPeriod</name>
       <anchorfile>namespacelemons_1_1math.html</anchorfile>
-      <anchor>a808d4a3a3c59ce792e245ac0a2ca22e6</anchor>
+      <anchor>a604aadb59f9c6905d7ba046cfbbd526b</anchor>
       <arglist>(double samplerate, PeriodType period) noexcept</arglist>
     </member>
     <member kind="function">
-      <type>constexpr T</type>
+      <type>T</type>
       <name>freqToMidi</name>
       <anchorfile>namespacelemons_1_1math.html</anchorfile>
-      <anchor>a379a4863edaf6befd18862e926c4435e</anchor>
+      <anchor>ac4ac101ae2e62adde035af820402b5a0</anchor>
       <arglist>(T freqHz) noexcept</arglist>
     </member>
     <member kind="function">
@@ -23600,17 +23614,17 @@
       <arglist>(int number, int divisor) noexcept</arglist>
     </member>
     <member kind="function">
-      <type>constexpr T</type>
+      <type>T</type>
       <name>midiToFreq</name>
       <anchorfile>namespacelemons_1_1math.html</anchorfile>
-      <anchor>a2f7ba670ce937b76f6646b9505643fd0</anchor>
+      <anchor>a8e334d4926a3b6dc44ea8c3cacf56070</anchor>
       <arglist>(T midiNote) noexcept</arglist>
     </member>
     <member kind="function">
-      <type>constexpr int</type>
+      <type>int</type>
       <name>msToSamps</name>
       <anchorfile>namespacelemons_1_1math.html</anchorfile>
-      <anchor>a81114ea3689f2b578a269d06ea295c76</anchor>
+      <anchor>a0b61a87fdde626a08a8dd466f3327bb9</anchor>
       <arglist>(double samplerate, msType ms) noexcept</arglist>
     </member>
     <member kind="function">
@@ -23621,10 +23635,10 @@
       <arglist>(int number) noexcept</arglist>
     </member>
     <member kind="function">
-      <type>constexpr int</type>
+      <type>int</type>
       <name>periodInSamples</name>
       <anchorfile>namespacelemons_1_1math.html</anchorfile>
-      <anchor>a0d3d657c9d1a4f9bcc2aafa9fd912c94</anchor>
+      <anchor>a835effc5b0e5514f7fd19d24db5acd66</anchor>
       <arglist>(double samplerate, FreqType freqHz) noexcept</arglist>
     </member>
     <member kind="function">
@@ -24395,7 +24409,6 @@
     <namespace>lemons::dsp</namespace>
     <namespace>lemons::dsp::psola</namespace>
     <class kind="class">lemons::dsp::psola::Analyzer</class>
-    <class kind="class">lemons::dsp::psola::PeakFinder</class>
   </compound>
   <compound kind="group">
     <name>audio_files</name>
@@ -24718,6 +24731,13 @@
       <anchorfile>group__misc.html</anchorfile>
       <anchor>ga4be31aa0be590eae843d1a0be27e95a8</anchor>
       <arglist>(classToTest, requiredBaseClass)</arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>LEMONS_MUST_BE_SPECIALIZATION</name>
+      <anchorfile>group__misc.html</anchorfile>
+      <anchor>ga89cf7df0319b16fb00f65e1b82ac3a33</anchor>
+      <arglist>(classToTest, requiredTemplate)</arglist>
     </member>
     <member kind="define">
       <type>#define</type>
