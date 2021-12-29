@@ -98,6 +98,8 @@ private:
 	int samplesToNextGrain { 0 }, placeInBlock { 0 }, targetPitchHz { 0 };
 
 	juce::OwnedArray<Grain> grains;
+    
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (Shifter)
 };
 
 }  // namespace lemons::dsp::psola
@@ -124,7 +126,7 @@ private:
 	dsp::osc::Sine<SampleType> osc;
 	AudioBuffer<SampleType>    origAudio, shiftedAudio;
 
-	dsp::PitchDetector<SampleType> detector;
+	dsp::psola::PitchDetector<SampleType> detector;
 };
 
 LEMONS_CREATE_DSP_TEST (PsolaTests)

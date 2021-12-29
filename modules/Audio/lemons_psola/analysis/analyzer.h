@@ -130,6 +130,8 @@ private:
 	Array<int> incompleteGrainsFromLastFrame;
 
 	Array<Shifter<SampleType>*> shifters;
+    
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (Analyzer)
 };
 
 }  // namespace lemons::dsp::psola

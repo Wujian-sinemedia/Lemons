@@ -34,7 +34,6 @@
 #include "util/BufferUtils.cpp"
 #include "util/WhiteNoiseGenerator.cpp"
 #include "util/MonoStereoConverter.cpp"
-#include "util/PitchDetector.cpp"
 
 #include "oscillators/oscillators.cpp"
 #include "oscillators/SuperSaw.cpp"

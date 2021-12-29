@@ -16,7 +16,7 @@
 
 #pragma once
 
-namespace lemons::dsp
+namespace lemons::dsp::psola
 {
 /** A pitch detector based on the YIN algorithm.
  */
@@ -134,7 +134,7 @@ private:
 
 	AudioBuffer<FloatType> storage;
 
-	dsp::PitchDetector<FloatType> detector { juce::roundToInt (minDetectableFreq) };
+	dsp::psola::PitchDetector<FloatType> detector { juce::roundToInt (minDetectableFreq) };
 
 	dsp::osc::Sine<FloatType>     sine;
 	dsp::osc::Saw<FloatType>      saw;

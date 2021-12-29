@@ -14,7 +14,7 @@
  */
 
 
-namespace lemons::dsp
+namespace lemons::dsp::psola
 {
 
 template <typename SampleType>

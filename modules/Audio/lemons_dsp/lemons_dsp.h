@@ -62,7 +62,6 @@ END_JUCE_MODULE_DECLARATION
 #include "util/BufferUtils.h"
 #include "util/WhiteNoiseGenerator.h"
 #include "util/MonoStereoConverter.h"
-#include "util/PitchDetector.h"
 
 #include "audio_files/AudioFile.h"
 #include "audio_files/AudioFilePlayer.h"
