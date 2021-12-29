@@ -62,6 +62,11 @@ private:
 };
 
 
+/** A handy typedef for if you just want to create a plugin processor that wraps a certain engine type, without supplying a custom state type. */
+template <template <typename SampleType> class EngineType>
+using StatelessProcessor = Processor <EngineType, State>;
+
+
 /** A processor class that has a GUI editor.
     Example usage:
     @code
