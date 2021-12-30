@@ -135,7 +135,7 @@ private:
 	dsp::psola::PitchDetector<SampleType> detector;
 };
 
-LEMONS_CREATE_DSP_TEST (PsolaTests)
+//LEMONS_CREATE_DSP_TEST (PsolaTests)
 
 }  // namespace lemons::tests
 

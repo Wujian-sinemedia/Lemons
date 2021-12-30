@@ -56,6 +56,8 @@ void Analyzer<SampleType>::analyzeInput (const SampleType* inputAudio, int numSa
 
 	if (! incompleteGrainsFromLastFrame.isEmpty())
 	{
+        jassert (lastFrameGrainSize > 0 && lastBlocksize > 0);
+        
 		makeWindow (lastFrameGrainSize);
 
 		const auto* prevFrameSamples = prevFrame.getReadPointer (0);
@@ -63,10 +65,7 @@ void Analyzer<SampleType>::analyzeInput (const SampleType* inputAudio, int numSa
 
 		for (const auto grainStartInLastFrame : incompleteGrainsFromLastFrame)
 		{
-			jassert (lastFrameGrainSize > 0 && lastBlocksize > 0);
-
 			const auto samplesFromLastFrame = lastBlocksize - grainStartInLastFrame;
-
 			jassert (samplesFromLastFrame > 0);
 
 			getGrainToStoreIn().storeNewGrain (prevFrameSamples, grainStartInLastFrame, samplesFromLastFrame,
@@ -106,7 +105,13 @@ void Analyzer<SampleType>::analyzeInput (const SampleType* inputAudio, int numSa
 		if (start < 0)
 		{
 			if (lastBlocksize == 0)
+            {
+                getGrainToStoreIn().storeNewGrain (inputAudio, 0, windowSamples, grainSize);
+                
 				continue;
+            }
+            
+            jassert (lastBlocksize > 0 && lastFrameGrainSize > 0);
 
 			const auto samplesFromPrevFrame = grainSize + start;
 			jassert (samplesFromPrevFrame > 0);
@@ -152,12 +157,12 @@ typename Analyzer<SampleType>::Grain& Analyzer<SampleType>::getGrainToStoreIn()
 template <typename SampleType>
 inline void Analyzer<SampleType>::makeWindow (int size)
 {
+    jassert (size > 1);
+    
 	if (window.size() == size)
 		return;
 
 	window.clearQuick();
-
-	jassert (size > 1);
 
 	// Hanning window function
 	const auto denom = static_cast<double> (size - 1);
@@ -220,11 +225,9 @@ typename Analyzer<SampleType>::Grain& Analyzer<SampleType>::getClosestGrain (int
 	{
 		if (after.grain == nullptr)
 			return *before.grain;
-
-		jassert (lastFrameGrainSize > 0);
-
-		if (before.distance > after.distance + (lastFrameGrainSize / 2))
-			return *after.grain;
+        
+        if (after.distance < lastFrameGrainSize && after.distance < before.distance)
+            return *after.grain;
 
 		return *before.grain;
 	}
