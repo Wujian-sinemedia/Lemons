@@ -352,7 +352,7 @@ void Analyzer<SampleType>::Grain::storeNewGrain (const SampleType* origSamples1,
 	origStartIndex = grainStartIdx;
 	grainSize      = totalNumSamples;
 
-	samples.setSize (1, totalNumSamples, true, true, true);
+    jassert (samples.getNumSamples() >= totalNumSamples);
 
 	auto* const destSamples = samples.getWritePointer (0);
 
