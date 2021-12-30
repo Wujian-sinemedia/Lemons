@@ -23,27 +23,24 @@ State::State()
 
 void State::addTo (juce::AudioProcessor& processor) const
 {
-	for (auto* param : params)
-        param->addTo (processor);
+    std::for_each (params.begin(), params.cend(), [&](Parameter* p){ processor.addParameter (p); });
 }
 
-void State::add (ParameterHolderBase& parameter)
+void State::add (Parameter& parameter)
 {
-	jassert (! params.contains (&parameter));
-
-	params.add (&parameter);
+	params.emplace_back (&parameter);
 }
 
 void State::processControllerMessage (int number, int value)
 {
 	for (auto* param : params)
-		param->getParameter()->processNewControllerMessage (number, value);
+		param->processNewControllerMessage (number, value);
 }
 
 bool State::isControllerMapped (int number) const
 {
 	for (const auto* param : params)
-		if (param->getParameter()->getMidiControllerNumber() == number)
+		if (param->getMidiControllerNumber() == number)
 			return true;
 
 	return false;
@@ -52,15 +49,15 @@ bool State::isControllerMapped (int number) const
 void State::resetAllControllerMappedParams()
 {
     for (auto* param : params)
-        if (param->getParameter()->isMidiControllerMapped())
-            param->getParameter()->resetToDefault();
+        if (param->isMidiControllerMapped())
+            param->resetToDefault();
 }
 
 Parameter* State::getNamedParameter (const String& name) const
 {
     for (auto* param : params)
-        if (param->getParameter()->getParameterName() == name)
-            return param->getParameter();
+        if (param->getParameterName() == name)
+            return param;
     
     return nullptr;
 }
@@ -90,7 +87,7 @@ ValueTree State::saveToValueTree (bool currentProgramOnly) const
 	}
 
 	for (const auto* param : params)
-		tree.appendChild (param->getParameter()->saveToValueTree(), nullptr);
+		tree.appendChild (param->saveToValueTree(), nullptr);
     
     const auto customStateData = saveCustomStateData (customState, currentProgramOnly);
     
@@ -114,10 +111,8 @@ void State::loadFromValueTree (const ValueTree& tree)
 
 	for (auto* param : params)
 	{
-        auto* parameter = param->getParameter();
-        
-        parameter->loadFromValueTree (tree.getChildWithProperty (Parameter::id_prop, parameter->getParameterID()));
-        parameter->refreshDefault();
+        param->loadFromValueTree (tree.getChildWithProperty (Parameter::id_prop, param->getParameterID()));
+        param->refreshDefault();
 	}
     
     const auto customStateData = tree.getChildWithName (customState);
@@ -145,21 +140,19 @@ State::Listener::Listener (const State& state,
 {
 	for (auto* param : state.params)
 	{
-        auto* parameter = param->getParameter();
-        
 		const auto change = [=]
 		{
 			if (onParamChange)
-				onParamChange (*parameter);
+				onParamChange (*param);
 		};
 
 		const auto gesture = [=] (bool starting)
 		{
 			if (onGestureGhange)
-				onGestureGhange (*parameter, starting);
+				onGestureGhange (*param, starting);
 		};
 
-		updaters.add (new ParamUpdater (*parameter, std::move (change), std::move (gesture)));
+		updaters.add (new ParamUpdater (*param, std::move (change), std::move (gesture)));
 	}
 }
 

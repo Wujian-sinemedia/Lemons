@@ -114,6 +114,22 @@ struct ProcessorWithEditor final : ProcessorType
 	}
 };
 
+
+/** Handy struct that is similar to ProcessorWithEditor, but instead of providing your own component, this automatically creates a juce::GenericAudioProcessorEditor for you.
+ */
+template <class ProcessorType, LEMONS_MUST_INHERIT_FROM (ProcessorType, ProcessorBase)>
+struct ProcessorWithGenericEditor final : ProcessorType
+{
+    using ProcessorType::ProcessorType;
+    
+    bool hasEditor() const final { return true; }
+    
+    juce::AudioProcessorEditor* createEditor() final
+    {
+        return new juce::GenericAudioProcessorEditor (*this);
+    }
+};
+
 }  // namespace lemons::plugin
 
 

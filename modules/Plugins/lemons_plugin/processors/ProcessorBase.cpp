@@ -27,7 +27,7 @@ ProcessorBase::ProcessorBase (dsp::Engine<float>&        floatEngineToUse,
     , state (stateToUse)
     , processorAttributes (attributes)
 {
-	state.addTo (*this);
+//	state.addTo (*this);
 }
 
 void ProcessorBase::prepareToPlay (double sampleRate, int samplesPerBlock)
@@ -157,7 +157,7 @@ void ProcessorBase::processBlockBypassed (AudioBuffer<float>& audio, MidiBuffer&
 {
 	const juce::ScopedNoDenormals nodenorms;
 
-	state.bypass->set (true);
+	state.bypass.set (true);
 
 	floatProcessor.process (audio, midi);
 }
@@ -166,7 +166,7 @@ void ProcessorBase::processBlockBypassed (AudioBuffer<double>& audio, MidiBuffer
 {
 	const juce::ScopedNoDenormals nodenorms;
 
-	state.bypass->set (true);
+	state.bypass.set (true);
 
 	doubleProcessor.process (audio, midi);
 }
@@ -204,7 +204,7 @@ void ProcessorBase::changeProgramName (int index, const String& newName)
 
 juce::AudioProcessorParameter* ProcessorBase::getBypassParameter() const
 {
-	return state.bypass.getParameter();
+    return &state.bypass;
 }
 
 bool ProcessorBase::supportsDoublePrecisionProcessing() const

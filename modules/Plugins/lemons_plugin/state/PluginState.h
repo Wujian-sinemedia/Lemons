@@ -32,10 +32,10 @@ public:
 
 	void addTo (juce::AudioProcessor& processor) const;
 
-	void add (ParameterHolderBase& parameter);
+	void add (Parameter& parameter);
 
 	template <typename... Args>
-	void add (ParameterHolderBase& first, Args&&... rest)
+	void add (Parameter& first, Args&&... rest)
 	{
 		add (first);
 		add (std::forward<Args> (rest)...);
@@ -43,7 +43,7 @@ public:
     
     [[nodiscard]] Parameter* getNamedParameter (const String& name) const;
     
-    template<typename ParameterType, LEMONS_MUST_INHERIT_FROM(ParameterType, Parameter)>
+    template<typename ParameterType, LEMONS_MUST_INHERIT_FROM (ParameterType, Parameter)>
     [[nodiscard]] ParameterType* getTypedParameter (const String& name) const
     {
         if (auto* param = getNamedParameter (name))
@@ -77,7 +77,7 @@ public:
 
 	Dimensions editorSize { Dimensions::getDefault() };
 
-	ToggleParam bypass { "Bypass", false };
+	ToggleParameter bypass { "Bypass", false };
     
     ProgramManager programs;
 
@@ -86,7 +86,7 @@ private:
     
     virtual void loadCustomStateData (const ValueTree& tree);
     
-    juce::Array<ParameterHolderBase*> params;
+    std::vector<Parameter*> params;
 };
 
 }  // namespace lemons::plugin
