@@ -97,7 +97,7 @@ using StatelessProcessor = Processor <EngineType, State>;
     @endcode
     @tparam ProcessorType The type of your plugin's editor-less Processor; for example, Processor<YourEngine>. This type must be a specialization of Processor.
     @tparam ComponentType The type of component for your plugin's editor to display. This type must inherit from PluginGUI.
-    @see Processor, ProcessorBase, Engine
+    @see ProcessorWithGenericEditor, Processor, ProcessorBase, Engine
  */
 template <class ProcessorType, class ComponentType, LEMONS_MUST_INHERIT_FROM (ProcessorType, ProcessorBase)>
 struct ProcessorWithEditor final : ProcessorType
@@ -116,14 +116,18 @@ struct ProcessorWithEditor final : ProcessorType
 
 
 /** Handy struct that is similar to ProcessorWithEditor, but instead of providing your own component, this automatically creates a juce::GenericAudioProcessorEditor for you.
+    @tparam ProcessorType The type of your plugin's editor-less Processor; for example, Processor<YourEngine>. This type must be a specialization of Processor.
+    @see ProcessorWithEditor, Processor, ProcessorBase, Engine
  */
 template <class ProcessorType, LEMONS_MUST_INHERIT_FROM (ProcessorType, ProcessorBase)>
 struct ProcessorWithGenericEditor final : ProcessorType
 {
     using ProcessorType::ProcessorType;
     
+    /** Informs the juce::AudioProcessor API that this processor supplies an editor. */
     bool hasEditor() const final { return true; }
     
+    /** Creates a generic editor for this processor. */
     juce::AudioProcessorEditor* createEditor() final
     {
         return new juce::GenericAudioProcessorEditor (*this);
