@@ -29,5 +29,5 @@ var searchData=
   ['eq_224',['EQ',['../classlemons_1_1dsp_1_1_f_x_1_1_e_q.html',1,'lemons::dsp::FX::EQ&lt; SampleType &gt;'],['../classlemons_1_1dsp_1_1_f_x_1_1_e_q.html#a2dcdb60a42bb68a1f447336ee6127d1e',1,'lemons::dsp::FX::EQ::EQ()'],['../group___e_q.html',1,'(Global Namespace)']]],
   ['eq_2eh_225',['EQ.h',['../_e_q_8h.html',1,'']]],
   ['executeunittests_226',['executeUnitTests',['../namespacelemons_1_1tests.html#a012b4a90230fe31d71ca56d673f078c3',1,'lemons::tests']]],
-  ['existsondisk_227',['existsOnDisk',['../structlemons_1_1_audio_file.html#aba31217c05169d5d953a24bdb1435b30',1,'lemons::AudioFile']]]
+  ['existsondisk_227',['existsOnDisk',['../structlemons_1_1dsp_1_1_audio_file.html#a050fe18f621b82247d6e43c1049b0c4f',1,'lemons::dsp::AudioFile']]]
 ];

@@ -63,14 +63,14 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_4fef79e7177ba769987a8da36c892c5f.html">build</a></li><li class="navelem"><a class="el" href="dir_267d42608d6f1b5153085f45a2316d8c.html">Common</a></li><li class="navelem"><a class="el" href="dir_41761d60eb44ed961c050631d1a966b8.html">lemons_binaries</a></li><li class="navelem"><a class="el" href="dir_4ed7100cf81bd76ea56db985d8ea1ad4.html">audio_files</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_4fef79e7177ba769987a8da36c892c5f.html">build</a></li><li class="navelem"><a class="el" href="dir_9bc003e4fb21e71ffa715e0a4773ff43.html">Audio</a></li><li class="navelem"><a class="el" href="dir_2bd2e4cab24891cc24862abf9c834349.html">lemons_dsp</a></li><li class="navelem"><a class="el" href="dir_386466606d4bea5b90e9e2a98c2d1f3c.html">audio_files</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a> &#124;
-<a href="#typedef-members">Typedefs</a>  </div>
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">AudioFile.h File Reference</div>  </div>
 </div><!--header-->
@@ -78,25 +78,29 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1_audio_file.html">lemons::AudioFile</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This class represents the data of an audio file, including the AudioBuffer itself, as well as the samplerate, bit depth, and metadata information.  <a href="structlemons_1_1_audio_file.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1dsp_1_1_audio_file.html">lemons::dsp::AudioFile</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This class represents the data of an audio file, including the AudioBuffer itself, as well as the samplerate, bit depth, and metadata information.  <a href="structlemons_1_1dsp_1_1_audio_file.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
 <tr class="memitem:namespacelemons"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons.html">lemons</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:namespacelemons_1_1binary"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1binary.html">lemons::binary</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:namespacelemons_1_1dsp"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1dsp.html">lemons::dsp</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
-Typedefs</h2></td></tr>
-<tr class="memitem:a14d02d4e2202a02c819ef08ec74cde96"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a14d02d4e2202a02c819ef08ec74cde96"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons.html#a14d02d4e2202a02c819ef08ec74cde96">lemons::AudioBuffer</a> = juce::AudioBuffer&lt; T &gt;</td></tr>
-<tr class="separator:a14d02d4e2202a02c819ef08ec74cde96"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a96ccadca6540db387432a96d6cc33f34"><td class="memItemLeft" align="right" valign="top">dsp::AudioFile&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1binary.html#a96ccadca6540db387432a96d6cc33f34">lemons::binary::getAudio</a> (const String &amp;audioFileName)</td></tr>
+<tr class="memdesc:a96ccadca6540db387432a96d6cc33f34"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns an AudioFile object from a file stored in the BinaryData target.  <a href="namespacelemons_1_1binary.html#a96ccadca6540db387432a96d6cc33f34">More...</a><br /></td></tr>
+<tr class="separator:a96ccadca6540db387432a96d6cc33f34"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Dec 29 2021 00:44:58 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Dec 30 2021 00:45:08 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

@@ -1,6 +1,5 @@
 <map id="lemons::plugin::MidiPanParameter" name="lemons::plugin::MidiPanParameter">
-<area shape="rect" id="node1" title="A parameter that represents a MIDI panning value in the range 0 to 127." alt="" coords="5,261,249,288"/>
-<area shape="rect" id="node2" href="$classlemons_1_1plugin_1_1_typed_parameter.html" title=" " alt="" coords="74,185,181,212"/>
-<area shape="rect" id="node3" href="$classlemons_1_1plugin_1_1_parameter.html" title="A plugin parameter class." alt="" coords="25,5,219,32"/>
-<area shape="rect" id="node4" href="$classlemons_1_1plugin_1_1_typed_parameter.html" title="A parameter that can be stored as a type other than a float, but still inherits from my Parameter bas..." alt="" coords="144,81,375,123"/>
+<area shape="rect" id="node1" title="A parameter that represents a MIDI panning value in the range 0 to 127." alt="" coords="5,155,249,181"/>
+<area shape="rect" id="node2" href="$classlemons_1_1plugin_1_1_typed_parameter.html" title="A parameter that can be stored as a type other than a float, but still inherits from my Parameter bas..." alt="" coords="74,80,181,107"/>
+<area shape="rect" id="node3" href="$classlemons_1_1plugin_1_1_parameter.html" title="A plugin parameter class." alt="" coords="31,5,224,32"/>
 </map>
