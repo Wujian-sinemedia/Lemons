@@ -157,7 +157,7 @@ void ProcessorBase::processBlockBypassed (AudioBuffer<float>& audio, MidiBuffer&
 {
 	const juce::ScopedNoDenormals nodenorms;
 
-	state.bypass.set (true);
+	state.bypass->set (true);
 
 	floatProcessor.process (audio, midi);
 }
@@ -166,7 +166,7 @@ void ProcessorBase::processBlockBypassed (AudioBuffer<double>& audio, MidiBuffer
 {
 	const juce::ScopedNoDenormals nodenorms;
 
-	state.bypass.set (true);
+	state.bypass->set (true);
 
 	doubleProcessor.process (audio, midi);
 }
@@ -204,7 +204,7 @@ void ProcessorBase::changeProgramName (int index, const String& newName)
 
 juce::AudioProcessorParameter* ProcessorBase::getBypassParameter() const
 {
-	return &state.bypass;
+	return state.bypass.getParameter();
 }
 
 bool ProcessorBase::supportsDoublePrecisionProcessing() const

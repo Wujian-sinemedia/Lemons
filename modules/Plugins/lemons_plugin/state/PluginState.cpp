@@ -16,13 +16,18 @@
 namespace lemons::plugin
 {
 
-void State::addTo (juce::AudioProcessor& processor) const
+State::State()
 {
-//	for (auto* param : params)
-//		processor.addParameter (param);
+    add (bypass);
 }
 
-void State::add (Parameter& parameter)
+void State::addTo (juce::AudioProcessor& processor) const
+{
+	for (auto* param : params)
+        param->addTo (processor);
+}
+
+void State::add (ParameterHolderBase& parameter)
 {
 	jassert (! params.contains (&parameter));
 
@@ -32,13 +37,13 @@ void State::add (Parameter& parameter)
 void State::processControllerMessage (int number, int value)
 {
 	for (auto* param : params)
-		param->processNewControllerMessage (number, value);
+		param->getParameter()->processNewControllerMessage (number, value);
 }
 
 bool State::isControllerMapped (int number) const
 {
 	for (const auto* param : params)
-		if (param->getMidiControllerNumber() == number)
+		if (param->getParameter()->getMidiControllerNumber() == number)
 			return true;
 
 	return false;
@@ -47,15 +52,15 @@ bool State::isControllerMapped (int number) const
 void State::resetAllControllerMappedParams()
 {
     for (auto* param : params)
-        if (param->isMidiControllerMapped())
-            param->resetToDefault();
+        if (param->getParameter()->isMidiControllerMapped())
+            param->getParameter()->resetToDefault();
 }
 
 Parameter* State::getNamedParameter (const String& name) const
 {
     for (auto* param : params)
-        if (param->getParameterName() == name)
-            return param;
+        if (param->getParameter()->getParameterName() == name)
+            return param->getParameter();
     
     return nullptr;
 }
@@ -85,7 +90,7 @@ ValueTree State::saveToValueTree (bool currentProgramOnly) const
 	}
 
 	for (const auto* param : params)
-		tree.appendChild (param->saveToValueTree(), nullptr);
+		tree.appendChild (param->getParameter()->saveToValueTree(), nullptr);
     
     const auto customStateData = saveCustomStateData (customState, currentProgramOnly);
     
@@ -109,8 +114,10 @@ void State::loadFromValueTree (const ValueTree& tree)
 
 	for (auto* param : params)
 	{
-		param->loadFromValueTree (tree.getChildWithProperty (Parameter::id_prop, param->getParameterID()));
-		param->refreshDefault();
+        auto* parameter = param->getParameter();
+        
+        parameter->loadFromValueTree (tree.getChildWithProperty (Parameter::id_prop, parameter->getParameterID()));
+        parameter->refreshDefault();
 	}
     
     const auto customStateData = tree.getChildWithName (customState);
@@ -138,19 +145,21 @@ State::Listener::Listener (const State& state,
 {
 	for (auto* param : state.params)
 	{
+        auto* parameter = param->getParameter();
+        
 		const auto change = [=]
 		{
 			if (onParamChange)
-				onParamChange (*param);
+				onParamChange (*parameter);
 		};
 
 		const auto gesture = [=] (bool starting)
 		{
 			if (onGestureGhange)
-				onGestureGhange (*param, starting);
+				onGestureGhange (*parameter, starting);
 		};
 
-		updaters.add (new ParamUpdater (*param, std::move (change), std::move (gesture)));
+		updaters.add (new ParamUpdater (*parameter, std::move (change), std::move (gesture)));
 	}
 }
 

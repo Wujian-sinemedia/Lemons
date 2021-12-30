@@ -42,6 +42,9 @@
 
 #include "parameters/Parameter.h"
 #include "parameters/ParameterTypes.h"
+
+#include "parameters/utils/ParameterHolder.h"
+
 #include "parameters/Specializations.h"
 #include "parameters/MeterParameter.h"
 //#include "parameters/MetaParameter.h"

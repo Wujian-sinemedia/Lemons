@@ -35,6 +35,8 @@ struct GainParameter : public FloatParameter
 	using Listener = FloatParameter::Listener;
 };
 
+using GainParam = ParameterHolder<GainParameter>;
+
 /*-----------------------------------------------------------------------------------------------------------------------
  -----------------------------------------------------------------------------------------------------------------------*/
 
@@ -52,6 +54,8 @@ struct ToggleParameter : public BoolParameter
 
 	using Listener = BoolParameter::Listener;
 };
+
+using ToggleParam = ParameterHolder<ToggleParameter>;
 
 /*-----------------------------------------------------------------------------------------------------------------------
  -----------------------------------------------------------------------------------------------------------------------*/
@@ -76,6 +80,8 @@ struct FloatAmountParameter : public FloatParameter
 	using Listener = FloatParameter::Listener;
 };
 
+using FloatAmountParam = ParameterHolder<FloatAmountParameter>;
+
 /*-----------------------------------------------------------------------------------------------------------------------
  -----------------------------------------------------------------------------------------------------------------------*/
 
@@ -94,6 +100,8 @@ struct FrequencyParameter : public FloatParameter
 	using Listener = FloatParameter::Listener;
 };
 
+using FrequencyParam = ParameterHolder<FrequencyParameter>;
+
 /*-----------------------------------------------------------------------------------------------------------------------
  -----------------------------------------------------------------------------------------------------------------------*/
 
@@ -111,6 +119,8 @@ struct MidiPitchParameter : public IntParameter
 	using Listener = IntParameter::Listener;
 };
 
+using MidiPitchParam = ParameterHolder<MidiPitchParameter>;
+
 /*-----------------------------------------------------------------------------------------------------------------------
  -----------------------------------------------------------------------------------------------------------------------*/
 
@@ -127,6 +137,8 @@ struct MidiPanParameter : public IntParameter
 
 	using Listener = IntParameter::Listener;
 };
+
+using MidiPanParam = ParameterHolder<MidiPanParameter>;
 
 /*-----------------------------------------------------------------------------------------------------------------------
  -----------------------------------------------------------------------------------------------------------------------*/
@@ -146,6 +158,8 @@ struct SemitonesParameter : public IntParameter
 	using Listener = IntParameter::Listener;
 };
 
+using SemitonesParam = ParameterHolder<SemitonesParameter>;
+
 /*-----------------------------------------------------------------------------------------------------------------------
  -----------------------------------------------------------------------------------------------------------------------*/
 
@@ -164,6 +178,8 @@ struct PercentParameter : public IntParameter
 	using Listener = IntParameter::Listener;
 };
 
+using PercentParam = ParameterHolder<PercentParameter>;
+
 /*-----------------------------------------------------------------------------------------------------------------------
  -----------------------------------------------------------------------------------------------------------------------*/
 
@@ -181,5 +197,7 @@ struct SecondsParameter : public FloatParameter
 
 	using Listener = FloatParameter::Listener;
 };
+
+using SecondsParam = ParameterHolder<SecondsParameter>;
 
 }  // namespace lemons::plugin

@@ -26,14 +26,16 @@ class State
 {
 public:
     
+    State();
+    
     virtual ~State() = default;
 
 	void addTo (juce::AudioProcessor& processor) const;
 
-	void add (Parameter& parameter);
+	void add (ParameterHolderBase& parameter);
 
 	template <typename... Args>
-	void add (Parameter& first, Args&&... rest)
+	void add (ParameterHolderBase& first, Args&&... rest)
 	{
 		add (first);
 		add (std::forward<Args> (rest)...);
@@ -75,7 +77,7 @@ public:
 
 	Dimensions editorSize { Dimensions::getDefault() };
 
-	ToggleParameter bypass { "Bypass", false };
+	ToggleParam bypass { "Bypass", false };
     
     ProgramManager programs;
 
@@ -84,7 +86,7 @@ private:
     
     virtual void loadCustomStateData (const ValueTree& tree);
     
-	juce::Array<Parameter*> params { &bypass };
+    juce::Array<ParameterHolderBase*> params;
 };
 
 }  // namespace lemons::plugin
