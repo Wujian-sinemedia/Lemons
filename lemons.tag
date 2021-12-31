@@ -1418,6 +1418,7 @@
     <filename>_processors_8h.html</filename>
     <class kind="class">lemons::plugin::Processor</class>
     <class kind="struct">lemons::plugin::ProcessorWithEditor</class>
+    <class kind="struct">lemons::plugin::ProcessorWithGenericEditor</class>
     <namespace>lemons</namespace>
     <namespace>lemons::plugin</namespace>
     <member kind="define">
@@ -12286,17 +12287,6 @@
     </member>
   </compound>
   <compound kind="struct">
-    <name>lemons::plugin::State::Listener</name>
-    <filename>structlemons_1_1plugin_1_1_state_1_1_listener.html</filename>
-    <member kind="function">
-      <type></type>
-      <name>Listener</name>
-      <anchorfile>structlemons_1_1plugin_1_1_state_1_1_listener.html</anchorfile>
-      <anchor>aff568a9af9e8593a029fa01bc11510eb</anchor>
-      <arglist>(const State &amp;state, std::function&lt; void(Parameter &amp;)&gt; onParamChange, std::function&lt; void(Parameter &amp;, bool)&gt; onGestureGhange={})</arglist>
-    </member>
-  </compound>
-  <compound kind="struct">
     <name>lemons::DeviceMotion::Listener</name>
     <filename>structlemons_1_1_device_motion_1_1_listener.html</filename>
     <member kind="function">
@@ -12451,6 +12441,17 @@
       <anchorfile>structlemons_1_1plugin_1_1_typed_parameter_1_1_listener.html</anchorfile>
       <anchor>a6b091945117c5ffccf7d42e4ba1ae20a</anchor>
       <arglist>(ValueType)</arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>lemons::plugin::State::Listener</name>
+    <filename>structlemons_1_1plugin_1_1_state_1_1_listener.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>Listener</name>
+      <anchorfile>structlemons_1_1plugin_1_1_state_1_1_listener.html</anchorfile>
+      <anchor>aff568a9af9e8593a029fa01bc11510eb</anchor>
+      <arglist>(const State &amp;state, std::function&lt; void(Parameter &amp;)&gt; onParamChange, std::function&lt; void(Parameter &amp;, bool)&gt; onGestureGhange={})</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -17323,6 +17324,26 @@
     </member>
   </compound>
   <compound kind="struct">
+    <name>lemons::plugin::ProcessorWithGenericEditor</name>
+    <filename>structlemons_1_1plugin_1_1_processor_with_generic_editor.html</filename>
+    <templarg></templarg>
+    <templarg></templarg>
+    <member kind="function">
+      <type>juce::AudioProcessorEditor *</type>
+      <name>createEditor</name>
+      <anchorfile>structlemons_1_1plugin_1_1_processor_with_generic_editor.html</anchorfile>
+      <anchor>a2a70757962f1c666b18adddcb1820e11</anchor>
+      <arglist>() final</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>hasEditor</name>
+      <anchorfile>structlemons_1_1plugin_1_1_processor_with_generic_editor.html</anchorfile>
+      <anchor>a01b15535389b4b56d5d31999dc39c52a</anchor>
+      <arglist>() const final</arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
     <name>lemons::plugin::Program</name>
     <filename>structlemons_1_1plugin_1_1_program.html</filename>
     <member kind="function">
@@ -18965,6 +18986,13 @@
     <name>lemons::plugin::State</name>
     <filename>classlemons_1_1plugin_1_1_state.html</filename>
     <class kind="struct">lemons::plugin::State::Listener</class>
+    <member kind="function">
+      <type></type>
+      <name>State</name>
+      <anchorfile>classlemons_1_1plugin_1_1_state.html</anchorfile>
+      <anchor>a21789c7905a824cec22e75d3fbbdea41</anchor>
+      <arglist>()</arglist>
+    </member>
     <member kind="function" virtualness="virtual">
       <type>virtual</type>
       <name>~State</name>
@@ -23774,6 +23802,7 @@
     <class kind="class">lemons::plugin::ProcessorEngine</class>
     <class kind="struct">lemons::plugin::ProcessorHolder</class>
     <class kind="struct">lemons::plugin::ProcessorWithEditor</class>
+    <class kind="struct">lemons::plugin::ProcessorWithGenericEditor</class>
     <class kind="struct">lemons::plugin::Program</class>
     <class kind="struct">lemons::plugin::ProgramManager</class>
     <class kind="struct">lemons::plugin::SecondsParameter</class>
@@ -24845,6 +24874,7 @@
     <class kind="struct">lemons::plugin::ProcessorAttributes</class>
     <class kind="class">lemons::plugin::ProcessorBase</class>
     <class kind="struct">lemons::plugin::ProcessorWithEditor</class>
+    <class kind="struct">lemons::plugin::ProcessorWithGenericEditor</class>
   </compound>
   <compound kind="group">
     <name>resynthesis</name>

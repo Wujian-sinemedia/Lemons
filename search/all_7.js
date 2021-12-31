@@ -15,7 +15,7 @@ var searchData=
   ['harmony_433',['harmony',['../group__harmony.html',1,'']]],
   ['hasbinarydata_434',['hasBinaryData',['../structlemons_1_1binary_1_1_data.html#afb121a510a44a8b5160ef6ded21e2e0c',1,'lemons::binary::Data']]],
   ['hasconnection_435',['hasConnection',['../classlemons_1_1plugin_1_1_meta_parameter.html#af91a66fd37d4d57851856d3a7a71bf71',1,'lemons::plugin::MetaParameter']]],
-  ['haseditor_436',['hasEditor',['../structlemons_1_1plugin_1_1_processor_with_editor.html#a00f7ca93bd01d20850375d3bb0522b9b',1,'lemons::plugin::ProcessorWithEditor']]],
+  ['haseditor_436',['hasEditor',['../structlemons_1_1plugin_1_1_processor_with_editor.html#a00f7ca93bd01d20850375d3bb0522b9b',1,'lemons::plugin::ProcessorWithEditor::hasEditor()'],['../structlemons_1_1plugin_1_1_processor_with_generic_editor.html#a01b15535389b4b56d5d31999dc39c52a',1,'lemons::plugin::ProcessorWithGenericEditor::hasEditor()']]],
   ['hassameaspectratioas_437',['hasSameAspectRatioAs',['../structlemons_1_1_dimensions.html#ac784c9887251c92ee4a3c475035fca2c',1,'lemons::Dimensions']]],
   ['hassamemajorversion_438',['hasSameMajorVersion',['../structlemons_1_1_version.html#a309963d20eb0e640fed90907c378e5b0',1,'lemons::Version']]],
   ['helpers_439',['helpers',['../group__helpers.html',1,'']]],

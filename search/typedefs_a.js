@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['triangle_2309',['Triangle',['../namespacelemons_1_1dsp_1_1synth.html#a7f1ef90930175f151eb6aba9b52aacd1',1,'lemons::dsp::synth']]]
+  ['triangle_2312',['Triangle',['../namespacelemons_1_1dsp_1_1synth.html#a7f1ef90930175f151eb6aba9b52aacd1',1,'lemons::dsp::synth']]]
 ];
