@@ -27,7 +27,11 @@ using juce::ValueTree;
     Plugin parameter classes and utilities.
  */
 
-/** @ingroup parameters
+/** @defgroup fundamental_parameter_types Fundamental parameter types
+    @ingroup parameters
+ */
+
+/** @ingroup fundamental_parameter_types
     A plugin parameter class.
     @see TypedParameter, ParameterTraits
  */

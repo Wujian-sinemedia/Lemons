@@ -3,8 +3,6 @@
 import os
 import shutil
 
-from process_juce_module import process_juce_module
-
 from argparse import ArgumentParser
 
 #
@@ -73,12 +71,6 @@ def process_module_category (category_name, orig_cat_dir, dest_cat_dir):
     category_definiton.append ("")
     category_definiton.append ("    @{")
     category_definiton.append ("*/")
-
-    for subdir in os.listdir  (dest_cat_dir):
-        module_path = os.path.join (dest_cat_dir, subdir)
-        if os.path.isdir (module_path):
-            category_definiton.append ("")
-            category_definiton.append (process_juce_module (category_name, subdir, module_path))
 
     category_definiton.append ("")
     category_definiton.append ("/** @} */")

@@ -53,22 +53,21 @@ struct ProcessorAttributes final
 namespace lemons::files
 {
 
-/** @name ProcessorAttributes */
-///@{
-
+/** @ingroup plugin_metadata */
 template <FileType Type = FileType::JSON>
 [[nodiscard]] plugin::ProcessorAttributes loadProcessorAttributes (const File& file);
 
+/** @ingroup plugin_metadata */
 template <FileType Type = FileType::JSON>
 bool saveProcessorAttributes (const plugin::ProcessorAttributes& layout, const File& file);
 
-///@}
 
 }  // namespace lemons::files
 
 namespace lemons::binary
 {
 
+/** @ingroup plugin_metadata */
 template <files::FileType Type = files::FileType::JSON>
 [[nodiscard]] plugin::ProcessorAttributes getProcessorAttributes (const String& filename);
 

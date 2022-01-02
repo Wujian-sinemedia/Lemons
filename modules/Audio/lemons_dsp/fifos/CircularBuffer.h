@@ -25,7 +25,8 @@ namespace lemons::dsp
 template <typename SampleType>
 using AudioBuffer = juce::AudioBuffer<SampleType>;
 
-/** @defgroup lemons_dsp
+/** @defgroup lemons_dsp lemons_dsp
+    @ingroup Audio
     DSP utility classes.
  */
 

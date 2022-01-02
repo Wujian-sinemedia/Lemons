@@ -20,7 +20,8 @@
 #include <vector>
 #include <list>
 
-/** @defgroup lemons_core
+/** @defgroup lemons_core lemons_core
+    @ingroup Common
     Core building blocks.
  */
 

@@ -22,7 +22,8 @@
 namespace lemons::plugin
 {
 
-/** @defgroup lemons_plugin
+/** @defgroup lemons_plugin lemons_plugin
+    @ingroup Plugins
     Building blocks for plugins.
  */
 

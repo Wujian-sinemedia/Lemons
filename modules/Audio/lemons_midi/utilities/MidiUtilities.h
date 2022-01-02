@@ -24,7 +24,8 @@ using juce::MidiFile;
 using juce::MidiMessage;
 using juce::String;
 
-/** @defgroup lemons_midi
+/** @defgroup lemons_midi lemons_midi
+    @ingroup Audio
     Utility classes for working with MIDI.
  */
 

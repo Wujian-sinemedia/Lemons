@@ -19,13 +19,13 @@
 namespace lemons::dsp
 {
 
-/** @name lemons_stereo_conversion Mono/stereo conversion
+/** @defgroup lemons_stereo_conversion Mono/stereo conversion
     @ingroup lemons_dsp
     Mono/stereo conversion utilities.
  */
-///@{
 
-/** An enum used to describe how a MonoStereoConverter will convert stereo signals to mono. */
+/** @ingroup lemons_stereo_conversion
+    An enum used to describe how a MonoStereoConverter will convert stereo signals to mono. */
 enum class StereoReductionMode
 {
 	/** In this mode, a MonoStereoConverter will output only the left channel of a stereo signal as its mono reduction. */
@@ -38,7 +38,8 @@ enum class StereoReductionMode
 	mixToMono
 };
 
-/** A utility class for converting mono signals to stereo, or stereo signals to mono.
+/** @ingroup lemons_stereo_conversion
+    A utility class for converting mono signals to stereo, or stereo signals to mono.
  */
 template <typename SampleType>
 class MonoStereoConverter final
@@ -81,7 +82,6 @@ private:
 	AudioBuffer<SampleType> monoStorage;
 };
 
-///@}
 
 }  // namespace lemons::dsp
 

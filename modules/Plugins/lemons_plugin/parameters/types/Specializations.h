@@ -18,12 +18,13 @@
 namespace lemons::plugin
 {
 
-/** @name parameter_specializations Special parameter types
+/** @defgroup parameter_specializations Special parameter types
     @ingroup parameters
  */
-///@{
 
-/** A parameter that represents a gain value in decibels.
+
+/** @ingroup parameter_specializations
+    A parameter that represents a gain value in decibels.
     @see FloatParameter, Parameter
  */
 struct GainParameter : public FloatParameter
@@ -41,7 +42,8 @@ struct GainParameter : public FloatParameter
 /*-----------------------------------------------------------------------------------------------------------------------
  -----------------------------------------------------------------------------------------------------------------------*/
 
-/** A parameter that represents a boolean on/off toggle.
+/** @ingroup parameter_specializations
+    A parameter that represents a boolean on/off toggle.
     @see BoolParameter, Parameter
  */
 struct ToggleParameter final : public BoolParameter
@@ -56,7 +58,8 @@ struct ToggleParameter final : public BoolParameter
 /*-----------------------------------------------------------------------------------------------------------------------
  -----------------------------------------------------------------------------------------------------------------------*/
 
-/** A parameter that represents a value in a normalized 0-1 range.
+/** @ingroup parameter_specializations
+    A parameter that represents a value in a normalized 0-1 range.
     @see PercentParameter, FloatParameter, Parameter
  */
 struct FloatAmountParameter : public FloatParameter
@@ -76,7 +79,8 @@ struct FloatAmountParameter : public FloatParameter
 /*-----------------------------------------------------------------------------------------------------------------------
  -----------------------------------------------------------------------------------------------------------------------*/
 
-/** A parameter that represents a frequency in Hz.
+/** @ingroup parameter_specializations
+    A parameter that represents a frequency in Hz.
     @see FloatParameter, Parameter
  */
 struct FrequencyParameter final : public FloatParameter
@@ -91,7 +95,8 @@ struct FrequencyParameter final : public FloatParameter
 /*-----------------------------------------------------------------------------------------------------------------------
  -----------------------------------------------------------------------------------------------------------------------*/
 
-/** A parameter that represents a MIDI pitch.
+/** @ingroup parameter_specializations
+    A parameter that represents a MIDI pitch.
     @see IntParameter, Parameter
  */
 struct MidiPitchParameter final : public IntParameter
@@ -106,7 +111,8 @@ struct MidiPitchParameter final : public IntParameter
 /*-----------------------------------------------------------------------------------------------------------------------
  -----------------------------------------------------------------------------------------------------------------------*/
 
-/** A parameter that represents a MIDI panning value in the range 0 to 127.
+/** @ingroup parameter_specializations
+    A parameter that represents a MIDI panning value in the range 0 to 127.
     @see IntParameter, Parameter
  */
 struct MidiPanParameter final : public IntParameter
@@ -121,7 +127,8 @@ struct MidiPanParameter final : public IntParameter
 /*-----------------------------------------------------------------------------------------------------------------------
  -----------------------------------------------------------------------------------------------------------------------*/
 
-/** A parameter that represents a number of semitones, as an integer.
+/** @ingroup parameter_specializations
+    A parameter that represents a number of semitones, as an integer.
     @see IntParameter, Parameter
  */
 struct SemitonesParameter : public IntParameter
@@ -137,7 +144,8 @@ struct SemitonesParameter : public IntParameter
 /*-----------------------------------------------------------------------------------------------------------------------
  -----------------------------------------------------------------------------------------------------------------------*/
 
-/** A parameter that represents an integer value in the range 0-100.
+/** @ingroup parameter_specializations
+    A parameter that represents an integer value in the range 0-100.
     @see FloatAmountParameter, IntParameter, Parameter
  */
 struct PercentParameter final : public IntParameter
@@ -152,7 +160,8 @@ struct PercentParameter final : public IntParameter
 /*-----------------------------------------------------------------------------------------------------------------------
  -----------------------------------------------------------------------------------------------------------------------*/
 
-/** A parameter that represents a time value in seconds, expressed as a float.
+/** @ingroup parameter_specializations
+    A parameter that represents a time value in seconds, expressed as a float.
     @see FloatParameter, Parameter
  */
 struct SecondsParameter : public FloatParameter
@@ -165,6 +174,5 @@ struct SecondsParameter : public FloatParameter
 	explicit SecondsParameter (const String& paramName, float minSeonds = 0.f, float maxSeconds = 1.f, float defaultVal = 0.5f);
 };
 
-///@}
 
 }  // namespace lemons::plugin

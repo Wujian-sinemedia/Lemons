@@ -93,38 +93,40 @@ private:
 [[nodiscard]] juce::StringArray getFilenames();
 
 
-/** @name Basic types
+/** @defgroup basic_binary_data_types Basic types
     @ingroup lemons_binary_data
  */
-///@{
 
-/** Returns an opaque blob of binary data from a file in the BinaryData target.
+/** @ingroup basic_binary_data_types
+    Returns an opaque blob of binary data from a file in the BinaryData target.
     If the data can't be loaded, an assertion will be thrown.
     @see files::loadFileAsBlock(), files::saveBlockToFile()
  */
 [[nodiscard]] MemoryBlock getBlob (const String& filename);
 
-/** Returns a ValueTree from a serialized file in the BinaryData target in the specified format. The default format is JSON.
+/** @ingroup basic_binary_data_types
+    Returns a ValueTree from a serialized file in the BinaryData target in the specified format. The default format is JSON.
     If the data can't be loaded, an assertion will be thrown.
     @see files::loadValueTree(), files::saveValueTree()
  */
 template <files::FileType Type = files::FileType::JSON>
 [[nodiscard]] ValueTree getValueTree (const String& filename);
 
-/** Returns a text file in the BinaryData target as one string.
+/** @ingroup basic_binary_data_types
+    Returns a text file in the BinaryData target as one string.
     If the data can't be loaded, an assertion will be thrown.
     @see getStrings()
  */
 [[nodiscard]] String getString (const String& textFileName);
 
-/** Returns an array of strings, each containing a line of a text file in the BinaryData target.
+/** @ingroup basic_binary_data_types
+    Returns an array of strings, each containing a line of a text file in the BinaryData target.
     This loads the file as a string and parses it into tokens using line break and carriage return characters.
     If the file can't be loaded, an assertion will be thrown.
     @see getString()
  */
 [[nodiscard]] juce::StringArray getStrings (const String& textFileName);
 
-///@}
 
 }  // namespace lemons::binary
 

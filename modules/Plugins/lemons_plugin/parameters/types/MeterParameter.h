@@ -18,12 +18,13 @@
 namespace lemons::plugin
 {
 
-/** @name Meters
+/** @defgroup Meters
     @ingroup parameters
  */
-///@{
 
-/** A parameter that represents a general kind of meter, used for reporting things like level or gain reduction back to the DAW.
+
+/** @ingroup Meters
+    A parameter that represents a general kind of meter, used for reporting things like level or gain reduction back to the DAW.
     This wasn't my idea. Yes, the JUCE API uses parameter objects to communicate info from the plugin back to the host. Yes, it's weird.
     @see GainMeterParameter
  */
@@ -57,7 +58,8 @@ struct MeterParameter : public TypedParameter<ValueType>
 /*-----------------------------------------------------------------------------------------------------------------------
  -----------------------------------------------------------------------------------------------------------------------*/
 
-/** A parameter that represents a meter displaying values in decibels.
+/** @ingroup Meters
+    A parameter that represents a meter displaying values in decibels.
     This can be used to report level or gain reduction.
     @see MeterParameter
  */
@@ -71,6 +73,6 @@ struct GainMeterParameter final : public MeterParameter<float>
 	                    ParameterCategory parameterCategory = ParameterCategory::genericParameter);
 };
 
-///@}
+
 
 }  // namespace lemons::plugin

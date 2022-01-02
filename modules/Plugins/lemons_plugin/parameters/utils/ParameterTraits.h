@@ -34,12 +34,13 @@ class Parameter;
 
 class ParameterList;
 
-/** @name Parameter metadata
+/** @defgroup plugin_parameter_metadata Parameter metadata
     @ingroup plugin_metadata
  */
-///@{
 
-/** An ephemeral type-erased way to store all the metadata necessary to reconstruct any given parameter object.
+
+/** @ingroup plugin_parameter_metadata
+    An ephemeral type-erased way to store all the metadata necessary to reconstruct any given parameter object.
     You can use this type to save and later recreate a parameter object.
     @see ParameterLayout, ParameterList, Parameter, TypedParameter
  */
@@ -122,7 +123,8 @@ struct ParameterTraits final
 };
 
 
-/** A container of ParameterTraits objects that can be used to recreate an entire ParameterList.
+/** @ingroup plugin_parameter_metadata
+    A container of ParameterTraits objects that can be used to recreate an entire ParameterList.
     @see ParameterTraits, ParameterList, Parameter
  */
 struct ParameterLayout final
@@ -143,15 +145,14 @@ struct ParameterLayout final
 	static constexpr auto valueTreeType = "ParameterLayout";
 };
 
-///@}
-
 }  // namespace lemons::plugin
 
 
 namespace lemons::binary
 {
 
-/** Loads a ParameterLayout from a file that was serialized in the given format. The default format is JSON. */
+/** @ingroup plugin_parameter_metadata
+    Loads a ParameterLayout from a file that was serialized in the given format. The default format is JSON. */
 template <files::FileType Type = files::FileType::JSON>
 [[nodiscard]] plugin::ParameterLayout getParameterLayout (const String& fileName);
 
@@ -161,7 +162,9 @@ template <files::FileType Type = files::FileType::JSON>
 namespace lemons::files
 {
 
-/** @name ParameterLayout */
+/** @name ParameterLayout
+    @ingroup plugin_parameter_metadata
+ */
 ///@{
 
 /** Loads a ParameterLayout from a file that was serialized in the given format. The default format is JSON. */

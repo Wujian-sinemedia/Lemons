@@ -19,12 +19,13 @@
 namespace lemons::plugin
 {
 
-/** @name meta_parameters Meta parameters
+/** @defgroup meta_parameters Meta parameters
     @ingroup parameters
  */
-///@{
 
-/** A type-erased interface for a parameter that can be connected to other parameters and control their values.
+
+/** @ingroup meta_parameters
+    A type-erased interface for a parameter that can be connected to other parameters and control their values.
     @see MetaParameter
  */
 struct MetaParameterBase
@@ -116,7 +117,8 @@ private:
 };
 
 
-/** A meta parameter class that implements the MetaParameterBase interface.
+/** @ingroup meta_parameters
+    A meta parameter class that implements the MetaParameterBase interface.
     @see MetaParameterBase, TypedParameter
  */
 template <typename ValueType>
@@ -172,7 +174,5 @@ private:
 
 	Updater u { *this };
 };
-
-///@}
 
 }  // namespace lemons::plugin

@@ -15,14 +15,12 @@
 
 #pragma once
 
-/** @name fundamental_parameter_types Fundamental parameter types
-    @ingroup parameters
- */
-///@{
 
 namespace lemons::plugin
 {
-/** A parameter that can be stored as a type other than a float, but still inherits from my Parameter base class.
+
+/** @ingroup fundamental_parameter_types
+    A parameter that can be stored as a type other than a float, but still inherits from my Parameter base class.
     @tparam ValueType The type as which the parameter's value is stored. Can be float, int, or bool.
     @see Parameter
  */
@@ -153,14 +151,17 @@ private:
 };
 
 
-/** Represents a parameter with a float value. */
+/** @ingroup fundamental_parameter_types
+    Represents a parameter with a float value. */
 using FloatParameter = TypedParameter<float>;
 
-/** Represents a parameter with an integer value. */
+/** @ingroup fundamental_parameter_types
+    Represents a parameter with an integer value. */
 using IntParameter = TypedParameter<int>;
 
 
-/** Helper struct that simplifies the constructor for boolean parameters.
+/** @ingroup fundamental_parameter_types
+    Helper struct that simplifies the constructor for boolean parameters.
     Bool parameters could technically be a TypedParameter<bool>, but this struct simplifies the constructor a bit.
  */
 struct BoolParameter : TypedParameter<bool>
@@ -188,6 +189,6 @@ struct BoolParameter : TypedParameter<bool>
 	explicit BoolParameter (const ParameterTraits& traits);
 };
 
-///@}
+
 
 }  // namespace lemons::plugin
