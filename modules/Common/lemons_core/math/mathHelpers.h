@@ -18,15 +18,13 @@
 namespace lemons::math
 {
 
-/** @defgroup lemons_math Math
+/** @addtogroup lemons_math Math
     @ingroup lemons_core
     Math utility functions.
+ 
+ @{
  */
 
-/** @name lemons_divisible_by Divisibility
-    @ingroup lemons_math
- */
-///@{
 
 /** Returns true if the number is divisible by the divisor with no remainder. */
 [[nodiscard]] constexpr bool isDivisibleBy (int number, int divisor) noexcept
@@ -41,13 +39,6 @@ namespace lemons::math
 	return isDivisibleBy (number, 2);
 }
 
-///@}
-
-
-/** @name lemons_freq_period_conversion Frequency/period conversion
-    @ingroup lemons_math
- */
-///@{
 
 /** Returns the period in samples of a frequency at the specified samplerate. */
 template <typename FreqType>
@@ -74,13 +65,6 @@ template <typename PeriodType>
 		return static_cast<PeriodType> (val);
 }
 
-///@}
-
-
-/** @name lemons_samps_ms_converstion Samples/milliseconds conversion
-    @ingroup lemons_math
- */
-///@{
 
 /** Converts a number of samples to milliseconds at the specified samplerate. */
 [[nodiscard]] constexpr double sampsToMs (double samplerate, int numSamples) noexcept
@@ -100,14 +84,6 @@ template <typename msType>
 
     return juce::roundToInt (val);
 }
-
-///@}
-
-
-/** @name lemons_midi_freq_conversion MIDI/frequency conversion
-    @ingroup lemons_math
- */
-///@{
 
 /** Converts a MIDI note to a frequency in Hz. */
 template <typename T>
