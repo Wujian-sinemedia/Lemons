@@ -56,8 +56,8 @@ template struct MeterParameter<bool>;
  -----------------------------------------------------------------------------------------------------------------------*/
 
 
-GainMeterParameter::GainMeterParameter (const String& paramName,
-                                        Category      parameterCategory)
+GainMeterParameter::GainMeterParameter (const String&     paramName,
+                                        ParameterCategory parameterCategory)
 
     : MeterParameter<float> (-60.f, 0.f, -60.f,
                              paramName,

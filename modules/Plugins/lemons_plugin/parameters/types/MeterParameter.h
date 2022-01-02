@@ -46,8 +46,6 @@ struct MeterParameter : public TypedParameter<ValueType>
 	ValueTree saveToValueTree() const final;
 
 	void loadFromValueTree (const ValueTree& tree) final;
-
-	using Listener = typename TypedParameter<ValueType>::Listener;
 };
 
 
@@ -64,10 +62,8 @@ struct GainMeterParameter final : public MeterParameter<float>
 	 @param paramName The name of this parameter.
 	 @param parameterCategory The category of this meter parameter. This is used to indicate to the DAW whether the parameter is a level meter, a gain reduction meter, etc.
 	 */
-	GainMeterParameter (const String& paramName,
-	                    Category      parameterCategory = Category::genericParameter);
-
-	using Listener = MeterParameter<float>::Listener;
+	GainMeterParameter (const String&     paramName,
+	                    ParameterCategory parameterCategory = ParameterCategory::genericParameter);
 };
 
 }  // namespace lemons::plugin

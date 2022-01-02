@@ -27,13 +27,13 @@ using juce::ValueTree;
 /** An enum used to describe various kinds of binary encodings of serialized data. */
 enum class FileType
 {
-    /** Represents an XML file. */
+	/** Represents an XML file. */
 	XML,
-    
-    /** Represents a JSON file. */
+
+	/** Represents a JSON file. */
 	JSON,
-    
-    /** Represents any non-standard/proprietary method of encoding and decoding information to/from binary. May not be human-readable. */
+
+	/** Represents any non-standard/proprietary method of encoding and decoding information to/from binary. May not be human-readable. */
 	Opaque
 };
 

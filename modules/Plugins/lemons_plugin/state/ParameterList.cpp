@@ -96,7 +96,7 @@ Parameter* ParameterList::getParameterWithName (const String& name) const
 	{
 		auto& parameter = param->getParameter();
 
-		if (parameter.getParameterName() == name)
+		if (parameter.getName (50) == name)
 			return &parameter;
 	}
 
@@ -223,27 +223,43 @@ Parameter& ParameterList::Holder::getParameter() const
 
 ParameterList::Listener::Listener (const ParameterList& list,
                                    std::function<void (Parameter&)>
-                                       onParamChange,
+                                       onParamValueChange,
+                                   std::function<void (Parameter&)>
+                                       onParamDefaultChange,
                                    std::function<void (Parameter&, bool)>
-                                       onGestureGhange)
+                                       onParamGestureGhange,
+                                   std::function<void (Parameter&)>
+                                       onParamControllerChange)
 {
 	for (const auto* param : list.parameters)
 	{
 		auto* parameter = &param->getParameter();
 
-		const auto change = [=]
+		const auto change = [=] (float)
 		{
-			if (onParamChange)
-				onParamChange (*parameter);
+			if (onParamValueChange)
+				onParamValueChange (*parameter);
+		};
+
+		const auto default_ = [=] (float)
+		{
+			if (onParamDefaultChange)
+				onParamDefaultChange (*parameter);
 		};
 
 		const auto gesture = [=] (bool starting)
 		{
-			if (onGestureGhange)
-				onGestureGhange (*parameter, starting);
+			if (onParamGestureGhange)
+				onParamGestureGhange (*parameter, starting);
 		};
 
-		updaters.add (new ParamUpdater (*parameter, std::move (change), std::move (gesture)));
+		const auto controller = [=] (int)
+		{
+			if (onParamControllerChange)
+				onParamControllerChange (*parameter);
+		};
+
+		updaters.add (new Parameter::LambdaListener (*parameter, std::move (change), std::move (default_), std::move (gesture), std::move (controller)));
 	}
 }
 

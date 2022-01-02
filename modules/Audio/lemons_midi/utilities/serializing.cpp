@@ -17,56 +17,10 @@
 namespace lemons::serializing
 {
 
-MidiBuffer midiBufferFromFile (const MidiFile& file, int trackToRead)
-{
-	MidiBuffer buffer;
-
-	const auto addEventsFromTrack = [&] (int trackNum)
-	{
-		if (const auto* track = file.getTrack (trackNum))
-		{
-			for (const auto* holder : *track)
-				buffer.addEvent (holder->message,
-				                 juce::roundToInt (holder->message.getTimeStamp()));
-		}
-	};
-
-	if (trackToRead > -1)
-	{
-		addEventsFromTrack (trackToRead);
-	}
-	else
-	{
-		for (int i = 0; i < file.getNumTracks(); ++i)
-			addEventsFromTrack (i);
-	}
-
-	jassert (juce::roundToInt (file.getLastTimestamp()) == buffer.getLastEventTime());
-
-	return buffer;
-}
-
-MidiFile midiBufferToFile (const MidiBuffer& midi)
-{
-	juce::MidiMessageSequence seq;
-
-	for (const auto& meta : midi)
-		seq.addEvent (meta.getMessage());
-
-	jassert (seq.getNumEvents() == midi.getNumEvents());
-
-	MidiFile file;
-
-	file.addTrack (seq);
-
-	jassert (file.getLastTimestamp() == midi.getLastEventTime());
-
-	return file;
-}
 
 MidiBuffer midiBufferFromBinary (const MemoryBlock& block)
 {
-	return midiBufferFromFile (midiFileFromBinary (block));
+	return midi::midiBufferFromFile (midiFileFromBinary (block));
 }
 
 MidiFile midiFileFromBinary (const MemoryBlock& block)
@@ -81,7 +35,7 @@ MidiFile midiFileFromBinary (const MemoryBlock& block)
 
 MemoryBlock midiToBinary (const MidiBuffer& midi)
 {
-	return midiToBinary (midiBufferToFile (midi));
+	return midiToBinary (midi::midiBufferToFile (midi));
 }
 
 MemoryBlock midiToBinary (const MidiFile& midi)
@@ -105,10 +59,15 @@ bool saveMidiToFile (const MidiFile& midi, const File& file)
 
 bool saveMidiToFile (const MidiBuffer& midi, const File& file)
 {
-	return saveMidiToFile (midiBufferToFile (midi), file);
+	return saveMidiToFile (midi::midiBufferToFile (midi), file);
 }
 
-MidiFile loadMidiFromFile (const File& file)
+}  // namespace lemons::serializing
+
+namespace lemons::files
+{
+
+MidiFile loadMidiFile (const File& file)
 {
 	MidiFile midi;
 
@@ -119,12 +78,22 @@ MidiFile loadMidiFromFile (const File& file)
 	return midi;
 }
 
-MidiBuffer loadMidiBufferFromFile (const File& file)
+MidiBuffer loadMidiBuffer (const File& file)
 {
-	return midiBufferFromFile (loadMidiFromFile (file));
+	return midi::midiBufferFromFile (loadMidiFile (file));
 }
 
-}  // namespace lemons::serializing
+bool saveMidi (const MidiFile& midi, const File& file)
+{
+	return saveBlockToFile (serializing::midiToBinary (midi), file);
+}
+
+bool saveMidi (const MidiBuffer& midi, const File& file)
+{
+	return saveBlockToFile (serializing::midiToBinary (midi), file);
+}
+
+}  // namespace lemons::files
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
@@ -242,8 +211,8 @@ void MidiSerializingTests::runTest()
 	{
 		const auto subtest = beginSubtest ("MIDI buffer to/from MIDI file");
 
-		const auto file    = serializing::midiBufferToFile (origMidi);
-		const auto decoded = serializing::midiBufferFromFile (file);
+		const auto file    = midi::midiBufferToFile (origMidi);
+		const auto decoded = midi::midiBufferFromFile (file);
 
 		expect (midiBuffersAreEqual (origMidi, decoded));
 	}

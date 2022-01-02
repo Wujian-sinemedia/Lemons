@@ -25,13 +25,13 @@ template <typename SampleType>
 class WhiteNoiseGenerator final
 {
 public:
-    /** Returns the next sample of random noise. */
+	/** Returns the next sample of random noise. */
 	[[nodiscard]] SampleType getNextSample();
 
-    /** Outputs a stream of random samples. */
+	/** Outputs a stream of random samples. */
 	void getSamples (SampleType* output, int numSamples);
 
-    /** Fills all channels of the AudioBuffer with random noise. */
+	/** Fills all channels of the AudioBuffer with random noise. */
 	void getSamples (AudioBuffer<SampleType>& output);
 
 private:

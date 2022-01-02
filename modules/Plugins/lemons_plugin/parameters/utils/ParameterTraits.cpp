@@ -214,3 +214,53 @@ ValueTree ParameterLayout::saveToValueTree() const
 }
 
 }  // namespace lemons::plugin
+
+
+/*-----------------------------------------------------------------------------------------------------------------------*/
+
+namespace lemons::binary
+{
+
+template <files::FileType Type>
+plugin::ParameterLayout getParameterLayout (const String& fileName)
+{
+	return plugin::ParameterLayout::fromValueTree (getValueTree<Type> (fileName));
+}
+
+template plugin::ParameterLayout getParameterLayout<files::FileType::JSON> (const String&);
+template plugin::ParameterLayout getParameterLayout<files::FileType::XML> (const String&);
+template plugin::ParameterLayout getParameterLayout<files::FileType::Opaque> (const String&);
+
+}  // namespace lemons::binary
+
+
+namespace lemons::files
+{
+
+template <FileType Type>
+plugin::ParameterLayout loadParameterLayout (const File& file)
+{
+	return plugin::ParameterLayout::fromValueTree (loadValueTree<Type> (file));
+}
+
+template plugin::ParameterLayout loadParameterLayout<files::FileType::JSON> (const File&);
+template plugin::ParameterLayout loadParameterLayout<files::FileType::XML> (const File&);
+template plugin::ParameterLayout loadParameterLayout<files::FileType::Opaque> (const File&);
+
+
+template <FileType Type>
+bool saveParameterLayout (const plugin::ParameterLayout& layout, const File& file)
+{
+	const auto tree = layout.saveToValueTree();
+
+	if (! tree.isValid())
+		return false;
+
+	return saveValueTree<Type> (file, tree);
+}
+
+template bool saveParameterLayout<files::FileType::JSON> (const plugin::ParameterLayout&, const File&);
+template bool saveParameterLayout<files::FileType::XML> (const plugin::ParameterLayout&, const File&);
+template bool saveParameterLayout<files::FileType::Opaque> (const plugin::ParameterLayout&, const File&);
+
+}  // namespace lemons::files

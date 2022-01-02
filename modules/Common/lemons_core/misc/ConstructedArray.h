@@ -73,12 +73,12 @@ struct ConstructedArray final
 		for (auto* obj : array)
 			func (*obj);
 	}
-    
-    /** Adds a single object to the end of the array, and returns a reference to it. */
-    ObjectType& append()
-    {
-        return *array.add (creationFunc());
-    }
+
+	/** Adds a single object to the end of the array, and returns a reference to it. */
+	ObjectType& append()
+	{
+		return *array.add (creationFunc());
+	}
 
 	/** Returns a pointer to the underlying juce::OwnedArray. */
 	juce::OwnedArray<ObjectType>* operator->() noexcept { return &array; }

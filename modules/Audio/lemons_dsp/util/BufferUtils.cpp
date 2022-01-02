@@ -32,9 +32,9 @@ void copy (const AudioBuffer<SampleType>& source, AudioBuffer<SampleType>& dest)
 	const auto numChannels = std::min (source.getNumChannels(), dest.getNumChannels());
 
 	for (int chan = 0; chan < numChannels; ++chan)
-        juce::FloatVectorOperations::copy (dest.getWritePointer (chan),
-                                           source.getReadPointer (chan),
-                                           numSamples);
+		juce::FloatVectorOperations::copy (dest.getWritePointer (chan),
+		                                   source.getReadPointer (chan),
+		                                   numSamples);
 }
 
 template void copy (const AudioBuffer<float>&, AudioBuffer<float>&);
@@ -49,7 +49,7 @@ void convert (const AudioBuffer<Type1>& source, AudioBuffer<Type2>& dest)
 	const auto numSamples = source.getNumSamples();
 	jassert (dest.getNumSamples() >= numSamples);
 
-    dest.makeCopyOf (source, true);
+	dest.makeCopyOf (source, true);
 }
 template void convert (const AudioBuffer<float>&, AudioBuffer<double>&);
 template void convert (const AudioBuffer<double>&, AudioBuffer<float>&);

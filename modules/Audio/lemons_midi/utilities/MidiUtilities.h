@@ -20,6 +20,7 @@ namespace lemons::midi
 {
 
 using juce::MidiBuffer;
+using juce::MidiFile;
 using juce::MidiMessage;
 using juce::String;
 
@@ -72,5 +73,19 @@ private:
 
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (ScopedMidiBufferAlias)
 };
+
+
+/** Converts a MIDI buffer to a MIDI file object.
+    @see midiBufferFromFile()
+ */
+[[nodiscard]] MidiFile midiBufferToFile (const MidiBuffer& midi);
+
+
+/** Converts a MIDI file object to a MIDI buffer.
+    @param file The MIDI file object to read from.
+    @param trackToRead If this is greater than -1, then only events from the specified track number will be added to the returned buffer. If this is -1, then all events from every track of the MIDI file will be concatenated into the output buffer.
+    @see midiBufferToFile()
+ */
+[[nodiscard]] MidiBuffer midiBufferFromFile (const MidiFile& file, int trackToRead = -1);
 
 }  // namespace lemons::midi

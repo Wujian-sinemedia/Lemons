@@ -62,15 +62,15 @@ struct Data final
 	[[nodiscard]] MemoryBlock getAsMemoryBlock() const;
 
 	/** Returns a pointer to the raw data. This may be null if the data could not be loaded. */
-    [[nodiscard]] const char* const getData() const noexcept;
+	[[nodiscard]] const char* const getData() const noexcept;
 
 	/** Return the size of the data, in bytes. */
-    [[nodiscard]] int getSize() const noexcept;
+	[[nodiscard]] int getSize() const noexcept;
 
 private:
-    const char* data { nullptr };
-    
-    int size { 0 };
+	const char* data { nullptr };
+
+	int size { 0 };
 };
 
 

@@ -25,7 +25,7 @@ String paramNameToID (const String& name)
 /*-------------------------------------------------------------------------------------------------------*/
 
 template <typename ValueType>
-juce::NormalisableRange<float> createRange (ValueType minimum, ValueType maximum)
+ParameterRange createRange (ValueType minimum, ValueType maximum)
 {
 	static_assert (std::is_same_v<ValueType, float>, "");
 
@@ -33,21 +33,34 @@ juce::NormalisableRange<float> createRange (ValueType minimum, ValueType maximum
 }
 
 template <>
-juce::NormalisableRange<float> createRange (int minimum, int maximum)
+ParameterRange createRange (int minimum, int maximum)
 {
-	juce::NormalisableRange<float> rangeWithInterval { (float) minimum, (float) maximum,
-		                                               [] (float start, float end, float v)
-		                                               { return juce::jlimit (start, end, v * (end - start) + start); },
-		                                               [] (float start, float end, float v)
-		                                               { return juce::jlimit (0.f, 1.f, (v - start) / (end - start)); },
-		                                               [] (float start, float end, float v)
-		                                               { return static_cast<float> (juce::roundToInt (juce::jlimit (start, end, v))); } };
+	auto denormalize = [] (float start, float end, float v)
+	{
+		return juce::jlimit (start, end,
+		                     v * (end - start) + start);
+	};
+
+	auto normalize = [] (float start, float end, float v)
+	{
+		return juce::jlimit (0.f, 1.f,
+		                     (v - start) / (end - start));
+	};
+
+	auto snap = [] (float start, float end, float v)
+	{
+		return static_cast<float> (juce::roundToInt (juce::jlimit (start, end, v)));
+	};
+
+	ParameterRange rangeWithInterval { static_cast<float> (minimum), static_cast<float> (maximum), std::move (denormalize), std::move (normalize), std::move (snap) };
+
 	rangeWithInterval.interval = 1.f;
+
 	return rangeWithInterval;
 }
 
 template <>
-juce::NormalisableRange<float> createRange (bool, bool)
+ParameterRange createRange (bool, bool)
 {
 	return { 0.f, 1.f, 1.f };
 }

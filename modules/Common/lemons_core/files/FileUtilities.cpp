@@ -133,11 +133,11 @@ File getFileOnDesktop (const String& fileName)
 
 MemoryBlock loadFileAsBlock (const File& file)
 {
-    MemoryBlock block;
-    
+	MemoryBlock block;
+
 	if (auto is = file.createInputStream())
 		if (is->openedOk())
-            is->readIntoMemoryBlock (block);
+			is->readIntoMemoryBlock (block);
 
 	return block;
 }

@@ -23,7 +23,7 @@ using juce::String;
 using juce::ValueTree;
 
 /** A plugin parameter class.
-    @see TypedParameter
+    @see TypedParameter, ParameterTraits
  */
 class Parameter : public juce::RangedAudioParameter
 {
@@ -40,45 +40,66 @@ public:
 	    @param metaParam Boolean flag that indicates whether this parameter represents a "meta-parameter" -- that is, a parameter that controls other parameters.
 	    @param parameterCategory An optional parameter category. See juce::AudioProcessorParameter::Category.
 	 */
-	explicit Parameter (const String& paramName,
-	                    juce::NormalisableRange<float>
-	                                         paramRange,
-	                    float                paramDefaultValue    = 1.f,
-	                    BasicValToStringFunc valueToTextFuncToUse = nullptr,
-	                    BasicStringToValFunc textToValueFuncToUse = nullptr,
-	                    const String&        paramLabel           = {},
-	                    bool                 isAutomatable        = true,
-	                    bool                 metaParam            = false,
-	                    ParameterCategory    parameterCategory    = ParameterCategory::genericParameter);
+	explicit Parameter (const String&         paramName,
+	                    const ParameterRange& paramRange,
+	                    float                 paramDefaultValue    = 1.f,
+	                    BasicValToStringFunc  valueToTextFuncToUse = nullptr,
+	                    BasicStringToValFunc  textToValueFuncToUse = nullptr,
+	                    const String&         paramLabel           = {},
+	                    bool                  isAutomatable        = true,
+	                    bool                  metaParam            = false,
+	                    ParameterCategory     parameterCategory    = ParameterCategory::genericParameter);
 
 	/** Creates a parameter from a ParameterTraits object. */
 	explicit Parameter (const ParameterTraits& traits);
 
-	/** Returns a ParameterTraits object representing this parameter. */
-	[[nodiscard]] virtual ParameterTraits getParameterTraits() const;
-
 	/** Returns the parameter's current value, in a normalized 0-1 range.
-	 @see getDenormalizedValue()
+	    @see getDenormalizedValue()
 	 */
-	[[nodiscard]] float getNormalizedValue() const noexcept;
+	[[nodiscard]] float getNormalizedValue() const noexcept { return currentValue.load(); }
 
 	/** Returns the parameter's current value, in the parameter's denormalized range.
-	 @see getNormalizedValue()
+	    @see getNormalizedValue()
 	 */
-	[[nodiscard]] float getDenormalizedValue() const noexcept;
+	[[nodiscard]] float getDenormalizedValue() const noexcept { return denormalize (currentValue.load()); }
 
 	/** Sets the parameter's value, in a normalized 0-1 range.
-	 @see setDenormalizedValue()
+	    @see setDenormalizedValue()
 	 */
 	void setNormalizedValue (float value);
 
 	/** Sets the parameter's value, in the parameter's denormalized range.
-	 @see setNormalizedValue()
+	    @see setNormalizedValue()
 	 */
-	void setDenormalizedValue (float value);
+	void setDenormalizedValue (float value) { setNormalizedValue (normalize (value)); }
 
 	/** Returns this parameter's range object. */
-	[[nodiscard]] const juce::NormalisableRange<float>& getNormalisableRange() const final;
+	[[nodiscard]] const ParameterRange& getNormalisableRange() const final { return range; }
+
+	/** Returns true if this parameter is automatable by the user's DAW. */
+	[[nodiscard]] bool isAutomatable() const final { return automatable; }
+
+	/** Returns true if this parameter is a "meta parameter", ie, one that controls the values of other parameters. */
+	[[nodiscard]] bool isMetaParameter() const final { return metaParameter; }
+
+
+	//==============================================================================
+	// functions for state saving & loading
+
+	/** Saves the state of this parameter to a ValueTree. */
+	[[nodiscard]] virtual ValueTree saveToValueTree() const;
+
+	/** Restores the parameter's state from a ValueTree. */
+	virtual void loadFromValueTree (const ValueTree& tree);
+
+	/** Returns a ParameterTraits object representing this parameter.
+	    An object identical to this one can be recreated using the constructor that takes a ParameterTraits object.
+	 */
+	[[nodiscard]] virtual ParameterTraits getParameterTraits() const;
+
+
+	//==============================================================================
+	// functions for gesture state
 
 	/** Begins a change gesture for this parameter. */
 	void beginGesture();
@@ -87,22 +108,23 @@ public:
 	void endGesture();
 
 	/** Returns true if this parameter is currently in the middle of a change gesture. */
-	[[nodiscard]] bool isChanging() const noexcept;
+	[[nodiscard]] bool isChanging() const noexcept { return changing.load(); }
 
 
+	//==============================================================================
 	// functions for MIDI controller mapping
 
 	/** Returns the number of the MIDI controller mapped to this parameter, or -1 if this parameter is unmapped. */
-	[[nodiscard]] int getMidiControllerNumber() const noexcept;
+	[[nodiscard]] int getMidiControllerNumber() const noexcept { return midiControllerNumber.load(); }
 
 	/** Returns true if this parameter is currently mapped to a MIDI controller. */
-	[[nodiscard]] bool isMidiControllerMapped() const noexcept;
+	[[nodiscard]] bool isMidiControllerMapped() const noexcept { return midiControllerNumber.load() > -1; }
 
 	/** Maps this parameter to listen for changes in a specified MIDI controller number. */
 	void setMidiControllerNumber (int newControllerNumber);
 
 	/** Removes the MIDI controller mapping, if any. */
-	void removeMidiControllerMapping() noexcept;
+	void removeMidiControllerMapping() noexcept { setMidiControllerNumber (-1); }
 
 	/** Call this function with each MIDI CC message your plugin recieves, and the Parameter class will automatically update itself with changes in the appropriate controller, if a mapping is active.
 	    @returns True if this parameter is mapped to the passed controller number.
@@ -110,23 +132,24 @@ public:
 	bool processNewControllerMessage (int controllerNumber, int controllerValue);
 
 
+	//==============================================================================
 	// functions related to the default value
 
 	/** Sets the parameter's current value as the default value. */
-	void refreshDefault();
+	void refreshDefault() { setNormalizedDefault (getNormalizedDefault()); }
 
 	/** Resets the parameter to the saved default value. */
-	void resetToDefault();
+	void resetToDefault() { setNormalizedValue (getNormalizedDefault()); }
 
 	/** Returns the parameter's default value, in a normalized 0-1 range.
 	    @see getDenormalizedDefault()
 	 */
-	[[nodiscard]] float getNormalizedDefault() const noexcept;
+	[[nodiscard]] float getNormalizedDefault() const noexcept { return currentDefault.load(); }
 
 	/** Returns the parameter's default value, in the parameter's denormalized range.
 	    @see getNormalizedDefault()
 	 */
-	[[nodiscard]] float getDenormalizedDefault() const noexcept;
+	[[nodiscard]] float getDenormalizedDefault() const noexcept { return denormalize (getNormalizedDefault()); }
 
 	/** Sets the parameter's default, in a normalized 0-1 range.
 	    @see setDenormalizedDefault()
@@ -136,48 +159,37 @@ public:
 	/** Sets the parameter's default, in the parameter's denormalized range.
 	    @see setNormalizedDefault()
 	 */
-	void setDenormalizedDefault (float value);
+	void setDenormalizedDefault (float value) { setNormalizedDefault (normalize (value)); }
 
 
-	/** Sets an UndoManager to use to manage this parameter's transactions.
-	    The UndoManager will track change gestures, changing the default value, and changing the MIDI CC mapping.
-	    @see UndoManager
-	 */
-	//	void setUndoManager (UndoManager& managerToUse);
-
-	/** Returns true if this parameter is automatable by the user's DAW. */
-	[[nodiscard]] bool isAutomatable() const final;
+	//==============================================================================
+	// functions for converting to/from text
 
 	/** Returns a textual description of a normalized value in the range 0-1.
 	    @see getTextForDenormalizedValue()
 	 */
-	[[nodiscard]] String getTextForNormalizedValue (float value) const;
+	[[nodiscard]] String getTextForNormalizedValue (float value) const { return valueToTextFunc (value); }
 
 	/** Returns a textual description of a value in the parameter's denormalized range.
 	    @see getTextForNormalizedValue()
 	 */
-	[[nodiscard]] String getTextForDenormalizedValue (float value) const;
+	[[nodiscard]] String getTextForDenormalizedValue (float value) const { return getTextForNormalizedValue (normalize (value)); }
 
-	/** Returns a textual description of the parameter's maximum value. */
-	[[nodiscard]] String getTextForMax() const;
+	/** Returns a textual representation of the parameter's current value. */
+	[[nodiscard]] String getTextForCurrentValue() const { return valueToTextFunc (currentValue.load()); }
 
-	/** Returns a textual description of the parameter's minimum value. */
-	[[nodiscard]] String getTextForMin() const;
-
-	/** Returns the name of the parameter.
-	    @param maxLength The maximum length of the string to return, in characters. If this is less than 1, the max length will be unlimited.
-	    @param internationalize If this is true, the returned string will be translated using the juce::LocalisedStrings class. Setting this to false is useful for serialization logic that relies on parameter names.
+	/** Returns a textual description of the parameter's maximum value.
+	    @see getTextForMin()
 	 */
-	[[nodiscard]] String getParameterName (int maxLength = 0, bool internationalize = true) const;
+	[[nodiscard]] String getTextForMax() const { return getTextForDenormalizedValue (range.end); }
+
+	/** Returns a textual description of the parameter's minimum value.
+	    @see getTextForMax()
+	 */
+	[[nodiscard]] String getTextForMin() const { return getTextForDenormalizedValue (range.start); }
 
 
-	[[nodiscard]] virtual ValueTree saveToValueTree() const;
-
-	virtual void loadFromValueTree (const ValueTree& tree);
-
-	bool isMetaParameter() const final;
-
-	//==============================================================================
+	/*---------------------------------------------------------------------------------------------------------------------------*/
 
 	/** A Listener class that will be notified when aspects of a Parameter change.
 	 */
@@ -186,7 +198,7 @@ public:
 		/** Constructs a listener that listens to a specified Parameter.
 		    Unlike the JUCE listeners' API, this class handles its own RAII with registering and deregistering itself for updates from the parameter.
 		 */
-		Listener (Parameter& paramToUse);
+		explicit Listener (Parameter& paramToUse);
 
 		/** Destructor. */
 		virtual ~Listener();
@@ -209,33 +221,64 @@ public:
 		Parameter& param;
 	};
 
+
 	//==============================================================================
+
+	/** A listener class that fires lambdas for each callback.
+	 */
+	struct LambdaListener final : public Listener
+	{
+		explicit LambdaListener (Parameter& parameter,
+		                         std::function<void (float)>
+		                                                     valueChanged,
+		                         std::function<void (float)> defaultChanged        = nullptr,
+		                         std::function<void (bool)>  gestureChanged        = nullptr,
+		                         std::function<void (int)>   midiControllerChanged = nullptr);
+
+	private:
+		void parameterValueChanged (float newNormalizedValue) final;
+		void gestureStateChanged (bool gestureIsStarting) final;
+		void parameterDefaultChanged (float newNormalizedDefault) final;
+		void controllerNumberChanged (int newControllerNumber) final;
+
+		std::function<void (float)> valueChangeFunc, defaultChangeFunc;
+		std::function<void (bool)>  gestureChangeFunc;
+		std::function<void (int)>   controllerChangeFunc;
+	};
+
+	/*---------------------------------------------------------------------------------------------------------------------------*/
 
 	/** @internal */
 	static constexpr auto id_prop = "id";
 
+
 protected:
 
+	/** Normalizes the passed value using the parameter's NormalisableRange object. */
 	[[nodiscard]] float normalize (float input) const noexcept;
 
+	/** Denormalizes the passed value using the parameter's NormalisableRange object. */
 	[[nodiscard]] float denormalize (float input) const noexcept;
 
+	/** @internal */
 	static constexpr auto valueTreeType = "PARAM", value_prop = "value", default_prop = "default", controller_prop = "controllerNumber";
 
 private:
 
-	float getValue() const final;
-	void  setValue (float newValue) final;
-	float getDefaultValue() const final;
+	[[nodiscard]] float getValue() const final { return currentValue.load(); }
 
-	void setValueInternal (float value);
-	void setDefaultInternal (float value);
+	void setValue (float newValue) final { currentValue.store (newValue); }
 
-	float getValueForText (const String& text) const final;
+	[[nodiscard]] float getDefaultValue() const final { return getNormalizedDefault(); }
+
+	[[nodiscard]] float getValueForText (const String& text) const final { return textToValueFunc (text); }
+
+
+	//==============================================================================
 
 	const bool automatable, metaParameter;
 
-	const juce::NormalisableRange<float> range;
+	const ParameterRange range;
 
 	std::atomic<float> currentValue { 1.f }, currentDefault { 1.f };
 	std::atomic<bool>  changing { false };
@@ -244,11 +287,7 @@ private:
 	BasicValToStringFunc valueToTextFunc;
 	BasicStringToValFunc textToValueFunc;
 
-	//	UndoManager* um = nullptr;
-
 	juce::ListenerList<Listener> listeners;
-
-	const String valueChangeTransactionName, defaultChangeTransactionName, midiControllerChangeTransactionName;
 
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (Parameter)
 };

@@ -49,12 +49,12 @@ Data::Data (const String& fileToFind)
 
 const char* const Data::getData() const noexcept
 {
-    return data;
+	return data;
 }
 
 int Data::getSize() const noexcept
 {
-    return size;
+	return size;
 }
 
 bool Data::isValid() const noexcept
@@ -84,27 +84,27 @@ MemoryBlock Data::getAsMemoryBlock() const
 constexpr bool hasBinaryData() noexcept
 {
 #if LEMONS_HAS_BINARY_DATA
-    return true;
+	return true;
 #else
-    return false;
+	return false;
 #endif
 }
 
 juce::StringArray getFilenames()
 {
-    juce::StringArray filenames;
-    
+	juce::StringArray filenames;
+
 #if LEMONS_HAS_BINARY_DATA
-    
-    using namespace BinaryData;
-    
-    for (int index = 0; index < namedResourceListSize; ++index)
-    {
-        filenames.add (originalFilenames[index]);
-    }
+
+	using namespace BinaryData;
+
+	for (int index = 0; index < namedResourceListSize; ++index)
+	{
+		filenames.add (originalFilenames[index]);
+	}
 #endif
-    
-    return filenames;
+
+	return filenames;
 }
 
 MemoryBlock getBlob (const String& filename)

@@ -174,6 +174,8 @@ void TypedParameter<ValueType>::loadFromValueTree (const ValueTree& tree)
 		setMidiControllerNumber ((int) tree.getProperty (controller_prop));
 }
 
+/*---------------------------------------------------------------------------------------------------------------------------*/
+
 template <typename ValueType>
 TypedParameter<ValueType>::Listener::Listener (TypedParameter<ValueType>& param)
     : Parameter::Listener (param)
@@ -193,11 +195,61 @@ void TypedParameter<ValueType>::Listener::parameterDefaultChanged (float)
 	paramDefaultChanged (parameter.getDefault());
 }
 
+/*---------------------------------------------------------------------------------------------------------------------------*/
+
+template <typename ValueType>
+TypedParameter<ValueType>::LambdaListener::LambdaListener (TypedParameter<ValueType>& parameter,
+                                                           std::function<void (ValueType)>
+                                                               valueChanged,
+                                                           std::function<void (ValueType)>
+                                                               defaultChanged,
+                                                           std::function<void (bool)>
+                                                               gestureChanged,
+                                                           std::function<void (int)>
+                                                               controllerChanged)
+    : Listener (parameter)
+    , valueChangeFunc (valueChanged)
+    , defaultChangeFunc (defaultChanged)
+    , gestureChangeFunc (gestureChanged)
+    , controllerChangeFunc (controllerChanged)
+{
+}
+
+template <typename ValueType>
+void TypedParameter<ValueType>::LambdaListener::paramValueChanged (ValueType newValue)
+{
+	if (valueChangeFunc != nullptr)
+		valueChangeFunc (newValue);
+}
+
+template <typename ValueType>
+void TypedParameter<ValueType>::LambdaListener::paramDefaultChanged (ValueType newDefault)
+{
+	if (defaultChangeFunc != nullptr)
+		defaultChangeFunc (newDefault);
+}
+
+template <typename ValueType>
+void TypedParameter<ValueType>::LambdaListener::gestureStateChanged (bool gestureIsStarting)
+{
+	if (gestureChangeFunc != nullptr)
+		gestureChangeFunc (gestureIsStarting);
+}
+
+template <typename ValueType>
+void TypedParameter<ValueType>::LambdaListener::controllerNumberChanged (int newControllerNumber)
+{
+	if (controllerChangeFunc != nullptr)
+		controllerChangeFunc (newControllerNumber);
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------*/
 
 template class TypedParameter<float>;
 template class TypedParameter<int>;
 template class TypedParameter<bool>;
 
+/*---------------------------------------------------------------------------------------------------------------------------*/
 
 BoolParameter::BoolParameter (bool          defaultValue,
                               const String& paramName,

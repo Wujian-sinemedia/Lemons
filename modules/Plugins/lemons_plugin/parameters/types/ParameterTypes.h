@@ -82,21 +82,22 @@ public:
 	/** Converts some user input text to a possible representation as a parameter value. */
 	[[nodiscard]] ValueType getValueForString (const String& string) const;
 
-
+	/** Saves the state of this parameter to a ValueTree. */
 	[[nodiscard]] virtual ValueTree saveToValueTree() const override;
 
+	/** Restores the parameter's state from a ValueTree. */
 	virtual void loadFromValueTree (const ValueTree& tree) override;
 
-	//--------------------------------------
+	/*---------------------------------------------------------------------------------------------------------------------------*/
 
 	/** A class that will recieve updates when aspects of a TypedParameter change.
 	 */
-	struct Listener : Parameter::Listener
+	struct Listener : public Parameter::Listener
 	{
 		/** Constructs a listener that listens to a specified parameter.
 		    Unlike the JUCE listeners' API, this class handles its own RAII with registering and deregistering itself for updates from the parameter.
 		 */
-		Listener (TypedParameter<ValueType>& param);
+		explicit Listener (TypedParameter<ValueType>& param);
 
 		/** Called when the parameter's value is changed. */
 		virtual void paramValueChanged (ValueType) { }
@@ -111,7 +112,34 @@ public:
 		TypedParameter<ValueType>& parameter;
 	};
 
-	//--------------------------------------
+	//==============================================================================
+
+	/** A listener that fires lambdas for each callback. */
+	struct LambdaListener final : public Listener
+	{
+	public:
+		explicit LambdaListener (TypedParameter<ValueType>& parameter,
+		                         std::function<void (ValueType)>
+		                                                         valueChanged,
+		                         std::function<void (ValueType)> defaultChanged    = nullptr,
+		                         std::function<void (bool)>      gestureChanged    = nullptr,
+		                         std::function<void (int)>       controllerChanged = nullptr);
+
+	private:
+		void paramValueChanged (ValueType newValue) final;
+		void paramDefaultChanged (ValueType newDefault) final;
+		void gestureStateChanged (bool gestureIsStarting) final;
+		void controllerNumberChanged (int newControllerNumber) final;
+
+		std::function<void (ValueType)> valueChangeFunc, defaultChangeFunc;
+		std::function<void (bool)>      gestureChangeFunc;
+		std::function<void (int)>       controllerChangeFunc;
+	};
+
+	/*---------------------------------------------------------------------------------------------------------------------------*/
+
+	/** The parameter's value type is publically accessible through this typedef. */
+	using ParameterValueType = ValueType;
 
 private:
 	ValToStringFunc<ValueType> stringFromValueFunction;

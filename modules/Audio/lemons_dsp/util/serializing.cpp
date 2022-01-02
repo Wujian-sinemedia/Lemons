@@ -1,15 +1,15 @@
 /*
  ======================================================================================
- 
+
  ██╗     ███████╗███╗   ███╗ ██████╗ ███╗   ██╗███████╗
  ██║     ██╔════╝████╗ ████║██╔═══██╗████╗  ██║██╔════╝
  ██║     █████╗  ██╔████╔██║██║   ██║██╔██╗ ██║███████╗
  ██║     ██╔══╝  ██║╚██╔╝██║██║   ██║██║╚██╗██║╚════██║
  ███████╗███████╗██║ ╚═╝ ██║╚██████╔╝██║ ╚████║███████║
  ╚══════╝╚══════╝╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝
- 
+
  This file is part of the Lemons open source library and is licensed under the terms of the GNU Public License.
- 
+
  ======================================================================================
  */
 
@@ -62,9 +62,9 @@ AudioBuffer<float> audioFromBinary (const MemoryBlock& block)
 template <>
 MemoryBlock audioToBinary (const AudioBuffer<double>& buffer, double samplerate)
 {
-    AudioBuffer<float> floatBuf;
-    
-    floatBuf.makeCopyOf (buffer);
+	AudioBuffer<float> floatBuf;
+
+	floatBuf.makeCopyOf (buffer);
 
 	return audioToBinary (floatBuf, samplerate);
 }
@@ -74,27 +74,44 @@ AudioBuffer<double> audioFromBinary (const MemoryBlock& block)
 {
 	const auto floatBuf = audioFromBinary<float> (block);
 
-    AudioBuffer<double> doubleBuf;
-    
-    doubleBuf.makeCopyOf (floatBuf);
+	AudioBuffer<double> doubleBuf;
+
+	doubleBuf.makeCopyOf (floatBuf);
 
 	return doubleBuf;
 }
 
-
-template <typename SampleType>
-bool saveAudioToFile (const AudioBuffer<SampleType>& buffer, const File& file, double samplerate)
-{
-	return files::saveBlockToFile (audioToBinary (buffer, samplerate), file);
-}
-
-template <typename SampleType>
-AudioBuffer<SampleType> loadAudioFromFile (const File& file)
-{
-	return audioFromBinary<SampleType> (files::loadFileAsBlock (file));
-}
-
 }  // namespace lemons::serializing
+
+
+namespace lemons::files
+{
+
+template <typename SampleType>
+AudioBuffer<SampleType> loadAudioBuffer (const File& file)
+{
+	return serializing::audioFromBinary<SampleType> (loadFileAsBlock (file));
+}
+
+template <typename SampleType>
+bool saveAudioBuffer (const AudioBuffer<SampleType>& audio, const File& file, double samplerate)
+{
+	return saveBlockToFile (serializing::audioToBinary (audio, samplerate), file);
+}
+
+}  // namespace lemons::files
+
+
+namespace lemons::binary
+{
+
+template <typename SampleType>
+AudioBuffer<SampleType> getAudioBuffer (const String& filename)
+{
+	return serializing::audioFromBinary<SampleType> (getBlob (filename));
+}
+
+}  // namespace lemons::binary
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
@@ -161,6 +178,8 @@ var VariantConverter<AudioBuffer<double>>::toVar (const AudioBuffer<double>& b)
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
+#if LEMONS_UNIT_TESTS
+
 namespace lemons::tests
 {
 
@@ -223,3 +242,5 @@ template void DspSerializingTests::runAudioBufferTest<float>();
 template void DspSerializingTests::runAudioBufferTest<double>();
 
 }  // namespace lemons::tests
+
+#endif

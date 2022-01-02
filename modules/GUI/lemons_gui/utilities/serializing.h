@@ -21,23 +21,36 @@ using juce::MemoryBlock;
  */
 [[nodiscard]] Image imageFromBinary (const MemoryBlock& block);
 
+
+[[nodiscard]] MemoryBlock fontToBinary (const juce::Font& font, int maxNumChars = 127, juce_wchar defaultChar = ' ');
+
+[[nodiscard]] std::unique_ptr<juce::CustomTypeface> fontFromBinary (const MemoryBlock& block);
+
+}  // namespace lemons::serializing
+
+
+namespace lemons::files
+{
+
+using juce::Image;
+
 /** Saves an Image to a File.
     @see loadImageFromFile(), imageToBinary()
  */
-bool saveImageToFile (const Image& image, const File& file);
+bool saveImage (const Image& image, const File& file);
 
 /** Loads an Image from a File.
-    @see saveImageToFile(), imageFromBinary(),  binary::Data::getImage()
+ @see saveImageToFile(), imageFromBinary(),  binary::Data::getImage()
  */
-[[nodiscard]] Image loadImageFromFile (const File& file);
+[[nodiscard]] Image loadImage (const File& file);
 
 
-/** Serializes a font to a file that can then be reloaded as a BinaryData file.
-    @see binary::Data::getFont()
- */
-bool serializeFont (const juce::Font& font, const File& destFile, int maxNumChars = 127, juce_wchar defaultChar = ' ');
+bool saveFont (const juce::Font& font, const File& file, int maxNumChars = 127, juce_wchar defaultChar = ' ');
 
-}  // namespace lemons::serializing
+[[nodiscard]] std::unique_ptr<juce::CustomTypeface> loadFont (const File& file);
+
+}
+
 
 namespace lemons::binary
 {

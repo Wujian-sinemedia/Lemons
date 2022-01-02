@@ -17,8 +17,7 @@
 #pragma once
 
 #include <juce_data_structures/juce_data_structures.h>
-#include <juce_audio_processors/juce_audio_processors.h>
-
+#include <lemons_core/lemons_core.h>
 
 namespace lemons::plugin
 {
@@ -27,11 +26,11 @@ class Parameter;
 
 class ParameterList;
 
-using juce::String;
 using juce::ValueTree;
-using ParameterCategory = juce::AudioProcessorParameter::Category;
 
 
+/**
+ */
 struct ParameterTraits final
 {
 	explicit ParameterTraits() = default;
@@ -44,11 +43,12 @@ struct ParameterTraits final
 	                          bool automatable = true, bool metaParameter = false,
 	                          ParameterCategory categoryToUse = ParameterCategory::genericParameter);
 
-	static constexpr auto valueTreeType = "ParameterTraits";
-
 	[[nodiscard]] ValueTree toValueTree() const;
 
 	[[nodiscard]] static ParameterTraits fromValueTree (const ValueTree& tree);
+
+	/** @internal */
+	static constexpr auto valueTreeType = "ParameterTraits";
 
 	[[nodiscard]] bool isValid() const;
 
@@ -66,8 +66,8 @@ struct ParameterTraits final
 	String name;
 	String label;
 
-	juce::NormalisableRange<float> range;
-	float                          defaultValue { 1.f };
+	ParameterRange range;
+	float          defaultValue { 1.f };
 
 	BasicValToStringFunc valueToText { detail::createDefaultValueToTextFunction (label) };
 	BasicStringToValFunc textToValue { detail::createDefaultTextToValueFunction() };
@@ -89,7 +89,29 @@ struct ParameterLayout final
 
 	std::vector<ParameterTraits> parameters;
 
+	/** @internal */
 	static constexpr auto valueTreeType = "ParameterLayout";
 };
 
 }  // namespace lemons::plugin
+
+
+namespace lemons::binary
+{
+
+template <files::FileType Type = files::FileType::JSON>
+[[nodiscard]] plugin::ParameterLayout getParameterLayout (const String& fileName);
+
+}
+
+
+namespace lemons::files
+{
+
+template <FileType Type = FileType::JSON>
+[[nodiscard]] plugin::ParameterLayout loadParameterLayout (const File& file);
+
+template <FileType Type = FileType::JSON>
+bool saveParameterLayout (const plugin::ParameterLayout& layout, const File& file);
+
+}  // namespace lemons::files

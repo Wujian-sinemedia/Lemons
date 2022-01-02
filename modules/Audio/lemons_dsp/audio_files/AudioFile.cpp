@@ -1,15 +1,15 @@
 /*
  ======================================================================================
- 
+
  ██╗     ███████╗███╗   ███╗ ██████╗ ███╗   ██╗███████╗
  ██║     ██╔════╝████╗ ████║██╔═══██╗████╗  ██║██╔════╝
  ██║     █████╗  ██╔████╔██║██║   ██║██╔██╗ ██║███████╗
  ██║     ██╔══╝  ██║╚██╔╝██║██║   ██║██║╚██╗██║╚════██║
  ███████╗███████╗██║ ╚═╝ ██║╚██████╔╝██║ ╚████║███████║
  ╚══════╝╚══════╝╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝
- 
+
  This file is part of the Lemons open source library and is licensed under the terms of the GNU Public License.
- 
+
  ======================================================================================
  */
 
@@ -33,10 +33,10 @@ juce::AudioFormatManager& AudioFile::getFormatManager()
 
 bool AudioFile::isValidAudioFile (const File& file)
 {
-    if (! file.existsAsFile())
-        return false;
-    
-    return file.hasFileExtension (getFormatManager().getWildcardForAllFormats());
+	if (! file.existsAsFile())
+		return false;
+
+	return file.hasFileExtension (getFormatManager().getWildcardForAllFormats());
 }
 
 /*---------------------------------------------------------------------------------------------------------------------------------*/
@@ -88,7 +88,7 @@ const AudioBuffer<double>& AudioFile::getData()
 {
 	if (isValid())
 		if (double_data.getNumSamples() != lengthInSamples || double_data.getNumChannels() != numChannels)
-            double_data.makeCopyOf (float_data);
+			double_data.makeCopyOf (float_data);
 
 	jassert (double_data.getNumChannels() == numChannels);
 	jassert (double_data.getNumSamples() == lengthInSamples);
@@ -149,7 +149,7 @@ const juce::StringPairArray& AudioFile::getMetadata() const noexcept
 	return metadata;
 }
 
-}  // namespace lemons
+}  // namespace lemons::dsp
 
 
 /*---------------------------------------------------------------------------------------------------------------------------------*/
@@ -157,13 +157,13 @@ const juce::StringPairArray& AudioFile::getMetadata() const noexcept
 namespace lemons::binary
 {
 
-dsp::AudioFile getAudio (const String& audioFileName)
+dsp::AudioFile getAudioFile (const String& audioFileName)
 {
-    dsp::AudioFile audio { std::make_unique<juce::MemoryInputStream> (getBlob (audioFileName), false) };
-    
-    jassert (audio.isValid());
-    
-    return audio;
+	dsp::AudioFile audio { std::make_unique<juce::MemoryInputStream> (getBlob (audioFileName), false) };
+
+	jassert (audio.isValid());
+
+	return audio;
 }
 
-}
+}  // namespace lemons::binary

@@ -1,15 +1,15 @@
 /*
  ======================================================================================
- 
+
  ██╗     ███████╗███╗   ███╗ ██████╗ ███╗   ██╗███████╗
  ██║     ██╔════╝████╗ ████║██╔═══██╗████╗  ██║██╔════╝
  ██║     █████╗  ██╔████╔██║██║   ██║██╔██╗ ██║███████╗
  ██║     ██╔══╝  ██║╚██╔╝██║██║   ██║██║╚██╗██║╚════██║
  ███████╗███████╗██║ ╚═╝ ██║╚██████╔╝██║ ╚████║███████║
  ╚══════╝╚══════╝╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝
- 
+
  This file is part of the Lemons open source library and is licensed under the terms of the GNU Public License.
- 
+
  ======================================================================================
  */
 
@@ -44,8 +44,6 @@
 #include "parameters/types/Specializations.h"
 #include "parameters/types/MeterParameter.h"
 
-#include "parameters/utils/ParamUpdater.h"
-
 #include "state/ParameterList.h"
 #include "state/ProgramManager.h"
 #include "state/PluginState.h"
@@ -69,4 +67,3 @@
 #include "util/serializing.h"
 
 #include "processors/Processors.h"
-

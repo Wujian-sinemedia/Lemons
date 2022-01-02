@@ -37,25 +37,25 @@ void MonoStereoConverter<SampleType>::convertStereoToMono (const SampleType* lef
                                                            SampleType*       monoOut,
                                                            int               numSamples)
 {
-    using FVO = juce::FloatVectorOperations;
-    
+	using FVO = juce::FloatVectorOperations;
+
 	switch (toMonoMode)
 	{
 		case (StereoReductionMode::leftOnly) :
 		{
-            FVO::copy (monoOut, leftIn, numSamples);
+			FVO::copy (monoOut, leftIn, numSamples);
 			return;
 		}
 		case (StereoReductionMode::rightOnly) :
 		{
-            FVO::copy (monoOut, rightIn, numSamples);
+			FVO::copy (monoOut, rightIn, numSamples);
 			return;
 		}
 		case (StereoReductionMode::mixToMono) :
 		{
 			monoStorage.copyFrom (0, 0, leftIn, numSamples, SampleType (0.5));
 			monoStorage.addFrom (0, 0, rightIn, numSamples, SampleType (0.5));
-            FVO::copy (monoOut, monoStorage.getReadPointer (0), numSamples);
+			FVO::copy (monoOut, monoStorage.getReadPointer (0), numSamples);
 		}
 	}
 }
@@ -80,9 +80,9 @@ void MonoStereoConverter<SampleType>::convertMonoToStereo (const SampleType* mon
                                                            SampleType*       rightOut,
                                                            int               numSamples)
 {
-    using FVO = juce::FloatVectorOperations;
-    
-    FVO::copy (leftOut, monoIn, numSamples);
+	using FVO = juce::FloatVectorOperations;
+
+	FVO::copy (leftOut, monoIn, numSamples);
 	FVO::copy (rightOut, monoIn, numSamples);
 }
 

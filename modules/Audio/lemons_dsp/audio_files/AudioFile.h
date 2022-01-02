@@ -1,15 +1,15 @@
 /*
  ======================================================================================
- 
+
  ██╗     ███████╗███╗   ███╗ ██████╗ ███╗   ██╗███████╗
  ██║     ██╔════╝████╗ ████║██╔═══██╗████╗  ██║██╔════╝
  ██║     █████╗  ██╔████╔██║██║   ██║██╔██╗ ██║███████╗
  ██║     ██╔══╝  ██║╚██╔╝██║██║   ██║██║╚██╗██║╚════██║
  ███████╗███████╗██║ ╚═╝ ██║╚██████╔╝██║ ╚████║███████║
  ╚══════╝╚══════╝╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝
- 
+
  This file is part of the Lemons open source library and is licensed under the terms of the GNU Public License.
- 
+
  ======================================================================================
  */
 
@@ -21,8 +21,8 @@
 namespace lemons::dsp
 {
 
-using juce::String;
 using juce::File;
+using juce::String;
 
 
 /** This class represents the data of an audio file, including the AudioBuffer itself, as well as the samplerate, bit depth, and metadata information.
@@ -79,9 +79,9 @@ struct AudioFile final
 
 	/** Returns a static AudioFormatManager used for creating all AudioFiles. */
 	[[nodiscard]] static juce::AudioFormatManager& getFormatManager();
-    
-    /** Returns true if the file has a file extension matching any of the audio file extensions that the default AudioFormatManager can handle. */
-    [[nodiscard]] static bool isValidAudioFile (const File& file);
+
+	/** Returns true if the file has a file extension matching any of the audio file extensions that the default AudioFormatManager can handle. */
+	[[nodiscard]] static bool isValidAudioFile (const File& file);
 
 private:
 	explicit AudioFile (juce::AudioFormatReader* reader, const File& f);
@@ -90,7 +90,7 @@ private:
 	AudioBuffer<double> double_data;
 
 	double samplerate { 0. };
-    int    lengthInSamples { 0 }, numChannels { 0 }, bitsPerSample { 0 };
+	int    lengthInSamples { 0 }, numChannels { 0 }, bitsPerSample { 0 };
 
 	File file;
 
@@ -99,8 +99,7 @@ private:
 	juce::StringPairArray metadata;
 };
 
-}  // namespace lemons
-
+}  // namespace lemons::dsp
 
 
 namespace lemons::binary
@@ -108,6 +107,6 @@ namespace lemons::binary
 
 /** Returns an AudioFile object from a file stored in the BinaryData target. If the audio can't be loaded, an assertion will be thrown.
  */
-[[nodiscard]] dsp::AudioFile getAudio (const String& audioFileName);
+[[nodiscard]] dsp::AudioFile getAudioFile (const String& audioFileName);
 
-}
+}  // namespace lemons::binary

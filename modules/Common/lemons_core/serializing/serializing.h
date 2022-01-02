@@ -22,15 +22,15 @@
 namespace lemons::serializing
 {
 
-using juce::ValueTree;
 using juce::MemoryBlock;
+using juce::ValueTree;
 
 static constexpr auto rangeTreeType = "NormalisableRange";
 
-template<typename ValueType>
+template <typename ValueType>
 [[nodiscard]] ValueTree rangeToValueTree (const juce::NormalisableRange<ValueType>& range);
 
-template<typename ValueType>
+template <typename ValueType>
 [[nodiscard]] juce::NormalisableRange<ValueType> valueTreeToRange (const ValueTree& tree);
 
 

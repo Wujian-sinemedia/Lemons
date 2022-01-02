@@ -22,13 +22,13 @@ namespace lemons::dsp
 /** An enum used to describe how a MonoStereoConverter will convert stereo signals to mono. */
 enum class StereoReductionMode
 {
-    /** In this mode, a MonoStereoConverter will output only the left channel of a stereo signal as its mono reduction. */
+	/** In this mode, a MonoStereoConverter will output only the left channel of a stereo signal as its mono reduction. */
 	leftOnly,
-    
-    /** In this mode, a MonoStereoConverter will output only the right channel of a stereo signal as its mono reduction. */
+
+	/** In this mode, a MonoStereoConverter will output only the right channel of a stereo signal as its mono reduction. */
 	rightOnly,
-    
-    /** In this mode, a MonoStereoConverter will mix together the two channels of a stereo signal to create its mono reduction. */
+
+	/** In this mode, a MonoStereoConverter will mix together the two channels of a stereo signal to create its mono reduction. */
 	mixToMono
 };
 
@@ -38,41 +38,41 @@ template <typename SampleType>
 class MonoStereoConverter final
 {
 public:
-    /** Default constructor. */
-    explicit MonoStereoConverter() = default;
+	/** Default constructor. */
+	explicit MonoStereoConverter() = default;
 
-    /** Prepares the converter to process a new maximum blocksize. */
+	/** Prepares the converter to process a new maximum blocksize. */
 	void prepare (int blocksize);
 
-    /** Sets the StereoReductionMode the converter will use for converting stereo signals to mono. */
+	/** Sets the StereoReductionMode the converter will use for converting stereo signals to mono. */
 	void setStereoReductionMode (StereoReductionMode newmode);
 
-    /** Returns the StereoReductionMode the converter is currently using. */
+	/** Returns the StereoReductionMode the converter is currently using. */
 	[[nodiscard]] StereoReductionMode getStereoReductionMode() const noexcept { return toMonoMode; }
 
-    /** Converts a stereo signal to mono. */
+	/** Converts a stereo signal to mono. */
 	void convertStereoToMono (const SampleType* leftIn,
 	                          const SampleType* rightIn,
 	                          SampleType*       monoOut,
 	                          int               numSamples);
 
-    /** Converts a stereo signal to mono. */
+	/** Converts a stereo signal to mono. */
 	void convertStereoToMono (const AudioBuffer<SampleType>& input, AudioBuffer<SampleType>& output);
 
-    /** Converts a mono signal to stereo. */
+	/** Converts a mono signal to stereo. */
 	void convertMonoToStereo (const SampleType* monoIn,
 	                          SampleType*       leftOut,
 	                          SampleType*       rightOut,
 	                          int               numSamples);
 
-    /** Converts a mono signal to stereo. */
+	/** Converts a mono signal to stereo. */
 	void convertMonoToStereo (const AudioBuffer<SampleType>& input, AudioBuffer<SampleType>& output);
 
 
 private:
-    StereoReductionMode toMonoMode { StereoReductionMode::leftOnly };
+	StereoReductionMode toMonoMode { StereoReductionMode::leftOnly };
 
-    AudioBuffer<SampleType> monoStorage;
+	AudioBuffer<SampleType> monoStorage;
 };
 
 }  // namespace lemons::dsp

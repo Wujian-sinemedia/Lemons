@@ -16,12 +16,17 @@
 #pragma once
 
 #include <juce_core/juce_core.h>
+#include <juce_audio_processors/juce_audio_processors.h>
 
 
 namespace lemons::plugin
 {
 
 using juce::String;
+
+using ParameterCategory = juce::AudioProcessorParameter::Category;
+
+using ParameterRange = juce::NormalisableRange<float>;
 
 using BasicValToStringFunc = std::function<String (float)>;
 
@@ -46,7 +51,7 @@ namespace lemons::plugin::detail
 [[nodiscard]] inline BasicStringToValFunc createDefaultTextToValueFunction();
 
 template <typename ValueType>
-[[nodiscard]] inline juce::NormalisableRange<float> createRange (ValueType minimum, ValueType maximum);
+[[nodiscard]] inline ParameterRange createRange (ValueType minimum, ValueType maximum);
 
 
 template <typename ValueType>

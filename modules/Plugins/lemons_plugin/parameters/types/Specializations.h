@@ -30,8 +30,6 @@ struct GainParameter : public FloatParameter
 	explicit GainParameter (const String&     paramName,
 	                        float             defaultVal,
 	                        ParameterCategory parameterCategory = ParameterCategory::genericParameter);
-
-	using Listener = FloatParameter::Listener;
 };
 
 /*-----------------------------------------------------------------------------------------------------------------------
@@ -47,8 +45,6 @@ struct ToggleParameter final : public BoolParameter
 	    @param defaultVal Indicates whether the parameter should initially be on or off by default.
 	 */
 	explicit ToggleParameter (const String& paramName, bool defaultVal);
-
-	using Listener = BoolParameter::Listener;
 };
 
 /*-----------------------------------------------------------------------------------------------------------------------
@@ -69,8 +65,6 @@ struct FloatAmountParameter : public FloatParameter
 	                               float             defaultVal,
 	                               ParameterCategory parameterCategory = ParameterCategory::genericParameter,
 	                               const String&     parameterLabel    = {});
-
-	using Listener = FloatParameter::Listener;
 };
 
 /*-----------------------------------------------------------------------------------------------------------------------
@@ -86,8 +80,6 @@ struct FrequencyParameter final : public FloatParameter
 	    @param defaultVal The default value of this parameter.
 	 */
 	explicit FrequencyParameter (const String& paramName, float defaultVal);
-
-	using Listener = FloatParameter::Listener;
 };
 
 /*-----------------------------------------------------------------------------------------------------------------------
@@ -103,8 +95,6 @@ struct MidiPitchParameter final : public IntParameter
 	    @param defaultVal The default value of this parameter.
 	 */
 	explicit MidiPitchParameter (const String& paramName, int defaultVal);
-
-	using Listener = IntParameter::Listener;
 };
 
 /*-----------------------------------------------------------------------------------------------------------------------
@@ -120,8 +110,6 @@ struct MidiPanParameter final : public IntParameter
 	    @param defaultVal The default value of this parameter.
 	 */
 	explicit MidiPanParameter (const String& paramName, int defaultVal = 64);
-
-	using Listener = IntParameter::Listener;
 };
 
 /*-----------------------------------------------------------------------------------------------------------------------
@@ -138,8 +126,6 @@ struct SemitonesParameter : public IntParameter
 	    @param defaultVal The default value of this parameter.
 	 */
 	explicit SemitonesParameter (const String& paramName, int minSemitones = 0, int maxSemitones = 12, int defaultVal = 1);
-
-	using Listener = IntParameter::Listener;
 };
 
 /*-----------------------------------------------------------------------------------------------------------------------
@@ -155,8 +141,6 @@ struct PercentParameter final : public IntParameter
 	    @param defaultVal The default value of this parameter.
 	 */
 	explicit PercentParameter (const String& paramName, int defaultVal);
-
-	using Listener = IntParameter::Listener;
 };
 
 /*-----------------------------------------------------------------------------------------------------------------------
@@ -173,8 +157,6 @@ struct SecondsParameter : public FloatParameter
 	    @param defaultVal The default value of this parameter.
 	 */
 	explicit SecondsParameter (const String& paramName, float minSeonds = 0.f, float maxSeconds = 1.f, float defaultVal = 0.5f);
-
-	using Listener = FloatParameter::Listener;
 };
 
 }  // namespace lemons::plugin

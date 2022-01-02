@@ -124,6 +124,8 @@ void MetaParameterBase::loadConnectionsFromValueTree (const ValueTree& tree)
 			connection->loadFromValueTree (child);
 		}
 	}
+
+	applyAllConnections();
 }
 
 

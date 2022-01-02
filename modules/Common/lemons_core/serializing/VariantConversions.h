@@ -74,7 +74,6 @@ struct VariantConverter<NamedValueSet>
 };
 
 
-
 template <>
 struct VariantConverter<PropertySet>
 {

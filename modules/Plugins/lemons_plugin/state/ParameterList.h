@@ -83,11 +83,13 @@ public:
 	{
 		explicit Listener (const ParameterList& list,
 		                   std::function<void (Parameter&)>
-		                                                          onParamChange,
-		                   std::function<void (Parameter&, bool)> onGestureGhange = {});
+		                                                          onParamValueChange,
+		                   std::function<void (Parameter&)>       onParamDefaultChange    = nullptr,
+		                   std::function<void (Parameter&, bool)> onParamGestureGhange    = nullptr,
+		                   std::function<void (Parameter&)>       onParamControllerChange = nullptr);
 
 	private:
-		juce::OwnedArray<ParamUpdater> updaters;
+		juce::OwnedArray<Parameter::LambdaListener> updaters;
 	};
 
 private:

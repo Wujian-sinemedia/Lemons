@@ -1,15 +1,15 @@
 /*
  ======================================================================================
- 
+
  ██╗     ███████╗███╗   ███╗ ██████╗ ███╗   ██╗███████╗
  ██║     ██╔════╝████╗ ████║██╔═══██╗████╗  ██║██╔════╝
  ██║     █████╗  ██╔████╔██║██║   ██║██╔██╗ ██║███████╗
  ██║     ██╔══╝  ██║╚██╔╝██║██║   ██║██║╚██╗██║╚════██║
  ███████╗███████╗██║ ╚═╝ ██║╚██████╔╝██║ ╚████║███████║
  ╚══════╝╚══════╝╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝
- 
+
  This file is part of the Lemons open source library and is licensed under the terms of the GNU Public License.
- 
+
  ======================================================================================
  */
 
@@ -34,19 +34,40 @@ template <typename SampleType>
 template <typename SampleType>
 [[nodiscard]] AudioBuffer<SampleType> audioFromBinary (const MemoryBlock& block);
 
-/** Writes an AudioBuffer to a File in FLAC format. This writes the data in an opaque binary format that can be reloaded by the free functions in this namespace, but may not be compatible with official audio formats.
-    @see loadAudioFromFile(), audioToBinary()
- */
-template <typename SampleType>
-bool saveAudioToFile (const AudioBuffer<SampleType>& buffer, const File& file, double samplerate = 48000.);
-
-/** Loads an AudioBuffer from a file. The buffer must have been previously written to the file using the saveAudioToFile() method. For a more robust, official-format-compatible method of loading audio files, see the AudioFile class.
-    @see saveAudioToFile(), audioFromBinary(), AudioFile, binary::Data::getAudio()
- */
-template <typename SampleType>
-[[nodiscard]] AudioBuffer<SampleType> loadAudioFromFile (const File& file);
-
 }  // namespace lemons::serializing
+
+
+namespace lemons::files
+{
+
+template <typename SampleType>
+using AudioBuffer = juce::AudioBuffer<SampleType>;
+
+/** Loads an AudioBuffer from a file. The buffer must have been previously written to the file using the saveAudioBuffer() method. For a more robust, official-format-compatible method of loading audio files, see the AudioFile class.
+    @see saveAudioBuffer()
+ */
+template <typename SampleType>
+[[nodiscard]] AudioBuffer<SampleType> loadAudioBuffer (const File& file);
+
+
+/** Writes an AudioBuffer to a File in FLAC format. This writes the data in an opaque binary format that can be reloaded by the free functions in this namespace, but may not be compatible with official audio formats.
+    @see loadAudioBuffer()
+ */
+template <typename SampleType>
+bool saveAudioBuffer (const AudioBuffer<SampleType>& audio, const File& file, double samplerate = 48000.);
+
+}  // namespace lemons::files
+
+namespace lemons::binary
+{
+
+template <typename SampleType>
+using AudioBuffer = juce::AudioBuffer<SampleType>;
+
+template <typename SampleType>
+[[nodiscard]] AudioBuffer<SampleType> getAudioBuffer (const String& filename);
+
+}  // namespace lemons::binary
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
@@ -84,6 +105,8 @@ struct VariantConverter<AudioBuffer<double>>
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
+#if LEMONS_UNIT_TESTS
+
 namespace lemons::tests
 {
 
@@ -101,3 +124,5 @@ private:
 static DspSerializingTests dspSerializingTest;
 
 }  // namespace lemons::tests
+
+#endif

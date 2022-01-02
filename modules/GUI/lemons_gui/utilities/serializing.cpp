@@ -30,30 +30,58 @@ Image loadImageFromFile (const File& file)
 	return imageFromBinary (files::loadFileAsBlock (file));
 }
 
-bool serializeFont (const juce::Font& font, const File& destFile, int maxNumChars, juce_wchar defaultChar)
+
+[[nodiscard]] MemoryBlock fontToBinary (const juce::Font& font, int maxNumChars, juce_wchar defaultChar)
 {
-	destFile.deleteFile();
+    MemoryBlock output;
     
-    if (auto outStream = destFile.createOutputStream())
-    {
-        if (outStream->openedOk())
-        {
-            juce::CustomTypeface customTypeface;
-            
-            customTypeface.setCharacteristics (font.getTypefaceName(), font.getAscent(),
-                                               font.isBold(), font.isItalic(), defaultChar);
-            
-            customTypeface.addGlyphsFromOtherTypeface (*font.getTypefacePtr(), 0, maxNumChars);
-            
-            return customTypeface.writeToStream (*outStream);
-        }
-    }
+    juce::MemoryOutputStream os { output, false };
     
-    return false;
+    juce::CustomTypeface customTypeface;
+    
+    customTypeface.setCharacteristics (font.getTypefaceName(), font.getAscent(),
+                                       font.isBold(), font.isItalic(), defaultChar);
+    
+    customTypeface.addGlyphsFromOtherTypeface (*font.getTypefacePtr(), 0, maxNumChars);
+    
+    customTypeface.writeToStream (os);
+}
+
+std::unique_ptr<juce::CustomTypeface> fontFromBinary (const MemoryBlock& block)
+{
+    juce::MemoryInputStream is { block, false };
+    
+    return std::make_unique<juce::CustomTypeface> (is);
 }
 
 
 }  // namespace lemons::serializing
+
+namespace lemons::files
+{
+
+bool saveImage (const Image& image, const File& file)
+{
+    return saveBlockToFile (serializing::imageToBinary (image), file);
+}
+
+Image loadImage (const File& file)
+{
+    return serializing::imageFromBinary (loadFileAsBlock (file));
+}
+
+
+bool saveFont (const juce::Font& font, const File& file, int maxNumChars, juce_wchar defaultChar)
+{
+    return saveBlockToFile (serializing::fontToBinary (font, maxNumChars, defaultChar), file);
+}
+
+std::unique_ptr<juce::CustomTypeface> loadFont (const File& file)
+{
+    return serializing::fontFromBinary (loadFileAsBlock (file));
+}
+
+}
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
 

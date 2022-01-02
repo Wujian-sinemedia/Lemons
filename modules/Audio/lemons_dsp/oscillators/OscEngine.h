@@ -1,15 +1,15 @@
 /*
  ======================================================================================
- 
+
  ██╗     ███████╗███╗   ███╗ ██████╗ ███╗   ██╗███████╗
  ██║     ██╔════╝████╗ ████║██╔═══██╗████╗  ██║██╔════╝
  ██║     █████╗  ██╔████╔██║██║   ██║██╔██╗ ██║███████╗
  ██║     ██╔══╝  ██║╚██╔╝██║██║   ██║██║╚██╗██║╚════██║
  ███████╗███████╗██║ ╚═╝ ██║╚██████╔╝██║ ╚████║███████║
  ╚══════╝╚══════╝╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝
- 
+
  This file is part of the Lemons open source library and is licensed under the terms of the GNU Public License.
- 
+
  ======================================================================================
  */
 
@@ -42,8 +42,8 @@ public:
 
 		frequency = freqHz;
 
-		const auto sr = static_cast<SampleType> (this->getSamplerate());
-        const auto freq = static_cast<SampleType> (frequency);
+		const auto sr   = static_cast<SampleType> (this->getSamplerate());
+		const auto freq = static_cast<SampleType> (frequency);
 
 		for (auto* osc : oscillators)
 			osc->setFrequency (freq, sr);
@@ -61,8 +61,8 @@ private:
 		const auto numChannels = output.getNumChannels();
 
 		jassert (oscillators->size() == numChannels);
-        
-        output.clear();
+
+		output.clear();
 
 		if (isBypassed)
 		{
@@ -86,12 +86,12 @@ private:
 			osc->setFrequency (frequency, static_cast<SampleType> (samplerate));
 		}
 	}
-    
-    void onReset() final
-    {
-        for (auto* osc : oscillators)
-            osc->resetPhase();
-    }
+
+	void onReset() final
+	{
+		for (auto* osc : oscillators)
+			osc->resetPhase();
+	}
 
 	void released() final
 	{
