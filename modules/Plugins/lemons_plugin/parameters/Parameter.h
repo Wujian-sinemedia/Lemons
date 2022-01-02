@@ -29,6 +29,7 @@ using juce::ValueTree;
 class Parameter : public juce::RangedAudioParameter
 {
 public:
+
 	/** Creates a parameter.
 	    @param paramName The name of this parameter.
 	    @param paramRange The range of values that this parameter can have.
@@ -40,16 +41,16 @@ public:
 	    @param metaParam Boolean flag that indicates whether this parameter represents a "meta-parameter" -- that is, a parameter that controls other parameters.
 	    @param parameterCategory An optional parameter category. See juce::AudioProcessorParameter::Category.
 	 */
-	explicit Parameter (String paramName,
+	explicit Parameter (const String& paramName,
 	                    juce::NormalisableRange<float>
 	                                                         paramRange,
 	                    float                                paramDefaultValue    = 1.f,
 	                    std::function<String (float)>        valueToTextFuncToUse = nullptr,
 	                    std::function<float (const String&)> textToValueFuncToUse = nullptr,
-	                    String                               paramLabel           = {},
+	                    const String&                        paramLabel           = {},
 	                    bool                                 isAutomatable        = true,
 	                    bool                                 metaParam            = false,
-	                    AudioProcessorParameter::Category    parameterCategory    = AudioProcessorParameter::genericParameter);
+	                    ParameterCategory                    parameterCategory    = ParameterCategory::genericParameter);
 
 	/** Creates a parameter from a ParameterTraits object. */
 	explicit Parameter (const ParameterTraits& traits);
@@ -175,6 +176,8 @@ public:
 
 	virtual void loadFromValueTree (const ValueTree& tree);
 
+	bool isMetaParameter() const final;
+
 	//==============================================================================
 
 	/** A Listener class that will be notified when aspects of a Parameter change.
@@ -221,7 +224,6 @@ protected:
 	static constexpr auto valueTreeType = "PARAM", value_prop = "value", default_prop = "default", controller_prop = "controllerNumber";
 
 private:
-	bool isMetaParameter() const final;
 
 	float getValue() const final;
 	void  setValue (float newValue) final;

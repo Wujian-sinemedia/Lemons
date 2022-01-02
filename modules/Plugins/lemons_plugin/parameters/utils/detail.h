@@ -25,36 +25,33 @@ namespace lemons::plugin::detail
 [[nodiscard]] inline std::function<float (const String&)> createDefaultTextToValueFunction();
 
 template <typename ValueType>
-[[nodiscard]] juce::NormalisableRange<float> createRange (ValueType minimum, ValueType maximum);
+[[nodiscard]] inline juce::NormalisableRange<float> createRange (ValueType minimum, ValueType maximum);
 
 
 template <typename ValueType>
-[[nodiscard]] std::function<String (ValueType, int)> createDefaultStringFromValueFunc (float rangeInterval);
+[[nodiscard]] inline std::function<String (ValueType, int)> createDefaultStringFromValueFunc (float         rangeInterval,
+                                                                                              const String& paramLabel = {});
 
 
 template <typename ValueType>
-[[nodiscard]] std::function<ValueType (const String&)> createDefaultValueFromStringFunc();
+[[nodiscard]] inline std::function<ValueType (const String&)> createDefaultValueFromStringFunc();
 
 
 template <typename ValueType>
-[[nodiscard]] std::function<String (float)> convertValToStringFunc (std::function<String (ValueType, int)> origFunc)
-{
-	if (origFunc == nullptr)
-		origFunc = createDefaultStringFromValueFunc<ValueType> (1.f);
-
-	return [=] (float value) -> String
-	{ return origFunc (static_cast<ValueType> (value), 0); };
-}
+[[nodiscard]] inline std::function<String (float)> convertValToStringFuncFromTyped (std::function<String (ValueType, int)> origFunc,
+                                                                                    const String&                          paramLabel = {});
 
 
 template <typename ValueType>
-[[nodiscard]] std::function<float (const String&)> convertStringToValFunc (std::function<ValueType (const String&)> origFunc)
-{
-	if (origFunc == nullptr)
-		origFunc = createDefaultValueFromStringFunc<ValueType>();
+[[nodiscard]] inline std::function<float (const String&)> convertStringToValFuncFromTyped (std::function<ValueType (const String&)> origFunc);
 
-	return [=] (const String& text) -> float
-	{ return static_cast<float> (origFunc (text)); };
-}
+
+template <typename ValueType>
+[[nodiscard]] inline std::function<String (ValueType, int)> convertValToStringFuncToTyped (std::function<String (float)> origFunc,
+                                                                                           const String&                 paramLabel = {});
+
+
+template <typename ValueType>
+[[nodiscard]] inline std::function<ValueType (const String&)> convertStringToValFuncToTyped (std::function<float (const String&)> origFunc);
 
 }  // namespace lemons::plugin::detail

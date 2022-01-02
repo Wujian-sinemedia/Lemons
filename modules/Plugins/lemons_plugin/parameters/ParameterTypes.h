@@ -41,13 +41,13 @@ public:
 	explicit TypedParameter (ValueType                                minimum,
 	                         ValueType                                maximum,
 	                         ValueType                                defaultValue,
-	                         String                                   paramName,
+	                         const String&                            paramName,
 	                         std::function<String (ValueType, int)>   stringFromValue   = nullptr,
 	                         std::function<ValueType (const String&)> valueFromString   = nullptr,
-	                         String                                   paramLabel        = {},
+	                         const String&                            paramLabel        = {},
 	                         bool                                     isAutomatable     = true,
 	                         bool                                     metaParam         = false,
-	                         juce::AudioProcessorParameter::Category  parameterCategory = juce::AudioProcessorParameter::genericParameter);
+	                         ParameterCategory                        parameterCategory = ParameterCategory::genericParameter);
 
 	/** Creates a typed parameter from a ParameterTraits object. */
 	explicit TypedParameter (const ParameterTraits& traits);
@@ -83,9 +83,9 @@ public:
 	[[nodiscard]] ValueType getValueForString (const String& string) const;
 
 
-	[[nodiscard]] virtual ValueTree saveToValueTree() const final;
+	[[nodiscard]] virtual ValueTree saveToValueTree() const override;
 
-	virtual void loadFromValueTree (const ValueTree& tree) final;
+	virtual void loadFromValueTree (const ValueTree& tree) override;
 
 	//--------------------------------------
 
@@ -141,14 +141,14 @@ struct BoolParameter : TypedParameter<bool>
 	    @param metaParam Boolean flag that indicates whether this parameter represents a "meta-parameter" -- that is, a parameter that controls other parameters.
 	    @param parameterCategory An optional parameter category. See juce::AudioProcessorParameter::Category.
 	*/
-	explicit BoolParameter (bool                                    defaultValue,
-	                        String                                  paramName,
-	                        std::function<String (bool, int)>       stringFromValue   = nullptr,
-	                        std::function<bool (const String&)>     valueFromString   = nullptr,
-	                        String                                  paramLabel        = {},
-	                        bool                                    isAutomatable     = true,
-	                        bool                                    metaParam         = false,
-	                        juce::AudioProcessorParameter::Category parameterCategory = AudioProcessorParameter::genericParameter);
+	explicit BoolParameter (bool                                defaultValue,
+	                        const String&                       paramName,
+	                        std::function<String (bool, int)>   stringFromValue   = nullptr,
+	                        std::function<bool (const String&)> valueFromString   = nullptr,
+	                        const String&                       paramLabel        = {},
+	                        bool                                isAutomatable     = true,
+	                        bool                                metaParam         = false,
+	                        Category                            parameterCategory = Category::genericParameter);
 
 	/** Creates a boolean parameter from a ParameterTraits object. */
 	explicit BoolParameter (const ParameterTraits& traits);

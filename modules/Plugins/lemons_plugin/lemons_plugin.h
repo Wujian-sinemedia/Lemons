@@ -48,18 +48,18 @@
 #include "parameters/ParameterTypes.h"
 #include "parameters/Specializations.h"
 #include "parameters/MeterParameter.h"
-//#include "parameters/MetaParameter.h"
-
-#include "parameters/utils/Factory.h"
 
 #include "parameters/utils/ParamUpdater.h"
+
+#include "state/ParameterList.h"
+
+#include "parameters/MetaParameter.h"
 
 // modulation manager
 
 #include "processors/ProcessorAttributes.h"
 #include "processors/BasicProcessor.h"
 
-#include "state/ParameterList.h"
 #include "state/ProgramManager.h"
 #include "state/PluginState.h"
 

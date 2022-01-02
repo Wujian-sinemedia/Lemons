@@ -24,7 +24,7 @@
 #include "parameters/ParameterTypes.cpp"
 #include "parameters/Specializations.cpp"
 #include "parameters/MeterParameter.cpp"
-//#include "parameters/MetaParameter.cpp"
+#include "parameters/MetaParameter.cpp"
 
 #include "parameters/utils/ParamUpdater.cpp"
 

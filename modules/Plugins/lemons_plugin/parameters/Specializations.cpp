@@ -38,9 +38,9 @@ static const auto gain_floatFromString =
 /*-----------------------------------------------------------------------------------------------------------------------
  -----------------------------------------------------------------------------------------------------------------------*/
 
-GainParameter::GainParameter (String                                  paramName,
-                              float                                   defaultVal,
-                              juce::AudioProcessorParameter::Category parameterCategory)
+GainParameter::GainParameter (const String&     paramName,
+                              float             defaultVal,
+                              ParameterCategory parameterCategory)
     : FloatParameter (-60.f, 0.f, defaultVal,
                       paramName,
                       gain_stringFromFloat,
@@ -68,8 +68,8 @@ static const auto toggle_boolFromString =
 	        || text.containsIgnoreCase (TRANS ("True")));
 };
 
-ToggleParameter::ToggleParameter (String paramName,
-                                  bool   defaultVal)
+ToggleParameter::ToggleParameter (const String& paramName,
+                                  bool          defaultVal)
     : BoolParameter (defaultVal,
                      paramName,
                      toggle_stringFromBool,
@@ -97,10 +97,10 @@ static const auto normPcnt_floatFromString =
 	return text.trim().getFloatValue();
 };
 
-FloatAmountParameter::FloatAmountParameter (String                                  paramName,
-                                            float                                   defaultVal,
-                                            juce::AudioProcessorParameter::Category parameterCategory,
-                                            String                                  parameterLabel)
+FloatAmountParameter::FloatAmountParameter (const String&     paramName,
+                                            float             defaultVal,
+                                            ParameterCategory parameterCategory,
+                                            const String&     parameterLabel)
     : FloatParameter (0.f, 1.f, defaultVal,
                       paramName,
                       normPcnt_stringFromFloat,
@@ -139,8 +139,8 @@ static const auto hz_floatFromString =
 	return text.trim().getFloatValue();
 };
 
-FrequencyParameter::FrequencyParameter (String paramName,
-                                        float  defaultVal)
+FrequencyParameter::FrequencyParameter (const String& paramName,
+                                        float         defaultVal)
     : FloatParameter (40.f, 10000.f, defaultVal,
                       paramName,
                       hz_stringFromFloat,
@@ -172,7 +172,7 @@ static const auto pitch_intFromString =
 };
 
 
-MidiPitchParameter::MidiPitchParameter (String paramName, int defaultVal)
+MidiPitchParameter::MidiPitchParameter (const String& paramName, int defaultVal)
     : IntParameter (0, 127, defaultVal, paramName, pitch_stringFromInt, pitch_intFromString)
 {
 }
@@ -192,7 +192,7 @@ static const auto midiPan_intFromString =
 	return midiPanStringToInt (text);
 };
 
-MidiPanParameter::MidiPanParameter (String paramName, int defaultVal)
+MidiPanParameter::MidiPanParameter (const String& paramName, int defaultVal)
     : IntParameter (0, 127, defaultVal, paramName,
                     midiPan_stringFromInt,
                     midiPan_intFromString)
@@ -219,8 +219,8 @@ static auto st_intFromString =
 	return text.trim().getIntValue();
 };
 
-SemitonesParameter::SemitonesParameter (int maxSemitones, String paramName, int defaultVal)
-    : IntParameter (0, maxSemitones, defaultVal, paramName,
+SemitonesParameter::SemitonesParameter (const String& paramName, int minSemitones, int maxSemitones, int defaultVal)
+    : IntParameter (minSemitones, maxSemitones, defaultVal, paramName,
                     st_stringFromInt,
                     st_intFromString,
                     "semitones")
@@ -247,8 +247,8 @@ static const auto pcnt_intFromString =
 	return text.trim().getIntValue();
 };
 
-PercentParameter::PercentParameter (String paramName,
-                                    int    defaultVal)
+PercentParameter::PercentParameter (const String& paramName,
+                                    int           defaultVal)
     : IntParameter (0, 100, defaultVal,
                     paramName,
                     pcnt_stringFromInt,
@@ -277,8 +277,8 @@ static const auto sec_floatFromString =
 	return text.trim().getFloatValue();
 };
 
-SecondsParameter::SecondsParameter (float maxSeconds, String paramName, float defaultVal)
-    : FloatParameter (0.f, maxSeconds, defaultVal, paramName,
+SecondsParameter::SecondsParameter (const String& paramName, float minSeonds, float maxSeconds, float defaultVal)
+    : FloatParameter (minSeonds, maxSeconds, defaultVal, paramName,
                       sec_stringFromFloat, sec_floatFromString,
                       "sec")
 {

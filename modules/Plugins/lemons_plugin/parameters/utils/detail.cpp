@@ -22,25 +22,7 @@ String paramNameToID (const String& name)
 	return name.trim().replaceCharacter (' ', '_');
 }
 
-std::function<String (float)> createDefaultValueToTextFunction (const String& paramLabel)
-{
-	return [=] (float value) -> String
-	{
-		return String (value) + " " + paramLabel;
-	};
-}
-
-std::function<float (const String&)> createDefaultTextToValueFunction()
-{
-	return [] (const String& text) -> float
-	{
-		return text.getFloatValue();
-	};
-}
-
-
 /*-------------------------------------------------------------------------------------------------------*/
-
 
 template <typename ValueType>
 juce::NormalisableRange<float> createRange (ValueType minimum, ValueType maximum)
@@ -73,13 +55,48 @@ juce::NormalisableRange<float> createRange (bool, bool)
 
 /*-------------------------------------------------------------------------------------------------------*/
 
+static inline String appendParamLabel (const String& orig, const String& paramLabel)
+{
+	if (paramLabel.isNotEmpty())
+		return orig + " " + paramLabel;
+
+	return orig;
+}
+
+
+std::function<String (float)> createDefaultValueToTextFunction (const String& paramLabel)
+{
+	return [=] (float value) -> String
+	{
+		return appendParamLabel (String (value), paramLabel);
+	};
+}
+
+std::function<float (const String&)> createDefaultTextToValueFunction()
+{
+	return [] (const String& text) -> float
+	{
+		return text.getFloatValue();
+	};
+}
+
+/*-------------------------------------------------------------------------------------------------------*/
+
+static inline String checkForLength (const String& orig, int maxLength)
+{
+	if (maxLength > 0)
+		return orig.substring (0, maxLength);
+
+	return orig;
+}
+
 
 template <typename ValueType>
-std::function<String (ValueType, int)> createDefaultStringFromValueFunc (float rangeInterval)
+std::function<String (ValueType, int)> createDefaultStringFromValueFunc (float rangeInterval, const String& paramLabel)
 {
 	static_assert (std::is_same_v<ValueType, float>, "");
 
-	return [rangeInterval] (float v, int length) -> String
+	return [rangeInterval, paramLabel] (float v, int length) -> String
 	{
 		const auto numDecimalPlaces = [rangeInterval]() -> int
 		{
@@ -102,23 +119,30 @@ std::function<String (ValueType, int)> createDefaultStringFromValueFunc (float r
 			return numPlaces;
 		}();
 
-		String asText (v, numDecimalPlaces);
-		return length > 0 ? asText.substring (0, length) : asText;
+		return checkForLength (appendParamLabel (String (v, numDecimalPlaces), paramLabel),
+		                       length);
 	};
 }
 
 template <>
-std::function<String (int, int)> createDefaultStringFromValueFunc (float)
+std::function<String (int, int)> createDefaultStringFromValueFunc (float, const String& paramLabel)
 {
-	return [] (int v, int num) -> String
-	{ return num > 0 ? String (v).substring (0, num) : String (v); };
+	return [paramLabel] (int v, int num) -> String
+	{
+		return checkForLength (appendParamLabel (String (v), paramLabel),
+		                       num);
+	};
 }
 
 template <>
-std::function<String (bool, int)> createDefaultStringFromValueFunc (float)
+std::function<String (bool, int)> createDefaultStringFromValueFunc (float, const String&)
 {
-	return [] (bool v, int) -> String
-	{ return v ? TRANS ("On") : TRANS ("Off"); };
+	return [] (bool v, int maxLength) -> String
+	{
+		const auto text = v ? TRANS ("On") : TRANS ("Off");
+
+		return checkForLength (text, maxLength);
+	};
 }
 
 
@@ -158,16 +182,83 @@ std::function<bool (const String&)> createDefaultValueFromStringFunc()
 	{
 		const auto lowercaseText = text.toLowerCase();
 
-		for (auto& testText : onStrings)
+		for (const auto& testText : onStrings)
 			if (lowercaseText == testText)
 				return true;
 
-		for (auto& testText : offStrings)
+		for (const auto& testText : offStrings)
 			if (lowercaseText == testText)
 				return false;
 
 		return text.getIntValue() > 0;
 	};
 }
+
+/*-------------------------------------------------------------------------------------------------------*/
+
+template <typename ValueType>
+std::function<String (float)> convertValToStringFuncFromTyped (std::function<String (ValueType, int)> origFunc, const String& paramLabel)
+{
+	if (origFunc == nullptr)
+		origFunc = createDefaultStringFromValueFunc<ValueType> (1.f, paramLabel);
+
+	return [=] (float value) -> String
+	{ return origFunc (static_cast<ValueType> (value), 0); };
+}
+
+template std::function<String (float)> convertValToStringFuncFromTyped (std::function<String (float, int)>, const String&);
+template std::function<String (float)> convertValToStringFuncFromTyped (std::function<String (int, int)>, const String&);
+template std::function<String (float)> convertValToStringFuncFromTyped (std::function<String (bool, int)>, const String&);
+
+/*-------------------------------------------------------------------------------------------------------*/
+
+template <typename ValueType>
+std::function<float (const String&)> convertStringToValFuncFromTyped (std::function<ValueType (const String&)> origFunc)
+{
+	if (origFunc == nullptr)
+		origFunc = createDefaultValueFromStringFunc<ValueType>();
+
+	return [=] (const String& text) -> float
+	{ return static_cast<float> (origFunc (text)); };
+}
+
+template std::function<float (const String&)> convertStringToValFuncFromTyped (std::function<float (const String&)>);
+template std::function<float (const String&)> convertStringToValFuncFromTyped (std::function<int (const String&)>);
+template std::function<float (const String&)> convertStringToValFuncFromTyped (std::function<bool (const String&)>);
+
+/*-------------------------------------------------------------------------------------------------------*/
+
+template <typename ValueType>
+std::function<String (ValueType, int)> convertValToStringFuncToTyped (std::function<String (float)> origFunc, const String& paramLabel)
+{
+	if (origFunc == nullptr)
+		origFunc = createDefaultValueToTextFunction (paramLabel);
+
+	return [=] (ValueType v, int maxLength)
+	{
+		return checkForLength (origFunc (static_cast<float> (v)),
+		                       maxLength);
+	};
+}
+
+template std::function<String (float, int)> convertValToStringFuncToTyped (std::function<String (float)>, const String&);
+template std::function<String (int, int)>   convertValToStringFuncToTyped (std::function<String (float)>, const String&);
+template std::function<String (bool, int)>  convertValToStringFuncToTyped (std::function<String (float)>, const String&);
+
+/*-------------------------------------------------------------------------------------------------------*/
+
+template <typename ValueType>
+std::function<ValueType (const String&)> convertStringToValFuncToTyped (std::function<float (const String&)> origFunc)
+{
+	if (origFunc == nullptr)
+		origFunc = createDefaultTextToValueFunction();
+
+	return [=] (const String& t)
+	{ return static_cast<ValueType> (origFunc (t)); };
+}
+
+template std::function<float (const String&)> convertStringToValFuncToTyped (std::function<float (const String&)>);
+template std::function<int (const String&)>   convertStringToValFuncToTyped (std::function<float (const String&)>);
+template std::function<bool (const String&)>  convertStringToValFuncToTyped (std::function<float (const String&)>);
 
 }  // namespace lemons::plugin::detail

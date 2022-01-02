@@ -1,3 +1,19 @@
+/*
+ ======================================================================================
+
+ ██╗     ███████╗███╗   ███╗ ██████╗ ███╗   ██╗███████╗
+ ██║     ██╔════╝████╗ ████║██╔═══██╗████╗  ██║██╔════╝
+ ██║     █████╗  ██╔████╔██║██║   ██║██╔██╗ ██║███████╗
+ ██║     ██╔══╝  ██║╚██╔╝██║██║   ██║██║╚██╗██║╚════██║
+ ███████╗███████╗██║ ╚═╝ ██║╚██████╔╝██║ ╚████║███████║
+ ╚══════╝╚══════╝╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝
+
+ This file is part of the Lemons open source library and is licensed under the terms of the GNU Public License.
+
+ ======================================================================================
+ */
+
+
 namespace lemons::plugin
 {
 
@@ -12,7 +28,7 @@ ParameterList::ParameterList (const ParameterLayout& layout)
 
 	for (const auto& traits : layout.parameters)
 	{
-		auto parameter = createParameter (traits);
+		auto parameter = traits.createParameter (*this);
 
 		add (*(parameter.get()));
 	}
@@ -70,12 +86,50 @@ Parameter* ParameterList::getNamedParameter (const String& name) const
 	return nullptr;
 }
 
+juce::Array<MetaParameterBase*> ParameterList::getMetaParameters() const
+{
+	juce::Array<MetaParameterBase*> metaParams;
+
+	for (auto* param : params)
+	{
+		if (param->isMetaParameter())
+		{
+			if (auto* meta = dynamic_cast<MetaParameterBase*> (param))
+			{
+				metaParams.add (meta);
+			}
+			else
+			{
+				jassertfalse;
+			}
+		}
+	}
+
+	return metaParams;
+}
+
+juce::Array<Parameter*> ParameterList::getMeterParameters() const
+{
+	juce::Array<Parameter*> meterParams;
+
+	for (auto* param : params)
+		if (! param->isAutomatable())
+			meterParams.add (param);
+
+	return meterParams;
+}
+
 ValueTree ParameterList::saveToValueTree() const
 {
 	ValueTree tree { valueTreeType };
 
 	for (const auto* param : params)
-		tree.appendChild (param->saveToValueTree(), nullptr);
+	{
+		const auto child = param->saveToValueTree();
+
+		if (child.isValid())
+			tree.appendChild (child, nullptr);
+	}
 
 	return tree;
 }
@@ -87,6 +141,9 @@ void ParameterList::loadFromValueTree (const ValueTree& tree)
 
 	for (auto* param : params)
 	{
+		if (! param->isAutomatable())
+			continue;
+
 		param->loadFromValueTree (tree.getChildWithProperty (Parameter::id_prop, param->getParameterID()));
 		param->refreshDefault();
 	}

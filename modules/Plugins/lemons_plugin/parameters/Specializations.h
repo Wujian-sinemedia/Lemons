@@ -27,10 +27,9 @@ struct GainParameter : public FloatParameter
 	    @param defaultVal The default value of this parameter.
 	    @param parameterCategory The category of this parameter.
 	 */
-	GainParameter (String                                  paramName,
-	               float                                   defaultVal,
-	               juce::AudioProcessorParameter::Category parameterCategory =
-	                   juce::AudioProcessorParameter::genericParameter);
+	explicit GainParameter (const String&     paramName,
+	                        float             defaultVal,
+	                        ParameterCategory parameterCategory = ParameterCategory::genericParameter);
 
 	using Listener = FloatParameter::Listener;
 };
@@ -47,8 +46,7 @@ struct ToggleParameter final : public BoolParameter
 	    @param paramName The name of this parameter.
 	    @param defaultVal Indicates whether the parameter should initially be on or off by default.
 	 */
-	ToggleParameter (String paramName,
-	                 bool   defaultVal);
+	explicit ToggleParameter (const String& paramName, bool defaultVal);
 
 	using Listener = BoolParameter::Listener;
 };
@@ -67,11 +65,10 @@ struct FloatAmountParameter : public FloatParameter
 	    @param parameterCategory The category of this parameter.
 	    @param parameterLabel An optional label to use for this parameter's units.
 	 */
-	FloatAmountParameter (String                                  paramName,
-	                      float                                   defaultVal,
-	                      juce::AudioProcessorParameter::Category parameterCategory =
-	                          juce::AudioProcessorParameter::genericParameter,
-	                      String parameterLabel = String());
+	explicit FloatAmountParameter (const String&     paramName,
+	                               float             defaultVal,
+	                               ParameterCategory parameterCategory = ParameterCategory::genericParameter,
+	                               const String&     parameterLabel    = {});
 
 	using Listener = FloatParameter::Listener;
 };
@@ -88,8 +85,7 @@ struct FrequencyParameter final : public FloatParameter
 	    @param paramName The name of this parameter.
 	    @param defaultVal The default value of this parameter.
 	 */
-	FrequencyParameter (String paramName,
-	                    float  defaultVal);
+	explicit FrequencyParameter (const String& paramName, float defaultVal);
 
 	using Listener = FloatParameter::Listener;
 };
@@ -106,7 +102,7 @@ struct MidiPitchParameter final : public IntParameter
 	    @param paramName The name of this parameter.
 	    @param defaultVal The default value of this parameter.
 	 */
-	MidiPitchParameter (String paramName, int defaultVal);
+	explicit MidiPitchParameter (const String& paramName, int defaultVal);
 
 	using Listener = IntParameter::Listener;
 };
@@ -123,7 +119,7 @@ struct MidiPanParameter final : public IntParameter
 	    @param paramName The name of this parameter.
 	    @param defaultVal The default value of this parameter.
 	 */
-	MidiPanParameter (String paramName, int defaultVal = 64);
+	explicit MidiPanParameter (const String& paramName, int defaultVal = 64);
 
 	using Listener = IntParameter::Listener;
 };
@@ -141,7 +137,7 @@ struct SemitonesParameter : public IntParameter
 	    @param paramName The name of this parameter.
 	    @param defaultVal The default value of this parameter.
 	 */
-	SemitonesParameter (int maxSemitones, String paramName, int defaultVal);
+	explicit SemitonesParameter (const String& paramName, int minSemitones = 0, int maxSemitones = 12, int defaultVal = 1);
 
 	using Listener = IntParameter::Listener;
 };
@@ -158,8 +154,7 @@ struct PercentParameter final : public IntParameter
 	    @param paramName The name of this parameter.
 	    @param defaultVal The default value of this parameter.
 	 */
-	PercentParameter (String paramName,
-	                  int    defaultVal);
+	explicit PercentParameter (const String& paramName, int defaultVal);
 
 	using Listener = IntParameter::Listener;
 };
@@ -177,7 +172,7 @@ struct SecondsParameter : public FloatParameter
 	    @param paramName The name of this parameter.
 	    @param defaultVal The default value of this parameter.
 	 */
-	SecondsParameter (float maxSeconds, String paramName, float defaultVal);
+	explicit SecondsParameter (const String& paramName, float minSeonds = 0.f, float maxSeconds = 1.f, float defaultVal = 0.5f);
 
 	using Listener = FloatParameter::Listener;
 };

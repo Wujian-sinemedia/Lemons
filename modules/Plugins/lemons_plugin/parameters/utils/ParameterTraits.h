@@ -19,7 +19,13 @@
 namespace lemons::plugin
 {
 
+class Parameter;
+
+class ParameterList;
+
 using juce::ValueTree;
+using ParameterCategory = juce::AudioProcessorParameter::Category;
+
 
 struct ParameterTraits final
 {
@@ -35,6 +41,10 @@ struct ParameterTraits final
 	[[nodiscard]] ValueTree toValueTree() const;
 
 	[[nodiscard]] static ParameterTraits fromValueTree (const ValueTree& tree);
+
+	[[nodiscard]] bool isValid() const;
+
+	[[nodiscard]] std::unique_ptr<Parameter> createParameter (const ParameterList& list) const;
 
 	enum class ValueType
 	{
@@ -57,9 +67,7 @@ struct ParameterTraits final
 	bool isAutomatable { true };
 	bool isMetaParameter { false };
 
-	using Category = juce::AudioProcessorParameter::Category;
-
-	Category category { Category::genericParameter };
+	ParameterCategory category { ParameterCategory::genericParameter };
 };
 
 

@@ -22,7 +22,8 @@ namespace lemons::plugin
  This wasn't my idea. Yes, the JUCE API uses parameter objects to communicate info from the plugin back to the host. Yes, it's weird.
  @see GainMeterParameter
  */
-struct MeterParameter : public FloatParameter
+template <typename ValueType>
+struct MeterParameter : public TypedParameter<ValueType>
 {
 	/** Creates a new meter parameter.
 	 @param min The minimum possible value of this parameter.
@@ -34,13 +35,19 @@ struct MeterParameter : public FloatParameter
 	 @param parameterLabel An optional label to use for the parameter's units.
 	 @param parameterCategory The parameter's category. This is used to indicate to the DAW whether the parameter is a level meter, a gain reduction meter, etc.
 	 */
-	MeterParameter (float min, float max, float defaultVal, String paramName,
-	                std::function<String (float, int)>      stringFromValue   = nullptr,
-	                std::function<float (String)>           valueFromString   = nullptr,
-	                String                                  parameterLabel    = {},
-	                juce::AudioProcessorParameter::Category parameterCategory = juce::AudioProcessorParameter::genericParameter);
+	explicit MeterParameter (ValueType min, ValueType max, ValueType defaultVal, const String& paramName,
+	                         std::function<String (ValueType, int)> stringFromValue   = nullptr,
+	                         std::function<ValueType (String)>      valueFromString   = nullptr,
+	                         const String&                          parameterLabel    = {},
+	                         ParameterCategory                      parameterCategory = ParameterCategory::genericParameter);
 
-	using Listener = FloatParameter::Listener;
+	explicit MeterParameter (const ParameterTraits& traits);
+
+	ValueTree saveToValueTree() const final;
+
+	void loadFromValueTree (const ValueTree& tree) final;
+
+	using Listener = typename TypedParameter<ValueType>::Listener;
 };
 
 
@@ -51,17 +58,16 @@ struct MeterParameter : public FloatParameter
  This can be used to report level or gain reduction.
  @see MeterParameter
  */
-struct GainMeterParameter final : public MeterParameter
+struct GainMeterParameter final : public MeterParameter<float>
 {
 	/** Creates a new gain meter parameter.
 	 @param paramName The name of this parameter.
 	 @param parameterCategory The category of this meter parameter. This is used to indicate to the DAW whether the parameter is a level meter, a gain reduction meter, etc.
 	 */
-	GainMeterParameter (String                                  paramName,
-	                    juce::AudioProcessorParameter::Category parameterCategory =
-	                        juce::AudioProcessorParameter::genericParameter);
+	GainMeterParameter (const String& paramName,
+	                    Category      parameterCategory = Category::genericParameter);
 
-	using Listener = MeterParameter::Listener;
+	using Listener = MeterParameter<float>::Listener;
 };
 
 }  // namespace lemons::plugin

@@ -1,17 +1,34 @@
+/*
+ ======================================================================================
+
+ ██╗     ███████╗███╗   ███╗ ██████╗ ███╗   ██╗███████╗
+ ██║     ██╔════╝████╗ ████║██╔═══██╗████╗  ██║██╔════╝
+ ██║     █████╗  ██╔████╔██║██║   ██║██╔██╗ ██║███████╗
+ ██║     ██╔══╝  ██║╚██╔╝██║██║   ██║██║╚██╗██║╚════██║
+ ███████╗███████╗██║ ╚═╝ ██║╚██████╔╝██║ ╚████║███████║
+ ╚══════╝╚══════╝╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝
+
+ This file is part of the Lemons open source library and is licensed under the terms of the GNU Public License.
+
+ ======================================================================================
+ */
+
+
 #pragma once
 
 namespace lemons::plugin
 {
 
-class ParameterList
+struct MetaParameterBase;
+
+
+class ParameterList final
 {
 public:
 
 	explicit ParameterList();
 
 	explicit ParameterList (const ParameterLayout& layout);
-
-	virtual ~ParameterList() = default;
 
 	[[nodiscard]] ParameterLayout getParameterLayout() const;
 
@@ -36,6 +53,10 @@ public:
 
 		return nullptr;
 	}
+
+	[[nodiscard]] juce::Array<MetaParameterBase*> getMetaParameters() const;
+
+	[[nodiscard]] juce::Array<Parameter*> getMeterParameters() const;
 
 	void processControllerMessage (int number, int value);
 

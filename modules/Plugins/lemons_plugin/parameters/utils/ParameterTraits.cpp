@@ -23,16 +23,16 @@ ParameterTraits::ParameterTraits (ValType minimum, ValType maximum, ValType defa
                                   std::function<ValType (const String&)> valueFromString)
     : range (detail::createRange (minimum, maximum))
     , defaultValue (static_cast<float> (defaultVal))
-    , valueToText (detail::convertValToStringFunc (stringFromValue))
-    , textToValue (detail::convertStringToValFunc (valueFromString))
+    , valueToText (detail::convertValToStringFuncFromTyped (stringFromValue, label))
+    , textToValue (detail::convertStringToValFuncFromTyped (valueFromString))
 {
 	using namespace detail;
 
 	if (valueToText == nullptr)
-		valueToText = convertValToStringFunc (createDefaultStringFromValueFunc<ValType> (range.interval));
+		valueToText = convertValToStringFuncFromTyped (createDefaultStringFromValueFunc<ValType> (range.interval, label));
 
 	if (textToValue == nullptr)
-		textToValue = convertStringToValFunc (createDefaultValueFromStringFunc<ValType>());
+		textToValue = convertStringToValFuncFromTyped (createDefaultValueFromStringFunc<ValType>());
 
 	if constexpr (std::is_same_v<ValType, float>)
 	{
@@ -55,6 +55,12 @@ template ParameterTraits::ParameterTraits (int, int, int, std::function<String (
 template ParameterTraits::ParameterTraits (bool, bool, bool, std::function<String (bool, int)>, std::function<bool (const String&)>);
 
 
+bool ParameterTraits::isValid() const
+{
+	return name.isNotEmpty();
+}
+
+
 namespace ParameterTraitsVTProperties
 {
 static constexpr auto typeProp        = "value_type";
@@ -68,6 +74,9 @@ static constexpr auto categoryProp    = "category";
 
 ValueTree ParameterTraits::toValueTree() const
 {
+	if (! isValid())
+		return {};
+
 	using namespace ParameterTraitsVTProperties;
 
 	ValueTree tree { valueTreeType };
@@ -113,7 +122,7 @@ ParameterTraits ParameterTraits::fromValueTree (const ValueTree& tree)
 		traits.isMetaParameter = (bool) tree.getProperty (metaProp);
 
 	if (tree.hasProperty (categoryProp))
-		traits.category = static_cast<Category> ((int) tree.getProperty (categoryProp));
+		traits.category = static_cast<ParameterCategory> ((int) tree.getProperty (categoryProp));
 
 	const auto rangeTree = tree.getChildWithName (serializing::rangeTreeType);
 
@@ -121,6 +130,44 @@ ParameterTraits ParameterTraits::fromValueTree (const ValueTree& tree)
 		traits.range = serializing::valueTreeToRange<float> (rangeTree);
 
 	return traits;
+}
+
+
+template <template <typename ValueType> class ParameterKind, typename... Args>
+static inline std::unique_ptr<Parameter> createParameterOfKind (const ParameterTraits& traits, Args&&... args)
+{
+	static_assert (std::is_base_of_v<Parameter, ParameterKind<float>>, "");
+	static_assert (std::is_base_of_v<Parameter, ParameterKind<int>>, "");
+	static_assert (std::is_base_of_v<Parameter, ParameterKind<bool>>, "");
+
+	using VT = ParameterTraits::ValueType;
+
+	if (traits.valueType == VT::floatValue)
+	{
+		return std::make_unique<ParameterKind<float>> (traits, std::forward<Args> (args)...);
+	}
+
+	if (traits.valueType == VT::intValue)
+	{
+		return std::make_unique<ParameterKind<int>> (traits, std::forward<Args> (args)...);
+	}
+
+	jassert (traits.valueType == VT::boolValue);
+
+	return std::make_unique<ParameterKind<bool>> (traits, std::forward<Args> (args)...);
+}
+
+std::unique_ptr<Parameter> ParameterTraits::createParameter (const ParameterList& list) const
+{
+	jassert (isValid());
+
+	if (isMetaParameter)
+		return createParameterOfKind<MetaParameter> (*this, list);
+
+	if (! isAutomatable)
+		return createParameterOfKind<MeterParameter> (*this);
+
+	return createParameterOfKind<TypedParameter> (*this);
 }
 
 /*-----------------------------------------------------------------------------------------------------------------------*/
@@ -137,7 +184,12 @@ ParameterLayout ParameterLayout::fromValueTree (const ValueTree& tree)
 		const auto child = tree.getChild (i);
 
 		if (child.hasType (ParameterTraits::valueTreeType))
-			layout.parameters.push_back (ParameterTraits::fromValueTree (child));
+		{
+			auto traits = ParameterTraits::fromValueTree (child);
+
+			if (traits.isValid())
+				layout.parameters.push_back (traits);
+		}
 	}
 
 	return layout;
@@ -148,7 +200,12 @@ ValueTree ParameterLayout::saveToValueTree() const
 	ValueTree tree { valueTreeType };
 
 	for (const auto& param : parameters)
-		tree.appendChild (param.toValueTree(), nullptr);
+	{
+		const auto child = param.toValueTree();
+
+		if (child.isValid())
+			tree.appendChild (child, nullptr);
+	}
 
 	return tree;
 }

@@ -18,30 +18,30 @@ namespace lemons::plugin
 {
 
 template <typename ValueType>
-TypedParameter<ValueType>::TypedParameter (ValueType minimum,
-                                           ValueType maximum,
-                                           ValueType defaultValue,
-                                           String    paramName,
+TypedParameter<ValueType>::TypedParameter (ValueType     minimum,
+                                           ValueType     maximum,
+                                           ValueType     defaultValue,
+                                           const String& paramName,
                                            std::function<String (ValueType, int)>
                                                stringFromValue,
                                            std::function<ValueType (const String&)>
-                                                                                   valueFromString,
-                                           String                                  paramLabel,
-                                           bool                                    isAutomatable,
-                                           bool                                    metaParam,
-                                           juce::AudioProcessorParameter::Category parameterCategory)
+                                                             valueFromString,
+                                           const String&     paramLabel,
+                                           bool              isAutomatable,
+                                           bool              metaParam,
+                                           ParameterCategory parameterCategory)
     : Parameter (
         paramName,
         detail::createRange (minimum, maximum),
         static_cast<float> (defaultValue),
-        detail::convertValToStringFunc (stringFromValue),
-        detail::convertStringToValFunc (valueFromString),
+        detail::convertValToStringFuncFromTyped (stringFromValue, label),
+        detail::convertStringToValFuncFromTyped (valueFromString),
         paramLabel, isAutomatable, metaParam, parameterCategory)
     , stringFromValueFunction (stringFromValue)
     , valueFromStringFunction (valueFromString)
 {
 	if (stringFromValueFunction == nullptr)
-		stringFromValueFunction = detail::createDefaultStringFromValueFunc<ValueType> (getNormalisableRange().interval);
+		stringFromValueFunction = detail::createDefaultStringFromValueFunc<ValueType> (getNormalisableRange().interval, label);
 
 	if (valueFromStringFunction == nullptr)
 		valueFromStringFunction = detail::createDefaultValueFromStringFunc<ValueType>();
@@ -51,10 +51,8 @@ template <typename ValueType>
 TypedParameter<ValueType>::TypedParameter (const ParameterTraits& traits)
     : TypedParameter (
         static_cast<ValueType> (traits.range.start), static_cast<ValueType> (traits.range.end), static_cast<ValueType> (traits.defaultValue), traits.name,
-        [=] (ValueType v, int)
-        { return traits.valueToText (static_cast<float> (v)); },
-        [=] (const String& t)
-        { return static_cast<ValueType> (traits.textToValue (t)); },
+        detail::convertValToStringFuncToTyped<ValueType> (traits.valueToText, traits.label),
+        detail::convertStringToValFuncToTyped<ValueType> (traits.textToValue),
         traits.label,
         traits.isAutomatable,
         traits.isMetaParameter,
@@ -201,16 +199,16 @@ template class TypedParameter<int>;
 template class TypedParameter<bool>;
 
 
-BoolParameter::BoolParameter (bool   defaultValue,
-                              String paramName,
+BoolParameter::BoolParameter (bool          defaultValue,
+                              const String& paramName,
                               std::function<String (bool, int)>
                                   stringFromValue,
                               std::function<bool (const String&)>
-                                                                      valueFromString,
-                              String                                  paramLabel,
-                              bool                                    isAutomatable,
-                              bool                                    metaParam,
-                              juce::AudioProcessorParameter::Category parameterCategory)
+                                            valueFromString,
+                              const String& paramLabel,
+                              bool          isAutomatable,
+                              bool          metaParam,
+                              Category      parameterCategory)
     : TypedParameter<bool> (false, true, defaultValue, paramName, stringFromValue, valueFromString, paramLabel, isAutomatable, metaParam, parameterCategory)
 {
 }
