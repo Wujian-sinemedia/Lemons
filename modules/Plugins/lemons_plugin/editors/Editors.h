@@ -18,13 +18,7 @@
 namespace lemons::plugin
 {
 
-/** @defgroup Editors
-    @ingroup lemons_plugin
-    Plugin editor and GUI classes.
- */
-
-
-/** @ingroup Editors
+/** @ingroup lemons_plugin_editors
     Base class for plugin editors' GUI content components.
     @tparam StateType The type of the plugin's state object. This type must inherit from State.
  */
@@ -42,7 +36,7 @@ protected:
 };
 
 
-/** @ingroup Editors
+/** @ingroup lemons_plugin_editors
     Base class for a plugin editor that simply holds a specified GUI component.
     @tparam ContentComponentType The type of your plugin's main component. This type must inherit from GUI<StateType>.
     @tparam StateType The type of the plugin's state object. This type must inherit from State.

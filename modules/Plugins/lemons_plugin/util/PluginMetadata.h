@@ -31,11 +31,13 @@ struct PluginMetadata final
 namespace lemons::files
 {
 
-/** @ingroup plugin_metadata */
+/** @ingroup plugin_metadata lemons_files
+ */
 template <FileType Type = FileType::JSON>
 [[nodiscard]] plugin::PluginMetadata loadPluginMetadata (const File& file);
 
-/** @ingroup plugin_metadata */
+/** @ingroup plugin_metadata lemons_files
+ */
 template <FileType Type = FileType::JSON>
 bool savePluginMetadata (const plugin::PluginMetadata& layout, const File& file);
 
@@ -45,7 +47,8 @@ bool savePluginMetadata (const plugin::PluginMetadata& layout, const File& file)
 namespace lemons::binary
 {
 
-/** @ingroup plugin_metadata */
+/** @ingroup plugin_metadata lemons_binary
+ */
 template <files::FileType Type = files::FileType::JSON>
 [[nodiscard]] plugin::PluginMetadata getPluginMetadata (const String& filename);
 

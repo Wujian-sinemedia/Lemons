@@ -3,6 +3,8 @@
 namespace lemons::tests
 {
 
+/** @ingroup lemons_plugin_unit_tests
+ */
 struct ParameterTestBase : public Test
 {
 public:

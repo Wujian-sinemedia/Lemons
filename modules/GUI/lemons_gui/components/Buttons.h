@@ -4,7 +4,7 @@ namespace lemons::gui
 {
 
 /** @defgroup lemons_buttons Buttons
-    @ingroup lemons_gui
+    @ingroup lemons_gui_components
     Button component classes.
  */
 

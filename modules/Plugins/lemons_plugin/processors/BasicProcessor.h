@@ -25,12 +25,12 @@ using AudioBuffer = juce::AudioBuffer<T>;
 
 using juce::MidiBuffer;
 
-/** @defgroup processors
+/** @defgroup lemons_plugin_processors Processors
     @ingroup lemons_plugin
     Plugin processor classes.
  */
 
-/** @ingroup processors
+/** @ingroup lemons_plugin_processors
     A default implementation of a basic, generic juce AudioProcessor.
     The purpose of this class is to provide sensible default implementations for all of AudioProcessor's pure virtual functions, to make it easy to inherit from this class, override only what you need, and get working.
     @see ProcessorBase

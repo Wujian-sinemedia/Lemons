@@ -58,6 +58,18 @@ struct is_specialization : std::false_type
 {
 };
 
+/** @ingroup lemons_core
+ Utility struct that evaluates to std::true_type if the given class specializes the given template, and false otherwise.
+ For example:
+ @code
+ is_specialization< std::vector<int>, std::vector >()
+ @endcode
+ evaluates to a compile-time true value, and
+ @code
+ is_specialization< std::vector<int>, std::list >()
+ @endcode
+ evaluates to a compile-time false value.
+ */
 template <template <class...> class Template, class... Args>
 struct is_specialization<Template<Args...>, Template> : std::true_type
 {

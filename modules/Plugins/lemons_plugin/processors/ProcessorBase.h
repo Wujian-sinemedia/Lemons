@@ -18,7 +18,7 @@
 
 namespace lemons::plugin
 {
-/** @ingroup processors
+/** @ingroup lemons_plugin_processors
     Base class for a plugin processor.
     This class manages two instances of a dsp::Engine and uses the appropriate one -- if the host uses double precision processing, the double engine will be used; otherwise, the float engine will be used.
     @see Processor, Engine, BasicProcessor

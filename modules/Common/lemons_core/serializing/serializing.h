@@ -27,55 +27,47 @@ using juce::ValueTree;
 
 static constexpr auto rangeTreeType = "NormalisableRange";
 
-
-/** @name lemons_norm_range_serializing NormalisableRange objects
+/** @defgroup lemons_serializing Serializing
     @ingroup lemons_core
+    Utilities for serializing.
  */
-///@{
 
+/** @ingroup lemons_serializing
+ */
 template <typename ValueType>
 [[nodiscard]] ValueTree rangeToValueTree (const juce::NormalisableRange<ValueType>& range);
 
+/** @ingroup lemons_serializing
+ */
 template <typename ValueType>
 [[nodiscard]] juce::NormalisableRange<ValueType> valueTreeToRange (const ValueTree& tree);
 
-///@}
 
-
-/** @name lemons_memory_blocks_serializing MemoryBlocks
-    @ingroup lemons_core
- */
-///@{
-
-/** Converts a MemoryBlock to a String representation.
+/** @ingroup lemons_serializing
+    Converts a MemoryBlock to a String representation.
     @see memoryBlockFromString()
  */
 [[nodiscard]] String memoryBlockToString (const MemoryBlock& block);
 
-/** Returns a MemoryBlock from a String representation of one.
+/** @ingroup lemons_serializing
+    Returns a MemoryBlock from a String representation of one.
     @see memoryBlockToString()
  */
 [[nodiscard]] MemoryBlock memoryBlockFromString (const String& string);
 
-///@}
 
-
-/** @name lemons_vt_json_conversion ValueTree/JSON conversion
-    @ingroup lemons_core
- */
-///@{
-
-/** Converts a ValueTree to a JSON string.
+/** @ingroup lemons_serializing
+    Converts a ValueTree to a JSON string.
     @see valueTreeFromJSON()
  */
 [[nodiscard]] String valueTreeToJSON (const ValueTree& v);
 
-/** Converts a JSON string to a ValueTree. If the JSON cannpt be parsed correctly, a null ValueTree will be returned.
+/** @ingroup lemons_serializing
+    Converts a JSON string to a ValueTree. If the JSON cannpt be parsed correctly, a null ValueTree will be returned.
     @see valueTreeToJSON()
  */
 [[nodiscard]] ValueTree valueTreeFromJSON (const String& jsonText);
 
-///@}
 
 }  // namespace lemons::serializing
 

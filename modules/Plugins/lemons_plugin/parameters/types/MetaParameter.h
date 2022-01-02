@@ -20,7 +20,7 @@ namespace lemons::plugin
 {
 
 /** @defgroup meta_parameters Meta parameters
-    @ingroup parameters
+    @ingroup lemons_plugin_parameters
     Building blocks for modulatable LFOs, etc.
  */
 

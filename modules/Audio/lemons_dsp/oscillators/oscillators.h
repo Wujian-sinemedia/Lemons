@@ -21,7 +21,7 @@ namespace lemons::dsp::osc
 
 /** @defgroup lemons_oscillators Oscillators
     @ingroup lemons_dsp
-    Oscillator classes.
+    %Oscillator classes.
  */
 
 /** @ingroup lemons_oscillators
@@ -91,7 +91,12 @@ private:
 
 /*--------------------------------------------------------------------------------------------*/
 
-/** @ingroup lemons_oscillators
+/** @defgroup lemons_basic_oscillators Basic wave shapes
+    @ingroup lemons_oscillators
+    Basic oscillator necessities.
+ */
+
+/** @ingroup lemons_basic_oscillators
     A basic sine wave oscillator.
     @see Oscillator, Phase
  */
@@ -117,7 +122,7 @@ private:
 
 /*--------------------------------------------------------------------------------------------*/
 
-/** @ingroup lemons_oscillators
+/** @ingroup lemons_basic_oscillators
     A basic sawtooth wave oscillator.
     @see SuperSaw, Oscillator, Phase
  */
@@ -147,7 +152,7 @@ template <typename SampleType>
 struct Triangle;
 
 
-/** @ingroup lemons_oscillators
+/** @ingroup lemons_basic_oscillators
     A basic square wave oscillator.
     @see Oscillator, Phase
  */
@@ -175,7 +180,7 @@ private:
 
 /*--------------------------------------------------------------------------------------------*/
 
-/** @ingroup lemons_oscillators
+/** @ingroup lemons_basic_oscillators
     A basic triangle wave oscillator.
     @see Square, Oscillator, Phase
  */

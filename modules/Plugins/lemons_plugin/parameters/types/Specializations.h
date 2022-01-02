@@ -19,7 +19,7 @@ namespace lemons::plugin
 {
 
 /** @defgroup parameter_specializations Special parameter types
-    @ingroup parameters
+    @ingroup lemons_plugin_parameters
     Special pre-made parameter classes.
  */
 

@@ -17,34 +17,26 @@ using juce::MemoryBlock;
  */
 
 
-/** @name lemons_image_serializing Images
-    @ingroup lemons_gui
- */
-///@{
-
-/** Encodes an Image object as a blob of binary data. Internally, this uses JUCE's PNGImageFormat.
+/** @ingroup lemons_gui lemons_serializing
+    Encodes an Image object as a blob of binary data. Internally, this uses JUCE's PNGImageFormat.
     @see imageFromBinary(), saveImageToFile()
  */
 [[nodiscard]] MemoryBlock imageToBinary (const Image& image);
 
-/** Returns an Image object from a binary representation of one. Internally, this uses JUCE's PNGImageFormat.
+/** @ingroup lemons_gui lemons_serializing
+    Returns an Image object from a binary representation of one. Internally, this uses JUCE's PNGImageFormat.
     @see imageToBinary(), loadImageFromFile(), binary::Data::getImage()
  */
 [[nodiscard]] Image imageFromBinary (const MemoryBlock& block);
 
-///@}
 
-
-/** @name lemons_font_serializing Fonts
-    @ingroup lemons_gui
+/** @ingroup lemons_gui lemons_serializing
  */
-///@{
-
 [[nodiscard]] MemoryBlock fontToBinary (const juce::Font& font, int maxNumChars = 127, juce_wchar defaultChar = ' ');
 
+/** @ingroup lemons_gui lemons_serializing
+ */
 [[nodiscard]] std::unique_ptr<juce::CustomTypeface> fontFromBinary (const MemoryBlock& block);
-
-///@}
 
 }  // namespace lemons::serializing
 
@@ -54,34 +46,25 @@ namespace lemons::files
 
 using juce::Image;
 
-/** @name lemons_image_files Images
-    @ingroup lemons_gui
- */
-///@{
-
-/** Saves an Image to a File.
+/** @ingroup lemons_gui lemons_files
+    Saves an Image to a File.
     @see loadImageFromFile(), imageToBinary()
  */
 bool saveImage (const Image& image, const File& file);
 
-/** Loads an Image from a File.
- @see saveImageToFile(), imageFromBinary(),  binary::Data::getImage()
+/** @ingroup lemons_gui lemons_files
+    Loads an Image from a File.
+    @see saveImageToFile(), imageFromBinary(),  binary::Data::getImage()
  */
 [[nodiscard]] Image loadImage (const File& file);
 
-///@}
-
-
-/** @name lemons_font_files Fonts
-    @ingroup lemons_gui
+/** @ingroup lemons_gui lemons_files
  */
-///@{
-
 bool saveFont (const juce::Font& font, const File& file, int maxNumChars = 127, juce_wchar defaultChar = ' ');
 
+/** @ingroup lemons_gui lemons_files
+ */
 [[nodiscard]] std::unique_ptr<juce::CustomTypeface> loadFont (const File& file);
-
-///@}
 
 }
 
@@ -91,24 +74,19 @@ namespace lemons::binary
 
 using juce::String;
 
-/** @name lemons_graphics_binaries Graphics
-    @ingroup lemons_gui
- */
-///@{
-
-/** Returns an image object from an image file in the BinaryData target.
+/** @ingroup lemons_gui lemons_binary
+    Returns an image object from an image file in the BinaryData target.
     If the image can't be loaded, an assertion will be thrown.
     @see serializing::loadImageFromFile(), serializing::saveImageToFile()
  */
 [[nodiscard]] juce::Image getImage (const String& imageFileName);
 
-/** Returns a font that has been previously serialized with the serializing::serializeFont() method.
+/** @ingroup lemons_gui lemons_binary
+    Returns a font that has been previously serialized with the serializing::serializeFont() method.
     If the font can't be loaded, an assertion will be thrown.
     @see serializing::serializeFont()
  */
 [[nodiscard]] std::unique_ptr<juce::CustomTypeface> getFont (const String& filename);
-
-///@}
 
 }
 

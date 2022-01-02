@@ -33,7 +33,7 @@ enum class OscType
 };
 
 
-/** @ingroup lemons_oscillators
+/** @ingroup lemons_oscillators audio_engines
     A class that encapsulates together all the kinds of oscillators, and allows you to seamlessly switch between them during playback without pops or clicks.
     @see OscType, OscEngine, Oscillator
  */

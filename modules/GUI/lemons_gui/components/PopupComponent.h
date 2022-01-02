@@ -6,8 +6,12 @@
 namespace lemons::gui
 {
 
-/** @name lemons_popup_component Popup component
+/** @defgroup lemons_gui_components Components
     @ingroup lemons_gui
+ */
+
+/** @name lemons_popup_component Popup
+    @ingroup lemons_gui_components
     Base class for a popup component.
  */
 ///@{

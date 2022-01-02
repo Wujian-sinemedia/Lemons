@@ -18,7 +18,7 @@
 
 namespace lemons::dsp::osc
 {
-/** @ingroup lemons_oscillators
+/** @ingroup lemons_oscillators audio_engines
     A utility class that wraps an Oscillator into a self-contained dsp::Engine.
     This will instantiate and manage the appropriate oscillator type for you. \n
     Example usage:

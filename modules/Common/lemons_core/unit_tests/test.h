@@ -23,7 +23,13 @@ namespace lemons::tests
 
 using juce::String;
 
+/** @defgroup lemons_unit_testing Unit testing
+    @ingroup lemons_core
+    Utilities for writing and running unit tests.
+ */
 
+/** @ingroup lemons_unit_testing
+ */
 enum class Intensity
 {
 	Low,
@@ -31,7 +37,8 @@ enum class Intensity
 	High
 };
 
-
+/** @ingroup lemons_unit_testing
+ */
 class Test : public juce::UnitTest
 {
 public:
@@ -87,7 +94,8 @@ private:
 	static Intensity intensity;
 };
 
-
+/** @ingroup lemons_unit_testing
+ */
 struct CoreTest : public Test
 {
 	explicit CoreTest (const String& testName);

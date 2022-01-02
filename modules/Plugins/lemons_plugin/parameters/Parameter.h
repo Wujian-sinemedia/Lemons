@@ -22,13 +22,13 @@ namespace lemons::plugin
 using juce::String;
 using juce::ValueTree;
 
-/** @defgroup parameters
+/** @defgroup lemons_plugin_parameters Parameters
     @ingroup lemons_plugin
     Plugin parameter classes and utilities.
  */
 
 /** @defgroup fundamental_parameter_types Fundamental parameter types
-    @ingroup parameters
+    @ingroup lemons_plugin_parameters
     The basic building blocks for all other kinds of parameters.
  */
 

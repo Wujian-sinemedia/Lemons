@@ -111,7 +111,7 @@ private:
 namespace lemons::binary
 {
 
-/** @ingroup audio_files
+/** @ingroup audio_files lemons_binary
     Returns an AudioFile object from a file stored in the BinaryData target. If the audio can't be loaded, an assertion will be thrown.
  */
 [[nodiscard]] dsp::AudioFile getAudioFile (const String& audioFileName);

@@ -19,7 +19,7 @@
 namespace lemons::plugin
 {
 
-/** @ingroup plugin_metadata
+/** @ingroup plugin_metadata lemons_plugin_processors
  */
 struct ProcessorAttributes final
 {
@@ -53,11 +53,12 @@ struct ProcessorAttributes final
 namespace lemons::files
 {
 
-/** @ingroup plugin_metadata */
+/** @ingroup plugin_metadata lemons_files
+ */
 template <FileType Type = FileType::JSON>
 [[nodiscard]] plugin::ProcessorAttributes loadProcessorAttributes (const File& file);
 
-/** @ingroup plugin_metadata */
+/** @ingroup plugin_metadata lemons_files */
 template <FileType Type = FileType::JSON>
 bool saveProcessorAttributes (const plugin::ProcessorAttributes& layout, const File& file);
 
@@ -67,7 +68,8 @@ bool saveProcessorAttributes (const plugin::ProcessorAttributes& layout, const F
 namespace lemons::binary
 {
 
-/** @ingroup plugin_metadata */
+/** @ingroup plugin_metadata lemons_binary
+ */
 template <files::FileType Type = files::FileType::JSON>
 [[nodiscard]] plugin::ProcessorAttributes getProcessorAttributes (const String& filename);
 

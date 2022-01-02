@@ -26,12 +26,12 @@ using juce::MemoryBlock;
 using juce::String;
 using juce::ValueTree;
 
-/** @defgroup lemons_binary_data Binary data
+/** @defgroup lemons_binary Binary data
     @ingroup lemons_core
     Utilities for working with embedded binary data.
  */
 
-/** @ingroup lemons_binary_data
+/** @ingroup lemons_binary
     Represents a wrapper around some data contained in a juce BinaryData target.
     Simply provide the filename and this object will load the data contained by the named resource, if it can be located.
     @attention Be sure to check isValid() before attempting to use the data! \n
@@ -80,32 +80,27 @@ private:
 };
 
 
-/** @ingroup lemons_binary_data
+/** @ingroup lemons_binary
     Returns true if this module was compiled with the LEMONS_HAS_BINARY_DATA flag set to 1.
     If this returns false, every Data object you create will be invalid.
  */
 [[nodiscard]] constexpr bool hasBinaryData() noexcept;
 
 
-/** @ingroup lemons_binary_data
+/** @ingroup lemons_binary
     Returns a list of file names that are available in the binary data target, ie, filenames that are valid arguments to the Data constructor.
  */
 [[nodiscard]] juce::StringArray getFilenames();
 
 
-/** @defgroup basic_binary_data_types Basic types
-    @ingroup lemons_binary_data
-    Basic data types you can retrieve from binary data.
- */
-
-/** @ingroup basic_binary_data_types
+/** @ingroup lemons_binary
     Returns an opaque blob of binary data from a file in the BinaryData target.
     If the data can't be loaded, an assertion will be thrown.
     @see files::loadFileAsBlock(), files::saveBlockToFile()
  */
 [[nodiscard]] MemoryBlock getBlob (const String& filename);
 
-/** @ingroup basic_binary_data_types
+/** @ingroup lemons_binary
     Returns a ValueTree from a serialized file in the BinaryData target in the specified format. The default format is JSON.
     If the data can't be loaded, an assertion will be thrown.
     @see files::loadValueTree(), files::saveValueTree()
@@ -113,14 +108,14 @@ private:
 template <files::FileType Type = files::FileType::JSON>
 [[nodiscard]] ValueTree getValueTree (const String& filename);
 
-/** @ingroup basic_binary_data_types
+/** @ingroup lemons_binary
     Returns a text file in the BinaryData target as one string.
     If the data can't be loaded, an assertion will be thrown.
     @see getStrings()
  */
 [[nodiscard]] String getString (const String& textFileName);
 
-/** @ingroup basic_binary_data_types
+/** @ingroup lemons_binary
     Returns an array of strings, each containing a line of a text file in the BinaryData target.
     This loads the file as a string and parses it into tokens using line break and carriage return characters.
     If the file can't be loaded, an assertion will be thrown.

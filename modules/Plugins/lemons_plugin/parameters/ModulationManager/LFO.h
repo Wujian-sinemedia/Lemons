@@ -10,7 +10,7 @@ template <typename T>
 using AudioBuffer = juce::AudioBuffer<T>;
 
 /** @defgroup parameter_modulation Parameter modulation
-    @ingroup parameters
+    @ingroup lemons_plugin_parameters
     Classes for parameter modulation.
  */
 

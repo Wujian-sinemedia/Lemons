@@ -19,7 +19,7 @@
 namespace lemons::dsp
 {
 
-/** @ingroup audio_files
+/** @ingroup audio_files audio_engines
     A kind of AudioEngine that plays audio from an AudioFile object.
     @see AudioFile
  */

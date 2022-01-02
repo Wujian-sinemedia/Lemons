@@ -19,7 +19,7 @@ namespace lemons::plugin
 {
 
 /** @defgroup meter_parameters Meters
-    @ingroup parameters
+    @ingroup lemons_plugin_parameters
     Output meter parameters.
  */
 

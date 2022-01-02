@@ -26,41 +26,32 @@ using juce::MidiBuffer;
 using juce::MidiFile;
 
 
-/** @name lemons_midi_buffer_serializing MidiBuffers
-    @ingroup lemons_midi
- */
-///@{
-
-/** Encodes a MidiBuffer as a blob of binary data.
+/** @ingroup lemons_midi lemons_serializing
+    Encodes a MidiBuffer as a blob of binary data.
     @see midiBufferFromBinary(), saveMidiToFile()
  */
 [[nodiscard]] MemoryBlock midiToBinary (const MidiBuffer& midi);
 
-/** Returns a MidiBufer from a binary representation of one.
+/** @ingroup lemons_midi lemons_serializing
+    Returns a MidiBufer from a binary representation of one.
     @see midiFileFromBinary(), midiToBinary(), loadMidiFromFile(), binary::Data::getMidi()
  */
 [[nodiscard]] MidiBuffer midiBufferFromBinary (const MemoryBlock& block);
 
-///@}
 
-
-/** @name lemons_midi_files_serializing MidiFiles
-    @ingroup lemons_midi
- */
-///@{
-
-/** Encodes a MidiFile as a blob of binary data.
+/** @ingroup lemons_midi lemons_serializing
+    Encodes a MidiFile as a blob of binary data.
     @see midiFileFromBinary(), saveMidiToFile()
  */
 [[nodiscard]] MemoryBlock midiToBinary (const MidiFile& midi);
 
 
-/** Returns a MidiFile from a binary representation of one.
+/** @ingroup lemons_midi lemons_serializing
+    Returns a MidiFile from a binary representation of one.
     @see midiBufferFromBinary(), midiToBinary(), loadMidiFromFile(), binary::Data::getMidi()
  */
 [[nodiscard]] MidiFile midiFileFromBinary (const MemoryBlock& block);
 
-///@}
 
 }  // namespace lemons::serializing
 
@@ -72,40 +63,31 @@ using juce::MidiBuffer;
 using juce::MidiFile;
 
 
-/** @name lemons_midi_files MidiFiles
-    @ingroup lemons_midi
- */
-///@{
-
-/** Loads a MidiFile from a file on disk.
+/** @ingroup lemons_midi lemons_files
+    Loads a MidiFile from a file on disk.
     @see saveMidiToFile(), midiBufferFromFile(), binary::Data::getMidi()
  */
 [[nodiscard]] MidiFile loadMidiFile (const File& file);
 
-/** Saves a MidiFile to a file on disk.
+/** @ingroup lemons_midi lemons_files
+    Saves a MidiFile to a file on disk.
     @see loadMidiFromFile()
  */
 bool saveMidi (const MidiFile& midi, const File& file);
 
-///@}
 
-
-/** @name MidiBuffers
-    @ingroup lemons_midi_buffers
- */
-///@{
-
-/** Loads a MidiBuffer from a file on disk.
+/** @ingroup lemons_midi lemons_files
+    Loads a MidiBuffer from a file on disk.
     @see saveMidiToFile(), binary::Data::getMidi()
  */
 [[nodiscard]] MidiBuffer loadMidiBuffer (const File& file);
 
-/** Saves a MidiBuffer to a file on disk, formatted as a MidiFile.
+/** @ingroup lemons_midi lemons_files
+    Saves a MidiBuffer to a file on disk, formatted as a MidiFile.
     @see loadMidiFromFile(), midiBufferToFile()
  */
 bool saveMidi (const MidiBuffer& midi, const File& file);
 
-///@}
 
 }  // namespace lemons::files
 
@@ -116,22 +98,17 @@ namespace lemons::binary
 using juce::String;
 
 
-/** @name lemons_midi_binary_funcs MIDI
-    @ingroup lemons_midi
- */
-///@{
-
-/** Returns a MIDI file object from a MIDI file in the BinaryData target. If the MIDI can't be loaded, an assertion will be thrown.
+/** @ingroup lemons_midi lemons_binary
+    Returns a MIDI file object from a MIDI file in the BinaryData target. If the MIDI can't be loaded, an assertion will be thrown.
     @see serializing::loadMidiFromFile(), serializing::saveMidiToFile()
  */
 [[nodiscard]] juce::MidiFile getMidiFile (const String& midiFileName);
 
-/** Returns a MIDI buffer object from a MIDI file in the BinaryData target. If the MIDI can't be loaded, an assertion will be thrown.
+/** @ingroup lemons_midi lemons_binary
+    Returns a MIDI buffer object from a MIDI file in the BinaryData target. If the MIDI can't be loaded, an assertion will be thrown.
     @see serializing::loadMidiFromFile(), serializing::saveMidiToFile()
  */
 [[nodiscard]] juce::MidiBuffer getMidiBuffer (const String& midiFileName);
-
-///@}
 
 }  // namespace lemons::binary
 

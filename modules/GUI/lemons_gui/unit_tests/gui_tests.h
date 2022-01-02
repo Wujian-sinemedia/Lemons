@@ -23,8 +23,16 @@ namespace lemons::tests
 
 using juce::Image;
 
+/** @defgroup lemons_gui_unit_tests GUI tests
+    @ingroup lemons_unit_testing
+ */
+
+/** @ingroup lemons_gui_unit_tests
+ */
 void fillImageWithRandomPixels (Image& image, juce::Random rng);
 
-bool imagesAreEqual (const Image& image1, const Image& image2);
+/** @ingroup lemons_gui_unit_tests
+ */
+[[nodiscard]] bool imagesAreEqual (const Image& image1, const Image& image2);
 
 }  // namespace lemons::tests

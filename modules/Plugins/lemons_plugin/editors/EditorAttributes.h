@@ -3,7 +3,12 @@
 namespace lemons::plugin
 {
 
-/** @ingroup plugin_metadata
+/** @defgroup lemons_plugin_editors Editors
+    @ingroup lemons_plugin 
+    Plugin editor and GUI classes.
+ */
+
+/** @ingroup plugin_metadata lemons_plugin_editors
  */
 struct EditorAttributes final
 {
