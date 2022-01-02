@@ -39,9 +39,10 @@
 #include "parameters/utils/ParameterTraits.h"
 
 #include "parameters/Parameter.h"
-#include "parameters/ParameterTypes.h"
-#include "parameters/Specializations.h"
-#include "parameters/MeterParameter.h"
+
+#include "parameters/types/ParameterTypes.h"
+#include "parameters/types/Specializations.h"
+#include "parameters/types/MeterParameter.h"
 
 #include "parameters/utils/ParamUpdater.h"
 
@@ -49,9 +50,10 @@
 #include "state/ProgramManager.h"
 #include "state/PluginState.h"
 
-#include "parameters/MetaParameter.h"
+#include "parameters/types/MetaParameter.h"
 
-// modulation manager
+#include "parameters/ModulationManager/LFO.h"
+#include "parameters/ModulationManager/ModulationManager.h"
 
 #include "hosting/ProcessorHolder.h"
 #include "hosting/ProcessorEngine.h"

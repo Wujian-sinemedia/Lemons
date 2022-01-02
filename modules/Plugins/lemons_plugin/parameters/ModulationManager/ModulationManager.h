@@ -4,58 +4,50 @@
 namespace lemons::plugin
 {
 /** A modulation manager for a plugin.
-    This class holds a collection of LFOs that can be mapped to any number of Parameter objects. \n
-    This class is also serializable; the saving and loading of parameter connections works by using the ParameterList::getParameterWithName() function.
+    This class holds a collection of LFOs that can be mapped to any number of Parameter objects.
  */
-class ModulationManager
+class ModulationManager final
 {
 public:
 	using LfoNamingFunc = std::function<String (int)>;
 
-	/** Creates a modulation manager. */
-	ModulationManager (  // ParameterList& listToUse,
-	    int           initNumLfos     = 1,
-	    LfoNamingFunc namingFuncToUse = nullptr);
-
-	void addAllParametersTo (juce::AudioProcessor& processor);
-
-	void addAllParametersAsInternal();
-
+	explicit ModulationManager (const ParameterList& parameterList,
+	                            int                  initialNumLFOs = 0,
+	                            LfoNamingFunc&&      namingFunc     = nullptr);
 
 	/** Returns the LFO at the given index in the modulation manager's vector of LFOs.
 	    The returned pointer may be null if an LFO does not exist at the requested index. \n \n
 	    This is the least preferable way to retrieve LFO objects; prefer to use getLFOofType(), getLFOatFrequency(), or getLFOwithConnection().
 	 */
-	LFO* getLFO (int index);
+	[[nodiscard]] LFO* getLFO (int index);
 
 	/** Returns the first LFO found with the given oscillator type.
 	    The returned pointer may be null if no LFOs have the requested type.
 	 */
-	LFO* getLFOofType (dsp::osc::OscType type);
+    [[nodiscard]] LFO* getLFOofType (dsp::osc::OscType type);
 
 	/** Returns the first LFO found with the given frequency.
 	    The returned pointer may be null if no LFOs have the requested frequency.
 	 */
-	LFO* getLFOatFrequency (float freq);
+    [[nodiscard]] LFO* getLFOatFrequency (float freq);
 
 	/** Returns the first LFO found that is connected to the specified parameter.
 	    The returned pointer may be null if no LFOs have the requested connection.
 	 */
-	LFO* getLFOwithConnection (Parameter& param);
-
+    [[nodiscard]] LFO* getLFOwithConnection (Parameter& param);
 
 	LFO& addLFO();
 
+	LFO& addLFO (std::unique_ptr<LFO> lfo);
+
+	void prepareToPlay (int numSamples, double samplerate);
+
+	void finishBlock (int numSamples);
+
 private:
-	/*------------------------------*/
+	const ParameterList& paramList;
 
-	// ParameterList& paramList;
-
-	juce::OwnedArray<LFO> lfos;
-
-	dsp::BasicProcessor dummyProcessor;
-
-	LfoNamingFunc namingFunc;
+	ConstructedArray<LFO> lfos;
 };
 
 }  // namespace lemons::plugin

@@ -1,30 +1,77 @@
 
 namespace lemons::plugin
 {
-LFO::LFO (/*ParameterList& listToUse,*/ String metaParameterName)
-//: param (metaParameterName)
+
+LFO::LFO (const ParameterList& parameterListToUse, const String& paramName)
+    : MetaParameter<float> (
+        parameterListToUse,
+        0.f, 1.f, 0.f, paramName,
+        nullptr, nullptr, {}, false)
 {
 }
 
 void LFO::prepareToPlay (int numSamples, double samplerate)
 {
-	storage.setSize (1, numSamples);
-	osc.prepare (numSamples, samplerate);
+	storage.setSize (1, numSamples, true, true, true);
+	osc.prepare (numSamples, samplerate, 1);
 }
 
-[[nodiscard]] LFO::Osc& LFO::getOscillator() noexcept
+void LFO::finishBlock (int numSamples)
+{
+	storage.clear();
+
+	auto alias = dsp::buffers::getAliasBuffer (storage, 0, numSamples);
+
+	osc.process (alias);
+	readIdx = numSamples - 1;
+
+	setNormalizedValue (juce::jmap (getCurrentOscillatorValue(), -1.f, 1.f, 0.f, 1.f));
+}
+
+float LFO::getCurrentOscillatorValue() const noexcept
+{
+	jassert (readIdx >= 0 && readIdx <= storage.getNumSamples() && ! storage.hasBeenCleared());
+	return storage.getSample (0, readIdx);
+}
+
+typename LFO::Osc& LFO::getOscillator() noexcept
 {
 	return osc;
 }
 
-[[nodiscard]] DefaultMetaParameter& LFO::getParameter() noexcept
+
+namespace LfoVTprops
 {
-	// return *param.get();
+static constexpr auto freqProp = "frequency";
+static constexpr auto typeProp = "wave_type";
+}  // namespace LfoVTprops
+
+ValueTree LFO::saveToValueTree() const
+{
+	auto tree = MetaParameter<float>::saveToValueTree();
+
+	using namespace LfoVTprops;
+
+	tree.setProperty (freqProp, osc.getFrequency(), nullptr);
+	tree.setProperty (typeProp, static_cast<int> (osc.getOscType()), nullptr);
+
+	return tree;
 }
 
-void LFO::addParameterTo (juce::AudioProcessor& processor)
+void LFO::loadFromValueTree (const ValueTree& tree)
 {
-	// param.addTo (processor);
+	if (! tree.hasType (Parameter::valueTreeType))
+		return;
+
+	MetaParameter<float>::loadFromValueTree (tree);
+
+	using namespace LfoVTprops;
+
+	if (tree.hasProperty (freqProp))
+		osc.setFrequency ((float) tree.getProperty (freqProp));
+
+	if (tree.hasProperty (typeProp))
+		osc.setOscType (static_cast<dsp::osc::OscType> ((int) tree.getProperty (typeProp)));
 }
 
 }  // namespace lemons::plugin

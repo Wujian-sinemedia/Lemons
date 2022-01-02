@@ -2,36 +2,29 @@
 namespace lemons::plugin
 {
 
-static inline std::function<String (int)> createDefaultLfoNamingFunc()
+[[nodiscard]] static inline ModulationManager::LfoNamingFunc createLfoNamingFunc (ModulationManager::LfoNamingFunc&& orig)
 {
+	if (orig != nullptr)
+		return orig;
+
 	return [] (int idx) -> String
 	{
 		return TRANS ("LFO") + " " + String (idx);
 	};
 }
 
-ModulationManager::ModulationManager (  // ParameterList& listToUse,
-    int           initNumLfos,
-    LfoNamingFunc namingFuncToUse)
-    //: paramList (listToUse)
-    : namingFunc (namingFuncToUse)
+ModulationManager::ModulationManager (const ParameterList& parameterList,
+                                      int                  initialNumLFOs,
+                                      LfoNamingFunc&&      namingFunc)
+    : paramList (parameterList)
+    , lfos (initialNumLFOs, [&, func = createLfoNamingFunc (std::move (namingFunc))]()
+            { return new LFO (paramList, func (lfos->size())); })
 {
-	if (namingFunc == nullptr)
-		namingFunc = createDefaultLfoNamingFunc();
-
-	while (lfos.size() < initNumLfos)
-		addLFO();
-}
-
-LFO& ModulationManager::addLFO()
-{
-	auto* lfo = lfos.add (new LFO (namingFunc (lfos.size())));
-	return *lfo;
 }
 
 LFO* ModulationManager::getLFO (int index)
 {
-	if (index >= lfos.size()) return nullptr;
+	if (index >= lfos->size()) return nullptr;
 	return lfos[index];
 }
 
@@ -56,21 +49,32 @@ LFO* ModulationManager::getLFOatFrequency (float freq)
 LFO* ModulationManager::getLFOwithConnection (Parameter& param)
 {
 	for (auto* lfo : lfos)
-		if (lfo->getParameter().hasConnection (param))
+		if (lfo->hasConnection (param))
 			return lfo;
 
 	return nullptr;
 }
 
-void ModulationManager::addAllParametersTo (juce::AudioProcessor& processor)
+LFO& ModulationManager::addLFO()
 {
-	for (auto* lfo : lfos)
-		lfo->addParameterTo (processor);
+	return lfos.append();
 }
 
-void ModulationManager::addAllParametersAsInternal()
+LFO& ModulationManager::addLFO (std::unique_ptr<LFO> lfo)
 {
-	addAllParametersTo (dummyProcessor);
+	return *lfos->add (std::move (lfo));
+}
+
+void ModulationManager::prepareToPlay (int numSamples, double samplerate)
+{
+	for (auto* lfo : lfos)
+		lfo->prepareToPlay (numSamples, samplerate);
+}
+
+void ModulationManager::finishBlock (int numSamples)
+{
+	for (auto* lfo : lfos)
+		lfo->finishBlock (numSamples);
 }
 
 }  // namespace lemons::plugin
