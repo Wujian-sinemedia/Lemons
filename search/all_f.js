@@ -39,7 +39,7 @@ var searchData=
   ['pedal_846',['pedal',['../classlemons_1_1dsp_1_1_synth_base.html#ae8d57c099e83e510cc2e2ac0152198f2',1,'lemons::dsp::SynthBase']]],
   ['percentparameter_847',['PercentParameter',['../structlemons_1_1plugin_1_1_percent_parameter.html',1,'lemons::plugin::PercentParameter'],['../structlemons_1_1plugin_1_1_percent_parameter.html#a809ae5c10eee1702a93c1bef1d775226',1,'lemons::plugin::PercentParameter::PercentParameter()']]],
   ['perfect_848',['Perfect',['../classlemons_1_1music_1_1_interval.html#a5a677d72fb8a097e3f341402120a7d7ca56cdd7e9e3cef1974f4075c03a80332d',1,'lemons::music::Interval']]],
-  ['periodinsamples_849',['periodInSamples',['../namespacelemons_1_1math.html#a835effc5b0e5514f7fd19d24db5acd66',1,'lemons::math']]],
+  ['periodinsamples_849',['periodInSamples',['../group__lemons__math.html#ga835effc5b0e5514f7fd19d24db5acd66',1,'lemons::math']]],
   ['phase_850',['Phase',['../structlemons_1_1dsp_1_1osc_1_1_phase.html',1,'lemons::dsp::osc']]],
   ['pitchbendtracker_851',['PitchBendTracker',['../classlemons_1_1midi_1_1_pitch_bend_tracker.html',1,'lemons::midi']]],
   ['pitchbendtracker_2eh_852',['PitchbendTracker.h',['../_pitchbend_tracker_8h.html',1,'']]],

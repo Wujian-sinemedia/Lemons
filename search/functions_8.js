@@ -21,7 +21,7 @@ var searchData=
   ['iscontrollermapped_2007',['isControllerMapped',['../classlemons_1_1plugin_1_1_parameter_list.html#a6fa137a52bce266e0916de703534f689',1,'lemons::plugin::ParameterList']]],
   ['iscurrentdescantvoice_2008',['isCurrentDescantVoice',['../classlemons_1_1dsp_1_1_synth_voice_base.html#a9b18a91aac16feaadb38796772ff2b86',1,'lemons::dsp::SynthVoiceBase']]],
   ['iscurrentpedalvoice_2009',['isCurrentPedalVoice',['../classlemons_1_1dsp_1_1_synth_voice_base.html#a09dfccb514664e7d43e7d7ac2f3180a1',1,'lemons::dsp::SynthVoiceBase']]],
-  ['isdivisibleby_2010',['isDivisibleBy',['../namespacelemons_1_1math.html#a168de5b8a29accfa57111cfa8c69ba68',1,'lemons::math']]],
+  ['isdivisibleby_2010',['isDivisibleBy',['../group__lemons__math.html#ga168de5b8a29accfa57111cfa8c69ba68',1,'lemons::math']]],
   ['isduplemeter_2011',['isDupleMeter',['../classlemons_1_1music_1_1_time_signature.html#aebe8c5d4e26b6a3f40210c0736db2865',1,'lemons::music::TimeSignature']]],
   ['isflatkey_2012',['isFlatKey',['../classlemons_1_1music_1_1_key_signature.html#a97002308d86c0573414111663b040378',1,'lemons::music::KeySignature']]],
   ['isinitialized_2013',['isInitialized',['../classlemons_1_1dsp_1_1_engine.html#a38a2e75c1ccdbe5fd3a7c1b376d4e40a',1,'lemons::dsp::Engine::isInitialized()'],['../classlemons_1_1dsp_1_1_synth_base.html#a049aa17cd6520dc2f6f52e3ad79230eb',1,'lemons::dsp::SynthBase::isInitialized()']]],

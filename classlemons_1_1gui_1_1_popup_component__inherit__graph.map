@@ -1,0 +1,4 @@
+<map id="lemons::gui::PopupComponent" name="lemons::gui::PopupComponent">
+<area shape="rect" id="node1" title="Base class for a kind of component that can be held inside a popup." alt="" coords="5,80,227,107"/>
+<area shape="rect" id="node2" title=" " alt="" coords="67,5,165,32"/>
+</map>

@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['sampstoms_2217',['sampsToMs',['../namespacelemons_1_1math.html#ae9fc819b92b39886d816fe4ed2c0b36c',1,'lemons::math']]],
+  ['sampstoms_2217',['sampsToMs',['../group__lemons__math.html#gae9fc819b92b39886d816fe4ed2c0b36c',1,'lemons::math']]],
   ['savealltovaluetree_2218',['saveAllToValueTree',['../structlemons_1_1plugin_1_1_program_manager.html#a9a8e111725fb685754c9bd0396cd17a4',1,'lemons::plugin::ProgramManager']]],
   ['saveaudiobuffer_2219',['saveAudioBuffer',['../group__lemons__files.html#gac003f0c017b579974905b50c95689706',1,'lemons::files']]],
   ['saveblocktofile_2220',['saveBlockToFile',['../group__lemons__files.html#ga45f381bf9770d795dc1a94d41207aa58',1,'lemons::files']]],

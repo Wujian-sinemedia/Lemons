@@ -1282,172 +1282,60 @@
     <namespace>lemons</namespace>
     <namespace>lemons::math</namespace>
     <member kind="function">
-      <type>constexpr bool</type>
-      <name>isDivisibleBy</name>
-      <anchorfile>namespacelemons_1_1math.html</anchorfile>
-      <anchor>a168de5b8a29accfa57111cfa8c69ba68</anchor>
-      <arglist>(int number, int divisor) noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>constexpr bool</type>
-      <name>numberIsEven</name>
-      <anchorfile>namespacelemons_1_1math.html</anchorfile>
-      <anchor>a7b8815e02637942415c8e71fdd58453f</anchor>
-      <arglist>(int number) noexcept</arglist>
-    </member>
-    <member kind="function">
       <type>PeriodType</type>
       <name>freqFromPeriod</name>
-      <anchorfile>namespacelemons_1_1math.html</anchorfile>
-      <anchor>a604aadb59f9c6905d7ba046cfbbd526b</anchor>
+      <anchorfile>group__lemons__math.html</anchorfile>
+      <anchor>ga604aadb59f9c6905d7ba046cfbbd526b</anchor>
       <arglist>(double samplerate, PeriodType period) noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>int</type>
-      <name>periodInSamples</name>
-      <anchorfile>namespacelemons_1_1math.html</anchorfile>
-      <anchor>a835effc5b0e5514f7fd19d24db5acd66</anchor>
-      <arglist>(double samplerate, FreqType freqHz) noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>int</type>
-      <name>msToSamps</name>
-      <anchorfile>namespacelemons_1_1math.html</anchorfile>
-      <anchor>a0b61a87fdde626a08a8dd466f3327bb9</anchor>
-      <arglist>(double samplerate, msType ms) noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>constexpr double</type>
-      <name>sampsToMs</name>
-      <anchorfile>namespacelemons_1_1math.html</anchorfile>
-      <anchor>ae9fc819b92b39886d816fe4ed2c0b36c</anchor>
-      <arglist>(double samplerate, int numSamples) noexcept</arglist>
     </member>
     <member kind="function">
       <type>T</type>
       <name>freqToMidi</name>
-      <anchorfile>namespacelemons_1_1math.html</anchorfile>
-      <anchor>ac4ac101ae2e62adde035af820402b5a0</anchor>
-      <arglist>(T freqHz) noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>T</type>
-      <name>midiToFreq</name>
-      <anchorfile>namespacelemons_1_1math.html</anchorfile>
-      <anchor>a8e334d4926a3b6dc44ea8c3cacf56070</anchor>
-      <arglist>(T midiNote) noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>constexpr bool</type>
-      <name>isDivisibleBy</name>
-      <anchorfile>namespacelemons_1_1math.html</anchorfile>
-      <anchor>a168de5b8a29accfa57111cfa8c69ba68</anchor>
-      <arglist>(int number, int divisor) noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>constexpr bool</type>
-      <name>numberIsEven</name>
-      <anchorfile>namespacelemons_1_1math.html</anchorfile>
-      <anchor>a7b8815e02637942415c8e71fdd58453f</anchor>
-      <arglist>(int number) noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>int</type>
-      <name>periodInSamples</name>
-      <anchorfile>namespacelemons_1_1math.html</anchorfile>
-      <anchor>a835effc5b0e5514f7fd19d24db5acd66</anchor>
-      <arglist>(double samplerate, FreqType freqHz) noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>PeriodType</type>
-      <name>freqFromPeriod</name>
-      <anchorfile>namespacelemons_1_1math.html</anchorfile>
-      <anchor>a604aadb59f9c6905d7ba046cfbbd526b</anchor>
-      <arglist>(double samplerate, PeriodType period) noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>constexpr double</type>
-      <name>sampsToMs</name>
-      <anchorfile>namespacelemons_1_1math.html</anchorfile>
-      <anchor>ae9fc819b92b39886d816fe4ed2c0b36c</anchor>
-      <arglist>(double samplerate, int numSamples) noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>int</type>
-      <name>msToSamps</name>
-      <anchorfile>namespacelemons_1_1math.html</anchorfile>
-      <anchor>a0b61a87fdde626a08a8dd466f3327bb9</anchor>
-      <arglist>(double samplerate, msType ms) noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>T</type>
-      <name>midiToFreq</name>
-      <anchorfile>namespacelemons_1_1math.html</anchorfile>
-      <anchor>a8e334d4926a3b6dc44ea8c3cacf56070</anchor>
-      <arglist>(T midiNote) noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>T</type>
-      <name>freqToMidi</name>
-      <anchorfile>namespacelemons_1_1math.html</anchorfile>
-      <anchor>ac4ac101ae2e62adde035af820402b5a0</anchor>
+      <anchorfile>group__lemons__math.html</anchorfile>
+      <anchor>gac4ac101ae2e62adde035af820402b5a0</anchor>
       <arglist>(T freqHz) noexcept</arglist>
     </member>
     <member kind="function">
       <type>constexpr bool</type>
       <name>isDivisibleBy</name>
-      <anchorfile>namespacelemons_1_1math.html</anchorfile>
-      <anchor>a168de5b8a29accfa57111cfa8c69ba68</anchor>
+      <anchorfile>group__lemons__math.html</anchorfile>
+      <anchor>ga168de5b8a29accfa57111cfa8c69ba68</anchor>
       <arglist>(int number, int divisor) noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>constexpr bool</type>
-      <name>numberIsEven</name>
-      <anchorfile>namespacelemons_1_1math.html</anchorfile>
-      <anchor>a7b8815e02637942415c8e71fdd58453f</anchor>
-      <arglist>(int number) noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>PeriodType</type>
-      <name>freqFromPeriod</name>
-      <anchorfile>namespacelemons_1_1math.html</anchorfile>
-      <anchor>a604aadb59f9c6905d7ba046cfbbd526b</anchor>
-      <arglist>(double samplerate, PeriodType period) noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>int</type>
-      <name>periodInSamples</name>
-      <anchorfile>namespacelemons_1_1math.html</anchorfile>
-      <anchor>a835effc5b0e5514f7fd19d24db5acd66</anchor>
-      <arglist>(double samplerate, FreqType freqHz) noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>int</type>
-      <name>msToSamps</name>
-      <anchorfile>namespacelemons_1_1math.html</anchorfile>
-      <anchor>a0b61a87fdde626a08a8dd466f3327bb9</anchor>
-      <arglist>(double samplerate, msType ms) noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>constexpr double</type>
-      <name>sampsToMs</name>
-      <anchorfile>namespacelemons_1_1math.html</anchorfile>
-      <anchor>ae9fc819b92b39886d816fe4ed2c0b36c</anchor>
-      <arglist>(double samplerate, int numSamples) noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>T</type>
-      <name>freqToMidi</name>
-      <anchorfile>namespacelemons_1_1math.html</anchorfile>
-      <anchor>ac4ac101ae2e62adde035af820402b5a0</anchor>
-      <arglist>(T freqHz) noexcept</arglist>
     </member>
     <member kind="function">
       <type>T</type>
       <name>midiToFreq</name>
-      <anchorfile>namespacelemons_1_1math.html</anchorfile>
-      <anchor>a8e334d4926a3b6dc44ea8c3cacf56070</anchor>
+      <anchorfile>group__lemons__math.html</anchorfile>
+      <anchor>ga8e334d4926a3b6dc44ea8c3cacf56070</anchor>
       <arglist>(T midiNote) noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>msToSamps</name>
+      <anchorfile>group__lemons__math.html</anchorfile>
+      <anchor>ga0b61a87fdde626a08a8dd466f3327bb9</anchor>
+      <arglist>(double samplerate, msType ms) noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>constexpr bool</type>
+      <name>numberIsEven</name>
+      <anchorfile>group__lemons__math.html</anchorfile>
+      <anchor>ga7b8815e02637942415c8e71fdd58453f</anchor>
+      <arglist>(int number) noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>periodInSamples</name>
+      <anchorfile>group__lemons__math.html</anchorfile>
+      <anchor>ga835effc5b0e5514f7fd19d24db5acd66</anchor>
+      <arglist>(double samplerate, FreqType freqHz) noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>constexpr double</type>
+      <name>sampsToMs</name>
+      <anchorfile>group__lemons__math.html</anchorfile>
+      <anchor>gae9fc819b92b39886d816fe4ed2c0b36c</anchor>
+      <arglist>(double samplerate, int numSamples) noexcept</arglist>
     </member>
   </compound>
   <compound kind="file">
@@ -31031,60 +30919,60 @@
     <name>lemons::math</name>
     <filename>namespacelemons_1_1math.html</filename>
     <member kind="function">
+      <type>PeriodType</type>
+      <name>freqFromPeriod</name>
+      <anchorfile>group__lemons__math.html</anchorfile>
+      <anchor>ga604aadb59f9c6905d7ba046cfbbd526b</anchor>
+      <arglist>(double samplerate, PeriodType period) noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>T</type>
+      <name>freqToMidi</name>
+      <anchorfile>group__lemons__math.html</anchorfile>
+      <anchor>gac4ac101ae2e62adde035af820402b5a0</anchor>
+      <arglist>(T freqHz) noexcept</arglist>
+    </member>
+    <member kind="function">
       <type>constexpr bool</type>
       <name>isDivisibleBy</name>
-      <anchorfile>namespacelemons_1_1math.html</anchorfile>
-      <anchor>a168de5b8a29accfa57111cfa8c69ba68</anchor>
+      <anchorfile>group__lemons__math.html</anchorfile>
+      <anchor>ga168de5b8a29accfa57111cfa8c69ba68</anchor>
       <arglist>(int number, int divisor) noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>T</type>
+      <name>midiToFreq</name>
+      <anchorfile>group__lemons__math.html</anchorfile>
+      <anchor>ga8e334d4926a3b6dc44ea8c3cacf56070</anchor>
+      <arglist>(T midiNote) noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>msToSamps</name>
+      <anchorfile>group__lemons__math.html</anchorfile>
+      <anchor>ga0b61a87fdde626a08a8dd466f3327bb9</anchor>
+      <arglist>(double samplerate, msType ms) noexcept</arglist>
     </member>
     <member kind="function">
       <type>constexpr bool</type>
       <name>numberIsEven</name>
-      <anchorfile>namespacelemons_1_1math.html</anchorfile>
-      <anchor>a7b8815e02637942415c8e71fdd58453f</anchor>
+      <anchorfile>group__lemons__math.html</anchorfile>
+      <anchor>ga7b8815e02637942415c8e71fdd58453f</anchor>
       <arglist>(int number) noexcept</arglist>
     </member>
     <member kind="function">
       <type>int</type>
       <name>periodInSamples</name>
-      <anchorfile>namespacelemons_1_1math.html</anchorfile>
-      <anchor>a835effc5b0e5514f7fd19d24db5acd66</anchor>
+      <anchorfile>group__lemons__math.html</anchorfile>
+      <anchor>ga835effc5b0e5514f7fd19d24db5acd66</anchor>
       <arglist>(double samplerate, FreqType freqHz) noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>PeriodType</type>
-      <name>freqFromPeriod</name>
-      <anchorfile>namespacelemons_1_1math.html</anchorfile>
-      <anchor>a604aadb59f9c6905d7ba046cfbbd526b</anchor>
-      <arglist>(double samplerate, PeriodType period) noexcept</arglist>
     </member>
     <member kind="function">
       <type>constexpr double</type>
       <name>sampsToMs</name>
-      <anchorfile>namespacelemons_1_1math.html</anchorfile>
-      <anchor>ae9fc819b92b39886d816fe4ed2c0b36c</anchor>
+      <anchorfile>group__lemons__math.html</anchorfile>
+      <anchor>gae9fc819b92b39886d816fe4ed2c0b36c</anchor>
       <arglist>(double samplerate, int numSamples) noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>int</type>
-      <name>msToSamps</name>
-      <anchorfile>namespacelemons_1_1math.html</anchorfile>
-      <anchor>a0b61a87fdde626a08a8dd466f3327bb9</anchor>
-      <arglist>(double samplerate, msType ms) noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>T</type>
-      <name>midiToFreq</name>
-      <anchorfile>namespacelemons_1_1math.html</anchorfile>
-      <anchor>a8e334d4926a3b6dc44ea8c3cacf56070</anchor>
-      <arglist>(T midiNote) noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>T</type>
-      <name>freqToMidi</name>
-      <anchorfile>namespacelemons_1_1math.html</anchorfile>
-      <anchor>ac4ac101ae2e62adde035af820402b5a0</anchor>
-      <arglist>(T freqHz) noexcept</arglist>
     </member>
   </compound>
   <compound kind="namespace">
@@ -32327,6 +32215,62 @@
     <name>lemons_math</name>
     <title>Math</title>
     <filename>group__lemons__math.html</filename>
+    <member kind="function">
+      <type>PeriodType</type>
+      <name>freqFromPeriod</name>
+      <anchorfile>group__lemons__math.html</anchorfile>
+      <anchor>ga604aadb59f9c6905d7ba046cfbbd526b</anchor>
+      <arglist>(double samplerate, PeriodType period) noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>T</type>
+      <name>freqToMidi</name>
+      <anchorfile>group__lemons__math.html</anchorfile>
+      <anchor>gac4ac101ae2e62adde035af820402b5a0</anchor>
+      <arglist>(T freqHz) noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>constexpr bool</type>
+      <name>isDivisibleBy</name>
+      <anchorfile>group__lemons__math.html</anchorfile>
+      <anchor>ga168de5b8a29accfa57111cfa8c69ba68</anchor>
+      <arglist>(int number, int divisor) noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>T</type>
+      <name>midiToFreq</name>
+      <anchorfile>group__lemons__math.html</anchorfile>
+      <anchor>ga8e334d4926a3b6dc44ea8c3cacf56070</anchor>
+      <arglist>(T midiNote) noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>msToSamps</name>
+      <anchorfile>group__lemons__math.html</anchorfile>
+      <anchor>ga0b61a87fdde626a08a8dd466f3327bb9</anchor>
+      <arglist>(double samplerate, msType ms) noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>constexpr bool</type>
+      <name>numberIsEven</name>
+      <anchorfile>group__lemons__math.html</anchorfile>
+      <anchor>ga7b8815e02637942415c8e71fdd58453f</anchor>
+      <arglist>(int number) noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>periodInSamples</name>
+      <anchorfile>group__lemons__math.html</anchorfile>
+      <anchor>ga835effc5b0e5514f7fd19d24db5acd66</anchor>
+      <arglist>(double samplerate, FreqType freqHz) noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>constexpr double</type>
+      <name>sampsToMs</name>
+      <anchorfile>group__lemons__math.html</anchorfile>
+      <anchor>gae9fc819b92b39886d816fe4ed2c0b36c</anchor>
+      <arglist>(double samplerate, int numSamples) noexcept</arglist>
+    </member>
   </compound>
   <compound kind="group">
     <name>meta_parameters</name>
@@ -32408,6 +32352,11 @@
     <subgroup>lemons_plugin</subgroup>
   </compound>
   <compound kind="group">
+    <name>lemons_midi_processors</name>
+    <title>Processors</title>
+    <filename>group__lemons__midi__processors.html</filename>
+  </compound>
+  <compound kind="group">
     <name>lemons_plugin_processors</name>
     <title>Processors</title>
     <filename>group__lemons__plugin__processors.html</filename>
@@ -32425,11 +32374,6 @@
       <anchor>ga402ed40f2d0bc661edca4d34b112d41b</anchor>
       <arglist></arglist>
     </member>
-  </compound>
-  <compound kind="group">
-    <name>lemons_midi_processors</name>
-    <title>Processors</title>
-    <filename>group__lemons__midi__processors.html</filename>
   </compound>
   <compound kind="group">
     <name>lemons_psola_synthesis</name>

@@ -14,7 +14,7 @@ var searchData=
   ['paramvaluechanged_2144',['paramValueChanged',['../structlemons_1_1plugin_1_1_typed_parameter_1_1_listener.html#a6b091945117c5ffccf7d42e4ba1ae20a',1,'lemons::plugin::TypedParameter::Listener']]],
   ['parsemidimessageforsysex_2145',['parseMidiMessageForSysEx',['../classlemons_1_1midi_1_1_mts_client.html#a704b2f7836080cbbc178a2b3394d9e25',1,'lemons::midi::MtsClient']]],
   ['percentparameter_2146',['PercentParameter',['../structlemons_1_1plugin_1_1_percent_parameter.html#a809ae5c10eee1702a93c1bef1d775226',1,'lemons::plugin::PercentParameter']]],
-  ['periodinsamples_2147',['periodInSamples',['../namespacelemons_1_1math.html#a835effc5b0e5514f7fd19d24db5acd66',1,'lemons::math']]],
+  ['periodinsamples_2147',['periodInSamples',['../group__lemons__math.html#ga835effc5b0e5514f7fd19d24db5acd66',1,'lemons::math']]],
   ['pitchclasstostring_2148',['pitchClassToString',['../namespacelemons_1_1music.html#a24e7bde0524b225883f031c887db9fb4',1,'lemons::music']]],
   ['pitchdetector_2149',['PitchDetector',['../classlemons_1_1dsp_1_1psola_1_1_pitch_detector.html#a914919025a1ef9b5fb967b48fb2609ec',1,'lemons::dsp::psola::PitchDetector']]],
   ['pitchtostring_2150',['pitchToString',['../namespacelemons_1_1music.html#a5804ae9d6aaefcb24f65bdf38e8a1832',1,'lemons::music']]],

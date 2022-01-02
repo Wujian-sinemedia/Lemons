@@ -34,11 +34,11 @@ var searchData=
   ['midirouter_2097',['MidiRouter',['../classlemons_1_1dsp_1_1synth_1_1_midi_manager_1_1_midi_router.html#ad09289fcf5c59c45b44f311000ff7e37',1,'lemons::dsp::synth::MidiManager::MidiRouter']]],
   ['miditest_2098',['MidiTest',['../structlemons_1_1tests_1_1_midi_test.html#a554ae405709054464d9c116650505853',1,'lemons::tests::MidiTest']]],
   ['miditobinary_2099',['midiToBinary',['../group__lemons__serializing.html#ga9f9b5afb4a6bd15f8c8801923c12e1f7',1,'lemons::serializing::midiToBinary(const MidiBuffer &amp;midi)'],['../group__lemons__serializing.html#gaeacda195ca89506992384c26458355cf',1,'lemons::serializing::midiToBinary(const MidiFile &amp;midi)']]],
-  ['miditofreq_2100',['midiToFreq',['../namespacelemons_1_1math.html#a8e334d4926a3b6dc44ea8c3cacf56070',1,'lemons::math']]],
+  ['miditofreq_2100',['midiToFreq',['../group__lemons__math.html#ga8e334d4926a3b6dc44ea8c3cacf56070',1,'lemons::math']]],
   ['miditofrequency_2101',['midiToFrequency',['../classlemons_1_1midi_1_1_mts_client.html#ad4b33979ef435d4778b32abe1f5810f0',1,'lemons::midi::MtsClient']]],
   ['mixwetsamples_2102',['mixWetSamples',['../classlemons_1_1dsp_1_1_f_x_1_1_dry_wet_mixer.html#a66093e7331d37328243466fc44f9899c',1,'lemons::dsp::FX::DryWetMixer']]],
   ['modulationmanager_2103',['ModulationManager',['../classlemons_1_1plugin_1_1_modulation_manager.html#a7a23d6bd7a09933d94efdf574983d61f',1,'lemons::plugin::ModulationManager']]],
   ['monostereoconverter_2104',['MonoStereoConverter',['../classlemons_1_1dsp_1_1_mono_stereo_converter.html#a8ed00ea092e833d40590cd2885fac299',1,'lemons::dsp::MonoStereoConverter']]],
-  ['mstosamps_2105',['msToSamps',['../namespacelemons_1_1math.html#a0b61a87fdde626a08a8dd466f3327bb9',1,'lemons::math']]],
+  ['mstosamps_2105',['msToSamps',['../group__lemons__math.html#ga0b61a87fdde626a08a8dd466f3327bb9',1,'lemons::math']]],
   ['multifilter_2106',['MultiFilter',['../structlemons_1_1dsp_1_1filters_1_1_multi_filter.html#a3744cd8fb6f34f6993f545a61ff9c83f',1,'lemons::dsp::filters::MultiFilter']]]
 ];

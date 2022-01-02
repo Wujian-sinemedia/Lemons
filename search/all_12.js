@@ -3,7 +3,7 @@ var searchData=
   ['serializing_960',['Serializing',['../group__lemons__serializing.html',1,'']]],
   ['special_20parameter_20types_961',['Special parameter types',['../group__parameter__specializations.html',1,'']]],
   ['state_962',['State',['../group__plugin__state.html',1,'']]],
-  ['sampstoms_963',['sampsToMs',['../namespacelemons_1_1math.html#ae9fc819b92b39886d816fe4ed2c0b36c',1,'lemons::math']]],
+  ['sampstoms_963',['sampsToMs',['../group__lemons__math.html#gae9fc819b92b39886d816fe4ed2c0b36c',1,'lemons::math']]],
   ['saturation_2eh_964',['Saturation.h',['../_saturation_8h.html',1,'']]],
   ['saturator_965',['Saturator',['../classlemons_1_1dsp_1_1_f_x_1_1_saturator.html',1,'lemons::dsp::FX']]],
   ['savealltovaluetree_966',['saveAllToValueTree',['../structlemons_1_1plugin_1_1_program_manager.html#a9a8e111725fb685754c9bd0396cd17a4',1,'lemons::plugin::ProgramManager']]],
