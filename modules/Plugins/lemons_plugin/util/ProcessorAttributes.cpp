@@ -46,7 +46,6 @@ ProcessorAttributes ProcessorAttributes::fromProjectDefines()
 
 namespace ProcessorAttributeProperties
 {
-static constexpr auto valueTreeType  = "ProcessorAttributes";
 static constexpr auto accepts_midi   = "AcceptsMidi";
 static constexpr auto produces_midi  = "ProducesMidi";
 static constexpr auto supports_mpe   = "SupportsMPE";
@@ -71,36 +70,54 @@ ValueTree ProcessorAttributes::toValueTree() const
 	tree.setProperty (alt_names, juce::VariantConverter<juce::StringArray>::toVar (alternateNames), nullptr);
 	tree.setProperty (version_prop, version.toString(), nullptr);
 
+	tree.appendChild (defaultBusesLayout, nullptr);
+
 	return tree;
 }
 
-void ProcessorAttributes::fromValueTree (const ValueTree& tree)
+ProcessorAttributes ProcessorAttributes::fromValueTree (const ValueTree& tree)
 {
 	using namespace ProcessorAttributeProperties;
 
+	ProcessorAttributes attributes;
+
 	if (! tree.hasType (valueTreeType))
-		return;
+		return attributes;
 
 	if (tree.hasProperty (accepts_midi))
-		acceptsMidi = (bool) tree.getProperty (accepts_midi);
+		attributes.acceptsMidi = (bool) tree.getProperty (accepts_midi);
 
 	if (tree.hasProperty (produces_midi))
-		producesMidi = (bool) tree.getProperty (produces_midi);
+		attributes.producesMidi = (bool) tree.getProperty (produces_midi);
 
 	if (tree.hasProperty (supports_mpe))
-		supportsMPE = (bool) tree.getProperty (supports_mpe);
+		attributes.supportsMPE = (bool) tree.getProperty (supports_mpe);
 
 	if (tree.hasProperty (is_midi_effect))
-		isMidiEffect = (bool) tree.getProperty (is_midi_effect);
+		attributes.isMidiEffect = (bool) tree.getProperty (is_midi_effect);
 
 	if (tree.hasProperty (processor_name))
-		name = tree.getProperty (processor_name).toString();
+		attributes.name = tree.getProperty (processor_name).toString();
 
 	if (tree.hasProperty (alt_names))
-		alternateNames = juce::VariantConverter<juce::StringArray>::fromVar (tree.getProperty (alt_names));
+		attributes.alternateNames = juce::VariantConverter<juce::StringArray>::fromVar (tree.getProperty (alt_names));
 
 	if (tree.hasProperty (version_prop))
-		version = Version::fromString (tree.getProperty (version_prop).toString());
+		attributes.version = Version::fromString (tree.getProperty (version_prop).toString());
+
+	attributes.defaultBusesLayout = tree.getChildWithName (defaultBusesLayoutProp);
+
+	return attributes;
+}
+
+ProcessorAttributes ProcessorAttributes::withDefaultBuses (const ValueTree& defaultBusInfo) const
+{
+	ProcessorAttributes attributes { *this };
+
+	if (defaultBusInfo.hasType (defaultBusesLayoutProp))
+		attributes.defaultBusesLayout = defaultBusInfo;
+
+	return attributes;
 }
 
 }  // namespace lemons::plugin
@@ -111,11 +128,7 @@ namespace lemons::files
 template <FileType Type>
 plugin::ProcessorAttributes loadProcessorAttributes (const File& file)
 {
-    plugin::ProcessorAttributes attributes;
-    
-    attributes.fromValueTree (loadValueTree<Type> (file));
-    
-    return attributes;
+	return plugin::ProcessorAttributes::fromValueTree (loadValueTree<Type> (file));
 }
 
 template plugin::ProcessorAttributes loadProcessorAttributes<files::FileType::JSON> (const File&);
@@ -126,14 +139,14 @@ template plugin::ProcessorAttributes loadProcessorAttributes<files::FileType::Op
 template <FileType Type>
 bool saveProcessorAttributes (const plugin::ProcessorAttributes& layout, const File& file)
 {
-    return saveValueTree<Type> (file, layout.toValueTree());
+	return saveValueTree<Type> (file, layout.toValueTree());
 }
 
 template bool saveProcessorAttributes<files::FileType::JSON> (const plugin::ProcessorAttributes&, const File&);
 template bool saveProcessorAttributes<files::FileType::XML> (const plugin::ProcessorAttributes&, const File&);
 template bool saveProcessorAttributes<files::FileType::Opaque> (const plugin::ProcessorAttributes&, const File&);
 
-}
+}  // namespace lemons::files
 
 
 namespace lemons::binary
@@ -142,15 +155,11 @@ namespace lemons::binary
 template <files::FileType Type>
 plugin::ProcessorAttributes getProcessorAttributes (const String& filename)
 {
-    plugin::ProcessorAttributes attributes;
-    
-    attributes.fromValueTree (getValueTree<Type> (filename));
-    
-    return attributes;
+	return plugin::ProcessorAttributes::fromValueTree (getValueTree<Type> (filename));
 }
 
 template plugin::ProcessorAttributes getProcessorAttributes<files::FileType::JSON> (const String&);
 template plugin::ProcessorAttributes getProcessorAttributes<files::FileType::XML> (const String&);
 template plugin::ProcessorAttributes getProcessorAttributes<files::FileType::Opaque> (const String&);
 
-}
+}  // namespace lemons::binary

@@ -34,6 +34,11 @@ template <typename SampleType>
 template <typename SampleType>
 [[nodiscard]] AudioBuffer<SampleType> audioFromBinary (const MemoryBlock& block);
 
+
+[[nodiscard]] juce::AudioChannelSet channelSetFromValueTree (const ValueTree& tree);
+
+[[nodiscard]] ValueTree channelSetToValueTree (const juce::AudioChannelSet& set);
+
 }  // namespace lemons::serializing
 
 
@@ -73,6 +78,13 @@ template <typename SampleType>
 
 namespace juce
 {
+
+template <>
+struct VariantConverter<AudioChannelSet>
+{
+    static AudioChannelSet fromVar (const var& v);
+    static var             toVar (const AudioChannelSet& s);
+};
 
 template <>
 struct VariantConverter<ADSR::Parameters>

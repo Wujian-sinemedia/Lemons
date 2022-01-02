@@ -33,6 +33,7 @@ class BasicProcessor : public juce::AudioProcessor
 {
 public:
 	using BusesProperties = juce::AudioProcessor::BusesProperties;
+	using BusProperties   = juce::AudioProcessor::BusProperties;
 
 	/** Creates a basic processor.
 	    The default constructor initializes an audio processor with stereo in and out buses.
@@ -51,6 +52,10 @@ protected:
 	/** Repaints the editor, if one exists. This is a utility function that uses callEditorMethod() under the hood. Calling this on the audio thread should be avoided at all costs.
 	 */
 	void repaintEditor() const;
+
+	[[nodiscard]] static BusesProperties busesPropertiesFromValueTree (const ValueTree& tree);
+
+	[[nodiscard]] static ValueTree busesPropertiesToValueTree (const BusesProperties& properties);
 
 private:
 	void prepareToPlay (double /* samplerate */, int /* blocksize */) override { }
@@ -85,6 +90,14 @@ private:
 	juce::AudioProcessorEditor* createEditor() override { return nullptr; }
 
 	bool isBusesLayoutSupported (const BusesLayout& layout) const override;
+
+
+	[[nodiscard]] static BusProperties busPropertiesFromValueTree (const ValueTree& tree);
+
+	[[nodiscard]] static ValueTree busPropertiesToValueTree (const BusProperties& properties);
+
+	static constexpr auto busesPropertiesValueTreeType = "BusesProperties";
+	static constexpr auto busPropertiesValueTreeType   = "BusProperties";
 };
 
 

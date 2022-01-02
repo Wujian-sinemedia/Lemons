@@ -59,11 +59,16 @@
 #include "unit_tests/audio_processor_test.h"
 #include "unit_tests/parameter_tests.h"
 
-#include "processors/ProcessorAttributes.h"
+#include "editors/EditorAttributes.h"
+
+#include "util/ProcessorAttributes.h"
+#include "util/PluginMetadata.h"
+
 #include "processors/BasicProcessor.h"
 #include "processors/ProcessorBase.h"
 
-#include "util/Editors.h"
+#include "editors/Editors.h"
+
 #include "util/serializing.h"
 
 #include "processors/Processors.h"

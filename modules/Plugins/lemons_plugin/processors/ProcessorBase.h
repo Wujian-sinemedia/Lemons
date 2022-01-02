@@ -25,7 +25,7 @@ namespace lemons::plugin
 class ProcessorBase : public BasicProcessor
 {
 public:
-	/** Creates a processor.
+	/** Creates a processor with an explicitly specified default BusesProperties.
 	    @param floatEngineToUse The float specialization of the Engine to use.
 	    @param doubleEngineToUse The double specialization of the Engine to use.
 	    @param stateToUse The plugin state to reference.
@@ -38,14 +38,20 @@ public:
 	                        const BusesProperties&     busesLayout = getDefaultBusesLayout(),
 	                        const ProcessorAttributes& attributes  = ProcessorAttributes::fromProjectDefines());
 
+	/** Creates a processor with a BusesProperties object created from the ProcessorAttributes object. */
+	explicit ProcessorBase (dsp::Engine<float>&        floatEngineToUse,
+	                        dsp::Engine<double>&       doubleEngineToUse,
+	                        State&                     stateToUse,
+	                        const ProcessorAttributes& attributes);
+
 	/** Returns the plugin's state object. */
 	[[nodiscard]] State& getState() noexcept;
 
 	/** Returns the plugin's bypass parameter. */
 	[[nodiscard]] ToggleParameter& getBypass() const;
 
-	/** Returns the ProcessorAttributes object. */
-	[[nodiscard]] const ProcessorAttributes& getAttributes() const noexcept;
+	/** Returns the current state of the ProcessorAttributes object. */
+	[[nodiscard]] ProcessorAttributes getAttributes() const noexcept;
 
 	/** Captures a snapshot of the processor's current state as a ValueTree. */
 	[[nodiscard]] ValueTree saveState (bool currentProgramOnly = false) const;

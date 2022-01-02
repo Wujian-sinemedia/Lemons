@@ -19,14 +19,21 @@
 namespace lemons::plugin
 {
 
-struct ProcessorAttributes
+struct ProcessorAttributes final
 {
+	explicit ProcessorAttributes() = default;
+
 	[[nodiscard]] ValueTree toValueTree() const;
 
-	void fromValueTree (const ValueTree& tree);
+	[[nodiscard]] ProcessorAttributes withDefaultBuses (const ValueTree& defaultBusInfo) const;
+
+	[[nodiscard]] static ProcessorAttributes fromValueTree (const ValueTree& tree);
 
 	[[nodiscard]] static ProcessorAttributes fromProjectDefines();
 
+
+	/** @internal */
+	static constexpr auto valueTreeType = "ProcessorAttributes";
 
 	bool acceptsMidi { true }, producesMidi { true }, supportsMPE { false }, isMidiEffect { false };
 
@@ -35,6 +42,10 @@ struct ProcessorAttributes
 	juce::StringArray alternateNames;
 
 	Version version;
+
+	static constexpr auto defaultBusesLayoutProp = "BusesProperties";
+
+	ValueTree defaultBusesLayout { defaultBusesLayoutProp };
 };
 
 }  // namespace lemons::plugin
@@ -48,7 +59,7 @@ template <FileType Type = FileType::JSON>
 template <FileType Type = FileType::JSON>
 bool saveProcessorAttributes (const plugin::ProcessorAttributes& layout, const File& file);
 
-}
+}  // namespace lemons::files
 
 namespace lemons::binary
 {

@@ -25,9 +25,17 @@ ProcessorBase::ProcessorBase (dsp::Engine<float>&        floatEngineToUse,
     , floatEngine (floatEngineToUse)
     , doubleEngine (doubleEngineToUse)
     , state (stateToUse)
-    , processorAttributes (attributes)
+    , processorAttributes (attributes.withDefaultBuses (busesPropertiesToValueTree (busesLayout)))
 {
 	state.parameters.addTo (*this);
+}
+
+ProcessorBase::ProcessorBase (dsp::Engine<float>&        floatEngineToUse,
+                              dsp::Engine<double>&       doubleEngineToUse,
+                              State&                     stateToUse,
+                              const ProcessorAttributes& attributes)
+    : ProcessorBase (floatEngineToUse, doubleEngineToUse, stateToUse, busesPropertiesFromValueTree (attributes.defaultBusesLayout), attributes)
+{
 }
 
 void ProcessorBase::prepareToPlay (double sampleRate, int samplesPerBlock)
@@ -252,7 +260,7 @@ State& ProcessorBase::getState() noexcept
 	return state;
 }
 
-const ProcessorAttributes& ProcessorBase::getAttributes() const noexcept
+ProcessorAttributes ProcessorBase::getAttributes() const noexcept
 {
 	return processorAttributes;
 }

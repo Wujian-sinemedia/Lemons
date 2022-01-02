@@ -28,8 +28,9 @@
 #include "parameters/ModulationManager/ModulationManager.cpp"
 
 #include "util/serializing.cpp"
+#include "util/ProcessorAttributes.cpp"
+#include "util/PluginMetadata.cpp"
 
-#include "processors/ProcessorAttributes.cpp"
 #include "processors/BasicProcessor.cpp"
 #include "processors/ProcessorBase.cpp"
 
@@ -42,3 +43,5 @@
 
 #include "unit_tests/audio_processor_test.cpp"
 #include "unit_tests/parameter_tests.cpp"
+
+#include "editors/EditorAttributes.cpp"

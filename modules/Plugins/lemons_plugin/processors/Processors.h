@@ -52,10 +52,27 @@ public:
 	{
 	}
 
-protected:
-	using PluginStateType = StateType;
+	/** Creates a processor from the provided metadata object.
+	    For this constructor to work, your StateType must accept the following constructor signature:
+	    @code
+	    class StateType : public State
+	    {
+	        StateType (const ParameterLayout&);
+	    };
+	    @endcode
+	 */
+	explicit Processor (const PluginMetadata& metadata)
+	    : ProcessorBase (floatEngine, doubleEngine, pluginState, metadata.processorAttributes)
+	    , pluginState (metadata.parameterLayout)
+	    , editorAttributes (editorAttributes)
+	{
+	}
 
+protected:
+	/** The plugin's state object. */
 	StateType pluginState;
+
+	const EditorAttributes editorAttributes;
 
 private:
 	EngineType<float>  floatEngine;
@@ -111,7 +128,7 @@ struct ProcessorWithEditor final : ProcessorType
 	/** Creates an editor for this processor. */
 	juce::AudioProcessorEditor* createEditor() final
 	{
-		return new Editor<ComponentType, typename ProcessorType::PluginStateType> (*this, this->pluginState);
+		return new Editor<ComponentType, decltype (this->pluginState)> (*this, this->pluginState, this->editorAttributes);
 	}
 };
 

@@ -46,30 +46,47 @@ class Editor final : public juce::AudioProcessorEditor
 {
 public:
 	/** Creates a plugin editor. */
-	explicit Editor (ProcessorBase& p, StateType& state)
+	explicit Editor (ProcessorBase& p, StateType& state, bool resizable = true, bool useDraggableCorner = true, int msBeforeTooltip = 700, const Dimensions& defaultInitialSize = Dimensions::getDefault())
 	    : AudioProcessorEditor (p)
 	    , content (state)
 	    , stateBase (p.getState())
+	    , tooltipWindow (this, msBeforeTooltip)
 	{
-		const auto& initialSize = stateBase.editorSize;
+		const auto& initialSize = [&]() -> const Dimensions&
+		{
+			if (stateBase.editorSize.isValid())
+				return stateBase.editorSize;
+
+			return defaultInitialSize;
+		}();
 
 		jassert (initialSize.isValid());
 
-		setResizable (true, true);
+		if (! resizable) useDraggableCorner = false;
+
+		setResizable (resizable, useDraggableCorner);
 
 		const auto width  = initialSize.getWidth();
 		const auto height = initialSize.getHeight();
 
-		if (auto* c = getConstrainer())
+		if (resizable)
 		{
-			c->setMinimumSize (width / 2, height / 2);
-			c->setMaximumSize (width * 2, height * 2);
-			c->setFixedAspectRatio (initialSize.getAspectRatio());
+			if (auto* c = getConstrainer())
+			{
+				c->setMinimumSize (width / 2, height / 2);
+				c->setMaximumSize (width * 2, height * 2);
+				c->setFixedAspectRatio (initialSize.getAspectRatio());
+			}
 		}
 
 		addAndMakeVisible (content);
 
 		setSize (width, height);
+	}
+
+	explicit Editor (ProcessorBase& p, StateType& state, const EditorAttributes& attributes)
+	    : Editor (p, state, attributes.isResizable, attributes.useResizableCorner, attributes.msBeforeTooltip, attributes.initialSize)
+	{
 	}
 
 private:
@@ -89,7 +106,7 @@ private:
 
 	State& stateBase;
 
-	juce::TooltipWindow tooltipWindow { this, 700 };
+	juce::TooltipWindow tooltipWindow;
 };
 
 }  // namespace lemons::plugin
