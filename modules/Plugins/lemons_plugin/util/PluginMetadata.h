@@ -29,11 +29,16 @@ struct PluginMetadata final
 namespace lemons::files
 {
 
+/** @name PluginMetadata */
+///@{
+
 template <FileType Type = FileType::JSON>
 [[nodiscard]] plugin::PluginMetadata loadPluginMetadata (const File& file);
 
 template <FileType Type = FileType::JSON>
 bool savePluginMetadata (const plugin::PluginMetadata& layout, const File& file);
+
+///@}
 
 }  // namespace lemons::files
 

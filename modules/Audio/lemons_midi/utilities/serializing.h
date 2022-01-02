@@ -26,25 +26,37 @@ using juce::MidiBuffer;
 using juce::MidiFile;
 
 
+/** @name MidiBuffers */
+///@{
+
 /** Encodes a MidiBuffer as a blob of binary data.
     @see midiBufferFromBinary(), saveMidiToFile()
  */
 [[nodiscard]] MemoryBlock midiToBinary (const MidiBuffer& midi);
-
-/** Encodes a MidiFile as a blob of binary data.
-    @see midiFileFromBinary(), saveMidiToFile()
- */
-[[nodiscard]] MemoryBlock midiToBinary (const MidiFile& midi);
 
 /** Returns a MidiBufer from a binary representation of one.
     @see midiFileFromBinary(), midiToBinary(), loadMidiFromFile(), binary::Data::getMidi()
  */
 [[nodiscard]] MidiBuffer midiBufferFromBinary (const MemoryBlock& block);
 
+///@}
+
+
+/** @name MidiFiles */
+///@{
+
+/** Encodes a MidiFile as a blob of binary data.
+    @see midiFileFromBinary(), saveMidiToFile()
+ */
+[[nodiscard]] MemoryBlock midiToBinary (const MidiFile& midi);
+
+
 /** Returns a MidiFile from a binary representation of one.
     @see midiBufferFromBinary(), midiToBinary(), loadMidiFromFile(), binary::Data::getMidi()
  */
 [[nodiscard]] MidiFile midiFileFromBinary (const MemoryBlock& block);
+
+///@}
 
 }  // namespace lemons::serializing
 
@@ -55,25 +67,37 @@ namespace lemons::files
 using juce::MidiBuffer;
 using juce::MidiFile;
 
+
+/** @name MidiFiles */
+///@{
+
 /** Loads a MidiFile from a file on disk.
     @see saveMidiToFile(), midiBufferFromFile(), binary::Data::getMidi()
  */
 [[nodiscard]] MidiFile loadMidiFile (const File& file);
-
-/** Loads a MidiBuffer from a file on disk.
-    @see saveMidiToFile(), binary::Data::getMidi()
- */
-[[nodiscard]] MidiBuffer loadMidiBuffer (const File& file);
 
 /** Saves a MidiFile to a file on disk.
     @see loadMidiFromFile()
  */
 bool saveMidi (const MidiFile& midi, const File& file);
 
+///@}
+
+
+/** @name MidiBuffers */
+///@{
+
+/** Loads a MidiBuffer from a file on disk.
+    @see saveMidiToFile(), binary::Data::getMidi()
+ */
+[[nodiscard]] MidiBuffer loadMidiBuffer (const File& file);
+
 /** Saves a MidiBuffer to a file on disk, formatted as a MidiFile.
     @see loadMidiFromFile(), midiBufferToFile()
  */
 bool saveMidi (const MidiBuffer& midi, const File& file);
+
+///@}
 
 }  // namespace lemons::files
 
@@ -82,6 +106,10 @@ namespace lemons::binary
 {
 
 using juce::String;
+
+
+/** @name MIDI */
+///@{
 
 /** Returns a MIDI file object from a MIDI file in the BinaryData target. If the MIDI can't be loaded, an assertion will be thrown.
     @see serializing::loadMidiFromFile(), serializing::saveMidiToFile()
@@ -92,6 +120,8 @@ using juce::String;
     @see serializing::loadMidiFromFile(), serializing::saveMidiToFile()
  */
 [[nodiscard]] juce::MidiBuffer getMidiBuffer (const String& midiFileName);
+
+///@}
 
 }  // namespace lemons::binary
 

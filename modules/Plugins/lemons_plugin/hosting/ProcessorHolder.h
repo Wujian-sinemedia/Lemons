@@ -47,6 +47,10 @@ struct ProcessorHolder
 	template <typename SampleType>
 	bool prepareForPlayback (double samplerate, int blocksize, int numChannels = 2);
 
+    
+    /** @name Accessing parameters */
+    ///@{
+    
 	/** Finds a parameter with a specified name. */
 	[[nodiscard]] juce::AudioProcessorParameter* getNamedParameter (const String& name);
 
@@ -76,6 +80,9 @@ struct ProcessorHolder
 
 		return nullptr;
 	}
+    
+    ///@}
+    
 
 	/** A simple representation of a parameter's state. */
 	struct ParameterStateData

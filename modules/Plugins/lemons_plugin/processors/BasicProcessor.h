@@ -44,6 +44,10 @@ public:
 	[[nodiscard]] static BusesProperties getDefaultBusesLayout();
 
 protected:
+    
+    /** @name Interacting with the editor */
+    ///@{
+    
 	/** Asynchronously calls a method of the current editor, if there is one, on the message thread.
 	    Internally, this uses the Juce MessageManager's callAsync method. Calling this on the audio thread should be avoided at all costs. I would personally only use this method in setStateInformation().
 	 */
@@ -52,10 +56,18 @@ protected:
 	/** Repaints the editor, if one exists. This is a utility function that uses callEditorMethod() under the hood. Calling this on the audio thread should be avoided at all costs.
 	 */
 	void repaintEditor() const;
+    
+    ///@}
+    
+    
+    /** @name Serializing BusesProperties */
+    ///@{
 
 	[[nodiscard]] static BusesProperties busesPropertiesFromValueTree (const ValueTree& tree);
 
 	[[nodiscard]] static ValueTree busesPropertiesToValueTree (const BusesProperties& properties);
+    
+    ///@}
 
 private:
 	void prepareToPlay (double /* samplerate */, int /* blocksize */) override { }

@@ -51,11 +51,16 @@ struct ProcessorAttributes final
 namespace lemons::files
 {
 
+/** @name ProcessorAttributes */
+///@{
+
 template <FileType Type = FileType::JSON>
 [[nodiscard]] plugin::ProcessorAttributes loadProcessorAttributes (const File& file);
 
 template <FileType Type = FileType::JSON>
 bool saveProcessorAttributes (const plugin::ProcessorAttributes& layout, const File& file);
+
+///@}
 
 }  // namespace lemons::files
 

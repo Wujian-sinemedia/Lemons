@@ -32,6 +32,8 @@ public:
 	/** Destructor. */
 	virtual ~Engine() = default;
 
+    /** @name Processing */
+    ///@{
 
 	/** Processes the audio engine with in-place audio I/O and MIDI.
 	    @param inplaceInAndOut The audio buffer that the input will be read from and the output will be written to.
@@ -74,6 +76,8 @@ public:
 	              AudioBuffer<SampleType>&       output,
 	              bool                           isBypassed = false);
 
+    ///@}
+    
 
 	/** Returns true if prepare() has been called at least once since the object's construction or the last releaseResources() call.
 	    @see prepare(), releaseResources()

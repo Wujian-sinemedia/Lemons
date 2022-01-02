@@ -39,47 +39,89 @@ public:
 
 	void processMidiEvent (const MidiMessage& m);
 
-	void playChord (const juce::Array<int>& desiredPitches, float velocity = 1.0f, bool allowTailOffOfOld = false);
-
-	void allNotesOff (bool allowTailOff = false, float velocity = 1.0f);
-
-	void turnOffAllKeyupNotes (bool  allowTailOff                = false,
-	                           bool  includePedalPitchAndDescant = true,
-	                           float velocity                    = 1.0f,
-	                           bool  overrideSostenutoPedal      = true);
-
-    [[nodiscard]] bool isPitchActive (int midiPitch, bool countRingingButReleased = false, bool countKeyUpNotes = false) const;
-	void reportActiveNotes (juce::Array<int>& outputArray, bool includePlayingButReleased = false, bool includeKeyUpNotes = true) const;
-
     [[nodiscard]] int  getNumActiveVoices() const;
     [[nodiscard]] int  getNumVoices() const noexcept { return voices->size(); }
 	void changeNumVoices (int newNumVoices);
+    
+    [[nodiscard]] const midi::PitchPipeline* getPitchAdjuster() { return &pitch; }
+    
+    
+    /** MIDI settings */
+    ///@{
 
 	void setNoteStealingEnabled (bool shouldSteal) noexcept { shouldStealNotes = shouldSteal; }
 	void updateMidiVelocitySensitivity (int newSensitivity);
 	void updatePitchbendRange (int rangeUp, int rangeDown);
 	void updatePitchbendRange (int rangeSemitones);
 	void setAftertouchGainOnOff (bool shouldBeOn) { aftertouchGainIsOn = shouldBeOn; }
+    
+    ///@}
+    
+    /** @name Chords */
+    ///@{
+    
+    void playChord (const juce::Array<int>& desiredPitches, float velocity = 1.0f, bool allowTailOffOfOld = false);
+    
+    void allNotesOff (bool allowTailOff = false, float velocity = 1.0f);
+    
+    void turnOffAllKeyupNotes (bool  allowTailOff                = false,
+                               bool  includePedalPitchAndDescant = true,
+                               float velocity                    = 1.0f,
+                               bool  overrideSostenutoPedal      = true);
+    
+    ///@}
+    
+    /** @name Note reporting */
+    ///@{
+    
+    [[nodiscard]] bool isPitchActive (int midiPitch, bool countRingingButReleased = false, bool countKeyUpNotes = false) const;
+    void reportActiveNotes (juce::Array<int>& outputArray, bool includePlayingButReleased = false, bool includeKeyUpNotes = true) const;
+    
+    ///@}
+    
+    /** @name MIDI latch */
+    ///@{
 
 	void setMidiLatch (bool shouldBeOn, const bool allowTailOff = false);
     [[nodiscard]] bool isLatched() const noexcept { return latchIsOn; }
+    
+    ///@}
+    
+    /** @name ADSRs */
+    ///@{
 
 	void updateADSRsettings (float attack, float decay, float sustain, float release);
 	void updateQuickReleaseMs (int newMs);
+    
+    ///@}
+    
+    /** @name MIDI pedals */
+    ///@{
 
     [[nodiscard]] bool isSustainPedalDown() const noexcept { return midi.router.isSustainPedalDown(); }
     [[nodiscard]] bool isSostenutoPedalDown() const noexcept { return midi.router.isSostenutoPedalDown(); }
     [[nodiscard]] bool isSoftPedalDown() const noexcept { return midi.router.isSoftPedalDown(); }
     [[nodiscard]] bool isAftertouchGainOn() const noexcept { return aftertouchGainIsOn; }
+    
+    ///@}
+    
+    /** @name MTS-ESP */
+    ///@{
 
     [[nodiscard]] bool   isConnectedToMtsEsp() const { return pitch.tuning.isConnected(); }
     [[nodiscard]] String getScaleName() const { return pitch.tuning.getScaleName(); }
+    
+    ///@}
+    
+    /** @name Pitch glide */
+    ///@{
 
 	void setPitchGlideTime (double glideTimeSeconds);
 	void togglePitchGlide (bool shouldGlide);
+    
+    ///@}
 
-    [[nodiscard]] const midi::PitchPipeline* getPitchAdjuster() { return &pitch; }
-
+    
 	juce::MidiKeyboardState keyboardState;
 
 	synth::PanningManager<SampleType> panner { *this };

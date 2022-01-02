@@ -18,6 +18,9 @@
 namespace lemons::math
 {
 
+/** @name Divisibility */
+///@{
+
 /** Returns true if the number is divisible by the divisor with no remainder. */
 [[nodiscard]] constexpr bool isDivisibleBy (int number, int divisor) noexcept
 {
@@ -31,6 +34,11 @@ namespace lemons::math
 	return isDivisibleBy (number, 2);
 }
 
+///@}
+
+
+/** @name Frequency/period conversion */
+///@{
 
 /** Returns the period in samples of a frequency at the specified samplerate. */
 template <typename FreqType>
@@ -57,6 +65,12 @@ template <typename PeriodType>
 		return static_cast<PeriodType> (val);
 }
 
+///@}
+
+
+/** @name Samples/milliseconds conversion */
+///@{
+
 /** Converts a number of samples to milliseconds at the specified samplerate. */
 [[nodiscard]] constexpr double sampsToMs (double samplerate, int numSamples) noexcept
 {
@@ -75,6 +89,12 @@ template <typename msType>
 
     return juce::roundToInt (val);
 }
+
+///@}
+
+
+/** @name MIDI/frequency conversion */
+///@{
 
 /** Converts a MIDI note to a frequency in Hz. */
 template <typename T>
@@ -100,6 +120,7 @@ template <typename T>
 		return static_cast<T> (val);
 }
 
+///@}
 
 }  // namespace lemons::math
 

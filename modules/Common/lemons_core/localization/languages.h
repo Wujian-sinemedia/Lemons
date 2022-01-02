@@ -22,6 +22,10 @@ namespace lemons::locale
 using juce::String;
 using juce::StringArray;
 
+
+/** @name ISO language codes */
+///@{
+
 /** Converts the name of a language to an ISO639-1 or ISO639-2 language code.
     @param name The name of the language. If the passed language name cannot be located in the list of known languages, an empty string will be returned.
     @param asISO639_2 When true, the returned language code will be a 3-character ISO639-2 code. When false, the returned language code will be a 2-character ISO639-1 code. Note that not all known languages have ISO639-1 codes, as some languages were added to the ISO639-2 extension of the standard.
@@ -37,6 +41,11 @@ using juce::StringArray;
  */
 [[nodiscard]] String languageCodeToName (const String& languageCode);
 
+///@}
+
+
+/** ISO country codes */
+///@{
 
 /** Returns a list of 2-character ISO 3166 country codes where the specified language is an officially recognized language, a significant minority language, or a local indigenous language.
     These country codes are referenced from https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes.
@@ -61,5 +70,7 @@ using juce::StringArray;
     @see getLanguageNamesForCountry()
  */
 [[nodiscard]] StringArray getLanguageCodesForCountry (const String& countryCode, bool asISO639_2 = true);
+
+///@}
 
 }  // namespace lemons::locale

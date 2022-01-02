@@ -52,14 +52,21 @@ public:
 	/** Creates a typed parameter from a ParameterTraits object. */
 	explicit TypedParameter (const ParameterTraits& traits);
 
-	/** Returns a ParameterTraits object representing this parameter. */
-	[[nodiscard]] ParameterTraits getParameterTraits() const final;
 
 	/** Returns the parameter's current value. */
 	[[nodiscard]] ValueType get() const noexcept;
 
 	/** Sets the parameter's value. */
 	void set (ValueType newValue);
+    
+    /** Returns the minimum possible value for this parameter. */
+    [[nodiscard]] ValueType getMinimum() const noexcept;
+    
+    /** Returns the maximum possible value for this parameter. */
+    [[nodiscard]] ValueType getMaximum() const noexcept;
+    
+    /** @name Functions related to the default value */
+    ///@{
 
 	/** Returns the parameter's current default value. */
 	[[nodiscard]] ValueType getDefault() const noexcept;
@@ -67,11 +74,10 @@ public:
 	/** Sets the parameter's default value. */
 	void setDefault (ValueType newDefault);
 
-	/** Returns the minimum possible value for this parameter. */
-	[[nodiscard]] ValueType getMinimum() const noexcept;
+	///@}
 
-	/** Returns the maximum possible value for this parameter. */
-	[[nodiscard]] ValueType getMaximum() const noexcept;
+    /** @name Functions for converting to/from text */
+    ///@{
 
 	/** Returns a textual description for a parameter value. */
 	[[nodiscard]] String getStringForValue (ValueType value, int maxLength = 50) const;
@@ -81,12 +87,25 @@ public:
 
 	/** Converts some user input text to a possible representation as a parameter value. */
 	[[nodiscard]] ValueType getValueForString (const String& string) const;
+    
+    ///@}
+    
+    /** @name Functions for state saving and loading */
+    ///@{
 
 	/** Saves the state of this parameter to a ValueTree. */
 	[[nodiscard]] virtual ValueTree saveToValueTree() const override;
 
 	/** Restores the parameter's state from a ValueTree. */
 	virtual void loadFromValueTree (const ValueTree& tree) override;
+    
+    /** Returns a ParameterTraits object representing this parameter. */
+    [[nodiscard]] ParameterTraits getParameterTraits() const final;
+    
+    ///@}
+    
+    /** The parameter's value type is publically accessible through this typedef. */
+    using ParameterValueType = ValueType;
 
 	/*---------------------------------------------------------------------------------------------------------------------------*/
 
@@ -137,9 +156,6 @@ public:
 	};
 
 	/*---------------------------------------------------------------------------------------------------------------------------*/
-
-	/** The parameter's value type is publically accessible through this typedef. */
-	using ParameterValueType = ValueType;
 
 private:
 	ValToStringFunc<ValueType> stringFromValueFunction;

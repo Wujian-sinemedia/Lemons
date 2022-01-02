@@ -41,6 +41,7 @@ using StringToValFunc = std::function<ValueType (const String&)>;
 }  // namespace lemons::plugin
 
 
+/** @internal */
 namespace lemons::plugin::detail
 {
 

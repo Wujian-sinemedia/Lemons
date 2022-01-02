@@ -37,6 +37,10 @@ public:
 	    Note that before calling this, you must set the samplerate of the algorithm using Analyzer::setSamplerate()!
 	 */
 	void setPitch (int pitchHz) noexcept;
+    
+    
+    /** @name Processing */
+    ///@{
 
 	/** Returns the next block of repitched samples from the shifter. */
 	void getSamples (AudioBuffer<SampleType>& output);
@@ -44,12 +48,14 @@ public:
 	/** Returns the next block of repitched samples from the shifter. */
 	void getSamples (SampleType* output, int numSamples);
 
-	/** Skips a number of samples in the shifter's output (ie, for when it is bypassed). */
-	void skipSamples (int numSamples);
-
 	/** Returns the next repitched sample from the shifter. */
 	[[nodiscard]] SampleType getNextSample();
-
+    
+    /** Skips a number of samples in the shifter's output (ie, for when it is bypassed). */
+    void skipSamples (int numSamples);
+    
+    ///@}
+    
 	/** Resets the shifter to its initial state, without releasing any resources. Note that this is called for you if you call Analyzer::reset(). */
 	void reset() noexcept;
 

@@ -37,6 +37,10 @@ enum class FileType
 	Opaque
 };
 
+
+/** @name ValueTrees */
+///@{
+
 /** Attempts to load a ValueTree from a file of the specified format. The default format is JSON.
     @see saveValueTree()
  */
@@ -55,20 +59,29 @@ template <FileType Type = FileType::JSON>
 template <FileType Type = FileType::JSON>
 bool saveValueTree (const File& file, const ValueTree& tree);
 
+///@}
+
+
+/** @name MemoryBlocks */
+///@{
+
+/** Loads a File into a MemoryBlock.
+ @see saveBlockToFile()
+ */
+[[nodiscard]] MemoryBlock loadFileAsBlock (const File& file);
+
+/** Writes the block of data into the File.
+ @see loadFileAsBlock()
+ */
+bool saveBlockToFile (const MemoryBlock& block, const File& file);
+
+///@}
+
+
 /** Returns true if the file has a file extension matching any standard MIDI file extensions. */
 [[nodiscard]] bool isMidiFile (const File& file);
 
 /** Returns a file on the desktop with the specified name. */
 [[nodiscard]] File getFileOnDesktop (const String& fileName);
-
-/** Loads a File into a MemoryBlock.
-    @see saveBlockToFile()
- */
-[[nodiscard]] MemoryBlock loadFileAsBlock (const File& file);
-
-/** Writes the block of data into the File.
-    @see loadFileAsBlock()
- */
-bool saveBlockToFile (const MemoryBlock& block, const File& file);
 
 }  // namespace lemons::files

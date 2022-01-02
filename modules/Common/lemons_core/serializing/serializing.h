@@ -27,12 +27,21 @@ using juce::ValueTree;
 
 static constexpr auto rangeTreeType = "NormalisableRange";
 
+
+/** @name NormalisableRange objects */
+///@{
+
 template <typename ValueType>
 [[nodiscard]] ValueTree rangeToValueTree (const juce::NormalisableRange<ValueType>& range);
 
 template <typename ValueType>
 [[nodiscard]] juce::NormalisableRange<ValueType> valueTreeToRange (const ValueTree& tree);
 
+///@}
+
+
+/** @name MemoryBlocks */
+///@{
 
 /** Converts a MemoryBlock to a String representation.
     @see memoryBlockFromString()
@@ -44,6 +53,11 @@ template <typename ValueType>
  */
 [[nodiscard]] MemoryBlock memoryBlockFromString (const String& string);
 
+///@}
+
+
+/** @name ValueTree/JSON conversion */
+///@{
 
 /** Converts a ValueTree to a JSON string.
     @see valueTreeFromJSON()
@@ -54,6 +68,8 @@ template <typename ValueType>
     @see valueTreeToJSON()
  */
 [[nodiscard]] ValueTree valueTreeFromJSON (const String& jsonText);
+
+///@}
 
 }  // namespace lemons::serializing
 

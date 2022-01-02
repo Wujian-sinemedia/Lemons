@@ -75,6 +75,9 @@ private:
 };
 
 
+/** @name MIDI buffer/file conversion */
+///@{
+
 /** Converts a MIDI buffer to a MIDI file object.
     @see midiBufferFromFile()
  */
@@ -87,5 +90,7 @@ private:
     @see midiBufferToFile()
  */
 [[nodiscard]] MidiBuffer midiBufferFromFile (const MidiFile& file, int trackToRead = -1);
+
+///@}
 
 }  // namespace lemons::midi

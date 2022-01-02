@@ -11,6 +11,10 @@ using juce::Image;
 using juce::juce_wchar;
 using juce::MemoryBlock;
 
+
+/** @name Images */
+///@{
+
 /** Encodes an Image object as a blob of binary data. Internally, this uses JUCE's PNGImageFormat.
     @see imageFromBinary(), saveImageToFile()
  */
@@ -21,10 +25,17 @@ using juce::MemoryBlock;
  */
 [[nodiscard]] Image imageFromBinary (const MemoryBlock& block);
 
+///@}
+
+
+/** @name Fonts */
+///@{
 
 [[nodiscard]] MemoryBlock fontToBinary (const juce::Font& font, int maxNumChars = 127, juce_wchar defaultChar = ' ');
 
 [[nodiscard]] std::unique_ptr<juce::CustomTypeface> fontFromBinary (const MemoryBlock& block);
+
+///@}
 
 }  // namespace lemons::serializing
 
@@ -33,6 +44,9 @@ namespace lemons::files
 {
 
 using juce::Image;
+
+/** @name Images */
+///@{
 
 /** Saves an Image to a File.
     @see loadImageFromFile(), imageToBinary()
@@ -44,10 +58,17 @@ bool saveImage (const Image& image, const File& file);
  */
 [[nodiscard]] Image loadImage (const File& file);
 
+///@}
+
+
+/** @name Fonts */
+///@{
 
 bool saveFont (const juce::Font& font, const File& file, int maxNumChars = 127, juce_wchar defaultChar = ' ');
 
 [[nodiscard]] std::unique_ptr<juce::CustomTypeface> loadFont (const File& file);
+
+///@}
 
 }
 
@@ -56,6 +77,9 @@ namespace lemons::binary
 {
 
 using juce::String;
+
+/** @name Graphics */
+///@{
 
 /** Returns an image object from an image file in the BinaryData target.
     If the image can't be loaded, an assertion will be thrown.
@@ -68,6 +92,8 @@ using juce::String;
     @see serializing::serializeFont()
  */
 [[nodiscard]] std::unique_ptr<juce::CustomTypeface> getFont (const String& filename);
+
+///@}
 
 }
 

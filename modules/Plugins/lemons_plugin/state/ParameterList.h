@@ -34,9 +34,11 @@ public:
 
 	void addTo (juce::AudioProcessor& processor) const;
 
-	[[nodiscard]] ParameterLayout getParameterLayout() const;
-
 	Parameter& add (std::unique_ptr<Parameter> parameter);
+    
+    
+    /** @name Accessing parameters */
+    ///@{
 
 	[[nodiscard]] ToggleParameter& getBypass() const;
 
@@ -65,19 +67,35 @@ public:
 	[[nodiscard]] juce::Array<MetaParameterBase*> getMetaParameters() const;
 
 	[[nodiscard]] juce::Array<Parameter*> getMeterParameters() const;
+    
+    ///@}
+    
+    
+    /** @name MIDI controller messages */
+    ///@{
 
 	void processControllerMessage (int number, int value);
 
 	void resetAllControllerMappedParams();
 
 	[[nodiscard]] bool isControllerMapped (int number) const;
+    
+    ///@}
+    
+    
+    /** @name Saving and loading state */
+    ///@{
 
 	[[nodiscard]] ValueTree saveToValueTree() const;
 
 	void loadFromValueTree (const ValueTree& tree);
+    
+    [[nodiscard]] ParameterLayout getParameterLayout() const;
 
 	static constexpr auto valueTreeType = "Parameters";
 
+    ///@}
+    
 
 	struct Listener final
 	{

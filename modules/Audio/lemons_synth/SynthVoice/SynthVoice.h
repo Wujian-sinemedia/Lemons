@@ -22,6 +22,11 @@ public:
 	void renderBlock (AudioBuffer<SampleType>& output);
 
 	void bypassedBlock (int numSamples);
+    
+    void setTargetOutputFrequency (float newFreq);
+    
+    /** @name Attribute queries */
+    ///@{
 
     [[nodiscard]] bool isCurrentPedalVoice() const noexcept { return isPedalPitchVoice; }
     [[nodiscard]] bool isCurrentDescantVoice() const noexcept { return isDescantVoice; }
@@ -40,10 +45,15 @@ public:
 
     [[nodiscard]] int getMidiChannel() const { return midiChannel > 0 ? midiChannel : parent->midi.router.getLastMidiChannel(); }
 
-	void setTargetOutputFrequency (float newFreq);
+    ///@}
+    
+    /** @name Pitch glide */
+    ///@{
 
 	void setPitchGlideTime (double glideTimeSeconds);
 	void togglePitchGlide (bool shouldGlide);
+    
+    ///@}
 
 protected:
 	friend class SynthBase<SampleType>;
