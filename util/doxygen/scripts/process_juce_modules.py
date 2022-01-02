@@ -62,18 +62,15 @@ def process_module_category (category_name, orig_cat_dir, dest_cat_dir):
     category_definiton = []
     category_definiton.append ("/** @defgroup {n} {n}".format (n=category_name))
 
+    category_definiton.append ("")
     category_definiton.append ("    {d}".format (d=category_info[0]))
     category_definiton.append ("")
     category_definiton.append ("    {l}".format (l=category_info[1]))
 
     del category_info
 
-    category_definiton.append ("")
-    category_definiton.append ("    @{")
     category_definiton.append ("*/")
-
     category_definiton.append ("")
-    category_definiton.append ("/** @} */")
 
     return "\r\n".join (category_definiton)
 
