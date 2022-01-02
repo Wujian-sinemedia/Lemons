@@ -1,17 +1,10 @@
 var searchData=
 [
-  ['saturation_2eh_1524',['Saturation.h',['../_saturation_8h.html',1,'']]],
-  ['shifter_2eh_1525',['shifter.h',['../shifter_8h.html',1,'']]],
-  ['sliderbase_2eh_1526',['SliderBase.h',['../_slider_base_8h.html',1,'']]],
-  ['sliders_2eh_1527',['Sliders.h',['../_sliders_8h.html',1,'']]],
-  ['smoothedgain_2eh_1528',['SmoothedGain.h',['../_smoothed_gain_8h.html',1,'']]],
-  ['specializations_2eh_1529',['Specializations.h',['../_specializations_8h.html',1,'']]],
-  ['spline_2eh_1530',['Spline.h',['../_spline_8h.html',1,'']]],
-  ['splineeditor_2eh_1531',['SplineEditor.h',['../_spline_editor_8h.html',1,'']]],
-  ['statetogglebuttons_2eh_1532',['StateToggleButtons.h',['../_state_toggle_buttons_8h.html',1,'']]],
-  ['stereopanner_2eh_1533',['StereoPanner.h',['../_stereo_panner_8h.html',1,'']]],
-  ['stringfunctions_2eh_1534',['StringFunctions.h',['../_string_functions_8h.html',1,'']]],
-  ['supersaw_2eh_1535',['SuperSaw.h',['../_super_saw_8h.html',1,'']]],
-  ['synth_2eh_1536',['Synth.h',['../_synth_8h.html',1,'']]],
-  ['synthvoice_2eh_1537',['SynthVoice.h',['../_synth_voice_8h.html',1,'']]]
+  ['templatesynth_2eh_1594',['TemplateSynth.h',['../_template_synth_8h.html',1,'']]],
+  ['test_2eh_1595',['test.h',['../test_8h.html',1,'']]],
+  ['timbremod_2eh_1596',['TimbreMod.h',['../_timbre_mod_8h.html',1,'']]],
+  ['timers_2eh_1597',['Timers.h',['../_timers_8h.html',1,'']]],
+  ['timesignature_2eh_1598',['TimeSignature.h',['../_time_signature_8h.html',1,'']]],
+  ['translationfiles_2eh_1599',['TranslationFiles.h',['../_translation_files_8h.html',1,'']]],
+  ['translations_2eh_1600',['translations.h',['../translations_8h.html',1,'']]]
 ];

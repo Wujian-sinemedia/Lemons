@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['saw_2344',['Saw',['../namespacelemons_1_1dsp_1_1osc.html#a1771007d411d4f6426cc3773961dfa5dac551a26a97a7440529e861dff6933722',1,'lemons::dsp::osc']]],
-  ['sine_2345',['Sine',['../namespacelemons_1_1dsp_1_1osc.html#a1771007d411d4f6426cc3773961dfa5da6ca9e2d793f678aba7c1b19526592a46',1,'lemons::dsp::osc']]],
-  ['square_2346',['Square',['../namespacelemons_1_1dsp_1_1osc.html#a1771007d411d4f6426cc3773961dfa5daceb46ca115d05c51aa5a16a8867c3304',1,'lemons::dsp::osc']]],
-  ['supersaw_2347',['SuperSaw',['../namespacelemons_1_1dsp_1_1osc.html#a1771007d411d4f6426cc3773961dfa5dae9bf866a0336b772631bb909f722ab23',1,'lemons::dsp::osc']]]
+  ['peak_2438',['Peak',['../namespacelemons_1_1dsp_1_1_f_x.html#a2a75c0c88cd8cbd576add3c0d4db1d14aa21e600ebbe2eab6697e3087ee1fdb9f',1,'lemons::dsp::FX']]],
+  ['perfect_2439',['Perfect',['../classlemons_1_1music_1_1_interval.html#a5a677d72fb8a097e3f341402120a7d7ca56cdd7e9e3cef1974f4075c03a80332d',1,'lemons::music::Interval']]]
 ];

@@ -71,7 +71,7 @@ $(function() {
 <a href="#typedef-members">Typedefs</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">lemons::serializing Namespace Reference<div class="ingroups"><a class="el" href="group___common.html">Common</a> &raquo; <a class="el" href="group__lemons__musicology.html">lemons_musicology</a><a class="el" href="group___audio.html">Audio</a> &raquo;  &#124; <a class="el" href="group__lemons__dsp.html">lemons_dsp</a><a class="el" href="group___testing.html">Testing</a> &raquo;  &#124; <a class="el" href="group__lemons__unit__testing.html">lemons_unit_testing</a> &raquo; <a class="el" href="group__util.html">util</a><a class="el" href="group___audio.html">Audio</a> &raquo; <a class="el" href="group__lemons__midi.html">lemons_midi</a><a class="el" href="group___g_u_i.html">GUI</a> &raquo;  &#124; <a class="el" href="group__lemons__gui.html">lemons_gui</a> &raquo;  &#124; <a class="el" href="group__utilities.html">utilities</a><a class="el" href="group___common.html">Common</a> &raquo; <a class="el" href="group__lemons__core.html">lemons_core</a> &raquo;  &#124; <a class="el" href="group__serializing.html">serializing</a></div></div>  </div>
+<div class="title">lemons::serializing Namespace Reference<div class="ingroups"><a class="el" href="group___common.html">Common</a> &raquo; <a class="el" href="group__lemons__musicology.html">lemons_musicology</a><a class="el" href="group___audio.html">Audio</a> &raquo;  &#124; <a class="el" href="group__lemons__dsp.html">lemons_dsp</a><a class="el" href="group___plugins.html">Plugins</a> &raquo;  &#124; <a class="el" href="group__lemons__plugin.html">lemons_plugin</a> &raquo; <a class="el" href="group__util.html">util</a><a class="el" href="group___audio.html">Audio</a> &raquo; <a class="el" href="group__lemons__midi.html">lemons_midi</a><a class="el" href="group___g_u_i.html">GUI</a> &raquo;  &#124; <a class="el" href="group__lemons__gui.html">lemons_gui</a> &raquo;  &#124; <a class="el" href="group__utilities.html">utilities</a><a class="el" href="group___common.html">Common</a> &raquo; <a class="el" href="group__lemons__core.html">lemons_core</a> &raquo;  &#124; <a class="el" href="group__serializing.html">serializing</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
@@ -134,6 +134,9 @@ Functions</h2></td></tr>
 <tr class="memitem:aeacda195ca89506992384c26458355cf"><td class="memItemLeft" align="right" valign="top">MemoryBlock&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html#aeacda195ca89506992384c26458355cf">midiToBinary</a> (const MidiFile &amp;midi)</td></tr>
 <tr class="memdesc:aeacda195ca89506992384c26458355cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Encodes a MidiFile as a blob of binary data.  <a href="namespacelemons_1_1serializing.html#aeacda195ca89506992384c26458355cf">More...</a><br /></td></tr>
 <tr class="separator:aeacda195ca89506992384c26458355cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad52d848aba3f9614ace803cb0b840dda"><td class="memTemplParams" colspan="2">template&lt;typename ValueType &gt; </td></tr>
+<tr class="memitem:ad52d848aba3f9614ace803cb0b840dda"><td class="memTemplItemLeft" align="right" valign="top">ValueTree&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html#ad52d848aba3f9614ace803cb0b840dda">rangeToValueTree</a> (const juce::NormalisableRange&lt; ValueType &gt; &amp;range)</td></tr>
+<tr class="separator:ad52d848aba3f9614ace803cb0b840dda"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8c233626921d368c3413e4a2a9f19232"><td class="memTemplParams" colspan="2">template&lt;typename SampleType &gt; </td></tr>
 <tr class="memitem:a8c233626921d368c3413e4a2a9f19232"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html#a8c233626921d368c3413e4a2a9f19232">saveAudioToFile</a> (const <a class="el" href="namespacelemons_1_1serializing.html#aebcdf9ccc626b6fb5a8dc121e65fec81">AudioBuffer</a>&lt; SampleType &gt; &amp;buffer, const File &amp;file, double samplerate=48000.)</td></tr>
 <tr class="memdesc:a8c233626921d368c3413e4a2a9f19232"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes an AudioBuffer to a File in FLAC format.  <a href="namespacelemons_1_1serializing.html#a8c233626921d368c3413e4a2a9f19232">More...</a><br /></td></tr>
@@ -156,6 +159,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a44dc62981a244f674a7b47738595d0ac"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html#a44dc62981a244f674a7b47738595d0ac">valueTreeToJSON</a> (const ValueTree &amp;v)</td></tr>
 <tr class="memdesc:a44dc62981a244f674a7b47738595d0ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a ValueTree to a JSON string.  <a href="namespacelemons_1_1serializing.html#a44dc62981a244f674a7b47738595d0ac">More...</a><br /></td></tr>
 <tr class="separator:a44dc62981a244f674a7b47738595d0ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe8547288b1d7c2cda9ec239589d39fb"><td class="memTemplParams" colspan="2">template&lt;typename ValueType &gt; </td></tr>
+<tr class="memitem:abe8547288b1d7c2cda9ec239589d39fb"><td class="memTemplItemLeft" align="right" valign="top">juce::NormalisableRange&lt; ValueType &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html#abe8547288b1d7c2cda9ec239589d39fb">valueTreeToRange</a> (const ValueTree &amp;tree)</td></tr>
+<tr class="separator:abe8547288b1d7c2cda9ec239589d39fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Typedef Documentation</h2>
 <a id="aebcdf9ccc626b6fb5a8dc121e65fec81"></a>
@@ -334,7 +340,7 @@ template&lt;typename SampleType &gt; </div>
 </div><div class="memdoc">
 
 <p>Loads a MidiBuffer from a file on disk. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="namespacelemons_1_1serializing.html#a02be9ff9b2eaa39d8ab1119123d88b1d" title="Saves a MidiFile to a file on disk.">saveMidiToFile()</a>, <a class="el" href="namespacelemons_1_1binary.html#a355eef1de9b6b15e19edebf01f53cffc" title="Returns a MIDI buffer object from a MIDI file in the BinaryData target.">binary::Data::getMidi()</a> </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="namespacelemons_1_1serializing.html#a02be9ff9b2eaa39d8ab1119123d88b1d" title="Saves a MidiFile to a file on disk.">saveMidiToFile()</a>, binary::Data::getMidi() </dd></dl>
 
 </div>
 </div>
@@ -355,7 +361,7 @@ template&lt;typename SampleType &gt; </div>
 </div><div class="memdoc">
 
 <p>Loads a MidiFile from a file on disk. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="namespacelemons_1_1serializing.html#a02be9ff9b2eaa39d8ab1119123d88b1d" title="Saves a MidiFile to a file on disk.">saveMidiToFile()</a>, <a class="el" href="namespacelemons_1_1serializing.html#ac2752e9db22b821d34b58804297697c4" title="Converts a MIDI file object to a MIDI buffer.">midiBufferFromFile()</a>, <a class="el" href="namespacelemons_1_1binary.html#a355eef1de9b6b15e19edebf01f53cffc" title="Returns a MIDI buffer object from a MIDI file in the BinaryData target.">binary::Data::getMidi()</a> </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="namespacelemons_1_1serializing.html#a02be9ff9b2eaa39d8ab1119123d88b1d" title="Saves a MidiFile to a file on disk.">saveMidiToFile()</a>, <a class="el" href="namespacelemons_1_1serializing.html#ac2752e9db22b821d34b58804297697c4" title="Converts a MIDI file object to a MIDI buffer.">midiBufferFromFile()</a>, binary::Data::getMidi() </dd></dl>
 
 </div>
 </div>
@@ -418,7 +424,7 @@ template&lt;typename SampleType &gt; </div>
 </div><div class="memdoc">
 
 <p>Returns a MidiBufer from a binary representation of one. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="namespacelemons_1_1serializing.html#a1464835a9b444ee16712c67565260518" title="Returns a MidiFile from a binary representation of one.">midiFileFromBinary()</a>, <a class="el" href="namespacelemons_1_1serializing.html#a9f9b5afb4a6bd15f8c8801923c12e1f7" title="Encodes a MidiBuffer as a blob of binary data.">midiToBinary()</a>, <a class="el" href="namespacelemons_1_1serializing.html#ae8e7d43517d8fa847dec1f55b483a504" title="Loads a MidiFile from a file on disk.">loadMidiFromFile()</a>, <a class="el" href="namespacelemons_1_1binary.html#a355eef1de9b6b15e19edebf01f53cffc" title="Returns a MIDI buffer object from a MIDI file in the BinaryData target.">binary::Data::getMidi()</a> </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="namespacelemons_1_1serializing.html#a1464835a9b444ee16712c67565260518" title="Returns a MidiFile from a binary representation of one.">midiFileFromBinary()</a>, <a class="el" href="namespacelemons_1_1serializing.html#a9f9b5afb4a6bd15f8c8801923c12e1f7" title="Encodes a MidiBuffer as a blob of binary data.">midiToBinary()</a>, <a class="el" href="namespacelemons_1_1serializing.html#ae8e7d43517d8fa847dec1f55b483a504" title="Loads a MidiFile from a file on disk.">loadMidiFromFile()</a>, binary::Data::getMidi() </dd></dl>
 
 </div>
 </div>
@@ -498,7 +504,7 @@ template&lt;typename SampleType &gt; </div>
 </div><div class="memdoc">
 
 <p>Returns a MidiFile from a binary representation of one. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="namespacelemons_1_1serializing.html#a04f7d173de93a9bf72be15fb86f2f518" title="Returns a MidiBufer from a binary representation of one.">midiBufferFromBinary()</a>, <a class="el" href="namespacelemons_1_1serializing.html#a9f9b5afb4a6bd15f8c8801923c12e1f7" title="Encodes a MidiBuffer as a blob of binary data.">midiToBinary()</a>, <a class="el" href="namespacelemons_1_1serializing.html#ae8e7d43517d8fa847dec1f55b483a504" title="Loads a MidiFile from a file on disk.">loadMidiFromFile()</a>, <a class="el" href="namespacelemons_1_1binary.html#a355eef1de9b6b15e19edebf01f53cffc" title="Returns a MIDI buffer object from a MIDI file in the BinaryData target.">binary::Data::getMidi()</a> </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="namespacelemons_1_1serializing.html#a04f7d173de93a9bf72be15fb86f2f518" title="Returns a MidiBufer from a binary representation of one.">midiBufferFromBinary()</a>, <a class="el" href="namespacelemons_1_1serializing.html#a9f9b5afb4a6bd15f8c8801923c12e1f7" title="Encodes a MidiBuffer as a blob of binary data.">midiToBinary()</a>, <a class="el" href="namespacelemons_1_1serializing.html#ae8e7d43517d8fa847dec1f55b483a504" title="Loads a MidiFile from a file on disk.">loadMidiFromFile()</a>, binary::Data::getMidi() </dd></dl>
 
 </div>
 </div>
@@ -541,6 +547,26 @@ template&lt;typename SampleType &gt; </div>
 
 <p>Encodes a MidiFile as a blob of binary data. </p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="namespacelemons_1_1serializing.html#a1464835a9b444ee16712c67565260518" title="Returns a MidiFile from a binary representation of one.">midiFileFromBinary()</a>, <a class="el" href="namespacelemons_1_1serializing.html#a02be9ff9b2eaa39d8ab1119123d88b1d" title="Saves a MidiFile to a file on disk.">saveMidiToFile()</a> </dd></dl>
+
+</div>
+</div>
+<a id="ad52d848aba3f9614ace803cb0b840dda"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad52d848aba3f9614ace803cb0b840dda">&#9670;&nbsp;</a></span>rangeToValueTree()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename ValueType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">ValueTree lemons::serializing::rangeToValueTree </td>
+          <td>(</td>
+          <td class="paramtype">const juce::NormalisableRange&lt; ValueType &gt; &amp;&#160;</td>
+          <td class="paramname"><em>range</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -761,10 +787,30 @@ template&lt;typename SampleType &gt; </div>
 
 </div>
 </div>
+<a id="abe8547288b1d7c2cda9ec239589d39fb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe8547288b1d7c2cda9ec239589d39fb">&#9670;&nbsp;</a></span>valueTreeToRange()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename ValueType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">juce::NormalisableRange&lt;ValueType&gt; lemons::serializing::valueTreeToRange </td>
+          <td>(</td>
+          <td class="paramtype">const ValueTree &amp;&#160;</td>
+          <td class="paramname"><em>tree</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jan 2 2022 00:48:12 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jan 2 2022 10:12:30 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

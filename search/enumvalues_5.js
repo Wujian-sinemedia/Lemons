@@ -1,7 +1,4 @@
 var searchData=
 [
-  ['leftonly_2331',['leftOnly',['../namespacelemons_1_1dsp.html#aaf020aad6edbe51634e978b1d97a37e2a1551df77400b2edbe1682fef8b4ee182',1,'lemons::dsp']]],
-  ['low_2332',['Low',['../namespacelemons_1_1tests.html#abe71616eeadecd56537dd9a10376223ca28d0edd045e05cf5af64e35ae0c4c6ef',1,'lemons::tests']]],
-  ['lowpass_2333',['LowPass',['../namespacelemons_1_1dsp_1_1_f_x.html#a2a75c0c88cd8cbd576add3c0d4db1d14a835f2dc4fd545ddcd275198d9fbadf63',1,'lemons::dsp::FX']]],
-  ['lowshelf_2334',['LowShelf',['../namespacelemons_1_1dsp_1_1_f_x.html#a2a75c0c88cd8cbd576add3c0d4db1d14a04efcd6f392567e252822d1247d8c875',1,'lemons::dsp::FX']]]
+  ['intvalue_2426',['intValue',['../structlemons_1_1plugin_1_1_parameter_traits.html#a797e21c8a6569de5d14bc7d5f8160a9ea481f44389b52d587646c4a792551b4dc',1,'lemons::plugin::ParameterTraits']]]
 ];

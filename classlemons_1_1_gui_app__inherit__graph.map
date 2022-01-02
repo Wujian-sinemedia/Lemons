@@ -1,0 +1,4 @@
+<map id="lemons::GuiApp&lt; ContentComponentType, &gt;" name="lemons::GuiApp&lt; ContentComponentType, &gt;">
+<area shape="rect" id="node1" title="Represents the base for a generic GUI app." alt="" coords="5,95,272,136"/>
+<area shape="rect" id="node2" href="$structlemons_1_1locale_1_1_translations_initializer.html" title="A struct whose constructor simply calls initializeDefaultTranslations()." alt="" coords="37,5,240,47"/>
+</map>

@@ -1,8 +1,0 @@
-<map id="lemons::plugin::DefaultMetaParameter" name="lemons::plugin::DefaultMetaParameter">
-<area shape="rect" id="node1" title=" " alt="" coords="143,380,349,421"/>
-<area shape="rect" id="node2" href="$classlemons_1_1plugin_1_1_meta_parameter.html" title=" " alt="" coords="133,289,359,331"/>
-<area shape="rect" id="node3" href="$classlemons_1_1plugin_1_1_typed_parameter.html" title=" " alt="" coords="5,185,236,227"/>
-<area shape="rect" id="node4" href="$classlemons_1_1plugin_1_1_parameter.html" title="A plugin parameter class." alt="" coords="40,5,233,32"/>
-<area shape="rect" id="node5" href="$classlemons_1_1plugin_1_1_typed_parameter.html" title="A parameter that can be stored as a type other than a float, but still inherits from my Parameter bas..." alt="" coords="159,81,389,123"/>
-<area shape="rect" id="node6" href="$classlemons_1_1plugin_1_1_meta_parameter.html" title=" " alt="" coords="261,185,487,227"/>
-</map>

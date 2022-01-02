@@ -1,6 +1,5 @@
 <map id="lemons::plugin::MidiPitchParameter" name="lemons::plugin::MidiPitchParameter">
-<area shape="rect" id="node1" title="A parameter that represents a MIDI pitch." alt="" coords="14,261,201,303"/>
-<area shape="rect" id="node2" href="$classlemons_1_1plugin_1_1_typed_parameter.html" title=" " alt="" coords="54,185,161,212"/>
+<area shape="rect" id="node1" title="A parameter that represents a MIDI pitch." alt="" coords="9,155,195,196"/>
+<area shape="rect" id="node2" href="$classlemons_1_1plugin_1_1_typed_parameter.html" title="A parameter that can be stored as a type other than a float, but still inherits from my Parameter bas..." alt="" coords="49,80,155,107"/>
 <area shape="rect" id="node3" href="$classlemons_1_1plugin_1_1_parameter.html" title="A plugin parameter class." alt="" coords="5,5,199,32"/>
-<area shape="rect" id="node4" href="$classlemons_1_1plugin_1_1_typed_parameter.html" title="A parameter that can be stored as a type other than a float, but still inherits from my Parameter bas..." alt="" coords="124,81,355,123"/>
 </map>

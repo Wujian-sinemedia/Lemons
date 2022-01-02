@@ -69,7 +69,8 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#namespaces">Namespaces</a>  </div>
+<a href="#namespaces">Namespaces</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">data.h File Reference</div>  </div>
 </div><!--header-->
@@ -87,11 +88,33 @@ Namespaces</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:namespacelemons_1_1binary"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1binary.html">lemons::binary</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a52e71729d422f37cdcd3086f45e7168c"><td class="memItemLeft" align="right" valign="top">MemoryBlock&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1binary.html#a52e71729d422f37cdcd3086f45e7168c">lemons::binary::getBlob</a> (const String &amp;filename)</td></tr>
+<tr class="memdesc:a52e71729d422f37cdcd3086f45e7168c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns an opaque blob of binary data from a file in the BinaryData target.  <a href="namespacelemons_1_1binary.html#a52e71729d422f37cdcd3086f45e7168c">More...</a><br /></td></tr>
+<tr class="separator:a52e71729d422f37cdcd3086f45e7168c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f5893ae9f64c4e06e0285bbb38b27c4"><td class="memItemLeft" align="right" valign="top">juce::StringArray&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1binary.html#a3f5893ae9f64c4e06e0285bbb38b27c4">lemons::binary::getFilenames</a> ()</td></tr>
+<tr class="memdesc:a3f5893ae9f64c4e06e0285bbb38b27c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a list of file names that are available in the binary data target, ie, filenames that are valid arguments to the <a class="el" href="structlemons_1_1binary_1_1_data.html" title="Represents a wrapper around some data contained in a juce BinaryData target.">Data</a> constructor.  <a href="namespacelemons_1_1binary.html#a3f5893ae9f64c4e06e0285bbb38b27c4">More...</a><br /></td></tr>
+<tr class="separator:a3f5893ae9f64c4e06e0285bbb38b27c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e253707251df7318339c749531c832e"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1binary.html#a5e253707251df7318339c749531c832e">lemons::binary::getString</a> (const String &amp;textFileName)</td></tr>
+<tr class="memdesc:a5e253707251df7318339c749531c832e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a text file in the BinaryData target as one string.  <a href="namespacelemons_1_1binary.html#a5e253707251df7318339c749531c832e">More...</a><br /></td></tr>
+<tr class="separator:a5e253707251df7318339c749531c832e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a112a983671f03ff2480e8ac670d9495d"><td class="memItemLeft" align="right" valign="top">juce::StringArray&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1binary.html#a112a983671f03ff2480e8ac670d9495d">lemons::binary::getStrings</a> (const String &amp;textFileName)</td></tr>
+<tr class="memdesc:a112a983671f03ff2480e8ac670d9495d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns an array of strings, each containing a line of a text file in the BinaryData target.  <a href="namespacelemons_1_1binary.html#a112a983671f03ff2480e8ac670d9495d">More...</a><br /></td></tr>
+<tr class="separator:a112a983671f03ff2480e8ac670d9495d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7fee171f8c16e6a69a6bf67c3910cd9a"><td class="memTemplParams" colspan="2">template&lt;files::FileType Type = files::FileType::JSON&gt; </td></tr>
+<tr class="memitem:a7fee171f8c16e6a69a6bf67c3910cd9a"><td class="memTemplItemLeft" align="right" valign="top">ValueTree&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1binary.html#a7fee171f8c16e6a69a6bf67c3910cd9a">lemons::binary::getValueTree</a> (const String &amp;filename)</td></tr>
+<tr class="memdesc:a7fee171f8c16e6a69a6bf67c3910cd9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a ValueTree from a serialized file in the BinaryData target in the specified format.  <a href="namespacelemons_1_1binary.html#a7fee171f8c16e6a69a6bf67c3910cd9a">More...</a><br /></td></tr>
+<tr class="separator:a7fee171f8c16e6a69a6bf67c3910cd9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a45e0f639b83a42ca3121fdff8dcdcb70"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1binary.html#a45e0f639b83a42ca3121fdff8dcdcb70">lemons::binary::hasBinaryData</a> () noexcept</td></tr>
+<tr class="memdesc:a45e0f639b83a42ca3121fdff8dcdcb70"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if this module was compiled with the LEMONS_HAS_BINARY_DATA flag set to 1.  <a href="namespacelemons_1_1binary.html#a45e0f639b83a42ca3121fdff8dcdcb70">More...</a><br /></td></tr>
+<tr class="separator:a45e0f639b83a42ca3121fdff8dcdcb70"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jan 2 2022 00:48:12 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jan 2 2022 10:12:29 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

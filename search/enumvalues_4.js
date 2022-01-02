@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['json_2330',['JSON',['../namespacelemons_1_1files.html#ad8666caaa02a1d74f5e234b8900b5390a0ecd11c1d7a287401d148a23bbd7a2f8',1,'lemons::files']]]
+  ['high_2423',['High',['../namespacelemons_1_1tests.html#abe71616eeadecd56537dd9a10376223ca655d20c1ca69519ca647684edbb2db35',1,'lemons::tests']]],
+  ['highpass_2424',['HighPass',['../namespacelemons_1_1dsp_1_1_f_x.html#a2a75c0c88cd8cbd576add3c0d4db1d14ae9456dc865a19e434997ea20bb5373f6',1,'lemons::dsp::FX']]],
+  ['highshelf_2425',['HighShelf',['../namespacelemons_1_1dsp_1_1_f_x.html#a2a75c0c88cd8cbd576add3c0d4db1d14aaafe3de5c829706a2fda73dd43fd740e',1,'lemons::dsp::FX']]]
 ];

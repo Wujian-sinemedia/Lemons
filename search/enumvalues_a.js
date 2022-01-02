@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['rightonly_2343',['rightOnly',['../namespacelemons_1_1dsp.html#aaf020aad6edbe51634e978b1d97a37e2a97ed31f67756738d6c8d74a1ee8c565d',1,'lemons::dsp']]]
+  ['opaque_2437',['Opaque',['../namespacelemons_1_1files.html#ad8666caaa02a1d74f5e234b8900b5390afaa90538de35640e4b1e31ccf35b6eb5',1,'lemons::files']]]
 ];

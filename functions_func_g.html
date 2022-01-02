@@ -67,10 +67,10 @@ $(function() {
 
 <h3><a id="index_g"></a>- g -</h3><ul>
 <li>GainMeterParameter()
-: <a class="el" href="structlemons_1_1plugin_1_1_gain_meter_parameter.html#a39038687451b0aa2ee6054d148a6e739">lemons::plugin::GainMeterParameter</a>
+: <a class="el" href="structlemons_1_1plugin_1_1_gain_meter_parameter.html#a14911d448654f75aab25d7ee1f80d2c2">lemons::plugin::GainMeterParameter</a>
 </li>
 <li>GainParameter()
-: <a class="el" href="structlemons_1_1plugin_1_1_gain_parameter.html#ab0d6dd26251e03b0647829f6e269ce18">lemons::plugin::GainParameter</a>
+: <a class="el" href="structlemons_1_1plugin_1_1_gain_parameter.html#a82eec1bd12e1bfec7109c8c688b998e6">lemons::plugin::GainParameter</a>
 </li>
 <li>gestureStateChanged()
 : <a class="el" href="structlemons_1_1plugin_1_1_parameter_1_1_listener.html#ac0db7beb485e9164070104f5da7e7b40">lemons::plugin::Parameter::Listener</a>
@@ -129,11 +129,12 @@ $(function() {
 <li>getBitsPerSample()
 : <a class="el" href="structlemons_1_1dsp_1_1_audio_file.html#afb420bd0c55fa940eeb6d2b42dd3ce08">lemons::dsp::AudioFile</a>
 </li>
-<li>getBlob()
-: <a class="el" href="structlemons_1_1binary_1_1_data.html#aae0a1b7c1c60e3de7b98c33da19974dd">lemons::binary::Data</a>
-</li>
 <li>getBlocksize()
 : <a class="el" href="classlemons_1_1dsp_1_1_engine.html#ac58db70a45245363b4cde47e068c93f1">lemons::dsp::Engine&lt; SampleType &gt;</a>
+</li>
+<li>getBypass()
+: <a class="el" href="classlemons_1_1plugin_1_1_parameter_list.html#a9c6f815b0b890f49f7fee8e55341dd18">lemons::plugin::ParameterList</a>
+, <a class="el" href="classlemons_1_1plugin_1_1_processor_base.html#ac61b3d0aacc0c41193df08b85d63d98b">lemons::plugin::ProcessorBase</a>
 </li>
 <li>getCapacity()
 : <a class="el" href="classlemons_1_1dsp_1_1_circular_buffer.html#a501fc09d80b85274e0bebe94af474991">lemons::dsp::CircularBuffer&lt; SampleType &gt;</a>
@@ -146,6 +147,9 @@ $(function() {
 </li>
 <li>getCurrentMidiPan()
 : <a class="el" href="classlemons_1_1dsp_1_1_synth_voice_base.html#a0e322498a26ab235c1d4e93764f4de5c">lemons::dsp::SynthVoiceBase&lt; SampleType &gt;</a>
+</li>
+<li>getCurrentOscillatorValue()
+: <a class="el" href="structlemons_1_1plugin_1_1_l_f_o.html#a20a4c6baede512a403ec5fe378535456">lemons::plugin::LFO</a>
 </li>
 <li>getData()
 : <a class="el" href="structlemons_1_1binary_1_1_data.html#a535083ab27134fe4f5275237d17e77f1">lemons::binary::Data</a>
@@ -168,7 +172,7 @@ $(function() {
 : <a class="el" href="classlemons_1_1plugin_1_1_parameter.html#a061e9f2ed26f90bcd070567f735874b7">lemons::plugin::Parameter</a>
 </li>
 <li>getDspTestName()
-: <a class="el" href="classlemons_1_1tests_1_1_test.html#aca1fe9f7077f88d26de28011d924ecef">lemons::tests::Test</a>
+: <a class="el" href="structlemons_1_1tests_1_1_dsp_test.html#a6cc7223cc87a106acea4f44b689df740">lemons::tests::DspTest</a>
 </li>
 <li>getEngine()
 : <a class="el" href="structlemons_1_1dsp_1_1_engine_chain_1_1_node.html#a065c698df145cfb7ec62506c5db0b3b9">lemons::dsp::EngineChain&lt; SampleType &gt;::Node</a>
@@ -305,6 +309,12 @@ $(function() {
 <li>getMetadata()
 : <a class="el" href="structlemons_1_1dsp_1_1_audio_file.html#a8289dfb0e74bf950cb60388865820a0d">lemons::dsp::AudioFile</a>
 </li>
+<li>getMetaParameters()
+: <a class="el" href="classlemons_1_1plugin_1_1_parameter_list.html#a829da5064c9472090f750577d02ae7c4">lemons::plugin::ParameterList</a>
+</li>
+<li>getMeterParameters()
+: <a class="el" href="classlemons_1_1plugin_1_1_parameter_list.html#a1c62f3f343c3ab5c51777888fd217178">lemons::plugin::ParameterList</a>
+</li>
 <li>getMidiChannel()
 : <a class="el" href="classlemons_1_1dsp_1_1_synth_voice_base.html#a03608e1f2fa8a9419a5de9cd92021d4d">lemons::dsp::SynthVoiceBase&lt; SampleType &gt;</a>
 </li>
@@ -325,14 +335,13 @@ $(function() {
 </li>
 <li>getNamedParameter()
 : <a class="el" href="structlemons_1_1plugin_1_1_processor_holder.html#a2fb4a3cd10407f8abc3428b44cf88821">lemons::plugin::ProcessorHolder</a>
-, <a class="el" href="classlemons_1_1plugin_1_1_state.html#af6644e1fd89805cf8e11c49553b1c989">lemons::plugin::State</a>
 </li>
 <li>getNextSample()
 : <a class="el" href="classlemons_1_1dsp_1_1psola_1_1_shifter.html#a7dbb3e0a44fe503c0a415c4b08d72d67">lemons::dsp::psola::Shifter&lt; SampleType &gt;</a>
 , <a class="el" href="classlemons_1_1dsp_1_1_white_noise_generator.html#ae3cab3546e1aea778b0b5a2bf14d80f3">lemons::dsp::WhiteNoiseGenerator&lt; SampleType &gt;</a>
 </li>
 <li>getNode()
-: <a class="el" href="classlemons_1_1dsp_1_1_engine_chain.html#a87df9c3d507b49758594c0847ccb8bcc">lemons::dsp::EngineChain&lt; SampleType &gt;</a>
+: <a class="el" href="classlemons_1_1dsp_1_1_engine_chain.html#a74577e9fe5f78807da60a6dbb85fd3a3">lemons::dsp::EngineChain&lt; SampleType &gt;</a>
 </li>
 <li>getNodeOfType()
 : <a class="el" href="classlemons_1_1dsp_1_1_engine_chain.html#af5d286d3f8aadea053bd1d612050d197">lemons::dsp::EngineChain&lt; SampleType &gt;</a>
@@ -384,10 +393,23 @@ $(function() {
 : <a class="el" href="classlemons_1_1dsp_1_1osc_1_1_choosable_oscillator.html#a5283633e6dcf6884232f78e5ae20117a">lemons::dsp::osc::ChoosableOscillator&lt; SampleType &gt;</a>
 </li>
 <li>getParameter()
-: <a class="el" href="structlemons_1_1plugin_1_1_l_f_o.html#ac7b56cbcf71a190a9059149ca8ff2063">lemons::plugin::LFO</a>
+: <a class="el" href="structlemons_1_1plugin_1_1_meta_parameter_base.html#a9863a4bf97132001c073e4acffdfec86">lemons::plugin::MetaParameterBase</a>
+</li>
+<li>getParameterLayout()
+: <a class="el" href="classlemons_1_1plugin_1_1_parameter_list.html#afc2b5a0afb7def5e2ef00bfbe4601edb">lemons::plugin::ParameterList</a>
 </li>
 <li>getParameterName()
 : <a class="el" href="classlemons_1_1plugin_1_1_parameter.html#a34250cac555b1d3a3ab04e31ca2f310e">lemons::plugin::Parameter</a>
+</li>
+<li>getParameterTraits()
+: <a class="el" href="classlemons_1_1plugin_1_1_parameter.html#a6707d107c3f255f06510597c5b36431e">lemons::plugin::Parameter</a>
+, <a class="el" href="classlemons_1_1plugin_1_1_typed_parameter.html#a4ccf66580c7a7c6a5d986d0320f2d58f">lemons::plugin::TypedParameter&lt; ValueType &gt;</a>
+</li>
+<li>getParameterWithID()
+: <a class="el" href="classlemons_1_1plugin_1_1_parameter_list.html#affff482f9dee3b7b31a47bffb4e9fa33">lemons::plugin::ParameterList</a>
+</li>
+<li>getParameterWithName()
+: <a class="el" href="classlemons_1_1plugin_1_1_parameter_list.html#a520291b27adba222fb565f6bcd57a96f">lemons::plugin::ParameterList</a>
 </li>
 <li>getPatch()
 : <a class="el" href="structlemons_1_1_version.html#a559707e6ec232d063249ca3eff3c47ef">lemons::Version</a>
@@ -437,9 +459,9 @@ $(function() {
 </li>
 <li>getSamples()
 : <a class="el" href="classlemons_1_1dsp_1_1_circular_buffer.html#a719fb2a904df96cb3942259fbd0d71ef">lemons::dsp::CircularBuffer&lt; SampleType &gt;</a>
-, <a class="el" href="structlemons_1_1dsp_1_1osc_1_1_oscillator.html#af0f2907b70a8c366e9a14e178b850f4e">lemons::dsp::osc::Oscillator&lt; SampleType &gt;</a>
+, <a class="el" href="structlemons_1_1dsp_1_1osc_1_1_oscillator.html#a0d4e7108f8cb508f01efeb7e7d423c84">lemons::dsp::osc::Oscillator&lt; SampleType &gt;</a>
 , <a class="el" href="classlemons_1_1dsp_1_1psola_1_1_shifter.html#a2cffdfc5f7a2b191f25b7e2a41e735c6">lemons::dsp::psola::Shifter&lt; SampleType &gt;</a>
-, <a class="el" href="classlemons_1_1dsp_1_1_white_noise_generator.html#a7e6686176553ec727430168812234587">lemons::dsp::WhiteNoiseGenerator&lt; SampleType &gt;</a>
+, <a class="el" href="classlemons_1_1dsp_1_1_white_noise_generator.html#a21f4ea9e6f5ed15f0bb215ee02a1b43b">lemons::dsp::WhiteNoiseGenerator&lt; SampleType &gt;</a>
 </li>
 <li>getScaleName()
 : <a class="el" href="classlemons_1_1dsp_1_1_synth_base.html#a16a6e5209b303a6347c07b70a33a3069">lemons::dsp::SynthBase&lt; SampleType &gt;</a>
@@ -460,17 +482,11 @@ $(function() {
 <li>getStereoReductionMode()
 : <a class="el" href="classlemons_1_1dsp_1_1_mono_stereo_converter.html#a1e74936c76aadd4a85c3eaa141a1f2ed">lemons::dsp::MonoStereoConverter&lt; SampleType &gt;</a>
 </li>
-<li>getString()
-: <a class="el" href="structlemons_1_1binary_1_1_data.html#af64eacdc8f9a77706277e1a4b4cca42c">lemons::binary::Data</a>
-</li>
 <li>getStringForCurrentValue()
 : <a class="el" href="classlemons_1_1plugin_1_1_typed_parameter.html#ad3607d98e258cd3a0b0330af8d70b8be">lemons::plugin::TypedParameter&lt; ValueType &gt;</a>
 </li>
 <li>getStringForValue()
 : <a class="el" href="classlemons_1_1plugin_1_1_typed_parameter.html#adaa546ec98412109e257ea946b1b5d22">lemons::plugin::TypedParameter&lt; ValueType &gt;</a>
-</li>
-<li>getStrings()
-: <a class="el" href="structlemons_1_1binary_1_1_data.html#a2c1c9b78a58b88c44e51b09668048e46">lemons::binary::Data</a>
 </li>
 <li>getTestingBlockSizes()
 : <a class="el" href="classlemons_1_1tests_1_1_test.html#ae6366faf16b241a7b6e78715442e094e">lemons::tests::Test</a>
@@ -495,13 +511,15 @@ $(function() {
 </li>
 <li>getTypedParameter()
 : <a class="el" href="structlemons_1_1plugin_1_1_processor_holder.html#a20fe18c9676e7ba8475c935257ec0028">lemons::plugin::ProcessorHolder</a>
-, <a class="el" href="classlemons_1_1plugin_1_1_state.html#a46a1f028f3baf5e198577933276d7b0b">lemons::plugin::State</a>
+</li>
+<li>getTypedParameterWithID()
+: <a class="el" href="classlemons_1_1plugin_1_1_parameter_list.html#a8e08dd7cf70452fe790baf39f3d0acca">lemons::plugin::ParameterList</a>
+</li>
+<li>getTypedParameterWithName()
+: <a class="el" href="classlemons_1_1plugin_1_1_parameter_list.html#a0e3c6646caf9e0a464fb4067e91f0da0">lemons::plugin::ParameterList</a>
 </li>
 <li>getValueForString()
 : <a class="el" href="classlemons_1_1plugin_1_1_typed_parameter.html#ab115e4682d29dba03b949c7aace71f7d">lemons::plugin::TypedParameter&lt; ValueType &gt;</a>
-</li>
-<li>getValueTree()
-: <a class="el" href="structlemons_1_1binary_1_1_data.html#a29826a542383c272165b43af13793edb">lemons::binary::Data</a>
 </li>
 <li>getVoice()
 : <a class="el" href="classlemons_1_1dsp_1_1synth_1_1_automated_harmony_voice.html#ae420f6cf33c42b638b267e5b2fe33c0f">lemons::dsp::synth::AutomatedHarmonyVoice&lt; SampleType &gt;</a>
@@ -516,13 +534,13 @@ $(function() {
 : <a class="el" href="classlemons_1_1plugin_1_1_g_u_i.html#a6ccd4e20d3be5afea84481c5d2fd6b4b">lemons::plugin::GUI&lt; StateType, &gt;</a>
 </li>
 <li>GuiApp()
-: <a class="el" href="classlemons_1_1_gui_app.html#a4ab064de98227affff397cc18357dbf8">lemons::GuiApp&lt; ContentComponentType, &gt;</a>
+: <a class="el" href="classlemons_1_1_gui_app.html#a5928b6e437d3011a04076ced11146375">lemons::GuiApp&lt; ContentComponentType, &gt;</a>
 </li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jan 2 2022 00:48:13 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jan 2 2022 10:12:30 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

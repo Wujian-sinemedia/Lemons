@@ -1,6 +1,29 @@
 var searchData=
 [
-  ['oscengine_2eh_1497',['OscEngine.h',['../_osc_engine_8h.html',1,'']]],
-  ['oscillators_2eh_1498',['oscillators.h',['../oscillators_8h.html',1,'']]],
-  ['oscsynth_2eh_1499',['OscSynth.h',['../_osc_synth_8h.html',1,'']]]
+  ['buttons_2eh_1552',['Buttons.h',['../_plugins_2lemons__plugin__gui_2buttons_2_buttons_8h.html',1,'']]],
+  ['pannerbase_2eh_1553',['PannerBase.h',['../_panner_base_8h.html',1,'']]],
+  ['panningmanager_2eh_1554',['PanningManager.h',['../_panning_manager_8h.html',1,'']]],
+  ['parameter_2eh_1555',['Parameter.h',['../_parameter_8h.html',1,'']]],
+  ['parameter_5ftests_2eh_1556',['parameter_tests.h',['../parameter__tests_8h.html',1,'']]],
+  ['parameterlist_2eh_1557',['ParameterList.h',['../_parameter_list_8h.html',1,'']]],
+  ['parametertraits_2eh_1558',['ParameterTraits.h',['../_parameter_traits_8h.html',1,'']]],
+  ['parametertypes_2eh_1559',['ParameterTypes.h',['../_parameter_types_8h.html',1,'']]],
+  ['paramupdater_2eh_1560',['ParamUpdater.h',['../_param_updater_8h.html',1,'']]],
+  ['peakfinder_2eh_1561',['PeakFinder.h',['../_peak_finder_8h.html',1,'']]],
+  ['pitchbendtracker_2eh_1562',['PitchbendTracker.h',['../_pitchbend_tracker_8h.html',1,'']]],
+  ['pitchdetector_2eh_1563',['PitchDetector.h',['../_pitch_detector_8h.html',1,'']]],
+  ['pitchpipeline_2eh_1564',['PitchPipeline.h',['../_pitch_pipeline_8h.html',1,'']]],
+  ['pluginstate_2eh_1565',['PluginState.h',['../_plugin_state_8h.html',1,'']]],
+  ['popupcomponent_2eh_1566',['PopupComponent.h',['../_popup_component_8h.html',1,'']]],
+  ['preprocessor_2eh_1567',['Preprocessor.h',['../_preprocessor_8h.html',1,'']]],
+  ['presetbar_2eh_1568',['PresetBar.h',['../_preset_bar_8h.html',1,'']]],
+  ['presetbrowsercomponent_2eh_1569',['PresetBrowserComponent.h',['../_preset_browser_component_8h.html',1,'']]],
+  ['presetsavingcomponent_2eh_1570',['PresetSavingComponent.h',['../_preset_saving_component_8h.html',1,'']]],
+  ['processorattributes_2eh_1571',['ProcessorAttributes.h',['../_processor_attributes_8h.html',1,'']]],
+  ['processorbase_2eh_1572',['ProcessorBase.h',['../_processor_base_8h.html',1,'']]],
+  ['processorengine_2eh_1573',['ProcessorEngine.h',['../_processor_engine_8h.html',1,'']]],
+  ['processorholder_2eh_1574',['ProcessorHolder.h',['../_processor_holder_8h.html',1,'']]],
+  ['processors_2eh_1575',['Processors.h',['../_processors_8h.html',1,'']]],
+  ['programmanager_2eh_1576',['ProgramManager.h',['../_program_manager_8h.html',1,'']]],
+  ['serializing_2eh_1577',['serializing.h',['../_plugins_2lemons__plugin_2util_2serializing_8h.html',1,'']]]
 ];

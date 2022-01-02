@@ -74,7 +74,7 @@ $(function() {
 <a href="#pro-static-methods">Static Protected Member Functions</a> &#124;
 <a href="classlemons_1_1tests_1_1_test-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">lemons::tests::Test Class Reference<div class="ingroups"><a class="el" href="group___testing.html">Testing</a> &raquo; <a class="el" href="group__lemons__unit__testing.html">lemons_unit_testing</a> &raquo; <a class="el" href="group__tests.html">tests</a></div></div>  </div>
+<div class="title">lemons::tests::Test Class Reference<div class="ingroups"><a class="el" href="group___common.html">Common</a> &raquo; <a class="el" href="group__lemons__core.html">lemons_core</a><a class="el" href="group___audio.html">Audio</a> &raquo;  &#124; <a class="el" href="group__lemons__midi.html">lemons_midi</a><a class="el" href="group___audio.html">Audio</a> &raquo;  &#124; <a class="el" href="group__lemons__dsp.html">lemons_dsp</a><a class="el" href="group___g_u_i.html">GUI</a> &raquo;  &#124; <a class="el" href="group__lemons__gui.html">lemons_gui</a><a class="el" href="group___plugins.html">Plugins</a> &raquo;  &#124; <a class="el" href="group__lemons__plugin.html">lemons_plugin</a> &raquo; <a class="el" href="group__unit__tests.html">unit_tests</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -82,7 +82,7 @@ $(function() {
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classlemons_1_1tests_1_1_test__inherit__graph.svg" width="100%" height="459"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classlemons_1_1tests_1_1_test__inherit__graph.svg" width="100%" height="506"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -113,9 +113,6 @@ Protected Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-static-methods"></a>
 Static Protected Member Functions</h2></td></tr>
-<tr class="memitem:aca1fe9f7077f88d26de28011d924ecef"><td class="memTemplParams" colspan="2">template&lt;typename SampleType &gt; </td></tr>
-<tr class="memitem:aca1fe9f7077f88d26de28011d924ecef"><td class="memTemplItemLeft" align="right" valign="top">static String&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classlemons_1_1tests_1_1_test.html#aca1fe9f7077f88d26de28011d924ecef">getDspTestName</a> (const String &amp;name)</td></tr>
-<tr class="separator:aca1fe9f7077f88d26de28011d924ecef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9143b5bb744ae5a90b4aa47d35fb2484"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1tests_1_1_test.html#a9143b5bb744ae5a90b4aa47d35fb2484">getNumTestingRepetitions</a> ()</td></tr>
 <tr class="separator:a9143b5bb744ae5a90b4aa47d35fb2484"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac6a6dcf3eea1abb47dfc5d6310dbe3f9"><td class="memTemplParams" colspan="2">template&lt;typename SampleType &gt; </td></tr>
@@ -125,6 +122,9 @@ Static Protected Member Functions</h2></td></tr>
 <tr class="separator:ae6366faf16b241a7b6e78715442e094e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abc00c8dadae75662cb0e0d892f3f8fdd"><td class="memItemLeft" align="right" valign="top">static const std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1tests_1_1_test.html#abc00c8dadae75662cb0e0d892f3f8fdd">getTestingSamplerates</a> ()</td></tr>
 <tr class="separator:abc00c8dadae75662cb0e0d892f3f8fdd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea02e9ed7063d10ab9cebe3abdd281cb"><td class="memTemplParams" colspan="2">template&lt;typename Type &gt; </td></tr>
+<tr class="memitem:aea02e9ed7063d10ab9cebe3abdd281cb"><td class="memTemplItemLeft" align="right" valign="top">static Type&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classlemons_1_1tests_1_1_test.html#aea02e9ed7063d10ab9cebe3abdd281cb">toVarAndBack</a> (const Type &amp;orig)</td></tr>
+<tr class="separator:aea02e9ed7063d10ab9cebe3abdd281cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="a557b2274571a75b2cba3c8b59c1eb483"></a>
@@ -147,34 +147,6 @@ Static Protected Member Functions</h2></td></tr>
   </td>
   <td class="mlabels-right">
 <span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="aca1fe9f7077f88d26de28011d924ecef"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aca1fe9f7077f88d26de28011d924ecef">&#9670;&nbsp;</a></span>getDspTestName()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename SampleType &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static String lemons::tests::Test::getDspTestName </td>
-          <td>(</td>
-          <td class="paramtype">const String &amp;&#160;</td>
-          <td class="paramname"><em>name</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -435,13 +407,41 @@ template&lt;typename SampleType &gt; </div>
 
 </div>
 </div>
+<a id="aea02e9ed7063d10ab9cebe3abdd281cb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aea02e9ed7063d10ab9cebe3abdd281cb">&#9670;&nbsp;</a></span>toVarAndBack()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Type &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static Type lemons::tests::Test::toVarAndBack </td>
+          <td>(</td>
+          <td class="paramtype">const Type &amp;&#160;</td>
+          <td class="paramname"><em>orig</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li><a class="el" href="test_8h.html">test.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jan 2 2022 00:48:12 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jan 2 2022 10:12:30 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

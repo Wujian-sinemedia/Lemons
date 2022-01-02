@@ -99,6 +99,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:abedae38bb829dbafebcec48d7a40bd4b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1_constructed_array.html#abedae38bb829dbafebcec48d7a40bd4b">ConstructedArray</a> (int initialNumObjects=0, <a class="el" href="structlemons_1_1_constructed_array.html#a36ef6faf6ae33e0cfc133d4a584addb2">ObjectCreationFunction</a> &amp;&amp;objectCreationFunc=[]() { return new ObjectType();})</td></tr>
 <tr class="memdesc:abedae38bb829dbafebcec48d7a40bd4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an array with a specified initial number of objects, and an optional lambda function that will be called to create new objects.  <a href="structlemons_1_1_constructed_array.html#abedae38bb829dbafebcec48d7a40bd4b">More...</a><br /></td></tr>
 <tr class="separator:abedae38bb829dbafebcec48d7a40bd4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a48ca9b8b0ac4e0f7e33415186bb520a4"><td class="memItemLeft" align="right" valign="top">ObjectType &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1_constructed_array.html#a48ca9b8b0ac4e0f7e33415186bb520a4">append</a> ()</td></tr>
+<tr class="memdesc:a48ca9b8b0ac4e0f7e33415186bb520a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a single object to the end of the array, and returns a reference to it.  <a href="structlemons_1_1_constructed_array.html#a48ca9b8b0ac4e0f7e33415186bb520a4">More...</a><br /></td></tr>
+<tr class="separator:a48ca9b8b0ac4e0f7e33415186bb520a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adc90f3a2224c032716d006652fe232a7"><td class="memItemLeft" align="right" valign="top">ObjectType *const  *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1_constructed_array.html#adc90f3a2224c032716d006652fe232a7">begin</a> () const noexcept</td></tr>
 <tr class="memdesc:adc90f3a2224c032716d006652fe232a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls OwnedArray::begin.  <a href="structlemons_1_1_constructed_array.html#adc90f3a2224c032716d006652fe232a7">More...</a><br /></td></tr>
 <tr class="separator:adc90f3a2224c032716d006652fe232a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -216,6 +219,27 @@ template&lt;typename ObjectType &gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a48ca9b8b0ac4e0f7e33415186bb520a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a48ca9b8b0ac4e0f7e33415186bb520a4">&#9670;&nbsp;</a></span>append()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename ObjectType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">ObjectType&amp; <a class="el" href="structlemons_1_1_constructed_array.html">lemons::ConstructedArray</a>&lt; ObjectType &gt;::append </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Adds a single object to the end of the array, and returns a reference to it. </p>
+
+</div>
+</div>
 <a id="adc90f3a2224c032716d006652fe232a7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#adc90f3a2224c032716d006652fe232a7">&#9670;&nbsp;</a></span>begin() <span class="overload">[1/2]</span></h2>
 
@@ -482,7 +506,7 @@ template&lt;typename ObjectType &gt; </div>
 
 <p>The managed array. </p>
 
-<p class="reference">Referenced by <a class="el" href="structlemons_1_1_constructed_array.html#ac844a8c41bec3b7f5409c41823ce1ed1">lemons::ConstructedArray&lt; lemons::dsp::osc::SuperSaw&lt; float &gt; &gt;::begin()</a>, <a class="el" href="structlemons_1_1_constructed_array.html#a052d7d0d70b4978b3f7cb813ac3ae308">lemons::ConstructedArray&lt; lemons::dsp::osc::SuperSaw&lt; float &gt; &gt;::end()</a>, <a class="el" href="structlemons_1_1_constructed_array.html#a9eac9808ec27c7468fc4ff34b17b6c2c">lemons::ConstructedArray&lt; lemons::dsp::osc::SuperSaw&lt; float &gt; &gt;::for_each()</a>, <a class="el" href="structlemons_1_1_constructed_array.html#a71ae1588a09cc616ae1c38294c6954fc">lemons::ConstructedArray&lt; lemons::dsp::osc::SuperSaw&lt; float &gt; &gt;::operator-&gt;()</a>, <a class="el" href="structlemons_1_1_constructed_array.html#abef55413896e02f6ddaaedeea4f73076">lemons::ConstructedArray&lt; lemons::dsp::osc::SuperSaw&lt; float &gt; &gt;::operator[]()</a>, and <a class="el" href="structlemons_1_1_constructed_array.html#a5824a1fc1d19bc7fd219c3480864567c">lemons::ConstructedArray&lt; lemons::dsp::osc::SuperSaw&lt; float &gt; &gt;::resize()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="structlemons_1_1_constructed_array.html#a48ca9b8b0ac4e0f7e33415186bb520a4">lemons::ConstructedArray&lt; lemons::dsp::osc::SuperSaw&lt; float &gt; &gt;::append()</a>, <a class="el" href="structlemons_1_1_constructed_array.html#ac844a8c41bec3b7f5409c41823ce1ed1">lemons::ConstructedArray&lt; lemons::dsp::osc::SuperSaw&lt; float &gt; &gt;::begin()</a>, <a class="el" href="structlemons_1_1_constructed_array.html#a052d7d0d70b4978b3f7cb813ac3ae308">lemons::ConstructedArray&lt; lemons::dsp::osc::SuperSaw&lt; float &gt; &gt;::end()</a>, <a class="el" href="structlemons_1_1_constructed_array.html#a9eac9808ec27c7468fc4ff34b17b6c2c">lemons::ConstructedArray&lt; lemons::dsp::osc::SuperSaw&lt; float &gt; &gt;::for_each()</a>, <a class="el" href="structlemons_1_1_constructed_array.html#a71ae1588a09cc616ae1c38294c6954fc">lemons::ConstructedArray&lt; lemons::dsp::osc::SuperSaw&lt; float &gt; &gt;::operator-&gt;()</a>, <a class="el" href="structlemons_1_1_constructed_array.html#abef55413896e02f6ddaaedeea4f73076">lemons::ConstructedArray&lt; lemons::dsp::osc::SuperSaw&lt; float &gt; &gt;::operator[]()</a>, and <a class="el" href="structlemons_1_1_constructed_array.html#a5824a1fc1d19bc7fd219c3480864567c">lemons::ConstructedArray&lt; lemons::dsp::osc::SuperSaw&lt; float &gt; &gt;::resize()</a>.</p>
 
 </div>
 </div>
@@ -492,7 +516,7 @@ template&lt;typename ObjectType &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jan 2 2022 00:48:12 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jan 2 2022 10:12:29 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>
