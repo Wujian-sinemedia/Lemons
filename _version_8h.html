@@ -69,7 +69,8 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#namespaces">Namespaces</a>  </div>
+<a href="#namespaces">Namespaces</a> &#124;
+<a href="#define-members">Macros</a>  </div>
   <div class="headertitle">
 <div class="title">Version.h File Reference</div>  </div>
 </div><!--header-->
@@ -78,7 +79,6 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1_version.html">lemons::Version</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A class that represents a version of something, with major, minor, and patch numbers.  <a href="structlemons_1_1_version.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
@@ -88,24 +88,108 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr><td colspan="2"><div class="groupHeader"></div></td></tr>
-<tr class="memitem:ga52ab1f8b6b9e166d12b4b96739838d5a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__misc.html#ga52ab1f8b6b9e166d12b4b96739838d5a">LEMONS_PROJECT_VERSION_MAJOR</a>&#160;&#160;&#160;0</td></tr>
-<tr class="separator:ga52ab1f8b6b9e166d12b4b96739838d5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga906eafb2e72e1937dae95a1154cb1d4d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__misc.html#ga906eafb2e72e1937dae95a1154cb1d4d">LEMONS_PROJECT_VERSION_MINOR</a>&#160;&#160;&#160;0</td></tr>
-<tr class="separator:ga906eafb2e72e1937dae95a1154cb1d4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga656cf0efe739619c0fc96e8f70387727"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__misc.html#ga656cf0efe739619c0fc96e8f70387727">LEMONS_PROJECT_VERSION_PATCH</a>&#160;&#160;&#160;1</td></tr>
-<tr class="separator:ga656cf0efe739619c0fc96e8f70387727"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga745cbaf7407f78551a03e6033abc2624"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__misc.html#ga745cbaf7407f78551a03e6033abc2624">LEMONS_VERSION_MAJOR</a>&#160;&#160;&#160;0</td></tr>
-<tr class="separator:ga745cbaf7407f78551a03e6033abc2624"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga1fbe1a2b0c90a5464db0037161a6b21b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__misc.html#ga1fbe1a2b0c90a5464db0037161a6b21b">LEMONS_VERSION_MINOR</a>&#160;&#160;&#160;0</td></tr>
-<tr class="separator:ga1fbe1a2b0c90a5464db0037161a6b21b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga537f07f6a8c6eb77ec4b1a2ab925f6c3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__misc.html#ga537f07f6a8c6eb77ec4b1a2ab925f6c3">LEMONS_VERSION_PATCH</a>&#160;&#160;&#160;1</td></tr>
-<tr class="separator:ga537f07f6a8c6eb77ec4b1a2ab925f6c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a52ab1f8b6b9e166d12b4b96739838d5a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_version_8h.html#a52ab1f8b6b9e166d12b4b96739838d5a">LEMONS_PROJECT_VERSION_MAJOR</a>&#160;&#160;&#160;0</td></tr>
+<tr class="separator:a52ab1f8b6b9e166d12b4b96739838d5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a906eafb2e72e1937dae95a1154cb1d4d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_version_8h.html#a906eafb2e72e1937dae95a1154cb1d4d">LEMONS_PROJECT_VERSION_MINOR</a>&#160;&#160;&#160;0</td></tr>
+<tr class="separator:a906eafb2e72e1937dae95a1154cb1d4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a656cf0efe739619c0fc96e8f70387727"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_version_8h.html#a656cf0efe739619c0fc96e8f70387727">LEMONS_PROJECT_VERSION_PATCH</a>&#160;&#160;&#160;1</td></tr>
+<tr class="separator:a656cf0efe739619c0fc96e8f70387727"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a745cbaf7407f78551a03e6033abc2624"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_version_8h.html#a745cbaf7407f78551a03e6033abc2624">LEMONS_VERSION_MAJOR</a>&#160;&#160;&#160;0</td></tr>
+<tr class="separator:a745cbaf7407f78551a03e6033abc2624"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1fbe1a2b0c90a5464db0037161a6b21b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_version_8h.html#a1fbe1a2b0c90a5464db0037161a6b21b">LEMONS_VERSION_MINOR</a>&#160;&#160;&#160;0</td></tr>
+<tr class="separator:a1fbe1a2b0c90a5464db0037161a6b21b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a537f07f6a8c6eb77ec4b1a2ab925f6c3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_version_8h.html#a537f07f6a8c6eb77ec4b1a2ab925f6c3">LEMONS_VERSION_PATCH</a>&#160;&#160;&#160;1</td></tr>
+<tr class="separator:a537f07f6a8c6eb77ec4b1a2ab925f6c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="a52ab1f8b6b9e166d12b4b96739838d5a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a52ab1f8b6b9e166d12b4b96739838d5a">&#9670;&nbsp;</a></span>LEMONS_PROJECT_VERSION_MAJOR</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LEMONS_PROJECT_VERSION_MAJOR&#160;&#160;&#160;0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a906eafb2e72e1937dae95a1154cb1d4d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a906eafb2e72e1937dae95a1154cb1d4d">&#9670;&nbsp;</a></span>LEMONS_PROJECT_VERSION_MINOR</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LEMONS_PROJECT_VERSION_MINOR&#160;&#160;&#160;0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a656cf0efe739619c0fc96e8f70387727"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a656cf0efe739619c0fc96e8f70387727">&#9670;&nbsp;</a></span>LEMONS_PROJECT_VERSION_PATCH</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LEMONS_PROJECT_VERSION_PATCH&#160;&#160;&#160;1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a745cbaf7407f78551a03e6033abc2624"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a745cbaf7407f78551a03e6033abc2624">&#9670;&nbsp;</a></span>LEMONS_VERSION_MAJOR</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LEMONS_VERSION_MAJOR&#160;&#160;&#160;0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1fbe1a2b0c90a5464db0037161a6b21b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1fbe1a2b0c90a5464db0037161a6b21b">&#9670;&nbsp;</a></span>LEMONS_VERSION_MINOR</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LEMONS_VERSION_MINOR&#160;&#160;&#160;0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a537f07f6a8c6eb77ec4b1a2ab925f6c3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a537f07f6a8c6eb77ec4b1a2ab925f6c3">&#9670;&nbsp;</a></span>LEMONS_VERSION_PATCH</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LEMONS_VERSION_PATCH&#160;&#160;&#160;1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jan 2 2022 18:24:14 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jan 2 2022 21:06:44 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

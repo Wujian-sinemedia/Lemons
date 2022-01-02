@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="node1" class="node">
 <title>Node1</title>
-<g id="a_node1"><a xlink:title="A simple wrapper around TextButton that functions as an on/off toggle and allows you to specify a lam...">
+<g id="a_node1"><a xlink:title=" ">
 <polygon fill="#bfbfbf" stroke="black" points="0,-56.5 0,-75.5 164,-75.5 164,-56.5 0,-56.5"/>
 <text text-anchor="middle" x="82" y="-63.5" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::gui::ToggleTextButton</text>
 </a>
@@ -35,7 +35,7 @@
 <!-- Node2 -->
 <g id="node2" class="node">
 <title>Node2</title>
-<g id="a_node2"><a xlink:href="structlemons_1_1gui_1_1_text_button.html" target="_top" xlink:title="A simple wrapper around juce::TextButton that allows you to specify a lambda that will be called when...">
+<g id="a_node2"><a xlink:href="structlemons_1_1gui_1_1_text_button.html" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="16,-112.5 16,-131.5 148,-131.5 148,-112.5 16,-112.5"/>
 <text text-anchor="middle" x="82" y="-119.5" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::gui::TextButton</text>
 </a>

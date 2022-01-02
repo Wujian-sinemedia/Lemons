@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="node1" class="node">
 <title>Node1</title>
-<g id="a_node1"><a xlink:title="A struct whose constructor simply calls initializeDefaultTranslations().">
+<g id="a_node1"><a xlink:title=" ">
 <polygon fill="#bfbfbf" stroke="black" points="0,-24.5 0,-54.5 152,-54.5 152,-24.5 0,-24.5"/>
 <text text-anchor="start" x="8" y="-42.5" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::locale::Translations</text>
 <text text-anchor="middle" x="76" y="-31.5" font-family="Helvetica,sans-Serif" font-size="10.00">Initializer</text>
@@ -21,7 +21,7 @@
 <!-- Node2 -->
 <g id="node2" class="node">
 <title>Node2</title>
-<g id="a_node2"><a xlink:href="classlemons_1_1_gui_app.html" target="_top" xlink:title="Represents the base for a generic GUI app.">
+<g id="a_node2"><a xlink:href="classlemons_1_1_gui_app.html" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="188,-49.5 188,-79.5 388,-79.5 388,-49.5 188,-49.5"/>
 <text text-anchor="start" x="196" y="-67.5" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::GuiApp&lt; ContentComponent</text>
 <text text-anchor="middle" x="288" y="-56.5" font-family="Helvetica,sans-Serif" font-size="10.00">Type, &gt;</text>
@@ -37,7 +37,7 @@
 <!-- Node3 -->
 <g id="node3" class="node">
 <title>Node3</title>
-<g id="a_node3"><a xlink:href="classlemons_1_1plugin_1_1_processor.html" target="_top" xlink:title="A processor class that can simply be told the templated engine type and the state type,...">
+<g id="a_node3"><a xlink:href="classlemons_1_1plugin_1_1_processor.html" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="210.5,-0.5 210.5,-30.5 365.5,-30.5 365.5,-0.5 210.5,-0.5"/>
 <text text-anchor="start" x="218.5" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::plugin::Processor</text>
 <text text-anchor="middle" x="288" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">&lt; EngineType, StateType,, &gt;</text>

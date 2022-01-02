@@ -70,6 +70,7 @@ $(function() {
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a> &#124;
+<a href="#define-members">Macros</a> &#124;
 <a href="#typedef-members">Typedefs</a>  </div>
   <div class="headertitle">
 <div class="title">Processors.h File Reference</div>  </div>
@@ -79,13 +80,10 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_processor.html">lemons::plugin::Processor&lt; EngineType, StateType,, &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A processor class that can simply be told the templated engine type and the state type, and takes care of instantiating a float and double one and passing them to the <a class="el" href="classlemons_1_1plugin_1_1_processor_base.html" title="Base class for a plugin processor.">ProcessorBase</a> class.  <a href="classlemons_1_1plugin_1_1_processor.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1plugin_1_1_processor_with_editor.html">lemons::plugin::ProcessorWithEditor&lt; ProcessorType, ComponentType, &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A processor class that has a <a class="el" href="classlemons_1_1plugin_1_1_g_u_i.html" title="Base class for plugin editors&#39; GUI content components.">GUI</a> editor.  <a href="structlemons_1_1plugin_1_1_processor_with_editor.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1plugin_1_1_processor_with_generic_editor.html">lemons::plugin::ProcessorWithGenericEditor&lt; ProcessorType, &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handy struct that is similar to <a class="el" href="structlemons_1_1plugin_1_1_processor_with_editor.html" title="A processor class that has a GUI editor.">ProcessorWithEditor</a>, but instead of providing your own component, this automatically creates a juce::GenericAudioProcessorEditor for you.  <a href="structlemons_1_1plugin_1_1_processor_with_generic_editor.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
@@ -97,47 +95,19 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr><td colspan="2"><div class="groupHeader"></div></td></tr>
-<tr class="memitem:af649a3a424a181538b5b2ea686561b75"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_processors_8h.html#af649a3a424a181538b5b2ea686561b75">LEMONS_DEFINE_PLUGIN_CREATOR</a>(ProcessorClass)</td></tr>
-<tr class="memdesc:af649a3a424a181538b5b2ea686561b75"><td class="mdescLeft">&#160;</td><td class="mdescRight">A handy macro to define Juce's createPluginFilter() function for you; simply hand this macro the fully-specialized type of your plugin's processor.  <a href="_processors_8h.html#af649a3a424a181538b5b2ea686561b75">More...</a><br /></td></tr>
-<tr class="separator:af649a3a424a181538b5b2ea686561b75"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf649a3a424a181538b5b2ea686561b75"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__processors.html#gaf649a3a424a181538b5b2ea686561b75">LEMONS_DEFINE_PLUGIN_CREATOR</a>(ProcessorClass)</td></tr>
+<tr class="separator:gaf649a3a424a181538b5b2ea686561b75"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:a402ed40f2d0bc661edca4d34b112d41b"><td class="memTemplParams" colspan="2">template&lt;template&lt; typename SampleType &gt; class EngineType&gt; </td></tr>
-<tr class="memitem:a402ed40f2d0bc661edca4d34b112d41b"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1plugin.html#a402ed40f2d0bc661edca4d34b112d41b">lemons::plugin::StatelessProcessor</a> = Processor&lt; EngineType, State &gt;</td></tr>
-<tr class="memdesc:a402ed40f2d0bc661edca4d34b112d41b"><td class="mdescLeft">&#160;</td><td class="mdescRight">A handy typedef for if you just want to create a plugin processor that wraps a certain engine type, without supplying a custom state type.  <a href="namespacelemons_1_1plugin.html#a402ed40f2d0bc661edca4d34b112d41b">More...</a><br /></td></tr>
-<tr class="separator:a402ed40f2d0bc661edca4d34b112d41b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga402ed40f2d0bc661edca4d34b112d41b"><td class="memTemplParams" colspan="2">template&lt;template&lt; typename SampleType &gt; class EngineType&gt; </td></tr>
+<tr class="memitem:ga402ed40f2d0bc661edca4d34b112d41b"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__processors.html#ga402ed40f2d0bc661edca4d34b112d41b">lemons::plugin::StatelessProcessor</a> = Processor&lt; EngineType, State &gt;</td></tr>
+<tr class="separator:ga402ed40f2d0bc661edca4d34b112d41b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="af649a3a424a181538b5b2ea686561b75"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af649a3a424a181538b5b2ea686561b75">&#9670;&nbsp;</a></span>LEMONS_DEFINE_PLUGIN_CREATOR</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define LEMONS_DEFINE_PLUGIN_CREATOR</td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">ProcessorClass</td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">  juce::AudioProcessor* JUCE_CALLTYPE createPluginFilter() \</div>
-<div class="line">  {                                                        \</div>
-<div class="line">    return <span class="keyword">new</span> ProcessorClass;                             \</div>
-<div class="line">  }</div>
-</div><!-- fragment -->
-<p>A handy macro to define Juce's createPluginFilter() function for you; simply hand this macro the fully-specialized type of your plugin's processor. </p>
-
-</div>
-</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jan 2 2022 18:24:14 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jan 2 2022 21:06:44 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

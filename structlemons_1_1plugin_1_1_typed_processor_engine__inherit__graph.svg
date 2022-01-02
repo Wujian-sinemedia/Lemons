@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="node1" class="node">
 <title>Node1</title>
-<g id="a_node1"><a xlink:title="A ProcessorEngine that instantiates a custom subclass of AudioProcessor and automatically creates a P...">
+<g id="a_node1"><a xlink:title=" ">
 <polygon fill="#bfbfbf" stroke="black" points="0,-0.5 0,-30.5 210,-30.5 210,-0.5 0,-0.5"/>
 <text text-anchor="start" x="8" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::plugin::TypedProcessor</text>
 <text text-anchor="middle" x="105" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">Engine&lt; SampleType, ProcessorType, &gt;</text>
@@ -21,7 +21,7 @@
 <!-- Node2 -->
 <g id="node2" class="node">
 <title>Node2</title>
-<g id="a_node2"><a xlink:href="classlemons_1_1plugin_1_1_processor_engine.html" target="_top" xlink:title="A kind of dsp::Engine that holds a ProcessorHolder.">
+<g id="a_node2"><a xlink:href="classlemons_1_1plugin_1_1_processor_engine.html" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="34,-67.5 34,-97.5 176,-97.5 176,-67.5 34,-67.5"/>
 <text text-anchor="start" x="42" y="-85.5" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::plugin::Processor</text>
 <text text-anchor="middle" x="105" y="-74.5" font-family="Helvetica,sans-Serif" font-size="10.00">Engine&lt; SampleType &gt;</text>
@@ -37,7 +37,7 @@
 <!-- Node3 -->
 <g id="node3" class="node">
 <title>Node3</title>
-<g id="a_node3"><a xlink:href="classlemons_1_1dsp_1_1_engine.html" target="_top" xlink:title="Base class for an audio engine.">
+<g id="a_node3"><a xlink:href="classlemons_1_1dsp_1_1_engine.html" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="47.5,-134.5 47.5,-164.5 162.5,-164.5 162.5,-134.5 47.5,-134.5"/>
 <text text-anchor="start" x="55.5" y="-152.5" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::dsp::Engine</text>
 <text text-anchor="middle" x="105" y="-141.5" font-family="Helvetica,sans-Serif" font-size="10.00">&lt; SampleType &gt;</text>

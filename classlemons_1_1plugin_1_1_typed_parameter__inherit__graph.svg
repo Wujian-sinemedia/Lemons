@@ -57,7 +57,7 @@ var sectionId = 'dynsection-0';
 <!-- Node1 -->
 <g id="node1" class="node">
 <title>Node1</title>
-<g id="a_node1"><a xlink:title="A parameter that can be stored as a type other than a float, but still inherits from my Parameter bas...">
+<g id="a_node1"><a xlink:title=" ">
 <polygon fill="#bfbfbf" stroke="black" points="182,-196.5 182,-226.5 355,-226.5 355,-196.5 182,-196.5"/>
 <text text-anchor="start" x="190" y="-214.5" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::plugin::TypedParameter</text>
 <text text-anchor="middle" x="268.5" y="-203.5" font-family="Helvetica,sans-Serif" font-size="10.00">&lt; ValueType &gt;</text>
@@ -67,7 +67,7 @@ var sectionId = 'dynsection-0';
 <!-- Node3 -->
 <g id="node3" class="node">
 <title>Node3</title>
-<g id="a_node3"><a xlink:href="structlemons_1_1plugin_1_1_float_amount_parameter.html" target="_top" xlink:title="A parameter that represents a value in a normalized 0&#45;1 range.">
+<g id="a_node3"><a xlink:href="structlemons_1_1plugin_1_1_float_amount_parameter.html" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="451.5,-392.5 451.5,-422.5 609.5,-422.5 609.5,-392.5 451.5,-392.5"/>
 <text text-anchor="start" x="459.5" y="-410.5" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::plugin::FloatAmount</text>
 <text text-anchor="middle" x="530.5" y="-399.5" font-family="Helvetica,sans-Serif" font-size="10.00">Parameter&lt; float &gt;</text>
@@ -83,7 +83,7 @@ var sectionId = 'dynsection-0';
 <!-- Node4 -->
 <g id="node4" class="node">
 <title>Node4</title>
-<g id="a_node4"><a xlink:href="classlemons_1_1plugin_1_1_meta_parameter.html" target="_top" xlink:title="A meta parameter class that implements the MetaParameterBase interface.">
+<g id="a_node4"><a xlink:href="classlemons_1_1plugin_1_1_meta_parameter.html" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="445.5,-343.5 445.5,-373.5 615.5,-373.5 615.5,-343.5 445.5,-343.5"/>
 <text text-anchor="start" x="453.5" y="-361.5" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::plugin::MetaParameter</text>
 <text text-anchor="middle" x="530.5" y="-350.5" font-family="Helvetica,sans-Serif" font-size="10.00">&lt; ValueType &gt;</text>
@@ -99,7 +99,7 @@ var sectionId = 'dynsection-0';
 <!-- Node7 -->
 <g id="node7" class="node">
 <title>Node7</title>
-<g id="a_node7"><a xlink:href="structlemons_1_1plugin_1_1_meter_parameter.html" target="_top" xlink:title="A parameter that represents a general kind of meter, used for reporting things like level or gain red...">
+<g id="a_node7"><a xlink:href="structlemons_1_1plugin_1_1_meter_parameter.html" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="444,-245.5 444,-275.5 617,-275.5 617,-245.5 444,-245.5"/>
 <text text-anchor="start" x="452" y="-263.5" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::plugin::MeterParameter</text>
 <text text-anchor="middle" x="530.5" y="-252.5" font-family="Helvetica,sans-Serif" font-size="10.00">&lt; ValueType &gt;</text>
@@ -115,7 +115,7 @@ var sectionId = 'dynsection-0';
 <!-- Node10 -->
 <g id="node10" class="node">
 <title>Node10</title>
-<g id="a_node10"><a xlink:href="structlemons_1_1plugin_1_1_midi_pan_parameter.html" target="_top" xlink:title="A parameter that represents a MIDI panning value in the range 0 to 127.">
+<g id="a_node10"><a xlink:href="structlemons_1_1plugin_1_1_midi_pan_parameter.html" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="439,-196.5 439,-226.5 622,-226.5 622,-196.5 439,-196.5"/>
 <text text-anchor="start" x="447" y="-214.5" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::plugin::MidiPanParameter</text>
 <text text-anchor="middle" x="530.5" y="-203.5" font-family="Helvetica,sans-Serif" font-size="10.00">&lt; int &gt;</text>
@@ -131,7 +131,7 @@ var sectionId = 'dynsection-0';
 <!-- Node11 -->
 <g id="node11" class="node">
 <title>Node11</title>
-<g id="a_node11"><a xlink:href="structlemons_1_1plugin_1_1_midi_pitch_parameter.html" target="_top" xlink:title="A parameter that represents a MIDI pitch.">
+<g id="a_node11"><a xlink:href="structlemons_1_1plugin_1_1_midi_pitch_parameter.html" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="460.5,-147.5 460.5,-177.5 600.5,-177.5 600.5,-147.5 460.5,-147.5"/>
 <text text-anchor="start" x="468.5" y="-165.5" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::plugin::MidiPitch</text>
 <text text-anchor="middle" x="530.5" y="-154.5" font-family="Helvetica,sans-Serif" font-size="10.00">Parameter&lt; int &gt;</text>
@@ -147,7 +147,7 @@ var sectionId = 'dynsection-0';
 <!-- Node12 -->
 <g id="node12" class="node">
 <title>Node12</title>
-<g id="a_node12"><a xlink:href="structlemons_1_1plugin_1_1_percent_parameter.html" target="_top" xlink:title="A parameter that represents an integer value in the range 0&#45;100.">
+<g id="a_node12"><a xlink:href="structlemons_1_1plugin_1_1_percent_parameter.html" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="439.5,-98.5 439.5,-128.5 621.5,-128.5 621.5,-98.5 439.5,-98.5"/>
 <text text-anchor="start" x="447.5" y="-116.5" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::plugin::PercentParameter</text>
 <text text-anchor="middle" x="530.5" y="-105.5" font-family="Helvetica,sans-Serif" font-size="10.00">&lt; int &gt;</text>
@@ -163,7 +163,7 @@ var sectionId = 'dynsection-0';
 <!-- Node13 -->
 <g id="node13" class="node">
 <title>Node13</title>
-<g id="a_node13"><a xlink:href="structlemons_1_1plugin_1_1_semitones_parameter.html" target="_top" xlink:title="A parameter that represents a number of semitones, as an integer.">
+<g id="a_node13"><a xlink:href="structlemons_1_1plugin_1_1_semitones_parameter.html" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="457.5,-49.5 457.5,-79.5 603.5,-79.5 603.5,-49.5 457.5,-49.5"/>
 <text text-anchor="start" x="465.5" y="-67.5" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::plugin::Semitones</text>
 <text text-anchor="middle" x="530.5" y="-56.5" font-family="Helvetica,sans-Serif" font-size="10.00">Parameter&lt; int &gt;</text>
@@ -213,7 +213,7 @@ var sectionId = 'dynsection-0';
 <!-- Node2 -->
 <g id="node2" class="node">
 <title>Node2</title>
-<g id="a_node2"><a xlink:href="classlemons_1_1plugin_1_1_parameter.html" target="_top" xlink:title="A plugin parameter class.">
+<g id="a_node2"><a xlink:href="classlemons_1_1plugin_1_1_parameter.html" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="0,-202 0,-221 145,-221 145,-202 0,-202"/>
 <text text-anchor="middle" x="72.5" y="-209" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::plugin::Parameter</text>
 </a>
@@ -245,7 +245,7 @@ var sectionId = 'dynsection-0';
 <!-- Node6 -->
 <g id="node6" class="node">
 <title>Node6</title>
-<g id="a_node6"><a xlink:href="structlemons_1_1plugin_1_1_l_f_o.html" target="_top" xlink:title="An LFO, to be used by a ModulationManager object.">
+<g id="a_node6"><a xlink:href="structlemons_1_1plugin_1_1_l_f_o.html" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="959.5,-388 959.5,-407 1072.5,-407 1072.5,-388 959.5,-388"/>
 <text text-anchor="middle" x="1016" y="-395" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::plugin::LFO</text>
 </a>
@@ -277,7 +277,7 @@ var sectionId = 'dynsection-0';
 <!-- Node9 -->
 <g id="node9" class="node">
 <title>Node9</title>
-<g id="a_node9"><a xlink:href="structlemons_1_1plugin_1_1_gain_meter_parameter.html" target="_top" xlink:title="A parameter that represents a meter displaying values in decibels.">
+<g id="a_node9"><a xlink:href="structlemons_1_1plugin_1_1_gain_meter_parameter.html" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="943,-206.5 943,-236.5 1089,-236.5 1089,-206.5 943,-206.5"/>
 <text text-anchor="start" x="951" y="-224.5" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::plugin::GainMeter</text>
 <text text-anchor="middle" x="1016" y="-213.5" font-family="Helvetica,sans-Serif" font-size="10.00">Parameter</text>
@@ -305,7 +305,7 @@ var sectionId = 'dynsection-0';
 <!-- Node15 -->
 <g id="node15" class="node">
 <title>Node15</title>
-<g id="a_node15"><a xlink:href="structlemons_1_1plugin_1_1_frequency_parameter.html" target="_top" xlink:title="A parameter that represents a frequency in Hz.">
+<g id="a_node15"><a xlink:href="structlemons_1_1plugin_1_1_frequency_parameter.html" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="726,-294.5 726,-324.5 871,-324.5 871,-294.5 726,-294.5"/>
 <text text-anchor="start" x="734" y="-312.5" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::plugin::Frequency</text>
 <text text-anchor="middle" x="798.5" y="-301.5" font-family="Helvetica,sans-Serif" font-size="10.00">Parameter</text>
@@ -321,7 +321,7 @@ var sectionId = 'dynsection-0';
 <!-- Node16 -->
 <g id="node16" class="node">
 <title>Node16</title>
-<g id="a_node16"><a xlink:href="structlemons_1_1plugin_1_1_gain_parameter.html" target="_top" xlink:title="A parameter that represents a gain value in decibels.">
+<g id="a_node16"><a xlink:href="structlemons_1_1plugin_1_1_gain_parameter.html" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="715,-256 715,-275 882,-275 882,-256 715,-256"/>
 <text text-anchor="middle" x="798.5" y="-263" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::plugin::GainParameter</text>
 </a>
@@ -336,7 +336,7 @@ var sectionId = 'dynsection-0';
 <!-- Node17 -->
 <g id="node17" class="node">
 <title>Node17</title>
-<g id="a_node17"><a xlink:href="structlemons_1_1plugin_1_1_seconds_parameter.html" target="_top" xlink:title="A parameter that represents a time value in seconds, expressed as a float.">
+<g id="a_node17"><a xlink:href="structlemons_1_1plugin_1_1_seconds_parameter.html" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="706,-344 706,-363 891,-363 891,-344 706,-344"/>
 <text text-anchor="middle" x="798.5" y="-351" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::plugin::SecondsParameter</text>
 </a>
@@ -351,7 +351,7 @@ var sectionId = 'dynsection-0';
 <!-- Node19 -->
 <g id="node19" class="node">
 <title>Node19</title>
-<g id="a_node19"><a xlink:href="structlemons_1_1plugin_1_1_bool_parameter.html" target="_top" xlink:title="Helper struct that simplifies the constructor for boolean parameters.">
+<g id="a_node19"><a xlink:href="structlemons_1_1plugin_1_1_bool_parameter.html" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="715,-6 715,-25 882,-25 882,-6 715,-6"/>
 <text text-anchor="middle" x="798.5" y="-13" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::plugin::BoolParameter</text>
 </a>
@@ -366,7 +366,7 @@ var sectionId = 'dynsection-0';
 <!-- Node20 -->
 <g id="node20" class="node">
 <title>Node20</title>
-<g id="a_node20"><a xlink:href="structlemons_1_1plugin_1_1_toggle_parameter.html" target="_top" xlink:title="A parameter that represents a boolean on/off toggle.">
+<g id="a_node20"><a xlink:href="structlemons_1_1plugin_1_1_toggle_parameter.html" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="928,-6 928,-25 1104,-25 1104,-6 928,-6"/>
 <text text-anchor="middle" x="1016" y="-13" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::plugin::ToggleParameter</text>
 </a>

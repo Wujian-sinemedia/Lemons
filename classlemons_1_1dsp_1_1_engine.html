@@ -73,12 +73,9 @@ $(function() {
 <a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="classlemons_1_1dsp_1_1_engine-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">lemons::dsp::Engine&lt; SampleType &gt; Class Template Reference<span class="mlabels"><span class="mlabel">abstract</span></span><div class="ingroups"><a class="el" href="group___audio.html">Audio</a> &raquo; <a class="el" href="group__lemons__dsp.html">lemons_dsp</a> &raquo; <a class="el" href="group__engines.html">engines</a></div></div>  </div>
+<div class="title">lemons::dsp::Engine&lt; SampleType &gt; Class Template Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
-
-<p>Base class for an audio engine.  
- <a href="classlemons_1_1dsp_1_1_engine.html#details">More...</a></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Inheritance diagram for lemons::dsp::Engine&lt; SampleType &gt;:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
@@ -146,8 +143,7 @@ Private Member Functions</h2></td></tr>
 <div class="textblock"><h3>template&lt;typename SampleType&gt;<br />
 class lemons::dsp::Engine&lt; SampleType &gt;</h3>
 
-<p>Base class for an audio engine. </p>
-<p>This should be a self-contained signal chain. This class handles pop-preventing between succesive bypassed/unbypassed frames, and provides several options for top-level <a class="el" href="classlemons_1_1dsp_1_1_engine.html#a48b37b72835d34fc060a1010a1fe2499" title="Processes the audio engine with in-place audio I/O and MIDI.">process()</a> function APIs while allowing you to implement only one internal <a class="el" href="classlemons_1_1dsp_1_1_engine.html#a20e2f81d84b335b507e34eb129e87820" title="Your subclass should implement this with your audio algorithm&#39;s rendering logic.">renderBlock()</a> function. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="classlemons_1_1dsp_1_1_latency_engine.html" title="Base class for audio engines that require latency (ie, a consistent block size) for their processing.">LatencyEngine</a> </dd></dl>
+<p>Base class for an audio engine. This should be a self-contained signal chain. This class handles pop-preventing between succesive bypassed/unbypassed frames, and provides several options for top-level <a class="el" href="classlemons_1_1dsp_1_1_engine.html#a48b37b72835d34fc060a1010a1fe2499" title="Processes the audio engine with in-place audio I/O and MIDI.">process()</a> function APIs while allowing you to implement only one internal <a class="el" href="classlemons_1_1dsp_1_1_engine.html#a20e2f81d84b335b507e34eb129e87820" title="Your subclass should implement this with your audio algorithm&#39;s rendering logic.">renderBlock()</a> function. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="classlemons_1_1dsp_1_1_latency_engine.html">LatencyEngine</a> </dd></dl>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a8c824f87e190d825154aaa919925f40f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8c824f87e190d825154aaa919925f40f">&#9670;&nbsp;</a></span>ValueType</h2>
@@ -807,7 +803,7 @@ template&lt;typename SampleType &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jan 2 2022 18:24:14 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jan 2 2022 21:06:44 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

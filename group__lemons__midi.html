@@ -64,42 +64,78 @@ $(function() {
 
 <div class="header">
   <div class="summary">
-<a href="#groups">Modules</a>  </div>
+<a href="#groups">Modules</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">lemons_midi<div class="ingroups"><a class="el" href="group___audio.html">Audio</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
-
-<p>Midi utilities.  
-<a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="groups"></a>
 Modules</h2></td></tr>
-<tr class="memitem:group__processors"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__processors.html">processors</a></td></tr>
+<tr class="memitem:group__lemons__midi__processors"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__lemons__midi__processors.html">Processors</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:group__tuning"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__tuning.html">tuning</a></td></tr>
+<tr class="memitem:group__lemons__midi__tuning"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__lemons__midi__tuning.html">Tuning</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:group__unit__tests"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__unit__tests.html">unit_tests</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:group__utilities"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__utilities.html">utilities</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:ga98b403cf67be59389bdcae888bdb4a6a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__lemons__midi.html#ga98b403cf67be59389bdcae888bdb4a6a">lemons::midi::copyRangeOfMidiBuffer</a> (const MidiBuffer &amp;readingBuffer, MidiBuffer &amp;destBuffer, int startSampleOfInput, int startSampleOfOutput, int numSamples)</td></tr>
+<tr class="separator:ga98b403cf67be59389bdcae888bdb4a6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p>Midi utilities. </p>
-<ul>
-<li>ID: lemons_midi</li>
-<li>vendor: Lemons</li>
-<li>version: 0.0.1</li>
-<li>name: lemons_midi</li>
-<li>website: <a href="http://benthevining.github.io/Lemons/">http://benthevining.github.io/Lemons/</a></li>
-<li>license: GPL-3.0</li>
-<li>minimumCppStandard: 17</li>
-<li>dependencies: juce_audio_basics <a class="el" href="group__lemons__core.html">lemons_core</a> </li>
-</ul>
+<p>Utility classes for working with MIDI. </p>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="ga98b403cf67be59389bdcae888bdb4a6a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga98b403cf67be59389bdcae888bdb4a6a">&#9670;&nbsp;</a></span>copyRangeOfMidiBuffer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lemons::midi::copyRangeOfMidiBuffer </td>
+          <td>(</td>
+          <td class="paramtype">const MidiBuffer &amp;&#160;</td>
+          <td class="paramname"><em>readingBuffer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">MidiBuffer &amp;&#160;</td>
+          <td class="paramname"><em>destBuffer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>startSampleOfInput</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>startSampleOfOutput</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numSamples</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jan 2 2022 18:24:14 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jan 2 2022 21:06:44 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

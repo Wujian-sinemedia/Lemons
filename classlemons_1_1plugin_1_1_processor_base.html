@@ -73,12 +73,9 @@ $(function() {
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="classlemons_1_1plugin_1_1_processor_base-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">lemons::plugin::ProcessorBase Class Reference<div class="ingroups"><a class="el" href="group___audio.html">Audio</a> &raquo; <a class="el" href="group__lemons__midi.html">lemons_midi</a><a class="el" href="group___plugins.html">Plugins</a> &raquo;  &#124; <a class="el" href="group__lemons__plugin.html">lemons_plugin</a> &raquo; <a class="el" href="group__processors.html">processors</a></div></div>  </div>
+<div class="title">lemons::plugin::ProcessorBase Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-
-<p>Base class for a plugin processor.  
- <a href="classlemons_1_1plugin_1_1_processor_base.html#details">More...</a></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Inheritance diagram for lemons::plugin::ProcessorBase:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
@@ -113,7 +110,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a45813074aded389252f9291b1c3d9b3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the plugin's state object.  <a href="classlemons_1_1plugin_1_1_processor_base.html#a45813074aded389252f9291b1c3d9b3c">More...</a><br /></td></tr>
 <tr class="separator:a45813074aded389252f9291b1c3d9b3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac86f6d1b4bb73959f90c9b80061b77cf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structlemons_1_1_version.html">Version</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_processor_base.html#ac86f6d1b4bb73959f90c9b80061b77cf">getVersion</a> () const noexcept</td></tr>
-<tr class="memdesc:ac86f6d1b4bb73959f90c9b80061b77cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the <a class="el" href="structlemons_1_1_version.html" title="A class that represents a version of something, with major, minor, and patch numbers.">Version</a> object associated with this processor.  <a href="classlemons_1_1plugin_1_1_processor_base.html#ac86f6d1b4bb73959f90c9b80061b77cf">More...</a><br /></td></tr>
+<tr class="memdesc:ac86f6d1b4bb73959f90c9b80061b77cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the <a class="el" href="structlemons_1_1_version.html">Version</a> object associated with this processor.  <a href="classlemons_1_1plugin_1_1_processor_base.html#ac86f6d1b4bb73959f90c9b80061b77cf">More...</a><br /></td></tr>
 <tr class="separator:ac86f6d1b4bb73959f90c9b80061b77cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a93d4cfaaa37c0b29eebf687075aaf67a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_processor_base.html#a93d4cfaaa37c0b29eebf687075aaf67a">loadState</a> (const ValueTree &amp;tree)</td></tr>
 <tr class="memdesc:a93d4cfaaa37c0b29eebf687075aaf67a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reloads a previously saved state from a ValueTree.  <a href="classlemons_1_1plugin_1_1_processor_base.html#a93d4cfaaa37c0b29eebf687075aaf67a">More...</a><br /></td></tr>
@@ -129,8 +126,7 @@ Static Public Member Functions</h2></td></tr>
 <tr class="separator:a5113130e547ceaeeb43fdeb856062a33"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Base class for a plugin processor. </p>
-<p>This class manages two instances of a <a class="el" href="classlemons_1_1dsp_1_1_engine.html" title="Base class for an audio engine.">dsp::Engine</a> and uses the appropriate one &ndash; if the host uses double precision processing, the double engine will be used; otherwise, the float engine will be used. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="classlemons_1_1plugin_1_1_processor.html" title="A processor class that can simply be told the templated engine type and the state type,...">Processor</a>, Engine, <a class="el" href="classlemons_1_1plugin_1_1_basic_processor.html" title="A default implementation of a basic, generic juce AudioProcessor.">BasicProcessor</a> </dd></dl>
+<div class="textblock"><p>Base class for a plugin processor. This class manages two instances of a <a class="el" href="classlemons_1_1dsp_1_1_engine.html">dsp::Engine</a> and uses the appropriate one &ndash; if the host uses double precision processing, the double engine will be used; otherwise, the float engine will be used. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="classlemons_1_1plugin_1_1_processor.html">Processor</a>, Engine, <a class="el" href="classlemons_1_1plugin_1_1_basic_processor.html">BasicProcessor</a> </dd></dl>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="abf03b92410766c2112bba4cd7236b484"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#abf03b92410766c2112bba4cd7236b484">&#9670;&nbsp;</a></span>BusesProperties</h2>
@@ -506,7 +502,7 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Returns the <a class="el" href="structlemons_1_1_version.html" title="A class that represents a version of something, with major, minor, and patch numbers.">Version</a> object associated with this processor. </p>
+<p>Returns the <a class="el" href="structlemons_1_1_version.html">Version</a> object associated with this processor. </p>
 
 </div>
 </div>
@@ -584,7 +580,7 @@ Static Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jan 2 2022 18:24:15 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jan 2 2022 21:06:44 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

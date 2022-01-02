@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="node1" class="node">
 <title>Node1</title>
-<g id="a_node1"><a xlink:title="A parameter that represents a MIDI panning value in the range 0 to 127.">
+<g id="a_node1"><a xlink:title=" ">
 <polygon fill="#bfbfbf" stroke="black" points="0,-0.5 0,-19.5 183,-19.5 183,-0.5 0,-0.5"/>
 <text text-anchor="middle" x="91.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::plugin::MidiPanParameter</text>
 </a>
@@ -20,7 +20,7 @@
 <!-- Node2 -->
 <g id="node2" class="node">
 <title>Node2</title>
-<g id="a_node2"><a xlink:href="classlemons_1_1plugin_1_1_typed_parameter.html" target="_top" xlink:title="A parameter that can be stored as a type other than a float, but still inherits from my Parameter bas...">
+<g id="a_node2"><a xlink:href="classlemons_1_1plugin_1_1_typed_parameter.html" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="51.5,-56.5 51.5,-75.5 131.5,-75.5 131.5,-56.5 51.5,-56.5"/>
 <text text-anchor="middle" x="91.5" y="-63.5" font-family="Helvetica,sans-Serif" font-size="10.00">IntParameter</text>
 </a>
@@ -35,7 +35,7 @@
 <!-- Node3 -->
 <g id="node3" class="node">
 <title>Node3</title>
-<g id="a_node3"><a xlink:href="classlemons_1_1plugin_1_1_parameter.html" target="_top" xlink:title="A plugin parameter class.">
+<g id="a_node3"><a xlink:href="classlemons_1_1plugin_1_1_parameter.html" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="19,-112.5 19,-131.5 164,-131.5 164,-112.5 19,-112.5"/>
 <text text-anchor="middle" x="91.5" y="-119.5" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::plugin::Parameter</text>
 </a>

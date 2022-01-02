@@ -73,12 +73,9 @@ $(function() {
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="classlemons_1_1dsp_1_1_engine_chain-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">lemons::dsp::EngineChain&lt; SampleType &gt; Class Template Reference<div class="ingroups"><a class="el" href="group___audio.html">Audio</a> &raquo; <a class="el" href="group__lemons__dsp.html">lemons_dsp</a> &raquo; <a class="el" href="group__engines.html">engines</a></div></div>  </div>
+<div class="title">lemons::dsp::EngineChain&lt; SampleType &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-
-<p>A kind of engine that contains a chain of other <a class="el" href="classlemons_1_1dsp_1_1_engine.html" title="Base class for an audio engine.">Engine</a> objects.  
- <a href="classlemons_1_1dsp_1_1_engine_chain.html#details">More...</a></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Inheritance diagram for lemons::dsp::EngineChain&lt; SampleType &gt;:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
@@ -91,7 +88,7 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1dsp_1_1_engine_chain_1_1_node.html">Node</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a node in an <a class="el" href="classlemons_1_1dsp_1_1_engine_chain.html" title="A kind of engine that contains a chain of other Engine objects.">EngineChain</a>.  <a href="structlemons_1_1dsp_1_1_engine_chain_1_1_node.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a node in an <a class="el" href="classlemons_1_1dsp_1_1_engine_chain.html">EngineChain</a>.  <a href="structlemons_1_1dsp_1_1_engine_chain_1_1_node.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
@@ -148,8 +145,7 @@ Public Member Functions</h2></td></tr>
 <div class="textblock"><h3>template&lt;typename SampleType&gt;<br />
 class lemons::dsp::EngineChain&lt; SampleType &gt;</h3>
 
-<p>A kind of engine that contains a chain of other <a class="el" href="classlemons_1_1dsp_1_1_engine.html" title="Base class for an audio engine.">Engine</a> objects. </p>
-<p>Each node in the chain must inherit from AudioEngine, and each node has an individual bypass setting. The latency of the entire chain will be the latency of the node with the greatest individual latency. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="classlemons_1_1dsp_1_1_engine.html" title="Base class for an audio engine.">Engine</a>, <a class="el" href="classlemons_1_1dsp_1_1_built_engine_chain.html" title="An EngineChain that you can pass templated Engine types to and it will instantiate them all and add t...">BuiltEngineChain</a> </dd></dl>
+<p>A kind of engine that contains a chain of other <a class="el" href="classlemons_1_1dsp_1_1_engine.html">Engine</a> objects. Each node in the chain must inherit from AudioEngine, and each node has an individual bypass setting. The latency of the entire chain will be the latency of the node with the greatest individual latency. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="classlemons_1_1dsp_1_1_engine.html">Engine</a>, <a class="el" href="classlemons_1_1dsp_1_1_built_engine_chain.html">BuiltEngineChain</a> </dd></dl>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a8c824f87e190d825154aaa919925f40f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8c824f87e190d825154aaa919925f40f">&#9670;&nbsp;</a></span>ValueType</h2>
@@ -363,10 +359,10 @@ template&lt;typename SampleType &gt; </div>
 </div><div class="memdoc">
 
 <p>Sets the latency in samples of the engine. </p>
-<p>Note that you must call <a class="el" href="classlemons_1_1dsp_1_1_engine.html#a92fe69356c54445d91e70586cc9cdf73" title="Prepares the engine.">Engine::prepare()</a> at least once before calling this function, and the latency you specify here may be different than the blocksize you prepare the <a class="el" href="classlemons_1_1dsp_1_1_engine.html" title="Base class for an audio engine.">Engine</a> base class with. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Note that you must call <a class="el" href="classlemons_1_1dsp_1_1_engine.html#a92fe69356c54445d91e70586cc9cdf73" title="Prepares the engine.">Engine::prepare()</a> at least once before calling this function, and the latency you specify here may be different than the blocksize you prepare the <a class="el" href="classlemons_1_1dsp_1_1_engine.html">Engine</a> base class with. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">newInternalBlocksize</td><td>The new latency (and internal blocksize) of the engine, in samples. </td></tr>
-    <tr><td class="paramname">setTopLevelEngineBlocksize</td><td>When true, this calls <a class="el" href="classlemons_1_1dsp_1_1_engine.html#a92fe69356c54445d91e70586cc9cdf73" title="Prepares the engine.">Engine::prepare()</a> and sets the <a class="el" href="classlemons_1_1dsp_1_1_engine.html" title="Base class for an audio engine.">Engine</a> base class's blocksize to be the new latency. This may be undesirable, because this will not allow you to call the top level <a class="el" href="classlemons_1_1dsp_1_1_engine.html#a48b37b72835d34fc060a1010a1fe2499" title="Processes the audio engine with in-place audio I/O and MIDI.">process()</a> function with blocksizes larger than the latency you've declared here. </td></tr>
+    <tr><td class="paramname">setTopLevelEngineBlocksize</td><td>When true, this calls <a class="el" href="classlemons_1_1dsp_1_1_engine.html#a92fe69356c54445d91e70586cc9cdf73" title="Prepares the engine.">Engine::prepare()</a> and sets the <a class="el" href="classlemons_1_1dsp_1_1_engine.html">Engine</a> base class's blocksize to be the new latency. This may be undesirable, because this will not allow you to call the top level <a class="el" href="classlemons_1_1dsp_1_1_engine.html#a48b37b72835d34fc060a1010a1fe2499" title="Processes the audio engine with in-place audio I/O and MIDI.">process()</a> function with blocksizes larger than the latency you've declared here. </td></tr>
   </table>
   </dd>
 </dl>
@@ -396,7 +392,7 @@ template&lt;typename EngineType , typename... Args, LEMONS_MUST_INHERIT_FROM(Eng
 <p>Creates a node holding an engine of the specified type, and forwards all arguments to the engine's constructor. </p>
 <p>Adds the node to the end of the chain. </p><dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">EngineType</td><td>The type of <a class="el" href="classlemons_1_1dsp_1_1_engine.html" title="Base class for an audio engine.">Engine</a> object that the new node will hold. This type must inherit from Engine&lt;SampleType&gt;. </td></tr>
+    <tr><td class="paramname">EngineType</td><td>The type of <a class="el" href="classlemons_1_1dsp_1_1_engine.html">Engine</a> object that the new node will hold. This type must inherit from Engine&lt;SampleType&gt;. </td></tr>
   </table>
   </dd>
 </dl>
@@ -439,7 +435,7 @@ template&lt;typename EngineType , typename... Args, LEMONS_MUST_INHERIT_FROM(Eng
 <p>Creates a node holding an engine of the specified type, and forwards all arguments to the engine's constructor. </p>
 <p>Adds the node to the chain after the specified other node. Note that this may change the indices of any other nodes already in the chain! </p><dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">EngineType</td><td>The type of <a class="el" href="classlemons_1_1dsp_1_1_engine.html" title="Base class for an audio engine.">Engine</a> object that the new node will hold. This type must inherit from Engine&lt;SampleType&gt;. </td></tr>
+    <tr><td class="paramname">EngineType</td><td>The type of <a class="el" href="classlemons_1_1dsp_1_1_engine.html">Engine</a> object that the new node will hold. This type must inherit from Engine&lt;SampleType&gt;. </td></tr>
   </table>
   </dd>
 </dl>
@@ -482,7 +478,7 @@ template&lt;typename EngineType , typename... Args, LEMONS_MUST_INHERIT_FROM(Eng
 <p>Creates a node holding an engine of the specified type, and forwards all arguments to the engine's constructor. </p>
 <p>Adds the node to the chain before the specified other node. Note that this may change the indices of any other nodes already in the chain! </p><dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">EngineType</td><td>The type of <a class="el" href="classlemons_1_1dsp_1_1_engine.html" title="Base class for an audio engine.">Engine</a> object that the new node will hold. This type must inherit from Engine&lt;SampleType&gt;. </td></tr>
+    <tr><td class="paramname">EngineType</td><td>The type of <a class="el" href="classlemons_1_1dsp_1_1_engine.html">Engine</a> object that the new node will hold. This type must inherit from Engine&lt;SampleType&gt;. </td></tr>
   </table>
   </dd>
 </dl>
@@ -515,7 +511,7 @@ template&lt;typename EngineType , typename... Args, LEMONS_MUST_INHERIT_FROM(Eng
 <p>Creates a node holding an engine of the specified type, and forwards all arguments to the engine's constructor. </p>
 <p>Adds the node to the front of the chain, at index 0. Note that this may change the indices of any other nodes already in the chain! </p><dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">EngineType</td><td>The type of <a class="el" href="classlemons_1_1dsp_1_1_engine.html" title="Base class for an audio engine.">Engine</a> object that the new node will hold. This type must inherit from Engine&lt;SampleType&gt;. </td></tr>
+    <tr><td class="paramname">EngineType</td><td>The type of <a class="el" href="classlemons_1_1dsp_1_1_engine.html">Engine</a> object that the new node will hold. This type must inherit from Engine&lt;SampleType&gt;. </td></tr>
   </table>
   </dd>
 </dl>
@@ -577,7 +573,7 @@ template&lt;typename EngineType , LEMONS_MUST_INHERIT_FROM(EngineType, Engine&lt
 <p>Similar to <a class="el" href="classlemons_1_1dsp_1_1_engine_chain.html#af5d286d3f8aadea053bd1d612050d197" title="Returns a pointer to the first node found that holds an Engine of the specified type.">getNodeOfType()</a>, but returns a pointer to the actual engine object as its derived type, instead of a pointer to its containing node. </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">EngineType</td><td>The type of <a class="el" href="classlemons_1_1dsp_1_1_engine.html" title="Base class for an audio engine.">Engine</a> object to search for. This type must inherit from Engine&lt;SampleType&gt;. </td></tr>
+    <tr><td class="paramname">EngineType</td><td>The type of <a class="el" href="classlemons_1_1dsp_1_1_engine.html">Engine</a> object to search for. This type must inherit from Engine&lt;SampleType&gt;. </td></tr>
   </table>
   </dd>
 </dl>
@@ -648,10 +644,10 @@ template&lt;typename EngineType , LEMONS_MUST_INHERIT_FROM(EngineType, Engine&lt
       </table>
 </div><div class="memdoc">
 
-<p>Returns a pointer to the first node found that holds an <a class="el" href="classlemons_1_1dsp_1_1_engine.html" title="Base class for an audio engine.">Engine</a> of the specified type. </p>
+<p>Returns a pointer to the first node found that holds an <a class="el" href="classlemons_1_1dsp_1_1_engine.html">Engine</a> of the specified type. </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">EngineType</td><td>The type of <a class="el" href="classlemons_1_1dsp_1_1_engine.html" title="Base class for an audio engine.">Engine</a> object to search for. This type must inherit from Engine&lt;SampleType&gt;. </td></tr>
+    <tr><td class="paramname">EngineType</td><td>The type of <a class="el" href="classlemons_1_1dsp_1_1_engine.html">Engine</a> object to search for. This type must inherit from Engine&lt;SampleType&gt;. </td></tr>
   </table>
   </dd>
 </dl>
@@ -1220,7 +1216,7 @@ template&lt;typename SampleType &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jan 2 2022 18:24:14 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jan 2 2022 21:06:44 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

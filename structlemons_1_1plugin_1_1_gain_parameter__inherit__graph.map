@@ -1,6 +1,6 @@
 <map id="lemons::plugin::GainParameter" name="lemons::plugin::GainParameter">
-<area shape="rect" id="node1" title="A parameter that represents a gain value in decibels." alt="" coords="5,261,228,288"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,261,228,288"/>
 <area shape="rect" id="node2" href="$classlemons_1_1plugin_1_1_typed_parameter.html" title=" " alt="" coords="55,185,178,212"/>
-<area shape="rect" id="node3" href="$classlemons_1_1plugin_1_1_parameter.html" title="A plugin parameter class." alt="" coords="15,5,208,32"/>
-<area shape="rect" id="node4" href="$classlemons_1_1plugin_1_1_typed_parameter.html" title="A parameter that can be stored as a type other than a float, but still inherits from my Parameter bas..." alt="" coords="133,81,364,123"/>
+<area shape="rect" id="node3" href="$classlemons_1_1plugin_1_1_parameter.html" title=" " alt="" coords="15,5,208,32"/>
+<area shape="rect" id="node4" href="$classlemons_1_1plugin_1_1_typed_parameter.html" title=" " alt="" coords="133,81,364,123"/>
 </map>

@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['basicsynths_2522',['BasicSynths',['../group___basic_synths.html',1,'']]],
-  ['binary_5fdata_2523',['binary_data',['../group__binary__data.html',1,'']]],
-  ['buttons_2524',['buttons',['../group__buttons.html',1,'']]]
+  ['basic_20types_2536',['Basic types',['../group__basic__binary__data__types.html',1,'']]],
+  ['binary_20data_2537',['Binary data',['../group__lemons__binary__data.html',1,'']]],
+  ['buttons_2538',['Buttons',['../group__lemons__buttons.html',1,'']]]
 ];

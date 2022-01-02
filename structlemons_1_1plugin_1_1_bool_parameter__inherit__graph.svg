@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="node1" class="node">
 <title>Node1</title>
-<g id="a_node1"><a xlink:title="Helper struct that simplifies the constructor for boolean parameters.">
+<g id="a_node1"><a xlink:title=" ">
 <polygon fill="#bfbfbf" stroke="black" points="4.5,-57.5 4.5,-76.5 171.5,-76.5 171.5,-57.5 4.5,-57.5"/>
 <text text-anchor="middle" x="88" y="-64.5" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::plugin::BoolParameter</text>
 </a>
@@ -20,7 +20,7 @@
 <!-- Node5 -->
 <g id="node5" class="node">
 <title>Node5</title>
-<g id="a_node5"><a xlink:href="structlemons_1_1plugin_1_1_toggle_parameter.html" target="_top" xlink:title="A parameter that represents a boolean on/off toggle.">
+<g id="a_node5"><a xlink:href="structlemons_1_1plugin_1_1_toggle_parameter.html" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="0,-0.5 0,-19.5 176,-19.5 176,-0.5 0,-0.5"/>
 <text text-anchor="middle" x="88" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::plugin::ToggleParameter</text>
 </a>
@@ -51,7 +51,7 @@
 <!-- Node3 -->
 <g id="node3" class="node">
 <title>Node3</title>
-<g id="a_node3"><a xlink:href="classlemons_1_1plugin_1_1_parameter.html" target="_top" xlink:title="A plugin parameter class.">
+<g id="a_node3"><a xlink:href="classlemons_1_1plugin_1_1_parameter.html" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="11.5,-260.5 11.5,-279.5 156.5,-279.5 156.5,-260.5 11.5,-260.5"/>
 <text text-anchor="middle" x="84" y="-267.5" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::plugin::Parameter</text>
 </a>
@@ -66,7 +66,7 @@
 <!-- Node4 -->
 <g id="node4" class="node">
 <title>Node4</title>
-<g id="a_node4"><a xlink:href="classlemons_1_1plugin_1_1_typed_parameter.html" target="_top" xlink:title="A parameter that can be stored as a type other than a float, but still inherits from my Parameter bas...">
+<g id="a_node4"><a xlink:href="classlemons_1_1plugin_1_1_typed_parameter.html" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="100.5,-192.5 100.5,-222.5 273.5,-222.5 273.5,-192.5 100.5,-192.5"/>
 <text text-anchor="start" x="108.5" y="-210.5" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::plugin::TypedParameter</text>
 <text text-anchor="middle" x="187" y="-199.5" font-family="Helvetica,sans-Serif" font-size="10.00">&lt; ValueType &gt;</text>

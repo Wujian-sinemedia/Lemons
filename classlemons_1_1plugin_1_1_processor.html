@@ -74,12 +74,9 @@ $(function() {
 <a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="classlemons_1_1plugin_1_1_processor-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">lemons::plugin::Processor&lt; EngineType, StateType,, &gt; Class Template Reference<div class="ingroups"><a class="el" href="group___audio.html">Audio</a> &raquo; <a class="el" href="group__lemons__midi.html">lemons_midi</a><a class="el" href="group___plugins.html">Plugins</a> &raquo;  &#124; <a class="el" href="group__lemons__plugin.html">lemons_plugin</a> &raquo; <a class="el" href="group__processors.html">processors</a></div></div>  </div>
+<div class="title">lemons::plugin::Processor&lt; EngineType, StateType,, &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-
-<p>A processor class that can simply be told the templated engine type and the state type, and takes care of instantiating a float and double one and passing them to the <a class="el" href="classlemons_1_1plugin_1_1_processor_base.html" title="Base class for a plugin processor.">ProcessorBase</a> class.  
- <a href="classlemons_1_1plugin_1_1_processor.html#details">More...</a></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Inheritance diagram for lemons::plugin::Processor&lt; EngineType, StateType,, &gt;:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
@@ -116,7 +113,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a45813074aded389252f9291b1c3d9b3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the plugin's state object.  <a href="classlemons_1_1plugin_1_1_processor_base.html#a45813074aded389252f9291b1c3d9b3c">More...</a><br /></td></tr>
 <tr class="separator:a45813074aded389252f9291b1c3d9b3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac86f6d1b4bb73959f90c9b80061b77cf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structlemons_1_1_version.html">Version</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_processor_base.html#ac86f6d1b4bb73959f90c9b80061b77cf">getVersion</a> () const noexcept</td></tr>
-<tr class="memdesc:ac86f6d1b4bb73959f90c9b80061b77cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the <a class="el" href="structlemons_1_1_version.html" title="A class that represents a version of something, with major, minor, and patch numbers.">Version</a> object associated with this processor.  <a href="classlemons_1_1plugin_1_1_processor_base.html#ac86f6d1b4bb73959f90c9b80061b77cf">More...</a><br /></td></tr>
+<tr class="memdesc:ac86f6d1b4bb73959f90c9b80061b77cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the <a class="el" href="structlemons_1_1_version.html">Version</a> object associated with this processor.  <a href="classlemons_1_1plugin_1_1_processor_base.html#ac86f6d1b4bb73959f90c9b80061b77cf">More...</a><br /></td></tr>
 <tr class="separator:ac86f6d1b4bb73959f90c9b80061b77cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a93d4cfaaa37c0b29eebf687075aaf67a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_processor_base.html#a93d4cfaaa37c0b29eebf687075aaf67a">loadState</a> (const ValueTree &amp;tree)</td></tr>
 <tr class="memdesc:a93d4cfaaa37c0b29eebf687075aaf67a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reloads a previously saved state from a ValueTree.  <a href="classlemons_1_1plugin_1_1_processor_base.html#a93d4cfaaa37c0b29eebf687075aaf67a">More...</a><br /></td></tr>
@@ -185,8 +182,7 @@ Protected Attributes</h2></td></tr>
 <div class="textblock"><h3>template&lt;template&lt; typename SampleType &gt; class EngineType, typename StateType, LEMONS_MUST_INHERIT_FROM(EngineType&lt; float &gt;, dsp::Engine&lt; float &gt;), LEMONS_MUST_INHERIT_FROM(StateType, State)&gt;<br />
 class lemons::plugin::Processor&lt; EngineType, StateType,, &gt;</h3>
 
-<p>A processor class that can simply be told the templated engine type and the state type, and takes care of instantiating a float and double one and passing them to the <a class="el" href="classlemons_1_1plugin_1_1_processor_base.html" title="Base class for a plugin processor.">ProcessorBase</a> class. </p>
-<p>Example usage: </p><div class="fragment"><div class="line"><span class="keyword">using namespace </span><a class="code" href="namespacelemons.html">lemons</a>;</div>
+<p>A processor class that can simply be told the templated engine type and the state type, and takes care of instantiating a float and double one and passing them to the <a class="el" href="classlemons_1_1plugin_1_1_processor_base.html">ProcessorBase</a> class. Example usage: </p><div class="fragment"><div class="line"><span class="keyword">using namespace </span><a class="code" href="namespacelemons.html">lemons</a>;</div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> SampleType&gt;</div>
 <div class="line"><span class="keyword">struct </span>MyEngine : <a class="code" href="classlemons_1_1dsp_1_1_engine.html">dsp::Engine</a>&lt;SampleType&gt;</div>
@@ -200,14 +196,14 @@ class lemons::plugin::Processor&lt; EngineType, StateType,, &gt;</h3>
 <div class="line">};</div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">using</span> MyPluginProcessor = <a class="code" href="classlemons_1_1plugin_1_1_processor.html">plugin::Processor&lt; MyEngine, MyState &gt;</a>;</div>
-</div><!-- fragment --><p> By default, this processor class does not have an editor; use the <a class="el" href="structlemons_1_1plugin_1_1_processor_with_editor.html" title="A processor class that has a GUI editor.">ProcessorWithEditor</a> class to create a processor with an editor. </p><dl class="tparams"><dt>Template Parameters</dt><dd>
+</div><!-- fragment --><p> By default, this processor class does not have an editor; use the <a class="el" href="structlemons_1_1plugin_1_1_processor_with_editor.html">ProcessorWithEditor</a> class to create a processor with an editor. </p><dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">EngineType</td><td>A class template for your plugin's engine class. This type must inherit from Engine. </td></tr>
-    <tr><td class="paramname">StateType</td><td>The type of the plugin's state object. This type must inherit from <a class="el" href="classlemons_1_1plugin_1_1_state.html" title="Base class for a plugin&#39;s entire state.">State</a>. </td></tr>
+    <tr><td class="paramname">StateType</td><td>The type of the plugin's state object. This type must inherit from <a class="el" href="classlemons_1_1plugin_1_1_state.html">State</a>. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="classlemons_1_1plugin_1_1_processor_base.html" title="Base class for a plugin processor.">ProcessorBase</a>, Engine, <a class="el" href="structlemons_1_1plugin_1_1_processor_with_editor.html" title="A processor class that has a GUI editor.">ProcessorWithEditor</a> </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classlemons_1_1plugin_1_1_processor_base.html">ProcessorBase</a>, Engine, <a class="el" href="structlemons_1_1plugin_1_1_processor_with_editor.html">ProcessorWithEditor</a> </dd></dl>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="abf03b92410766c2112bba4cd7236b484"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#abf03b92410766c2112bba4cd7236b484">&#9670;&nbsp;</a></span>BusesProperties</h2>
@@ -564,7 +560,7 @@ template&lt;template&lt; typename SampleType &gt; class EngineType, typename Sta
 </table>
 </div><div class="memdoc">
 
-<p>Returns the <a class="el" href="structlemons_1_1_version.html" title="A class that represents a version of something, with major, minor, and patch numbers.">Version</a> object associated with this processor. </p>
+<p>Returns the <a class="el" href="structlemons_1_1_version.html">Version</a> object associated with this processor. </p>
 
 </div>
 </div>
@@ -711,13 +707,13 @@ template&lt;template&lt; typename SampleType &gt; class EngineType, typename Sta
 <li><a class="el" href="_processors_8h.html">Processors.h</a></li>
 </ul>
 </div><!-- contents -->
-<div class="ttc" id="aclasslemons_1_1plugin_1_1_state_html"><div class="ttname"><a href="classlemons_1_1plugin_1_1_state.html">lemons::plugin::State</a></div><div class="ttdoc">Base class for a plugin's entire state.</div><div class="ttdef"><b>Definition:</b> PluginState.h:28</div></div>
-<div class="ttc" id="aclasslemons_1_1plugin_1_1_processor_html"><div class="ttname"><a href="classlemons_1_1plugin_1_1_processor.html">lemons::plugin::Processor</a></div><div class="ttdoc">A processor class that can simply be told the templated engine type and the state type,...</div><div class="ttdef"><b>Definition:</b> Processors.h:48</div></div>
-<div class="ttc" id="aclasslemons_1_1dsp_1_1_engine_html"><div class="ttname"><a href="classlemons_1_1dsp_1_1_engine.html">lemons::dsp::Engine</a></div><div class="ttdoc">Base class for an audio engine.</div><div class="ttdef"><b>Definition:</b> AudioEngine.h:30</div></div>
-<div class="ttc" id="anamespacelemons_html"><div class="ttname"><a href="namespacelemons.html">lemons</a></div><div class="ttdef"><b>Definition:</b> AudioEffect.h:9</div></div>
+<div class="ttc" id="aclasslemons_1_1plugin_1_1_state_html"><div class="ttname"><a href="classlemons_1_1plugin_1_1_state.html">lemons::plugin::State</a></div><div class="ttdef"><b>Definition:</b> PluginState.h:25</div></div>
+<div class="ttc" id="aclasslemons_1_1plugin_1_1_processor_html"><div class="ttname"><a href="classlemons_1_1plugin_1_1_processor.html">lemons::plugin::Processor</a></div><div class="ttdef"><b>Definition:</b> Processors.h:45</div></div>
+<div class="ttc" id="aclasslemons_1_1dsp_1_1_engine_html"><div class="ttname"><a href="classlemons_1_1dsp_1_1_engine.html">lemons::dsp::Engine</a></div><div class="ttdef"><b>Definition:</b> AudioEngine.h:33</div></div>
+<div class="ttc" id="anamespacelemons_html"><div class="ttname"><a href="namespacelemons.html">lemons</a></div><div class="ttdef"><b>Definition:</b> AudioEffect.h:5</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jan 2 2022 18:24:15 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jan 2 2022 21:06:44 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="node1" class="node">
 <title>Node1</title>
-<g id="a_node1"><a xlink:title="A default implementation of a basic, generic juce AudioProcessor.">
+<g id="a_node1"><a xlink:title=" ">
 <polygon fill="#bfbfbf" stroke="black" points="0,-123.5 0,-142.5 168,-142.5 168,-123.5 0,-123.5"/>
 <text text-anchor="middle" x="84" y="-130.5" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::plugin::BasicProcessor</text>
 </a>
@@ -20,7 +20,7 @@
 <!-- Node2 -->
 <g id="node2" class="node">
 <title>Node2</title>
-<g id="a_node2"><a xlink:href="classlemons_1_1plugin_1_1_processor_base.html" target="_top" xlink:title="Base class for a plugin processor.">
+<g id="a_node2"><a xlink:href="classlemons_1_1plugin_1_1_processor_base.html" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="1,-67.5 1,-86.5 167,-86.5 167,-67.5 1,-67.5"/>
 <text text-anchor="middle" x="84" y="-74.5" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::plugin::ProcessorBase</text>
 </a>
@@ -35,7 +35,7 @@
 <!-- Node3 -->
 <g id="node3" class="node">
 <title>Node3</title>
-<g id="a_node3"><a xlink:href="classlemons_1_1plugin_1_1_processor.html" target="_top" xlink:title="A processor class that can simply be told the templated engine type and the state type,...">
+<g id="a_node3"><a xlink:href="classlemons_1_1plugin_1_1_processor.html" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="6.5,-0.5 6.5,-30.5 161.5,-30.5 161.5,-0.5 6.5,-0.5"/>
 <text text-anchor="start" x="14.5" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::plugin::Processor</text>
 <text text-anchor="middle" x="84" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">&lt; EngineType, StateType,, &gt;</text>

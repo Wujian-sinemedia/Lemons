@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="node1" class="node">
 <title>Node1</title>
-<g id="a_node1"><a xlink:title="A parameter that represents a gain value in decibels.">
+<g id="a_node1"><a xlink:title=" ">
 <polygon fill="#bfbfbf" stroke="black" points="0,-0.5 0,-19.5 167,-19.5 167,-0.5 0,-0.5"/>
 <text text-anchor="middle" x="83.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::plugin::GainParameter</text>
 </a>
@@ -35,7 +35,7 @@
 <!-- Node3 -->
 <g id="node3" class="node">
 <title>Node3</title>
-<g id="a_node3"><a xlink:href="classlemons_1_1plugin_1_1_parameter.html" target="_top" xlink:title="A plugin parameter class.">
+<g id="a_node3"><a xlink:href="classlemons_1_1plugin_1_1_parameter.html" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="7,-192.5 7,-211.5 152,-211.5 152,-192.5 7,-192.5"/>
 <text text-anchor="middle" x="79.5" y="-199.5" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::plugin::Parameter</text>
 </a>
@@ -50,7 +50,7 @@
 <!-- Node4 -->
 <g id="node4" class="node">
 <title>Node4</title>
-<g id="a_node4"><a xlink:href="classlemons_1_1plugin_1_1_typed_parameter.html" target="_top" xlink:title="A parameter that can be stored as a type other than a float, but still inherits from my Parameter bas...">
+<g id="a_node4"><a xlink:href="classlemons_1_1plugin_1_1_typed_parameter.html" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="96,-124.5 96,-154.5 269,-154.5 269,-124.5 96,-124.5"/>
 <text text-anchor="start" x="104" y="-142.5" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::plugin::TypedParameter</text>
 <text text-anchor="middle" x="182.5" y="-131.5" font-family="Helvetica,sans-Serif" font-size="10.00">&lt; ValueType &gt;</text>

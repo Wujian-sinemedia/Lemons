@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="node1" class="node">
 <title>Node1</title>
-<g id="a_node1"><a xlink:title="A processor class that can simply be told the templated engine type and the state type,...">
+<g id="a_node1"><a xlink:title=" ">
 <polygon fill="#bfbfbf" stroke="black" points="94.5,-0.5 94.5,-30.5 249.5,-30.5 249.5,-0.5 94.5,-0.5"/>
 <text text-anchor="start" x="102.5" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::plugin::Processor</text>
 <text text-anchor="middle" x="172" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">&lt; EngineType, StateType,, &gt;</text>
@@ -21,7 +21,7 @@
 <!-- Node2 -->
 <g id="node2" class="node">
 <title>Node2</title>
-<g id="a_node2"><a xlink:href="classlemons_1_1plugin_1_1_processor_base.html" target="_top" xlink:title="Base class for a plugin processor.">
+<g id="a_node2"><a xlink:href="classlemons_1_1plugin_1_1_processor_base.html" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="1,-73 1,-92 167,-92 167,-73 1,-73"/>
 <text text-anchor="middle" x="84" y="-80" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::plugin::ProcessorBase</text>
 </a>
@@ -36,7 +36,7 @@
 <!-- Node3 -->
 <g id="node3" class="node">
 <title>Node3</title>
-<g id="a_node3"><a xlink:href="classlemons_1_1plugin_1_1_basic_processor.html" target="_top" xlink:title="A default implementation of a basic, generic juce AudioProcessor.">
+<g id="a_node3"><a xlink:href="classlemons_1_1plugin_1_1_basic_processor.html" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="0,-134.5 0,-153.5 168,-153.5 168,-134.5 0,-134.5"/>
 <text text-anchor="middle" x="84" y="-141.5" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::plugin::BasicProcessor</text>
 </a>
@@ -51,7 +51,7 @@
 <!-- Node4 -->
 <g id="node4" class="node">
 <title>Node4</title>
-<g id="a_node4"><a xlink:href="structlemons_1_1locale_1_1_translations_initializer.html" target="_top" xlink:title="A struct whose constructor simply calls initializeDefaultTranslations().">
+<g id="a_node4"><a xlink:href="structlemons_1_1locale_1_1_translations_initializer.html" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="185,-67.5 185,-97.5 337,-97.5 337,-67.5 185,-67.5"/>
 <text text-anchor="start" x="193" y="-85.5" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::locale::Translations</text>
 <text text-anchor="middle" x="261" y="-74.5" font-family="Helvetica,sans-Serif" font-size="10.00">Initializer</text>

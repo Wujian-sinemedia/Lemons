@@ -71,20 +71,17 @@ $(function() {
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="structlemons_1_1binary_1_1_data-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">lemons::binary::Data Struct Reference<span class="mlabels"><span class="mlabel">final</span></span><div class="ingroups"><a class="el" href="group___common.html">Common</a> &raquo; <a class="el" href="group__lemons__core.html">lemons_core</a> &raquo; <a class="el" href="group__binary__data.html">binary_data</a></div></div>  </div>
+<div class="title">lemons::binary::Data Struct Reference<span class="mlabels"><span class="mlabel">final</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
-
-<p>Represents a wrapper around some data contained in a juce BinaryData target.  
- <a href="structlemons_1_1binary_1_1_data.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:abfc233b46701a09cef8a5fc3f78ccdb2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1binary_1_1_data.html#abfc233b46701a09cef8a5fc3f78ccdb2">Data</a> ()=default</td></tr>
-<tr class="memdesc:abfc233b46701a09cef8a5fc3f78ccdb2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a default, invalid <a class="el" href="structlemons_1_1binary_1_1_data.html" title="Represents a wrapper around some data contained in a juce BinaryData target.">Data</a> object.  <a href="structlemons_1_1binary_1_1_data.html#abfc233b46701a09cef8a5fc3f78ccdb2">More...</a><br /></td></tr>
+<tr class="memdesc:abfc233b46701a09cef8a5fc3f78ccdb2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a default, invalid <a class="el" href="structlemons_1_1binary_1_1_data.html">Data</a> object.  <a href="structlemons_1_1binary_1_1_data.html#abfc233b46701a09cef8a5fc3f78ccdb2">More...</a><br /></td></tr>
 <tr class="separator:abfc233b46701a09cef8a5fc3f78ccdb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad54a181f5bbc3e4b45e8a22f67806dfd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1binary_1_1_data.html#ad54a181f5bbc3e4b45e8a22f67806dfd">Data</a> (const String &amp;fileToFind)</td></tr>
-<tr class="memdesc:ad54a181f5bbc3e4b45e8a22f67806dfd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a <a class="el" href="structlemons_1_1binary_1_1_data.html" title="Represents a wrapper around some data contained in a juce BinaryData target.">Data</a> object referencing a named resource.  <a href="structlemons_1_1binary_1_1_data.html#ad54a181f5bbc3e4b45e8a22f67806dfd">More...</a><br /></td></tr>
+<tr class="memdesc:ad54a181f5bbc3e4b45e8a22f67806dfd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a <a class="el" href="structlemons_1_1binary_1_1_data.html">Data</a> object referencing a named resource.  <a href="structlemons_1_1binary_1_1_data.html#ad54a181f5bbc3e4b45e8a22f67806dfd">More...</a><br /></td></tr>
 <tr class="separator:ad54a181f5bbc3e4b45e8a22f67806dfd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a74b924703cf18cf60b4931df8cc3ac7b"><td class="memItemLeft" align="right" valign="top">MemoryBlock&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1binary_1_1_data.html#a74b924703cf18cf60b4931df8cc3ac7b">getAsMemoryBlock</a> () const</td></tr>
 <tr class="memdesc:a74b924703cf18cf60b4931df8cc3ac7b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a memory block representing this data.  <a href="structlemons_1_1binary_1_1_data.html#a74b924703cf18cf60b4931df8cc3ac7b">More...</a><br /></td></tr>
@@ -103,13 +100,12 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a2fe4061a2be0d157f44ecf92db65cd01"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Represents a wrapper around some data contained in a juce BinaryData target. </p>
-<p>Simply provide the filename and this object will load the data contained by the named resource, if it can be located. </p><dl class="section attention"><dt>Attention</dt><dd>Be sure to check <a class="el" href="structlemons_1_1binary_1_1_data.html#a2fe4061a2be0d157f44ecf92db65cd01" title="Returns true if the requested data has been loaded successfully from the binary data target.">isValid()</a> before attempting to use the data! <br  />
+<div class="textblock"><p>Represents a wrapper around some data contained in a juce BinaryData target. Simply provide the filename and this object will load the data contained by the named resource, if it can be located. </p><dl class="section attention"><dt>Attention</dt><dd>Be sure to check <a class="el" href="structlemons_1_1binary_1_1_data.html#a2fe4061a2be0d157f44ecf92db65cd01" title="Returns true if the requested data has been loaded successfully from the binary data target.">isValid()</a> before attempting to use the data! <br  />
 For example: <div class="fragment"><div class="line"><a class="code" href="structlemons_1_1binary_1_1_data.html#abfc233b46701a09cef8a5fc3f78ccdb2">Data</a> data {<span class="stringliteral">&quot;MyAudioFile.wav&quot;</span>};</div>
 <div class="line"> </div>
 <div class="line"><span class="keywordflow">if</span> (data.isValid())</div>
 <div class="line">    doSomethingWithData (data.data, data.size);</div>
-</div><!-- fragment --> If your project doesn't define the LEMONS_HAS_BINARY_DATA macro to 1, every <a class="el" href="structlemons_1_1binary_1_1_data.html" title="Represents a wrapper around some data contained in a juce BinaryData target.">Data</a> object you create will be invalid. <br  />
+</div><!-- fragment --> If your project doesn't define the LEMONS_HAS_BINARY_DATA macro to 1, every <a class="el" href="structlemons_1_1binary_1_1_data.html">Data</a> object you create will be invalid. <br  />
  To easily access binary data converted into higher level types, several free functions are provided in this namespace. These methods all throw assertions if the data cannot be loaded. <br  />
 For example: <div class="fragment"><div class="line"><span class="keyword">auto</span> image = <a class="code" href="namespacelemons_1_1binary.html#a0695d683400b6eb86c0198bd13ee8f62">binary::getImage</a> (<span class="stringliteral">&quot;myImage.jpg&quot;</span>);</div>
 </div><!-- fragment --> </dd></dl>
@@ -137,7 +133,7 @@ For example: <div class="fragment"><div class="line"><span class="keyword">auto<
 </table>
 </div><div class="memdoc">
 
-<p>Creates a default, invalid <a class="el" href="structlemons_1_1binary_1_1_data.html" title="Represents a wrapper around some data contained in a juce BinaryData target.">Data</a> object. </p>
+<p>Creates a default, invalid <a class="el" href="structlemons_1_1binary_1_1_data.html">Data</a> object. </p>
 
 </div>
 </div>
@@ -165,7 +161,7 @@ For example: <div class="fragment"><div class="line"><span class="keyword">auto<
 </table>
 </div><div class="memdoc">
 
-<p>Creates a <a class="el" href="structlemons_1_1binary_1_1_data.html" title="Represents a wrapper around some data contained in a juce BinaryData target.">Data</a> object referencing a named resource. </p>
+<p>Creates a <a class="el" href="structlemons_1_1binary_1_1_data.html">Data</a> object referencing a named resource. </p>
 
 </div>
 </div>
@@ -298,7 +294,7 @@ For example: <div class="fragment"><div class="line"><span class="keyword">auto<
 <div class="ttc" id="astructlemons_1_1binary_1_1_data_html_abfc233b46701a09cef8a5fc3f78ccdb2"><div class="ttname"><a href="structlemons_1_1binary_1_1_data.html#abfc233b46701a09cef8a5fc3f78ccdb2">lemons::binary::Data::Data</a></div><div class="ttdeci">Data()=default</div><div class="ttdoc">Creates a default, invalid Data object.</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jan 2 2022 18:24:14 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jan 2 2022 21:06:44 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

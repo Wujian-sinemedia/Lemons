@@ -1,7 +1,7 @@
 <map id="lemons::dsp::osc::Oscillator&lt; SampleType &gt;" name="lemons::dsp::osc::Oscillator&lt; SampleType &gt;">
-<area shape="rect" id="node1" title="Base class for any kind of oscillator." alt="" coords="5,104,207,145"/>
-<area shape="rect" id="node2" href="$structlemons_1_1dsp_1_1osc_1_1_saw.html" title="A basic sawtooth wave oscillator." alt="" coords="273,5,439,47"/>
-<area shape="rect" id="node3" href="$structlemons_1_1dsp_1_1osc_1_1_sine.html" title="A basic sine wave oscillator." alt="" coords="273,71,439,112"/>
-<area shape="rect" id="node4" href="$structlemons_1_1dsp_1_1osc_1_1_square.html" title="A basic square wave oscillator." alt="" coords="264,136,448,177"/>
-<area shape="rect" id="node5" href="$classlemons_1_1dsp_1_1osc_1_1_super_saw.html" title="A basic &quot;super saw&quot; oscillator." alt="" coords="255,201,457,243"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,104,207,145"/>
+<area shape="rect" id="node2" href="$structlemons_1_1dsp_1_1osc_1_1_saw.html" title=" " alt="" coords="273,5,439,47"/>
+<area shape="rect" id="node3" href="$structlemons_1_1dsp_1_1osc_1_1_sine.html" title=" " alt="" coords="273,71,439,112"/>
+<area shape="rect" id="node4" href="$structlemons_1_1dsp_1_1osc_1_1_square.html" title=" " alt="" coords="264,136,448,177"/>
+<area shape="rect" id="node5" href="$classlemons_1_1dsp_1_1osc_1_1_super_saw.html" title=" " alt="" coords="255,201,457,243"/>
 </map>

@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="node1" class="node">
 <title>Node1</title>
-<g id="a_node1"><a xlink:title="A wrapper around juce::OwnedArray that automatically deletes or creates objects when you resize it.">
+<g id="a_node1"><a xlink:title=" ">
 <polygon fill="#bfbfbf" stroke="black" points="0,-422.52 0,-452.52 143,-452.52 143,-422.52 0,-422.52"/>
 <text text-anchor="start" x="8" y="-440.52" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::ConstructedArray</text>
 <text text-anchor="middle" x="71.5" y="-429.52" font-family="Helvetica,sans-Serif" font-size="10.00">&lt; ObjectType &gt;</text>

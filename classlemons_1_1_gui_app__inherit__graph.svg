@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="node1" class="node">
 <title>Node1</title>
-<g id="a_node1"><a xlink:title="Represents the base for a generic GUI app.">
+<g id="a_node1"><a xlink:title=" ">
 <polygon fill="#bfbfbf" stroke="black" points="0,-0.5 0,-30.5 200,-30.5 200,-0.5 0,-0.5"/>
 <text text-anchor="start" x="8" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::GuiApp&lt; ContentComponent</text>
 <text text-anchor="middle" x="100" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">Type, &gt;</text>
@@ -21,7 +21,7 @@
 <!-- Node2 -->
 <g id="node2" class="node">
 <title>Node2</title>
-<g id="a_node2"><a xlink:href="structlemons_1_1locale_1_1_translations_initializer.html" target="_top" xlink:title="A struct whose constructor simply calls initializeDefaultTranslations().">
+<g id="a_node2"><a xlink:href="structlemons_1_1locale_1_1_translations_initializer.html" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="24,-67.5 24,-97.5 176,-97.5 176,-67.5 24,-67.5"/>
 <text text-anchor="start" x="32" y="-85.5" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::locale::Translations</text>
 <text text-anchor="middle" x="100" y="-74.5" font-family="Helvetica,sans-Serif" font-size="10.00">Initializer</text>

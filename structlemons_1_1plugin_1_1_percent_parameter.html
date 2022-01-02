@@ -75,12 +75,9 @@ $(function() {
 <a href="#pro-static-attribs">Static Protected Attributes</a> &#124;
 <a href="structlemons_1_1plugin_1_1_percent_parameter-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">lemons::plugin::PercentParameter Struct Reference<span class="mlabels"><span class="mlabel">final</span></span><div class="ingroups"><a class="el" href="group___plugins.html">Plugins</a> &raquo; <a class="el" href="group__lemons__plugin.html">lemons_plugin</a> &raquo; <a class="el" href="group__parameters.html">parameters</a><a class="el" href="group___plugins.html">Plugins</a> &raquo; <a class="el" href="group__lemons__plugin.html">lemons_plugin</a> &raquo; <a class="el" href="group__parameters.html">parameters</a> &raquo;  &#124; <a class="el" href="group__types.html">types</a></div></div>  </div>
+<div class="title">lemons::plugin::PercentParameter Struct Reference<span class="mlabels"><span class="mlabel">final</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
-
-<p>A parameter that represents an integer value in the range 0-100.  
- <a href="structlemons_1_1plugin_1_1_percent_parameter.html#details">More...</a></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Inheritance diagram for lemons::plugin::PercentParameter:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
@@ -104,6 +101,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aac2600420bfa3b388674c19d3fb47fdf"><td class="memItemLeft" align="right" valign="top">ValueType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_typed_parameter.html#aac2600420bfa3b388674c19d3fb47fdf">get</a> () const noexcept</td></tr>
 <tr class="memdesc:aac2600420bfa3b388674c19d3fb47fdf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the parameter's current value.  <a href="classlemons_1_1plugin_1_1_typed_parameter.html#aac2600420bfa3b388674c19d3fb47fdf">More...</a><br /></td></tr>
 <tr class="separator:aac2600420bfa3b388674c19d3fb47fdf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adaf54a9afaf18ec3f02dc3bb568c3d68"><td class="memItemLeft" align="right" valign="top">ValueType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_typed_parameter.html#adaf54a9afaf18ec3f02dc3bb568c3d68">getDefault</a> () const noexcept</td></tr>
+<tr class="memdesc:adaf54a9afaf18ec3f02dc3bb568c3d68"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the parameter's current default value.  <a href="classlemons_1_1plugin_1_1_typed_parameter.html#adaf54a9afaf18ec3f02dc3bb568c3d68">More...</a><br /></td></tr>
+<tr class="separator:adaf54a9afaf18ec3f02dc3bb568c3d68"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a061e9f2ed26f90bcd070567f735874b7"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#a061e9f2ed26f90bcd070567f735874b7">getDenormalizedValue</a> () const noexcept</td></tr>
 <tr class="memdesc:a061e9f2ed26f90bcd070567f735874b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the parameter's current value, in the parameter's denormalized range.  <a href="classlemons_1_1plugin_1_1_parameter.html#a061e9f2ed26f90bcd070567f735874b7">More...</a><br /></td></tr>
 <tr class="separator:a061e9f2ed26f90bcd070567f735874b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -119,15 +119,36 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a50c120129b715a15b0b610fd55b2492b"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#a50c120129b715a15b0b610fd55b2492b">getNormalizedValue</a> () const noexcept</td></tr>
 <tr class="memdesc:a50c120129b715a15b0b610fd55b2492b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the parameter's current value, in a normalized 0-1 range.  <a href="classlemons_1_1plugin_1_1_parameter.html#a50c120129b715a15b0b610fd55b2492b">More...</a><br /></td></tr>
 <tr class="separator:a50c120129b715a15b0b610fd55b2492b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ccf66580c7a7c6a5d986d0320f2d58f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structlemons_1_1plugin_1_1_parameter_traits.html">ParameterTraits</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_typed_parameter.html#a4ccf66580c7a7c6a5d986d0320f2d58f">getParameterTraits</a> () const final</td></tr>
+<tr class="memdesc:a4ccf66580c7a7c6a5d986d0320f2d58f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a <a class="el" href="structlemons_1_1plugin_1_1_parameter_traits.html">ParameterTraits</a> object representing this parameter.  <a href="classlemons_1_1plugin_1_1_typed_parameter.html#a4ccf66580c7a7c6a5d986d0320f2d58f">More...</a><br /></td></tr>
+<tr class="separator:a4ccf66580c7a7c6a5d986d0320f2d58f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad3607d98e258cd3a0b0330af8d70b8be"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_typed_parameter.html#ad3607d98e258cd3a0b0330af8d70b8be">getStringForCurrentValue</a> (int maxLength=50) const</td></tr>
+<tr class="memdesc:ad3607d98e258cd3a0b0330af8d70b8be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a textual description of the parameter's current value.  <a href="classlemons_1_1plugin_1_1_typed_parameter.html#ad3607d98e258cd3a0b0330af8d70b8be">More...</a><br /></td></tr>
+<tr class="separator:ad3607d98e258cd3a0b0330af8d70b8be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adaa546ec98412109e257ea946b1b5d22"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_typed_parameter.html#adaa546ec98412109e257ea946b1b5d22">getStringForValue</a> (ValueType value, int maxLength=50) const</td></tr>
+<tr class="memdesc:adaa546ec98412109e257ea946b1b5d22"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a textual description for a parameter value.  <a href="classlemons_1_1plugin_1_1_typed_parameter.html#adaa546ec98412109e257ea946b1b5d22">More...</a><br /></td></tr>
+<tr class="separator:adaa546ec98412109e257ea946b1b5d22"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab115e4682d29dba03b949c7aace71f7d"><td class="memItemLeft" align="right" valign="top">ValueType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_typed_parameter.html#ab115e4682d29dba03b949c7aace71f7d">getValueForString</a> (const String &amp;string) const</td></tr>
+<tr class="memdesc:ab115e4682d29dba03b949c7aace71f7d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts some user input text to a possible representation as a parameter value.  <a href="classlemons_1_1plugin_1_1_typed_parameter.html#ab115e4682d29dba03b949c7aace71f7d">More...</a><br /></td></tr>
+<tr class="separator:ab115e4682d29dba03b949c7aace71f7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abcae02c6785e36a8fd3b7a34cba8911b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#abcae02c6785e36a8fd3b7a34cba8911b">isAutomatable</a> () const final</td></tr>
 <tr class="memdesc:abcae02c6785e36a8fd3b7a34cba8911b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if this parameter is automatable by the user's DAW.  <a href="classlemons_1_1plugin_1_1_parameter.html#abcae02c6785e36a8fd3b7a34cba8911b">More...</a><br /></td></tr>
 <tr class="separator:abcae02c6785e36a8fd3b7a34cba8911b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0e7e021b4bd12090ddecc145b7e927e4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#a0e7e021b4bd12090ddecc145b7e927e4">isMetaParameter</a> () const final</td></tr>
 <tr class="memdesc:a0e7e021b4bd12090ddecc145b7e927e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if this parameter is a "meta parameter", ie, one that controls the values of other parameters.  <a href="classlemons_1_1plugin_1_1_parameter.html#a0e7e021b4bd12090ddecc145b7e927e4">More...</a><br /></td></tr>
 <tr class="separator:a0e7e021b4bd12090ddecc145b7e927e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f610c63d1d36585b39d723f4d94165a"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_typed_parameter.html#a8f610c63d1d36585b39d723f4d94165a">loadFromValueTree</a> (const ValueTree &amp;tree) override</td></tr>
+<tr class="memdesc:a8f610c63d1d36585b39d723f4d94165a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Restores the parameter's state from a ValueTree.  <a href="classlemons_1_1plugin_1_1_typed_parameter.html#a8f610c63d1d36585b39d723f4d94165a">More...</a><br /></td></tr>
+<tr class="separator:a8f610c63d1d36585b39d723f4d94165a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae2c23845527074bb64c601925ee40898"><td class="memItemLeft" align="right" valign="top">virtual ValueTree&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_typed_parameter.html#ae2c23845527074bb64c601925ee40898">saveToValueTree</a> () const override</td></tr>
+<tr class="memdesc:ae2c23845527074bb64c601925ee40898"><td class="mdescLeft">&#160;</td><td class="mdescRight">Saves the state of this parameter to a ValueTree.  <a href="classlemons_1_1plugin_1_1_typed_parameter.html#ae2c23845527074bb64c601925ee40898">More...</a><br /></td></tr>
+<tr class="separator:ae2c23845527074bb64c601925ee40898"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acd7c04563172272764edc67aba4e5631"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_typed_parameter.html#acd7c04563172272764edc67aba4e5631">set</a> (ValueType newValue)</td></tr>
 <tr class="memdesc:acd7c04563172272764edc67aba4e5631"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the parameter's value.  <a href="classlemons_1_1plugin_1_1_typed_parameter.html#acd7c04563172272764edc67aba4e5631">More...</a><br /></td></tr>
 <tr class="separator:acd7c04563172272764edc67aba4e5631"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7d50e7bd69be6af249c972d424c7d5bc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_typed_parameter.html#a7d50e7bd69be6af249c972d424c7d5bc">setDefault</a> (ValueType newDefault)</td></tr>
+<tr class="memdesc:a7d50e7bd69be6af249c972d424c7d5bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the parameter's default value.  <a href="classlemons_1_1plugin_1_1_typed_parameter.html#a7d50e7bd69be6af249c972d424c7d5bc">More...</a><br /></td></tr>
+<tr class="separator:a7d50e7bd69be6af249c972d424c7d5bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af9c19c3fdb79022f085f83903c80f89a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#af9c19c3fdb79022f085f83903c80f89a">setDenormalizedValue</a> (float value)</td></tr>
 <tr class="memdesc:af9c19c3fdb79022f085f83903c80f89a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the parameter's value, in the parameter's denormalized range.  <a href="classlemons_1_1plugin_1_1_parameter.html#af9c19c3fdb79022f085f83903c80f89a">More...</a><br /></td></tr>
 <tr class="separator:af9c19c3fdb79022f085f83903c80f89a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -161,8 +182,7 @@ Static Protected Attributes</h2></td></tr>
 <tr class="separator:a596074b9fb98e7cf1c4701a2644c2396"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>A parameter that represents an integer value in the range 0-100. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="structlemons_1_1plugin_1_1_float_amount_parameter.html" title="A parameter that represents a value in a normalized 0-1 range.">FloatAmountParameter</a>, <a class="el" href="namespacelemons_1_1plugin.html#a7d5746e33dadd4d351de50a915c6ed49" title="Represents a parameter with an integer value.">IntParameter</a>, <a class="el" href="classlemons_1_1plugin_1_1_parameter.html" title="A plugin parameter class.">Parameter</a> </dd></dl>
+<div class="textblock"><p>A parameter that represents an integer value in the range 0-100. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="structlemons_1_1plugin_1_1_float_amount_parameter.html">FloatAmountParameter</a>, <a class="el" href="group__fundamental__parameter__types.html#ga7d5746e33dadd4d351de50a915c6ed49">IntParameter</a>, <a class="el" href="classlemons_1_1plugin_1_1_parameter.html">Parameter</a> </dd></dl>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a6f8016538f76d7bc5ca09f56604152f0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6f8016538f76d7bc5ca09f56604152f0">&#9670;&nbsp;</a></span>ParameterValueType</h2>
@@ -634,7 +654,7 @@ template&lt;typename ValueType &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Returns a <a class="el" href="structlemons_1_1plugin_1_1_parameter_traits.html" title="An ephemeral type-erased way to store all the metadata necessary to reconstruct any given parameter o...">ParameterTraits</a> object representing this parameter. </p>
+<p>Returns a <a class="el" href="structlemons_1_1plugin_1_1_parameter_traits.html">ParameterTraits</a> object representing this parameter. </p>
 
 <p>Reimplemented from <a class="el" href="classlemons_1_1plugin_1_1_parameter.html#a6707d107c3f255f06510597c5b36431e">lemons::plugin::Parameter</a>.</p>
 
@@ -1097,7 +1117,7 @@ template&lt;typename ValueType &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Call this function with each MIDI CC message your plugin recieves, and the <a class="el" href="classlemons_1_1plugin_1_1_parameter.html" title="A plugin parameter class.">Parameter</a> class will automatically update itself with changes in the appropriate controller, if a mapping is active. </p>
+<p>Call this function with each MIDI CC message your plugin recieves, and the <a class="el" href="classlemons_1_1plugin_1_1_parameter.html">Parameter</a> class will automatically update itself with changes in the appropriate controller, if a mapping is active. </p>
 <dl class="section return"><dt>Returns</dt><dd>True if this parameter is mapped to the passed controller number. </dd></dl>
 
 </div>
@@ -1553,7 +1573,7 @@ template&lt;typename ValueType &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jan 2 2022 18:24:15 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jan 2 2022 21:06:44 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

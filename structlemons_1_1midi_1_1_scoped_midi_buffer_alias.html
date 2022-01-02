@@ -71,12 +71,9 @@ $(function() {
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="structlemons_1_1midi_1_1_scoped_midi_buffer_alias-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">lemons::midi::ScopedMidiBufferAlias Struct Reference<span class="mlabels"><span class="mlabel">final</span></span><div class="ingroups"><a class="el" href="group___audio.html">Audio</a> &raquo; <a class="el" href="group__lemons__midi.html">lemons_midi</a><a class="el" href="group___g_u_i.html">GUI</a> &raquo;  &#124; <a class="el" href="group__lemons__gui.html">lemons_gui</a> &raquo; <a class="el" href="group__utilities.html">utilities</a></div></div>  </div>
+<div class="title">lemons::midi::ScopedMidiBufferAlias Struct Reference<span class="mlabels"><span class="mlabel">final</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
-
-<p>Utility RAII struct for copying a section of one MIDI buffer to the beginning of another buffer, and then back to the original section of the original buffer.  
- <a href="structlemons_1_1midi_1_1_scoped_midi_buffer_alias.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -88,16 +85,15 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a44e979a904a6dea83f3edda91f0d04fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Utility RAII struct for copying a section of one MIDI buffer to the beginning of another buffer, and then back to the original section of the original buffer. </p>
-<p>This code: </p><div class="fragment"><div class="line"><a class="code" href="namespacelemons_1_1tests.html#a03c16098e5790557328c667001923104">MidiBuffer</a> orig, alias;</div>
+<div class="textblock"><p>Utility RAII struct for copying a section of one MIDI buffer to the beginning of another buffer, and then back to the original section of the original buffer. This code: </p><div class="fragment"><div class="line"><a class="code" href="namespacelemons_1_1tests.html#a03c16098e5790557328c667001923104">MidiBuffer</a> orig, alias;</div>
 <div class="line"> </div>
 <div class="line"><span class="keywordtype">int</span> startSample = 10, numSamples = 40;</div>
 <div class="line"> </div>
-<div class="line"><a class="code" href="namespacelemons_1_1midi.html#a98b403cf67be59389bdcae888bdb4a6a">copyRangeOfMidiBuffer</a> (orig, alias, startSample, 0, numSamples);</div>
+<div class="line"><a class="code" href="group__lemons__midi.html#ga98b403cf67be59389bdcae888bdb4a6a">copyRangeOfMidiBuffer</a> (orig, alias, startSample, 0, numSamples);</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// process the midi inside &#39;alias&#39;</span></div>
 <div class="line"> </div>
-<div class="line"><a class="code" href="namespacelemons_1_1midi.html#a98b403cf67be59389bdcae888bdb4a6a">copyRangeOfMidiBuffer</a> (alias, orig, 0, startSample, numSamples);</div>
+<div class="line"><a class="code" href="group__lemons__midi.html#ga98b403cf67be59389bdcae888bdb4a6a">copyRangeOfMidiBuffer</a> (alias, orig, 0, startSample, numSamples);</div>
 </div><!-- fragment --><p> is identical to doing the following: </p><div class="fragment"><div class="line"><a class="code" href="namespacelemons_1_1tests.html#a03c16098e5790557328c667001923104">MidiBuffer</a> orig, alias;</div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">const</span> <a class="code" href="structlemons_1_1midi_1_1_scoped_midi_buffer_alias.html#ae7060562fb9777dd432a23cf448cac89">ScopedMidiBufferAlias</a> scopedAlias { orig, alias, 10, 40 };</div>
@@ -178,12 +174,12 @@ Public Member Functions</h2></td></tr>
 <li><a class="el" href="_midi_utilities_8h.html">MidiUtilities.h</a></li>
 </ul>
 </div><!-- contents -->
-<div class="ttc" id="anamespacelemons_1_1tests_html_a03c16098e5790557328c667001923104"><div class="ttname"><a href="namespacelemons_1_1tests.html#a03c16098e5790557328c667001923104">lemons::tests::MidiBuffer</a></div><div class="ttdeci">juce::MidiBuffer MidiBuffer</div><div class="ttdef"><b>Definition:</b> midi_tests.h:29</div></div>
-<div class="ttc" id="anamespacelemons_1_1midi_html_a98b403cf67be59389bdcae888bdb4a6a"><div class="ttname"><a href="namespacelemons_1_1midi.html#a98b403cf67be59389bdcae888bdb4a6a">lemons::midi::copyRangeOfMidiBuffer</a></div><div class="ttdeci">void copyRangeOfMidiBuffer(const MidiBuffer &amp;readingBuffer, MidiBuffer &amp;destBuffer, int startSampleOfInput, int startSampleOfOutput, int numSamples)</div></div>
+<div class="ttc" id="agroup__lemons__midi_html_ga98b403cf67be59389bdcae888bdb4a6a"><div class="ttname"><a href="group__lemons__midi.html#ga98b403cf67be59389bdcae888bdb4a6a">lemons::midi::copyRangeOfMidiBuffer</a></div><div class="ttdeci">void copyRangeOfMidiBuffer(const MidiBuffer &amp;readingBuffer, MidiBuffer &amp;destBuffer, int startSampleOfInput, int startSampleOfOutput, int numSamples)</div></div>
+<div class="ttc" id="anamespacelemons_1_1tests_html_a03c16098e5790557328c667001923104"><div class="ttname"><a href="namespacelemons_1_1tests.html#a03c16098e5790557328c667001923104">lemons::tests::MidiBuffer</a></div><div class="ttdeci">juce::MidiBuffer MidiBuffer</div><div class="ttdef"><b>Definition:</b> midi_tests.h:25</div></div>
 <div class="ttc" id="astructlemons_1_1midi_1_1_scoped_midi_buffer_alias_html_ae7060562fb9777dd432a23cf448cac89"><div class="ttname"><a href="structlemons_1_1midi_1_1_scoped_midi_buffer_alias.html#ae7060562fb9777dd432a23cf448cac89">lemons::midi::ScopedMidiBufferAlias::ScopedMidiBufferAlias</a></div><div class="ttdeci">ScopedMidiBufferAlias(MidiBuffer &amp;originalBuffer, MidiBuffer &amp;aliasBufferToUse, int startSampleInOrigBuffer, int numSamplesToCopy)</div><div class="ttdoc">Creates a scoped alias.</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jan 2 2022 18:24:14 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jan 2 2022 21:06:44 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

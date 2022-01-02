@@ -68,9 +68,10 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#typedef-members">Typedefs</a>  </div>
+<a href="#typedef-members">Typedefs</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">lemons::serializing Namespace Reference<div class="ingroups"><a class="el" href="group___common.html">Common</a> &raquo; <a class="el" href="group__lemons__musicology.html">lemons_musicology</a><a class="el" href="group___audio.html">Audio</a> &raquo;  &#124; <a class="el" href="group__lemons__dsp.html">lemons_dsp</a><a class="el" href="group___plugins.html">Plugins</a> &raquo;  &#124; <a class="el" href="group__lemons__plugin.html">lemons_plugin</a> &raquo; <a class="el" href="group__util.html">util</a><a class="el" href="group___audio.html">Audio</a> &raquo; <a class="el" href="group__lemons__midi.html">lemons_midi</a><a class="el" href="group___g_u_i.html">GUI</a> &raquo;  &#124; <a class="el" href="group__lemons__gui.html">lemons_gui</a> &raquo;  &#124; <a class="el" href="group__utilities.html">utilities</a><a class="el" href="group___common.html">Common</a> &raquo; <a class="el" href="group__lemons__core.html">lemons_core</a> &raquo;  &#124; <a class="el" href="group__serializing.html">serializing</a></div></div>  </div>
+<div class="title">lemons::serializing Namespace Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
@@ -79,6 +80,15 @@ Typedefs</h2></td></tr>
 <tr class="memitem:aebcdf9ccc626b6fb5a8dc121e65fec81"><td class="memTemplParams" colspan="2">template&lt;typename SampleType &gt; </td></tr>
 <tr class="memitem:aebcdf9ccc626b6fb5a8dc121e65fec81"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html#aebcdf9ccc626b6fb5a8dc121e65fec81">AudioBuffer</a> = juce::AudioBuffer&lt; SampleType &gt;</td></tr>
 <tr class="separator:aebcdf9ccc626b6fb5a8dc121e65fec81"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:gab642a13438e30137d80cb0842d314f7b"><td class="memTemplParams" colspan="2">template&lt;typename SampleType &gt; </td></tr>
+<tr class="memitem:gab642a13438e30137d80cb0842d314f7b"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacelemons_1_1serializing.html#aebcdf9ccc626b6fb5a8dc121e65fec81">AudioBuffer</a>&lt; SampleType &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__lemons__audio__buffers.html#gab642a13438e30137d80cb0842d314f7b">audioFromBinary</a> (const MemoryBlock &amp;block)</td></tr>
+<tr class="separator:gab642a13438e30137d80cb0842d314f7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gadf7966056fb84074c7d8acfafad74af2"><td class="memTemplParams" colspan="2">template&lt;typename SampleType &gt; </td></tr>
+<tr class="memitem:gadf7966056fb84074c7d8acfafad74af2"><td class="memTemplItemLeft" align="right" valign="top">MemoryBlock&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__lemons__audio__buffers.html#gadf7966056fb84074c7d8acfafad74af2">audioToBinary</a> (const <a class="el" href="namespacelemons_1_1serializing.html#aebcdf9ccc626b6fb5a8dc121e65fec81">AudioBuffer</a>&lt; SampleType &gt; &amp;buffer, double samplerate=48000.)</td></tr>
+<tr class="separator:gadf7966056fb84074c7d8acfafad74af2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Typedef Documentation</h2>
 <a id="aebcdf9ccc626b6fb5a8dc121e65fec81"></a>
@@ -98,62 +108,6 @@ template&lt;typename SampleType &gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="ab642a13438e30137d80cb0842d314f7b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab642a13438e30137d80cb0842d314f7b">&#9670;&nbsp;</a></span>audioFromBinary()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename SampleType &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="namespacelemons_1_1serializing.html#aebcdf9ccc626b6fb5a8dc121e65fec81">AudioBuffer</a>&lt;SampleType&gt; lemons::serializing::audioFromBinary </td>
-          <td>(</td>
-          <td class="paramtype">const MemoryBlock &amp;&#160;</td>
-          <td class="paramname"><em>block</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Returns an AudioBuffer from a binary representation of one. </p>
-<p>Internally, this uses JUCE's FlacAudioFormat. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="namespacelemons_1_1serializing.html#adf7966056fb84074c7d8acfafad74af2" title="Encodes an AudioBuffer as a blob of binary data.">audioToBinary()</a>, loadAudioFromFile(), binary::Data::getAudio() </dd></dl>
-
-</div>
-</div>
-<a id="adf7966056fb84074c7d8acfafad74af2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adf7966056fb84074c7d8acfafad74af2">&#9670;&nbsp;</a></span>audioToBinary()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename SampleType &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">MemoryBlock lemons::serializing::audioToBinary </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="namespacelemons_1_1serializing.html#aebcdf9ccc626b6fb5a8dc121e65fec81">AudioBuffer</a>&lt; SampleType &gt; &amp;&#160;</td>
-          <td class="paramname"><em>buffer</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>samplerate</em> = <code>48000.</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Encodes an AudioBuffer as a blob of binary data. </p>
-<p>Note that the sample rate may be optionally specified. Internally, this uses JUCE's FlacAudioFormat. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="namespacelemons_1_1serializing.html#ab642a13438e30137d80cb0842d314f7b" title="Returns an AudioBuffer from a binary representation of one.">audioFromBinary()</a>, saveAudioToFile() </dd></dl>
-
-</div>
-</div>
 <a id="a339d1bc2ac82646552da6c53e934da3a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a339d1bc2ac82646552da6c53e934da3a">&#9670;&nbsp;</a></span>channelSetFromValueTree()</h2>
 
@@ -495,7 +449,7 @@ template&lt;typename ValueType &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jan 2 2022 18:24:15 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jan 2 2022 21:06:45 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

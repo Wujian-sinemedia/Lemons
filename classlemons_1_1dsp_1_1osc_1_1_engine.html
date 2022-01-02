@@ -72,12 +72,9 @@ $(function() {
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="classlemons_1_1dsp_1_1osc_1_1_engine-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">lemons::dsp::osc::Engine&lt; SampleType, Osctype, &gt; Class Template Reference<span class="mlabels"><span class="mlabel">final</span></span><div class="ingroups"><a class="el" href="group___audio.html">Audio</a> &raquo; <a class="el" href="group__lemons__dsp.html">lemons_dsp</a> &raquo; <a class="el" href="group__oscillators.html">oscillators</a></div></div>  </div>
+<div class="title">lemons::dsp::osc::Engine&lt; SampleType, Osctype, &gt; Class Template Reference<span class="mlabels"><span class="mlabel">final</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
-
-<p>A utility class that wraps an <a class="el" href="structlemons_1_1dsp_1_1osc_1_1_oscillator.html" title="Base class for any kind of oscillator.">Oscillator</a> into a self-contained <a class="el" href="classlemons_1_1dsp_1_1_engine.html" title="Base class for an audio engine.">dsp::Engine</a>.  
- <a href="classlemons_1_1dsp_1_1osc_1_1_engine.html#details">More...</a></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Inheritance diagram for lemons::dsp::osc::Engine&lt; SampleType, Osctype, &gt;:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
@@ -130,19 +127,18 @@ Public Member Functions</h2></td></tr>
 <div class="textblock"><h3>template&lt;typename SampleType, template&lt; typename T &gt; class Osctype, LEMONS_MUST_INHERIT_FROM(Osctype&lt; SampleType &gt;, Oscillator&lt; SampleType &gt;)&gt;<br />
 class lemons::dsp::osc::Engine&lt; SampleType, Osctype, &gt;</h3>
 
-<p>A utility class that wraps an <a class="el" href="structlemons_1_1dsp_1_1osc_1_1_oscillator.html" title="Base class for any kind of oscillator.">Oscillator</a> into a self-contained <a class="el" href="classlemons_1_1dsp_1_1_engine.html" title="Base class for an audio engine.">dsp::Engine</a>. </p>
-<p>This will instantiate and manage the appropriate oscillator type for you. <br  />
+<p>A utility class that wraps an <a class="el" href="structlemons_1_1dsp_1_1osc_1_1_oscillator.html">Oscillator</a> into a self-contained <a class="el" href="classlemons_1_1dsp_1_1_engine.html">dsp::Engine</a>. This will instantiate and manage the appropriate oscillator type for you. <br  />
 Example usage: </p><div class="fragment"><div class="line"><span class="keyword">using</span> namspace <a class="code" href="namespacelemons_1_1dsp_1_1osc.html">lemons::dsp::osc</a>;</div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">auto</span> sineEngine = Engine&lt;float, Sine&gt;;</div>
 </div><!-- fragment --> <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">SampleType</td><td>The floating point type to be used for samples. Must be either float or double. </td></tr>
-    <tr><td class="paramname">Osctype</td><td>A template class representing the kind of oscillator you want this engine to use; for example, <a class="el" href="structlemons_1_1dsp_1_1osc_1_1_sine.html" title="A basic sine wave oscillator.">osc::Sine</a>. This should be un-specialized. This type must inherit from <a class="el" href="structlemons_1_1dsp_1_1osc_1_1_oscillator.html" title="Base class for any kind of oscillator.">Oscillator</a>. </td></tr>
+    <tr><td class="paramname">Osctype</td><td>A template class representing the kind of oscillator you want this engine to use; for example, <a class="el" href="structlemons_1_1dsp_1_1osc_1_1_sine.html">osc::Sine</a>. This should be un-specialized. This type must inherit from <a class="el" href="structlemons_1_1dsp_1_1osc_1_1_oscillator.html">Oscillator</a>. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="structlemons_1_1dsp_1_1osc_1_1_oscillator.html" title="Base class for any kind of oscillator.">Oscillator</a>, <a class="el" href="classlemons_1_1dsp_1_1_engine.html" title="Base class for an audio engine.">dsp::Engine</a> </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="structlemons_1_1dsp_1_1osc_1_1_oscillator.html">Oscillator</a>, <a class="el" href="classlemons_1_1dsp_1_1_engine.html">dsp::Engine</a> </dd></dl>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a8c824f87e190d825154aaa919925f40f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8c824f87e190d825154aaa919925f40f">&#9670;&nbsp;</a></span>ValueType</h2>
@@ -699,10 +695,10 @@ template&lt;typename SampleType , template&lt; typename T &gt; class Osctype, LE
 <li><a class="el" href="_osc_engine_8h.html">OscEngine.h</a></li>
 </ul>
 </div><!-- contents -->
-<div class="ttc" id="anamespacelemons_1_1dsp_1_1osc_html"><div class="ttname"><a href="namespacelemons_1_1dsp_1_1osc.html">lemons::dsp::osc</a></div><div class="ttdef"><b>Definition:</b> choosable.h:24</div></div>
+<div class="ttc" id="anamespacelemons_1_1dsp_1_1osc_html"><div class="ttname"><a href="namespacelemons_1_1dsp_1_1osc.html">lemons::dsp::osc</a></div><div class="ttdef"><b>Definition:</b> choosable.h:20</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jan 2 2022 18:24:14 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jan 2 2022 21:06:44 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

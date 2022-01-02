@@ -68,17 +68,24 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a>  </div>
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">lemons::locale Namespace Reference<div class="ingroups"><a class="el" href="group___common.html">Common</a> &raquo; <a class="el" href="group__lemons__core.html">lemons_core</a> &raquo; <a class="el" href="group__binary__data.html">binary_data</a><a class="el" href="group___common.html">Common</a> &raquo; <a class="el" href="group__lemons__core.html">lemons_core</a> &raquo;  &#124; <a class="el" href="group__localization.html">localization</a></div></div>  </div>
+<div class="title">lemons::locale Namespace Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1locale_1_1_translations_initializer.html">TranslationsInitializer</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A struct whose constructor simply calls <a class="el" href="namespacelemons_1_1locale.html#af44434a11b41640afde5b60fae745d01" title="Attempts to load a set of default translations from binary data, chosen based on the user&#39;s display l...">initializeDefaultTranslations()</a>.  <a href="structlemons_1_1locale_1_1_translations_initializer.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:gaf44434a11b41640afde5b60fae745d01"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__lemons__translation__initialization.html#gaf44434a11b41640afde5b60fae745d01">initializeDefaultTranslations</a> ()</td></tr>
+<tr class="separator:gaf44434a11b41640afde5b60fae745d01"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4962f8d8921a03dc8a328f6149fa32b5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__lemons__translation__initialization.html#ga4962f8d8921a03dc8a328f6149fa32b5">initializeTranslations</a> (const <a class="el" href="structlemons_1_1binary_1_1_data.html">binary::Data</a> &amp;data, bool ignoreCaseOfKeys=true)</td></tr>
+<tr class="separator:ga4962f8d8921a03dc8a328f6149fa32b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="a167566328b2afe859895611868787b45"></a>
@@ -155,8 +162,8 @@ Classes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>ISO country codes. </p>
-<p>Returns a list of 2-character ISO 3166 country codes where the specified language is an officially recognized language, a significant minority language, or a local indigenous language. These country codes are referenced from <a href="https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes">https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes</a>. </p><dl class="section attention"><dt>Attention</dt><dd>This feature is mainly intended for generating translation files, not for selecting an appropriate language at runtime; I recommend choosing the language based on the user's display language settings, which can be obtained using juce::SystemStats::getDisplayLanguage(). </dd></dl>
+<p>Returns a list of 2-character ISO 3166 country codes where the specified language is an officially recognized language, a significant minority language, or a local indigenous language. </p>
+<p>These country codes are referenced from <a href="https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes">https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes</a>. </p><dl class="section attention"><dt>Attention</dt><dd>This feature is mainly intended for generating translation files, not for selecting an appropriate language at runtime; I recommend choosing the language based on the user's display language settings, which can be obtained using juce::SystemStats::getDisplayLanguage(). </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">language</td><td>The language name or language code. When interpreting this argument as a language code, a 2-character string will be interpreted as an ISO639-1 code; if it is 3 characters long, it will be interpreted as an ISO639-2 code. Other lengths of passed strings are invalid and will cause this method to return an empty string. </td></tr>
@@ -250,55 +257,6 @@ Classes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Recursively scans a directory tree for instances of juce::translate or the TRANS macro, called with raw string literals, and returns a list of all the string literals that need to be translated. </p>
-
-</div>
-</div>
-<a id="af44434a11b41640afde5b60fae745d01"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af44434a11b41640afde5b60fae745d01">&#9670;&nbsp;</a></span>initializeDefaultTranslations()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void lemons::locale::initializeDefaultTranslations </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Attempts to load a set of default translations from binary data, chosen based on the user's display language settings. </p>
-
-</div>
-</div>
-<a id="a4962f8d8921a03dc8a328f6149fa32b5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4962f8d8921a03dc8a328f6149fa32b5">&#9670;&nbsp;</a></span>initializeTranslations()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void lemons::locale::initializeTranslations </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="structlemons_1_1binary_1_1_data.html">binary::Data</a> &amp;&#160;</td>
-          <td class="paramname"><em>data</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>ignoreCaseOfKeys</em> = <code>true</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Initializes the juce::LocalisedStrings translation system from a translation file contained in a <a class="el" href="structlemons_1_1binary_1_1_data.html" title="Represents a wrapper around some data contained in a juce BinaryData target.">binary::Data</a> object. </p>
 
 </div>
 </div>
@@ -401,7 +359,7 @@ Classes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jan 2 2022 18:24:14 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jan 2 2022 21:06:44 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

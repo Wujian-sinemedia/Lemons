@@ -57,7 +57,7 @@ var sectionId = 'dynsection-0';
 <!-- Node1 -->
 <g id="node1" class="node">
 <title>Node1</title>
-<g id="a_node1"><a xlink:title="A utility class that wraps an Oscillator into a self&#45;contained dsp::Engine.">
+<g id="a_node1"><a xlink:title=" ">
 <polygon fill="#bfbfbf" stroke="black" points="152,-276 152,-306 299,-306 299,-276 152,-276"/>
 <text text-anchor="start" x="160" y="-294" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::dsp::osc::Engine</text>
 <text text-anchor="middle" x="225.5" y="-283" font-family="Helvetica,sans-Serif" font-size="10.00">&lt; SampleType, Osctype, &gt;</text>
@@ -256,7 +256,7 @@ var sectionId = 'dynsection-0';
 <!-- Node2 -->
 <g id="node2" class="node">
 <title>Node2</title>
-<g id="a_node2"><a xlink:href="classlemons_1_1dsp_1_1_engine.html" target="_top" xlink:title="Base class for an audio engine.">
+<g id="a_node2"><a xlink:href="classlemons_1_1dsp_1_1_engine.html" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="0,-276 0,-306 115,-306 115,-276 0,-276"/>
 <text text-anchor="start" x="8" y="-294" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::dsp::Engine</text>
 <text text-anchor="middle" x="57.5" y="-283" font-family="Helvetica,sans-Serif" font-size="10.00">&lt; SampleType &gt;</text>

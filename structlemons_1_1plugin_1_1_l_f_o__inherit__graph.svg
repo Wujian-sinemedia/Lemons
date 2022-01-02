@@ -57,7 +57,7 @@ var sectionId = 'dynsection-0';
 <!-- Node1 -->
 <g id="node1" class="node">
 <title>Node1</title>
-<g id="a_node1"><a xlink:title="An LFO, to be used by a ModulationManager object.">
+<g id="a_node1"><a xlink:title=" ">
 <polygon fill="#bfbfbf" stroke="black" points="924,-33.5 924,-52.5 1037,-52.5 1037,-33.5 924,-33.5"/>
 <text text-anchor="middle" x="980.5" y="-40.5" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::plugin::LFO</text>
 </a>
@@ -98,7 +98,7 @@ var sectionId = 'dynsection-0';
 <!-- Node4 -->
 <g id="node4" class="node">
 <title>Node4</title>
-<g id="a_node4"><a xlink:href="classlemons_1_1plugin_1_1_parameter.html" target="_top" xlink:title="A plugin parameter class.">
+<g id="a_node4"><a xlink:href="classlemons_1_1plugin_1_1_parameter.html" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="0,-76.5 0,-95.5 145,-95.5 145,-76.5 0,-76.5"/>
 <text text-anchor="middle" x="72.5" y="-83.5" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::plugin::Parameter</text>
 </a>
@@ -113,7 +113,7 @@ var sectionId = 'dynsection-0';
 <!-- Node5 -->
 <g id="node5" class="node">
 <title>Node5</title>
-<g id="a_node5"><a xlink:href="classlemons_1_1plugin_1_1_typed_parameter.html" target="_top" xlink:title="A parameter that can be stored as a type other than a float, but still inherits from my Parameter bas...">
+<g id="a_node5"><a xlink:href="classlemons_1_1plugin_1_1_typed_parameter.html" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="192.5,-49 192.5,-79 365.5,-79 365.5,-49 192.5,-49"/>
 <text text-anchor="start" x="200.5" y="-67" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::plugin::TypedParameter</text>
 <text text-anchor="middle" x="279" y="-56" font-family="Helvetica,sans-Serif" font-size="10.00">&lt; ValueType &gt;</text>
@@ -136,7 +136,7 @@ var sectionId = 'dynsection-0';
 <!-- Node7 -->
 <g id="node7" class="node">
 <title>Node7</title>
-<g id="a_node7"><a xlink:href="classlemons_1_1plugin_1_1_meta_parameter.html" target="_top" xlink:title="A meta parameter class that implements the MetaParameterBase interface.">
+<g id="a_node7"><a xlink:href="classlemons_1_1plugin_1_1_meta_parameter.html" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="461.5,-28 461.5,-58 631.5,-58 631.5,-28 461.5,-28"/>
 <text text-anchor="start" x="469.5" y="-46" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::plugin::MetaParameter</text>
 <text text-anchor="middle" x="546.5" y="-35" font-family="Helvetica,sans-Serif" font-size="10.00">&lt; ValueType &gt;</text>
@@ -152,7 +152,7 @@ var sectionId = 'dynsection-0';
 <!-- Node6 -->
 <g id="node6" class="node">
 <title>Node6</title>
-<g id="a_node6"><a xlink:href="structlemons_1_1plugin_1_1_meta_parameter_base.html" target="_top" xlink:title="A type&#45;erased interface for a parameter that can be connected to other parameters and control their v...">
+<g id="a_node6"><a xlink:href="structlemons_1_1plugin_1_1_meta_parameter_base.html" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="182,-0.5 182,-19.5 376,-19.5 376,-0.5 182,-0.5"/>
 <text text-anchor="middle" x="279" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::plugin::MetaParameterBase</text>
 </a>

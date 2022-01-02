@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="node1" class="node">
 <title>Node1</title>
-<g id="a_node1"><a xlink:title="A class representing a GUI app&#39;s main window.">
+<g id="a_node1"><a xlink:title=" ">
 <polygon fill="#bfbfbf" stroke="black" points="12,-0.5 12,-30.5 146,-30.5 146,-0.5 12,-0.5"/>
 <text text-anchor="start" x="20" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::DefaultWindow</text>
 <text text-anchor="middle" x="79" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">&lt; ComponentType, &gt;</text>
@@ -21,7 +21,7 @@
 <!-- Node2 -->
 <g id="node2" class="node">
 <title>Node2</title>
-<g id="a_node2"><a xlink:href="structlemons_1_1_default_window_base.html" target="_top" xlink:title="Base class for a GUI app&#39;s main window.">
+<g id="a_node2"><a xlink:href="structlemons_1_1_default_window_base.html" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="0,-67.5 0,-86.5 158,-86.5 158,-67.5 0,-67.5"/>
 <text text-anchor="middle" x="79" y="-74.5" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::DefaultWindowBase</text>
 </a>
