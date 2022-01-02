@@ -22,3 +22,5 @@ CPMAddPackage (
         GIT_TAG origin/main)
 
 target_include_directories (lemons_midi INTERFACE "${MTS-ESP_SOURCE_DIR}/Client")
+
+target_link_libraries (LemonsAudioModules INTERFACE LemonsCommonModules)

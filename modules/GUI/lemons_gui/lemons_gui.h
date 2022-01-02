@@ -34,3 +34,6 @@
 #include "device/AutoLock.h"
 #include "device/DeviceMotion.h"
 #include "device/DeviceRotation.h"
+
+#include "app/DefaultWindow.h"
+#include "app/GuiApp.h"

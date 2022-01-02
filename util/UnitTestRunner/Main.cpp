@@ -17,6 +17,11 @@
 #include <lemons_core/lemons_core.h>
 
 
+#if ! LEMONS_UNIT_TESTS
+  #error
+#endif
+
+
 int main (int argc, char** argv)
 {
 	lemons::ArgParser args { argc, argv };

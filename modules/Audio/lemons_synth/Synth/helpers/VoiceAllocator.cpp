@@ -20,7 +20,7 @@ void VoiceAllocator<SampleType>::prepare (int maxNumVoices)
 template <typename SampleType>
 SynthVoiceBase<SampleType>* VoiceAllocator<SampleType>::findFreeVoice (bool stealIfNoneAvailable)
 {
-	jassert (! synth.voices.isEmpty());
+	jassert (! synth.voices->isEmpty());
 
 	/* Look into the future!  If a voice has a note off coming within the next few milliseconds, let's steal that voice... */
 	constexpr int futureStealingMaxMs = 10;

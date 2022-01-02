@@ -1,7 +1,7 @@
 #pragma once
 
-#include <lemons_core/lemons_core.h>
-#include <juce_gui_basics/juce_gui_basics.h>
+//#include <lemons_core/lemons_core.h>
+//#include <juce_gui_basics/juce_gui_basics.h>
 
 namespace lemons
 {

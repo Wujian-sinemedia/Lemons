@@ -45,7 +45,7 @@ template <typename SampleType>
 void SynthBase<SampleType>::prepare (double samplerate, int blocksize)
 {
 	jassert (blocksize > 0 && samplerate > 0);
-	jassert (! voices.isEmpty());
+	jassert (! voices->isEmpty());
 
 	aggregateMidiBuffer.ensureSize (static_cast<size_t> (blocksize * 2));
 	aggregateMidiBuffer.clear();
@@ -53,7 +53,7 @@ void SynthBase<SampleType>::prepare (double samplerate, int blocksize)
 	for (auto* voice : voices)
 		voice->prepare (samplerate, blocksize);
 
-	panner.prepare (voices.size(), false);
+	panner.prepare (voices->size(), false);
 	midi.prepare (blocksize);
 
 	sampleRate = samplerate;
@@ -100,7 +100,7 @@ void SynthBase<SampleType>::releaseResources()
 template <typename SampleType>
 void SynthBase<SampleType>::renderVoices (MidiBuffer& midiMessages, AudioBuffer<SampleType>& output)
 {
-	jassert (! voices.isEmpty());
+	jassert (! voices->isEmpty());
 	jassert (sampleRate > 0);
 
 	output.clear();
@@ -131,7 +131,7 @@ void SynthBase<SampleType>::renderVoices (MidiBuffer& midiMessages, AudioBuffer<
 template <typename SampleType>
 void SynthBase<SampleType>::bypassedBlock (int numSamples, MidiBuffer& midiMessages)
 {
-	midi.processBypassed (midiMessages);
+//	midi.processBypassed (midiMessages);
 
 	for (auto* voice : voices)
 		voice->bypassedBlock (numSamples);
@@ -145,75 +145,52 @@ void SynthBase<SampleType>::bypassedBlock (int numSamples, MidiBuffer& midiMessa
 template <typename SampleType>
 void SynthBase<SampleType>::changeNumVoices (int newNumVoices)
 {
-	const auto currentVoices = voices.size();
-
-	if (currentVoices == newNumVoices) return;
-
-	if (newNumVoices > currentVoices)
-		addNumVoices (newNumVoices - currentVoices);
-	else
-		removeNumVoices (currentVoices - newNumVoices);
-
-	jassert (voices.size() == newNumVoices);
-}
-
-
-/*
- Adds a specified number of voices to the synth.
- This is virtual because your subclass can override this to add instances of your subclass of SynthVoiceBase. If you provide a custom implementation, your function MUST call numVoicesChanged() after it has finished adding voices!
- */
-template <typename SampleType>
-void SynthBase<SampleType>::addNumVoices (int voicesToAdd)
-{
-	if (voicesToAdd == 0) return;
-
-	for (int i = 0; i < voicesToAdd; ++i)
-		voices.add (createVoice());
-
-	jassert (voices.size() >= voicesToAdd);
-
-	numVoicesChanged();
+    voices.resize (newNumVoices);
+    
+    jassert (voices->size() == newNumVoices);
+    
+    numVoicesChanged();
 }
 
 
 /*
  Removes a specified number of voices from the synth. This function attempts to remove inactive voices first.
  */
-template <typename SampleType>
-void SynthBase<SampleType>::removeNumVoices (int voicesToRemove)
-{
-	if (voicesToRemove == 0) return;
-
-#if JUCE_DEBUG
-	const auto shouldBeLeft = voices.size() - voicesToRemove;
-#endif
-
-	int voicesRemoved = 0;
-
-	while (voicesRemoved < voicesToRemove && ! voices.isEmpty())
-	{
-		if (voices.isEmpty()) break;
-
-		Voice* removing = voiceAllocator.findFreeVoice (true);
-
-		if (removing == nullptr) removing = voices[0];
-
-		if (removing->isVoiceActive())
-		{
-			panner.panValTurnedOff (removing->getCurrentMidiPan());
-			aggregateMidiBuffer.addEvent (MidiMessage::noteOff (removing->getMidiChannel(), removing->getCurrentlyPlayingNote(), 1.0f),
-			                              midi.router.getLastMidiTimestamp());
-		}
-
-		voices.removeObject (removing, true);
-
-		++voicesRemoved;
-	}
-
-	jassert (voices.isEmpty() || voices.size() == shouldBeLeft);
-
-	numVoicesChanged();
-}
+//template <typename SampleType>
+//void SynthBase<SampleType>::removeNumVoices (int voicesToRemove)
+//{
+//	if (voicesToRemove == 0) return;
+//
+//#if JUCE_DEBUG
+//	const auto shouldBeLeft = voices.size() - voicesToRemove;
+//#endif
+//
+//	int voicesRemoved = 0;
+//
+//	while (voicesRemoved < voicesToRemove && ! voices.isEmpty())
+//	{
+//		if (voices.isEmpty()) break;
+//
+//		Voice* removing = voiceAllocator.findFreeVoice (true);
+//
+//		if (removing == nullptr) removing = voices[0];
+//
+//		if (removing->isVoiceActive())
+//		{
+//			panner.panValTurnedOff (removing->getCurrentMidiPan());
+//			aggregateMidiBuffer.addEvent (MidiMessage::noteOff (removing->getMidiChannel(), removing->getCurrentlyPlayingNote(), 1.0f),
+//			                              midi.router.getLastMidiTimestamp());
+//		}
+//
+//		voices.removeObject (removing, true);
+//
+//		++voicesRemoved;
+//	}
+//
+//	jassert (voices.isEmpty() || voices.size() == shouldBeLeft);
+//
+//	numVoicesChanged();
+//}
 
 
 /*
@@ -222,7 +199,7 @@ void SynthBase<SampleType>::removeNumVoices (int voicesToRemove)
 template <typename SampleType>
 void SynthBase<SampleType>::numVoicesChanged()
 {
-	const auto newMaxNumVoices = voices.size();
+	const auto newMaxNumVoices = voices->size();
 
 	panner.prepare (newMaxNumVoices, false);
 	voiceAllocator.prepare (newMaxNumVoices);

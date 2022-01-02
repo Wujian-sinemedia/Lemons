@@ -2,6 +2,10 @@
 
 namespace lemons::dsp::synth
 {
+
+template<typename T>
+using Array = juce::Array<T>;
+
 template <typename SampleType>
 class PanningManager
 {

@@ -166,8 +166,8 @@ void Reverb::process (juce::AudioBuffer<float>& input,
 	jassert (numSamples == compressorSidechain.getNumSamples());
 	jassert (numChannels == compressorSidechain.getNumChannels());
 
-	dsp::buffers::copy (compressorSidechain, sidechainBuffer);
-	dsp::buffers::copy (input, workingBuffer);
+	buffers::copy (compressorSidechain, sidechainBuffer);
+	buffers::copy (input, workingBuffer);
 
 	// reverb
 	switch (numChannels)
@@ -201,11 +201,11 @@ void Reverb::process (juce::AudioBuffer<float>& input,
 	for (int chan = 0; chan < numChannels; ++chan)
 	{
 		// add & write result to workingBuffer
-		vecops::addV (workingBuffer.getWritePointer (chan),
-		              sidechainBuffer.getReadPointer (chan),
-		              numSamples);
-
-		dsp::buffers::copy (workingBuffer, input);
+        juce::FloatVectorOperations::add (workingBuffer.getWritePointer (chan),
+                                          sidechainBuffer.getReadPointer (chan),
+                                          numSamples);
+        
+		buffers::copy (workingBuffer, input);
 	}
 }
 

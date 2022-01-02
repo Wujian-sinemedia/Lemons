@@ -13,9 +13,8 @@ Building blocks for JUCE applications
 
 include_guard (GLOBAL)
 
-include (LemonsCommonModules)
 include (LemonsGUIModules)
 include (LemonsAppUtilities)
 
-
-_lemons_add_module_subcategory (LemonsAppModules)
+add_library (LemonsAppModules INTERFACE)
+target_link_libraries (LemonsAppModules INTERFACE LemonsGUIModules)

@@ -19,3 +19,4 @@ include (LemonsAudioModules)
 include (LemonsPluginUtilities)
 
 _lemons_add_module_subcategory (LemonsPluginModules)
+target_link_libraries (LemonsPluginModules INTERFACE LemonsCommonModules LemonsAudioModules)

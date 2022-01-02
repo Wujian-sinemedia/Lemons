@@ -9,6 +9,12 @@
 
 namespace lemons::dsp
 {
+
+using juce::MidiMessage;
+
+template<typename T>
+using Array = juce::Array<T>;
+
 template <typename SampleType>
 class SynthBase
 {
@@ -46,7 +52,7 @@ public:
 	void reportActiveNotes (juce::Array<int>& outputArray, bool includePlayingButReleased = false, bool includeKeyUpNotes = true) const;
 
 	int  getNumActiveVoices() const;
-	int  getNumVoices() const noexcept { return voices.size(); }
+	int  getNumVoices() const noexcept { return voices->size(); }
 	void changeNumVoices (int newNumVoices);
 
 	void setNoteStealingEnabled (bool shouldSteal) noexcept { shouldStealNotes = shouldSteal; }
@@ -117,8 +123,6 @@ protected:
 	virtual Voice* createVoice() = 0;
 
 private:
-	void addNumVoices (int voicesToAdd);
-	void removeNumVoices (int voicesToRemove);
 	void numVoicesChanged();
 
 	void noteOn (int midiPitch, float velocity, bool isKeyboard = true, int midiChannel = -1);
@@ -137,7 +141,7 @@ private:
 	/*==============================================================================================================
 	 ===============================================================================================================*/
 
-	OwnedArray<Voice> voices;
+    ConstructedArray<Voice> voices { 0, [&](){ return createVoice(); } };
 
 	bool latchIsOn { false }, shouldStealNotes { true }, aftertouchGainIsOn { true };
 

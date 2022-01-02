@@ -13,3 +13,5 @@
 #include "device/AutoLock.cpp"
 #include "device/DeviceMotion.cpp"
 #include "device/DeviceRotation.cpp"
+
+#include "app/DefaultWindow.cpp"

@@ -42,11 +42,7 @@
     The Lemons repo's cmake scripts set this automatically for you; if that's how you added the Lemons package, then you don't need to worry about setting this manually.
  */
 #ifndef LEMONS_UNIT_TESTS
-#  if __has_include("lemons_unit_testing/lemons_unit_testing.h")
-#	define LEMONS_UNIT_TESTS 1
-#  else
-#	define LEMONS_UNIT_TESTS 0
-#  endif
+#  define LEMONS_UNIT_TESTS 0
 #endif
 
 

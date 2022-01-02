@@ -5,8 +5,10 @@
 namespace lemons::dsp::synth
 {
 
+using juce::MidiMessage;
+
 template <typename SampleType>
-class MidiManager : public midi::MidiChoppingProcessor<SampleType>
+class MidiManager : public midi::ChoppingProcessor<SampleType>
 {
 public:
 	MidiManager (SynthBase<SampleType>& s)

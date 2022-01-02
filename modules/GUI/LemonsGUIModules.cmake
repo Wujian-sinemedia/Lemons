@@ -15,3 +15,4 @@ include_guard (GLOBAL)
 include (LemonsCommonModules)
 
 _lemons_add_module_subcategory (LemonsGUIModules)
+target_link_libraries (LemonsGUIModules INTERFACE LemonsCommonModules)
