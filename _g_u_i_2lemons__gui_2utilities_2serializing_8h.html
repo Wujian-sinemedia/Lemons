@@ -93,13 +93,19 @@ Namespaces</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:namespacelemons_1_1binary"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1binary.html">lemons::binary</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:namespacelemons_1_1files"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1files.html">lemons::files</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:namespacelemons_1_1serializing"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html">lemons::serializing</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:a79aa52c715672cf46f9b529fd58ef564"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; juce::CustomTypeface &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html#a79aa52c715672cf46f9b529fd58ef564">lemons::serializing::fontFromBinary</a> (const MemoryBlock &amp;block)</td></tr>
+<tr class="separator:a79aa52c715672cf46f9b529fd58ef564"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a30d310f988a2d025e1b89cf636047402"><td class="memItemLeft" align="right" valign="top">MemoryBlock&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html#a30d310f988a2d025e1b89cf636047402">lemons::serializing::fontToBinary</a> (const juce::Font &amp;font, int maxNumChars=127, juce_wchar defaultChar=' ')</td></tr>
+<tr class="separator:a30d310f988a2d025e1b89cf636047402"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2a25c99b94d6acd726fad6fea2e7a8c6"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; juce::CustomTypeface &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1binary.html#a2a25c99b94d6acd726fad6fea2e7a8c6">lemons::binary::getFont</a> (const String &amp;filename)</td></tr>
-<tr class="memdesc:a2a25c99b94d6acd726fad6fea2e7a8c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a font that has been previously serialized with the <a class="el" href="namespacelemons_1_1serializing.html#ac3fe0ea51d88705b739303ba723d97a7" title="Serializes a font to a file that can then be reloaded as a BinaryData file.">serializing::serializeFont()</a> method.  <a href="namespacelemons_1_1binary.html#a2a25c99b94d6acd726fad6fea2e7a8c6">More...</a><br /></td></tr>
+<tr class="memdesc:a2a25c99b94d6acd726fad6fea2e7a8c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a font that has been previously serialized with the serializing::serializeFont() method.  <a href="namespacelemons_1_1binary.html#a2a25c99b94d6acd726fad6fea2e7a8c6">More...</a><br /></td></tr>
 <tr class="separator:a2a25c99b94d6acd726fad6fea2e7a8c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0695d683400b6eb86c0198bd13ee8f62"><td class="memItemLeft" align="right" valign="top">juce::Image&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1binary.html#a0695d683400b6eb86c0198bd13ee8f62">lemons::binary::getImage</a> (const String &amp;imageFileName)</td></tr>
 <tr class="memdesc:a0695d683400b6eb86c0198bd13ee8f62"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns an image object from an image file in the BinaryData target.  <a href="namespacelemons_1_1binary.html#a0695d683400b6eb86c0198bd13ee8f62">More...</a><br /></td></tr>
@@ -110,20 +116,21 @@ Functions</h2></td></tr>
 <tr class="memitem:a844c15e8011970bd72cddbc16ac54886"><td class="memItemLeft" align="right" valign="top">MemoryBlock&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html#a844c15e8011970bd72cddbc16ac54886">lemons::serializing::imageToBinary</a> (const Image &amp;image)</td></tr>
 <tr class="memdesc:a844c15e8011970bd72cddbc16ac54886"><td class="mdescLeft">&#160;</td><td class="mdescRight">Encodes an Image object as a blob of binary data.  <a href="namespacelemons_1_1serializing.html#a844c15e8011970bd72cddbc16ac54886">More...</a><br /></td></tr>
 <tr class="separator:a844c15e8011970bd72cddbc16ac54886"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a054624f2d6989afb27bcc5d3cafaee5c"><td class="memItemLeft" align="right" valign="top">Image&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html#a054624f2d6989afb27bcc5d3cafaee5c">lemons::serializing::loadImageFromFile</a> (const File &amp;file)</td></tr>
-<tr class="memdesc:a054624f2d6989afb27bcc5d3cafaee5c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads an Image from a File.  <a href="namespacelemons_1_1serializing.html#a054624f2d6989afb27bcc5d3cafaee5c">More...</a><br /></td></tr>
-<tr class="separator:a054624f2d6989afb27bcc5d3cafaee5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af85f04cdb5f864a3b6f6cd04b2c426bb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html#af85f04cdb5f864a3b6f6cd04b2c426bb">lemons::serializing::saveImageToFile</a> (const Image &amp;image, const File &amp;file)</td></tr>
-<tr class="memdesc:af85f04cdb5f864a3b6f6cd04b2c426bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Saves an Image to a File.  <a href="namespacelemons_1_1serializing.html#af85f04cdb5f864a3b6f6cd04b2c426bb">More...</a><br /></td></tr>
-<tr class="separator:af85f04cdb5f864a3b6f6cd04b2c426bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac3fe0ea51d88705b739303ba723d97a7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html#ac3fe0ea51d88705b739303ba723d97a7">lemons::serializing::serializeFont</a> (const juce::Font &amp;font, const File &amp;destFile, int maxNumChars=127, juce_wchar defaultChar=' ')</td></tr>
-<tr class="memdesc:ac3fe0ea51d88705b739303ba723d97a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serializes a font to a file that can then be reloaded as a BinaryData file.  <a href="namespacelemons_1_1serializing.html#ac3fe0ea51d88705b739303ba723d97a7">More...</a><br /></td></tr>
-<tr class="separator:ac3fe0ea51d88705b739303ba723d97a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a383ce132bdd2b76a98e17bdf7db3068b"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; juce::CustomTypeface &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1files.html#a383ce132bdd2b76a98e17bdf7db3068b">lemons::files::loadFont</a> (const File &amp;file)</td></tr>
+<tr class="separator:a383ce132bdd2b76a98e17bdf7db3068b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2bad73088f4cd33294dc30cfed9e208c"><td class="memItemLeft" align="right" valign="top">Image&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1files.html#a2bad73088f4cd33294dc30cfed9e208c">lemons::files::loadImage</a> (const File &amp;file)</td></tr>
+<tr class="memdesc:a2bad73088f4cd33294dc30cfed9e208c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads an Image from a File.  <a href="namespacelemons_1_1files.html#a2bad73088f4cd33294dc30cfed9e208c">More...</a><br /></td></tr>
+<tr class="separator:a2bad73088f4cd33294dc30cfed9e208c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a73fc40781ee71e41bf30683c939df08c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1files.html#a73fc40781ee71e41bf30683c939df08c">lemons::files::saveFont</a> (const juce::Font &amp;font, const File &amp;file, int maxNumChars=127, juce_wchar defaultChar=' ')</td></tr>
+<tr class="separator:a73fc40781ee71e41bf30683c939df08c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a90c99721b94a9923e469d43f6f004bff"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1files.html#a90c99721b94a9923e469d43f6f004bff">lemons::files::saveImage</a> (const Image &amp;image, const File &amp;file)</td></tr>
+<tr class="memdesc:a90c99721b94a9923e469d43f6f004bff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Saves an Image to a File.  <a href="namespacelemons_1_1files.html#a90c99721b94a9923e469d43f6f004bff">More...</a><br /></td></tr>
+<tr class="separator:a90c99721b94a9923e469d43f6f004bff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jan 2 2022 10:12:29 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jan 2 2022 12:38:59 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

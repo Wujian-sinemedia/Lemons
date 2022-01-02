@@ -69,6 +69,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
+<a href="#typedef-members">Typedefs</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">lemons::binary Namespace Reference<div class="ingroups"><a class="el" href="group___common.html">Common</a> &raquo; <a class="el" href="group__lemons__core.html">lemons_core</a> &raquo; <a class="el" href="group__binary__data.html">binary_data</a></div></div>  </div>
@@ -81,11 +82,20 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a wrapper around some data contained in a juce BinaryData target.  <a href="structlemons_1_1binary_1_1_data.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:a0ab1443f349d800d3ca96bbeed83703f"><td class="memTemplParams" colspan="2">template&lt;typename SampleType &gt; </td></tr>
+<tr class="memitem:a0ab1443f349d800d3ca96bbeed83703f"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1binary.html#a0ab1443f349d800d3ca96bbeed83703f">AudioBuffer</a> = juce::AudioBuffer&lt; SampleType &gt;</td></tr>
+<tr class="separator:a0ab1443f349d800d3ca96bbeed83703f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a96ccadca6540db387432a96d6cc33f34"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structlemons_1_1dsp_1_1_audio_file.html">dsp::AudioFile</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1binary.html#a96ccadca6540db387432a96d6cc33f34">getAudio</a> (const String &amp;audioFileName)</td></tr>
-<tr class="memdesc:a96ccadca6540db387432a96d6cc33f34"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns an AudioFile object from a file stored in the BinaryData target.  <a href="namespacelemons_1_1binary.html#a96ccadca6540db387432a96d6cc33f34">More...</a><br /></td></tr>
-<tr class="separator:a96ccadca6540db387432a96d6cc33f34"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad521bea43ce321600e47f0aac6bbbe18"><td class="memTemplParams" colspan="2">template&lt;typename SampleType &gt; </td></tr>
+<tr class="memitem:ad521bea43ce321600e47f0aac6bbbe18"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacelemons_1_1binary.html#a0ab1443f349d800d3ca96bbeed83703f">AudioBuffer</a>&lt; SampleType &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1binary.html#ad521bea43ce321600e47f0aac6bbbe18">getAudioBuffer</a> (const String &amp;filename)</td></tr>
+<tr class="separator:ad521bea43ce321600e47f0aac6bbbe18"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a644730095d0f4474c838bd8e357494e5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structlemons_1_1dsp_1_1_audio_file.html">dsp::AudioFile</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1binary.html#a644730095d0f4474c838bd8e357494e5">getAudioFile</a> (const String &amp;audioFileName)</td></tr>
+<tr class="memdesc:a644730095d0f4474c838bd8e357494e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns an AudioFile object from a file stored in the BinaryData target.  <a href="namespacelemons_1_1binary.html#a644730095d0f4474c838bd8e357494e5">More...</a><br /></td></tr>
+<tr class="separator:a644730095d0f4474c838bd8e357494e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a52e71729d422f37cdcd3086f45e7168c"><td class="memItemLeft" align="right" valign="top">MemoryBlock&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1binary.html#a52e71729d422f37cdcd3086f45e7168c">getBlob</a> (const String &amp;filename)</td></tr>
 <tr class="memdesc:a52e71729d422f37cdcd3086f45e7168c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns an opaque blob of binary data from a file in the BinaryData target.  <a href="namespacelemons_1_1binary.html#a52e71729d422f37cdcd3086f45e7168c">More...</a><br /></td></tr>
 <tr class="separator:a52e71729d422f37cdcd3086f45e7168c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -93,7 +103,7 @@ Functions</h2></td></tr>
 <tr class="memdesc:a3f5893ae9f64c4e06e0285bbb38b27c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a list of file names that are available in the binary data target, ie, filenames that are valid arguments to the <a class="el" href="structlemons_1_1binary_1_1_data.html" title="Represents a wrapper around some data contained in a juce BinaryData target.">Data</a> constructor.  <a href="namespacelemons_1_1binary.html#a3f5893ae9f64c4e06e0285bbb38b27c4">More...</a><br /></td></tr>
 <tr class="separator:a3f5893ae9f64c4e06e0285bbb38b27c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2a25c99b94d6acd726fad6fea2e7a8c6"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; juce::CustomTypeface &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1binary.html#a2a25c99b94d6acd726fad6fea2e7a8c6">getFont</a> (const String &amp;filename)</td></tr>
-<tr class="memdesc:a2a25c99b94d6acd726fad6fea2e7a8c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a font that has been previously serialized with the <a class="el" href="namespacelemons_1_1serializing.html#ac3fe0ea51d88705b739303ba723d97a7" title="Serializes a font to a file that can then be reloaded as a BinaryData file.">serializing::serializeFont()</a> method.  <a href="namespacelemons_1_1binary.html#a2a25c99b94d6acd726fad6fea2e7a8c6">More...</a><br /></td></tr>
+<tr class="memdesc:a2a25c99b94d6acd726fad6fea2e7a8c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a font that has been previously serialized with the serializing::serializeFont() method.  <a href="namespacelemons_1_1binary.html#a2a25c99b94d6acd726fad6fea2e7a8c6">More...</a><br /></td></tr>
 <tr class="separator:a2a25c99b94d6acd726fad6fea2e7a8c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0695d683400b6eb86c0198bd13ee8f62"><td class="memItemLeft" align="right" valign="top">juce::Image&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1binary.html#a0695d683400b6eb86c0198bd13ee8f62">getImage</a> (const String &amp;imageFileName)</td></tr>
 <tr class="memdesc:a0695d683400b6eb86c0198bd13ee8f62"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns an image object from an image file in the BinaryData target.  <a href="namespacelemons_1_1binary.html#a0695d683400b6eb86c0198bd13ee8f62">More...</a><br /></td></tr>
@@ -104,6 +114,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a4b9c208fff93a49410fc4906db3aedd7"><td class="memItemLeft" align="right" valign="top">juce::MidiFile&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1binary.html#a4b9c208fff93a49410fc4906db3aedd7">getMidiFile</a> (const String &amp;midiFileName)</td></tr>
 <tr class="memdesc:a4b9c208fff93a49410fc4906db3aedd7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a MIDI file object from a MIDI file in the BinaryData target.  <a href="namespacelemons_1_1binary.html#a4b9c208fff93a49410fc4906db3aedd7">More...</a><br /></td></tr>
 <tr class="separator:a4b9c208fff93a49410fc4906db3aedd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad3c759ef241f4a9c2e250f4bbe0c85a4"><td class="memTemplParams" colspan="2">template&lt;files::FileType Type = files::FileType::JSON&gt; </td></tr>
+<tr class="memitem:ad3c759ef241f4a9c2e250f4bbe0c85a4"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structlemons_1_1plugin_1_1_parameter_layout.html">plugin::ParameterLayout</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1binary.html#ad3c759ef241f4a9c2e250f4bbe0c85a4">getParameterLayout</a> (const String &amp;fileName)</td></tr>
+<tr class="separator:ad3c759ef241f4a9c2e250f4bbe0c85a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5e253707251df7318339c749531c832e"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1binary.html#a5e253707251df7318339c749531c832e">getString</a> (const String &amp;textFileName)</td></tr>
 <tr class="memdesc:a5e253707251df7318339c749531c832e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a text file in the BinaryData target as one string.  <a href="namespacelemons_1_1binary.html#a5e253707251df7318339c749531c832e">More...</a><br /></td></tr>
 <tr class="separator:a5e253707251df7318339c749531c832e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -118,15 +131,52 @@ Functions</h2></td></tr>
 <tr class="memdesc:a45e0f639b83a42ca3121fdff8dcdcb70"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if this module was compiled with the LEMONS_HAS_BINARY_DATA flag set to 1.  <a href="namespacelemons_1_1binary.html#a45e0f639b83a42ca3121fdff8dcdcb70">More...</a><br /></td></tr>
 <tr class="separator:a45e0f639b83a42ca3121fdff8dcdcb70"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Typedef Documentation</h2>
+<a id="a0ab1443f349d800d3ca96bbeed83703f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0ab1443f349d800d3ca96bbeed83703f">&#9670;&nbsp;</a></span>AudioBuffer</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename SampleType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="namespacelemons_1_1binary.html#a0ab1443f349d800d3ca96bbeed83703f">lemons::binary::AudioBuffer</a> = typedef juce::AudioBuffer&lt;SampleType&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a96ccadca6540db387432a96d6cc33f34"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a96ccadca6540db387432a96d6cc33f34">&#9670;&nbsp;</a></span>getAudio()</h2>
+<a id="ad521bea43ce321600e47f0aac6bbbe18"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad521bea43ce321600e47f0aac6bbbe18">&#9670;&nbsp;</a></span>getAudioBuffer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename SampleType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacelemons_1_1binary.html#a0ab1443f349d800d3ca96bbeed83703f">AudioBuffer</a>&lt;SampleType&gt; lemons::binary::getAudioBuffer </td>
+          <td>(</td>
+          <td class="paramtype">const String &amp;&#160;</td>
+          <td class="paramname"><em>filename</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a644730095d0f4474c838bd8e357494e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a644730095d0f4474c838bd8e357494e5">&#9670;&nbsp;</a></span>getAudioFile()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structlemons_1_1dsp_1_1_audio_file.html">dsp::AudioFile</a> lemons::binary::getAudio </td>
+          <td class="memname"><a class="el" href="structlemons_1_1dsp_1_1_audio_file.html">dsp::AudioFile</a> lemons::binary::getAudioFile </td>
           <td>(</td>
           <td class="paramtype">const String &amp;&#160;</td>
           <td class="paramname"><em>audioFileName</em></td><td>)</td>
@@ -196,8 +246,8 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Returns a font that has been previously serialized with the <a class="el" href="namespacelemons_1_1serializing.html#ac3fe0ea51d88705b739303ba723d97a7" title="Serializes a font to a file that can then be reloaded as a BinaryData file.">serializing::serializeFont()</a> method. </p>
-<p>If the font can't be loaded, an assertion will be thrown. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="namespacelemons_1_1serializing.html#ac3fe0ea51d88705b739303ba723d97a7" title="Serializes a font to a file that can then be reloaded as a BinaryData file.">serializing::serializeFont()</a> </dd></dl>
+<p>Returns a font that has been previously serialized with the serializing::serializeFont() method. </p>
+<p>If the font can't be loaded, an assertion will be thrown. </p><dl class="section see"><dt>See also</dt><dd>serializing::serializeFont() </dd></dl>
 
 </div>
 </div>
@@ -218,7 +268,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Returns an image object from an image file in the BinaryData target. </p>
-<p>If the image can't be loaded, an assertion will be thrown. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="namespacelemons_1_1serializing.html#a054624f2d6989afb27bcc5d3cafaee5c" title="Loads an Image from a File.">serializing::loadImageFromFile()</a>, <a class="el" href="namespacelemons_1_1serializing.html#af85f04cdb5f864a3b6f6cd04b2c426bb" title="Saves an Image to a File.">serializing::saveImageToFile()</a> </dd></dl>
+<p>If the image can't be loaded, an assertion will be thrown. </p><dl class="section see"><dt>See also</dt><dd>serializing::loadImageFromFile(), serializing::saveImageToFile() </dd></dl>
 
 </div>
 </div>
@@ -239,7 +289,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Returns a MIDI buffer object from a MIDI file in the BinaryData target. </p>
-<p>If the MIDI can't be loaded, an assertion will be thrown. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="namespacelemons_1_1serializing.html#ae8e7d43517d8fa847dec1f55b483a504" title="Loads a MidiFile from a file on disk.">serializing::loadMidiFromFile()</a>, <a class="el" href="namespacelemons_1_1serializing.html#a02be9ff9b2eaa39d8ab1119123d88b1d" title="Saves a MidiFile to a file on disk.">serializing::saveMidiToFile()</a> </dd></dl>
+<p>If the MIDI can't be loaded, an assertion will be thrown. </p><dl class="section see"><dt>See also</dt><dd>serializing::loadMidiFromFile(), serializing::saveMidiToFile() </dd></dl>
 
 </div>
 </div>
@@ -260,7 +310,27 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Returns a MIDI file object from a MIDI file in the BinaryData target. </p>
-<p>If the MIDI can't be loaded, an assertion will be thrown. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="namespacelemons_1_1serializing.html#ae8e7d43517d8fa847dec1f55b483a504" title="Loads a MidiFile from a file on disk.">serializing::loadMidiFromFile()</a>, <a class="el" href="namespacelemons_1_1serializing.html#a02be9ff9b2eaa39d8ab1119123d88b1d" title="Saves a MidiFile to a file on disk.">serializing::saveMidiToFile()</a> </dd></dl>
+<p>If the MIDI can't be loaded, an assertion will be thrown. </p><dl class="section see"><dt>See also</dt><dd>serializing::loadMidiFromFile(), serializing::saveMidiToFile() </dd></dl>
+
+</div>
+</div>
+<a id="ad3c759ef241f4a9c2e250f4bbe0c85a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad3c759ef241f4a9c2e250f4bbe0c85a4">&#9670;&nbsp;</a></span>getParameterLayout()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;files::FileType Type = files::FileType::JSON&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structlemons_1_1plugin_1_1_parameter_layout.html">plugin::ParameterLayout</a> lemons::binary::getParameterLayout </td>
+          <td>(</td>
+          <td class="paramtype">const String &amp;&#160;</td>
+          <td class="paramname"><em>fileName</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -360,7 +430,7 @@ template&lt;files::FileType Type = files::FileType::JSON&gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jan 2 2022 10:12:29 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jan 2 2022 12:38:59 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

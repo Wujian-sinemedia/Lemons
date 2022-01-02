@@ -4,7 +4,7 @@
 <area shape="rect" id="node14" href="$classlemons_1_1plugin_1_1_typed_parameter.html" title=" " alt="" coords="597,64,828,105"/>
 <area shape="rect" id="node18" href="$classlemons_1_1plugin_1_1_typed_parameter.html" title=" " alt="" coords="597,587,828,628"/>
 <area shape="rect" id="node3" href="$structlemons_1_1plugin_1_1_float_amount_parameter.html" title="A parameter that represents a value in a normalized 0&#45;1 range." alt="" coords="607,195,818,236"/>
-<area shape="rect" id="node4" href="$classlemons_1_1plugin_1_1_meta_parameter.html" title=" " alt="" coords="599,260,826,301"/>
+<area shape="rect" id="node4" href="$classlemons_1_1plugin_1_1_meta_parameter.html" title="A meta parameter class that implements the MetaParameterBase interface." alt="" coords="599,260,826,301"/>
 <area shape="rect" id="node7" href="$structlemons_1_1plugin_1_1_meter_parameter.html" title="A parameter that represents a general kind of meter, used for reporting things like level or gain red..." alt="" coords="597,325,828,367"/>
 <area shape="rect" id="node10" href="$structlemons_1_1plugin_1_1_midi_pan_parameter.html" title="A parameter that represents a MIDI panning value in the range 0 to 127." alt="" coords="591,391,835,432"/>
 <area shape="rect" id="node11" href="$structlemons_1_1plugin_1_1_midi_pitch_parameter.html" title="A parameter that represents a MIDI pitch." alt="" coords="619,456,806,497"/>

@@ -34,7 +34,6 @@ var searchData=
   ['dsp_5ftest_2eh_202',['dsp_test.h',['../dsp__test_8h.html',1,'']]],
   ['dsp_5futils_2eh_203',['dsp_utils.h',['../dsp__utils_8h.html',1,'']]],
   ['dspprotection_2eh_204',['DspProtection.h',['../_dsp_protection_8h.html',1,'']]],
-  ['dspserializingtests_205',['DspSerializingTests',['../structlemons_1_1tests_1_1_dsp_serializing_tests.html',1,'lemons::tests::DspSerializingTests'],['../structlemons_1_1tests_1_1_dsp_serializing_tests.html#a6206bc4d6d4b00be5cd4bd2c9f4d0425',1,'lemons::tests::DspSerializingTests::DspSerializingTests()']]],
-  ['dsptest_206',['DspTest',['../structlemons_1_1tests_1_1_dsp_test.html',1,'lemons::tests::DspTest'],['../structlemons_1_1tests_1_1_dsp_test.html#a047ba8d4fa52f504feceebef695bf198',1,'lemons::tests::DspTest::DspTest()']]],
-  ['dynamics_207',['dynamics',['../group__dynamics.html',1,'']]]
+  ['dsptest_205',['DspTest',['../structlemons_1_1tests_1_1_dsp_test.html',1,'lemons::tests::DspTest'],['../structlemons_1_1tests_1_1_dsp_test.html#a047ba8d4fa52f504feceebef695bf198',1,'lemons::tests::DspTest::DspTest()']]],
+  ['dynamics_206',['dynamics',['../group__dynamics.html',1,'']]]
 ];

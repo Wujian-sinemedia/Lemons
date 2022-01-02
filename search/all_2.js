@@ -81,7 +81,7 @@ var searchData=
   ['createeditor_164',['createEditor',['../structlemons_1_1plugin_1_1_processor_with_editor.html#a201a4272c92945bdbe74460f60ca0b64',1,'lemons::plugin::ProcessorWithEditor::createEditor()'],['../structlemons_1_1plugin_1_1_processor_with_generic_editor.html#a2a70757962f1c666b18adddcb1820e11',1,'lemons::plugin::ProcessorWithGenericEditor::createEditor()']]],
   ['createoreditconnection_165',['createOrEditConnection',['../structlemons_1_1plugin_1_1_meta_parameter_base.html#a0c6505930750273ed1b72e17cf3a1a0e',1,'lemons::plugin::MetaParameterBase']]],
   ['createparameter_166',['createParameter',['../structlemons_1_1plugin_1_1_parameter_traits.html#ac6efe4f2ed2b0e45f7888e2e796e866c',1,'lemons::plugin::ParameterTraits']]],
-  ['createrange_167',['createRange',['../namespacelemons_1_1plugin_1_1detail.html#a8966bd80958982aaf45e34b2590058e6',1,'lemons::plugin::detail']]],
+  ['createrange_167',['createRange',['../namespacelemons_1_1plugin_1_1detail.html#ad95fe89519fedeb541f3e9014a5f552b',1,'lemons::plugin::detail']]],
   ['createvoice_168',['createVoice',['../structlemons_1_1dsp_1_1_template_synth.html#ad07b54bfc7da0da1b7ee26e46e2ea8cf',1,'lemons::dsp::TemplateSynth::createVoice()'],['../classlemons_1_1dsp_1_1_synth_base.html#a90865bbbb010903ca5ba65f3f1d3fb8c',1,'lemons::dsp::SynthBase::createVoice()']]],
   ['cursor_2eh_169',['cursor.h',['../cursor_8h.html',1,'']]],
   ['serializing_2eh_170',['serializing.h',['../_common_2lemons__core_2serializing_2serializing_8h.html',1,'']]]

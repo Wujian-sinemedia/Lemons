@@ -111,8 +111,10 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">An <a class="el" href="structlemons_1_1plugin_1_1_l_f_o.html" title="An LFO, to be used by a ModulationManager object.">LFO</a>, to be used by a <a class="el" href="classlemons_1_1plugin_1_1_modulation_manager.html" title="A modulation manager for a plugin.">ModulationManager</a> object.  <a href="structlemons_1_1plugin_1_1_l_f_o.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_meta_parameter.html">MetaParameter</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A meta parameter class that implements the <a class="el" href="structlemons_1_1plugin_1_1_meta_parameter_base.html" title="A type-erased interface for a parameter that can be connected to other parameters and control their v...">MetaParameterBase</a> interface.  <a href="classlemons_1_1plugin_1_1_meta_parameter.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1plugin_1_1_meta_parameter_base.html">MetaParameterBase</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A type-erased interface for a parameter that can be connected to other parameters and control their values.  <a href="structlemons_1_1plugin_1_1_meta_parameter_base.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1plugin_1_1_meter_parameter.html">MeterParameter</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A parameter that represents a general kind of meter, used for reporting things like level or gain reduction back to the DAW.  <a href="structlemons_1_1plugin_1_1_meter_parameter.html#details">More...</a><br /></td></tr>
@@ -134,9 +136,6 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter_list.html">ParameterList</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1plugin_1_1_parameter_traits.html">ParameterTraits</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1plugin_1_1_param_updater.html">ParamUpdater</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A listener class that calls lambda functions when a parameter's value or gesture state changes.  <a href="structlemons_1_1plugin_1_1_param_updater.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1plugin_1_1_percent_parameter.html">PercentParameter</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A parameter that represents an integer value in the range 0-100.  <a href="structlemons_1_1plugin_1_1_percent_parameter.html#details">More...</a><br /></td></tr>
@@ -208,6 +207,8 @@ Typedefs</h2></td></tr>
 <tr class="separator:a7d5746e33dadd4d351de50a915c6ed49"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a51ca8f18230a5ec3ac9188906661ccaf"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1plugin.html#a51ca8f18230a5ec3ac9188906661ccaf">ParameterCategory</a> = juce::AudioProcessorParameter::Category</td></tr>
 <tr class="separator:a51ca8f18230a5ec3ac9188906661ccaf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a01b07141fac641d37065cbeea5a33067"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1plugin.html#a01b07141fac641d37065cbeea5a33067">ParameterRange</a> = juce::NormalisableRange&lt; float &gt;</td></tr>
+<tr class="separator:a01b07141fac641d37065cbeea5a33067"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a402ed40f2d0bc661edca4d34b112d41b"><td class="memTemplParams" colspan="2">template&lt;template&lt; typename SampleType &gt; class EngineType&gt; </td></tr>
 <tr class="memitem:a402ed40f2d0bc661edca4d34b112d41b"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1plugin.html#a402ed40f2d0bc661edca4d34b112d41b">StatelessProcessor</a> = <a class="el" href="classlemons_1_1plugin_1_1_processor.html">Processor</a>&lt; EngineType, <a class="el" href="classlemons_1_1plugin_1_1_state.html">State</a> &gt;</td></tr>
 <tr class="memdesc:a402ed40f2d0bc661edca4d34b112d41b"><td class="mdescLeft">&#160;</td><td class="mdescRight">A handy typedef for if you just want to create a plugin processor that wraps a certain engine type, without supplying a custom state type.  <a href="namespacelemons_1_1plugin.html#a402ed40f2d0bc661edca4d34b112d41b">More...</a><br /></td></tr>
@@ -310,6 +311,20 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
+<a id="a01b07141fac641d37065cbeea5a33067"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a01b07141fac641d37065cbeea5a33067">&#9670;&nbsp;</a></span>ParameterRange</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="namespacelemons_1_1plugin.html#a01b07141fac641d37065cbeea5a33067">lemons::plugin::ParameterRange</a> = typedef juce::NormalisableRange&lt;float&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a402ed40f2d0bc661edca4d34b112d41b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a402ed40f2d0bc661edca4d34b112d41b">&#9670;&nbsp;</a></span>StatelessProcessor</h2>
 
@@ -363,7 +378,7 @@ template&lt;typename ValueType &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jan 2 2022 10:12:29 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jan 2 2022 12:38:59 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

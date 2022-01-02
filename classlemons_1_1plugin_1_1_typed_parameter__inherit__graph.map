@@ -1,7 +1,7 @@
 <map id="lemons::plugin::TypedParameter&lt; ValueType &gt;" name="lemons::plugin::TypedParameter&lt; ValueType &gt;">
 <area shape="rect" id="node1" title="A parameter that can be stored as a type other than a float, but still inherits from my Parameter bas..." alt="" coords="248,267,479,308"/>
 <area shape="rect" id="node3" href="$structlemons_1_1plugin_1_1_float_amount_parameter.html" title="A parameter that represents a value in a normalized 0&#45;1 range." alt="" coords="607,5,818,47"/>
-<area shape="rect" id="node4" href="$classlemons_1_1plugin_1_1_meta_parameter.html" title=" " alt="" coords="599,71,826,112"/>
+<area shape="rect" id="node4" href="$classlemons_1_1plugin_1_1_meta_parameter.html" title="A meta parameter class that implements the MetaParameterBase interface." alt="" coords="599,71,826,112"/>
 <area shape="rect" id="node7" href="$structlemons_1_1plugin_1_1_meter_parameter.html" title="A parameter that represents a general kind of meter, used for reporting things like level or gain red..." alt="" coords="597,201,828,243"/>
 <area shape="rect" id="node10" href="$structlemons_1_1plugin_1_1_midi_pan_parameter.html" title="A parameter that represents a MIDI panning value in the range 0 to 127." alt="" coords="591,267,835,308"/>
 <area shape="rect" id="node11" href="$structlemons_1_1plugin_1_1_midi_pitch_parameter.html" title="A parameter that represents a MIDI pitch." alt="" coords="619,332,806,373"/>

@@ -77,12 +77,12 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a82d59a521df06008c468ef4ce1ea980f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1plugin_1_1_parameter_list_1_1_listener.html#a82d59a521df06008c468ef4ce1ea980f">Listener</a> (const <a class="el" href="classlemons_1_1plugin_1_1_parameter_list.html">ParameterList</a> &amp;list, std::function&lt; void(<a class="el" href="classlemons_1_1plugin_1_1_parameter.html">Parameter</a> &amp;)&gt; onParamChange, std::function&lt; void(<a class="el" href="classlemons_1_1plugin_1_1_parameter.html">Parameter</a> &amp;, bool)&gt; onGestureGhange={})</td></tr>
-<tr class="separator:a82d59a521df06008c468ef4ce1ea980f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a76d5ccfde8d54f8785397d81d9d99ad6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1plugin_1_1_parameter_list_1_1_listener.html#a76d5ccfde8d54f8785397d81d9d99ad6">Listener</a> (const <a class="el" href="classlemons_1_1plugin_1_1_parameter_list.html">ParameterList</a> &amp;list, std::function&lt; void(<a class="el" href="classlemons_1_1plugin_1_1_parameter.html">Parameter</a> &amp;)&gt; onParamValueChange, std::function&lt; void(<a class="el" href="classlemons_1_1plugin_1_1_parameter.html">Parameter</a> &amp;)&gt; onParamDefaultChange=nullptr, std::function&lt; void(<a class="el" href="classlemons_1_1plugin_1_1_parameter.html">Parameter</a> &amp;, bool)&gt; onParamGestureGhange=nullptr, std::function&lt; void(<a class="el" href="classlemons_1_1plugin_1_1_parameter.html">Parameter</a> &amp;)&gt; onParamControllerChange=nullptr)</td></tr>
+<tr class="separator:a76d5ccfde8d54f8785397d81d9d99ad6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a82d59a521df06008c468ef4ce1ea980f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a82d59a521df06008c468ef4ce1ea980f">&#9670;&nbsp;</a></span>Listener()</h2>
+<a id="a76d5ccfde8d54f8785397d81d9d99ad6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a76d5ccfde8d54f8785397d81d9d99ad6">&#9670;&nbsp;</a></span>Listener()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -100,13 +100,25 @@ Public Member Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">std::function&lt; void(<a class="el" href="classlemons_1_1plugin_1_1_parameter.html">Parameter</a> &amp;)&gt;&#160;</td>
-          <td class="paramname"><em>onParamChange</em>, </td>
+          <td class="paramname"><em>onParamValueChange</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::function&lt; void(<a class="el" href="classlemons_1_1plugin_1_1_parameter.html">Parameter</a> &amp;)&gt;&#160;</td>
+          <td class="paramname"><em>onParamDefaultChange</em> = <code>nullptr</code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">std::function&lt; void(<a class="el" href="classlemons_1_1plugin_1_1_parameter.html">Parameter</a> &amp;, bool)&gt;&#160;</td>
-          <td class="paramname"><em>onGestureGhange</em> = <code>{}</code>&#160;</td>
+          <td class="paramname"><em>onParamGestureGhange</em> = <code>nullptr</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::function&lt; void(<a class="el" href="classlemons_1_1plugin_1_1_parameter.html">Parameter</a> &amp;)&gt;&#160;</td>
+          <td class="paramname"><em>onParamControllerChange</em> = <code>nullptr</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -129,7 +141,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jan 2 2022 10:12:29 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jan 2 2022 12:39:00 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

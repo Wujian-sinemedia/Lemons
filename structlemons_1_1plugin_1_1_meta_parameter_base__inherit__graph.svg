@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="node1" class="node">
 <title>Node1</title>
-<g id="a_node1"><a xlink:title=" ">
+<g id="a_node1"><a xlink:title="A type&#45;erased interface for a parameter that can be connected to other parameters and control their v...">
 <polygon fill="#bfbfbf" stroke="black" points="72,-203.5 72,-222.5 266,-222.5 266,-203.5 72,-203.5"/>
 <text text-anchor="middle" x="169" y="-210.5" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::plugin::MetaParameterBase</text>
 </a>
@@ -20,7 +20,7 @@
 <!-- Node2 -->
 <g id="node2" class="node">
 <title>Node2</title>
-<g id="a_node2"><a xlink:href="classlemons_1_1plugin_1_1_meta_parameter.html" target="_top" xlink:title=" ">
+<g id="a_node2"><a xlink:href="classlemons_1_1plugin_1_1_meta_parameter.html" target="_top" xlink:title="A meta parameter class that implements the MetaParameterBase interface.">
 <polygon fill="none" stroke="black" points="0,-135.5 0,-165.5 170,-165.5 170,-135.5 0,-135.5"/>
 <text text-anchor="start" x="8" y="-153.5" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::plugin::MetaParameter</text>
 <text text-anchor="middle" x="85" y="-142.5" font-family="Helvetica,sans-Serif" font-size="10.00">&lt; ValueType &gt;</text>

@@ -1,8 +1,8 @@
 <map id="lemons::plugin::MetaParameter&lt; ValueType &gt;" name="lemons::plugin::MetaParameter&lt; ValueType &gt;">
-<area shape="rect" id="node1" title=" " alt="" coords="142,172,369,213"/>
+<area shape="rect" id="node1" title="A meta parameter class that implements the MetaParameterBase interface." alt="" coords="142,172,369,213"/>
 <area shape="rect" id="node5" href="$classlemons_1_1plugin_1_1_meta_parameter.html" title=" " alt="" coords="142,276,369,317"/>
 <area shape="rect" id="node2" href="$classlemons_1_1plugin_1_1_typed_parameter.html" title="A parameter that can be stored as a type other than a float, but still inherits from my Parameter bas..." alt="" coords="5,81,236,123"/>
 <area shape="rect" id="node3" href="$classlemons_1_1plugin_1_1_parameter.html" title="A plugin parameter class." alt="" coords="24,5,217,32"/>
-<area shape="rect" id="node4" href="$structlemons_1_1plugin_1_1_meta_parameter_base.html" title=" " alt="" coords="261,89,519,115"/>
+<area shape="rect" id="node4" href="$structlemons_1_1plugin_1_1_meta_parameter_base.html" title="A type&#45;erased interface for a parameter that can be connected to other parameters and control their v..." alt="" coords="261,89,519,115"/>
 <area shape="rect" id="node6" href="$structlemons_1_1plugin_1_1_l_f_o.html" title="An LFO, to be used by a ModulationManager object." alt="" coords="180,367,331,393"/>
 </map>
