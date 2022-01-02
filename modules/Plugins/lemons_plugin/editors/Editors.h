@@ -51,6 +51,7 @@ public:
 	    , content (state)
 	    , stateBase (p.getState())
 	    , tooltipWindow (this, msBeforeTooltip)
+	    , msBeforeTooltip_ (msBeforeTooltip)
 	{
 		const auto& initialSize = [&]() -> const Dimensions&
 		{
@@ -89,6 +90,18 @@ public:
 	{
 	}
 
+	[[nodiscard]] EditorAttributes getAttributes() const
+	{
+		EditorAttributes attributes;
+
+		attributes.initialSize.set (getWidth(), getHeight());
+		attributes.isResizable        = isResizable();
+		attributes.useResizableCorner = resizableCorner.get() != nullptr;
+		attributes.msBeforeTooltip    = msBeforeTooltip_;
+
+		return attributes;
+	}
+
 private:
 	void resized() final
 	{
@@ -107,6 +120,7 @@ private:
 	State& stateBase;
 
 	juce::TooltipWindow tooltipWindow;
+	const int           msBeforeTooltip_;
 };
 
 }  // namespace lemons::plugin

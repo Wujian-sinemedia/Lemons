@@ -20,12 +20,14 @@ ProcessorBase::ProcessorBase (dsp::Engine<float>&        floatEngineToUse,
                               dsp::Engine<double>&       doubleEngineToUse,
                               State&                     stateToUse,
                               const BusesProperties&     busesLayout,
-                              const ProcessorAttributes& attributes)
+                              const ProcessorAttributes& attributes,
+                              const Version&             processorVersion)
     : BasicProcessor (busesLayout)
     , floatEngine (floatEngineToUse)
     , doubleEngine (doubleEngineToUse)
     , state (stateToUse)
     , processorAttributes (attributes.withDefaultBuses (busesPropertiesToValueTree (busesLayout)))
+    , version (processorVersion)
 {
 	state.parameters.addTo (*this);
 }
@@ -91,7 +93,7 @@ ValueTree ProcessorBase::saveState (bool currentProgramOnly) const
 {
 	auto tree = state.saveToValueTree (currentProgramOnly);
 
-	tree.setProperty (processorVersionProperty, processorAttributes.version.toString(), nullptr);
+	tree.setProperty (processorVersionProperty, version.toString(), nullptr);
 
 	return tree;
 }
@@ -117,9 +119,9 @@ void ProcessorBase::loadState (const ValueTree& tree)
 	{
 		const auto loadedVersion = Version::fromString (tree.getProperty (processorVersionProperty).toString());
 
-		if (loadedVersion != processorAttributes.version)
+		if (loadedVersion != version)
 		{
-			DBG ("Processor version is " + processorAttributes.version.toString() + "; version of loaded state is " + loadedVersion.toString());
+			DBG ("Processor version is " + version.toString() + "; version of loaded state is " + loadedVersion.toString());
 		}
 	}
 	else
@@ -263,6 +265,11 @@ State& ProcessorBase::getState() noexcept
 ProcessorAttributes ProcessorBase::getAttributes() const noexcept
 {
 	return processorAttributes;
+}
+
+Version ProcessorBase::getVersion() const noexcept
+{
+	return version;
 }
 
 /*-------------------------------------------------------------------------------------------------------------------------*/

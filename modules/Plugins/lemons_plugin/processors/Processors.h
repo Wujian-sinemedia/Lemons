@@ -68,6 +68,11 @@ public:
 	{
 	}
 
+	[[nodiscard]] PluginMetadata getPluginMetadata() const
+	{
+		return PluginMetadata { ProcessorBase::getAttributes(), pluginState.parameters.getParameterLayout(), editorAttributes, Version::projectVersion() };
+	}
+
 protected:
 	/** The plugin's state object. */
 	StateType pluginState;

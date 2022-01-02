@@ -35,8 +35,9 @@ public:
 	explicit ProcessorBase (dsp::Engine<float>&        floatEngineToUse,
 	                        dsp::Engine<double>&       doubleEngineToUse,
 	                        State&                     stateToUse,
-	                        const BusesProperties&     busesLayout = getDefaultBusesLayout(),
-	                        const ProcessorAttributes& attributes  = ProcessorAttributes::fromProjectDefines());
+	                        const BusesProperties&     busesLayout      = getDefaultBusesLayout(),
+	                        const ProcessorAttributes& attributes       = ProcessorAttributes::fromProjectDefines(),
+	                        const Version&             processorVersion = Version::projectVersion());
 
 	/** Creates a processor with a BusesProperties object created from the ProcessorAttributes object. */
 	explicit ProcessorBase (dsp::Engine<float>&        floatEngineToUse,
@@ -52,6 +53,9 @@ public:
 
 	/** Returns the current state of the ProcessorAttributes object. */
 	[[nodiscard]] ProcessorAttributes getAttributes() const noexcept;
+
+	/** Returns the Version object associated with this processor. */
+	[[nodiscard]] Version getVersion() const noexcept;
 
 	/** Captures a snapshot of the processor's current state as a ValueTree. */
 	[[nodiscard]] ValueTree saveState (bool currentProgramOnly = false) const;
@@ -101,6 +105,8 @@ private:
 	State& state;
 
 	const ProcessorAttributes processorAttributes;
+
+	const Version version;
 
 	template <typename SampleType>
 	class InternalProcessor : public midi::ChoppingProcessor<SampleType>

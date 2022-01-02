@@ -3,10 +3,12 @@ namespace lemons::plugin
 
 PluginMetadata::PluginMetadata (const ProcessorAttributes& processorAttributesToUse,
                                 const ParameterLayout&     parameterLayoutToUse,
-                                const EditorAttributes&    editorAttributesToUse)
+                                const EditorAttributes&    editorAttributesToUse,
+                                const Version&             versionToUse)
     : processorAttributes (processorAttributesToUse)
     , parameterLayout (parameterLayoutToUse)
     , editorAttributes (editorAttributesToUse)
+    , version (versionToUse)
 {
 }
 

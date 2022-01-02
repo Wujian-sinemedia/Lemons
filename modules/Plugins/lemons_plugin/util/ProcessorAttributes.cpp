@@ -38,8 +38,6 @@ ProcessorAttributes ProcessorAttributes::fromProjectDefines()
 	attributes.name = "AudioProcessor";
 #endif
 
-	//	attributes.version = Version::projectVersion();
-
 	return attributes;
 }
 
@@ -52,7 +50,6 @@ static constexpr auto supports_mpe   = "SupportsMPE";
 static constexpr auto is_midi_effect = "IsMidiEffect";
 static constexpr auto processor_name = "ProcessorName";
 static constexpr auto alt_names      = "AlternateDisplayNames";
-static constexpr auto version_prop   = "Version";
 }  // namespace ProcessorAttributeProperties
 
 
@@ -68,7 +65,6 @@ ValueTree ProcessorAttributes::toValueTree() const
 	tree.setProperty (is_midi_effect, isMidiEffect, nullptr);
 	tree.setProperty (processor_name, name, nullptr);
 	tree.setProperty (alt_names, juce::VariantConverter<juce::StringArray>::toVar (alternateNames), nullptr);
-	tree.setProperty (version_prop, version.toString(), nullptr);
 
 	tree.appendChild (defaultBusesLayout, nullptr);
 
@@ -101,9 +97,6 @@ ProcessorAttributes ProcessorAttributes::fromValueTree (const ValueTree& tree)
 
 	if (tree.hasProperty (alt_names))
 		attributes.alternateNames = juce::VariantConverter<juce::StringArray>::fromVar (tree.getProperty (alt_names));
-
-	if (tree.hasProperty (version_prop))
-		attributes.version = Version::fromString (tree.getProperty (version_prop).toString());
 
 	attributes.defaultBusesLayout = tree.getChildWithName (defaultBusesLayoutProp);
 

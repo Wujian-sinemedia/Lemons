@@ -41,8 +41,6 @@ struct ProcessorAttributes final
 
 	juce::StringArray alternateNames;
 
-	Version version;
-
 	static constexpr auto defaultBusesLayoutProp = "BusesProperties";
 
 	ValueTree defaultBusesLayout { defaultBusesLayoutProp };

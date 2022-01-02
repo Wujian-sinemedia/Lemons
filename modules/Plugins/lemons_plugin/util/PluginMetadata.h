@@ -9,7 +9,8 @@ struct PluginMetadata final
 
 	explicit PluginMetadata (const ProcessorAttributes& processorAttributesToUse,
 	                         const ParameterLayout&     parameterLayoutToUse,
-	                         const EditorAttributes&    editorAttributesToUse);
+	                         const EditorAttributes&    editorAttributesToUse,
+	                         const Version&             versionToUse = Version::projectVersion());
 
 	[[nodiscard]] ValueTree toValueTree() const;
 
@@ -18,6 +19,8 @@ struct PluginMetadata final
 	ProcessorAttributes processorAttributes;
 	ParameterLayout     parameterLayout;
 	EditorAttributes    editorAttributes;
+
+	Version version { Version::projectVersion() };
 };
 
 }  // namespace lemons::plugin
