@@ -90,7 +90,7 @@ private:
 
 struct CoreTest : public Test
 {
-	CoreTest (const String& testName);
+	explicit CoreTest (const String& testName);
 };
 
 }  // namespace lemons::tests

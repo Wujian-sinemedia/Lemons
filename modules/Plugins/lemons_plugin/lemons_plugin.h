@@ -57,6 +57,7 @@
 #include "hosting/ProcessorEngine.h"
 
 #include "unit_tests/audio_processor_test.h"
+#include "unit_tests/parameter_tests.h"
 
 #include "processors/ProcessorAttributes.h"
 #include "processors/BasicProcessor.h"

@@ -25,7 +25,7 @@ namespace lemons::tests
 struct DspTest : public Test
 {
 public:
-	DspTest (const String& testName);
+	explicit DspTest (const String& testName);
 
 protected:
 	template <typename SampleType>

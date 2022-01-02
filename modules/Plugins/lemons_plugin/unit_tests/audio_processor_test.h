@@ -22,7 +22,7 @@ using juce::MidiBuffer;
 
 struct AudioProcessorTestBase : public Test
 {
-	AudioProcessorTestBase (juce::AudioProcessor& processorToUse, const String& testName);
+	explicit AudioProcessorTestBase (juce::AudioProcessor& processorToUse, const String& testName);
 
 protected:
 	using ProcessorHolder = plugin::ProcessorHolder;
@@ -52,7 +52,7 @@ private:
 template <class ProcessorType, LEMONS_MUST_INHERIT_FROM (ProcessorType, juce::AudioProcessor)>
 struct AudioProcessorTest : public AudioProcessorTestBase
 {
-	AudioProcessorTest (const String& testName)
+	explicit AudioProcessorTest (const String& testName)
 	    : AudioProcessorTestBase (processor, testName)
 	{
 	}

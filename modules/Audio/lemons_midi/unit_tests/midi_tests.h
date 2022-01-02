@@ -26,7 +26,7 @@ using MidiBuffer = juce::MidiBuffer;
 
 struct MidiTest : public Test
 {
-	MidiTest (const String& testName);
+	explicit MidiTest (const String& testName);
 };
 
 void fillMidiBufferWithRandomEvents (MidiBuffer& buffer, int numEvents, juce::Random rng);

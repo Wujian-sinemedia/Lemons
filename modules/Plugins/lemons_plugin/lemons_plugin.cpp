@@ -43,3 +43,4 @@
 #include "hosting/ProcessorEngine.cpp"
 
 #include "unit_tests/audio_processor_test.cpp"
+#include "unit_tests/parameter_tests.cpp"
