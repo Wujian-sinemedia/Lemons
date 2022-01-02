@@ -30,18 +30,31 @@ public:
 
 	explicit ParameterList (const ParameterLayout& layout);
 
-	[[nodiscard]] ParameterLayout getParameterLayout() const;
-
 	void addTo (juce::AudioProcessor& processor) const;
+
+	[[nodiscard]] ParameterLayout getParameterLayout() const;
 
 	Parameter& add (std::unique_ptr<Parameter> parameter);
 
-	[[nodiscard]] Parameter* getNamedParameter (const String& name) const;
+	[[nodiscard]] ToggleParameter& getBypass() const;
+
+	[[nodiscard]] Parameter* getParameterWithName (const String& name) const;
 
 	template <typename ParameterType, LEMONS_MUST_INHERIT_FROM (ParameterType, Parameter)>
-	[[nodiscard]] ParameterType* getTypedParameter (const String& name) const
+	[[nodiscard]] ParameterType* getTypedParameterWithName (const String& name) const
 	{
-		if (auto* param = getNamedParameter (name))
+		if (auto* param = getParameterWithName (name))
+			return dynamic_cast<ParameterType*> (param);
+
+		return nullptr;
+	}
+
+	[[nodiscard]] Parameter* getParameterWithID (const String& paramID) const;
+
+	template <typename ParameterType, LEMONS_MUST_INHERIT_FROM (ParameterType, Parameter)>
+	[[nodiscard]] ParameterType* getTypedParameterWithID (const String& paramID) const
+	{
+		if (auto* param = getParameterWithID (paramID))
 			return dynamic_cast<ParameterType*> (param);
 
 		return nullptr;
@@ -60,8 +73,6 @@ public:
 	[[nodiscard]] ValueTree saveToValueTree() const;
 
 	void loadFromValueTree (const ValueTree& tree);
-
-	[[nodiscard]] ToggleParameter& getBypass() const;
 
 	static constexpr auto valueTreeType = "Parameters";
 

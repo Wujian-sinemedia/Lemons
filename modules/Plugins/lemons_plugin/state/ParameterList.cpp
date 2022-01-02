@@ -90,13 +90,26 @@ void ParameterList::resetAllControllerMappedParams()
 	}
 }
 
-Parameter* ParameterList::getNamedParameter (const String& name) const
+Parameter* ParameterList::getParameterWithName (const String& name) const
 {
 	for (const auto* param : parameters)
 	{
 		auto& parameter = param->getParameter();
 
 		if (parameter.getParameterName() == name)
+			return &parameter;
+	}
+
+	return nullptr;
+}
+
+Parameter* ParameterList::getParameterWithID (const String& paramID) const
+{
+	for (const auto* param : parameters)
+	{
+		auto& parameter = param->getParameter();
+
+		if (parameter.getParameterID() == paramID)
 			return &parameter;
 	}
 

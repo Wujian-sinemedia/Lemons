@@ -132,9 +132,9 @@ void MetaParameterBase::loadConnectionsFromValueTree (const ValueTree& tree)
 
 namespace ConnectionVTproperties
 {
-static constexpr auto parameterName = "parameter_name";
-static constexpr auto minAmount     = "minimum_amount";
-static constexpr auto maxAmount     = "maximum_amount";
+static constexpr auto parameterID = "parameter_id";
+static constexpr auto minAmount   = "minimum_amount";
+static constexpr auto maxAmount   = "maximum_amount";
 }  // namespace ConnectionVTproperties
 
 MetaParameterBase::Connection::Connection (const ParameterList& list)
@@ -157,9 +157,7 @@ ValueTree MetaParameterBase::Connection::saveToValueTree() const
 
 	using namespace ConnectionVTproperties;
 
-	if (parameter != nullptr)
-		tree.setProperty (parameterName, parameter->getParameterName(), nullptr);
-
+	tree.setProperty (parameterID, parameter->getParameterID(), nullptr);
 	tree.setProperty (minAmount, min, nullptr);
 	tree.setProperty (maxAmount, max, nullptr);
 
@@ -175,9 +173,9 @@ void MetaParameterBase::Connection::loadFromValueTree (const ValueTree& tree)
 
 	parameter = nullptr;
 
-	if (tree.hasProperty (parameterName))
+	if (tree.hasProperty (parameterID))
 	{
-		if (auto* param = paramList.getNamedParameter (tree.getProperty (parameterName).toString()))
+		if (auto* param = paramList.getParameterWithID (tree.getProperty (parameterID).toString()))
 		{
 			if (! param->isAutomatable())
 				return;
