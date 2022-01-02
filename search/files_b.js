@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['namepopup_2eh_1552',['NamePopup.h',['../_name_popup_8h.html',1,'']]],
-  ['noisegate_2eh_1553',['NoiseGate.h',['../_noise_gate_8h.html',1,'']]]
+  ['namepopup_2eh_1554',['NamePopup.h',['../_name_popup_8h.html',1,'']]],
+  ['noisegate_2eh_1555',['NoiseGate.h',['../_noise_gate_8h.html',1,'']]]
 ];

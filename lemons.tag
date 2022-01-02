@@ -1610,7 +1610,30 @@
     <filename>_processor_attributes_8h.html</filename>
     <class kind="struct">lemons::plugin::ProcessorAttributes</class>
     <namespace>lemons</namespace>
+    <namespace>lemons::binary</namespace>
+    <namespace>lemons::files</namespace>
     <namespace>lemons::plugin</namespace>
+    <member kind="function">
+      <type>plugin::ProcessorAttributes</type>
+      <name>getProcessorAttributes</name>
+      <anchorfile>namespacelemons_1_1binary.html</anchorfile>
+      <anchor>aa5cccc2760a50960564a6ca940ec41f7</anchor>
+      <arglist>(const String &amp;filename)</arglist>
+    </member>
+    <member kind="function">
+      <type>plugin::ProcessorAttributes</type>
+      <name>loadProcessorAttributes</name>
+      <anchorfile>namespacelemons_1_1files.html</anchorfile>
+      <anchor>ab2d6ab95437d9c715997be684126035d</anchor>
+      <arglist>(const File &amp;file)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>saveProcessorAttributes</name>
+      <anchorfile>namespacelemons_1_1files.html</anchorfile>
+      <anchor>a669edbc3aebe00cd284774127aa2bc4f</anchor>
+      <arglist>(const plugin::ProcessorAttributes &amp;layout, const File &amp;file)</arglist>
+    </member>
   </compound>
   <compound kind="file">
     <name>ProcessorBase.h</name>
@@ -18305,13 +18328,6 @@
     </member>
     <member kind="function" static="yes">
       <type>static ProcessorAttributes</type>
-      <name>fromFile</name>
-      <anchorfile>structlemons_1_1plugin_1_1_processor_attributes.html</anchorfile>
-      <anchor>a5404b4e2a0a7c7ddcf33577193386741</anchor>
-      <arglist>(const juce::File &amp;file)</arglist>
-    </member>
-    <member kind="function" static="yes">
-      <type>static ProcessorAttributes</type>
       <name>fromProjectDefines</name>
       <anchorfile>structlemons_1_1plugin_1_1_processor_attributes.html</anchorfile>
       <anchor>ac2f50da82c87f3f07cfe01b296f96c49</anchor>
@@ -24768,6 +24784,13 @@
       <arglist>(const String &amp;fileName)</arglist>
     </member>
     <member kind="function">
+      <type>plugin::ProcessorAttributes</type>
+      <name>getProcessorAttributes</name>
+      <anchorfile>namespacelemons_1_1binary.html</anchorfile>
+      <anchor>aa5cccc2760a50960564a6ca940ec41f7</anchor>
+      <arglist>(const String &amp;filename)</arglist>
+    </member>
+    <member kind="function">
       <type>String</type>
       <name>getString</name>
       <anchorfile>namespacelemons_1_1binary.html</anchorfile>
@@ -25083,6 +25106,13 @@
       <arglist>(const File &amp;file)</arglist>
     </member>
     <member kind="function">
+      <type>plugin::ProcessorAttributes</type>
+      <name>loadProcessorAttributes</name>
+      <anchorfile>namespacelemons_1_1files.html</anchorfile>
+      <anchor>ab2d6ab95437d9c715997be684126035d</anchor>
+      <arglist>(const File &amp;file)</arglist>
+    </member>
+    <member kind="function">
       <type>ValueTree</type>
       <name>loadValueTree</name>
       <anchorfile>namespacelemons_1_1files.html</anchorfile>
@@ -25144,6 +25174,13 @@
       <anchorfile>namespacelemons_1_1files.html</anchorfile>
       <anchor>a5f6319cc91a208675723796f54ec303b</anchor>
       <arglist>(const plugin::ParameterLayout &amp;layout, const File &amp;file)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>saveProcessorAttributes</name>
+      <anchorfile>namespacelemons_1_1files.html</anchorfile>
+      <anchor>a669edbc3aebe00cd284774127aa2bc4f</anchor>
+      <arglist>(const plugin::ProcessorAttributes &amp;layout, const File &amp;file)</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
