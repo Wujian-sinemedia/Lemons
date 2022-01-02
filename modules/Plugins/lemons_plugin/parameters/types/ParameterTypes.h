@@ -38,16 +38,16 @@ public:
 	    @param metaParam Boolean flag that indicates whether this parameter represents a "meta-parameter" -- that is, a parameter that controls other parameters.
 	    @param parameterCategory An optional parameter category. See juce::AudioProcessorParameter::Category.
 	 */
-	explicit TypedParameter (ValueType                                minimum,
-	                         ValueType                                maximum,
-	                         ValueType                                defaultValue,
-	                         const String&                            paramName,
-	                         std::function<String (ValueType, int)>   stringFromValue   = nullptr,
-	                         std::function<ValueType (const String&)> valueFromString   = nullptr,
-	                         const String&                            paramLabel        = {},
-	                         bool                                     isAutomatable     = true,
-	                         bool                                     metaParam         = false,
-	                         ParameterCategory                        parameterCategory = ParameterCategory::genericParameter);
+	explicit TypedParameter (ValueType                  minimum,
+	                         ValueType                  maximum,
+	                         ValueType                  defaultValue,
+	                         const String&              paramName,
+	                         ValToStringFunc<ValueType> stringFromValue   = nullptr,
+	                         StringToValFunc<ValueType> valueFromString   = nullptr,
+	                         const String&              paramLabel        = {},
+	                         bool                       isAutomatable     = true,
+	                         bool                       metaParam         = false,
+	                         ParameterCategory          parameterCategory = ParameterCategory::genericParameter);
 
 	/** Creates a typed parameter from a ParameterTraits object. */
 	explicit TypedParameter (const ParameterTraits& traits);
@@ -114,8 +114,8 @@ public:
 	//--------------------------------------
 
 private:
-	std::function<String (ValueType, int)>   stringFromValueFunction;
-	std::function<ValueType (const String&)> valueFromStringFunction;
+	ValToStringFunc<ValueType> stringFromValueFunction;
+	StringToValFunc<ValueType> valueFromStringFunction;
 };
 
 
@@ -141,14 +141,14 @@ struct BoolParameter : TypedParameter<bool>
 	    @param metaParam Boolean flag that indicates whether this parameter represents a "meta-parameter" -- that is, a parameter that controls other parameters.
 	    @param parameterCategory An optional parameter category. See juce::AudioProcessorParameter::Category.
 	*/
-	explicit BoolParameter (bool                                defaultValue,
-	                        const String&                       paramName,
-	                        std::function<String (bool, int)>   stringFromValue   = nullptr,
-	                        std::function<bool (const String&)> valueFromString   = nullptr,
-	                        const String&                       paramLabel        = {},
-	                        bool                                isAutomatable     = true,
-	                        bool                                metaParam         = false,
-	                        Category                            parameterCategory = Category::genericParameter);
+	explicit BoolParameter (bool                  defaultValue,
+	                        const String&         paramName,
+	                        ValToStringFunc<bool> stringFromValue   = nullptr,
+	                        StringToValFunc<bool> valueFromString   = nullptr,
+	                        const String&         paramLabel        = {},
+	                        bool                  isAutomatable     = true,
+	                        bool                  metaParam         = false,
+	                        Category              parameterCategory = Category::genericParameter);
 
 	/** Creates a boolean parameter from a ParameterTraits object. */
 	explicit BoolParameter (const ParameterTraits& traits);

@@ -20,8 +20,8 @@ namespace lemons::plugin
 template <typename ValType>
 ParameterTraits::ParameterTraits (ValType minimum, ValType maximum, ValType defaultVal,
                                   const String& nameToUse, const String& labelToUse,
-                                  std::function<String (ValType, int)>   stringFromValue,
-                                  std::function<ValType (const String&)> valueFromString,
+                                  ValToStringFunc<ValType> stringFromValue,
+                                  StringToValFunc<ValType> valueFromString,
                                   bool automatable, bool metaParameter,
                                   ParameterCategory categoryToUse)
     : name (nameToUse)

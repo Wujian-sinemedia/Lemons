@@ -42,14 +42,14 @@ public:
 	 */
 	explicit Parameter (const String& paramName,
 	                    juce::NormalisableRange<float>
-	                                                         paramRange,
-	                    float                                paramDefaultValue    = 1.f,
-	                    std::function<String (float)>        valueToTextFuncToUse = nullptr,
-	                    std::function<float (const String&)> textToValueFuncToUse = nullptr,
-	                    const String&                        paramLabel           = {},
-	                    bool                                 isAutomatable        = true,
-	                    bool                                 metaParam            = false,
-	                    ParameterCategory                    parameterCategory    = ParameterCategory::genericParameter);
+	                                         paramRange,
+	                    float                paramDefaultValue    = 1.f,
+	                    BasicValToStringFunc valueToTextFuncToUse = nullptr,
+	                    BasicStringToValFunc textToValueFuncToUse = nullptr,
+	                    const String&        paramLabel           = {},
+	                    bool                 isAutomatable        = true,
+	                    bool                 metaParam            = false,
+	                    ParameterCategory    parameterCategory    = ParameterCategory::genericParameter);
 
 	/** Creates a parameter from a ParameterTraits object. */
 	explicit Parameter (const ParameterTraits& traits);
@@ -241,8 +241,8 @@ private:
 	std::atomic<bool>  changing { false };
 	std::atomic<int>   midiControllerNumber { -1 };
 
-	std::function<String (float)>        valueToTextFunc;
-	std::function<float (const String&)> textToValueFunc;
+	BasicValToStringFunc valueToTextFunc;
+	BasicStringToValFunc textToValueFunc;
 
 	//	UndoManager* um = nullptr;
 

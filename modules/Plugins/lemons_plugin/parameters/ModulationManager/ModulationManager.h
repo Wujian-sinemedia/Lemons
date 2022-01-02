@@ -24,17 +24,17 @@ public:
 	/** Returns the first LFO found with the given oscillator type.
 	    The returned pointer may be null if no LFOs have the requested type.
 	 */
-    [[nodiscard]] LFO* getLFOofType (dsp::osc::OscType type);
+	[[nodiscard]] LFO* getLFOofType (dsp::osc::OscType type);
 
 	/** Returns the first LFO found with the given frequency.
 	    The returned pointer may be null if no LFOs have the requested frequency.
 	 */
-    [[nodiscard]] LFO* getLFOatFrequency (float freq);
+	[[nodiscard]] LFO* getLFOatFrequency (float freq);
 
 	/** Returns the first LFO found that is connected to the specified parameter.
 	    The returned pointer may be null if no LFOs have the requested connection.
 	 */
-    [[nodiscard]] LFO* getLFOwithConnection (Parameter& param);
+	[[nodiscard]] LFO* getLFOwithConnection (Parameter& param);
 
 	LFO& addLFO();
 

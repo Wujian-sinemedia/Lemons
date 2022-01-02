@@ -36,10 +36,10 @@ struct MeterParameter : public TypedParameter<ValueType>
 	 @param parameterCategory The parameter's category. This is used to indicate to the DAW whether the parameter is a level meter, a gain reduction meter, etc.
 	 */
 	explicit MeterParameter (ValueType min, ValueType max, ValueType defaultVal, const String& paramName,
-	                         std::function<String (ValueType, int)> stringFromValue   = nullptr,
-	                         std::function<ValueType (String)>      valueFromString   = nullptr,
-	                         const String&                          parameterLabel    = {},
-	                         ParameterCategory                      parameterCategory = ParameterCategory::genericParameter);
+	                         ValToStringFunc<ValueType> stringFromValue   = nullptr,
+	                         StringToValFunc<ValueType> valueFromString   = nullptr,
+	                         const String&              parameterLabel    = {},
+	                         ParameterCategory          parameterCategory = ParameterCategory::genericParameter);
 
 	explicit MeterParameter (const ParameterTraits& traits);
 

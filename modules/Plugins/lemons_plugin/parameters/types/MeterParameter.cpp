@@ -18,10 +18,10 @@ namespace lemons::plugin
 
 template <typename ValueType>
 MeterParameter<ValueType>::MeterParameter (ValueType min, ValueType max, ValueType defaultVal, const String& paramName,
-                                           std::function<String (ValueType, int)> stringFromValue,
-                                           std::function<ValueType (String)>      valueFromString,
-                                           const String&                          parameterLabel,
-                                           ParameterCategory                      parameterCategory)
+                                           ValToStringFunc<ValueType> stringFromValue,
+                                           StringToValFunc<ValueType> valueFromString,
+                                           const String&              parameterLabel,
+                                           ParameterCategory          parameterCategory)
     : TypedParameter<ValueType> (min, max, defaultVal, paramName, stringFromValue, valueFromString, parameterLabel, false, false, parameterCategory)
 {
 }

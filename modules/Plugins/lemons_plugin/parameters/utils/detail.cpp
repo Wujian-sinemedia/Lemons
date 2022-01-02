@@ -64,7 +64,7 @@ static inline String appendParamLabel (const String& orig, const String& paramLa
 }
 
 
-std::function<String (float)> createDefaultValueToTextFunction (const String& paramLabel)
+BasicValToStringFunc createDefaultValueToTextFunction (const String& paramLabel)
 {
 	return [=] (float value) -> String
 	{
@@ -72,7 +72,7 @@ std::function<String (float)> createDefaultValueToTextFunction (const String& pa
 	};
 }
 
-std::function<float (const String&)> createDefaultTextToValueFunction()
+BasicStringToValFunc createDefaultTextToValueFunction()
 {
 	return [] (const String& text) -> float
 	{
@@ -92,7 +92,7 @@ static inline String checkForLength (const String& orig, int maxLength)
 
 
 template <typename ValueType>
-std::function<String (ValueType, int)> createDefaultStringFromValueFunc (float rangeInterval, const String& paramLabel)
+ValToStringFunc<ValueType> createDefaultStringFromValueFunc (float rangeInterval, const String& paramLabel)
 {
 	static_assert (std::is_same_v<ValueType, float>, "");
 
@@ -125,7 +125,7 @@ std::function<String (ValueType, int)> createDefaultStringFromValueFunc (float r
 }
 
 template <>
-std::function<String (int, int)> createDefaultStringFromValueFunc (float, const String& paramLabel)
+ValToStringFunc<int> createDefaultStringFromValueFunc (float, const String& paramLabel)
 {
 	return [paramLabel] (int v, int num) -> String
 	{
@@ -135,7 +135,7 @@ std::function<String (int, int)> createDefaultStringFromValueFunc (float, const 
 }
 
 template <>
-std::function<String (bool, int)> createDefaultStringFromValueFunc (float, const String&)
+ValToStringFunc<bool> createDefaultStringFromValueFunc (float, const String&)
 {
 	return [] (bool v, int maxLength) -> String
 	{
@@ -150,7 +150,7 @@ std::function<String (bool, int)> createDefaultStringFromValueFunc (float, const
 
 
 template <typename ValueType>
-std::function<ValueType (const String&)> createDefaultValueFromStringFunc()
+StringToValFunc<ValueType> createDefaultValueFromStringFunc()
 {
 	static_assert (std::is_same_v<ValueType, float>, "");
 
@@ -159,14 +159,14 @@ std::function<ValueType (const String&)> createDefaultValueFromStringFunc()
 }
 
 template <>
-std::function<int (const String&)> createDefaultValueFromStringFunc()
+StringToValFunc<int> createDefaultValueFromStringFunc()
 {
 	return [] (const String& text) -> int
 	{ return text.getIntValue(); };
 }
 
 template <>
-std::function<bool (const String&)> createDefaultValueFromStringFunc()
+StringToValFunc<bool> createDefaultValueFromStringFunc()
 {
 	juce::StringArray onStrings;
 	onStrings.add (TRANS ("on"));
@@ -197,9 +197,9 @@ std::function<bool (const String&)> createDefaultValueFromStringFunc()
 /*-------------------------------------------------------------------------------------------------------*/
 
 template <typename ValueType>
-std::function<String (float)> convertValToStringFuncFromTyped (std::function<String (ValueType, int)> origFunc,
-                                                               const String&                          paramLabel,
-                                                               float                                  rangeInterval)
+BasicValToStringFunc convertValToStringFuncFromTyped (ValToStringFunc<ValueType> origFunc,
+                                                      const String&              paramLabel,
+                                                      float                      rangeInterval)
 {
 	if (origFunc == nullptr)
 		origFunc = createDefaultStringFromValueFunc<ValueType> (rangeInterval, paramLabel);
@@ -208,14 +208,14 @@ std::function<String (float)> convertValToStringFuncFromTyped (std::function<Str
 	{ return origFunc (static_cast<ValueType> (value), 0); };
 }
 
-template std::function<String (float)> convertValToStringFuncFromTyped (std::function<String (float, int)>, const String&, float);
-template std::function<String (float)> convertValToStringFuncFromTyped (std::function<String (int, int)>, const String&, float);
-template std::function<String (float)> convertValToStringFuncFromTyped (std::function<String (bool, int)>, const String&, float);
+template BasicValToStringFunc convertValToStringFuncFromTyped (ValToStringFunc<float>, const String&, float);
+template BasicValToStringFunc convertValToStringFuncFromTyped (ValToStringFunc<int>, const String&, float);
+template BasicValToStringFunc convertValToStringFuncFromTyped (ValToStringFunc<bool>, const String&, float);
 
 /*-------------------------------------------------------------------------------------------------------*/
 
 template <typename ValueType>
-std::function<float (const String&)> convertStringToValFuncFromTyped (std::function<ValueType (const String&)> origFunc)
+BasicStringToValFunc convertStringToValFuncFromTyped (StringToValFunc<ValueType> origFunc)
 {
 	if (origFunc == nullptr)
 		origFunc = createDefaultValueFromStringFunc<ValueType>();
@@ -224,14 +224,14 @@ std::function<float (const String&)> convertStringToValFuncFromTyped (std::funct
 	{ return static_cast<float> (origFunc (text)); };
 }
 
-template std::function<float (const String&)> convertStringToValFuncFromTyped (std::function<float (const String&)>);
-template std::function<float (const String&)> convertStringToValFuncFromTyped (std::function<int (const String&)>);
-template std::function<float (const String&)> convertStringToValFuncFromTyped (std::function<bool (const String&)>);
+template BasicStringToValFunc convertStringToValFuncFromTyped (StringToValFunc<float>);
+template BasicStringToValFunc convertStringToValFuncFromTyped (StringToValFunc<int>);
+template BasicStringToValFunc convertStringToValFuncFromTyped (StringToValFunc<bool>);
 
 /*-------------------------------------------------------------------------------------------------------*/
 
 template <typename ValueType>
-std::function<String (ValueType, int)> convertValToStringFuncToTyped (std::function<String (float)> origFunc, const String& paramLabel)
+ValToStringFunc<ValueType> convertValToStringFuncToTyped (BasicValToStringFunc origFunc, const String& paramLabel)
 {
 	if (origFunc == nullptr)
 		origFunc = createDefaultValueToTextFunction (paramLabel);
@@ -243,14 +243,14 @@ std::function<String (ValueType, int)> convertValToStringFuncToTyped (std::funct
 	};
 }
 
-template std::function<String (float, int)> convertValToStringFuncToTyped (std::function<String (float)>, const String&);
-template std::function<String (int, int)>   convertValToStringFuncToTyped (std::function<String (float)>, const String&);
-template std::function<String (bool, int)>  convertValToStringFuncToTyped (std::function<String (float)>, const String&);
+template ValToStringFunc<float> convertValToStringFuncToTyped (BasicValToStringFunc, const String&);
+template ValToStringFunc<int>   convertValToStringFuncToTyped (BasicValToStringFunc, const String&);
+template ValToStringFunc<bool>  convertValToStringFuncToTyped (BasicValToStringFunc, const String&);
 
 /*-------------------------------------------------------------------------------------------------------*/
 
 template <typename ValueType>
-std::function<ValueType (const String&)> convertStringToValFuncToTyped (std::function<float (const String&)> origFunc)
+StringToValFunc<ValueType> convertStringToValFuncToTyped (BasicStringToValFunc origFunc)
 {
 	if (origFunc == nullptr)
 		origFunc = createDefaultTextToValueFunction();
@@ -259,8 +259,8 @@ std::function<ValueType (const String&)> convertStringToValFuncToTyped (std::fun
 	{ return static_cast<ValueType> (origFunc (t)); };
 }
 
-template std::function<float (const String&)> convertStringToValFuncToTyped (std::function<float (const String&)>);
-template std::function<int (const String&)>   convertStringToValFuncToTyped (std::function<float (const String&)>);
-template std::function<bool (const String&)>  convertStringToValFuncToTyped (std::function<float (const String&)>);
+template StringToValFunc<float> convertStringToValFuncToTyped (BasicStringToValFunc);
+template StringToValFunc<int>   convertStringToValFuncToTyped (BasicStringToValFunc);
+template StringToValFunc<bool>  convertStringToValFuncToTyped (BasicStringToValFunc);
 
 }  // namespace lemons::plugin::detail

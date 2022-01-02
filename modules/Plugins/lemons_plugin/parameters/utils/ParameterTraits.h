@@ -39,8 +39,8 @@ struct ParameterTraits final
 	template <typename ValType>
 	explicit ParameterTraits (ValType minimum, ValType maximum, ValType defaultVal,
 	                          const String& nameToUse, const String& labelToUse,
-	                          std::function<String (ValType, int)>   stringFromValue = nullptr,
-	                          std::function<ValType (const String&)> valueFromString = nullptr,
+	                          ValToStringFunc<ValType> stringFromValue = nullptr,
+	                          StringToValFunc<ValType> valueFromString = nullptr,
 	                          bool automatable = true, bool metaParameter = false,
 	                          ParameterCategory categoryToUse = ParameterCategory::genericParameter);
 
@@ -69,8 +69,8 @@ struct ParameterTraits final
 	juce::NormalisableRange<float> range;
 	float                          defaultValue { 1.f };
 
-	std::function<String (float)>        valueToText { detail::createDefaultValueToTextFunction (label) };
-	std::function<float (const String&)> textToValue { detail::createDefaultTextToValueFunction() };
+	BasicValToStringFunc valueToText { detail::createDefaultValueToTextFunction (label) };
+	BasicStringToValFunc textToValue { detail::createDefaultTextToValueFunction() };
 
 	bool isAutomatable { true };
 	bool isMetaParameter { false };

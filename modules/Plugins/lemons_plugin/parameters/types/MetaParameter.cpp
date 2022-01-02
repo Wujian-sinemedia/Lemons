@@ -227,9 +227,9 @@ template <typename ValueType>
 MetaParameter<ValueType>::MetaParameter (
     const ParameterList& parameterListToUse,
     ValueType minimum, ValueType maximum, ValueType defaultValue,
-    const String&                            paramName,
-    std::function<String (ValueType, int)>   stringFromValue,
-    std::function<ValueType (const String&)> valueFromString,
+    const String&              paramName,
+    ValToStringFunc<ValueType> stringFromValue,
+    StringToValFunc<ValueType> valueFromString,
     const String& paramLabel, bool isAutomatable,
     ParameterCategory parameterCategory)
     : TypedParameter<ValueType> (minimum, maximum, defaultValue, paramName, stringFromValue, valueFromString, paramLabel, isAutomatable, true, parameterCategory)

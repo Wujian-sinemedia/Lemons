@@ -22,9 +22,9 @@ TypedParameter<ValueType>::TypedParameter (ValueType     minimum,
                                            ValueType     maximum,
                                            ValueType     defaultValue,
                                            const String& paramName,
-                                           std::function<String (ValueType, int)>
+                                           ValToStringFunc<ValueType>
                                                stringFromValue,
-                                           std::function<ValueType (const String&)>
+                                           StringToValFunc<ValueType>
                                                              valueFromString,
                                            const String&     paramLabel,
                                            bool              isAutomatable,
@@ -201,9 +201,9 @@ template class TypedParameter<bool>;
 
 BoolParameter::BoolParameter (bool          defaultValue,
                               const String& paramName,
-                              std::function<String (bool, int)>
+                              ValToStringFunc<bool>
                                   stringFromValue,
-                              std::function<bool (const String&)>
+                              StringToValFunc<bool>
                                             valueFromString,
                               const String& paramLabel,
                               bool          isAutomatable,

@@ -19,16 +19,14 @@ namespace lemons::plugin
 
 Parameter::Parameter (const String& paramName,
                       juce::NormalisableRange<float>
-                            paramRange,
-                      float paramDefaultValue,
-                      std::function<String (float)>
-                          valueToTextFuncToUse,
-                      std::function<float (const String&)>
-                                        textToValueFuncToUse,
-                      const String&     paramLabel,
-                      bool              isAutomatable,
-                      bool              metaParam,
-                      ParameterCategory parameterCategory)
+                                           paramRange,
+                      float                paramDefaultValue,
+                      BasicValToStringFunc valueToTextFuncToUse,
+                      BasicStringToValFunc textToValueFuncToUse,
+                      const String&        paramLabel,
+                      bool                 isAutomatable,
+                      bool                 metaParam,
+                      ParameterCategory    parameterCategory)
     : juce::RangedAudioParameter (detail::paramNameToID (TRANS (paramName)), TRANS (paramName), paramLabel, parameterCategory)
     , automatable (isAutomatable)
     , metaParameter (metaParam)

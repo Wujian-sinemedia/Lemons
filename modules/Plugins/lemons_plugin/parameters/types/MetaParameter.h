@@ -95,8 +95,8 @@ public:
 	explicit MetaParameter (
 	    const ParameterList& parameterListToUse,
 	    ValueType minimum, ValueType maximum, ValueType defaultValue, const String& paramName,
-	    std::function<String (ValueType, int)>   stringFromValue = nullptr,
-	    std::function<ValueType (const String&)> valueFromString = nullptr,
+	    ValToStringFunc<ValueType> stringFromValue = nullptr,
+	    StringToValFunc<ValueType> valueFromString = nullptr,
 	    const String& paramLabel = {}, bool isAutomatable = true,
 	    ParameterCategory parameterCategory = ParameterCategory::genericParameter);
 

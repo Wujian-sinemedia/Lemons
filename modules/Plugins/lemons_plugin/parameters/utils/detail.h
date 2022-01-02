@@ -18,46 +18,62 @@
 #include <juce_core/juce_core.h>
 
 
-namespace lemons::plugin::detail
+namespace lemons::plugin
 {
 
 using juce::String;
 
+using BasicValToStringFunc = std::function<String (float)>;
+
+template <typename ValueType>
+using ValToStringFunc = std::function<String (ValueType, int)>;
+
+using BasicStringToValFunc = std::function<float (const String&)>;
+
+template <typename ValueType>
+using StringToValFunc = std::function<ValueType (const String&)>;
+
+}  // namespace lemons::plugin
+
+
+namespace lemons::plugin::detail
+{
+
 [[nodiscard]] inline String paramNameToID (const String& name);
 
-[[nodiscard]] inline std::function<String (float)> createDefaultValueToTextFunction (const String& paramLabel);
+[[nodiscard]] inline BasicValToStringFunc createDefaultValueToTextFunction (const String& paramLabel);
 
-[[nodiscard]] inline std::function<float (const String&)> createDefaultTextToValueFunction();
+[[nodiscard]] inline BasicStringToValFunc createDefaultTextToValueFunction();
 
 template <typename ValueType>
 [[nodiscard]] inline juce::NormalisableRange<float> createRange (ValueType minimum, ValueType maximum);
 
 
 template <typename ValueType>
-[[nodiscard]] inline std::function<String (ValueType, int)> createDefaultStringFromValueFunc (float         rangeInterval,
-                                                                                              const String& paramLabel = {});
+[[nodiscard]] inline ValToStringFunc<ValueType> createDefaultStringFromValueFunc (float         rangeInterval,
+                                                                                  const String& paramLabel = {});
 
 
 template <typename ValueType>
-[[nodiscard]] inline std::function<ValueType (const String&)> createDefaultValueFromStringFunc();
+[[nodiscard]] inline StringToValFunc<ValueType> createDefaultValueFromStringFunc();
 
 
 template <typename ValueType>
-[[nodiscard]] inline std::function<String (float)> convertValToStringFuncFromTyped (std::function<String (ValueType, int)> origFunc,
-                                                                                    const String&                          paramLabel    = {},
-                                                                                    float                                  rangeInterval = 1.f);
+[[nodiscard]] inline BasicValToStringFunc convertValToStringFuncFromTyped (ValToStringFunc<ValueType> origFunc,
+                                                                           const String&              paramLabel    = {},
+                                                                           float                      rangeInterval = 1.f);
 
 
 template <typename ValueType>
-[[nodiscard]] inline std::function<float (const String&)> convertStringToValFuncFromTyped (std::function<ValueType (const String&)> origFunc);
+[[nodiscard]] inline BasicStringToValFunc convertStringToValFuncFromTyped (StringToValFunc<ValueType> origFunc);
 
 
 template <typename ValueType>
-[[nodiscard]] inline std::function<String (ValueType, int)> convertValToStringFuncToTyped (std::function<String (float)> origFunc,
-                                                                                           const String&                 paramLabel = {});
+[[nodiscard]] inline ValToStringFunc<ValueType> convertValToStringFuncToTyped (BasicValToStringFunc origFunc,
+                                                                               const String&        paramLabel = {});
 
 
 template <typename ValueType>
-[[nodiscard]] inline std::function<ValueType (const String&)> convertStringToValFuncToTyped (std::function<float (const String&)> origFunc);
+[[nodiscard]] inline StringToValFunc<ValueType> convertStringToValFuncToTyped (BasicStringToValFunc origFunc);
 
 }  // namespace lemons::plugin::detail
