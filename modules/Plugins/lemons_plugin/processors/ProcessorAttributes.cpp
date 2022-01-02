@@ -103,18 +103,54 @@ void ProcessorAttributes::fromValueTree (const ValueTree& tree)
 		version = Version::fromString (tree.getProperty (version_prop).toString());
 }
 
-template <files::FileType Type>
-ProcessorAttributes fromFile (const juce::File& file)
+}  // namespace lemons::plugin
+
+namespace lemons::files
 {
-	ProcessorAttributes attributes;
 
-	attributes.fromValueTree (files::loadValueTree<Type> (file));
-
-	return attributes;
+template <FileType Type>
+plugin::ProcessorAttributes loadProcessorAttributes (const File& file)
+{
+    plugin::ProcessorAttributes attributes;
+    
+    attributes.fromValueTree (loadValueTree<Type> (file));
+    
+    return attributes;
 }
 
-template ProcessorAttributes fromFile<files::FileType::XML> (const juce::File&);
-template ProcessorAttributes fromFile<files::FileType::JSON> (const juce::File&);
-template ProcessorAttributes fromFile<files::FileType::Opaque> (const juce::File&);
+template plugin::ProcessorAttributes loadProcessorAttributes<files::FileType::JSON> (const File&);
+template plugin::ProcessorAttributes loadProcessorAttributes<files::FileType::XML> (const File&);
+template plugin::ProcessorAttributes loadProcessorAttributes<files::FileType::Opaque> (const File&);
 
-}  // namespace lemons::plugin
+
+template <FileType Type>
+bool saveProcessorAttributes (const plugin::ProcessorAttributes& layout, const File& file)
+{
+    return saveValueTree<Type> (file, layout.toValueTree());
+}
+
+template bool saveProcessorAttributes<files::FileType::JSON> (const plugin::ProcessorAttributes&, const File&);
+template bool saveProcessorAttributes<files::FileType::XML> (const plugin::ProcessorAttributes&, const File&);
+template bool saveProcessorAttributes<files::FileType::Opaque> (const plugin::ProcessorAttributes&, const File&);
+
+}
+
+
+namespace lemons::binary
+{
+
+template <files::FileType Type>
+plugin::ProcessorAttributes getProcessorAttributes (const String& filename)
+{
+    plugin::ProcessorAttributes attributes;
+    
+    attributes.fromValueTree (getValueTree<Type> (filename));
+    
+    return attributes;
+}
+
+template plugin::ProcessorAttributes getProcessorAttributes<files::FileType::JSON> (const String&);
+template plugin::ProcessorAttributes getProcessorAttributes<files::FileType::XML> (const String&);
+template plugin::ProcessorAttributes getProcessorAttributes<files::FileType::Opaque> (const String&);
+
+}

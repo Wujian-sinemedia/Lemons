@@ -27,9 +27,6 @@ struct ProcessorAttributes
 
 	[[nodiscard]] static ProcessorAttributes fromProjectDefines();
 
-	template <files::FileType Type = files::FileType::JSON>
-	[[nodiscard]] static ProcessorAttributes fromFile (const juce::File& file);
-
 
 	bool acceptsMidi { true }, producesMidi { true }, supportsMPE { false }, isMidiEffect { false };
 
@@ -41,3 +38,22 @@ struct ProcessorAttributes
 };
 
 }  // namespace lemons::plugin
+
+namespace lemons::files
+{
+
+template <FileType Type = FileType::JSON>
+[[nodiscard]] plugin::ProcessorAttributes loadProcessorAttributes (const File& file);
+
+template <FileType Type = FileType::JSON>
+bool saveProcessorAttributes (const plugin::ProcessorAttributes& layout, const File& file);
+
+}
+
+namespace lemons::binary
+{
+
+template <files::FileType Type = files::FileType::JSON>
+[[nodiscard]] plugin::ProcessorAttributes getProcessorAttributes (const String& filename);
+
+}
