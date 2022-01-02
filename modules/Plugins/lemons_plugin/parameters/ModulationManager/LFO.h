@@ -9,7 +9,13 @@ namespace lemons::plugin
 template <typename T>
 using AudioBuffer = juce::AudioBuffer<T>;
 
-/** An LFO, to be used by a ModulationManager object.
+/** @defgroup parameter_modulation Parameter Modulation
+    @ingroup parameters
+    Classes for parameter modulation.
+ */
+
+/** @ingroup parameter_modulation
+    An LFO, to be used by a ModulationManager object.
     Internally, this class uses a dsp::osc::ChoosableOscillator to generate its values.
  */
 struct LFO final : public MetaParameter<float>

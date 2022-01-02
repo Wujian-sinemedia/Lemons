@@ -20,7 +20,8 @@
 namespace lemons
 {
 
-/** A simple wrapper around juce::SmoothedValue with some less wordy template syntax, and a couple convenience functions.
+/** @ingroup lemons_dsp
+    A simple wrapper around juce::SmoothedValue with some less wordy template syntax, and a couple convenience functions.
  */
 template <typename SampleType>
 struct ValueSmoother final : juce::SmoothedValue<SampleType, juce::ValueSmoothingTypes::Multiplicative>

@@ -21,7 +21,9 @@ namespace lemons::locale
 using juce::File;
 
 
-/** @name Translation file generation */
+/** @name Translation file generation
+    @ingroup lemons_locale
+ */
 ///@{
 
 /** Writes a JUCE-style translation file header, including the language name and relevant country codes, for the specified language.

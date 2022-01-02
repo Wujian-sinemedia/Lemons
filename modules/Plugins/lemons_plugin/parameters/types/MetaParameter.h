@@ -19,6 +19,11 @@
 namespace lemons::plugin
 {
 
+/** @name meta_parameters Meta parameters
+    @ingroup parameters
+ */
+///@{
+
 /** A type-erased interface for a parameter that can be connected to other parameters and control their values.
     @see MetaParameter
  */
@@ -167,5 +172,7 @@ private:
 
 	Updater u { *this };
 };
+
+///@}
 
 }  // namespace lemons::plugin

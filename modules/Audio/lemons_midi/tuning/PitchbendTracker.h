@@ -3,7 +3,9 @@
 
 namespace lemons::midi
 {
-// helper class for outputting midifloat values based on input midiPitch, pitchbend, and pitchbend range controls
+
+/** @ingroup lemons_midi_tuning
+ */
 class PitchBendTracker
 {
 public:

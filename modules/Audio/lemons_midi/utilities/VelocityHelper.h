@@ -3,6 +3,8 @@
 namespace lemons::midi
 {
 
+/** @ingroup lemons_midi
+ */
 struct VelocityHelper
 {
 	void setSensitivity (float newSensitivity);

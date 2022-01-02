@@ -2,6 +2,9 @@
 
 namespace lemons::midi
 {
+
+/** @ingroup lemons_midi_tuning
+ */
 struct PitchPipeline
 {
 	float getFrequencyForMidi (int midiPitch, int midiChannel = -1) const;

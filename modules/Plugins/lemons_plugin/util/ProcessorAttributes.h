@@ -19,6 +19,8 @@
 namespace lemons::plugin
 {
 
+/** @ingroup plugin_metadata
+ */
 struct ProcessorAttributes final
 {
 	explicit ProcessorAttributes() = default;

@@ -3,6 +3,8 @@
 namespace lemons::plugin
 {
 
+/** @ingroup plugin_metadata
+ */
 struct PluginMetadata final
 {
 	explicit PluginMetadata() = default;

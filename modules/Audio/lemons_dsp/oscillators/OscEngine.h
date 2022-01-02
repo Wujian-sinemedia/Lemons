@@ -18,7 +18,8 @@
 
 namespace lemons::dsp::osc
 {
-/** A utility class that wraps an Oscillator into a self-contained dsp::Engine.
+/** @ingroup lemons_oscillators
+    A utility class that wraps an Oscillator into a self-contained dsp::Engine.
     This will instantiate and manage the appropriate oscillator type for you. \n
     Example usage:
     @code

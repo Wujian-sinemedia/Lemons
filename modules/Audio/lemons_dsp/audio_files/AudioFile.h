@@ -24,8 +24,14 @@ namespace lemons::dsp
 using juce::File;
 using juce::String;
 
+/** @defgroup audio_files Audio files
+    @ingroup lemons_dsp
+    Utilities for working with audio files.
+ */
 
-/** This class represents the data of an audio file, including the AudioBuffer itself, as well as the samplerate, bit depth, and metadata information.
+
+/** @ingroup audio_files
+    This class represents the data of an audio file, including the AudioBuffer itself, as well as the samplerate, bit depth, and metadata information.
     One of these can be created from an audio file on disk, or from any kind of juce::InputStream.
  */
 struct AudioFile final

@@ -28,7 +28,9 @@ using AudioBuffer = juce::AudioBuffer<T>;
 using juce::MidiBuffer;
 
 
-/** A kind of dsp::Engine that holds a ProcessorHolder.
+
+/** @ingroup plugin_hosting
+    A kind of dsp::Engine that holds a ProcessorHolder.
     @see ProcessorHolder, dsp::Engine
  */
 template <typename SampleType>
@@ -57,7 +59,8 @@ private:
 };
 
 
-/** A ProcessorEngine that instantiates a custom subclass of AudioProcessor and automatically creates a ProcessorEngine for you.
+/** @ingroup plugin_hosting
+    A ProcessorEngine that instantiates a custom subclass of AudioProcessor and automatically creates a ProcessorEngine for you.
     @tparam ProcessorType The type of processor you wish to instantiate. This type must inherit from juce::AudioProcessor.
     @see ProcessorEngine
  */

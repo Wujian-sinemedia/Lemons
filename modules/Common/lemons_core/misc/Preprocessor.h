@@ -20,7 +20,12 @@
 #include <vector>
 #include <list>
 
-/** Use this macro inside a template declaration to place inheritance constraints on a template argument.
+/** @defgroup lemons_core
+    Core building blocks.
+ */
+
+/** @ingroup lemons_core
+    Use this macro inside a template declaration to place inheritance constraints on a template argument.
     For example:
     @code
     template < class ParameterType, LEMONS_MUST_INHERIT_FROM(ParameterType, juce::AudioProcessorParameter) >
@@ -35,7 +40,8 @@
 namespace lemons
 {
 
-/** Utility struct that evaluates to std::true_type if the given class specializes the given template, and false otherwise.
+/** @ingroup lemons_core
+    Utility struct that evaluates to std::true_type if the given class specializes the given template, and false otherwise.
     For example:
     @code
     is_specialization< std::vector<int>, std::vector >()
@@ -61,7 +67,8 @@ static_assert (! is_specialization<std::vector<int>, std::list>(), "is_specializ
 
 }  // namespace lemons
 
-/** Use this macro inside a template declaration to ensure that classToTest is a specialization of the required template.
+/** @ingroup lemons_core
+    Use this macro inside a template declaration to ensure that classToTest is a specialization of the required template.
     For example:
     @code
     template < class VectorType, LEMONS_MUST_BE_SPECIALIZATION(VectorType, std::vector) >

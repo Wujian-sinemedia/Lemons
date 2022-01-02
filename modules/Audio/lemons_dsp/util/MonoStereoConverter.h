@@ -19,6 +19,12 @@
 namespace lemons::dsp
 {
 
+/** @name lemons_stereo_conversion Mono/stereo conversion
+    @ingroup lemons_dsp
+    Mono/stereo conversion utilities.
+ */
+///@{
+
 /** An enum used to describe how a MonoStereoConverter will convert stereo signals to mono. */
 enum class StereoReductionMode
 {
@@ -74,6 +80,8 @@ private:
 
 	AudioBuffer<SampleType> monoStorage;
 };
+
+///@}
 
 }  // namespace lemons::dsp
 

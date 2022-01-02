@@ -19,7 +19,8 @@
 namespace lemons::dsp
 {
 
-/** A simple processor that generates random noise.
+/** @ingroup lemons_dsp
+    A simple processor that generates random noise.
  */
 template <typename SampleType>
 class WhiteNoiseGenerator final

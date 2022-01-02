@@ -18,6 +18,13 @@
 
 namespace lemons::dsp::buffers
 {
+
+/** @name lemons_audio_buffers Audio buffers
+    @ingroup lemons_dsp
+    Audio buffer utility functions.
+ */
+///@{
+
 /** Copies all channels from the source buffer to the destination buffer. */
 template <typename SampleType>
 void copy (const AudioBuffer<SampleType>& source, AudioBuffer<SampleType>& dest);
@@ -36,6 +43,8 @@ template <typename SampleType>
                                                       int                      numSamples,
                                                       int                      numChannels   = -1,
                                                       int                      channelOffset = 0);
+
+///@}
 
 }  // namespace lemons::dsp::buffers
 

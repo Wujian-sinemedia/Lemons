@@ -20,7 +20,8 @@
 namespace lemons::events
 {
 
-/** A timer callback that calls a lambda function.
+/** @ingroup lemons_core
+    A timer callback that calls a lambda function.
     For example:
     @code
     void myFunction();

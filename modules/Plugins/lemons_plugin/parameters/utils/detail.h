@@ -22,6 +22,10 @@
 namespace lemons::plugin
 {
 
+/** @defgroup lemons_plugin
+    Building blocks for plugins.
+ */
+
 using juce::String;
 
 using ParameterCategory = juce::AudioProcessorParameter::Category;

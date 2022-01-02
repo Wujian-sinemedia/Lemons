@@ -22,7 +22,13 @@ namespace lemons::plugin
 using juce::String;
 
 
-/**
+/** @defgroup plugin_hosting Plugin hosting
+    @ingroup lemons_plugin
+    Plugin hosting classes.
+ */
+
+
+/** @ingroup plugin_hosting
     This class holds a reference to a juce::AudioProcessor, and acts as a wrapper around it, providing some convenience and utility functions.
     To instantiate a custom subclass of AudioProcessor and pass it into one of these automatically, use the TypedProcessorHolder class.
     @see TypedProcessorHolder
@@ -105,7 +111,8 @@ struct ProcessorHolder
 };
 
 
-/** A ProcessorHolder that instantiates a custom subclass of AudioProcessor and automatically creates a ProcessorHolder for you.
+/** @ingroup plugin_hosting
+    A ProcessorHolder that instantiates a custom subclass of AudioProcessor and automatically creates a ProcessorHolder for you.
     @tparam ProcessorType The type of processor you wish to instantiate. This type must inherit from juce::AudioProcessor.
     @see ProcessorHolder
  */

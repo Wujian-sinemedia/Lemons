@@ -26,7 +26,13 @@ using juce::MemoryBlock;
 using juce::String;
 using juce::ValueTree;
 
-/** Represents a wrapper around some data contained in a juce BinaryData target.
+/** @defgroup lemons_binary_data Binary data
+    @ingroup lemons_core
+    Utilities for working with embedded binary data.
+ */
+
+/** @ingroup lemons_binary_data
+    Represents a wrapper around some data contained in a juce BinaryData target.
     Simply provide the filename and this object will load the data contained by the named resource, if it can be located.
     @attention Be sure to check isValid() before attempting to use the data! \n
     For example:
@@ -74,16 +80,23 @@ private:
 };
 
 
-/** Returns true if this module was compiled with the LEMONS_HAS_BINARY_DATA flag set to 1.
+/** @ingroup lemons_binary_data
+    Returns true if this module was compiled with the LEMONS_HAS_BINARY_DATA flag set to 1.
     If this returns false, every Data object you create will be invalid.
  */
 [[nodiscard]] constexpr bool hasBinaryData() noexcept;
 
 
-/** Returns a list of file names that are available in the binary data target, ie, filenames that are valid arguments to the Data constructor.
+/** @ingroup lemons_binary_data
+    Returns a list of file names that are available in the binary data target, ie, filenames that are valid arguments to the Data constructor.
  */
 [[nodiscard]] juce::StringArray getFilenames();
 
+
+/** @name Basic types
+    @ingroup lemons_binary_data
+ */
+///@{
 
 /** Returns an opaque blob of binary data from a file in the BinaryData target.
     If the data can't be loaded, an assertion will be thrown.
@@ -110,6 +123,8 @@ template <files::FileType Type = files::FileType::JSON>
     @see getString()
  */
 [[nodiscard]] juce::StringArray getStrings (const String& textFileName);
+
+///@}
 
 }  // namespace lemons::binary
 

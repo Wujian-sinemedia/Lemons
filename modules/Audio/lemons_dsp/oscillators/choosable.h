@@ -19,7 +19,8 @@
 
 namespace lemons::dsp::osc
 {
-/** An enum class that represents the kinds of oscillator that ChoosableOscillator encapsulates.
+/** @ingroup lemons_oscillators
+    An enum class that represents the kinds of oscillator that ChoosableOscillator encapsulates.
     @see ChoosableOscillator
  */
 enum class OscType
@@ -32,7 +33,8 @@ enum class OscType
 };
 
 
-/** A class that encapsulates together all the kinds of oscillators, and allows you to seamlessly switch between them during playback without pops or clicks.
+/** @ingroup lemons_oscillators
+    A class that encapsulates together all the kinds of oscillators, and allows you to seamlessly switch between them during playback without pops or clicks.
     @see OscType, OscEngine, Oscillator
  */
 template <typename SampleType>

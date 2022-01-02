@@ -23,7 +23,8 @@ namespace lemons::dsp
 
 using juce::MidiBuffer;
 
-/** A FIFO for storing both audio and MIDI data together. Note that this class is not thread-safe.
+/** @ingroup lemons_audio_fifos
+    A FIFO for storing both audio and MIDI data together. Note that this class is not thread-safe.
     @see AudioFifo, MidiFIFO
  */
 template <typename SampleType>

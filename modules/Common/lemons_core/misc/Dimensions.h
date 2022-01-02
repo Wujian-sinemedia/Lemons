@@ -20,7 +20,8 @@ namespace lemons
 {
 
 
-/** A simple struct that represents the dimensions of a GUI. */
+/** @ingroup lemons_core
+    A simple struct that represents the dimensions of a GUI. */
 struct Dimensions final
 {
 	/** Creates an invalid Dimensions object. */

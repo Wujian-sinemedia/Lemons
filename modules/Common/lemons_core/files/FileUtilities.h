@@ -24,7 +24,13 @@ using juce::File;
 using juce::MemoryBlock;
 using juce::ValueTree;
 
-/** An enum used to describe various kinds of binary encodings of serialized data. */
+/** @defgroup lemons_files Files
+    @ingroup lemons_core
+    Utilities for working with files.
+ */
+
+/** @ingroup lemons_files
+    An enum used to describe various kinds of binary encodings of serialized data. */
 enum class FileType
 {
 	/** Represents an XML file. */
@@ -38,7 +44,9 @@ enum class FileType
 };
 
 
-/** @name ValueTrees */
+/** @name ValueTrees
+    @ingroup lemons_files
+ */
 ///@{
 
 /** Attempts to load a ValueTree from a file of the specified format. The default format is JSON.
@@ -62,7 +70,9 @@ bool saveValueTree (const File& file, const ValueTree& tree);
 ///@}
 
 
-/** @name MemoryBlocks */
+/** @name MemoryBlocks
+    @ingroup lemons_files
+ */
 ///@{
 
 /** Loads a File into a MemoryBlock.
@@ -78,10 +88,12 @@ bool saveBlockToFile (const MemoryBlock& block, const File& file);
 ///@}
 
 
-/** Returns true if the file has a file extension matching any standard MIDI file extensions. */
+/** @ingroup lemons_files
+    Returns true if the file has a file extension matching any standard MIDI file extensions. */
 [[nodiscard]] bool isMidiFile (const File& file);
 
-/** Returns a file on the desktop with the specified name. */
+/** @ingroup lemons_files
+    Returns a file on the desktop with the specified name. */
 [[nodiscard]] File getFileOnDesktop (const String& fileName);
 
 }  // namespace lemons::files

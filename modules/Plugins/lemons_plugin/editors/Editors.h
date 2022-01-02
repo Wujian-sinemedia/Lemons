@@ -18,6 +18,12 @@
 namespace lemons::plugin
 {
 
+/** @name Editors
+    @ingroup lemons_plugin
+    Plugin editor and GUI classes.
+ */
+///@{
+
 /** Base class for plugin editors' GUI content components.
     @tparam StateType The type of the plugin's state object. This type must inherit from State.
  */
@@ -122,5 +128,7 @@ private:
 	juce::TooltipWindow tooltipWindow;
 	const int           msBeforeTooltip_;
 };
+
+///@}
 
 }  // namespace lemons::plugin

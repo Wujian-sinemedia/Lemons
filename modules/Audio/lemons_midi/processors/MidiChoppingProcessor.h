@@ -23,6 +23,8 @@ namespace lemons::midi
 template <typename T>
 using AudioBuffer = juce::AudioBuffer<T>;
 
+/** @ingroup lemons_midi_processors
+ */
 template <typename SampleType>
 class ChoppingProcessor
 {

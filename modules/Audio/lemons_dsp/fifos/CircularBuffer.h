@@ -25,7 +25,16 @@ namespace lemons::dsp
 template <typename SampleType>
 using AudioBuffer = juce::AudioBuffer<SampleType>;
 
-/**
+/** @defgroup lemons_dsp
+    DSP utility classes.
+ */
+
+/** @defgroup lemons_audio_fifos FIFOs
+    @ingroup lemons_dsp
+    Audio and MIDI FIFOs.
+ */
+
+/** @ingroup lemons_audio_fifos
     A thread-safe circular buffer meant for storing a single channel's worth of audio samples.
     If you need to store more than one channel's worth of samples, use the AudioFifo class.
     @see AudioFifo, AudioAndMidiFIFO

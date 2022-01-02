@@ -22,7 +22,8 @@ namespace lemons
 using juce::File;
 using juce::juce_wchar;
 
-/** A command-line argument parser class modeled after Python's ArgParse.
+/** @ingroup lemons_core
+    A command-line argument parser class modeled after Python's ArgParse.
     Use one of these to easily set default values and help strings for arguments, and then it can automatically print help and check for required arguments for you. For example:
     @code
     void process_file (const juce::File& file, int someNumber);

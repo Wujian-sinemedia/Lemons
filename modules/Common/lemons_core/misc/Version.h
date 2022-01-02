@@ -47,7 +47,7 @@ namespace lemons
 
 using juce::String;
 
-/**
+/** @ingroup lemons_core
     A class that represents a version of something, with major, minor, and patch numbers.
  */
 struct Version final

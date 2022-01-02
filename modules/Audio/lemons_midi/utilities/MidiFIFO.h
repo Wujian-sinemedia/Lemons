@@ -19,7 +19,8 @@
 namespace lemons::midi
 {
 
-/** A FIFO for storing MIDI events.
+/** @ingroup lemons_midi
+    A FIFO for storing MIDI events.
     @see AudioAndMidiFIFO
  */
 class MidiFIFO final

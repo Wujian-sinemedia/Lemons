@@ -19,7 +19,8 @@
 namespace lemons::dsp
 {
 
-/** A DSP engine that, under normal conditions, simply passes the audio through; if any samples are inf or nan, then the output is muted until you manually un-mute it again.
+/** @ingroup audio_engines
+    A DSP engine that, under normal conditions, simply passes the audio through; if any samples are inf or nan, then the output is muted until you manually un-mute it again.
  */
 template <typename SampleType>
 class Protector final : public Engine<SampleType>

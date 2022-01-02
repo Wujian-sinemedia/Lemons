@@ -18,7 +18,8 @@
 
 namespace lemons::dsp::osc
 {
-/** A basic "super saw" oscillator.
+/** @ingroup lemons_oscillators
+    A basic "super saw" oscillator.
     This oscillator contains 7 detuned saw oscillators and returns their aggregate output. \n
     You can set the detuning amount in cents with setDetuneAmount().
     @see Saw, Oscillator, Phase

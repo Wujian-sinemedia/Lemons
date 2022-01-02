@@ -22,7 +22,13 @@ namespace lemons::plugin
 using juce::String;
 using juce::ValueTree;
 
-/** A plugin parameter class.
+/** @defgroup parameters
+    @ingroup lemons_plugin
+    Plugin parameter classes and utilities.
+ */
+
+/** @ingroup parameters
+    A plugin parameter class.
     @see TypedParameter, ParameterTraits
  */
 class Parameter : public juce::RangedAudioParameter

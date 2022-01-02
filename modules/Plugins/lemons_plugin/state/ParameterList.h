@@ -23,7 +23,13 @@ namespace lemons::plugin
 
 struct MetaParameterBase;
 
+/** @defgroup plugin_state State
+    @ingroup lemons_plugin
+    Plugin state classes.
+ */
 
+/** @ingroup plugin_state
+ */
 class ParameterList final
 {
 public:

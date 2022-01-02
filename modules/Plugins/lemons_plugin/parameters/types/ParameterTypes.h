@@ -15,6 +15,11 @@
 
 #pragma once
 
+/** @name fundamental_parameter_types Fundamental parameter types
+    @ingroup parameters
+ */
+///@{
+
 namespace lemons::plugin
 {
 /** A parameter that can be stored as a type other than a float, but still inherits from my Parameter base class.
@@ -65,19 +70,11 @@ public:
     /** Returns the maximum possible value for this parameter. */
     [[nodiscard]] ValueType getMaximum() const noexcept;
     
-    /** @name Functions related to the default value */
-    ///@{
-
 	/** Returns the parameter's current default value. */
 	[[nodiscard]] ValueType getDefault() const noexcept;
 
 	/** Sets the parameter's default value. */
 	void setDefault (ValueType newDefault);
-
-	///@}
-
-    /** @name Functions for converting to/from text */
-    ///@{
 
 	/** Returns a textual description for a parameter value. */
 	[[nodiscard]] String getStringForValue (ValueType value, int maxLength = 50) const;
@@ -88,11 +85,6 @@ public:
 	/** Converts some user input text to a possible representation as a parameter value. */
 	[[nodiscard]] ValueType getValueForString (const String& string) const;
     
-    ///@}
-    
-    /** @name Functions for state saving and loading */
-    ///@{
-
 	/** Saves the state of this parameter to a ValueTree. */
 	[[nodiscard]] virtual ValueTree saveToValueTree() const override;
 
@@ -101,8 +93,6 @@ public:
     
     /** Returns a ParameterTraits object representing this parameter. */
     [[nodiscard]] ParameterTraits getParameterTraits() const final;
-    
-    ///@}
     
     /** The parameter's value type is publically accessible through this typedef. */
     using ParameterValueType = ValueType;
@@ -197,5 +187,7 @@ struct BoolParameter : TypedParameter<bool>
 	/** Creates a boolean parameter from a ParameterTraits object. */
 	explicit BoolParameter (const ParameterTraits& traits);
 };
+
+///@}
 
 }  // namespace lemons::plugin

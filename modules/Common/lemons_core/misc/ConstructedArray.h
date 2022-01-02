@@ -19,7 +19,8 @@
 namespace lemons
 {
 
-/** A wrapper around juce::OwnedArray that automatically deletes or creates objects when you resize it. For example:
+/** @ingroup lemons_core
+    A wrapper around juce::OwnedArray that automatically deletes or creates objects when you resize it. For example:
     @code
     struct MyStruct
     {

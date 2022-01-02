@@ -24,7 +24,12 @@ using juce::MidiFile;
 using juce::MidiMessage;
 using juce::String;
 
-// copies a range of events from one juce::MidiBuffer to another, optionally providing a sample offset
+/** @defgroup lemons_midi
+    Utility classes for working with MIDI.
+ */
+
+/** @ingroup lemons_midi
+ */
 void copyRangeOfMidiBuffer (const MidiBuffer& readingBuffer,
                             MidiBuffer&       destBuffer,
                             int               startSampleOfInput,
@@ -32,7 +37,8 @@ void copyRangeOfMidiBuffer (const MidiBuffer& readingBuffer,
                             int               numSamples);
 
 
-/** Utility RAII struct for copying a section of one MIDI buffer to the beginning of another buffer, and then back to the original section of the original buffer.
+/** @ingroup lemons_midi
+    Utility RAII struct for copying a section of one MIDI buffer to the beginning of another buffer, and then back to the original section of the original buffer.
     This code:
     @code
     MidiBuffer orig, alias;
@@ -75,7 +81,9 @@ private:
 };
 
 
-/** @name MIDI buffer/file conversion */
+/** @name MIDI buffer/file conversion
+    @ingroup lemons_midi
+ */
 ///@{
 
 /** Converts a MIDI buffer to a MIDI file object.

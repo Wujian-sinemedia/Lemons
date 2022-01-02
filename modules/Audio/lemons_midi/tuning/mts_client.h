@@ -6,7 +6,13 @@
 namespace lemons::midi
 {
 
-/** This class represents an MTS-ESP session client.
+/** @defgroup lemons_midi_tuning Tuning
+    @ingroup lemons_midi
+    Utilities for working with microtonalism in MIDI.
+ */
+
+/** @ingroup lemons_midi_tuning
+    This class represents an MTS-ESP session client.
     You can use this class to get tuning information from a session master.
  */
 class MtsClient

@@ -3,7 +3,8 @@
 
 namespace lemons::plugin
 {
-/** A modulation manager for a plugin.
+/** @ingroup parameter_modulation
+    A modulation manager for a plugin.
     This class holds a collection of LFOs that can be mapped to any number of Parameter objects.
  */
 class ModulationManager final

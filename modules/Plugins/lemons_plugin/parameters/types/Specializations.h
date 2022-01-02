@@ -17,6 +17,12 @@
 
 namespace lemons::plugin
 {
+
+/** @name parameter_specializations Special parameter types
+    @ingroup parameters
+ */
+///@{
+
 /** A parameter that represents a gain value in decibels.
     @see FloatParameter, Parameter
  */
@@ -158,5 +164,7 @@ struct SecondsParameter : public FloatParameter
 	 */
 	explicit SecondsParameter (const String& paramName, float minSeonds = 0.f, float maxSeconds = 1.f, float defaultVal = 0.5f);
 };
+
+///@}
 
 }  // namespace lemons::plugin

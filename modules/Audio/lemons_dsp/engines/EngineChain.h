@@ -19,7 +19,8 @@
 namespace lemons::dsp
 {
 
-/** A kind of engine that contains a chain of other Engine objects.
+/** @ingroup audio_engines
+    A kind of engine that contains a chain of other Engine objects.
     Each node in the chain must inherit from AudioEngine, and each node has an individual bypass setting.
     The latency of the entire chain will be the latency of the node with the greatest individual latency.
     @see Engine, BuiltEngineChain

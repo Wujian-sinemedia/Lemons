@@ -18,7 +18,14 @@
 
 namespace lemons::dsp
 {
-/** Base class for an audio engine.
+
+/** @defgroup audio_engines Engines
+    @ingroup lemons_dsp
+    Base classes for audio engines.
+ */
+
+/** @ingroup audio_engines
+    Base class for an audio engine.
     This should be a self-contained signal chain. This class handles pop-preventing between succesive bypassed/unbypassed frames, and provides several options for top-level process() function APIs while allowing you to implement only one internal renderBlock() function.
     @see LatencyEngine
  */

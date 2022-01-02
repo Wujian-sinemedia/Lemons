@@ -18,7 +18,8 @@
 
 namespace lemons::dsp
 {
-/** Base class for audio engines that require latency (ie, a consistent block size) for their processing. The number of samples of the consistent blocksize the algorithm will recieve in its callbacks is the same as the algorithm's latecy in samples.
+/** @ingroup audio_engines
+    Base class for audio engines that require latency (ie, a consistent block size) for their processing. The number of samples of the consistent blocksize the algorithm will recieve in its callbacks is the same as the algorithm's latecy in samples.
 
     @see Engine
  */

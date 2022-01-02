@@ -21,7 +21,8 @@
 namespace lemons::dsp
 {
 
-/** A multichannel audio FIFO.
+/** @ingroup lemons_audio_fifos
+    A multichannel audio FIFO.
     If you only need to store a single channel's worth of audio samples, consider using the CircularBuffer class instead.
     Also note that while the CircularBuffer class is thread-safe, this class is not.
     @see CircularBuffer, AudioAndMidiFIFO

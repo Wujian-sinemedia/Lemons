@@ -22,8 +22,15 @@ namespace lemons::locale
 using juce::String;
 using juce::StringArray;
 
+/** @defgroup lemons_locale Localization
+    @ingroup lemons_core
+    Utilities for internationalization.
+ */
 
-/** @name ISO language codes */
+
+/** @name ISO language codes
+    @ingroup lemons_locale
+ */
 ///@{
 
 /** Converts the name of a language to an ISO639-1 or ISO639-2 language code.
@@ -44,7 +51,9 @@ using juce::StringArray;
 ///@}
 
 
-/** ISO country codes */
+/** @name ISO country codes
+    @ingroup lemons_locale
+ */
 ///@{
 
 /** Returns a list of 2-character ISO 3166 country codes where the specified language is an officially recognized language, a significant minority language, or a local indigenous language.

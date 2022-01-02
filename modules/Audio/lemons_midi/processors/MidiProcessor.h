@@ -2,6 +2,14 @@
 
 namespace lemons::midi
 {
+
+/** @defgroup lemons_midi_processors Processors
+    @ingroup lemons_midi
+    Midi processor base classes.
+ */
+
+/** @ingroup lemons_midi_processors
+ */
 class MidiProcessor
 {
 public:

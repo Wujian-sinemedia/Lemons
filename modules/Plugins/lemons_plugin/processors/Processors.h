@@ -17,7 +17,8 @@
 
 namespace lemons::plugin
 {
-/** A processor class that can simply be told the templated engine type and the state type, and takes care of instantiating a float and double one and passing them to the ProcessorBase class.
+/** @ingroup processors
+    A processor class that can simply be told the templated engine type and the state type, and takes care of instantiating a float and double one and passing them to the ProcessorBase class.
     Example usage:
     @code
     using namespace lemons;
@@ -85,12 +86,14 @@ private:
 };
 
 
-/** A handy typedef for if you just want to create a plugin processor that wraps a certain engine type, without supplying a custom state type. */
+/** @ingroup processors
+    A handy typedef for if you just want to create a plugin processor that wraps a certain engine type, without supplying a custom state type. */
 template <template <typename SampleType> class EngineType>
 using StatelessProcessor = Processor<EngineType, State>;
 
 
-/** A processor class that has a GUI editor.
+/** @ingroup processors
+    A processor class that has a GUI editor.
     Example usage:
     @code
     using namespace lemons;
@@ -138,7 +141,8 @@ struct ProcessorWithEditor final : ProcessorType
 };
 
 
-/** Handy struct that is similar to ProcessorWithEditor, but instead of providing your own component, this automatically creates a juce::GenericAudioProcessorEditor for you.
+/** @ingroup processors
+    Handy struct that is similar to ProcessorWithEditor, but instead of providing your own component, this automatically creates a juce::GenericAudioProcessorEditor for you.
     @tparam ProcessorType The type of your plugin's editor-less Processor; for example, Processor<YourEngine>. This type must be a specialization of Processor.
     @see ProcessorWithEditor, Processor, ProcessorBase, Engine
  */
@@ -160,7 +164,8 @@ struct ProcessorWithGenericEditor final : ProcessorType
 }  // namespace lemons::plugin
 
 
-/** A handy macro to define Juce's createPluginFilter() function for you; simply hand this macro the fully-specialized type of your plugin's processor.
+/** @ingroup processors
+    A handy macro to define Juce's createPluginFilter() function for you; simply hand this macro the fully-specialized type of your plugin's processor.
  */
 #define LEMONS_DEFINE_PLUGIN_CREATOR(ProcessorClass)       \
   juce::AudioProcessor* JUCE_CALLTYPE createPluginFilter() \

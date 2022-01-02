@@ -18,7 +18,14 @@
 namespace lemons::math
 {
 
-/** @name Divisibility */
+/** @defgroup lemons_math Math
+    @ingroup lemons_core
+    Math utility functions.
+ */
+
+/** @name Divisibility
+    @ingroup lemons_math
+ */
 ///@{
 
 /** Returns true if the number is divisible by the divisor with no remainder. */
@@ -37,7 +44,9 @@ namespace lemons::math
 ///@}
 
 
-/** @name Frequency/period conversion */
+/** @name Frequency/period conversion
+    @ingroup lemons_math
+ */
 ///@{
 
 /** Returns the period in samples of a frequency at the specified samplerate. */
@@ -68,7 +77,9 @@ template <typename PeriodType>
 ///@}
 
 
-/** @name Samples/milliseconds conversion */
+/** @name Samples/milliseconds conversion
+    @ingroup lemons_math
+ */
 ///@{
 
 /** Converts a number of samples to milliseconds at the specified samplerate. */
@@ -93,7 +104,9 @@ template <typename msType>
 ///@}
 
 
-/** @name MIDI/frequency conversion */
+/** @name MIDI/frequency conversion
+    @ingroup lemons_math
+ */
 ///@{
 
 /** Converts a MIDI note to a frequency in Hz. */

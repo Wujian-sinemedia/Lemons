@@ -18,7 +18,9 @@
 namespace lemons::locale
 {
 
-/** @name Initializing translations */
+/** @name Initializing translations
+    @ingroup lemons_binary_data
+ */
 ///@{
 
 /** Initializes the juce::LocalisedStrings translation system from a translation file contained in a binary::Data object. */
@@ -30,7 +32,8 @@ void initializeDefaultTranslations();
 
 ///@}
 
-/** A struct whose constructor simply calls initializeDefaultTranslations().
+/** @ingroup lemons_binary_data
+    A struct whose constructor simply calls initializeDefaultTranslations().
     This is useful for initializing the translations system as part of a base class, before the other members of your class are created; for example:
     @code
     struct MyProcessor : public juce::AudioProcessor, private lemons::locale::TranslationsInitializer

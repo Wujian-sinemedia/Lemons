@@ -3,6 +3,8 @@
 namespace lemons::plugin
 {
 
+/** @ingroup plugin_metadata
+ */
 struct EditorAttributes final
 {
 	[[nodiscard]] ValueTree toValueTree() const;

@@ -22,12 +22,22 @@
 namespace lemons::plugin
 {
 
+using juce::ValueTree;
+
+
+/** @defgroup plugin_metadata Metadata
+    @ingroup lemons_plugin
+    Plugin metadata classes.
+ */
+
 class Parameter;
 
 class ParameterList;
 
-using juce::ValueTree;
-
+/** @name Parameter metadata
+    @ingroup plugin_metadata
+ */
+///@{
 
 /** An ephemeral type-erased way to store all the metadata necessary to reconstruct any given parameter object.
     You can use this type to save and later recreate a parameter object.
@@ -132,6 +142,8 @@ struct ParameterLayout final
 	/** @internal */
 	static constexpr auto valueTreeType = "ParameterLayout";
 };
+
+///@}
 
 }  // namespace lemons::plugin
 

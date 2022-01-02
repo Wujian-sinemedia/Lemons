@@ -18,6 +18,8 @@
 namespace lemons::plugin
 {
 
+/** @ingroup plugin_state
+ */
 struct Program final
 {
 	[[nodiscard]] ValueTree saveToValueTree() const;
@@ -29,6 +31,8 @@ struct Program final
 };
 
 
+/** @ingroup plugin_state
+ */
 struct ProgramManager final
 {
 	[[nodiscard]] Program* getProgramAtIndex (int index);

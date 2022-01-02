@@ -18,7 +18,14 @@
 
 namespace lemons::dsp::osc
 {
-/** Represents the phase of an oscillator.
+
+/** @defgroup lemons_oscillators Oscillators
+    @ingroup lemons_dsp
+    Oscillator classes.
+ */
+
+/** @ingroup lemons_oscillators
+    Represents the phase of an oscillator.
     @see Oscillator
  */
 template <typename SampleType>
@@ -42,7 +49,8 @@ private:
 
 /*--------------------------------------------------------------------------------------------*/
 
-/** Base class for any kind of oscillator.
+/** @ingroup lemons_oscillators
+    Base class for any kind of oscillator.
     Oscillators process only a single channel of samples at a time.
     @see Phase
  */
@@ -83,7 +91,8 @@ private:
 
 /*--------------------------------------------------------------------------------------------*/
 
-/** A basic sine wave oscillator.
+/** @ingroup lemons_oscillators
+    A basic sine wave oscillator.
     @see Oscillator, Phase
  */
 template <typename SampleType>
@@ -108,7 +117,8 @@ private:
 
 /*--------------------------------------------------------------------------------------------*/
 
-/** A basic sawtooth wave oscillator.
+/** @ingroup lemons_oscillators
+    A basic sawtooth wave oscillator.
     @see SuperSaw, Oscillator, Phase
  */
 template <typename SampleType>
@@ -137,7 +147,8 @@ template <typename SampleType>
 struct Triangle;
 
 
-/** A basic square wave oscillator.
+/** @ingroup lemons_oscillators
+    A basic square wave oscillator.
     @see Oscillator, Phase
  */
 template <typename SampleType>
@@ -164,7 +175,8 @@ private:
 
 /*--------------------------------------------------------------------------------------------*/
 
-/** A basic triangle wave oscillator.
+/** @ingroup lemons_oscillators
+    A basic triangle wave oscillator.
     @see Square, Oscillator, Phase
  */
 template <typename SampleType>
