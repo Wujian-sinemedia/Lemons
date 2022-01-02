@@ -31,7 +31,7 @@ Image loadImageFromFile (const File& file)
 }
 
 
-[[nodiscard]] MemoryBlock fontToBinary (const juce::Font& font, int maxNumChars, juce_wchar defaultChar)
+MemoryBlock fontToBinary (const juce::Font& font, int maxNumChars, juce_wchar defaultChar)
 {
     MemoryBlock output;
     
@@ -45,6 +45,8 @@ Image loadImageFromFile (const File& file)
     customTypeface.addGlyphsFromOtherTypeface (*font.getTypefacePtr(), 0, maxNumChars);
     
     customTypeface.writeToStream (os);
+    
+    return output;
 }
 
 std::unique_ptr<juce::CustomTypeface> fontFromBinary (const MemoryBlock& block)
