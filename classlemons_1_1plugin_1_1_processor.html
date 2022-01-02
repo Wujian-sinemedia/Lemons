@@ -71,8 +71,8 @@ $(function() {
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
-<a href="#pro-types">Protected Types</a> &#124;
 <a href="#pro-methods">Protected Member Functions</a> &#124;
+<a href="#pro-static-methods">Static Protected Member Functions</a> &#124;
 <a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="classlemons_1_1plugin_1_1_processor-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -95,15 +95,20 @@ $(function() {
 Public Types</h2></td></tr>
 <tr class="memitem:abf03b92410766c2112bba4cd7236b484"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_basic_processor.html#abf03b92410766c2112bba4cd7236b484">BusesProperties</a> = juce::AudioProcessor::BusesProperties</td></tr>
 <tr class="separator:abf03b92410766c2112bba4cd7236b484"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75ed0370c7a3130fbac41ac11ca1f4ef"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_basic_processor.html#a75ed0370c7a3130fbac41ac11ca1f4ef">BusProperties</a> = juce::AudioProcessor::BusProperties</td></tr>
+<tr class="separator:a75ed0370c7a3130fbac41ac11ca1f4ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a4fdb65d2747886cc93a7ac4596429a7b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_processor.html#a4fdb65d2747886cc93a7ac4596429a7b">Processor</a> (const <a class="el" href="classlemons_1_1plugin_1_1_basic_processor.html#abf03b92410766c2112bba4cd7236b484">BusesProperties</a> &amp;busesLayout=<a class="el" href="classlemons_1_1plugin_1_1_basic_processor.html#a5113130e547ceaeeb43fdeb856062a33">getDefaultBusesLayout</a>(), const <a class="el" href="structlemons_1_1plugin_1_1_processor_attributes.html">ProcessorAttributes</a> &amp;attributes=<a class="el" href="structlemons_1_1plugin_1_1_processor_attributes.html#ac2f50da82c87f3f07cfe01b296f96c49">ProcessorAttributes::fromProjectDefines</a>())</td></tr>
 <tr class="memdesc:a4fdb65d2747886cc93a7ac4596429a7b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a processor with the specified bus layout.  <a href="classlemons_1_1plugin_1_1_processor.html#a4fdb65d2747886cc93a7ac4596429a7b">More...</a><br /></td></tr>
 <tr class="separator:a4fdb65d2747886cc93a7ac4596429a7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abdd2b947b1f7c377f3e0bffecca7dfd5"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structlemons_1_1plugin_1_1_processor_attributes.html">ProcessorAttributes</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_processor_base.html#abdd2b947b1f7c377f3e0bffecca7dfd5">getAttributes</a> () const noexcept</td></tr>
-<tr class="memdesc:abdd2b947b1f7c377f3e0bffecca7dfd5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the <a class="el" href="structlemons_1_1plugin_1_1_processor_attributes.html">ProcessorAttributes</a> object.  <a href="classlemons_1_1plugin_1_1_processor_base.html#abdd2b947b1f7c377f3e0bffecca7dfd5">More...</a><br /></td></tr>
-<tr class="separator:abdd2b947b1f7c377f3e0bffecca7dfd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aabbb8bde53a7e05037e68252a15be574"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_processor.html#aabbb8bde53a7e05037e68252a15be574">Processor</a> (const <a class="el" href="structlemons_1_1plugin_1_1_plugin_metadata.html">PluginMetadata</a> &amp;metadata)</td></tr>
+<tr class="memdesc:aabbb8bde53a7e05037e68252a15be574"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a processor from the provided metadata object.  <a href="classlemons_1_1plugin_1_1_processor.html#aabbb8bde53a7e05037e68252a15be574">More...</a><br /></td></tr>
+<tr class="separator:aabbb8bde53a7e05037e68252a15be574"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af8ae6ca1c4d7ee8db314f7da4f82fdf6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structlemons_1_1plugin_1_1_processor_attributes.html">ProcessorAttributes</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_processor_base.html#af8ae6ca1c4d7ee8db314f7da4f82fdf6">getAttributes</a> () const noexcept</td></tr>
+<tr class="memdesc:af8ae6ca1c4d7ee8db314f7da4f82fdf6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the current state of the <a class="el" href="structlemons_1_1plugin_1_1_processor_attributes.html">ProcessorAttributes</a> object.  <a href="classlemons_1_1plugin_1_1_processor_base.html#af8ae6ca1c4d7ee8db314f7da4f82fdf6">More...</a><br /></td></tr>
+<tr class="separator:af8ae6ca1c4d7ee8db314f7da4f82fdf6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac61b3d0aacc0c41193df08b85d63d98b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structlemons_1_1plugin_1_1_toggle_parameter.html">ToggleParameter</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_processor_base.html#ac61b3d0aacc0c41193df08b85d63d98b">getBypass</a> () const</td></tr>
 <tr class="memdesc:ac61b3d0aacc0c41193df08b85d63d98b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the plugin's bypass parameter.  <a href="classlemons_1_1plugin_1_1_processor_base.html#ac61b3d0aacc0c41193df08b85d63d98b">More...</a><br /></td></tr>
 <tr class="separator:ac61b3d0aacc0c41193df08b85d63d98b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -123,11 +128,6 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memdesc:a5113130e547ceaeeb43fdeb856062a33"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a BusesLayout with stereo in and out buses that are enabled by default.  <a href="classlemons_1_1plugin_1_1_basic_processor.html#a5113130e547ceaeeb43fdeb856062a33">More...</a><br /></td></tr>
 <tr class="separator:a5113130e547ceaeeb43fdeb856062a33"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-types"></a>
-Protected Types</h2></td></tr>
-<tr class="memitem:abf84e05084ec91dcad379b7e6fc0272c"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_processor.html#abf84e05084ec91dcad379b7e6fc0272c">PluginStateType</a> = StateType</td></tr>
-<tr class="separator:abf84e05084ec91dcad379b7e6fc0272c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
 <tr class="memitem:a265e973d843c470029e50920d2e53464"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_basic_processor.html#a265e973d843c470029e50920d2e53464">callEditorMethod</a> (std::function&lt; void(juce::AudioProcessorEditor &amp;)&gt; func) const</td></tr>
@@ -137,9 +137,19 @@ Protected Member Functions</h2></td></tr>
 <tr class="memdesc:ac6e8eacfeda348419aa05cbfb338198c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Repaints the editor, if one exists.  <a href="classlemons_1_1plugin_1_1_basic_processor.html#ac6e8eacfeda348419aa05cbfb338198c">More...</a><br /></td></tr>
 <tr class="separator:ac6e8eacfeda348419aa05cbfb338198c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-static-methods"></a>
+Static Protected Member Functions</h2></td></tr>
+<tr class="memitem:a7dbd2725134a33bbf9a97660bf7d3a69"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classlemons_1_1plugin_1_1_basic_processor.html#abf03b92410766c2112bba4cd7236b484">BusesProperties</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_basic_processor.html#a7dbd2725134a33bbf9a97660bf7d3a69">busesPropertiesFromValueTree</a> (const ValueTree &amp;tree)</td></tr>
+<tr class="separator:a7dbd2725134a33bbf9a97660bf7d3a69"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3edb9916845558dde0dbbeb22dcb5fd4"><td class="memItemLeft" align="right" valign="top">static ValueTree&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_basic_processor.html#a3edb9916845558dde0dbbeb22dcb5fd4">busesPropertiesToValueTree</a> (const <a class="el" href="classlemons_1_1plugin_1_1_basic_processor.html#abf03b92410766c2112bba4cd7236b484">BusesProperties</a> &amp;properties)</td></tr>
+<tr class="separator:a3edb9916845558dde0dbbeb22dcb5fd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
+<tr class="memitem:a9a0dfc73cdcc69e6919b08ca16dc6a27"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structlemons_1_1plugin_1_1_editor_attributes.html">EditorAttributes</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_processor.html#a9a0dfc73cdcc69e6919b08ca16dc6a27">editorAttributes</a></td></tr>
+<tr class="separator:a9a0dfc73cdcc69e6919b08ca16dc6a27"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a04bf5fafa3b1ecf412ca21db527c4867"><td class="memItemLeft" align="right" valign="top">StateType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_processor.html#a04bf5fafa3b1ecf412ca21db527c4867">pluginState</a></td></tr>
+<tr class="memdesc:a04bf5fafa3b1ecf412ca21db527c4867"><td class="mdescLeft">&#160;</td><td class="mdescRight">The plugin's state object.  <a href="classlemons_1_1plugin_1_1_processor.html#a04bf5fafa3b1ecf412ca21db527c4867">More...</a><br /></td></tr>
 <tr class="separator:a04bf5fafa3b1ecf412ca21db527c4867"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -192,24 +202,22 @@ class lemons::plugin::Processor&lt; EngineType, StateType,, &gt;</h3>
 
 </div>
 </div>
-<a id="abf84e05084ec91dcad379b7e6fc0272c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abf84e05084ec91dcad379b7e6fc0272c">&#9670;&nbsp;</a></span>PluginStateType</h2>
+<a id="a75ed0370c7a3130fbac41ac11ca1f4ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a75ed0370c7a3130fbac41ac11ca1f4ef">&#9670;&nbsp;</a></span>BusProperties</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;template&lt; typename SampleType &gt; class EngineType, typename StateType , LEMONS_MUST_INHERIT_FROM(EngineType&lt; float &gt;, dsp::Engine&lt; float &gt;) , LEMONS_MUST_INHERIT_FROM(StateType, State) &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="classlemons_1_1plugin_1_1_processor.html">lemons::plugin::Processor</a>&lt; EngineType, StateType,, &gt;::<a class="el" href="classlemons_1_1plugin_1_1_processor.html#abf84e05084ec91dcad379b7e6fc0272c">PluginStateType</a> =  StateType</td>
+          <td class="memname">using <a class="el" href="classlemons_1_1plugin_1_1_basic_processor.html#a75ed0370c7a3130fbac41ac11ca1f4ef">lemons::plugin::BasicProcessor::BusProperties</a> =  juce::AudioProcessor::BusProperties</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -218,7 +226,7 @@ template&lt;template&lt; typename SampleType &gt; class EngineType, typename Sta
 </div>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a4fdb65d2747886cc93a7ac4596429a7b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4fdb65d2747886cc93a7ac4596429a7b">&#9670;&nbsp;</a></span>Processor()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a4fdb65d2747886cc93a7ac4596429a7b">&#9670;&nbsp;</a></span>Processor() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -257,7 +265,93 @@ template&lt;template&lt; typename SampleType &gt; class EngineType, typename Sta
 
 </div>
 </div>
+<a id="aabbb8bde53a7e05037e68252a15be574"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aabbb8bde53a7e05037e68252a15be574">&#9670;&nbsp;</a></span>Processor() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;template&lt; typename SampleType &gt; class EngineType, typename StateType , LEMONS_MUST_INHERIT_FROM(EngineType&lt; float &gt;, dsp::Engine&lt; float &gt;) , LEMONS_MUST_INHERIT_FROM(StateType, State) &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classlemons_1_1plugin_1_1_processor.html">lemons::plugin::Processor</a>&lt; EngineType, StateType,, &gt;::<a class="el" href="classlemons_1_1plugin_1_1_processor.html">Processor</a> </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structlemons_1_1plugin_1_1_plugin_metadata.html">PluginMetadata</a> &amp;&#160;</td>
+          <td class="paramname"><em>metadata</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Creates a processor from the provided metadata object. </p>
+<p>For this constructor to work, your StateType must accept the following constructor signature: </p><div class="fragment"><div class="line"><span class="keyword">class </span>StateType : <span class="keyword">public</span> State</div>
+<div class="line">{</div>
+<div class="line">    StateType (<span class="keyword">const</span> ParameterLayout&amp;);</div>
+<div class="line">};</div>
+</div><!-- fragment --> 
+</div>
+</div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a7dbd2725134a33bbf9a97660bf7d3a69"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7dbd2725134a33bbf9a97660bf7d3a69">&#9670;&nbsp;</a></span>busesPropertiesFromValueTree()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="classlemons_1_1plugin_1_1_basic_processor.html#abf03b92410766c2112bba4cd7236b484">BusesProperties</a> lemons::plugin::BasicProcessor::busesPropertiesFromValueTree </td>
+          <td>(</td>
+          <td class="paramtype">const ValueTree &amp;&#160;</td>
+          <td class="paramname"><em>tree</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3edb9916845558dde0dbbeb22dcb5fd4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3edb9916845558dde0dbbeb22dcb5fd4">&#9670;&nbsp;</a></span>busesPropertiesToValueTree()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static ValueTree lemons::plugin::BasicProcessor::busesPropertiesToValueTree </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classlemons_1_1plugin_1_1_basic_processor.html#abf03b92410766c2112bba4cd7236b484">BusesProperties</a> &amp;&#160;</td>
+          <td class="paramname"><em>properties</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a265e973d843c470029e50920d2e53464"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a265e973d843c470029e50920d2e53464">&#9670;&nbsp;</a></span>callEditorMethod()</h2>
 
@@ -287,8 +381,8 @@ template&lt;template&lt; typename SampleType &gt; class EngineType, typename Sta
 
 </div>
 </div>
-<a id="abdd2b947b1f7c377f3e0bffecca7dfd5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abdd2b947b1f7c377f3e0bffecca7dfd5">&#9670;&nbsp;</a></span>getAttributes()</h2>
+<a id="af8ae6ca1c4d7ee8db314f7da4f82fdf6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af8ae6ca1c4d7ee8db314f7da4f82fdf6">&#9670;&nbsp;</a></span>getAttributes()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -297,7 +391,7 @@ template&lt;template&lt; typename SampleType &gt; class EngineType, typename Sta
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="structlemons_1_1plugin_1_1_processor_attributes.html">ProcessorAttributes</a>&amp; lemons::plugin::ProcessorBase::getAttributes </td>
+          <td class="memname"><a class="el" href="structlemons_1_1plugin_1_1_processor_attributes.html">ProcessorAttributes</a> lemons::plugin::ProcessorBase::getAttributes </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -310,7 +404,7 @@ template&lt;template&lt; typename SampleType &gt; class EngineType, typename Sta
 </table>
 </div><div class="memdoc">
 
-<p>Returns the <a class="el" href="structlemons_1_1plugin_1_1_processor_attributes.html">ProcessorAttributes</a> object. </p>
+<p>Returns the current state of the <a class="el" href="structlemons_1_1plugin_1_1_processor_attributes.html">ProcessorAttributes</a> object. </p>
 
 </div>
 </div>
@@ -480,6 +574,30 @@ template&lt;template&lt; typename SampleType &gt; class EngineType, typename Sta
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="a9a0dfc73cdcc69e6919b08ca16dc6a27"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9a0dfc73cdcc69e6919b08ca16dc6a27">&#9670;&nbsp;</a></span>editorAttributes</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;template&lt; typename SampleType &gt; class EngineType, typename StateType , LEMONS_MUST_INHERIT_FROM(EngineType&lt; float &gt;, dsp::Engine&lt; float &gt;) , LEMONS_MUST_INHERIT_FROM(StateType, State) &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="structlemons_1_1plugin_1_1_editor_attributes.html">EditorAttributes</a> <a class="el" href="classlemons_1_1plugin_1_1_processor.html">lemons::plugin::Processor</a>&lt; EngineType, StateType,, &gt;::editorAttributes</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a04bf5fafa3b1ecf412ca21db527c4867"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a04bf5fafa3b1ecf412ca21db527c4867">&#9670;&nbsp;</a></span>pluginState</h2>
 
@@ -502,6 +620,8 @@ template&lt;template&lt; typename SampleType &gt; class EngineType, typename Sta
 </table>
 </div><div class="memdoc">
 
+<p>The plugin's state object. </p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
@@ -511,10 +631,10 @@ template&lt;template&lt; typename SampleType &gt; class EngineType, typename Sta
 <div class="ttc" id="aclasslemons_1_1plugin_1_1_state_html"><div class="ttname"><a href="classlemons_1_1plugin_1_1_state.html">lemons::plugin::State</a></div><div class="ttdoc">Base class for a plugin's entire state.</div><div class="ttdef"><b>Definition:</b> PluginState.h:28</div></div>
 <div class="ttc" id="aclasslemons_1_1plugin_1_1_processor_html"><div class="ttname"><a href="classlemons_1_1plugin_1_1_processor.html">lemons::plugin::Processor</a></div><div class="ttdoc">A processor class that can simply be told the templated engine type and the state type,...</div><div class="ttdef"><b>Definition:</b> Processors.h:48</div></div>
 <div class="ttc" id="aclasslemons_1_1dsp_1_1_engine_html"><div class="ttname"><a href="classlemons_1_1dsp_1_1_engine.html">lemons::dsp::Engine</a></div><div class="ttdoc">Base class for an audio engine.</div><div class="ttdef"><b>Definition:</b> AudioEngine.h:30</div></div>
-<div class="ttc" id="anamespacelemons_html"><div class="ttname"><a href="namespacelemons.html">lemons</a></div><div class="ttdef"><b>Definition:</b> DefaultWindow.h:10</div></div>
+<div class="ttc" id="anamespacelemons_html"><div class="ttname"><a href="namespacelemons.html">lemons</a></div><div class="ttdef"><b>Definition:</b> AudioEffect.h:9</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jan 2 2022 13:08:31 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jan 2 2022 16:16:17 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

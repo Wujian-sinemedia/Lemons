@@ -71,7 +71,7 @@ $(function() {
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="classlemons_1_1plugin_1_1_editor-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">lemons::plugin::Editor&lt; ContentComponentType, StateType,, &gt; Class Template Reference<span class="mlabels"><span class="mlabel">final</span></span><div class="ingroups"><a class="el" href="group___common.html">Common</a> &raquo; <a class="el" href="group__lemons__musicology.html">lemons_musicology</a><a class="el" href="group___audio.html">Audio</a> &raquo;  &#124; <a class="el" href="group__lemons__dsp.html">lemons_dsp</a><a class="el" href="group___plugins.html">Plugins</a> &raquo;  &#124; <a class="el" href="group__lemons__plugin.html">lemons_plugin</a> &raquo; <a class="el" href="group__util.html">util</a></div></div>  </div>
+<div class="title">lemons::plugin::Editor&lt; ContentComponentType, StateType,, &gt; Class Template Reference<span class="mlabels"><span class="mlabel">final</span></span><div class="ingroups"><a class="el" href="group___plugins.html">Plugins</a> &raquo; <a class="el" href="group__lemons__plugin.html">lemons_plugin</a> &raquo; <a class="el" href="group__editors.html">editors</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
@@ -82,9 +82,11 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a7ac839eeca3d97d5c87ba6a759dab743"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_editor.html#a7ac839eeca3d97d5c87ba6a759dab743">Editor</a> (<a class="el" href="classlemons_1_1plugin_1_1_processor_base.html">ProcessorBase</a> &amp;p, StateType &amp;state)</td></tr>
-<tr class="memdesc:a7ac839eeca3d97d5c87ba6a759dab743"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a plugin editor.  <a href="classlemons_1_1plugin_1_1_editor.html#a7ac839eeca3d97d5c87ba6a759dab743">More...</a><br /></td></tr>
-<tr class="separator:a7ac839eeca3d97d5c87ba6a759dab743"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a90d9b50ef5938dc3830eee0a9b4b38cb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_editor.html#a90d9b50ef5938dc3830eee0a9b4b38cb">Editor</a> (<a class="el" href="classlemons_1_1plugin_1_1_processor_base.html">ProcessorBase</a> &amp;p, StateType &amp;state, bool resizable=true, bool useDraggableCorner=true, int msBeforeTooltip=700, const <a class="el" href="structlemons_1_1_dimensions.html">Dimensions</a> &amp;defaultInitialSize=<a class="el" href="structlemons_1_1_dimensions.html#aa5e46b5ec4646920cdc7c128b939683a">Dimensions::getDefault</a>())</td></tr>
+<tr class="memdesc:a90d9b50ef5938dc3830eee0a9b4b38cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a plugin editor.  <a href="classlemons_1_1plugin_1_1_editor.html#a90d9b50ef5938dc3830eee0a9b4b38cb">More...</a><br /></td></tr>
+<tr class="separator:a90d9b50ef5938dc3830eee0a9b4b38cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adb59ae1b3ddd162651e88db832a2fc5b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_editor.html#adb59ae1b3ddd162651e88db832a2fc5b">Editor</a> (<a class="el" href="classlemons_1_1plugin_1_1_processor_base.html">ProcessorBase</a> &amp;p, StateType &amp;state, const <a class="el" href="structlemons_1_1plugin_1_1_editor_attributes.html">EditorAttributes</a> &amp;attributes)</td></tr>
+<tr class="separator:adb59ae1b3ddd162651e88db832a2fc5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;typename ContentComponentType, typename StateType, LEMONS_MUST_INHERIT_FROM(ContentComponentType, GUI&lt; StateType &gt;), LEMONS_MUST_INHERIT_FROM(StateType, State)&gt;<br />
@@ -99,8 +101,8 @@ class lemons::plugin::Editor&lt; ContentComponentType, StateType,, &gt;</h3>
   </dd>
 </dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a7ac839eeca3d97d5c87ba6a759dab743"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7ac839eeca3d97d5c87ba6a759dab743">&#9670;&nbsp;</a></span>Editor()</h2>
+<a id="a90d9b50ef5938dc3830eee0a9b4b38cb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a90d9b50ef5938dc3830eee0a9b4b38cb">&#9670;&nbsp;</a></span>Editor() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -120,7 +122,31 @@ template&lt;typename ContentComponentType , typename StateType , LEMONS_MUST_INH
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">StateType &amp;&#160;</td>
-          <td class="paramname"><em>state</em>&#160;</td>
+          <td class="paramname"><em>state</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>resizable</em> = <code>true</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>useDraggableCorner</em> = <code>true</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>msBeforeTooltip</em> = <code>700</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structlemons_1_1_dimensions.html">Dimensions</a> &amp;&#160;</td>
+          <td class="paramname"><em>defaultInitialSize</em> = <code><a class="el" href="structlemons_1_1_dimensions.html#aa5e46b5ec4646920cdc7c128b939683a">Dimensions::getDefault</a>()</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -137,7 +163,51 @@ template&lt;typename ContentComponentType , typename StateType , LEMONS_MUST_INH
 
 <p>Creates a plugin editor. </p>
 
-<p class="reference">References <a class="el" href="classlemons_1_1plugin_1_1_state.html#a2ea14f3f7bc539a92413bda61ceddd5e">lemons::plugin::State::editorSize</a>.</p>
+<p class="reference">References <a class="el" href="classlemons_1_1plugin_1_1_state.html#a2ea14f3f7bc539a92413bda61ceddd5e">lemons::plugin::State::editorSize</a>, and <a class="el" href="structlemons_1_1_dimensions.html#a9af142c13ec1f52cb9b2348d6ed485f8">lemons::Dimensions::isValid()</a>.</p>
+
+</div>
+</div>
+<a id="adb59ae1b3ddd162651e88db832a2fc5b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adb59ae1b3ddd162651e88db832a2fc5b">&#9670;&nbsp;</a></span>Editor() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename ContentComponentType , typename StateType , LEMONS_MUST_INHERIT_FROM(ContentComponentType, GUI&lt; StateType &gt;) , LEMONS_MUST_INHERIT_FROM(StateType, State) &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classlemons_1_1plugin_1_1_editor.html">lemons::plugin::Editor</a>&lt; ContentComponentType, StateType,, &gt;::<a class="el" href="classlemons_1_1plugin_1_1_editor.html">Editor</a> </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classlemons_1_1plugin_1_1_processor_base.html">ProcessorBase</a> &amp;&#160;</td>
+          <td class="paramname"><em>p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">StateType &amp;&#160;</td>
+          <td class="paramname"><em>state</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structlemons_1_1plugin_1_1_editor_attributes.html">EditorAttributes</a> &amp;&#160;</td>
+          <td class="paramname"><em>attributes</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -147,7 +217,7 @@ template&lt;typename ContentComponentType , typename StateType , LEMONS_MUST_INH
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jan 2 2022 13:08:31 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jan 2 2022 16:16:16 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

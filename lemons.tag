@@ -357,7 +357,7 @@
   </compound>
   <compound kind="file">
     <name>DefaultWindow.h</name>
-    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Apps/lemons_app_utils/GuiApp/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/GUI/lemons_gui/app/</path>
     <filename>_default_window_8h.html</filename>
     <class kind="struct">lemons::DefaultWindow</class>
     <class kind="struct">lemons::DefaultWindowBase</class>
@@ -655,8 +655,16 @@
     <namespace>lemons::dsp</namespace>
   </compound>
   <compound kind="file">
+    <name>EditorAttributes.h</name>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Plugins/lemons_plugin/editors/</path>
+    <filename>_editor_attributes_8h.html</filename>
+    <class kind="struct">lemons::plugin::EditorAttributes</class>
+    <namespace>lemons</namespace>
+    <namespace>lemons::plugin</namespace>
+  </compound>
+  <compound kind="file">
     <name>Editors.h</name>
-    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Plugins/lemons_plugin/util/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Plugins/lemons_plugin/editors/</path>
     <filename>_editors_8h.html</filename>
     <class kind="class">lemons::plugin::Editor</class>
     <class kind="class">lemons::plugin::GUI</class>
@@ -807,7 +815,7 @@
   </compound>
   <compound kind="file">
     <name>GuiApp.h</name>
-    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Apps/lemons_app_utils/GuiApp/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/GUI/lemons_gui/app/</path>
     <filename>_gui_app_8h.html</filename>
     <class kind="class">lemons::GuiApp</class>
     <namespace>lemons</namespace>
@@ -1407,6 +1415,13 @@
     <namespace>lemons</namespace>
     <namespace>lemons::dsp</namespace>
     <namespace>lemons::dsp::synth</namespace>
+    <member kind="typedef">
+      <type>juce::Array&lt; T &gt;</type>
+      <name>Array</name>
+      <anchorfile>namespacelemons_1_1dsp_1_1synth.html</anchorfile>
+      <anchor>a25f09c9ab678ada7cc60d608e60fc3e5</anchor>
+      <arglist></arglist>
+    </member>
   </compound>
   <compound kind="file">
     <name>Parameter.h</name>
@@ -1530,6 +1545,37 @@
     <namespace>lemons::midi</namespace>
   </compound>
   <compound kind="file">
+    <name>PluginMetadata.h</name>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Plugins/lemons_plugin/util/</path>
+    <filename>_plugin_metadata_8h.html</filename>
+    <class kind="struct">lemons::plugin::PluginMetadata</class>
+    <namespace>lemons</namespace>
+    <namespace>lemons::binary</namespace>
+    <namespace>lemons::files</namespace>
+    <namespace>lemons::plugin</namespace>
+    <member kind="function">
+      <type>plugin::PluginMetadata</type>
+      <name>getPluginMetadata</name>
+      <anchorfile>namespacelemons_1_1binary.html</anchorfile>
+      <anchor>a482ca5ce1b610a09b239221ef21eec9b</anchor>
+      <arglist>(const String &amp;filename)</arglist>
+    </member>
+    <member kind="function">
+      <type>plugin::PluginMetadata</type>
+      <name>loadPluginMetadata</name>
+      <anchorfile>namespacelemons_1_1files.html</anchorfile>
+      <anchor>accd4f10eb1f43bebed6a54925091420b</anchor>
+      <arglist>(const File &amp;file)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>savePluginMetadata</name>
+      <anchorfile>namespacelemons_1_1files.html</anchorfile>
+      <anchor>a50cc46e369de9136fb3f11a13b0fdc1b</anchor>
+      <arglist>(const plugin::PluginMetadata &amp;layout, const File &amp;file)</arglist>
+    </member>
+  </compound>
+  <compound kind="file">
     <name>PluginState.h</name>
     <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Plugins/lemons_plugin/state/</path>
     <filename>_plugin_state_8h.html</filename>
@@ -1606,7 +1652,7 @@
   </compound>
   <compound kind="file">
     <name>ProcessorAttributes.h</name>
-    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Plugins/lemons_plugin/processors/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Plugins/lemons_plugin/util/</path>
     <filename>_processor_attributes_8h.html</filename>
     <class kind="struct">lemons::plugin::ProcessorAttributes</class>
     <namespace>lemons</namespace>
@@ -1749,6 +1795,7 @@
     <class kind="struct">juce::VariantConverter&lt; ADSR::Parameters &gt;</class>
     <class kind="struct">juce::VariantConverter&lt; AudioBuffer&lt; double &gt; &gt;</class>
     <class kind="struct">juce::VariantConverter&lt; AudioBuffer&lt; float &gt; &gt;</class>
+    <class kind="struct">juce::VariantConverter&lt; AudioChannelSet &gt;</class>
     <namespace>juce</namespace>
     <namespace>lemons</namespace>
     <namespace>lemons::binary</namespace>
@@ -1788,6 +1835,20 @@
       <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
       <anchor>adf7966056fb84074c7d8acfafad74af2</anchor>
       <arglist>(const AudioBuffer&lt; SampleType &gt; &amp;buffer, double samplerate=48000.)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::AudioChannelSet</type>
+      <name>channelSetFromValueTree</name>
+      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
+      <anchor>a339d1bc2ac82646552da6c53e934da3a</anchor>
+      <arglist>(const ValueTree &amp;tree)</arglist>
+    </member>
+    <member kind="function">
+      <type>ValueTree</type>
+      <name>channelSetToValueTree</name>
+      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
+      <anchor>a994eb15d80d730dac3d8aec7991048de</anchor>
+      <arglist>(const juce::AudioChannelSet &amp;set)</arglist>
     </member>
     <member kind="function">
       <type>AudioBuffer&lt; SampleType &gt;</type>
@@ -2210,6 +2271,13 @@
     <class kind="struct">lemons::dsp::SynthBase::TimbreModParams</class>
     <namespace>lemons</namespace>
     <namespace>lemons::dsp</namespace>
+    <member kind="typedef">
+      <type>juce::Array&lt; T &gt;</type>
+      <name>Array</name>
+      <anchorfile>namespacelemons_1_1dsp.html</anchorfile>
+      <anchor>afbf63004526f79ec914e0c85dbeea273</anchor>
+      <arglist></arglist>
+    </member>
   </compound>
   <compound kind="file">
     <name>SynthVoice.h</name>
@@ -3340,6 +3408,13 @@
       <anchor>abf03b92410766c2112bba4cd7236b484</anchor>
       <arglist></arglist>
     </member>
+    <member kind="typedef">
+      <type>juce::AudioProcessor::BusProperties</type>
+      <name>BusProperties</name>
+      <anchorfile>classlemons_1_1plugin_1_1_basic_processor.html</anchorfile>
+      <anchor>a75ed0370c7a3130fbac41ac11ca1f4ef</anchor>
+      <arglist></arglist>
+    </member>
     <member kind="function">
       <type></type>
       <name>BasicProcessor</name>
@@ -3367,6 +3442,20 @@
       <anchorfile>classlemons_1_1plugin_1_1_basic_processor.html</anchorfile>
       <anchor>ac6e8eacfeda348419aa05cbfb338198c</anchor>
       <arglist>() const</arglist>
+    </member>
+    <member kind="function" protection="protected" static="yes">
+      <type>static BusesProperties</type>
+      <name>busesPropertiesFromValueTree</name>
+      <anchorfile>classlemons_1_1plugin_1_1_basic_processor.html</anchorfile>
+      <anchor>a7dbd2725134a33bbf9a97660bf7d3a69</anchor>
+      <arglist>(const ValueTree &amp;tree)</arglist>
+    </member>
+    <member kind="function" protection="protected" static="yes">
+      <type>static ValueTree</type>
+      <name>busesPropertiesToValueTree</name>
+      <anchorfile>classlemons_1_1plugin_1_1_basic_processor.html</anchorfile>
+      <anchor>a3edb9916845558dde0dbbeb22dcb5fd4</anchor>
+      <arglist>(const BusesProperties &amp;properties)</arglist>
     </member>
   </compound>
   <compound kind="struct">
@@ -6328,6 +6417,101 @@
     </member>
   </compound>
   <compound kind="class">
+    <name>ConstructedArray&lt; lemons::dsp::SynthVoiceBase &gt;</name>
+    <filename>structlemons_1_1_constructed_array.html</filename>
+    <member kind="typedef">
+      <type>std::function&lt; lemons::dsp::SynthVoiceBase *()&gt;</type>
+      <name>ObjectCreationFunction</name>
+      <anchorfile>structlemons_1_1_constructed_array.html</anchorfile>
+      <anchor>a36ef6faf6ae33e0cfc133d4a584addb2</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>ConstructedArray</name>
+      <anchorfile>structlemons_1_1_constructed_array.html</anchorfile>
+      <anchor>abedae38bb829dbafebcec48d7a40bd4b</anchor>
+      <arglist>(int initialNumObjects=0, ObjectCreationFunction &amp;&amp;objectCreationFunc=[]() { return new lemons::dsp::SynthVoiceBase();})</arglist>
+    </member>
+    <member kind="function">
+      <type>lemons::dsp::SynthVoiceBase &amp;</type>
+      <name>append</name>
+      <anchorfile>structlemons_1_1_constructed_array.html</anchorfile>
+      <anchor>a48ca9b8b0ac4e0f7e33415186bb520a4</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>lemons::dsp::SynthVoiceBase *const *</type>
+      <name>begin</name>
+      <anchorfile>structlemons_1_1_constructed_array.html</anchorfile>
+      <anchor>adc90f3a2224c032716d006652fe232a7</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>lemons::dsp::SynthVoiceBase **</type>
+      <name>begin</name>
+      <anchorfile>structlemons_1_1_constructed_array.html</anchorfile>
+      <anchor>ac844a8c41bec3b7f5409c41823ce1ed1</anchor>
+      <arglist>() noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>lemons::dsp::SynthVoiceBase *const *</type>
+      <name>end</name>
+      <anchorfile>structlemons_1_1_constructed_array.html</anchorfile>
+      <anchor>aa1da327a1a1c988619a16a7d01ee78e2</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>lemons::dsp::SynthVoiceBase **</type>
+      <name>end</name>
+      <anchorfile>structlemons_1_1_constructed_array.html</anchorfile>
+      <anchor>a052d7d0d70b4978b3f7cb813ac3ae308</anchor>
+      <arglist>() noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>for_each</name>
+      <anchorfile>structlemons_1_1_constructed_array.html</anchorfile>
+      <anchor>a9eac9808ec27c7468fc4ff34b17b6c2c</anchor>
+      <arglist>(std::function&lt; void(lemons::dsp::SynthVoiceBase &amp;)&gt; func)</arglist>
+    </member>
+    <member kind="function">
+      <type>const juce::OwnedArray&lt; lemons::dsp::SynthVoiceBase &gt; *</type>
+      <name>operator-&gt;</name>
+      <anchorfile>structlemons_1_1_constructed_array.html</anchorfile>
+      <anchor>a137409d8630c290e66ea9f1a118d36ac</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::OwnedArray&lt; lemons::dsp::SynthVoiceBase &gt; *</type>
+      <name>operator-&gt;</name>
+      <anchorfile>structlemons_1_1_constructed_array.html</anchorfile>
+      <anchor>a71ae1588a09cc616ae1c38294c6954fc</anchor>
+      <arglist>() noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>lemons::dsp::SynthVoiceBase *</type>
+      <name>operator[]</name>
+      <anchorfile>structlemons_1_1_constructed_array.html</anchorfile>
+      <anchor>abef55413896e02f6ddaaedeea4f73076</anchor>
+      <arglist>(int index) const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>resize</name>
+      <anchorfile>structlemons_1_1_constructed_array.html</anchorfile>
+      <anchor>a5824a1fc1d19bc7fd219c3480864567c</anchor>
+      <arglist>(int newNumObjects)</arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::OwnedArray&lt; lemons::dsp::SynthVoiceBase &gt;</type>
+      <name>array</name>
+      <anchorfile>structlemons_1_1_constructed_array.html</anchorfile>
+      <anchor>aeec75de76ffb978428307e53a6abd35d</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
     <name>ConstructedArray&lt; lemons::plugin::LFO &gt;</name>
     <filename>structlemons_1_1_constructed_array.html</filename>
     <member kind="typedef">
@@ -7406,8 +7590,68 @@
       <type></type>
       <name>Editor</name>
       <anchorfile>classlemons_1_1plugin_1_1_editor.html</anchorfile>
-      <anchor>a7ac839eeca3d97d5c87ba6a759dab743</anchor>
-      <arglist>(ProcessorBase &amp;p, StateType &amp;state)</arglist>
+      <anchor>a90d9b50ef5938dc3830eee0a9b4b38cb</anchor>
+      <arglist>(ProcessorBase &amp;p, StateType &amp;state, bool resizable=true, bool useDraggableCorner=true, int msBeforeTooltip=700, const Dimensions &amp;defaultInitialSize=Dimensions::getDefault())</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>Editor</name>
+      <anchorfile>classlemons_1_1plugin_1_1_editor.html</anchorfile>
+      <anchor>adb59ae1b3ddd162651e88db832a2fc5b</anchor>
+      <arglist>(ProcessorBase &amp;p, StateType &amp;state, const EditorAttributes &amp;attributes)</arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>lemons::plugin::EditorAttributes</name>
+    <filename>structlemons_1_1plugin_1_1_editor_attributes.html</filename>
+    <member kind="function">
+      <type>ValueTree</type>
+      <name>toValueTree</name>
+      <anchorfile>structlemons_1_1plugin_1_1_editor_attributes.html</anchorfile>
+      <anchor>a15f5b1de9f8e2e37e5423e82284073d5</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static EditorAttributes</type>
+      <name>fromValueTree</name>
+      <anchorfile>structlemons_1_1plugin_1_1_editor_attributes.html</anchorfile>
+      <anchor>afcd3cd9af9fe9226c73b447b189cab2c</anchor>
+      <arglist>(const ValueTree &amp;tree)</arglist>
+    </member>
+    <member kind="variable">
+      <type>Dimensions</type>
+      <name>initialSize</name>
+      <anchorfile>structlemons_1_1plugin_1_1_editor_attributes.html</anchorfile>
+      <anchor>a0ff5b0acdd7966ca1de1cccaca358072</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>bool</type>
+      <name>isResizable</name>
+      <anchorfile>structlemons_1_1plugin_1_1_editor_attributes.html</anchorfile>
+      <anchor>a87dd3453bfaab9ce791e2c50fbc5a1b5</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>int</type>
+      <name>msBeforeTooltip</name>
+      <anchorfile>structlemons_1_1plugin_1_1_editor_attributes.html</anchorfile>
+      <anchor>a4173a901ed75ef1a4258211bd5558f31</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>bool</type>
+      <name>useResizableCorner</name>
+      <anchorfile>structlemons_1_1plugin_1_1_editor_attributes.html</anchorfile>
+      <anchor>abe5e5ea5178e59b5272c44b3c148b308</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type>static constexpr auto</type>
+      <name>valueTreeType</name>
+      <anchorfile>structlemons_1_1plugin_1_1_editor_attributes.html</anchorfile>
+      <anchor>ae65fcf71298f661346f6d4f56fb6cc5e</anchor>
+      <arglist></arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -9594,39 +9838,6 @@
     </member>
   </compound>
   <compound kind="class">
-    <name>lemons::dsp::filters::Filter</name>
-    <filename>classlemons_1_1dsp_1_1filters_1_1_filter.html</filename>
-    <templarg></templarg>
-    <member kind="function">
-      <type>void</type>
-      <name>prepare</name>
-      <anchorfile>classlemons_1_1dsp_1_1filters_1_1_filter.html</anchorfile>
-      <anchor>adb8982b06bdc99e8b8b544318ca9e02a</anchor>
-      <arglist>() noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>process</name>
-      <anchorfile>classlemons_1_1dsp_1_1filters_1_1_filter.html</anchorfile>
-      <anchor>a5fbb9f92bd17682d554077cc3a8c08c5</anchor>
-      <arglist>(SampleType *buffer, int numSamples)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>reset</name>
-      <anchorfile>classlemons_1_1dsp_1_1filters_1_1_filter.html</anchorfile>
-      <anchor>a072e405ea503f6e2a1fc15d3a2818e4f</anchor>
-      <arglist>(SampleType resetToValue=SampleType(0))</arglist>
-    </member>
-    <member kind="variable">
-      <type>Coefficients&lt; SampleType &gt;</type>
-      <name>coefs</name>
-      <anchorfile>classlemons_1_1dsp_1_1filters_1_1_filter.html</anchorfile>
-      <anchor>aa2a2553de95ae712e5d0e74599dd908b</anchor>
-      <arglist></arglist>
-    </member>
-  </compound>
-  <compound kind="class">
     <name>lemons::dsp::FX::Filter</name>
     <filename>classlemons_1_1dsp_1_1_f_x_1_1_filter.html</filename>
     <templarg></templarg>
@@ -9728,6 +9939,39 @@
       <anchorfile>classlemons_1_1dsp_1_1_f_x_1_1_filter.html</anchorfile>
       <anchor>adc6df900e5c38eb40841ae62dd759d0f</anchor>
       <arglist>(float newQ)</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>lemons::dsp::filters::Filter</name>
+    <filename>classlemons_1_1dsp_1_1filters_1_1_filter.html</filename>
+    <templarg></templarg>
+    <member kind="function">
+      <type>void</type>
+      <name>prepare</name>
+      <anchorfile>classlemons_1_1dsp_1_1filters_1_1_filter.html</anchorfile>
+      <anchor>adb8982b06bdc99e8b8b544318ca9e02a</anchor>
+      <arglist>() noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>process</name>
+      <anchorfile>classlemons_1_1dsp_1_1filters_1_1_filter.html</anchorfile>
+      <anchor>a5fbb9f92bd17682d554077cc3a8c08c5</anchor>
+      <arglist>(SampleType *buffer, int numSamples)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>reset</name>
+      <anchorfile>classlemons_1_1dsp_1_1filters_1_1_filter.html</anchorfile>
+      <anchor>a072e405ea503f6e2a1fc15d3a2818e4f</anchor>
+      <arglist>(SampleType resetToValue=SampleType(0))</arglist>
+    </member>
+    <member kind="variable">
+      <type>Coefficients&lt; SampleType &gt;</type>
+      <name>coefs</name>
+      <anchorfile>classlemons_1_1dsp_1_1filters_1_1_filter.html</anchorfile>
+      <anchor>aa2a2553de95ae712e5d0e74599dd908b</anchor>
+      <arglist></arglist>
     </member>
   </compound>
   <compound kind="struct">
@@ -12758,17 +13002,6 @@
     </member>
   </compound>
   <compound kind="struct">
-    <name>lemons::plugin::ParameterList::Listener</name>
-    <filename>structlemons_1_1plugin_1_1_parameter_list_1_1_listener.html</filename>
-    <member kind="function">
-      <type></type>
-      <name>Listener</name>
-      <anchorfile>structlemons_1_1plugin_1_1_parameter_list_1_1_listener.html</anchorfile>
-      <anchor>a76d5ccfde8d54f8785397d81d9d99ad6</anchor>
-      <arglist>(const ParameterList &amp;list, std::function&lt; void(Parameter &amp;)&gt; onParamValueChange, std::function&lt; void(Parameter &amp;)&gt; onParamDefaultChange=nullptr, std::function&lt; void(Parameter &amp;, bool)&gt; onParamGestureGhange=nullptr, std::function&lt; void(Parameter &amp;)&gt; onParamControllerChange=nullptr)</arglist>
-    </member>
-  </compound>
-  <compound kind="struct">
     <name>lemons::DeviceMotion::Listener</name>
     <filename>structlemons_1_1_device_motion_1_1_listener.html</filename>
     <member kind="function">
@@ -12883,6 +13116,17 @@
       <anchorfile>structlemons_1_1plugin_1_1_parameter_1_1_listener.html</anchorfile>
       <anchor>ac230d1860fb4068115e7d10285b27669</anchor>
       <arglist>(float newNormalizedValue)</arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>lemons::plugin::ParameterList::Listener</name>
+    <filename>structlemons_1_1plugin_1_1_parameter_list_1_1_listener.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>Listener</name>
+      <anchorfile>structlemons_1_1plugin_1_1_parameter_list_1_1_listener.html</anchorfile>
+      <anchor>a76d5ccfde8d54f8785397d81d9d99ad6</anchor>
+      <arglist>(const ParameterList &amp;list, std::function&lt; void(Parameter &amp;)&gt; onParamValueChange, std::function&lt; void(Parameter &amp;)&gt; onParamDefaultChange=nullptr, std::function&lt; void(Parameter &amp;, bool)&gt; onParamGestureGhange=nullptr, std::function&lt; void(Parameter &amp;)&gt; onParamControllerChange=nullptr)</arglist>
     </member>
   </compound>
   <compound kind="struct">
@@ -14571,6 +14815,7 @@
     <name>lemons::dsp::synth::MidiManager</name>
     <filename>classlemons_1_1dsp_1_1synth_1_1_midi_manager.html</filename>
     <templarg></templarg>
+    <base>lemons::midi::ChoppingProcessor</base>
     <class kind="class">lemons::dsp::synth::MidiManager::MidiRouter</class>
     <member kind="function">
       <type></type>
@@ -14578,6 +14823,27 @@
       <anchorfile>classlemons_1_1dsp_1_1synth_1_1_midi_manager.html</anchorfile>
       <anchor>ac38ef31856062e873dc5d78737e9de23</anchor>
       <arglist>(SynthBase&lt; SampleType &gt; &amp;s)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>prepare</name>
+      <anchorfile>classlemons_1_1midi_1_1_chopping_processor.html</anchorfile>
+      <anchor>a1e63bc9193900339c4fdc6c4dfa9eaca</anchor>
+      <arglist>(int maxBlocksize)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>process</name>
+      <anchorfile>classlemons_1_1midi_1_1_chopping_processor.html</anchorfile>
+      <anchor>a0329d8e848c6ee0f9fc223de4b1ffc4d</anchor>
+      <arglist>(AudioBuffer&lt; SampleType &gt; &amp;audio, MidiBuffer &amp;midi)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>releaseResources</name>
+      <anchorfile>classlemons_1_1midi_1_1_chopping_processor.html</anchorfile>
+      <anchor>a9e1648183dc2d7f59bca1e077993fdf0</anchor>
+      <arglist>()</arglist>
     </member>
     <member kind="variable">
       <type>MidiRouter</type>
@@ -18131,6 +18397,59 @@
       <arglist></arglist>
     </member>
   </compound>
+  <compound kind="struct">
+    <name>lemons::plugin::PluginMetadata</name>
+    <filename>structlemons_1_1plugin_1_1_plugin_metadata.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>PluginMetadata</name>
+      <anchorfile>structlemons_1_1plugin_1_1_plugin_metadata.html</anchorfile>
+      <anchor>aca1c090733b82f27b31949f6f837ae53</anchor>
+      <arglist>()=default</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>PluginMetadata</name>
+      <anchorfile>structlemons_1_1plugin_1_1_plugin_metadata.html</anchorfile>
+      <anchor>a0567475aceea866d4aee8d2dffe341b1</anchor>
+      <arglist>(const ProcessorAttributes &amp;processorAttributesToUse, const ParameterLayout &amp;parameterLayoutToUse, const EditorAttributes &amp;editorAttributesToUse)</arglist>
+    </member>
+    <member kind="function">
+      <type>ValueTree</type>
+      <name>toValueTree</name>
+      <anchorfile>structlemons_1_1plugin_1_1_plugin_metadata.html</anchorfile>
+      <anchor>aa7fe9eef44cf9b2a73cafcf46bc823fe</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static PluginMetadata</type>
+      <name>fromValueTree</name>
+      <anchorfile>structlemons_1_1plugin_1_1_plugin_metadata.html</anchorfile>
+      <anchor>a39de0dca4736474253752c1f6816930f</anchor>
+      <arglist>(const ValueTree &amp;tree)</arglist>
+    </member>
+    <member kind="variable">
+      <type>EditorAttributes</type>
+      <name>editorAttributes</name>
+      <anchorfile>structlemons_1_1plugin_1_1_plugin_metadata.html</anchorfile>
+      <anchor>aa59f1484d23cd6e9dba754172d3a12c7</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>ParameterLayout</type>
+      <name>parameterLayout</name>
+      <anchorfile>structlemons_1_1plugin_1_1_plugin_metadata.html</anchorfile>
+      <anchor>ace0ea917040243e6fc8adbe7591d4918</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>ProcessorAttributes</type>
+      <name>processorAttributes</name>
+      <anchorfile>structlemons_1_1plugin_1_1_plugin_metadata.html</anchorfile>
+      <anchor>af7e609fb6a2680967f85ee9f7e38ec80</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
   <compound kind="class">
     <name>lemons::gui::Popup</name>
     <filename>classlemons_1_1gui_1_1_popup.html</filename>
@@ -18231,6 +18550,13 @@
       <anchor>abf03b92410766c2112bba4cd7236b484</anchor>
       <arglist></arglist>
     </member>
+    <member kind="typedef">
+      <type>juce::AudioProcessor::BusProperties</type>
+      <name>BusProperties</name>
+      <anchorfile>classlemons_1_1plugin_1_1_basic_processor.html</anchorfile>
+      <anchor>a75ed0370c7a3130fbac41ac11ca1f4ef</anchor>
+      <arglist></arglist>
+    </member>
     <member kind="function">
       <type></type>
       <name>Processor</name>
@@ -18239,10 +18565,17 @@
       <arglist>(const BusesProperties &amp;busesLayout=getDefaultBusesLayout(), const ProcessorAttributes &amp;attributes=ProcessorAttributes::fromProjectDefines())</arglist>
     </member>
     <member kind="function">
-      <type>const ProcessorAttributes &amp;</type>
+      <type></type>
+      <name>Processor</name>
+      <anchorfile>classlemons_1_1plugin_1_1_processor.html</anchorfile>
+      <anchor>aabbb8bde53a7e05037e68252a15be574</anchor>
+      <arglist>(const PluginMetadata &amp;metadata)</arglist>
+    </member>
+    <member kind="function">
+      <type>ProcessorAttributes</type>
       <name>getAttributes</name>
       <anchorfile>classlemons_1_1plugin_1_1_processor_base.html</anchorfile>
-      <anchor>abdd2b947b1f7c377f3e0bffecca7dfd5</anchor>
+      <anchor>af8ae6ca1c4d7ee8db314f7da4f82fdf6</anchor>
       <arglist>() const noexcept</arglist>
     </member>
     <member kind="function">
@@ -18280,13 +18613,6 @@
       <anchor>a5113130e547ceaeeb43fdeb856062a33</anchor>
       <arglist>()</arglist>
     </member>
-    <member kind="typedef" protection="protected">
-      <type>StateType</type>
-      <name>PluginStateType</name>
-      <anchorfile>classlemons_1_1plugin_1_1_processor.html</anchorfile>
-      <anchor>abf84e05084ec91dcad379b7e6fc0272c</anchor>
-      <arglist></arglist>
-    </member>
     <member kind="function" protection="protected">
       <type>void</type>
       <name>callEditorMethod</name>
@@ -18301,6 +18627,27 @@
       <anchor>ac6e8eacfeda348419aa05cbfb338198c</anchor>
       <arglist>() const</arglist>
     </member>
+    <member kind="function" protection="protected" static="yes">
+      <type>static BusesProperties</type>
+      <name>busesPropertiesFromValueTree</name>
+      <anchorfile>classlemons_1_1plugin_1_1_basic_processor.html</anchorfile>
+      <anchor>a7dbd2725134a33bbf9a97660bf7d3a69</anchor>
+      <arglist>(const ValueTree &amp;tree)</arglist>
+    </member>
+    <member kind="function" protection="protected" static="yes">
+      <type>static ValueTree</type>
+      <name>busesPropertiesToValueTree</name>
+      <anchorfile>classlemons_1_1plugin_1_1_basic_processor.html</anchorfile>
+      <anchor>a3edb9916845558dde0dbbeb22dcb5fd4</anchor>
+      <arglist>(const BusesProperties &amp;properties)</arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>const EditorAttributes</type>
+      <name>editorAttributes</name>
+      <anchorfile>classlemons_1_1plugin_1_1_processor.html</anchorfile>
+      <anchor>a9a0dfc73cdcc69e6919b08ca16dc6a27</anchor>
+      <arglist></arglist>
+    </member>
     <member kind="variable" protection="protected">
       <type>StateType</type>
       <name>pluginState</name>
@@ -18313,11 +18660,11 @@
     <name>lemons::plugin::ProcessorAttributes</name>
     <filename>structlemons_1_1plugin_1_1_processor_attributes.html</filename>
     <member kind="function">
-      <type>void</type>
-      <name>fromValueTree</name>
+      <type></type>
+      <name>ProcessorAttributes</name>
       <anchorfile>structlemons_1_1plugin_1_1_processor_attributes.html</anchorfile>
-      <anchor>a609d1dd2bc8eaa72445e9df2c205af63</anchor>
-      <arglist>(const ValueTree &amp;tree)</arglist>
+      <anchor>a8df78ec479b1c55bd6bca2e714bbfe5c</anchor>
+      <arglist>()=default</arglist>
     </member>
     <member kind="function">
       <type>ValueTree</type>
@@ -18326,12 +18673,26 @@
       <anchor>ad403b31abf2759254c7f44f3738e0c7b</anchor>
       <arglist>() const</arglist>
     </member>
+    <member kind="function">
+      <type>ProcessorAttributes</type>
+      <name>withDefaultBuses</name>
+      <anchorfile>structlemons_1_1plugin_1_1_processor_attributes.html</anchorfile>
+      <anchor>a05a90f464a9f8d69cc461d3ab42789bb</anchor>
+      <arglist>(const ValueTree &amp;defaultBusInfo) const</arglist>
+    </member>
     <member kind="function" static="yes">
       <type>static ProcessorAttributes</type>
       <name>fromProjectDefines</name>
       <anchorfile>structlemons_1_1plugin_1_1_processor_attributes.html</anchorfile>
       <anchor>ac2f50da82c87f3f07cfe01b296f96c49</anchor>
       <arglist>()</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static ProcessorAttributes</type>
+      <name>fromValueTree</name>
+      <anchorfile>structlemons_1_1plugin_1_1_processor_attributes.html</anchorfile>
+      <anchor>a51182e2700ada9151dea81fd84c7a5c2</anchor>
+      <arglist>(const ValueTree &amp;tree)</arglist>
     </member>
     <member kind="variable">
       <type>bool</type>
@@ -18345,6 +18706,13 @@
       <name>alternateNames</name>
       <anchorfile>structlemons_1_1plugin_1_1_processor_attributes.html</anchorfile>
       <anchor>a96ca10d6d2be566987682005f4c7d62e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>ValueTree</type>
+      <name>defaultBusesLayout</name>
+      <anchorfile>structlemons_1_1plugin_1_1_processor_attributes.html</anchorfile>
+      <anchor>a23cd8fa5e5dc8a2136e90e5306103b56</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
@@ -18382,6 +18750,20 @@
       <anchor>abd62469e4e1ca948ec91cbf8d2c89373</anchor>
       <arglist></arglist>
     </member>
+    <member kind="variable" static="yes">
+      <type>static constexpr auto</type>
+      <name>defaultBusesLayoutProp</name>
+      <anchorfile>structlemons_1_1plugin_1_1_processor_attributes.html</anchorfile>
+      <anchor>a9a6251d61a6306d91c4eabc719c6a503</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type>static constexpr auto</type>
+      <name>valueTreeType</name>
+      <anchorfile>structlemons_1_1plugin_1_1_processor_attributes.html</anchorfile>
+      <anchor>a665907c6cfaca64832ab2f8cc3474150</anchor>
+      <arglist></arglist>
+    </member>
   </compound>
   <compound kind="class">
     <name>lemons::plugin::ProcessorBase</name>
@@ -18394,6 +18776,13 @@
       <anchor>abf03b92410766c2112bba4cd7236b484</anchor>
       <arglist></arglist>
     </member>
+    <member kind="typedef">
+      <type>juce::AudioProcessor::BusProperties</type>
+      <name>BusProperties</name>
+      <anchorfile>classlemons_1_1plugin_1_1_basic_processor.html</anchorfile>
+      <anchor>a75ed0370c7a3130fbac41ac11ca1f4ef</anchor>
+      <arglist></arglist>
+    </member>
     <member kind="function">
       <type></type>
       <name>ProcessorBase</name>
@@ -18402,10 +18791,17 @@
       <arglist>(dsp::Engine&lt; float &gt; &amp;floatEngineToUse, dsp::Engine&lt; double &gt; &amp;doubleEngineToUse, State &amp;stateToUse, const BusesProperties &amp;busesLayout=getDefaultBusesLayout(), const ProcessorAttributes &amp;attributes=ProcessorAttributes::fromProjectDefines())</arglist>
     </member>
     <member kind="function">
-      <type>const ProcessorAttributes &amp;</type>
+      <type></type>
+      <name>ProcessorBase</name>
+      <anchorfile>classlemons_1_1plugin_1_1_processor_base.html</anchorfile>
+      <anchor>aa20e1a7f8788cd3e07288e12a4661205</anchor>
+      <arglist>(dsp::Engine&lt; float &gt; &amp;floatEngineToUse, dsp::Engine&lt; double &gt; &amp;doubleEngineToUse, State &amp;stateToUse, const ProcessorAttributes &amp;attributes)</arglist>
+    </member>
+    <member kind="function">
+      <type>ProcessorAttributes</type>
       <name>getAttributes</name>
       <anchorfile>classlemons_1_1plugin_1_1_processor_base.html</anchorfile>
-      <anchor>abdd2b947b1f7c377f3e0bffecca7dfd5</anchor>
+      <anchor>af8ae6ca1c4d7ee8db314f7da4f82fdf6</anchor>
       <arglist>() const noexcept</arglist>
     </member>
     <member kind="function">
@@ -18456,6 +18852,20 @@
       <anchorfile>classlemons_1_1plugin_1_1_basic_processor.html</anchorfile>
       <anchor>ac6e8eacfeda348419aa05cbfb338198c</anchor>
       <arglist>() const</arglist>
+    </member>
+    <member kind="function" protection="protected" static="yes">
+      <type>static BusesProperties</type>
+      <name>busesPropertiesFromValueTree</name>
+      <anchorfile>classlemons_1_1plugin_1_1_basic_processor.html</anchorfile>
+      <anchor>a7dbd2725134a33bbf9a97660bf7d3a69</anchor>
+      <arglist>(const ValueTree &amp;tree)</arglist>
+    </member>
+    <member kind="function" protection="protected" static="yes">
+      <type>static ValueTree</type>
+      <name>busesPropertiesToValueTree</name>
+      <anchorfile>classlemons_1_1plugin_1_1_basic_processor.html</anchorfile>
+      <anchor>a3edb9916845558dde0dbbeb22dcb5fd4</anchor>
+      <arglist>(const BusesProperties &amp;properties)</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -22098,19 +22508,18 @@
   <compound kind="struct">
     <name>lemons::events::TimerCallback</name>
     <filename>structlemons_1_1events_1_1_timer_callback.html</filename>
-    <templarg></templarg>
     <member kind="function">
       <type></type>
       <name>TimerCallback</name>
       <anchorfile>structlemons_1_1events_1_1_timer_callback.html</anchorfile>
-      <anchor>ad407c38f7cc06ecd141eaac5e9ec9052</anchor>
-      <arglist>(FunctionType &amp;&amp;callbackToUse, int rateInMs=100, bool start=true)</arglist>
+      <anchor>a05c7a4561e067fa7a8a13568c8c7ebaa</anchor>
+      <arglist>(std::function&lt; void()&gt; &amp;&amp;callbackToUse, int rateInMs=100, bool start=true)</arglist>
     </member>
     <member kind="function">
       <type></type>
       <name>~TimerCallback</name>
       <anchorfile>structlemons_1_1events_1_1_timer_callback.html</anchorfile>
-      <anchor>a941b01ce2a6e0d0b3e7e8c5b9a7c2916</anchor>
+      <anchor>a54a7163544ed3d48c03d64349a9ef8d0</anchor>
       <arglist>() final</arglist>
     </member>
   </compound>
@@ -23936,6 +24345,24 @@
     </member>
   </compound>
   <compound kind="struct">
+    <name>juce::VariantConverter&lt; AudioChannelSet &gt;</name>
+    <filename>structjuce_1_1_variant_converter_3_01_audio_channel_set_01_4.html</filename>
+    <member kind="function" static="yes">
+      <type>static AudioChannelSet</type>
+      <name>fromVar</name>
+      <anchorfile>structjuce_1_1_variant_converter_3_01_audio_channel_set_01_4.html</anchorfile>
+      <anchor>a40743f106f2ca34dd9b22aad71f99233</anchor>
+      <arglist>(const var &amp;v)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static var</type>
+      <name>toVar</name>
+      <anchorfile>structjuce_1_1_variant_converter_3_01_audio_channel_set_01_4.html</anchorfile>
+      <anchor>aefc06233561c8064bdcb2e546245202b</anchor>
+      <arglist>(const AudioChannelSet &amp;s)</arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
     <name>juce::VariantConverter&lt; BigInteger &gt;</name>
     <filename>structjuce_1_1_variant_converter_3_01_big_integer_01_4.html</filename>
     <member kind="function" static="yes">
@@ -24647,6 +25074,7 @@
     <class kind="struct">juce::VariantConverter&lt; ADSR::Parameters &gt;</class>
     <class kind="struct">juce::VariantConverter&lt; AudioBuffer&lt; double &gt; &gt;</class>
     <class kind="struct">juce::VariantConverter&lt; AudioBuffer&lt; float &gt; &gt;</class>
+    <class kind="struct">juce::VariantConverter&lt; AudioChannelSet &gt;</class>
     <class kind="struct">juce::VariantConverter&lt; BigInteger &gt;</class>
     <class kind="struct">juce::VariantConverter&lt; Colour &gt;</class>
     <class kind="struct">juce::VariantConverter&lt; DynamicObject &gt;</class>
@@ -24784,6 +25212,13 @@
       <arglist>(const String &amp;fileName)</arglist>
     </member>
     <member kind="function">
+      <type>plugin::PluginMetadata</type>
+      <name>getPluginMetadata</name>
+      <anchorfile>namespacelemons_1_1binary.html</anchorfile>
+      <anchor>a482ca5ce1b610a09b239221ef21eec9b</anchor>
+      <arglist>(const String &amp;filename)</arglist>
+    </member>
+    <member kind="function">
       <type>plugin::ProcessorAttributes</type>
       <name>getProcessorAttributes</name>
       <anchorfile>namespacelemons_1_1binary.html</anchorfile>
@@ -24846,6 +25281,13 @@
     <class kind="class">lemons::dsp::SynthVoiceBase</class>
     <class kind="struct">lemons::dsp::TemplateSynth</class>
     <class kind="class">lemons::dsp::WhiteNoiseGenerator</class>
+    <member kind="typedef">
+      <type>juce::Array&lt; T &gt;</type>
+      <name>Array</name>
+      <anchorfile>namespacelemons_1_1dsp.html</anchorfile>
+      <anchor>afbf63004526f79ec914e0c85dbeea273</anchor>
+      <arglist></arglist>
+    </member>
     <member kind="typedef">
       <type>juce::AudioBuffer&lt; SampleType &gt;</type>
       <name>AudioBuffer</name>
@@ -24982,6 +25424,13 @@
     <class kind="class">lemons::dsp::synth::TimbreMod</class>
     <class kind="class">lemons::dsp::synth::VoiceAllocator</class>
     <member kind="typedef">
+      <type>juce::Array&lt; T &gt;</type>
+      <name>Array</name>
+      <anchorfile>namespacelemons_1_1dsp_1_1synth.html</anchorfile>
+      <anchor>a25f09c9ab678ada7cc60d608e60fc3e5</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="typedef">
       <type>OscSynth&lt; SampleType, osc::Saw &gt;</type>
       <name>Saw</name>
       <anchorfile>namespacelemons_1_1dsp_1_1synth.html</anchorfile>
@@ -25106,6 +25555,13 @@
       <arglist>(const File &amp;file)</arglist>
     </member>
     <member kind="function">
+      <type>plugin::PluginMetadata</type>
+      <name>loadPluginMetadata</name>
+      <anchorfile>namespacelemons_1_1files.html</anchorfile>
+      <anchor>accd4f10eb1f43bebed6a54925091420b</anchor>
+      <arglist>(const File &amp;file)</arglist>
+    </member>
+    <member kind="function">
       <type>plugin::ProcessorAttributes</type>
       <name>loadProcessorAttributes</name>
       <anchorfile>namespacelemons_1_1files.html</anchorfile>
@@ -25174,6 +25630,13 @@
       <anchorfile>namespacelemons_1_1files.html</anchorfile>
       <anchor>a5f6319cc91a208675723796f54ec303b</anchor>
       <arglist>(const plugin::ParameterLayout &amp;layout, const File &amp;file)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>savePluginMetadata</name>
+      <anchorfile>namespacelemons_1_1files.html</anchorfile>
+      <anchor>a50cc46e369de9136fb3f11a13b0fdc1b</anchor>
+      <arglist>(const plugin::PluginMetadata &amp;layout, const File &amp;file)</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
@@ -25464,6 +25927,7 @@
     <class kind="class">lemons::plugin::BasicProcessor</class>
     <class kind="struct">lemons::plugin::BoolParameter</class>
     <class kind="class">lemons::plugin::Editor</class>
+    <class kind="struct">lemons::plugin::EditorAttributes</class>
     <class kind="struct">lemons::plugin::FloatAmountParameter</class>
     <class kind="struct">lemons::plugin::FrequencyParameter</class>
     <class kind="struct">lemons::plugin::GainMeterParameter</class>
@@ -25481,6 +25945,7 @@
     <class kind="class">lemons::plugin::ParameterList</class>
     <class kind="struct">lemons::plugin::ParameterTraits</class>
     <class kind="struct">lemons::plugin::PercentParameter</class>
+    <class kind="struct">lemons::plugin::PluginMetadata</class>
     <class kind="class">lemons::plugin::PresetBar</class>
     <class kind="class">lemons::plugin::Processor</class>
     <class kind="struct">lemons::plugin::ProcessorAttributes</class>
@@ -25667,6 +26132,20 @@
       <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
       <anchor>adf7966056fb84074c7d8acfafad74af2</anchor>
       <arglist>(const AudioBuffer&lt; SampleType &gt; &amp;buffer, double samplerate=48000.)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::AudioChannelSet</type>
+      <name>channelSetFromValueTree</name>
+      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
+      <anchor>a339d1bc2ac82646552da6c53e934da3a</anchor>
+      <arglist>(const ValueTree &amp;tree)</arglist>
+    </member>
+    <member kind="function">
+      <type>ValueTree</type>
+      <name>channelSetToValueTree</name>
+      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
+      <anchor>a994eb15d80d730dac3d8aec7991048de</anchor>
+      <arglist>(const juce::AudioChannelSet &amp;set)</arglist>
     </member>
     <member kind="function">
       <type>std::unique_ptr&lt; juce::CustomTypeface &gt;</type>
@@ -25971,12 +26450,6 @@
     </member>
   </compound>
   <compound kind="group">
-    <name>Apps</name>
-    <title>Apps</title>
-    <filename>group___apps.html</filename>
-    <subgroup>lemons_app_utils</subgroup>
-  </compound>
-  <compound kind="group">
     <name>Audio</name>
     <title>Audio</title>
     <filename>group___audio.html</filename>
@@ -26034,11 +26507,6 @@
     <filename>group___g_u_i.html</filename>
     <subgroup>lemons_gui</subgroup>
     <subgroup>lemons_spline</subgroup>
-  </compound>
-  <compound kind="group">
-    <name>GuiApp</name>
-    <title>GuiApp</title>
-    <filename>group___gui_app.html</filename>
   </compound>
   <compound kind="group">
     <name>ModulationManager</name>
@@ -26115,6 +26583,11 @@
     <class kind="class">lemons::dsp::psola::PitchDetector</class>
   </compound>
   <compound kind="group">
+    <name>app</name>
+    <title>app</title>
+    <filename>group__app.html</filename>
+  </compound>
+  <compound kind="group">
     <name>audio_files</name>
     <title>audio_files</title>
     <filename>group__audio__files.html</filename>
@@ -26188,6 +26661,16 @@
     <namespace>lemons</namespace>
     <namespace>lemons::spline</namespace>
     <class kind="class">lemons::spline::Editor</class>
+  </compound>
+  <compound kind="group">
+    <name>editors</name>
+    <title>editors</title>
+    <filename>group__editors.html</filename>
+    <namespace>lemons</namespace>
+    <namespace>lemons::plugin</namespace>
+    <class kind="class">lemons::plugin::Editor</class>
+    <class kind="struct">lemons::plugin::EditorAttributes</class>
+    <class kind="class">lemons::plugin::GUI</class>
   </compound>
   <compound kind="group">
     <name>engines</name>
@@ -26267,12 +26750,6 @@
     <class kind="struct">lemons::plugin::TypedProcessorHolder</class>
   </compound>
   <compound kind="group">
-    <name>lemons_app_utils</name>
-    <title>lemons_app_utils</title>
-    <filename>group__lemons__app__utils.html</filename>
-    <subgroup>GuiApp</subgroup>
-  </compound>
-  <compound kind="group">
     <name>lemons_audio_effects</name>
     <title>lemons_audio_effects</title>
     <filename>group__lemons__audio__effects.html</filename>
@@ -26311,6 +26788,7 @@
     <name>lemons_gui</name>
     <title>lemons_gui</title>
     <filename>group__lemons__gui.html</filename>
+    <subgroup>app</subgroup>
     <subgroup>components</subgroup>
     <subgroup>device</subgroup>
     <subgroup>unit_tests</subgroup>
@@ -26337,6 +26815,7 @@
     <name>lemons_plugin</name>
     <title>lemons_plugin</title>
     <filename>group__lemons__plugin.html</filename>
+    <subgroup>editors</subgroup>
     <subgroup>hosting</subgroup>
     <subgroup>parameters</subgroup>
     <subgroup>processors</subgroup>
@@ -26532,7 +27011,6 @@
     <class kind="class">lemons::midi::ChoppingProcessor</class>
     <class kind="class">lemons::midi::MidiProcessor</class>
     <class kind="class">lemons::plugin::Processor</class>
-    <class kind="struct">lemons::plugin::ProcessorAttributes</class>
     <class kind="class">lemons::plugin::ProcessorBase</class>
     <class kind="struct">lemons::plugin::ProcessorWithEditor</class>
     <class kind="struct">lemons::plugin::ProcessorWithGenericEditor</class>
@@ -26665,9 +27143,9 @@
     <namespace>lemons::music</namespace>
     <namespace>lemons::plugin</namespace>
     <namespace>lemons::serializing</namespace>
-    <class kind="class">lemons::plugin::Editor</class>
-    <class kind="class">lemons::plugin::GUI</class>
     <class kind="class">lemons::dsp::MonoStereoConverter</class>
+    <class kind="struct">lemons::plugin::PluginMetadata</class>
+    <class kind="struct">lemons::plugin::ProcessorAttributes</class>
     <class kind="class">lemons::dsp::WhiteNoiseGenerator</class>
   </compound>
   <compound kind="group">

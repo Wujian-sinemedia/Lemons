@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['softpedal_2373',['softPedal',['../classlemons_1_1dsp_1_1_synth_base.html#a99921455c45ede8e43c3dcdc30ee0ff7',1,'lemons::dsp::SynthBase']]],
-  ['state_2374',['state',['../structlemons_1_1plugin_1_1_program.html#a79d919546a6a365b319ca5061fa97c65',1,'lemons::plugin::Program::state()'],['../classlemons_1_1plugin_1_1_g_u_i.html#aae19c84eb95b93b6b1cab498bdd5ebec',1,'lemons::plugin::GUI::state()']]],
-  ['supportsmpe_2375',['supportsMPE',['../structlemons_1_1plugin_1_1_processor_attributes.html#ab1c0c1eb3797f7e583cf575cc825300b',1,'lemons::plugin::ProcessorAttributes']]]
+  ['range_2415',['range',['../structlemons_1_1plugin_1_1_parameter_traits.html#a6aa4b42c31ba9593367846837720040f',1,'lemons::plugin::ParameterTraits']]],
+  ['router_2416',['router',['../classlemons_1_1dsp_1_1synth_1_1_midi_manager.html#a1efb522546be99a0b0c0ec95d1ffbec5',1,'lemons::dsp::synth::MidiManager']]]
 ];

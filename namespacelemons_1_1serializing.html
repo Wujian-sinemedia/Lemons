@@ -91,6 +91,10 @@ Functions</h2></td></tr>
 <tr class="memitem:adf7966056fb84074c7d8acfafad74af2"><td class="memTemplItemLeft" align="right" valign="top">MemoryBlock&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html#adf7966056fb84074c7d8acfafad74af2">audioToBinary</a> (const <a class="el" href="namespacelemons_1_1serializing.html#aebcdf9ccc626b6fb5a8dc121e65fec81">AudioBuffer</a>&lt; SampleType &gt; &amp;buffer, double samplerate=48000.)</td></tr>
 <tr class="memdesc:adf7966056fb84074c7d8acfafad74af2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Encodes an AudioBuffer as a blob of binary data.  <a href="namespacelemons_1_1serializing.html#adf7966056fb84074c7d8acfafad74af2">More...</a><br /></td></tr>
 <tr class="separator:adf7966056fb84074c7d8acfafad74af2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a339d1bc2ac82646552da6c53e934da3a"><td class="memItemLeft" align="right" valign="top">juce::AudioChannelSet&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html#a339d1bc2ac82646552da6c53e934da3a">channelSetFromValueTree</a> (const ValueTree &amp;tree)</td></tr>
+<tr class="separator:a339d1bc2ac82646552da6c53e934da3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a994eb15d80d730dac3d8aec7991048de"><td class="memItemLeft" align="right" valign="top">ValueTree&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html#a994eb15d80d730dac3d8aec7991048de">channelSetToValueTree</a> (const juce::AudioChannelSet &amp;set)</td></tr>
+<tr class="separator:a994eb15d80d730dac3d8aec7991048de"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a79aa52c715672cf46f9b529fd58ef564"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; juce::CustomTypeface &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html#a79aa52c715672cf46f9b529fd58ef564">fontFromBinary</a> (const MemoryBlock &amp;block)</td></tr>
 <tr class="separator:a79aa52c715672cf46f9b529fd58ef564"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a30d310f988a2d025e1b89cf636047402"><td class="memItemLeft" align="right" valign="top">MemoryBlock&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html#a30d310f988a2d025e1b89cf636047402">fontToBinary</a> (const juce::Font &amp;font, int maxNumChars=127, juce_wchar defaultChar=' ')</td></tr>
@@ -203,6 +207,42 @@ template&lt;typename SampleType &gt; </div>
 
 <p>Encodes an AudioBuffer as a blob of binary data. </p>
 <p>Note that the sample rate may be optionally specified. Internally, this uses JUCE's FlacAudioFormat. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="namespacelemons_1_1serializing.html#ab642a13438e30137d80cb0842d314f7b" title="Returns an AudioBuffer from a binary representation of one.">audioFromBinary()</a>, saveAudioToFile() </dd></dl>
+
+</div>
+</div>
+<a id="a339d1bc2ac82646552da6c53e934da3a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a339d1bc2ac82646552da6c53e934da3a">&#9670;&nbsp;</a></span>channelSetFromValueTree()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">juce::AudioChannelSet lemons::serializing::channelSetFromValueTree </td>
+          <td>(</td>
+          <td class="paramtype">const ValueTree &amp;&#160;</td>
+          <td class="paramname"><em>tree</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a994eb15d80d730dac3d8aec7991048de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a994eb15d80d730dac3d8aec7991048de">&#9670;&nbsp;</a></span>channelSetToValueTree()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ValueTree lemons::serializing::channelSetToValueTree </td>
+          <td>(</td>
+          <td class="paramtype">const juce::AudioChannelSet &amp;&#160;</td>
+          <td class="paramname"><em>set</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -511,7 +551,7 @@ template&lt;typename ValueType &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jan 2 2022 13:08:31 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jan 2 2022 16:16:17 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

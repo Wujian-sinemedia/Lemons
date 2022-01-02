@@ -24,9 +24,12 @@ var searchData=
   ['bumpminor_78',['bumpMinor',['../structlemons_1_1_version.html#abc6b9609562d8f6ea37b71bdc1d6b366',1,'lemons::Version']]],
   ['bumppatch_79',['bumpPatch',['../structlemons_1_1_version.html#ab01ffcc37bd2c9e5cc355d891afc32d3',1,'lemons::Version']]],
   ['busesproperties_80',['BusesProperties',['../classlemons_1_1plugin_1_1_basic_processor.html#abf03b92410766c2112bba4cd7236b484',1,'lemons::plugin::BasicProcessor']]],
-  ['buttons_81',['buttons',['../group__buttons.html',1,'']]],
-  ['bvbrandflags_82',['BVBrandFlags',['../_b_v_brand_flags.html',1,'']]],
-  ['bvbrandflags_2emd_83',['BVBrandFlags.md',['../_b_v_brand_flags_8md.html',1,'']]],
-  ['bypassedblock_84',['bypassedBlock',['../structlemons_1_1dsp_1_1_f_x_1_1_audio_effect.html#a0e2734ec1b7a89c566cbd2fe9b3592c8',1,'lemons::dsp::FX::AudioEffect::bypassedBlock()'],['../classlemons_1_1dsp_1_1_f_x_1_1_smoothed_gain.html#a8335b506c3444b98f063652352100d65',1,'lemons::dsp::FX::SmoothedGain::bypassedBlock()'],['../classlemons_1_1dsp_1_1_synth_base.html#a56641cc1e3f530f450c37855553d403e',1,'lemons::dsp::SynthBase::bypassedBlock()'],['../classlemons_1_1dsp_1_1_synth_voice_base.html#a41811700a1db4d05074f7e4717201b64',1,'lemons::dsp::SynthVoiceBase::bypassedBlock()']]],
-  ['bypassedblockrecieved_85',['bypassedBlockRecieved',['../classlemons_1_1dsp_1_1_synth_voice_base.html#a66792c4e9f40d929865adb20d7d7a6aa',1,'lemons::dsp::SynthVoiceBase']]]
+  ['busespropertiesfromvaluetree_81',['busesPropertiesFromValueTree',['../classlemons_1_1plugin_1_1_basic_processor.html#a7dbd2725134a33bbf9a97660bf7d3a69',1,'lemons::plugin::BasicProcessor']]],
+  ['busespropertiestovaluetree_82',['busesPropertiesToValueTree',['../classlemons_1_1plugin_1_1_basic_processor.html#a3edb9916845558dde0dbbeb22dcb5fd4',1,'lemons::plugin::BasicProcessor']]],
+  ['busproperties_83',['BusProperties',['../classlemons_1_1plugin_1_1_basic_processor.html#a75ed0370c7a3130fbac41ac11ca1f4ef',1,'lemons::plugin::BasicProcessor']]],
+  ['buttons_84',['buttons',['../group__buttons.html',1,'']]],
+  ['bvbrandflags_85',['BVBrandFlags',['../_b_v_brand_flags.html',1,'']]],
+  ['bvbrandflags_2emd_86',['BVBrandFlags.md',['../_b_v_brand_flags_8md.html',1,'']]],
+  ['bypassedblock_87',['bypassedBlock',['../structlemons_1_1dsp_1_1_f_x_1_1_audio_effect.html#a0e2734ec1b7a89c566cbd2fe9b3592c8',1,'lemons::dsp::FX::AudioEffect::bypassedBlock()'],['../classlemons_1_1dsp_1_1_f_x_1_1_smoothed_gain.html#a8335b506c3444b98f063652352100d65',1,'lemons::dsp::FX::SmoothedGain::bypassedBlock()'],['../classlemons_1_1dsp_1_1_synth_base.html#a56641cc1e3f530f450c37855553d403e',1,'lemons::dsp::SynthBase::bypassedBlock()'],['../classlemons_1_1dsp_1_1_synth_voice_base.html#a41811700a1db4d05074f7e4717201b64',1,'lemons::dsp::SynthVoiceBase::bypassedBlock()']]],
+  ['bypassedblockrecieved_88',['bypassedBlockRecieved',['../classlemons_1_1dsp_1_1_synth_voice_base.html#a66792c4e9f40d929865adb20d7d7a6aa',1,'lemons::dsp::SynthVoiceBase']]]
 ];
