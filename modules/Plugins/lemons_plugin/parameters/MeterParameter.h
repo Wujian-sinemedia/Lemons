@@ -51,7 +51,7 @@ struct MeterParameter : public FloatParameter
  This can be used to report level or gain reduction.
  @see MeterParameter
  */
-struct GainMeterParameter : public MeterParameter
+struct GainMeterParameter final : public MeterParameter
 {
 	/** Creates a new gain meter parameter.
 	 @param paramName The name of this parameter.

@@ -117,9 +117,14 @@ MidiBuffer loadMidiBufferFromFile (const File& file)
 namespace lemons::binary
 {
 
-juce::MidiFile getMidi (const String& midiFileName)
+juce::MidiFile getMidiFile (const String& midiFileName)
 {
-    return serializing::midiFileFromBinary (Data::getBlob (midiFileName));
+    return serializing::midiFileFromBinary (getBlob (midiFileName));
+}
+
+juce::MidiBuffer getMidiBuffer (const String& midiFileName)
+{
+    return serializing::midiBufferFromBinary (getBlob (midiFileName));
 }
 
 }

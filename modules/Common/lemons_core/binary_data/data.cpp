@@ -28,7 +28,7 @@ Data::Data (const String& fileToFind)
 #if LEMONS_HAS_BINARY_DATA
 	data = [&]() -> const char*
 	{
-		using namespace LEMONS_BINARY_DATA_NAMESPACE;
+		using namespace BinaryData;
 
 		const auto utf8 = fileToFind.toRawUTF8();
 
@@ -44,15 +44,6 @@ Data::Data (const String& fileToFind)
 	}();
 #else
 	juce::ignoreUnused (fileToFind);
-#endif
-}
-
-constexpr bool Data::hasBinaryData() noexcept
-{
-#if LEMONS_HAS_BINARY_DATA
-	return true;
-#else
-	return false;
 #endif
 }
 
@@ -90,8 +81,33 @@ MemoryBlock Data::getAsMemoryBlock() const
 
 /*------------------------------------------------------------------------------------*/
 
+constexpr bool hasBinaryData() noexcept
+{
+#if LEMONS_HAS_BINARY_DATA
+    return true;
+#else
+    return false;
+#endif
+}
 
-MemoryBlock Data::getBlob (const String& filename)
+juce::StringArray getFilenames()
+{
+    juce::StringArray filenames;
+    
+#if LEMONS_HAS_BINARY_DATA
+    
+    using namespace BinaryData;
+    
+    for (int index = 0; index < namedResourceListSize; ++index)
+    {
+        filenames.add (originalFilenames[index]);
+    }
+#endif
+    
+    return filenames;
+}
+
+MemoryBlock getBlob (const String& filename)
 {
 	const Data d { filename };
 
@@ -101,17 +117,17 @@ MemoryBlock Data::getBlob (const String& filename)
 }
 
 template <files::FileType Type>
-ValueTree Data::getValueTree (const String& filename)
+ValueTree getValueTree (const String& filename)
 {
 	return files::loadValueTree<Type> (getString (filename));
 }
 
-template ValueTree Data::getValueTree<files::FileType::XML> (const String&);
-template ValueTree Data::getValueTree<files::FileType::JSON> (const String&);
-template ValueTree Data::getValueTree<files::FileType::Opaque> (const String&);
+template ValueTree getValueTree<files::FileType::XML> (const String&);
+template ValueTree getValueTree<files::FileType::JSON> (const String&);
+template ValueTree getValueTree<files::FileType::Opaque> (const String&);
 
 
-String Data::getString (const String& textFileName)
+String getString (const String& textFileName)
 {
 	const Data d { textFileName };
 
@@ -120,7 +136,7 @@ String Data::getString (const String& textFileName)
 	return d.getAsString();
 }
 
-juce::StringArray Data::getStrings (const String& textFileName)
+juce::StringArray getStrings (const String& textFileName)
 {
 	return juce::StringArray::fromTokens (getString (textFileName), "\n\r\n", "");
 }

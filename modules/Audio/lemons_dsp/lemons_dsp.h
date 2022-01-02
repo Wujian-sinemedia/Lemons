@@ -28,7 +28,7 @@ description:        DSP/audio utilities and effects
 website:            http://benthevining.github.io/Lemons/
 license:            GPL-3.0
 minimumCppStandard: 17
-dependencies:       lemons_midi juce_audio_processors juce_audio_formats
+dependencies:       lemons_midi juce_audio_formats
 
 END_JUCE_MODULE_DECLARATION
 

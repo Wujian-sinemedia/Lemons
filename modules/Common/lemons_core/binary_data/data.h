@@ -38,10 +38,10 @@ using juce::ValueTree;
     @endcode
     If your project doesn't define the LEMONS_HAS_BINARY_DATA macro to 1, every Data object you create will be invalid. \n
 
-    To easily access binary data converted into higher level types, several static methods are provided. These methods all throw assertions if the data cannot be loaded. \n
+    To easily access binary data converted into higher level types, several free functions are provided in this namespace. These methods all throw assertions if the data cannot be loaded. \n
     For example:
     @code
-    auto image = Data::getImage ("myImage.jpg");
+    auto image = binary::getImage ("myImage.jpg");
     @endcode
  */
 struct Data final
@@ -67,42 +67,49 @@ struct Data final
 	/** Return the size of the data, in bytes. */
     [[nodiscard]] int getSize() const noexcept;
 
-	/** Returns true if this module was compiled with the LEMONS_HAS_BINARY_DATA flag set to 1.
-	    If this returns false, every Data object you create will be invalid.
-	 */
-	[[nodiscard]] static constexpr bool hasBinaryData() noexcept;
-
-	/** Returns an opaque blob of binary data from a file in the BinaryData target.
-	    If the data can't be loaded, an assertion will be thrown.
-	    @see files::loadFileAsBlock(), files::saveBlockToFile()
-	 */
-	[[nodiscard]] static MemoryBlock getBlob (const String& filename);
-
-	/** Returns a ValueTree from a serialized file in the BinaryData target in the specified format. The default format is JSON.
-	    If the data can't be loaded, an assertion will be thrown.
-	    @see files::loadValueTree(), files::saveValueTree()
-	 */
-	template <files::FileType Type = files::FileType::JSON>
-	[[nodiscard]] static ValueTree getValueTree (const String& filename);
-
-	/** Returns a text file in the BinaryData target as one string.
-	    If the data can't be loaded, an assertion will be thrown.
-	    @see getStrings()
-	 */
-	[[nodiscard]] static String getString (const String& textFileName);
-
-	/** Returns an array of strings, each containing a line of a text file in the BinaryData target.
-	    This loads the file as a string and parses it into tokens using line break and carriage return characters.
-	    If the file can't be loaded, an assertion will be thrown.
-	    @see getString()
-	 */
-	[[nodiscard]] static juce::StringArray getStrings (const String& textFileName);
-
 private:
     const char* data { nullptr };
     
     int size { 0 };
 };
+
+
+/** Returns true if this module was compiled with the LEMONS_HAS_BINARY_DATA flag set to 1.
+    If this returns false, every Data object you create will be invalid.
+ */
+[[nodiscard]] constexpr bool hasBinaryData() noexcept;
+
+
+/** Returns a list of file names that are available in the binary data target, ie, filenames that are valid arguments to the Data constructor.
+ */
+[[nodiscard]] juce::StringArray getFilenames();
+
+
+/** Returns an opaque blob of binary data from a file in the BinaryData target.
+    If the data can't be loaded, an assertion will be thrown.
+    @see files::loadFileAsBlock(), files::saveBlockToFile()
+ */
+[[nodiscard]] MemoryBlock getBlob (const String& filename);
+
+/** Returns a ValueTree from a serialized file in the BinaryData target in the specified format. The default format is JSON.
+    If the data can't be loaded, an assertion will be thrown.
+    @see files::loadValueTree(), files::saveValueTree()
+ */
+template <files::FileType Type = files::FileType::JSON>
+[[nodiscard]] ValueTree getValueTree (const String& filename);
+
+/** Returns a text file in the BinaryData target as one string.
+    If the data can't be loaded, an assertion will be thrown.
+    @see getStrings()
+ */
+[[nodiscard]] String getString (const String& textFileName);
+
+/** Returns an array of strings, each containing a line of a text file in the BinaryData target.
+    This loads the file as a string and parses it into tokens using line break and carriage return characters.
+    If the file can't be loaded, an assertion will be thrown.
+    @see getString()
+ */
+[[nodiscard]] juce::StringArray getStrings (const String& textFileName);
 
 }  // namespace lemons::binary
 

@@ -157,7 +157,7 @@ void ProcessorBase::processBlockBypassed (AudioBuffer<float>& audio, MidiBuffer&
 {
 	const juce::ScopedNoDenormals nodenorms;
 
-	state.bypass.set (true);
+	state.parameters.bypass.set (true);
 
 	floatProcessor.process (audio, midi);
 }
@@ -166,7 +166,7 @@ void ProcessorBase::processBlockBypassed (AudioBuffer<double>& audio, MidiBuffer
 {
 	const juce::ScopedNoDenormals nodenorms;
 
-	state.bypass.set (true);
+	state.parameters.bypass.set (true);
 
 	doubleProcessor.process (audio, midi);
 }
@@ -204,7 +204,7 @@ void ProcessorBase::changeProgramName (int index, const String& newName)
 
 juce::AudioProcessorParameter* ProcessorBase::getBypassParameter() const
 {
-    return &state.bypass;
+    return &state.parameters.bypass;
 }
 
 bool ProcessorBase::supportsDoublePrecisionProcessing() const
@@ -269,7 +269,7 @@ bool ProcessorBase::InternalProcessor<SampleType>::shouldChopAroundMidiMessage (
 		return true;
 
 	if (m.isController())
-		return state.isControllerMapped (m.getControllerNumber());
+		return state.parameters.isControllerMapped (m.getControllerNumber());
 
 	return false;
 }
@@ -287,7 +287,7 @@ void ProcessorBase::InternalProcessor<SampleType>::handleMidiMessage (const juce
 
 	if (m.isResetAllControllers())
 	{
-		state.resetAllControllerMappedParams();
+		state.parameters.resetAllControllerMappedParams();
 		return;
 	}
 
@@ -301,9 +301,9 @@ void ProcessorBase::InternalProcessor<SampleType>::handleMidiMessage (const juce
 
 	const auto number = m.getControllerNumber();
 
-	jassert (state.isControllerMapped (number));
+	jassert (state.parameters.isControllerMapped (number));
 
-	state.processControllerMessage (number, m.getControllerValue());
+	state.parameters.processControllerMessage (number, m.getControllerValue());
 }
 
 template <typename SampleType>
@@ -330,7 +330,7 @@ void ProcessorBase::InternalProcessor<SampleType>::renderChunk (AudioBuffer<Samp
 	const auto inBus  = findSubBuffer (true);
 	auto       outBus = findSubBuffer (false);
 
-	engine.process (inBus, outBus, midi, state.bypass.get());
+	engine.process (inBus, outBus, midi, state.parameters.bypass.get());
 }
 
 template class ProcessorBase::InternalProcessor<float>;

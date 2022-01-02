@@ -70,10 +70,15 @@ namespace lemons::binary
 
 using juce::String;
 
+/** Returns a MIDI file object from a MIDI file in the BinaryData target. If the MIDI can't be loaded, an assertion will be thrown.
+    @see serializing::loadMidiFromFile(), serializing::saveMidiToFile()
+ */
+[[nodiscard]] juce::MidiFile getMidiFile (const String& midiFileName);
+
 /** Returns a MIDI buffer object from a MIDI file in the BinaryData target. If the MIDI can't be loaded, an assertion will be thrown.
     @see serializing::loadMidiFromFile(), serializing::saveMidiToFile()
  */
-[[nodiscard]] juce::MidiFile getMidi (const String& midiFileName);
+[[nodiscard]] juce::MidiBuffer getMidiBuffer (const String& midiFileName);
 
 }
 

@@ -15,26 +15,7 @@
 
 namespace lemons::plugin
 {
-[[nodiscard]] static inline String paramNameToID (const String& name)
-{
-	return name.trim().replaceCharacter (' ', '_');
-}
 
-static inline std::function<String (float)> createDefaultValueToTextFunction (const String& paramLabel)
-{
-	return [=] (float value) -> String
-	{
-		return String (value) + " " + paramLabel;
-	};
-}
-
-static inline std::function<float (const String&)> createDefaultTextToValueFunction()
-{
-	return [] (const String& text) -> float
-	{
-		return text.getFloatValue();
-	};
-}
 
 Parameter::Parameter (String paramName,
                       juce::NormalisableRange<float>
@@ -48,7 +29,7 @@ Parameter::Parameter (String paramName,
                       bool                                    isAutomatable,
                       bool                                    metaParam,
                       juce::AudioProcessorParameter::Category parameterCategory)
-    : juce::RangedAudioParameter (paramNameToID (TRANS (paramName)), TRANS (paramName), paramLabel, parameterCategory)
+    : juce::RangedAudioParameter (detail::paramNameToID (TRANS (paramName)), TRANS (paramName), paramLabel, parameterCategory)
     , automatable (isAutomatable)
     , metaParameter (metaParam)
     , range (paramRange)
@@ -61,10 +42,32 @@ Parameter::Parameter (String paramName,
     , midiControllerChangeTransactionName (TRANS ("Changed MIDI controller number for") + " " + getParameterName())
 {
 	if (valueToTextFunc == nullptr)
-		valueToTextFunc = createDefaultValueToTextFunction (label);
+		valueToTextFunc = detail::createDefaultValueToTextFunction (label);
 
 	if (textToValueFunc == nullptr)
-		textToValueFunc = createDefaultTextToValueFunction();
+		textToValueFunc = detail::createDefaultTextToValueFunction();
+}
+
+Parameter::Parameter (const ParameterTraits& traits)
+    : Parameter (traits.name, traits.range, traits.defaultValue, traits.valueToText, traits.textToValue, traits.label, traits.isAutomatable, traits.isMetaParameter, traits.category)
+{
+}
+
+ParameterTraits Parameter::getParameterTraits() const
+{
+	ParameterTraits traits;
+
+	traits.name            = getName (50);
+	traits.range           = range;
+	traits.defaultValue    = currentDefault.load();
+	traits.valueToText     = valueToTextFunc;
+	traits.textToValue     = textToValueFunc;
+	traits.label           = getLabel();
+	traits.isAutomatable   = automatable;
+	traits.isMetaParameter = metaParameter;
+	traits.category        = getCategory();
+
+	return traits;
 }
 
 float Parameter::getValueForText (const String& text) const
@@ -131,19 +134,19 @@ void Parameter::removeMidiControllerMapping() noexcept
 
 bool Parameter::processNewControllerMessage (int controllerNumber, int controllerValue)
 {
-    jassert (controllerNumber >= 0);
-    jassert (controllerValue >= 0 && controllerValue <= 127);
-    
+	jassert (controllerNumber >= 0);
+	jassert (controllerValue >= 0 && controllerValue <= 127);
+
 	if (controllerNumber == midiControllerNumber.load())
 	{
 		setDenormalizedValue (juce::jmap (static_cast<float> (controllerValue),
 		                                  0.f, 127.f,
 		                                  range.start, range.end));
-        
-        return true;
+
+		return true;
 	}
-    
-    return false;
+
+	return false;
 }
 
 void Parameter::beginGesture()
@@ -312,30 +315,30 @@ const juce::NormalisableRange<float>& Parameter::getNormalisableRange() const
 
 ValueTree Parameter::saveToValueTree() const
 {
-    ValueTree tree { valueTreeType };
-    
-    tree.setProperty (id_prop, getParameterID(), nullptr);
-    
-    tree.setProperty (value_prop, getDenormalizedValue(), nullptr);
-    tree.setProperty (default_prop, getDenormalizedDefault(), nullptr);
-    tree.setProperty (controller_prop, midiControllerNumber.load(), nullptr);
-    
-    return tree;
+	ValueTree tree { valueTreeType };
+
+	tree.setProperty (id_prop, getParameterID(), nullptr);
+
+	tree.setProperty (value_prop, getDenormalizedValue(), nullptr);
+	tree.setProperty (default_prop, getDenormalizedDefault(), nullptr);
+	tree.setProperty (controller_prop, midiControllerNumber.load(), nullptr);
+
+	return tree;
 }
 
 void Parameter::loadFromValueTree (const ValueTree& tree)
 {
-    if (! tree.hasType (valueTreeType))
-        return;
-    
-    if (tree.hasProperty (value_prop))
-        setDenormalizedValue ((float) tree.getProperty (value_prop));
-    
-    if (tree.hasProperty (default_prop))
-        setDenormalizedDefault ((float) tree.getProperty (default_prop));
-    
-    if (tree.hasProperty (controller_prop))
-        midiControllerNumber.store ((int) tree.getProperty (controller_prop));
+	if (! tree.hasType (valueTreeType))
+		return;
+
+	if (tree.hasProperty (value_prop))
+		setDenormalizedValue ((float) tree.getProperty (value_prop));
+
+	if (tree.hasProperty (default_prop))
+		setDenormalizedDefault ((float) tree.getProperty (default_prop));
+
+	if (tree.hasProperty (controller_prop))
+		midiControllerNumber.store ((int) tree.getProperty (controller_prop));
 }
 
 

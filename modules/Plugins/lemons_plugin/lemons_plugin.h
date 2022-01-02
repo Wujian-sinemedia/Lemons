@@ -40,11 +40,17 @@
 #endif
 
 
+#include "parameters/utils/detail.h"
+
+#include "parameters/utils/ParameterTraits.h"
+
 #include "parameters/Parameter.h"
 #include "parameters/ParameterTypes.h"
 #include "parameters/Specializations.h"
 #include "parameters/MeterParameter.h"
 //#include "parameters/MetaParameter.h"
+
+#include "parameters/utils/Factory.h"
 
 #include "parameters/utils/ParamUpdater.h"
 
@@ -53,12 +59,14 @@
 #include "processors/ProcessorAttributes.h"
 #include "processors/BasicProcessor.h"
 
+#include "state/ParameterList.h"
 #include "state/ProgramManager.h"
 #include "state/PluginState.h"
 
 #include "processors/ProcessorBase.h"
 
-#include "editors/Editors.h"
+#include "util/Editors.h"
+#include "util/serializing.h"
 
 #include "processors/Processors.h"
 

@@ -159,7 +159,7 @@ namespace lemons::binary
 
 dsp::AudioFile getAudio (const String& audioFileName)
 {
-    dsp::AudioFile audio { std::make_unique<juce::MemoryInputStream> (Data::getBlob (audioFileName), false) };
+    dsp::AudioFile audio { std::make_unique<juce::MemoryInputStream> (getBlob (audioFileName), false) };
     
     jassert (audio.isValid());
     

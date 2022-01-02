@@ -73,6 +73,8 @@ struct VariantConverter<NamedValueSet>
 	static var           toVar (const NamedValueSet& s);
 };
 
+
+
 template <>
 struct VariantConverter<PropertySet>
 {

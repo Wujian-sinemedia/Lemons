@@ -1,15 +1,15 @@
 /*
  ======================================================================================
- 
+
  ██╗     ███████╗███╗   ███╗ ██████╗ ███╗   ██╗███████╗
  ██║     ██╔════╝████╗ ████║██╔═══██╗████╗  ██║██╔════╝
  ██║     █████╗  ██╔████╔██║██║   ██║██╔██╗ ██║███████╗
  ██║     ██╔══╝  ██║╚██╔╝██║██║   ██║██║╚██╗██║╚════██║
  ███████╗███████╗██║ ╚═╝ ██║╚██████╔╝██║ ╚████║███████║
  ╚══════╝╚══════╝╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝
- 
+
  This file is part of the Lemons open source library and is licensed under the terms of the GNU Public License.
- 
+
  ======================================================================================
  */
 
@@ -20,8 +20,8 @@ ParamUpdater::ParamUpdater (Parameter& param, std::function<void()> onValueChang
     , valueCallback (onValueChange)
     , gestureCallback (onGestureChange)
 {
-    jassert (valueCallback != nullptr);
-    jassert (gestureCallback != nullptr);
+	jassert (valueCallback != nullptr);
+	jassert (gestureCallback != nullptr);
 }
 
 void ParamUpdater::parameterValueChanged (float)

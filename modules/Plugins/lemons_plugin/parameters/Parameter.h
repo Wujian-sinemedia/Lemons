@@ -42,14 +42,20 @@ public:
 	 */
 	explicit Parameter (String paramName,
 	                    juce::NormalisableRange<float>
-	                                                            paramRange,
-	                    float                                   paramDefaultValue    = 1.f,
-	                    std::function<String (float)>           valueToTextFuncToUse = nullptr,
-	                    std::function<float (const String&)>    textToValueFuncToUse = nullptr,
-	                    String                                  paramLabel           = {},
-	                    bool                                    isAutomatable        = true,
-	                    bool                                    metaParam            = false,
-	                    juce::AudioProcessorParameter::Category parameterCategory    = AudioProcessorParameter::genericParameter);
+	                                                         paramRange,
+	                    float                                paramDefaultValue    = 1.f,
+	                    std::function<String (float)>        valueToTextFuncToUse = nullptr,
+	                    std::function<float (const String&)> textToValueFuncToUse = nullptr,
+	                    String                               paramLabel           = {},
+	                    bool                                 isAutomatable        = true,
+	                    bool                                 metaParam            = false,
+	                    AudioProcessorParameter::Category    parameterCategory    = AudioProcessorParameter::genericParameter);
+
+	/** Creates a parameter from a ParameterTraits object. */
+	explicit Parameter (const ParameterTraits& traits);
+
+	/** Returns a ParameterTraits object representing this parameter. */
+	[[nodiscard]] virtual ParameterTraits getParameterTraits() const;
 
 	/** Returns the parameter's current value, in a normalized 0-1 range.
 	 @see getDenormalizedValue()
@@ -99,8 +105,8 @@ public:
 	void removeMidiControllerMapping() noexcept;
 
 	/** Call this function with each MIDI CC message your plugin recieves, and the Parameter class will automatically update itself with changes in the appropriate controller, if a mapping is active.
-        @returns True if this parameter is mapped to the passed controller number.
-     */
+	    @returns True if this parameter is mapped to the passed controller number.
+	 */
 	bool processNewControllerMessage (int controllerNumber, int controllerValue);
 
 
@@ -163,11 +169,11 @@ public:
 	    @param internationalize If this is true, the returned string will be translated using the juce::LocalisedStrings class. Setting this to false is useful for serialization logic that relies on parameter names.
 	 */
 	[[nodiscard]] String getParameterName (int maxLength = 0, bool internationalize = true) const;
-    
-    
-    [[nodiscard]] virtual ValueTree saveToValueTree() const;
-    
-    virtual void loadFromValueTree (const ValueTree& tree);
+
+
+	[[nodiscard]] virtual ValueTree saveToValueTree() const;
+
+	virtual void loadFromValueTree (const ValueTree& tree);
 
 	//==============================================================================
 
@@ -202,17 +208,17 @@ public:
 	};
 
 	//==============================================================================
-    
-    /** @internal */
-    static constexpr auto id_prop = "id";
+
+	/** @internal */
+	static constexpr auto id_prop = "id";
 
 protected:
 
 	[[nodiscard]] float normalize (float input) const noexcept;
 
 	[[nodiscard]] float denormalize (float input) const noexcept;
-    
-    static constexpr auto valueTreeType = "PARAM", value_prop = "value", default_prop = "default", controller_prop = "controllerNumber";
+
+	static constexpr auto valueTreeType = "PARAM", value_prop = "value", default_prop = "default", controller_prop = "controllerNumber";
 
 private:
 	bool isMetaParameter() const final;

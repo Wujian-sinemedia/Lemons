@@ -13,36 +13,29 @@
  ======================================================================================
  */
 
-#pragma once
 
-#include <lemons_core/lemons_core.h>
+#pragma once
 
 namespace lemons::plugin
 {
 
-/** Base class for a plugin's entire state.
+/** Creates the appropriate kind of TypedParameter for the passed ParameterTraits object.
  */
-class State
+std::unique_ptr<Parameter> createParameter (const ParameterTraits& traits)
 {
-public:
+	if (traits.valueType == ParameterTraits::ValueType::floatValue)
+	{
+		return std::make_unique<TypedParameter<float>> (traits);
+	}
 
-	virtual ~State() = default;
+	if (traits.valueType == ParameterTraits::ValueType::intValue)
+	{
+		return std::make_unique<TypedParameter<int>> (traits);
+	}
 
-	[[nodiscard]] ValueTree saveToValueTree (bool currentProgramOnly) const;
+	jassert (traits.valueType == ParameterTraits::ValueType::boolValue);
 
-	void loadFromValueTree (const ValueTree& tree);
-
-
-	Dimensions editorSize { Dimensions::getDefault() };
-
-	ParameterList parameters;
-
-	ProgramManager programs;
-
-private:
-	[[nodiscard]] virtual ValueTree saveCustomStateData (const String& valueTreeType, bool currentProgramOnly) const;
-
-	virtual void loadCustomStateData (const ValueTree& tree);
-};
+	return std::make_unique<BoolParameter> (traits);
+}
 
 }  // namespace lemons::plugin

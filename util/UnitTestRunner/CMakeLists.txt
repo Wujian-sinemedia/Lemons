@@ -23,6 +23,7 @@ CPMAddPackage (
         OPTIONS "LEMONS_BUILD_TESTS ON")
 
 include (LemonsTestingModules)
+include (LemonsAssetsHelpers)
 
 #
 
@@ -36,6 +37,8 @@ target_compile_definitions (${PROJECT_NAME} PRIVATE
     JUCE_DISPLAY_SPLASH_SCREEN=0)
 
 target_link_libraries (${PROJECT_NAME} PUBLIC LemonsTestingModules)
+
+lemons_add_resources_folder (TARGET ${PROJECT_NAME} ASSET_FOLDER "${CPM_Lemons_SOURCE}/util/assets")
 
 #
 

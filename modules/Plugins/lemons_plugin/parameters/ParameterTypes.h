@@ -38,16 +38,22 @@ public:
 	    @param metaParam Boolean flag that indicates whether this parameter represents a "meta-parameter" -- that is, a parameter that controls other parameters.
 	    @param parameterCategory An optional parameter category. See juce::AudioProcessorParameter::Category.
 	 */
-	TypedParameter (ValueType                                minimum,
-	                ValueType                                maximum,
-	                ValueType                                defaultValue,
-	                String                                   paramName,
-	                std::function<String (ValueType, int)>   stringFromValue   = nullptr,
-	                std::function<ValueType (const String&)> valueFromString   = nullptr,
-	                String                                   paramLabel        = {},
-	                bool                                     isAutomatable     = true,
-	                bool                                     metaParam         = false,
-	                juce::AudioProcessorParameter::Category  parameterCategory = juce::AudioProcessorParameter::genericParameter);
+	explicit TypedParameter (ValueType                                minimum,
+	                         ValueType                                maximum,
+	                         ValueType                                defaultValue,
+	                         String                                   paramName,
+	                         std::function<String (ValueType, int)>   stringFromValue   = nullptr,
+	                         std::function<ValueType (const String&)> valueFromString   = nullptr,
+	                         String                                   paramLabel        = {},
+	                         bool                                     isAutomatable     = true,
+	                         bool                                     metaParam         = false,
+	                         juce::AudioProcessorParameter::Category  parameterCategory = juce::AudioProcessorParameter::genericParameter);
+
+	/** Creates a typed parameter from a ParameterTraits object. */
+	explicit TypedParameter (const ParameterTraits& traits);
+
+	/** Returns a ParameterTraits object representing this parameter. */
+	[[nodiscard]] ParameterTraits getParameterTraits() const final;
 
 	/** Returns the parameter's current value. */
 	[[nodiscard]] ValueType get() const noexcept;
@@ -75,11 +81,11 @@ public:
 
 	/** Converts some user input text to a possible representation as a parameter value. */
 	[[nodiscard]] ValueType getValueForString (const String& string) const;
-    
-    
-    [[nodiscard]] virtual ValueTree saveToValueTree() const final;
-    
-    virtual void loadFromValueTree (const ValueTree& tree) final;
+
+
+	[[nodiscard]] virtual ValueTree saveToValueTree() const final;
+
+	virtual void loadFromValueTree (const ValueTree& tree) final;
 
 	//--------------------------------------
 
@@ -135,14 +141,17 @@ struct BoolParameter : TypedParameter<bool>
 	    @param metaParam Boolean flag that indicates whether this parameter represents a "meta-parameter" -- that is, a parameter that controls other parameters.
 	    @param parameterCategory An optional parameter category. See juce::AudioProcessorParameter::Category.
 	*/
-	BoolParameter (bool                                    defaultValue,
-	               String                                  paramName,
-	               std::function<String (bool, int)>       stringFromValue   = nullptr,
-	               std::function<bool (const String&)>     valueFromString   = nullptr,
-	               String                                  paramLabel        = {},
-	               bool                                    isAutomatable     = true,
-	               bool                                    metaParam         = false,
-	               juce::AudioProcessorParameter::Category parameterCategory = AudioProcessorParameter::genericParameter);
+	explicit BoolParameter (bool                                    defaultValue,
+	                        String                                  paramName,
+	                        std::function<String (bool, int)>       stringFromValue   = nullptr,
+	                        std::function<bool (const String&)>     valueFromString   = nullptr,
+	                        String                                  paramLabel        = {},
+	                        bool                                    isAutomatable     = true,
+	                        bool                                    metaParam         = false,
+	                        juce::AudioProcessorParameter::Category parameterCategory = AudioProcessorParameter::genericParameter);
+
+	/** Creates a boolean parameter from a ParameterTraits object. */
+	explicit BoolParameter (const ParameterTraits& traits);
 };
 
 }  // namespace lemons::plugin

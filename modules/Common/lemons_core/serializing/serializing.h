@@ -22,8 +22,16 @@
 namespace lemons::serializing
 {
 
-using juce::MemoryBlock;
 using juce::ValueTree;
+using juce::MemoryBlock;
+
+static constexpr auto rangeTreeType = "NormalisableRange";
+
+template<typename ValueType>
+[[nodiscard]] ValueTree rangeToValueTree (const juce::NormalisableRange<ValueType>& range);
+
+template<typename ValueType>
+[[nodiscard]] juce::NormalisableRange<ValueType> valueTreeToRange (const ValueTree& tree);
 
 
 /** Converts a MemoryBlock to a String representation.

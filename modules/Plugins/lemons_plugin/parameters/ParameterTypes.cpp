@@ -13,7 +13,6 @@
  ======================================================================================
  */
 
-#include "utils/TypedParameterHelpers.h"
 
 namespace lemons::plugin
 {
@@ -33,19 +32,40 @@ TypedParameter<ValueType>::TypedParameter (ValueType minimum,
                                            juce::AudioProcessorParameter::Category parameterCategory)
     : Parameter (
         paramName,
-        createRange (minimum, maximum),
+        detail::createRange (minimum, maximum),
         static_cast<float> (defaultValue),
-        convertValToStringFunc (stringFromValue),
-        convertStringToValFunc (valueFromString),
+        detail::convertValToStringFunc (stringFromValue),
+        detail::convertStringToValFunc (valueFromString),
         paramLabel, isAutomatable, metaParam, parameterCategory)
     , stringFromValueFunction (stringFromValue)
     , valueFromStringFunction (valueFromString)
 {
 	if (stringFromValueFunction == nullptr)
-		stringFromValueFunction = createDefaultStringFromValueFunc<ValueType> (getNormalisableRange().interval);
+		stringFromValueFunction = detail::createDefaultStringFromValueFunc<ValueType> (getNormalisableRange().interval);
 
 	if (valueFromStringFunction == nullptr)
-		valueFromStringFunction = createDefaultValueFromStringFunc<ValueType>();
+		valueFromStringFunction = detail::createDefaultValueFromStringFunc<ValueType>();
+}
+
+template <typename ValueType>
+TypedParameter<ValueType>::TypedParameter (const ParameterTraits& traits)
+    : TypedParameter (
+        static_cast<ValueType> (traits.range.start), static_cast<ValueType> (traits.range.end), static_cast<ValueType> (traits.defaultValue), traits.name,
+        [=] (ValueType v, int)
+        { return traits.valueToText (static_cast<float> (v)); },
+        [=] (const String& t)
+        { return static_cast<ValueType> (traits.textToValue (t)); },
+        traits.label,
+        traits.isAutomatable,
+        traits.isMetaParameter,
+        traits.category)
+{
+}
+
+template <typename ValueType>
+ParameterTraits TypedParameter<ValueType>::getParameterTraits() const
+{
+	return ParameterTraits { getMinimum(), getMaximum(), getDefault(), stringFromValueFunction, valueFromStringFunction };
 }
 
 template <>
@@ -129,31 +149,31 @@ template <typename ValueType>
 template <typename ValueType>
 ValueTree TypedParameter<ValueType>::saveToValueTree() const
 {
-    ValueTree tree { valueTreeType };
-    
-    tree.setProperty (id_prop, getParameterID(), nullptr);
-    
-    tree.setProperty (value_prop, get(), nullptr);
-    tree.setProperty (default_prop, getDefault(), nullptr);
-    tree.setProperty (controller_prop, getMidiControllerNumber(), nullptr);
-    
-    return tree;
+	ValueTree tree { valueTreeType };
+
+	tree.setProperty (id_prop, getParameterID(), nullptr);
+
+	tree.setProperty (value_prop, get(), nullptr);
+	tree.setProperty (default_prop, getDefault(), nullptr);
+	tree.setProperty (controller_prop, getMidiControllerNumber(), nullptr);
+
+	return tree;
 }
 
 template <typename ValueType>
 void TypedParameter<ValueType>::loadFromValueTree (const ValueTree& tree)
 {
-    if (! tree.hasType (valueTreeType))
-        return;
-    
-    if (tree.hasProperty (value_prop))
-        set ((ValueType) tree.getProperty (value_prop));
-    
-    if (tree.hasProperty (default_prop))
-        setDefault ((ValueType) tree.getProperty (default_prop));
-    
-    if (tree.hasProperty (controller_prop))
-        setMidiControllerNumber ((int) tree.getProperty (controller_prop));
+	if (! tree.hasType (valueTreeType))
+		return;
+
+	if (tree.hasProperty (value_prop))
+		set ((ValueType) tree.getProperty (value_prop));
+
+	if (tree.hasProperty (default_prop))
+		setDefault ((ValueType) tree.getProperty (default_prop));
+
+	if (tree.hasProperty (controller_prop))
+		setMidiControllerNumber ((int) tree.getProperty (controller_prop));
 }
 
 template <typename ValueType>
@@ -192,6 +212,11 @@ BoolParameter::BoolParameter (bool   defaultValue,
                               bool                                    metaParam,
                               juce::AudioProcessorParameter::Category parameterCategory)
     : TypedParameter<bool> (false, true, defaultValue, paramName, stringFromValue, valueFromString, paramLabel, isAutomatable, metaParam, parameterCategory)
+{
+}
+
+BoolParameter::BoolParameter (const ParameterTraits& traits)
+    : TypedParameter<bool> (traits)
 {
 }
 

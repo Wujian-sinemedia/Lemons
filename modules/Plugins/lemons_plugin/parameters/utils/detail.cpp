@@ -1,34 +1,57 @@
 /*
  ======================================================================================
- 
+
  ██╗     ███████╗███╗   ███╗ ██████╗ ███╗   ██╗███████╗
  ██║     ██╔════╝████╗ ████║██╔═══██╗████╗  ██║██╔════╝
  ██║     █████╗  ██╔████╔██║██║   ██║██╔██╗ ██║███████╗
  ██║     ██╔══╝  ██║╚██╔╝██║██║   ██║██║╚██╗██║╚════██║
  ███████╗███████╗██║ ╚═╝ ██║╚██████╔╝██║ ╚████║███████║
  ╚══════╝╚══════╝╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝
- 
+
  This file is part of the Lemons open source library and is licensed under the terms of the GNU Public License.
- 
+
  ======================================================================================
  */
 
-#pragma once
 
-namespace lemons::plugin
+namespace lemons::plugin::detail
 {
+
+String paramNameToID (const String& name)
+{
+	return name.trim().replaceCharacter (' ', '_');
+}
+
+std::function<String (float)> createDefaultValueToTextFunction (const String& paramLabel)
+{
+	return [=] (float value) -> String
+	{
+		return String (value) + " " + paramLabel;
+	};
+}
+
+std::function<float (const String&)> createDefaultTextToValueFunction()
+{
+	return [] (const String& text) -> float
+	{
+		return text.getFloatValue();
+	};
+}
+
+
+/*-------------------------------------------------------------------------------------------------------*/
+
 
 template <typename ValueType>
-inline juce::NormalisableRange<float> createRange (ValueType minimum, ValueType maximum);
-
-template <>
-inline juce::NormalisableRange<float> createRange (float minimum, float maximum)
+juce::NormalisableRange<float> createRange (ValueType minimum, ValueType maximum)
 {
+	static_assert (std::is_same_v<ValueType, float>, "");
+
 	return { minimum, maximum, 0.01f };
 }
 
 template <>
-inline juce::NormalisableRange<float> createRange (int minimum, int maximum)
+juce::NormalisableRange<float> createRange (int minimum, int maximum)
 {
 	juce::NormalisableRange<float> rangeWithInterval { (float) minimum, (float) maximum,
 		                                               [] (float start, float end, float v)
@@ -42,19 +65,20 @@ inline juce::NormalisableRange<float> createRange (int minimum, int maximum)
 }
 
 template <>
-inline juce::NormalisableRange<float> createRange (bool, bool)
+juce::NormalisableRange<float> createRange (bool, bool)
 {
 	return { 0.f, 1.f, 1.f };
 }
 
+
 /*-------------------------------------------------------------------------------------------------------*/
 
-template <typename ValueType>
-inline std::function<String (ValueType, int)> createDefaultStringFromValueFunc (float rangeInterval);
 
-template <>
-inline std::function<String (float, int)> createDefaultStringFromValueFunc (float rangeInterval)
+template <typename ValueType>
+std::function<String (ValueType, int)> createDefaultStringFromValueFunc (float rangeInterval)
 {
+	static_assert (std::is_same_v<ValueType, float>, "");
+
 	return [rangeInterval] (float v, int length) -> String
 	{
 		const auto numDecimalPlaces = [rangeInterval]() -> int
@@ -84,40 +108,41 @@ inline std::function<String (float, int)> createDefaultStringFromValueFunc (floa
 }
 
 template <>
-inline std::function<String (int, int)> createDefaultStringFromValueFunc (float)
+std::function<String (int, int)> createDefaultStringFromValueFunc (float)
 {
 	return [] (int v, int num) -> String
 	{ return num > 0 ? String (v).substring (0, num) : String (v); };
 }
 
 template <>
-inline std::function<String (bool, int)> createDefaultStringFromValueFunc (float)
+std::function<String (bool, int)> createDefaultStringFromValueFunc (float)
 {
 	return [] (bool v, int) -> String
 	{ return v ? TRANS ("On") : TRANS ("Off"); };
 }
 
+
 /*-------------------------------------------------------------------------------------------------------*/
 
-template <typename ValueType>
-inline std::function<ValueType (const String&)> createDefaultValueFromStringFunc();
 
-template <>
-inline std::function<float (const String&)> createDefaultValueFromStringFunc()
+template <typename ValueType>
+std::function<ValueType (const String&)> createDefaultValueFromStringFunc()
 {
+	static_assert (std::is_same_v<ValueType, float>, "");
+
 	return [] (const String& text) -> float
 	{ return text.getFloatValue(); };
 }
 
 template <>
-inline std::function<int (const String&)> createDefaultValueFromStringFunc()
+std::function<int (const String&)> createDefaultValueFromStringFunc()
 {
 	return [] (const String& text) -> int
 	{ return text.getIntValue(); };
 }
 
 template <>
-inline std::function<bool (const String&)> createDefaultValueFromStringFunc()
+std::function<bool (const String&)> createDefaultValueFromStringFunc()
 {
 	juce::StringArray onStrings;
 	onStrings.add (TRANS ("on"));
@@ -145,27 +170,4 @@ inline std::function<bool (const String&)> createDefaultValueFromStringFunc()
 	};
 }
 
-/*-------------------------------------------------------------------------------------------------------*/
-
-template <typename ValueType>
-inline std::function<String (float)> convertValToStringFunc (std::function<String (ValueType, int)> origFunc)
-{
-	if (origFunc == nullptr)
-		origFunc = createDefaultStringFromValueFunc<ValueType> (1.f);
-
-	return [=] (float value) -> String
-	{ return origFunc (static_cast<ValueType> (value), 0); };
-}
-
-
-template <typename ValueType>
-inline std::function<float (const String&)> convertStringToValFunc (std::function<ValueType (const String&)> origFunc)
-{
-	if (origFunc == nullptr)
-		origFunc = createDefaultValueFromStringFunc<ValueType>();
-
-	return [=] (const String& text) -> float
-	{ return static_cast<float> (origFunc (text)); };
-}
-
-}  // namespace lemons::plugin
+}  // namespace lemons::plugin::detail

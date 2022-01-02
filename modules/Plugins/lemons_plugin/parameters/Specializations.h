@@ -41,7 +41,7 @@ struct GainParameter : public FloatParameter
 /** A parameter that represents a boolean on/off toggle.
     @see BoolParameter, Parameter
  */
-struct ToggleParameter : public BoolParameter
+struct ToggleParameter final : public BoolParameter
 {
 	/** Creates a new toggle parameter.
 	    @param paramName The name of this parameter.
@@ -82,7 +82,7 @@ struct FloatAmountParameter : public FloatParameter
 /** A parameter that represents a frequency in Hz.
     @see FloatParameter, Parameter
  */
-struct FrequencyParameter : public FloatParameter
+struct FrequencyParameter final : public FloatParameter
 {
 	/** Creates a new frequency parameter.
 	    @param paramName The name of this parameter.
@@ -100,7 +100,7 @@ struct FrequencyParameter : public FloatParameter
 /** A parameter that represents a MIDI pitch.
     @see IntParameter, Parameter
  */
-struct MidiPitchParameter : public IntParameter
+struct MidiPitchParameter final : public IntParameter
 {
 	/** Creates a new MIDI pitch parameter.
 	    @param paramName The name of this parameter.
@@ -117,7 +117,7 @@ struct MidiPitchParameter : public IntParameter
 /** A parameter that represents a MIDI panning value in the range 0 to 127.
     @see IntParameter, Parameter
  */
-struct MidiPanParameter : public IntParameter
+struct MidiPanParameter final : public IntParameter
 {
 	/** Creates a new MIDI pan parameter.
 	    @param paramName The name of this parameter.
@@ -152,7 +152,7 @@ struct SemitonesParameter : public IntParameter
 /** A parameter that represents an integer value in the range 0-100.
     @see FloatAmountParameter, IntParameter, Parameter
  */
-struct PercentParameter : public IntParameter
+struct PercentParameter final : public IntParameter
 {
 	/** Creates a new percent parameter.
 	    @param paramName The name of this parameter.

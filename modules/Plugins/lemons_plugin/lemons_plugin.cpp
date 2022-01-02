@@ -17,6 +17,9 @@
 #include "lemons_plugin.h"
 
 
+#include "parameters/utils/detail.cpp"
+#include "parameters/utils/ParameterTraits.cpp"
+
 #include "parameters/Parameter.cpp"
 #include "parameters/ParameterTypes.cpp"
 #include "parameters/Specializations.cpp"
@@ -25,9 +28,12 @@
 
 #include "parameters/utils/ParamUpdater.cpp"
 
+#include "util/serializing.cpp"
+
 #include "processors/ProcessorAttributes.cpp"
 #include "processors/BasicProcessor.cpp"
 
+#include "state/ParameterList.cpp"
 #include "state/ProgramManager.cpp"
 #include "state/PluginState.cpp"
 

@@ -10,14 +10,13 @@ Utilities for adding binary data targets to JUCE projects.
 
 ### lemons_add_resources_folder {#lemons_add_resources_folder}
 ```
-lemons_add_resources_folder (TARGET <target> ASSET_FOLDER <folder> 
-                            [HEADER_NAME <header.h>] [NAMESPACE <namespace>] 
+lemons_add_resources_folder (TARGET <target> ASSET_FOLDER <folder>
                             [OUTPUT_TARGET <targetName>]
                             [TRANSLATIONS])
 ```
 
 Adds a JUCE binary data folder for the specified `<target>`, and populates it with all the files found in `<folder>`. 
-`<folder>` is relative to your project's root directory (ie, the value of `${PROJECT_SOURCE_DIR}` when this function is called).
+if `<folder>` is a relative path, it will be evaluated relative to your project's root directory (ie, the value of `${PROJECT_SOURCE_DIR}` when this function is called). You may also pass an absolute path.
 
 If `[OUTPUT_TARGET]` is present, `targetName` will be the name of the generated resources target; otherwise, it will default to `${PROJECT_NAME}-Assets`.
 
@@ -34,7 +33,7 @@ include (LemonsJuceUtilities)
 function (lemons_add_resources_folder)
 
     set (options TRANSLATIONS)
-    set (oneValueArgs TARGET ASSET_FOLDER HEADER_NAME NAMESPACE OUTPUT_TARGET)
+    set (oneValueArgs TARGET ASSET_FOLDER OUTPUT_TARGET)
 
     cmake_parse_arguments (LEMONS_RSRC_FLDR "${options}" "${oneValueArgs}" "" ${ARGN})
 
@@ -73,18 +72,7 @@ function (lemons_add_resources_folder)
             return()
         endif()
 
-        if (NOT LEMONS_RSRC_FLDR_HEADER_NAME)
-            set (LEMONS_RSRC_FLDR_HEADER_NAME "BinaryData.h")
-        endif()
-
-        if (NOT LEMONS_RSRC_FLDR_FOLDER_NAMESPACE)
-            set (LEMONS_RSRC_FLDR_FOLDER_NAMESPACE "BinaryData")
-        endif()
-
-        juce_add_binary_data (${resourcesTarget} 
-                              SOURCES ${files}
-                              HEADER_NAME "${LEMONS_RSRC_FLDR_HEADER_NAME}"
-                              NAMESPACE "${LEMONS_RSRC_FLDR_FOLDER_NAMESPACE}")
+        juce_add_binary_data (${resourcesTarget} SOURCES ${files})
 
         set_target_properties (${resourcesTarget} PROPERTIES POSITION_INDEPENDENT_CODE TRUE)
         target_compile_definitions (${resourcesTarget} INTERFACE LEMONS_HAS_BINARY_DATA=1)

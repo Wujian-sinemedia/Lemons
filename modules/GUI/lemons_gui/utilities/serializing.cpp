@@ -71,7 +71,7 @@ juce::Image getImage (const String& imageFileName)
 
 std::unique_ptr<juce::CustomTypeface> getFont (const String& fontFileName)
 {
-    const auto block = Data::getBlob (fontFileName);
+    const auto block = getBlob (fontFileName);
     
     juce::MemoryInputStream is { block, false };
     

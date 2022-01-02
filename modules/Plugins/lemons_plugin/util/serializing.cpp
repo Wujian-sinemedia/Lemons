@@ -1,48 +1,35 @@
 /*
  ======================================================================================
-
+ 
  ██╗     ███████╗███╗   ███╗ ██████╗ ███╗   ██╗███████╗
  ██║     ██╔════╝████╗ ████║██╔═══██╗████╗  ██║██╔════╝
  ██║     █████╗  ██╔████╔██║██║   ██║██╔██╗ ██║███████╗
  ██║     ██╔══╝  ██║╚██╔╝██║██║   ██║██║╚██╗██║╚════██║
  ███████╗███████╗██║ ╚═╝ ██║╚██████╔╝██║ ╚████║███████║
  ╚══════╝╚══════╝╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝
-
+ 
  This file is part of the Lemons open source library and is licensed under the terms of the GNU Public License.
-
+ 
  ======================================================================================
  */
 
-#pragma once
 
-#include <lemons_core/lemons_core.h>
-
-namespace lemons::plugin
+namespace juce
 {
 
-/** Base class for a plugin's entire state.
- */
-class State
+PluginDescription VariantConverter<PluginDescription>::fromVar (const var& v)
 {
-public:
+    PluginDescription d;
 
-	virtual ~State() = default;
+    d.loadFromXml (VariantConverter<XmlElement>::fromVar (v));
 
-	[[nodiscard]] ValueTree saveToValueTree (bool currentProgramOnly) const;
+    return d;
+}
 
-	void loadFromValueTree (const ValueTree& tree);
+var VariantConverter<PluginDescription>::toVar (const PluginDescription& d)
+{
+    return VariantConverter<XmlElement>::toVar (*d.createXml());
+}
 
+}
 
-	Dimensions editorSize { Dimensions::getDefault() };
-
-	ParameterList parameters;
-
-	ProgramManager programs;
-
-private:
-	[[nodiscard]] virtual ValueTree saveCustomStateData (const String& valueTreeType, bool currentProgramOnly) const;
-
-	virtual void loadCustomStateData (const ValueTree& tree);
-};
-
-}  // namespace lemons::plugin
