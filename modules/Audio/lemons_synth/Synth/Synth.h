@@ -26,7 +26,7 @@ public:
 	virtual ~SynthBase() = default;
 
 	void initialize (int initNumVoices, double initSamplerate = 44100.0, int initBlocksize = 512);
-	bool isInitialized() const;
+	[[nodiscard]] bool isInitialized() const;
 
 	void prepare (double samplerate, int blocksize);
 
@@ -48,11 +48,11 @@ public:
 	                           float velocity                    = 1.0f,
 	                           bool  overrideSostenutoPedal      = true);
 
-	bool isPitchActive (int midiPitch, bool countRingingButReleased = false, bool countKeyUpNotes = false) const;
+    [[nodiscard]] bool isPitchActive (int midiPitch, bool countRingingButReleased = false, bool countKeyUpNotes = false) const;
 	void reportActiveNotes (juce::Array<int>& outputArray, bool includePlayingButReleased = false, bool includeKeyUpNotes = true) const;
 
-	int  getNumActiveVoices() const;
-	int  getNumVoices() const noexcept { return voices->size(); }
+    [[nodiscard]] int  getNumActiveVoices() const;
+    [[nodiscard]] int  getNumVoices() const noexcept { return voices->size(); }
 	void changeNumVoices (int newNumVoices);
 
 	void setNoteStealingEnabled (bool shouldSteal) noexcept { shouldStealNotes = shouldSteal; }
@@ -62,23 +62,23 @@ public:
 	void setAftertouchGainOnOff (bool shouldBeOn) { aftertouchGainIsOn = shouldBeOn; }
 
 	void setMidiLatch (bool shouldBeOn, const bool allowTailOff = false);
-	bool isLatched() const noexcept { return latchIsOn; }
+    [[nodiscard]] bool isLatched() const noexcept { return latchIsOn; }
 
 	void updateADSRsettings (float attack, float decay, float sustain, float release);
 	void updateQuickReleaseMs (int newMs);
 
-	bool isSustainPedalDown() const noexcept { return midi.router.isSustainPedalDown(); }
-	bool isSostenutoPedalDown() const noexcept { return midi.router.isSostenutoPedalDown(); }
-	bool isSoftPedalDown() const noexcept { return midi.router.isSoftPedalDown(); }
-	bool isAftertouchGainOn() const noexcept { return aftertouchGainIsOn; }
+    [[nodiscard]] bool isSustainPedalDown() const noexcept { return midi.router.isSustainPedalDown(); }
+    [[nodiscard]] bool isSostenutoPedalDown() const noexcept { return midi.router.isSostenutoPedalDown(); }
+    [[nodiscard]] bool isSoftPedalDown() const noexcept { return midi.router.isSoftPedalDown(); }
+    [[nodiscard]] bool isAftertouchGainOn() const noexcept { return aftertouchGainIsOn; }
 
-	bool   isConnectedToMtsEsp() const { return pitch.tuning.isConnected(); }
-	String getScaleName() const { return pitch.tuning.getScaleName(); }
+    [[nodiscard]] bool   isConnectedToMtsEsp() const { return pitch.tuning.isConnected(); }
+    [[nodiscard]] String getScaleName() const { return pitch.tuning.getScaleName(); }
 
 	void setPitchGlideTime (double glideTimeSeconds);
 	void togglePitchGlide (bool shouldGlide);
 
-	const midi::PitchPipeline* getPitchAdjuster() { return &pitch; }
+    [[nodiscard]] const midi::PitchPipeline* getPitchAdjuster() { return &pitch; }
 
 	juce::MidiKeyboardState keyboardState;
 
@@ -120,7 +120,7 @@ protected:
 	virtual void release() { }
 
 	// this method should return an instance of your synth's voice subclass
-	virtual Voice* createVoice() = 0;
+    [[nodiscard]] virtual Voice* createVoice() = 0;
 
 private:
 	void numVoicesChanged();
@@ -136,12 +136,12 @@ private:
 
 	void updateChannelPressure (int newIncomingAftertouch);
 
-	Voice* getVoicePlayingNote (int midiPitch) const;
+    [[nodiscard]] Voice* getVoicePlayingNote (int midiPitch) const;
 
 	/*==============================================================================================================
 	 ===============================================================================================================*/
 
-    ConstructedArray<Voice> voices { 0, [base = this](){ return base->createVoice(); } };
+    ConstructedArray<Voice> voices; // { 0, [base = this](){ return base->createVoice(); } };
 
 	bool latchIsOn { false }, shouldStealNotes { true }, aftertouchGainIsOn { true };
 
@@ -162,6 +162,8 @@ private:
 	synth::MidiManager<SampleType> midi { *this };
 
 	synth::VoiceAllocator<SampleType> voiceAllocator { *this };
+    
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (SynthBase)
 };
 
 

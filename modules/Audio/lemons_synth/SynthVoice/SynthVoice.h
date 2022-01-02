@@ -13,7 +13,7 @@ class SynthVoiceBase
 	using ADSRParams = juce::ADSR::Parameters;
 
 public:
-	SynthVoiceBase (SynthBase<SampleType>* base, double initSamplerate = 44100.0);
+	explicit SynthVoiceBase (SynthBase<SampleType>* base, double initSamplerate = 44100.0);
 
 	virtual ~SynthVoiceBase() = default;
 
@@ -23,22 +23,22 @@ public:
 
 	void bypassedBlock (int numSamples);
 
-	bool isCurrentPedalVoice() const noexcept { return isPedalPitchVoice; }
-	bool isCurrentDescantVoice() const noexcept { return isDescantVoice; }
+    [[nodiscard]] bool isCurrentPedalVoice() const noexcept { return isPedalPitchVoice; }
+    [[nodiscard]] bool isCurrentDescantVoice() const noexcept { return isDescantVoice; }
 
-	int getCurrentMidiPan() const noexcept { return panner.getLastMidiPan(); }
+    [[nodiscard]] int getCurrentMidiPan() const noexcept { return panner.getLastMidiPan(); }
 
-	bool isKeyDown() const noexcept { return keyIsDown; }
+    [[nodiscard]] bool isKeyDown() const noexcept { return keyIsDown; }
 
-	bool wasStartedBefore (const SynthVoiceBase& other) const noexcept { return noteOnTime < other.noteOnTime; }
+    [[nodiscard]] bool wasStartedBefore (const SynthVoiceBase& other) const noexcept { return noteOnTime < other.noteOnTime; }
 
-	bool isPlayingButReleased() const noexcept { return playingButReleased; }
+    [[nodiscard]] bool isPlayingButReleased() const noexcept { return playingButReleased; }
 
-	bool isVoiceActive() const noexcept { return currentlyPlayingNote >= 0; }
+    [[nodiscard]] bool isVoiceActive() const noexcept { return currentlyPlayingNote >= 0; }
 
-	int getCurrentlyPlayingNote() const noexcept { return currentlyPlayingNote; }
+    [[nodiscard]] int getCurrentlyPlayingNote() const noexcept { return currentlyPlayingNote; }
 
-	int getMidiChannel() const { return midiChannel > 0 ? midiChannel : parent->midi.router.getLastMidiChannel(); }
+    [[nodiscard]] int getMidiChannel() const { return midiChannel > 0 ? midiChannel : parent->midi.router.getLastMidiChannel(); }
 
 	void setTargetOutputFrequency (float newFreq);
 
@@ -99,7 +99,7 @@ private:
 	void setAdsrParameters (const ADSRParams newParams) { adsr.setParameters (newParams); }
 	void setQuickReleaseParameters (const ADSRParams newParams) { quickRelease.setParameters (newParams); }
 
-	bool isVoiceOnRightNow() const;
+    [[nodiscard]] bool isVoiceOnRightNow() const;
 
 	void resetRampedValues();
 
