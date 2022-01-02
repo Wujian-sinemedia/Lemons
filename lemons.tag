@@ -91,7 +91,7 @@
     <member kind="function">
       <type>dsp::AudioFile</type>
       <name>getAudioFile</name>
-      <anchorfile>group__audio__files.html</anchorfile>
+      <anchorfile>group__lemons__binary.html</anchorfile>
       <anchor>ga644730095d0f4474c838bd8e357494e5</anchor>
       <arglist>(const String &amp;audioFileName)</arglist>
     </member>
@@ -313,42 +313,42 @@
     <member kind="function">
       <type>MemoryBlock</type>
       <name>getBlob</name>
-      <anchorfile>group__basic__binary__data__types.html</anchorfile>
+      <anchorfile>group__lemons__binary.html</anchorfile>
       <anchor>ga52e71729d422f37cdcd3086f45e7168c</anchor>
       <arglist>(const String &amp;filename)</arglist>
     </member>
     <member kind="function">
       <type>juce::StringArray</type>
       <name>getFilenames</name>
-      <anchorfile>group__lemons__binary__data.html</anchorfile>
+      <anchorfile>group__lemons__binary.html</anchorfile>
       <anchor>ga3f5893ae9f64c4e06e0285bbb38b27c4</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>String</type>
       <name>getString</name>
-      <anchorfile>group__basic__binary__data__types.html</anchorfile>
+      <anchorfile>group__lemons__binary.html</anchorfile>
       <anchor>ga5e253707251df7318339c749531c832e</anchor>
       <arglist>(const String &amp;textFileName)</arglist>
     </member>
     <member kind="function">
       <type>juce::StringArray</type>
       <name>getStrings</name>
-      <anchorfile>group__basic__binary__data__types.html</anchorfile>
+      <anchorfile>group__lemons__binary.html</anchorfile>
       <anchor>ga112a983671f03ff2480e8ac670d9495d</anchor>
       <arglist>(const String &amp;textFileName)</arglist>
     </member>
     <member kind="function">
       <type>ValueTree</type>
       <name>getValueTree</name>
-      <anchorfile>group__basic__binary__data__types.html</anchorfile>
+      <anchorfile>group__lemons__binary.html</anchorfile>
       <anchor>ga7fee171f8c16e6a69a6bf67c3910cd9a</anchor>
       <arglist>(const String &amp;filename)</arglist>
     </member>
     <member kind="function">
       <type>constexpr bool</type>
       <name>hasBinaryData</name>
-      <anchorfile>group__lemons__binary__data.html</anchorfile>
+      <anchorfile>group__lemons__binary.html</anchorfile>
       <anchor>ga45e0f639b83a42ca3121fdff8dcdcb70</anchor>
       <arglist>() noexcept</arglist>
     </member>
@@ -558,8 +558,8 @@
     <member kind="define">
       <type>#define</type>
       <name>LEMONS_CREATE_DSP_TEST</name>
-      <anchorfile>dsp__test_8h.html</anchorfile>
-      <anchor>ae41afeed436f6161b164968f41871379</anchor>
+      <anchorfile>group__lemons__dsp__unit__tests.html</anchorfile>
+      <anchor>gae41afeed436f6161b164968f41871379</anchor>
       <arglist>(ClassTemplate)</arglist>
     </member>
   </compound>
@@ -579,71 +579,71 @@
     <member kind="function">
       <type>bool</type>
       <name>allSamplesAreEqual</name>
-      <anchorfile>namespacelemons_1_1tests.html</anchorfile>
-      <anchor>a7b7bf566585454b8ecab1b489ecf916c</anchor>
+      <anchorfile>group__lemons__dsp__unit__tests.html</anchorfile>
+      <anchor>ga7b7bf566585454b8ecab1b489ecf916c</anchor>
       <arglist>(const AudioBuffer&lt; FloatType &gt; &amp;buffer1, const AudioBuffer&lt; FloatType &gt; &amp;buffer2, int startIndex1, int numSamples, int startIndex2=-1, int channel1=0, int channel2=-1)</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
       <name>allSamplesAreValid</name>
-      <anchorfile>namespacelemons_1_1tests.html</anchorfile>
-      <anchor>adcba4d5065cf05b03e3a70c608eeb836</anchor>
+      <anchorfile>group__lemons__dsp__unit__tests.html</anchorfile>
+      <anchor>gadcba4d5065cf05b03e3a70c608eeb836</anchor>
       <arglist>(const AudioBuffer&lt; FloatType &gt; &amp;buffer)</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
       <name>allSamplesAreZero</name>
-      <anchorfile>namespacelemons_1_1tests.html</anchorfile>
-      <anchor>a9eeb99099375f1fa3d717a93454c2c9c</anchor>
+      <anchorfile>group__lemons__dsp__unit__tests.html</anchorfile>
+      <anchor>ga9eeb99099375f1fa3d717a93454c2c9c</anchor>
       <arglist>(const AudioBuffer&lt; FloatType &gt; &amp;buffer, int startIndex, int numSamples, int channel=0)</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
       <name>bufferChannelsAreEqual</name>
-      <anchorfile>namespacelemons_1_1tests.html</anchorfile>
-      <anchor>a38f39f789d5019726a8d50af6cdb96ab</anchor>
+      <anchorfile>group__lemons__dsp__unit__tests.html</anchorfile>
+      <anchor>ga38f39f789d5019726a8d50af6cdb96ab</anchor>
       <arglist>(const AudioBuffer&lt; FloatType &gt; &amp;buffer1, int channel1, const AudioBuffer&lt; FloatType &gt; &amp;buffer2, int channel2)</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
       <name>bufferIsSilent</name>
-      <anchorfile>namespacelemons_1_1tests.html</anchorfile>
-      <anchor>abc03e9fae97d48e1f10d2c5a2131f6ff</anchor>
+      <anchorfile>group__lemons__dsp__unit__tests.html</anchorfile>
+      <anchor>gabc03e9fae97d48e1f10d2c5a2131f6ff</anchor>
       <arglist>(const AudioBuffer&lt; FloatType &gt; &amp;buffer)</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
       <name>buffersAreEqual</name>
-      <anchorfile>namespacelemons_1_1tests.html</anchorfile>
-      <anchor>a5e40182d3a34127843dc0487cf7678d2</anchor>
+      <anchorfile>group__lemons__dsp__unit__tests.html</anchorfile>
+      <anchor>ga5e40182d3a34127843dc0487cf7678d2</anchor>
       <arglist>(const AudioBuffer&lt; FloatType &gt; &amp;buffer1, const AudioBuffer&lt; FloatType &gt; &amp;buffer2)</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
       <name>buffersAreReasonablyEqual</name>
-      <anchorfile>namespacelemons_1_1tests.html</anchorfile>
-      <anchor>a7681e5e17b48965aa1416c51ea9c4a61</anchor>
+      <anchorfile>group__lemons__dsp__unit__tests.html</anchorfile>
+      <anchor>ga7681e5e17b48965aa1416c51ea9c4a61</anchor>
       <arglist>(const AudioBuffer&lt; FloatType &gt; &amp;buffer1, const AudioBuffer&lt; FloatType &gt; &amp;buffer2)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>fillAudioBufferWithRandomNoise</name>
-      <anchorfile>namespacelemons_1_1tests.html</anchorfile>
-      <anchor>a8ecdb1df151eda76ed75304aea1dd2b7</anchor>
+      <anchorfile>group__lemons__dsp__unit__tests.html</anchorfile>
+      <anchor>ga8ecdb1df151eda76ed75304aea1dd2b7</anchor>
       <arglist>(AudioBuffer&lt; SampleType &gt; &amp;buffer, juce::Random rng)</arglist>
     </member>
     <member kind="function">
       <type>AudioBuffer&lt; SampleType &gt;</type>
       <name>makeCopyOfAudioBuffer</name>
-      <anchorfile>namespacelemons_1_1tests.html</anchorfile>
-      <anchor>ab19c24a71eb5b03abd490ea31e88908e</anchor>
+      <anchorfile>group__lemons__dsp__unit__tests.html</anchorfile>
+      <anchor>gab19c24a71eb5b03abd490ea31e88908e</anchor>
       <arglist>(const AudioBuffer&lt; SampleType &gt; &amp;inputBuffer)</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
       <name>noSamplesAreClipping</name>
-      <anchorfile>namespacelemons_1_1tests.html</anchorfile>
-      <anchor>a91d1e7095657d0593a3baba099b5ed36</anchor>
+      <anchorfile>group__lemons__dsp__unit__tests.html</anchorfile>
+      <anchor>ga91d1e7095657d0593a3baba099b5ed36</anchor>
       <arglist>(const AudioBuffer&lt; FloatType &gt; &amp;buffer)</arglist>
     </member>
   </compound>
@@ -722,67 +722,39 @@
       <arglist>(const File &amp;file)</arglist>
     </member>
     <member kind="function">
+      <type>MemoryBlock</type>
+      <name>loadFileAsBlock</name>
+      <anchorfile>group__lemons__files.html</anchorfile>
+      <anchor>gaeb48ab1af98d76a304450d4fad73f577</anchor>
+      <arglist>(const File &amp;file)</arglist>
+    </member>
+    <member kind="function">
       <type>ValueTree</type>
       <name>loadValueTree</name>
-      <anchorfile>group__lemons__value__trees.html</anchorfile>
+      <anchorfile>group__lemons__files.html</anchorfile>
       <anchor>ga83377ad1e44d9e25ff0a5879975230c9</anchor>
       <arglist>(const File &amp;file)</arglist>
     </member>
     <member kind="function">
       <type>ValueTree</type>
       <name>loadValueTree</name>
-      <anchorfile>group__lemons__value__trees.html</anchorfile>
+      <anchorfile>group__lemons__files.html</anchorfile>
       <anchor>gaa4e640b5ec2d9c0d43ff33e1209376ea</anchor>
       <arglist>(const String &amp;fileContents)</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
+      <name>saveBlockToFile</name>
+      <anchorfile>group__lemons__files.html</anchorfile>
+      <anchor>ga45f381bf9770d795dc1a94d41207aa58</anchor>
+      <arglist>(const MemoryBlock &amp;block, const File &amp;file)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
       <name>saveValueTree</name>
-      <anchorfile>group__lemons__value__trees.html</anchorfile>
+      <anchorfile>group__lemons__files.html</anchorfile>
       <anchor>gaf649a81a1c77e6b8667c62f6276e6d11</anchor>
       <arglist>(const File &amp;file, const ValueTree &amp;tree)</arglist>
-    </member>
-    <member kind="function">
-      <type>MemoryBlock</type>
-      <name>loadFileAsBlock</name>
-      <anchorfile>namespacelemons_1_1files.html</anchorfile>
-      <anchor>aeb48ab1af98d76a304450d4fad73f577</anchor>
-      <arglist>(const File &amp;file)</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>saveBlockToFile</name>
-      <anchorfile>namespacelemons_1_1files.html</anchorfile>
-      <anchor>a45f381bf9770d795dc1a94d41207aa58</anchor>
-      <arglist>(const MemoryBlock &amp;block, const File &amp;file)</arglist>
-    </member>
-    <member kind="function">
-      <type>MemoryBlock</type>
-      <name>loadFileAsBlock</name>
-      <anchorfile>namespacelemons_1_1files.html</anchorfile>
-      <anchor>aeb48ab1af98d76a304450d4fad73f577</anchor>
-      <arglist>(const File &amp;file)</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>saveBlockToFile</name>
-      <anchorfile>namespacelemons_1_1files.html</anchorfile>
-      <anchor>a45f381bf9770d795dc1a94d41207aa58</anchor>
-      <arglist>(const MemoryBlock &amp;block, const File &amp;file)</arglist>
-    </member>
-    <member kind="function">
-      <type>MemoryBlock</type>
-      <name>loadFileAsBlock</name>
-      <anchorfile>namespacelemons_1_1files.html</anchorfile>
-      <anchor>aeb48ab1af98d76a304450d4fad73f577</anchor>
-      <arglist>(const File &amp;file)</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>saveBlockToFile</name>
-      <anchorfile>namespacelemons_1_1files.html</anchorfile>
-      <anchor>a45f381bf9770d795dc1a94d41207aa58</anchor>
-      <arglist>(const MemoryBlock &amp;block, const File &amp;file)</arglist>
     </member>
   </compound>
   <compound kind="file">
@@ -830,15 +802,15 @@
     <member kind="function">
       <type>void</type>
       <name>fillImageWithRandomPixels</name>
-      <anchorfile>namespacelemons_1_1tests.html</anchorfile>
-      <anchor>a45aa6aca22218a8a1c13b549c17712e3</anchor>
+      <anchorfile>group__lemons__gui__unit__tests.html</anchorfile>
+      <anchor>ga45aa6aca22218a8a1c13b549c17712e3</anchor>
       <arglist>(Image &amp;image, juce::Random rng)</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
       <name>imagesAreEqual</name>
-      <anchorfile>namespacelemons_1_1tests.html</anchorfile>
-      <anchor>ac207a10fbe432026788c9341794ac68a</anchor>
+      <anchorfile>group__lemons__gui__unit__tests.html</anchorfile>
+      <anchor>gac207a10fbe432026788c9341794ac68a</anchor>
       <arglist>(const Image &amp;image1, const Image &amp;image2)</arglist>
     </member>
   </compound>
@@ -933,109 +905,39 @@
     <namespace>lemons</namespace>
     <namespace>lemons::locale</namespace>
     <member kind="function">
-      <type>String</type>
-      <name>languageCodeToName</name>
-      <anchorfile>namespacelemons_1_1locale.html</anchorfile>
-      <anchor>aad199ffab3ee7c4e5e8027aaa48986af</anchor>
-      <arglist>(const String &amp;languageCode)</arglist>
-    </member>
-    <member kind="function">
-      <type>String</type>
-      <name>languageNameToCode</name>
-      <anchorfile>namespacelemons_1_1locale.html</anchorfile>
-      <anchor>a9377266e261ca703f64e1bf139259520</anchor>
-      <arglist>(const String &amp;name, bool asISO639_2=true)</arglist>
-    </member>
-    <member kind="function">
       <type>StringArray</type>
       <name>getCountryCodesForLanguage</name>
-      <anchorfile>namespacelemons_1_1locale.html</anchorfile>
-      <anchor>a654c5ab00019f58ce358d8f306b706f8</anchor>
+      <anchorfile>group__lemons__iso__country__codes.html</anchorfile>
+      <anchor>ga654c5ab00019f58ce358d8f306b706f8</anchor>
       <arglist>(const String &amp;language, bool languageName=true)</arglist>
     </member>
     <member kind="function">
       <type>StringArray</type>
       <name>getLanguageCodesForCountry</name>
-      <anchorfile>namespacelemons_1_1locale.html</anchorfile>
-      <anchor>a39cc970a4d100be559240b1a6ec42d62</anchor>
+      <anchorfile>group__lemons__iso__country__codes.html</anchorfile>
+      <anchor>ga39cc970a4d100be559240b1a6ec42d62</anchor>
       <arglist>(const String &amp;countryCode, bool asISO639_2=true)</arglist>
     </member>
     <member kind="function">
       <type>StringArray</type>
       <name>getLanguageNamesForCountry</name>
-      <anchorfile>namespacelemons_1_1locale.html</anchorfile>
-      <anchor>a1ab45cf7ce001bddc0cb8ab349be4372</anchor>
+      <anchorfile>group__lemons__iso__country__codes.html</anchorfile>
+      <anchor>ga1ab45cf7ce001bddc0cb8ab349be4372</anchor>
       <arglist>(const String &amp;countryCode)</arglist>
     </member>
     <member kind="function">
       <type>String</type>
-      <name>languageNameToCode</name>
-      <anchorfile>namespacelemons_1_1locale.html</anchorfile>
-      <anchor>a9377266e261ca703f64e1bf139259520</anchor>
-      <arglist>(const String &amp;name, bool asISO639_2=true)</arglist>
-    </member>
-    <member kind="function">
-      <type>String</type>
       <name>languageCodeToName</name>
-      <anchorfile>namespacelemons_1_1locale.html</anchorfile>
-      <anchor>aad199ffab3ee7c4e5e8027aaa48986af</anchor>
-      <arglist>(const String &amp;languageCode)</arglist>
-    </member>
-    <member kind="function">
-      <type>StringArray</type>
-      <name>getCountryCodesForLanguage</name>
-      <anchorfile>namespacelemons_1_1locale.html</anchorfile>
-      <anchor>a654c5ab00019f58ce358d8f306b706f8</anchor>
-      <arglist>(const String &amp;language, bool languageName=true)</arglist>
-    </member>
-    <member kind="function">
-      <type>StringArray</type>
-      <name>getLanguageNamesForCountry</name>
-      <anchorfile>namespacelemons_1_1locale.html</anchorfile>
-      <anchor>a1ab45cf7ce001bddc0cb8ab349be4372</anchor>
-      <arglist>(const String &amp;countryCode)</arglist>
-    </member>
-    <member kind="function">
-      <type>StringArray</type>
-      <name>getLanguageCodesForCountry</name>
-      <anchorfile>namespacelemons_1_1locale.html</anchorfile>
-      <anchor>a39cc970a4d100be559240b1a6ec42d62</anchor>
-      <arglist>(const String &amp;countryCode, bool asISO639_2=true)</arglist>
-    </member>
-    <member kind="function">
-      <type>String</type>
-      <name>languageCodeToName</name>
-      <anchorfile>namespacelemons_1_1locale.html</anchorfile>
-      <anchor>aad199ffab3ee7c4e5e8027aaa48986af</anchor>
+      <anchorfile>group__lemons__iso__language__codes.html</anchorfile>
+      <anchor>gaad199ffab3ee7c4e5e8027aaa48986af</anchor>
       <arglist>(const String &amp;languageCode)</arglist>
     </member>
     <member kind="function">
       <type>String</type>
       <name>languageNameToCode</name>
-      <anchorfile>namespacelemons_1_1locale.html</anchorfile>
-      <anchor>a9377266e261ca703f64e1bf139259520</anchor>
+      <anchorfile>group__lemons__iso__language__codes.html</anchorfile>
+      <anchor>ga9377266e261ca703f64e1bf139259520</anchor>
       <arglist>(const String &amp;name, bool asISO639_2=true)</arglist>
-    </member>
-    <member kind="function">
-      <type>StringArray</type>
-      <name>getCountryCodesForLanguage</name>
-      <anchorfile>namespacelemons_1_1locale.html</anchorfile>
-      <anchor>a654c5ab00019f58ce358d8f306b706f8</anchor>
-      <arglist>(const String &amp;language, bool languageName=true)</arglist>
-    </member>
-    <member kind="function">
-      <type>StringArray</type>
-      <name>getLanguageCodesForCountry</name>
-      <anchorfile>namespacelemons_1_1locale.html</anchorfile>
-      <anchor>a39cc970a4d100be559240b1a6ec42d62</anchor>
-      <arglist>(const String &amp;countryCode, bool asISO639_2=true)</arglist>
-    </member>
-    <member kind="function">
-      <type>StringArray</type>
-      <name>getLanguageNamesForCountry</name>
-      <anchorfile>namespacelemons_1_1locale.html</anchorfile>
-      <anchor>a1ab45cf7ce001bddc0cb8ab349be4372</anchor>
-      <arglist>(const String &amp;countryCode)</arglist>
     </member>
   </compound>
   <compound kind="file">
@@ -1584,22 +1486,22 @@
     <member kind="function">
       <type>void</type>
       <name>fillMidiBufferWithRandomEvents</name>
-      <anchorfile>namespacelemons_1_1tests.html</anchorfile>
-      <anchor>ac8657000a7bf8aaa4cc93c263c8dbc8e</anchor>
+      <anchorfile>group__lemons__midi__unit__tests.html</anchorfile>
+      <anchor>gac8657000a7bf8aaa4cc93c263c8dbc8e</anchor>
       <arglist>(MidiBuffer &amp;buffer, int numEvents, juce::Random rng)</arglist>
     </member>
     <member kind="function">
       <type>MidiBuffer</type>
       <name>makeCopyOfMidiBuffer</name>
-      <anchorfile>namespacelemons_1_1tests.html</anchorfile>
-      <anchor>a05dcafe4b31077a0cff23d9f6d9b9a83</anchor>
+      <anchorfile>group__lemons__midi__unit__tests.html</anchorfile>
+      <anchor>ga05dcafe4b31077a0cff23d9f6d9b9a83</anchor>
       <arglist>(const MidiBuffer &amp;inputBuffer)</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
       <name>midiBuffersAreEqual</name>
-      <anchorfile>namespacelemons_1_1tests.html</anchorfile>
-      <anchor>ac131c73da0a08f4127224d450c02270e</anchor>
+      <anchorfile>group__lemons__midi__unit__tests.html</anchorfile>
+      <anchor>gac131c73da0a08f4127224d450c02270e</anchor>
       <arglist>(const MidiBuffer &amp;buffer1, const MidiBuffer &amp;buffer2)</arglist>
     </member>
   </compound>
@@ -1662,43 +1564,15 @@
     <member kind="function">
       <type>MidiBuffer</type>
       <name>midiBufferFromFile</name>
-      <anchorfile>namespacelemons_1_1midi.html</anchorfile>
-      <anchor>a07960c8ccf7e391f88b2d61bd6aac0db</anchor>
+      <anchorfile>group__lemons__midi.html</anchorfile>
+      <anchor>ga07960c8ccf7e391f88b2d61bd6aac0db</anchor>
       <arglist>(const MidiFile &amp;file, int trackToRead=-1)</arglist>
     </member>
     <member kind="function">
       <type>MidiFile</type>
       <name>midiBufferToFile</name>
-      <anchorfile>namespacelemons_1_1midi.html</anchorfile>
-      <anchor>a1e03e28ee699f1c4095d2cf29748a2f7</anchor>
-      <arglist>(const MidiBuffer &amp;midi)</arglist>
-    </member>
-    <member kind="function">
-      <type>MidiFile</type>
-      <name>midiBufferToFile</name>
-      <anchorfile>namespacelemons_1_1midi.html</anchorfile>
-      <anchor>a1e03e28ee699f1c4095d2cf29748a2f7</anchor>
-      <arglist>(const MidiBuffer &amp;midi)</arglist>
-    </member>
-    <member kind="function">
-      <type>MidiBuffer</type>
-      <name>midiBufferFromFile</name>
-      <anchorfile>namespacelemons_1_1midi.html</anchorfile>
-      <anchor>a07960c8ccf7e391f88b2d61bd6aac0db</anchor>
-      <arglist>(const MidiFile &amp;file, int trackToRead=-1)</arglist>
-    </member>
-    <member kind="function">
-      <type>MidiBuffer</type>
-      <name>midiBufferFromFile</name>
-      <anchorfile>namespacelemons_1_1midi.html</anchorfile>
-      <anchor>a07960c8ccf7e391f88b2d61bd6aac0db</anchor>
-      <arglist>(const MidiFile &amp;file, int trackToRead=-1)</arglist>
-    </member>
-    <member kind="function">
-      <type>MidiFile</type>
-      <name>midiBufferToFile</name>
-      <anchorfile>namespacelemons_1_1midi.html</anchorfile>
-      <anchor>a1e03e28ee699f1c4095d2cf29748a2f7</anchor>
+      <anchorfile>group__lemons__midi.html</anchorfile>
+      <anchor>ga1e03e28ee699f1c4095d2cf29748a2f7</anchor>
       <arglist>(const MidiBuffer &amp;midi)</arglist>
     </member>
   </compound>
@@ -1896,21 +1770,21 @@
     <member kind="function">
       <type>plugin::ParameterLayout</type>
       <name>getParameterLayout</name>
-      <anchorfile>group__plugin__parameter__metadata.html</anchorfile>
+      <anchorfile>group__lemons__binary.html</anchorfile>
       <anchor>gad3c759ef241f4a9c2e250f4bbe0c85a4</anchor>
       <arglist>(const String &amp;fileName)</arglist>
     </member>
     <member kind="function">
       <type>plugin::ParameterLayout</type>
       <name>loadParameterLayout</name>
-      <anchorfile>group__plugin__parameter__metadata.html</anchorfile>
+      <anchorfile>group__lemons__files.html</anchorfile>
       <anchor>ga5e21f36c14abe23185769a0557a09d9c</anchor>
       <arglist>(const File &amp;file)</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
       <name>saveParameterLayout</name>
-      <anchorfile>group__plugin__parameter__metadata.html</anchorfile>
+      <anchorfile>group__lemons__files.html</anchorfile>
       <anchor>ga5f6319cc91a208675723796f54ec303b</anchor>
       <arglist>(const plugin::ParameterLayout &amp;layout, const File &amp;file)</arglist>
     </member>
@@ -1989,21 +1863,21 @@
     <member kind="function">
       <type>plugin::PluginMetadata</type>
       <name>getPluginMetadata</name>
-      <anchorfile>group__plugin__metadata.html</anchorfile>
+      <anchorfile>group__lemons__binary.html</anchorfile>
       <anchor>ga482ca5ce1b610a09b239221ef21eec9b</anchor>
       <arglist>(const String &amp;filename)</arglist>
     </member>
     <member kind="function">
       <type>plugin::PluginMetadata</type>
       <name>loadPluginMetadata</name>
-      <anchorfile>group__plugin__metadata.html</anchorfile>
+      <anchorfile>group__lemons__files.html</anchorfile>
       <anchor>gaccd4f10eb1f43bebed6a54925091420b</anchor>
       <arglist>(const File &amp;file)</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
       <name>savePluginMetadata</name>
-      <anchorfile>group__plugin__metadata.html</anchorfile>
+      <anchorfile>group__lemons__files.html</anchorfile>
       <anchor>ga50cc46e369de9136fb3f11a13b0fdc1b</anchor>
       <arglist>(const plugin::PluginMetadata &amp;layout, const File &amp;file)</arglist>
     </member>
@@ -2082,21 +1956,21 @@
     <member kind="function">
       <type>plugin::ProcessorAttributes</type>
       <name>getProcessorAttributes</name>
-      <anchorfile>group__plugin__metadata.html</anchorfile>
+      <anchorfile>group__lemons__binary.html</anchorfile>
       <anchor>gaa5cccc2760a50960564a6ca940ec41f7</anchor>
       <arglist>(const String &amp;filename)</arglist>
     </member>
     <member kind="function">
       <type>plugin::ProcessorAttributes</type>
       <name>loadProcessorAttributes</name>
-      <anchorfile>group__plugin__metadata.html</anchorfile>
+      <anchorfile>group__lemons__files.html</anchorfile>
       <anchor>gab2d6ab95437d9c715997be684126035d</anchor>
       <arglist>(const File &amp;file)</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
       <name>saveProcessorAttributes</name>
-      <anchorfile>group__plugin__metadata.html</anchorfile>
+      <anchorfile>group__lemons__files.html</anchorfile>
       <anchor>ga669edbc3aebe00cd284774127aa2bc4f</anchor>
       <arglist>(const plugin::ProcessorAttributes &amp;layout, const File &amp;file)</arglist>
     </member>
@@ -2148,14 +2022,14 @@
     <member kind="define">
       <type>#define</type>
       <name>LEMONS_DEFINE_PLUGIN_CREATOR</name>
-      <anchorfile>group__processors.html</anchorfile>
+      <anchorfile>group__lemons__plugin__processors.html</anchorfile>
       <anchor>gaf649a3a424a181538b5b2ea686561b75</anchor>
       <arglist>(ProcessorClass)</arglist>
     </member>
     <member kind="typedef">
       <type>Processor&lt; EngineType, State &gt;</type>
       <name>StatelessProcessor</name>
-      <anchorfile>group__processors.html</anchorfile>
+      <anchorfile>group__lemons__plugin__processors.html</anchorfile>
       <anchor>ga402ed40f2d0bc661edca4d34b112d41b</anchor>
       <arglist></arglist>
     </member>
@@ -2188,8 +2062,8 @@
     <member kind="function">
       <type>bool</type>
       <name>executeUnitTests</name>
-      <anchorfile>namespacelemons_1_1tests.html</anchorfile>
-      <anchor>a012b4a90230fe31d71ca56d673f078c3</anchor>
+      <anchorfile>group__lemons__unit__testing.html</anchorfile>
+      <anchor>ga012b4a90230fe31d71ca56d673f078c3</anchor>
       <arglist>(Intensity intensityLevel=Intensity::Medium, const File &amp;logOutput={}, juce::int64 seed=juce::Random::getSystemRandom().nextInt64(), const String &amp;singleTestName={}, const String &amp;categoryName={})</arglist>
     </member>
   </compound>
@@ -2239,35 +2113,35 @@
     <member kind="function">
       <type>AudioBuffer&lt; SampleType &gt;</type>
       <name>audioFromBinary</name>
-      <anchorfile>group__lemons__audio__buffers.html</anchorfile>
+      <anchorfile>group__lemons__serializing.html</anchorfile>
       <anchor>gab642a13438e30137d80cb0842d314f7b</anchor>
       <arglist>(const MemoryBlock &amp;block)</arglist>
     </member>
     <member kind="function">
       <type>MemoryBlock</type>
       <name>audioToBinary</name>
-      <anchorfile>group__lemons__audio__buffers.html</anchorfile>
+      <anchorfile>group__lemons__serializing.html</anchorfile>
       <anchor>gadf7966056fb84074c7d8acfafad74af2</anchor>
       <arglist>(const AudioBuffer&lt; SampleType &gt; &amp;buffer, double samplerate=48000.)</arglist>
     </member>
     <member kind="function">
       <type>AudioBuffer&lt; SampleType &gt;</type>
       <name>getAudioBuffer</name>
-      <anchorfile>group__lemons__audio__buffers.html</anchorfile>
+      <anchorfile>group__lemons__binary.html</anchorfile>
       <anchor>gad521bea43ce321600e47f0aac6bbbe18</anchor>
       <arglist>(const String &amp;filename)</arglist>
     </member>
     <member kind="function">
       <type>AudioBuffer&lt; SampleType &gt;</type>
       <name>loadAudioBuffer</name>
-      <anchorfile>group__lemons__audio__buffers.html</anchorfile>
+      <anchorfile>group__lemons__files.html</anchorfile>
       <anchor>gaf54aae60ea2c1dabbedb0ce11c31c53a</anchor>
       <arglist>(const File &amp;file)</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
       <name>saveAudioBuffer</name>
-      <anchorfile>group__lemons__audio__buffers.html</anchorfile>
+      <anchorfile>group__lemons__files.html</anchorfile>
       <anchor>gac003f0c017b579974905b50c95689706</anchor>
       <arglist>(const AudioBuffer&lt; SampleType &gt; &amp;audio, const File &amp;file, double samplerate=48000.)</arglist>
     </member>
@@ -2327,214 +2201,74 @@
     <namespace>lemons::files</namespace>
     <namespace>lemons::serializing</namespace>
     <member kind="function">
-      <type>MidiBuffer</type>
-      <name>midiBufferFromBinary</name>
-      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>a04f7d173de93a9bf72be15fb86f2f518</anchor>
-      <arglist>(const MemoryBlock &amp;block)</arglist>
-    </member>
-    <member kind="function">
-      <type>MemoryBlock</type>
-      <name>midiToBinary</name>
-      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>a9f9b5afb4a6bd15f8c8801923c12e1f7</anchor>
-      <arglist>(const MidiBuffer &amp;midi)</arglist>
-    </member>
-    <member kind="function">
-      <type>MidiFile</type>
-      <name>midiFileFromBinary</name>
-      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>a1464835a9b444ee16712c67565260518</anchor>
-      <arglist>(const MemoryBlock &amp;block)</arglist>
-    </member>
-    <member kind="function">
-      <type>MemoryBlock</type>
-      <name>midiToBinary</name>
-      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>aeacda195ca89506992384c26458355cf</anchor>
-      <arglist>(const MidiFile &amp;midi)</arglist>
-    </member>
-    <member kind="function">
-      <type>MidiFile</type>
-      <name>loadMidiFile</name>
-      <anchorfile>namespacelemons_1_1files.html</anchorfile>
-      <anchor>ae0ba713ecd7bdb010178da5d88b60777</anchor>
-      <arglist>(const File &amp;file)</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>saveMidi</name>
-      <anchorfile>namespacelemons_1_1files.html</anchorfile>
-      <anchor>ad9dc353791d67eb0b4caf98b2cab8bd1</anchor>
-      <arglist>(const MidiFile &amp;midi, const File &amp;file)</arglist>
-    </member>
-    <member kind="function">
-      <type>MidiBuffer</type>
-      <name>loadMidiBuffer</name>
-      <anchorfile>namespacelemons_1_1files.html</anchorfile>
-      <anchor>a3bf826f1c89c8d7dd79746bfa970a45b</anchor>
-      <arglist>(const File &amp;file)</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>saveMidi</name>
-      <anchorfile>namespacelemons_1_1files.html</anchorfile>
-      <anchor>ac75640aebef14f2210e2a11d9d5b8ae1</anchor>
-      <arglist>(const MidiBuffer &amp;midi, const File &amp;file)</arglist>
-    </member>
-    <member kind="function">
       <type>juce::MidiBuffer</type>
       <name>getMidiBuffer</name>
-      <anchorfile>namespacelemons_1_1binary.html</anchorfile>
-      <anchor>a11624a66328f11467e6467193347138f</anchor>
+      <anchorfile>group__lemons__binary.html</anchorfile>
+      <anchor>ga11624a66328f11467e6467193347138f</anchor>
       <arglist>(const String &amp;midiFileName)</arglist>
     </member>
     <member kind="function">
       <type>juce::MidiFile</type>
       <name>getMidiFile</name>
-      <anchorfile>namespacelemons_1_1binary.html</anchorfile>
-      <anchor>a4b9c208fff93a49410fc4906db3aedd7</anchor>
+      <anchorfile>group__lemons__binary.html</anchorfile>
+      <anchor>ga4b9c208fff93a49410fc4906db3aedd7</anchor>
       <arglist>(const String &amp;midiFileName)</arglist>
-    </member>
-    <member kind="function">
-      <type>juce::MidiFile</type>
-      <name>getMidiFile</name>
-      <anchorfile>namespacelemons_1_1binary.html</anchorfile>
-      <anchor>a4b9c208fff93a49410fc4906db3aedd7</anchor>
-      <arglist>(const String &amp;midiFileName)</arglist>
-    </member>
-    <member kind="function">
-      <type>juce::MidiBuffer</type>
-      <name>getMidiBuffer</name>
-      <anchorfile>namespacelemons_1_1binary.html</anchorfile>
-      <anchor>a11624a66328f11467e6467193347138f</anchor>
-      <arglist>(const String &amp;midiFileName)</arglist>
-    </member>
-    <member kind="function">
-      <type>MidiFile</type>
-      <name>loadMidiFile</name>
-      <anchorfile>namespacelemons_1_1files.html</anchorfile>
-      <anchor>ae0ba713ecd7bdb010178da5d88b60777</anchor>
-      <arglist>(const File &amp;file)</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>saveMidi</name>
-      <anchorfile>namespacelemons_1_1files.html</anchorfile>
-      <anchor>ad9dc353791d67eb0b4caf98b2cab8bd1</anchor>
-      <arglist>(const MidiFile &amp;midi, const File &amp;file)</arglist>
     </member>
     <member kind="function">
       <type>MidiBuffer</type>
       <name>loadMidiBuffer</name>
-      <anchorfile>namespacelemons_1_1files.html</anchorfile>
-      <anchor>a3bf826f1c89c8d7dd79746bfa970a45b</anchor>
+      <anchorfile>group__lemons__files.html</anchorfile>
+      <anchor>ga3bf826f1c89c8d7dd79746bfa970a45b</anchor>
       <arglist>(const File &amp;file)</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>saveMidi</name>
-      <anchorfile>namespacelemons_1_1files.html</anchorfile>
-      <anchor>ac75640aebef14f2210e2a11d9d5b8ae1</anchor>
-      <arglist>(const MidiBuffer &amp;midi, const File &amp;file)</arglist>
-    </member>
-    <member kind="function">
-      <type>MemoryBlock</type>
-      <name>midiToBinary</name>
-      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>a9f9b5afb4a6bd15f8c8801923c12e1f7</anchor>
-      <arglist>(const MidiBuffer &amp;midi)</arglist>
-    </member>
-    <member kind="function">
-      <type>MidiBuffer</type>
-      <name>midiBufferFromBinary</name>
-      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>a04f7d173de93a9bf72be15fb86f2f518</anchor>
-      <arglist>(const MemoryBlock &amp;block)</arglist>
-    </member>
-    <member kind="function">
-      <type>MemoryBlock</type>
-      <name>midiToBinary</name>
-      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>aeacda195ca89506992384c26458355cf</anchor>
-      <arglist>(const MidiFile &amp;midi)</arglist>
-    </member>
-    <member kind="function">
-      <type>MidiFile</type>
-      <name>midiFileFromBinary</name>
-      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>a1464835a9b444ee16712c67565260518</anchor>
-      <arglist>(const MemoryBlock &amp;block)</arglist>
-    </member>
-    <member kind="function">
-      <type>MidiBuffer</type>
-      <name>midiBufferFromBinary</name>
-      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>a04f7d173de93a9bf72be15fb86f2f518</anchor>
-      <arglist>(const MemoryBlock &amp;block)</arglist>
-    </member>
-    <member kind="function">
-      <type>MemoryBlock</type>
-      <name>midiToBinary</name>
-      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>a9f9b5afb4a6bd15f8c8801923c12e1f7</anchor>
-      <arglist>(const MidiBuffer &amp;midi)</arglist>
-    </member>
-    <member kind="function">
-      <type>MidiFile</type>
-      <name>midiFileFromBinary</name>
-      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>a1464835a9b444ee16712c67565260518</anchor>
-      <arglist>(const MemoryBlock &amp;block)</arglist>
-    </member>
-    <member kind="function">
-      <type>MemoryBlock</type>
-      <name>midiToBinary</name>
-      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>aeacda195ca89506992384c26458355cf</anchor>
-      <arglist>(const MidiFile &amp;midi)</arglist>
     </member>
     <member kind="function">
       <type>MidiFile</type>
       <name>loadMidiFile</name>
-      <anchorfile>namespacelemons_1_1files.html</anchorfile>
-      <anchor>ae0ba713ecd7bdb010178da5d88b60777</anchor>
+      <anchorfile>group__lemons__files.html</anchorfile>
+      <anchor>gae0ba713ecd7bdb010178da5d88b60777</anchor>
       <arglist>(const File &amp;file)</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>saveMidi</name>
-      <anchorfile>namespacelemons_1_1files.html</anchorfile>
-      <anchor>ad9dc353791d67eb0b4caf98b2cab8bd1</anchor>
-      <arglist>(const MidiFile &amp;midi, const File &amp;file)</arglist>
     </member>
     <member kind="function">
       <type>MidiBuffer</type>
-      <name>loadMidiBuffer</name>
-      <anchorfile>namespacelemons_1_1files.html</anchorfile>
-      <anchor>a3bf826f1c89c8d7dd79746bfa970a45b</anchor>
-      <arglist>(const File &amp;file)</arglist>
+      <name>midiBufferFromBinary</name>
+      <anchorfile>group__lemons__serializing.html</anchorfile>
+      <anchor>ga04f7d173de93a9bf72be15fb86f2f518</anchor>
+      <arglist>(const MemoryBlock &amp;block)</arglist>
+    </member>
+    <member kind="function">
+      <type>MidiFile</type>
+      <name>midiFileFromBinary</name>
+      <anchorfile>group__lemons__serializing.html</anchorfile>
+      <anchor>ga1464835a9b444ee16712c67565260518</anchor>
+      <arglist>(const MemoryBlock &amp;block)</arglist>
+    </member>
+    <member kind="function">
+      <type>MemoryBlock</type>
+      <name>midiToBinary</name>
+      <anchorfile>group__lemons__serializing.html</anchorfile>
+      <anchor>ga9f9b5afb4a6bd15f8c8801923c12e1f7</anchor>
+      <arglist>(const MidiBuffer &amp;midi)</arglist>
+    </member>
+    <member kind="function">
+      <type>MemoryBlock</type>
+      <name>midiToBinary</name>
+      <anchorfile>group__lemons__serializing.html</anchorfile>
+      <anchor>gaeacda195ca89506992384c26458355cf</anchor>
+      <arglist>(const MidiFile &amp;midi)</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
       <name>saveMidi</name>
-      <anchorfile>namespacelemons_1_1files.html</anchorfile>
-      <anchor>ac75640aebef14f2210e2a11d9d5b8ae1</anchor>
+      <anchorfile>group__lemons__files.html</anchorfile>
+      <anchor>gac75640aebef14f2210e2a11d9d5b8ae1</anchor>
       <arglist>(const MidiBuffer &amp;midi, const File &amp;file)</arglist>
     </member>
     <member kind="function">
-      <type>juce::MidiBuffer</type>
-      <name>getMidiBuffer</name>
-      <anchorfile>namespacelemons_1_1binary.html</anchorfile>
-      <anchor>a11624a66328f11467e6467193347138f</anchor>
-      <arglist>(const String &amp;midiFileName)</arglist>
-    </member>
-    <member kind="function">
-      <type>juce::MidiFile</type>
-      <name>getMidiFile</name>
-      <anchorfile>namespacelemons_1_1binary.html</anchorfile>
-      <anchor>a4b9c208fff93a49410fc4906db3aedd7</anchor>
-      <arglist>(const String &amp;midiFileName)</arglist>
+      <type>bool</type>
+      <name>saveMidi</name>
+      <anchorfile>group__lemons__files.html</anchorfile>
+      <anchor>gad9dc353791d67eb0b4caf98b2cab8bd1</anchor>
+      <arglist>(const MidiFile &amp;midi, const File &amp;file)</arglist>
     </member>
   </compound>
   <compound kind="file">
@@ -2544,130 +2278,46 @@
     <namespace>lemons</namespace>
     <namespace>lemons::serializing</namespace>
     <member kind="function">
-      <type>ValueTree</type>
-      <name>rangeToValueTree</name>
-      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>ad52d848aba3f9614ace803cb0b840dda</anchor>
-      <arglist>(const juce::NormalisableRange&lt; ValueType &gt; &amp;range)</arglist>
-    </member>
-    <member kind="function">
-      <type>juce::NormalisableRange&lt; ValueType &gt;</type>
-      <name>valueTreeToRange</name>
-      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>abe8547288b1d7c2cda9ec239589d39fb</anchor>
-      <arglist>(const ValueTree &amp;tree)</arglist>
-    </member>
-    <member kind="function">
       <type>MemoryBlock</type>
       <name>memoryBlockFromString</name>
-      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>ac8b999fef48958f498e30029bd9a7eeb</anchor>
+      <anchorfile>group__lemons__serializing.html</anchorfile>
+      <anchor>gac8b999fef48958f498e30029bd9a7eeb</anchor>
       <arglist>(const String &amp;string)</arglist>
     </member>
     <member kind="function">
       <type>String</type>
       <name>memoryBlockToString</name>
-      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>a0567d1e8fe695183370d8d86edced3c6</anchor>
+      <anchorfile>group__lemons__serializing.html</anchorfile>
+      <anchor>ga0567d1e8fe695183370d8d86edced3c6</anchor>
       <arglist>(const MemoryBlock &amp;block)</arglist>
-    </member>
-    <member kind="function">
-      <type>ValueTree</type>
-      <name>valueTreeFromJSON</name>
-      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>a3a28001c151ae9a72cee950b7b0c5fe0</anchor>
-      <arglist>(const String &amp;jsonText)</arglist>
-    </member>
-    <member kind="function">
-      <type>String</type>
-      <name>valueTreeToJSON</name>
-      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>a44dc62981a244f674a7b47738595d0ac</anchor>
-      <arglist>(const ValueTree &amp;v)</arglist>
     </member>
     <member kind="function">
       <type>ValueTree</type>
       <name>rangeToValueTree</name>
-      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>ad52d848aba3f9614ace803cb0b840dda</anchor>
+      <anchorfile>group__lemons__serializing.html</anchorfile>
+      <anchor>gad52d848aba3f9614ace803cb0b840dda</anchor>
       <arglist>(const juce::NormalisableRange&lt; ValueType &gt; &amp;range)</arglist>
-    </member>
-    <member kind="function">
-      <type>juce::NormalisableRange&lt; ValueType &gt;</type>
-      <name>valueTreeToRange</name>
-      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>abe8547288b1d7c2cda9ec239589d39fb</anchor>
-      <arglist>(const ValueTree &amp;tree)</arglist>
-    </member>
-    <member kind="function">
-      <type>String</type>
-      <name>memoryBlockToString</name>
-      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>a0567d1e8fe695183370d8d86edced3c6</anchor>
-      <arglist>(const MemoryBlock &amp;block)</arglist>
-    </member>
-    <member kind="function">
-      <type>MemoryBlock</type>
-      <name>memoryBlockFromString</name>
-      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>ac8b999fef48958f498e30029bd9a7eeb</anchor>
-      <arglist>(const String &amp;string)</arglist>
-    </member>
-    <member kind="function">
-      <type>String</type>
-      <name>valueTreeToJSON</name>
-      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>a44dc62981a244f674a7b47738595d0ac</anchor>
-      <arglist>(const ValueTree &amp;v)</arglist>
     </member>
     <member kind="function">
       <type>ValueTree</type>
       <name>valueTreeFromJSON</name>
-      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>a3a28001c151ae9a72cee950b7b0c5fe0</anchor>
-      <arglist>(const String &amp;jsonText)</arglist>
-    </member>
-    <member kind="function">
-      <type>ValueTree</type>
-      <name>rangeToValueTree</name>
-      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>ad52d848aba3f9614ace803cb0b840dda</anchor>
-      <arglist>(const juce::NormalisableRange&lt; ValueType &gt; &amp;range)</arglist>
-    </member>
-    <member kind="function">
-      <type>juce::NormalisableRange&lt; ValueType &gt;</type>
-      <name>valueTreeToRange</name>
-      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>abe8547288b1d7c2cda9ec239589d39fb</anchor>
-      <arglist>(const ValueTree &amp;tree)</arglist>
-    </member>
-    <member kind="function">
-      <type>MemoryBlock</type>
-      <name>memoryBlockFromString</name>
-      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>ac8b999fef48958f498e30029bd9a7eeb</anchor>
-      <arglist>(const String &amp;string)</arglist>
-    </member>
-    <member kind="function">
-      <type>String</type>
-      <name>memoryBlockToString</name>
-      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>a0567d1e8fe695183370d8d86edced3c6</anchor>
-      <arglist>(const MemoryBlock &amp;block)</arglist>
-    </member>
-    <member kind="function">
-      <type>ValueTree</type>
-      <name>valueTreeFromJSON</name>
-      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>a3a28001c151ae9a72cee950b7b0c5fe0</anchor>
+      <anchorfile>group__lemons__serializing.html</anchorfile>
+      <anchor>ga3a28001c151ae9a72cee950b7b0c5fe0</anchor>
       <arglist>(const String &amp;jsonText)</arglist>
     </member>
     <member kind="function">
       <type>String</type>
       <name>valueTreeToJSON</name>
-      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>a44dc62981a244f674a7b47738595d0ac</anchor>
+      <anchorfile>group__lemons__serializing.html</anchorfile>
+      <anchor>ga44dc62981a244f674a7b47738595d0ac</anchor>
       <arglist>(const ValueTree &amp;v)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::NormalisableRange&lt; ValueType &gt;</type>
+      <name>valueTreeToRange</name>
+      <anchorfile>group__lemons__serializing.html</anchorfile>
+      <anchor>gabe8547288b1d7c2cda9ec239589d39fb</anchor>
+      <arglist>(const ValueTree &amp;tree)</arglist>
     </member>
   </compound>
   <compound kind="file">
@@ -2684,214 +2334,74 @@
     <namespace>lemons::files</namespace>
     <namespace>lemons::serializing</namespace>
     <member kind="function">
-      <type>Image</type>
-      <name>imageFromBinary</name>
-      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>a71a2d7117ba93aff2cff74ce99ee2921</anchor>
-      <arglist>(const MemoryBlock &amp;block)</arglist>
-    </member>
-    <member kind="function">
-      <type>MemoryBlock</type>
-      <name>imageToBinary</name>
-      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>a844c15e8011970bd72cddbc16ac54886</anchor>
-      <arglist>(const Image &amp;image)</arglist>
-    </member>
-    <member kind="function">
       <type>std::unique_ptr&lt; juce::CustomTypeface &gt;</type>
       <name>fontFromBinary</name>
-      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>a79aa52c715672cf46f9b529fd58ef564</anchor>
+      <anchorfile>group__lemons__serializing.html</anchorfile>
+      <anchor>ga79aa52c715672cf46f9b529fd58ef564</anchor>
       <arglist>(const MemoryBlock &amp;block)</arglist>
     </member>
     <member kind="function">
       <type>MemoryBlock</type>
       <name>fontToBinary</name>
-      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>a30d310f988a2d025e1b89cf636047402</anchor>
+      <anchorfile>group__lemons__serializing.html</anchorfile>
+      <anchor>ga30d310f988a2d025e1b89cf636047402</anchor>
       <arglist>(const juce::Font &amp;font, int maxNumChars=127, juce_wchar defaultChar=&apos; &apos;)</arglist>
-    </member>
-    <member kind="function">
-      <type>Image</type>
-      <name>loadImage</name>
-      <anchorfile>namespacelemons_1_1files.html</anchorfile>
-      <anchor>a2bad73088f4cd33294dc30cfed9e208c</anchor>
-      <arglist>(const File &amp;file)</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>saveImage</name>
-      <anchorfile>namespacelemons_1_1files.html</anchorfile>
-      <anchor>a90c99721b94a9923e469d43f6f004bff</anchor>
-      <arglist>(const Image &amp;image, const File &amp;file)</arglist>
-    </member>
-    <member kind="function">
-      <type>std::unique_ptr&lt; juce::CustomTypeface &gt;</type>
-      <name>loadFont</name>
-      <anchorfile>namespacelemons_1_1files.html</anchorfile>
-      <anchor>a383ce132bdd2b76a98e17bdf7db3068b</anchor>
-      <arglist>(const File &amp;file)</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>saveFont</name>
-      <anchorfile>namespacelemons_1_1files.html</anchorfile>
-      <anchor>a73fc40781ee71e41bf30683c939df08c</anchor>
-      <arglist>(const juce::Font &amp;font, const File &amp;file, int maxNumChars=127, juce_wchar defaultChar=&apos; &apos;)</arglist>
     </member>
     <member kind="function">
       <type>std::unique_ptr&lt; juce::CustomTypeface &gt;</type>
       <name>getFont</name>
-      <anchorfile>namespacelemons_1_1binary.html</anchorfile>
-      <anchor>a2a25c99b94d6acd726fad6fea2e7a8c6</anchor>
+      <anchorfile>group__lemons__binary.html</anchorfile>
+      <anchor>ga2a25c99b94d6acd726fad6fea2e7a8c6</anchor>
       <arglist>(const String &amp;filename)</arglist>
     </member>
     <member kind="function">
       <type>juce::Image</type>
       <name>getImage</name>
-      <anchorfile>namespacelemons_1_1binary.html</anchorfile>
-      <anchor>a0695d683400b6eb86c0198bd13ee8f62</anchor>
+      <anchorfile>group__lemons__binary.html</anchorfile>
+      <anchor>ga0695d683400b6eb86c0198bd13ee8f62</anchor>
       <arglist>(const String &amp;imageFileName)</arglist>
-    </member>
-    <member kind="function">
-      <type>juce::Image</type>
-      <name>getImage</name>
-      <anchorfile>namespacelemons_1_1binary.html</anchorfile>
-      <anchor>a0695d683400b6eb86c0198bd13ee8f62</anchor>
-      <arglist>(const String &amp;imageFileName)</arglist>
-    </member>
-    <member kind="function">
-      <type>std::unique_ptr&lt; juce::CustomTypeface &gt;</type>
-      <name>getFont</name>
-      <anchorfile>namespacelemons_1_1binary.html</anchorfile>
-      <anchor>a2a25c99b94d6acd726fad6fea2e7a8c6</anchor>
-      <arglist>(const String &amp;filename)</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>saveImage</name>
-      <anchorfile>namespacelemons_1_1files.html</anchorfile>
-      <anchor>a90c99721b94a9923e469d43f6f004bff</anchor>
-      <arglist>(const Image &amp;image, const File &amp;file)</arglist>
-    </member>
-    <member kind="function">
-      <type>Image</type>
-      <name>loadImage</name>
-      <anchorfile>namespacelemons_1_1files.html</anchorfile>
-      <anchor>a2bad73088f4cd33294dc30cfed9e208c</anchor>
-      <arglist>(const File &amp;file)</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>saveFont</name>
-      <anchorfile>namespacelemons_1_1files.html</anchorfile>
-      <anchor>a73fc40781ee71e41bf30683c939df08c</anchor>
-      <arglist>(const juce::Font &amp;font, const File &amp;file, int maxNumChars=127, juce_wchar defaultChar=&apos; &apos;)</arglist>
-    </member>
-    <member kind="function">
-      <type>std::unique_ptr&lt; juce::CustomTypeface &gt;</type>
-      <name>loadFont</name>
-      <anchorfile>namespacelemons_1_1files.html</anchorfile>
-      <anchor>a383ce132bdd2b76a98e17bdf7db3068b</anchor>
-      <arglist>(const File &amp;file)</arglist>
-    </member>
-    <member kind="function">
-      <type>MemoryBlock</type>
-      <name>imageToBinary</name>
-      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>a844c15e8011970bd72cddbc16ac54886</anchor>
-      <arglist>(const Image &amp;image)</arglist>
     </member>
     <member kind="function">
       <type>Image</type>
       <name>imageFromBinary</name>
-      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>a71a2d7117ba93aff2cff74ce99ee2921</anchor>
-      <arglist>(const MemoryBlock &amp;block)</arglist>
-    </member>
-    <member kind="function">
-      <type>MemoryBlock</type>
-      <name>fontToBinary</name>
-      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>a30d310f988a2d025e1b89cf636047402</anchor>
-      <arglist>(const juce::Font &amp;font, int maxNumChars=127, juce_wchar defaultChar=&apos; &apos;)</arglist>
-    </member>
-    <member kind="function">
-      <type>std::unique_ptr&lt; juce::CustomTypeface &gt;</type>
-      <name>fontFromBinary</name>
-      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>a79aa52c715672cf46f9b529fd58ef564</anchor>
-      <arglist>(const MemoryBlock &amp;block)</arglist>
-    </member>
-    <member kind="function">
-      <type>Image</type>
-      <name>imageFromBinary</name>
-      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>a71a2d7117ba93aff2cff74ce99ee2921</anchor>
+      <anchorfile>group__lemons__serializing.html</anchorfile>
+      <anchor>ga71a2d7117ba93aff2cff74ce99ee2921</anchor>
       <arglist>(const MemoryBlock &amp;block)</arglist>
     </member>
     <member kind="function">
       <type>MemoryBlock</type>
       <name>imageToBinary</name>
-      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>a844c15e8011970bd72cddbc16ac54886</anchor>
+      <anchorfile>group__lemons__serializing.html</anchorfile>
+      <anchor>ga844c15e8011970bd72cddbc16ac54886</anchor>
       <arglist>(const Image &amp;image)</arglist>
     </member>
     <member kind="function">
       <type>std::unique_ptr&lt; juce::CustomTypeface &gt;</type>
-      <name>fontFromBinary</name>
-      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>a79aa52c715672cf46f9b529fd58ef564</anchor>
-      <arglist>(const MemoryBlock &amp;block)</arglist>
-    </member>
-    <member kind="function">
-      <type>MemoryBlock</type>
-      <name>fontToBinary</name>
-      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>a30d310f988a2d025e1b89cf636047402</anchor>
-      <arglist>(const juce::Font &amp;font, int maxNumChars=127, juce_wchar defaultChar=&apos; &apos;)</arglist>
+      <name>loadFont</name>
+      <anchorfile>group__lemons__files.html</anchorfile>
+      <anchor>ga383ce132bdd2b76a98e17bdf7db3068b</anchor>
+      <arglist>(const File &amp;file)</arglist>
     </member>
     <member kind="function">
       <type>Image</type>
       <name>loadImage</name>
-      <anchorfile>namespacelemons_1_1files.html</anchorfile>
-      <anchor>a2bad73088f4cd33294dc30cfed9e208c</anchor>
-      <arglist>(const File &amp;file)</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>saveImage</name>
-      <anchorfile>namespacelemons_1_1files.html</anchorfile>
-      <anchor>a90c99721b94a9923e469d43f6f004bff</anchor>
-      <arglist>(const Image &amp;image, const File &amp;file)</arglist>
-    </member>
-    <member kind="function">
-      <type>std::unique_ptr&lt; juce::CustomTypeface &gt;</type>
-      <name>loadFont</name>
-      <anchorfile>namespacelemons_1_1files.html</anchorfile>
-      <anchor>a383ce132bdd2b76a98e17bdf7db3068b</anchor>
+      <anchorfile>group__lemons__files.html</anchorfile>
+      <anchor>ga2bad73088f4cd33294dc30cfed9e208c</anchor>
       <arglist>(const File &amp;file)</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
       <name>saveFont</name>
-      <anchorfile>namespacelemons_1_1files.html</anchorfile>
-      <anchor>a73fc40781ee71e41bf30683c939df08c</anchor>
+      <anchorfile>group__lemons__files.html</anchorfile>
+      <anchor>ga73fc40781ee71e41bf30683c939df08c</anchor>
       <arglist>(const juce::Font &amp;font, const File &amp;file, int maxNumChars=127, juce_wchar defaultChar=&apos; &apos;)</arglist>
     </member>
     <member kind="function">
-      <type>std::unique_ptr&lt; juce::CustomTypeface &gt;</type>
-      <name>getFont</name>
-      <anchorfile>namespacelemons_1_1binary.html</anchorfile>
-      <anchor>a2a25c99b94d6acd726fad6fea2e7a8c6</anchor>
-      <arglist>(const String &amp;filename)</arglist>
-    </member>
-    <member kind="function">
-      <type>juce::Image</type>
-      <name>getImage</name>
-      <anchorfile>namespacelemons_1_1binary.html</anchorfile>
-      <anchor>a0695d683400b6eb86c0198bd13ee8f62</anchor>
-      <arglist>(const String &amp;imageFileName)</arglist>
+      <type>bool</type>
+      <name>saveImage</name>
+      <anchorfile>group__lemons__files.html</anchorfile>
+      <anchor>ga90c99721b94a9923e469d43f6f004bff</anchor>
+      <arglist>(const Image &amp;image, const File &amp;file)</arglist>
     </member>
   </compound>
   <compound kind="file">
@@ -3120,12 +2630,12 @@
     <member kind="enumeration">
       <type></type>
       <name>Intensity</name>
-      <anchorfile>namespacelemons_1_1tests.html</anchorfile>
-      <anchor>abe71616eeadecd56537dd9a10376223c</anchor>
+      <anchorfile>group__lemons__unit__testing.html</anchorfile>
+      <anchor>gabe71616eeadecd56537dd9a10376223c</anchor>
       <arglist></arglist>
-      <enumvalue file="namespacelemons_1_1tests.html" anchor="abe71616eeadecd56537dd9a10376223ca28d0edd045e05cf5af64e35ae0c4c6ef">Low</enumvalue>
-      <enumvalue file="namespacelemons_1_1tests.html" anchor="abe71616eeadecd56537dd9a10376223ca87f8a6ab85c9ced3702b4ea641ad4bb5">Medium</enumvalue>
-      <enumvalue file="namespacelemons_1_1tests.html" anchor="abe71616eeadecd56537dd9a10376223ca655d20c1ca69519ca647684edbb2db35">High</enumvalue>
+      <enumvalue file="group__lemons__unit__testing.html" anchor="ggabe71616eeadecd56537dd9a10376223ca28d0edd045e05cf5af64e35ae0c4c6ef">Low</enumvalue>
+      <enumvalue file="group__lemons__unit__testing.html" anchor="ggabe71616eeadecd56537dd9a10376223ca87f8a6ab85c9ced3702b4ea641ad4bb5">Medium</enumvalue>
+      <enumvalue file="group__lemons__unit__testing.html" anchor="ggabe71616eeadecd56537dd9a10376223ca655d20c1ca69519ca647684edbb2db35">High</enumvalue>
     </member>
   </compound>
   <compound kind="file">
@@ -3234,14 +2744,14 @@
     <member kind="function">
       <type>void</type>
       <name>initializeDefaultTranslations</name>
-      <anchorfile>group__lemons__translation__initialization.html</anchorfile>
+      <anchorfile>group__lemons__binary.html</anchorfile>
       <anchor>gaf44434a11b41640afde5b60fae745d01</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>initializeTranslations</name>
-      <anchorfile>group__lemons__translation__initialization.html</anchorfile>
+      <anchorfile>group__lemons__binary.html</anchorfile>
       <anchor>ga4962f8d8921a03dc8a328f6149fa32b5</anchor>
       <arglist>(const binary::Data &amp;data, bool ignoreCaseOfKeys=true)</arglist>
     </member>
@@ -30919,107 +30429,107 @@
     <member kind="function">
       <type>AudioBuffer&lt; SampleType &gt;</type>
       <name>getAudioBuffer</name>
-      <anchorfile>group__lemons__audio__buffers.html</anchorfile>
+      <anchorfile>group__lemons__binary.html</anchorfile>
       <anchor>gad521bea43ce321600e47f0aac6bbbe18</anchor>
       <arglist>(const String &amp;filename)</arglist>
     </member>
     <member kind="function">
       <type>dsp::AudioFile</type>
       <name>getAudioFile</name>
-      <anchorfile>group__audio__files.html</anchorfile>
+      <anchorfile>group__lemons__binary.html</anchorfile>
       <anchor>ga644730095d0f4474c838bd8e357494e5</anchor>
       <arglist>(const String &amp;audioFileName)</arglist>
     </member>
     <member kind="function">
       <type>MemoryBlock</type>
       <name>getBlob</name>
-      <anchorfile>group__basic__binary__data__types.html</anchorfile>
+      <anchorfile>group__lemons__binary.html</anchorfile>
       <anchor>ga52e71729d422f37cdcd3086f45e7168c</anchor>
       <arglist>(const String &amp;filename)</arglist>
     </member>
     <member kind="function">
       <type>juce::StringArray</type>
       <name>getFilenames</name>
-      <anchorfile>group__lemons__binary__data.html</anchorfile>
+      <anchorfile>group__lemons__binary.html</anchorfile>
       <anchor>ga3f5893ae9f64c4e06e0285bbb38b27c4</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
+      <type>std::unique_ptr&lt; juce::CustomTypeface &gt;</type>
+      <name>getFont</name>
+      <anchorfile>group__lemons__binary.html</anchorfile>
+      <anchor>ga2a25c99b94d6acd726fad6fea2e7a8c6</anchor>
+      <arglist>(const String &amp;filename)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::Image</type>
+      <name>getImage</name>
+      <anchorfile>group__lemons__binary.html</anchorfile>
+      <anchor>ga0695d683400b6eb86c0198bd13ee8f62</anchor>
+      <arglist>(const String &amp;imageFileName)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::MidiBuffer</type>
+      <name>getMidiBuffer</name>
+      <anchorfile>group__lemons__binary.html</anchorfile>
+      <anchor>ga11624a66328f11467e6467193347138f</anchor>
+      <arglist>(const String &amp;midiFileName)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::MidiFile</type>
+      <name>getMidiFile</name>
+      <anchorfile>group__lemons__binary.html</anchorfile>
+      <anchor>ga4b9c208fff93a49410fc4906db3aedd7</anchor>
+      <arglist>(const String &amp;midiFileName)</arglist>
+    </member>
+    <member kind="function">
       <type>plugin::ParameterLayout</type>
       <name>getParameterLayout</name>
-      <anchorfile>group__plugin__parameter__metadata.html</anchorfile>
+      <anchorfile>group__lemons__binary.html</anchorfile>
       <anchor>gad3c759ef241f4a9c2e250f4bbe0c85a4</anchor>
       <arglist>(const String &amp;fileName)</arglist>
     </member>
     <member kind="function">
       <type>plugin::PluginMetadata</type>
       <name>getPluginMetadata</name>
-      <anchorfile>group__plugin__metadata.html</anchorfile>
+      <anchorfile>group__lemons__binary.html</anchorfile>
       <anchor>ga482ca5ce1b610a09b239221ef21eec9b</anchor>
       <arglist>(const String &amp;filename)</arglist>
     </member>
     <member kind="function">
       <type>plugin::ProcessorAttributes</type>
       <name>getProcessorAttributes</name>
-      <anchorfile>group__plugin__metadata.html</anchorfile>
+      <anchorfile>group__lemons__binary.html</anchorfile>
       <anchor>gaa5cccc2760a50960564a6ca940ec41f7</anchor>
       <arglist>(const String &amp;filename)</arglist>
     </member>
     <member kind="function">
       <type>String</type>
       <name>getString</name>
-      <anchorfile>group__basic__binary__data__types.html</anchorfile>
+      <anchorfile>group__lemons__binary.html</anchorfile>
       <anchor>ga5e253707251df7318339c749531c832e</anchor>
       <arglist>(const String &amp;textFileName)</arglist>
     </member>
     <member kind="function">
       <type>juce::StringArray</type>
       <name>getStrings</name>
-      <anchorfile>group__basic__binary__data__types.html</anchorfile>
+      <anchorfile>group__lemons__binary.html</anchorfile>
       <anchor>ga112a983671f03ff2480e8ac670d9495d</anchor>
       <arglist>(const String &amp;textFileName)</arglist>
     </member>
     <member kind="function">
       <type>ValueTree</type>
       <name>getValueTree</name>
-      <anchorfile>group__basic__binary__data__types.html</anchorfile>
+      <anchorfile>group__lemons__binary.html</anchorfile>
       <anchor>ga7fee171f8c16e6a69a6bf67c3910cd9a</anchor>
       <arglist>(const String &amp;filename)</arglist>
     </member>
     <member kind="function">
       <type>constexpr bool</type>
       <name>hasBinaryData</name>
-      <anchorfile>group__lemons__binary__data.html</anchorfile>
+      <anchorfile>group__lemons__binary.html</anchorfile>
       <anchor>ga45e0f639b83a42ca3121fdff8dcdcb70</anchor>
       <arglist>() noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>juce::MidiFile</type>
-      <name>getMidiFile</name>
-      <anchorfile>namespacelemons_1_1binary.html</anchorfile>
-      <anchor>a4b9c208fff93a49410fc4906db3aedd7</anchor>
-      <arglist>(const String &amp;midiFileName)</arglist>
-    </member>
-    <member kind="function">
-      <type>juce::MidiBuffer</type>
-      <name>getMidiBuffer</name>
-      <anchorfile>namespacelemons_1_1binary.html</anchorfile>
-      <anchor>a11624a66328f11467e6467193347138f</anchor>
-      <arglist>(const String &amp;midiFileName)</arglist>
-    </member>
-    <member kind="function">
-      <type>juce::Image</type>
-      <name>getImage</name>
-      <anchorfile>namespacelemons_1_1binary.html</anchorfile>
-      <anchor>a0695d683400b6eb86c0198bd13ee8f62</anchor>
-      <arglist>(const String &amp;imageFileName)</arglist>
-    </member>
-    <member kind="function">
-      <type>std::unique_ptr&lt; juce::CustomTypeface &gt;</type>
-      <name>getFont</name>
-      <anchorfile>namespacelemons_1_1binary.html</anchorfile>
-      <anchor>a2a25c99b94d6acd726fad6fea2e7a8c6</anchor>
-      <arglist>(const String &amp;filename)</arglist>
     </member>
   </compound>
   <compound kind="namespace">
@@ -31276,149 +30786,149 @@
     <member kind="function">
       <type>AudioBuffer&lt; SampleType &gt;</type>
       <name>loadAudioBuffer</name>
-      <anchorfile>group__lemons__audio__buffers.html</anchorfile>
+      <anchorfile>group__lemons__files.html</anchorfile>
       <anchor>gaf54aae60ea2c1dabbedb0ce11c31c53a</anchor>
+      <arglist>(const File &amp;file)</arglist>
+    </member>
+    <member kind="function">
+      <type>MemoryBlock</type>
+      <name>loadFileAsBlock</name>
+      <anchorfile>group__lemons__files.html</anchorfile>
+      <anchor>gaeb48ab1af98d76a304450d4fad73f577</anchor>
+      <arglist>(const File &amp;file)</arglist>
+    </member>
+    <member kind="function">
+      <type>std::unique_ptr&lt; juce::CustomTypeface &gt;</type>
+      <name>loadFont</name>
+      <anchorfile>group__lemons__files.html</anchorfile>
+      <anchor>ga383ce132bdd2b76a98e17bdf7db3068b</anchor>
+      <arglist>(const File &amp;file)</arglist>
+    </member>
+    <member kind="function">
+      <type>Image</type>
+      <name>loadImage</name>
+      <anchorfile>group__lemons__files.html</anchorfile>
+      <anchor>ga2bad73088f4cd33294dc30cfed9e208c</anchor>
+      <arglist>(const File &amp;file)</arglist>
+    </member>
+    <member kind="function">
+      <type>MidiBuffer</type>
+      <name>loadMidiBuffer</name>
+      <anchorfile>group__lemons__files.html</anchorfile>
+      <anchor>ga3bf826f1c89c8d7dd79746bfa970a45b</anchor>
+      <arglist>(const File &amp;file)</arglist>
+    </member>
+    <member kind="function">
+      <type>MidiFile</type>
+      <name>loadMidiFile</name>
+      <anchorfile>group__lemons__files.html</anchorfile>
+      <anchor>gae0ba713ecd7bdb010178da5d88b60777</anchor>
       <arglist>(const File &amp;file)</arglist>
     </member>
     <member kind="function">
       <type>plugin::ParameterLayout</type>
       <name>loadParameterLayout</name>
-      <anchorfile>group__plugin__parameter__metadata.html</anchorfile>
+      <anchorfile>group__lemons__files.html</anchorfile>
       <anchor>ga5e21f36c14abe23185769a0557a09d9c</anchor>
       <arglist>(const File &amp;file)</arglist>
     </member>
     <member kind="function">
       <type>plugin::PluginMetadata</type>
       <name>loadPluginMetadata</name>
-      <anchorfile>group__plugin__metadata.html</anchorfile>
+      <anchorfile>group__lemons__files.html</anchorfile>
       <anchor>gaccd4f10eb1f43bebed6a54925091420b</anchor>
       <arglist>(const File &amp;file)</arglist>
     </member>
     <member kind="function">
       <type>plugin::ProcessorAttributes</type>
       <name>loadProcessorAttributes</name>
-      <anchorfile>group__plugin__metadata.html</anchorfile>
+      <anchorfile>group__lemons__files.html</anchorfile>
       <anchor>gab2d6ab95437d9c715997be684126035d</anchor>
       <arglist>(const File &amp;file)</arglist>
     </member>
     <member kind="function">
       <type>ValueTree</type>
       <name>loadValueTree</name>
-      <anchorfile>group__lemons__value__trees.html</anchorfile>
+      <anchorfile>group__lemons__files.html</anchorfile>
       <anchor>ga83377ad1e44d9e25ff0a5879975230c9</anchor>
       <arglist>(const File &amp;file)</arglist>
     </member>
     <member kind="function">
       <type>ValueTree</type>
       <name>loadValueTree</name>
-      <anchorfile>group__lemons__value__trees.html</anchorfile>
+      <anchorfile>group__lemons__files.html</anchorfile>
       <anchor>gaa4e640b5ec2d9c0d43ff33e1209376ea</anchor>
       <arglist>(const String &amp;fileContents)</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
       <name>saveAudioBuffer</name>
-      <anchorfile>group__lemons__audio__buffers.html</anchorfile>
+      <anchorfile>group__lemons__files.html</anchorfile>
       <anchor>gac003f0c017b579974905b50c95689706</anchor>
       <arglist>(const AudioBuffer&lt; SampleType &gt; &amp;audio, const File &amp;file, double samplerate=48000.)</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
+      <name>saveBlockToFile</name>
+      <anchorfile>group__lemons__files.html</anchorfile>
+      <anchor>ga45f381bf9770d795dc1a94d41207aa58</anchor>
+      <arglist>(const MemoryBlock &amp;block, const File &amp;file)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>saveFont</name>
+      <anchorfile>group__lemons__files.html</anchorfile>
+      <anchor>ga73fc40781ee71e41bf30683c939df08c</anchor>
+      <arglist>(const juce::Font &amp;font, const File &amp;file, int maxNumChars=127, juce_wchar defaultChar=&apos; &apos;)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>saveImage</name>
+      <anchorfile>group__lemons__files.html</anchorfile>
+      <anchor>ga90c99721b94a9923e469d43f6f004bff</anchor>
+      <arglist>(const Image &amp;image, const File &amp;file)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>saveMidi</name>
+      <anchorfile>group__lemons__files.html</anchorfile>
+      <anchor>gac75640aebef14f2210e2a11d9d5b8ae1</anchor>
+      <arglist>(const MidiBuffer &amp;midi, const File &amp;file)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>saveMidi</name>
+      <anchorfile>group__lemons__files.html</anchorfile>
+      <anchor>gad9dc353791d67eb0b4caf98b2cab8bd1</anchor>
+      <arglist>(const MidiFile &amp;midi, const File &amp;file)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
       <name>saveParameterLayout</name>
-      <anchorfile>group__plugin__parameter__metadata.html</anchorfile>
+      <anchorfile>group__lemons__files.html</anchorfile>
       <anchor>ga5f6319cc91a208675723796f54ec303b</anchor>
       <arglist>(const plugin::ParameterLayout &amp;layout, const File &amp;file)</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
       <name>savePluginMetadata</name>
-      <anchorfile>group__plugin__metadata.html</anchorfile>
+      <anchorfile>group__lemons__files.html</anchorfile>
       <anchor>ga50cc46e369de9136fb3f11a13b0fdc1b</anchor>
       <arglist>(const plugin::PluginMetadata &amp;layout, const File &amp;file)</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
       <name>saveProcessorAttributes</name>
-      <anchorfile>group__plugin__metadata.html</anchorfile>
+      <anchorfile>group__lemons__files.html</anchorfile>
       <anchor>ga669edbc3aebe00cd284774127aa2bc4f</anchor>
       <arglist>(const plugin::ProcessorAttributes &amp;layout, const File &amp;file)</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
       <name>saveValueTree</name>
-      <anchorfile>group__lemons__value__trees.html</anchorfile>
+      <anchorfile>group__lemons__files.html</anchorfile>
       <anchor>gaf649a81a1c77e6b8667c62f6276e6d11</anchor>
       <arglist>(const File &amp;file, const ValueTree &amp;tree)</arglist>
-    </member>
-    <member kind="function">
-      <type>MidiFile</type>
-      <name>loadMidiFile</name>
-      <anchorfile>namespacelemons_1_1files.html</anchorfile>
-      <anchor>ae0ba713ecd7bdb010178da5d88b60777</anchor>
-      <arglist>(const File &amp;file)</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>saveMidi</name>
-      <anchorfile>namespacelemons_1_1files.html</anchorfile>
-      <anchor>ad9dc353791d67eb0b4caf98b2cab8bd1</anchor>
-      <arglist>(const MidiFile &amp;midi, const File &amp;file)</arglist>
-    </member>
-    <member kind="function">
-      <type>MidiBuffer</type>
-      <name>loadMidiBuffer</name>
-      <anchorfile>namespacelemons_1_1files.html</anchorfile>
-      <anchor>a3bf826f1c89c8d7dd79746bfa970a45b</anchor>
-      <arglist>(const File &amp;file)</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>saveMidi</name>
-      <anchorfile>namespacelemons_1_1files.html</anchorfile>
-      <anchor>ac75640aebef14f2210e2a11d9d5b8ae1</anchor>
-      <arglist>(const MidiBuffer &amp;midi, const File &amp;file)</arglist>
-    </member>
-    <member kind="function">
-      <type>MemoryBlock</type>
-      <name>loadFileAsBlock</name>
-      <anchorfile>namespacelemons_1_1files.html</anchorfile>
-      <anchor>aeb48ab1af98d76a304450d4fad73f577</anchor>
-      <arglist>(const File &amp;file)</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>saveBlockToFile</name>
-      <anchorfile>namespacelemons_1_1files.html</anchorfile>
-      <anchor>a45f381bf9770d795dc1a94d41207aa58</anchor>
-      <arglist>(const MemoryBlock &amp;block, const File &amp;file)</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>saveImage</name>
-      <anchorfile>namespacelemons_1_1files.html</anchorfile>
-      <anchor>a90c99721b94a9923e469d43f6f004bff</anchor>
-      <arglist>(const Image &amp;image, const File &amp;file)</arglist>
-    </member>
-    <member kind="function">
-      <type>Image</type>
-      <name>loadImage</name>
-      <anchorfile>namespacelemons_1_1files.html</anchorfile>
-      <anchor>a2bad73088f4cd33294dc30cfed9e208c</anchor>
-      <arglist>(const File &amp;file)</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>saveFont</name>
-      <anchorfile>namespacelemons_1_1files.html</anchorfile>
-      <anchor>a73fc40781ee71e41bf30683c939df08c</anchor>
-      <arglist>(const juce::Font &amp;font, const File &amp;file, int maxNumChars=127, juce_wchar defaultChar=&apos; &apos;)</arglist>
-    </member>
-    <member kind="function">
-      <type>std::unique_ptr&lt; juce::CustomTypeface &gt;</type>
-      <name>loadFont</name>
-      <anchorfile>namespacelemons_1_1files.html</anchorfile>
-      <anchor>a383ce132bdd2b76a98e17bdf7db3068b</anchor>
-      <arglist>(const File &amp;file)</arglist>
     </member>
   </compound>
   <compound kind="namespace">
@@ -31447,53 +30957,53 @@
     <filename>namespacelemons_1_1locale.html</filename>
     <class kind="struct">lemons::locale::TranslationsInitializer</class>
     <member kind="function">
+      <type>StringArray</type>
+      <name>getCountryCodesForLanguage</name>
+      <anchorfile>group__lemons__iso__country__codes.html</anchorfile>
+      <anchor>ga654c5ab00019f58ce358d8f306b706f8</anchor>
+      <arglist>(const String &amp;language, bool languageName=true)</arglist>
+    </member>
+    <member kind="function">
+      <type>StringArray</type>
+      <name>getLanguageCodesForCountry</name>
+      <anchorfile>group__lemons__iso__country__codes.html</anchorfile>
+      <anchor>ga39cc970a4d100be559240b1a6ec42d62</anchor>
+      <arglist>(const String &amp;countryCode, bool asISO639_2=true)</arglist>
+    </member>
+    <member kind="function">
+      <type>StringArray</type>
+      <name>getLanguageNamesForCountry</name>
+      <anchorfile>group__lemons__iso__country__codes.html</anchorfile>
+      <anchor>ga1ab45cf7ce001bddc0cb8ab349be4372</anchor>
+      <arglist>(const String &amp;countryCode)</arglist>
+    </member>
+    <member kind="function">
       <type>void</type>
       <name>initializeDefaultTranslations</name>
-      <anchorfile>group__lemons__translation__initialization.html</anchorfile>
+      <anchorfile>group__lemons__binary.html</anchorfile>
       <anchor>gaf44434a11b41640afde5b60fae745d01</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>initializeTranslations</name>
-      <anchorfile>group__lemons__translation__initialization.html</anchorfile>
+      <anchorfile>group__lemons__binary.html</anchorfile>
       <anchor>ga4962f8d8921a03dc8a328f6149fa32b5</anchor>
       <arglist>(const binary::Data &amp;data, bool ignoreCaseOfKeys=true)</arglist>
     </member>
     <member kind="function">
       <type>String</type>
-      <name>languageNameToCode</name>
-      <anchorfile>namespacelemons_1_1locale.html</anchorfile>
-      <anchor>a9377266e261ca703f64e1bf139259520</anchor>
-      <arglist>(const String &amp;name, bool asISO639_2=true)</arglist>
-    </member>
-    <member kind="function">
-      <type>String</type>
       <name>languageCodeToName</name>
-      <anchorfile>namespacelemons_1_1locale.html</anchorfile>
-      <anchor>aad199ffab3ee7c4e5e8027aaa48986af</anchor>
+      <anchorfile>group__lemons__iso__language__codes.html</anchorfile>
+      <anchor>gaad199ffab3ee7c4e5e8027aaa48986af</anchor>
       <arglist>(const String &amp;languageCode)</arglist>
     </member>
     <member kind="function">
-      <type>StringArray</type>
-      <name>getCountryCodesForLanguage</name>
-      <anchorfile>namespacelemons_1_1locale.html</anchorfile>
-      <anchor>a654c5ab00019f58ce358d8f306b706f8</anchor>
-      <arglist>(const String &amp;language, bool languageName=true)</arglist>
-    </member>
-    <member kind="function">
-      <type>StringArray</type>
-      <name>getLanguageNamesForCountry</name>
-      <anchorfile>namespacelemons_1_1locale.html</anchorfile>
-      <anchor>a1ab45cf7ce001bddc0cb8ab349be4372</anchor>
-      <arglist>(const String &amp;countryCode)</arglist>
-    </member>
-    <member kind="function">
-      <type>StringArray</type>
-      <name>getLanguageCodesForCountry</name>
-      <anchorfile>namespacelemons_1_1locale.html</anchorfile>
-      <anchor>a39cc970a4d100be559240b1a6ec42d62</anchor>
-      <arglist>(const String &amp;countryCode, bool asISO639_2=true)</arglist>
+      <type>String</type>
+      <name>languageNameToCode</name>
+      <anchorfile>group__lemons__iso__language__codes.html</anchorfile>
+      <anchor>ga9377266e261ca703f64e1bf139259520</anchor>
+      <arglist>(const String &amp;name, bool asISO639_2=true)</arglist>
     </member>
     <member kind="function">
       <type>String</type>
@@ -31603,18 +31113,18 @@
       <arglist>(const MidiBuffer &amp;readingBuffer, MidiBuffer &amp;destBuffer, int startSampleOfInput, int startSampleOfOutput, int numSamples)</arglist>
     </member>
     <member kind="function">
-      <type>MidiFile</type>
-      <name>midiBufferToFile</name>
-      <anchorfile>namespacelemons_1_1midi.html</anchorfile>
-      <anchor>a1e03e28ee699f1c4095d2cf29748a2f7</anchor>
-      <arglist>(const MidiBuffer &amp;midi)</arglist>
-    </member>
-    <member kind="function">
       <type>MidiBuffer</type>
       <name>midiBufferFromFile</name>
-      <anchorfile>namespacelemons_1_1midi.html</anchorfile>
-      <anchor>a07960c8ccf7e391f88b2d61bd6aac0db</anchor>
+      <anchorfile>group__lemons__midi.html</anchorfile>
+      <anchor>ga07960c8ccf7e391f88b2d61bd6aac0db</anchor>
       <arglist>(const MidiFile &amp;file, int trackToRead=-1)</arglist>
+    </member>
+    <member kind="function">
+      <type>MidiFile</type>
+      <name>midiBufferToFile</name>
+      <anchorfile>group__lemons__midi.html</anchorfile>
+      <anchor>ga1e03e28ee699f1c4095d2cf29748a2f7</anchor>
+      <arglist>(const MidiBuffer &amp;midi)</arglist>
     </member>
   </compound>
   <compound kind="namespace">
@@ -31784,7 +31294,7 @@
     <member kind="typedef">
       <type>Processor&lt; EngineType, State &gt;</type>
       <name>StatelessProcessor</name>
-      <anchorfile>group__processors.html</anchorfile>
+      <anchorfile>group__lemons__plugin__processors.html</anchorfile>
       <anchor>ga402ed40f2d0bc661edca4d34b112d41b</anchor>
       <arglist></arglist>
     </member>
@@ -31890,16 +31400,114 @@
     <member kind="function">
       <type>AudioBuffer&lt; SampleType &gt;</type>
       <name>audioFromBinary</name>
-      <anchorfile>group__lemons__audio__buffers.html</anchorfile>
+      <anchorfile>group__lemons__serializing.html</anchorfile>
       <anchor>gab642a13438e30137d80cb0842d314f7b</anchor>
       <arglist>(const MemoryBlock &amp;block)</arglist>
     </member>
     <member kind="function">
       <type>MemoryBlock</type>
       <name>audioToBinary</name>
-      <anchorfile>group__lemons__audio__buffers.html</anchorfile>
+      <anchorfile>group__lemons__serializing.html</anchorfile>
       <anchor>gadf7966056fb84074c7d8acfafad74af2</anchor>
       <arglist>(const AudioBuffer&lt; SampleType &gt; &amp;buffer, double samplerate=48000.)</arglist>
+    </member>
+    <member kind="function">
+      <type>std::unique_ptr&lt; juce::CustomTypeface &gt;</type>
+      <name>fontFromBinary</name>
+      <anchorfile>group__lemons__serializing.html</anchorfile>
+      <anchor>ga79aa52c715672cf46f9b529fd58ef564</anchor>
+      <arglist>(const MemoryBlock &amp;block)</arglist>
+    </member>
+    <member kind="function">
+      <type>MemoryBlock</type>
+      <name>fontToBinary</name>
+      <anchorfile>group__lemons__serializing.html</anchorfile>
+      <anchor>ga30d310f988a2d025e1b89cf636047402</anchor>
+      <arglist>(const juce::Font &amp;font, int maxNumChars=127, juce_wchar defaultChar=&apos; &apos;)</arglist>
+    </member>
+    <member kind="function">
+      <type>Image</type>
+      <name>imageFromBinary</name>
+      <anchorfile>group__lemons__serializing.html</anchorfile>
+      <anchor>ga71a2d7117ba93aff2cff74ce99ee2921</anchor>
+      <arglist>(const MemoryBlock &amp;block)</arglist>
+    </member>
+    <member kind="function">
+      <type>MemoryBlock</type>
+      <name>imageToBinary</name>
+      <anchorfile>group__lemons__serializing.html</anchorfile>
+      <anchor>ga844c15e8011970bd72cddbc16ac54886</anchor>
+      <arglist>(const Image &amp;image)</arglist>
+    </member>
+    <member kind="function">
+      <type>MemoryBlock</type>
+      <name>memoryBlockFromString</name>
+      <anchorfile>group__lemons__serializing.html</anchorfile>
+      <anchor>gac8b999fef48958f498e30029bd9a7eeb</anchor>
+      <arglist>(const String &amp;string)</arglist>
+    </member>
+    <member kind="function">
+      <type>String</type>
+      <name>memoryBlockToString</name>
+      <anchorfile>group__lemons__serializing.html</anchorfile>
+      <anchor>ga0567d1e8fe695183370d8d86edced3c6</anchor>
+      <arglist>(const MemoryBlock &amp;block)</arglist>
+    </member>
+    <member kind="function">
+      <type>MidiBuffer</type>
+      <name>midiBufferFromBinary</name>
+      <anchorfile>group__lemons__serializing.html</anchorfile>
+      <anchor>ga04f7d173de93a9bf72be15fb86f2f518</anchor>
+      <arglist>(const MemoryBlock &amp;block)</arglist>
+    </member>
+    <member kind="function">
+      <type>MidiFile</type>
+      <name>midiFileFromBinary</name>
+      <anchorfile>group__lemons__serializing.html</anchorfile>
+      <anchor>ga1464835a9b444ee16712c67565260518</anchor>
+      <arglist>(const MemoryBlock &amp;block)</arglist>
+    </member>
+    <member kind="function">
+      <type>MemoryBlock</type>
+      <name>midiToBinary</name>
+      <anchorfile>group__lemons__serializing.html</anchorfile>
+      <anchor>ga9f9b5afb4a6bd15f8c8801923c12e1f7</anchor>
+      <arglist>(const MidiBuffer &amp;midi)</arglist>
+    </member>
+    <member kind="function">
+      <type>MemoryBlock</type>
+      <name>midiToBinary</name>
+      <anchorfile>group__lemons__serializing.html</anchorfile>
+      <anchor>gaeacda195ca89506992384c26458355cf</anchor>
+      <arglist>(const MidiFile &amp;midi)</arglist>
+    </member>
+    <member kind="function">
+      <type>ValueTree</type>
+      <name>rangeToValueTree</name>
+      <anchorfile>group__lemons__serializing.html</anchorfile>
+      <anchor>gad52d848aba3f9614ace803cb0b840dda</anchor>
+      <arglist>(const juce::NormalisableRange&lt; ValueType &gt; &amp;range)</arglist>
+    </member>
+    <member kind="function">
+      <type>ValueTree</type>
+      <name>valueTreeFromJSON</name>
+      <anchorfile>group__lemons__serializing.html</anchorfile>
+      <anchor>ga3a28001c151ae9a72cee950b7b0c5fe0</anchor>
+      <arglist>(const String &amp;jsonText)</arglist>
+    </member>
+    <member kind="function">
+      <type>String</type>
+      <name>valueTreeToJSON</name>
+      <anchorfile>group__lemons__serializing.html</anchorfile>
+      <anchor>ga44dc62981a244f674a7b47738595d0ac</anchor>
+      <arglist>(const ValueTree &amp;v)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::NormalisableRange&lt; ValueType &gt;</type>
+      <name>valueTreeToRange</name>
+      <anchorfile>group__lemons__serializing.html</anchorfile>
+      <anchor>gabe8547288b1d7c2cda9ec239589d39fb</anchor>
+      <arglist>(const ValueTree &amp;tree)</arglist>
     </member>
     <member kind="function">
       <type>juce::AudioChannelSet</type>
@@ -31914,104 +31522,6 @@
       <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
       <anchor>a994eb15d80d730dac3d8aec7991048de</anchor>
       <arglist>(const juce::AudioChannelSet &amp;set)</arglist>
-    </member>
-    <member kind="function">
-      <type>MemoryBlock</type>
-      <name>midiToBinary</name>
-      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>a9f9b5afb4a6bd15f8c8801923c12e1f7</anchor>
-      <arglist>(const MidiBuffer &amp;midi)</arglist>
-    </member>
-    <member kind="function">
-      <type>MidiBuffer</type>
-      <name>midiBufferFromBinary</name>
-      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>a04f7d173de93a9bf72be15fb86f2f518</anchor>
-      <arglist>(const MemoryBlock &amp;block)</arglist>
-    </member>
-    <member kind="function">
-      <type>MemoryBlock</type>
-      <name>midiToBinary</name>
-      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>aeacda195ca89506992384c26458355cf</anchor>
-      <arglist>(const MidiFile &amp;midi)</arglist>
-    </member>
-    <member kind="function">
-      <type>MidiFile</type>
-      <name>midiFileFromBinary</name>
-      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>a1464835a9b444ee16712c67565260518</anchor>
-      <arglist>(const MemoryBlock &amp;block)</arglist>
-    </member>
-    <member kind="function">
-      <type>ValueTree</type>
-      <name>rangeToValueTree</name>
-      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>ad52d848aba3f9614ace803cb0b840dda</anchor>
-      <arglist>(const juce::NormalisableRange&lt; ValueType &gt; &amp;range)</arglist>
-    </member>
-    <member kind="function">
-      <type>juce::NormalisableRange&lt; ValueType &gt;</type>
-      <name>valueTreeToRange</name>
-      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>abe8547288b1d7c2cda9ec239589d39fb</anchor>
-      <arglist>(const ValueTree &amp;tree)</arglist>
-    </member>
-    <member kind="function">
-      <type>String</type>
-      <name>memoryBlockToString</name>
-      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>a0567d1e8fe695183370d8d86edced3c6</anchor>
-      <arglist>(const MemoryBlock &amp;block)</arglist>
-    </member>
-    <member kind="function">
-      <type>MemoryBlock</type>
-      <name>memoryBlockFromString</name>
-      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>ac8b999fef48958f498e30029bd9a7eeb</anchor>
-      <arglist>(const String &amp;string)</arglist>
-    </member>
-    <member kind="function">
-      <type>String</type>
-      <name>valueTreeToJSON</name>
-      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>a44dc62981a244f674a7b47738595d0ac</anchor>
-      <arglist>(const ValueTree &amp;v)</arglist>
-    </member>
-    <member kind="function">
-      <type>ValueTree</type>
-      <name>valueTreeFromJSON</name>
-      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>a3a28001c151ae9a72cee950b7b0c5fe0</anchor>
-      <arglist>(const String &amp;jsonText)</arglist>
-    </member>
-    <member kind="function">
-      <type>MemoryBlock</type>
-      <name>imageToBinary</name>
-      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>a844c15e8011970bd72cddbc16ac54886</anchor>
-      <arglist>(const Image &amp;image)</arglist>
-    </member>
-    <member kind="function">
-      <type>Image</type>
-      <name>imageFromBinary</name>
-      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>a71a2d7117ba93aff2cff74ce99ee2921</anchor>
-      <arglist>(const MemoryBlock &amp;block)</arglist>
-    </member>
-    <member kind="function">
-      <type>MemoryBlock</type>
-      <name>fontToBinary</name>
-      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>a30d310f988a2d025e1b89cf636047402</anchor>
-      <arglist>(const juce::Font &amp;font, int maxNumChars=127, juce_wchar defaultChar=&apos; &apos;)</arglist>
-    </member>
-    <member kind="function">
-      <type>std::unique_ptr&lt; juce::CustomTypeface &gt;</type>
-      <name>fontFromBinary</name>
-      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>a79aa52c715672cf46f9b529fd58ef564</anchor>
-      <arglist>(const MemoryBlock &amp;block)</arglist>
     </member>
   </compound>
   <compound kind="namespace">
@@ -32097,123 +31607,123 @@
     <member kind="enumeration">
       <type></type>
       <name>Intensity</name>
-      <anchorfile>namespacelemons_1_1tests.html</anchorfile>
-      <anchor>abe71616eeadecd56537dd9a10376223c</anchor>
+      <anchorfile>group__lemons__unit__testing.html</anchorfile>
+      <anchor>gabe71616eeadecd56537dd9a10376223c</anchor>
       <arglist></arglist>
-      <enumvalue file="namespacelemons_1_1tests.html" anchor="abe71616eeadecd56537dd9a10376223ca28d0edd045e05cf5af64e35ae0c4c6ef">Low</enumvalue>
-      <enumvalue file="namespacelemons_1_1tests.html" anchor="abe71616eeadecd56537dd9a10376223ca87f8a6ab85c9ced3702b4ea641ad4bb5">Medium</enumvalue>
-      <enumvalue file="namespacelemons_1_1tests.html" anchor="abe71616eeadecd56537dd9a10376223ca655d20c1ca69519ca647684edbb2db35">High</enumvalue>
+      <enumvalue file="group__lemons__unit__testing.html" anchor="ggabe71616eeadecd56537dd9a10376223ca28d0edd045e05cf5af64e35ae0c4c6ef">Low</enumvalue>
+      <enumvalue file="group__lemons__unit__testing.html" anchor="ggabe71616eeadecd56537dd9a10376223ca87f8a6ab85c9ced3702b4ea641ad4bb5">Medium</enumvalue>
+      <enumvalue file="group__lemons__unit__testing.html" anchor="ggabe71616eeadecd56537dd9a10376223ca655d20c1ca69519ca647684edbb2db35">High</enumvalue>
     </member>
     <member kind="function">
       <type>bool</type>
       <name>allSamplesAreEqual</name>
-      <anchorfile>namespacelemons_1_1tests.html</anchorfile>
-      <anchor>a7b7bf566585454b8ecab1b489ecf916c</anchor>
+      <anchorfile>group__lemons__dsp__unit__tests.html</anchorfile>
+      <anchor>ga7b7bf566585454b8ecab1b489ecf916c</anchor>
       <arglist>(const AudioBuffer&lt; FloatType &gt; &amp;buffer1, const AudioBuffer&lt; FloatType &gt; &amp;buffer2, int startIndex1, int numSamples, int startIndex2=-1, int channel1=0, int channel2=-1)</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
       <name>allSamplesAreValid</name>
-      <anchorfile>namespacelemons_1_1tests.html</anchorfile>
-      <anchor>adcba4d5065cf05b03e3a70c608eeb836</anchor>
+      <anchorfile>group__lemons__dsp__unit__tests.html</anchorfile>
+      <anchor>gadcba4d5065cf05b03e3a70c608eeb836</anchor>
       <arglist>(const AudioBuffer&lt; FloatType &gt; &amp;buffer)</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
       <name>allSamplesAreZero</name>
-      <anchorfile>namespacelemons_1_1tests.html</anchorfile>
-      <anchor>a9eeb99099375f1fa3d717a93454c2c9c</anchor>
+      <anchorfile>group__lemons__dsp__unit__tests.html</anchorfile>
+      <anchor>ga9eeb99099375f1fa3d717a93454c2c9c</anchor>
       <arglist>(const AudioBuffer&lt; FloatType &gt; &amp;buffer, int startIndex, int numSamples, int channel=0)</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
       <name>bufferChannelsAreEqual</name>
-      <anchorfile>namespacelemons_1_1tests.html</anchorfile>
-      <anchor>a38f39f789d5019726a8d50af6cdb96ab</anchor>
+      <anchorfile>group__lemons__dsp__unit__tests.html</anchorfile>
+      <anchor>ga38f39f789d5019726a8d50af6cdb96ab</anchor>
       <arglist>(const AudioBuffer&lt; FloatType &gt; &amp;buffer1, int channel1, const AudioBuffer&lt; FloatType &gt; &amp;buffer2, int channel2)</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
       <name>bufferIsSilent</name>
-      <anchorfile>namespacelemons_1_1tests.html</anchorfile>
-      <anchor>abc03e9fae97d48e1f10d2c5a2131f6ff</anchor>
+      <anchorfile>group__lemons__dsp__unit__tests.html</anchorfile>
+      <anchor>gabc03e9fae97d48e1f10d2c5a2131f6ff</anchor>
       <arglist>(const AudioBuffer&lt; FloatType &gt; &amp;buffer)</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
       <name>buffersAreEqual</name>
-      <anchorfile>namespacelemons_1_1tests.html</anchorfile>
-      <anchor>a5e40182d3a34127843dc0487cf7678d2</anchor>
+      <anchorfile>group__lemons__dsp__unit__tests.html</anchorfile>
+      <anchor>ga5e40182d3a34127843dc0487cf7678d2</anchor>
       <arglist>(const AudioBuffer&lt; FloatType &gt; &amp;buffer1, const AudioBuffer&lt; FloatType &gt; &amp;buffer2)</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
       <name>buffersAreReasonablyEqual</name>
-      <anchorfile>namespacelemons_1_1tests.html</anchorfile>
-      <anchor>a7681e5e17b48965aa1416c51ea9c4a61</anchor>
+      <anchorfile>group__lemons__dsp__unit__tests.html</anchorfile>
+      <anchor>ga7681e5e17b48965aa1416c51ea9c4a61</anchor>
       <arglist>(const AudioBuffer&lt; FloatType &gt; &amp;buffer1, const AudioBuffer&lt; FloatType &gt; &amp;buffer2)</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
       <name>executeUnitTests</name>
-      <anchorfile>namespacelemons_1_1tests.html</anchorfile>
-      <anchor>a012b4a90230fe31d71ca56d673f078c3</anchor>
+      <anchorfile>group__lemons__unit__testing.html</anchorfile>
+      <anchor>ga012b4a90230fe31d71ca56d673f078c3</anchor>
       <arglist>(Intensity intensityLevel=Intensity::Medium, const File &amp;logOutput={}, juce::int64 seed=juce::Random::getSystemRandom().nextInt64(), const String &amp;singleTestName={}, const String &amp;categoryName={})</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>fillAudioBufferWithRandomNoise</name>
-      <anchorfile>namespacelemons_1_1tests.html</anchorfile>
-      <anchor>a8ecdb1df151eda76ed75304aea1dd2b7</anchor>
+      <anchorfile>group__lemons__dsp__unit__tests.html</anchorfile>
+      <anchor>ga8ecdb1df151eda76ed75304aea1dd2b7</anchor>
       <arglist>(AudioBuffer&lt; SampleType &gt; &amp;buffer, juce::Random rng)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>fillImageWithRandomPixels</name>
-      <anchorfile>namespacelemons_1_1tests.html</anchorfile>
-      <anchor>a45aa6aca22218a8a1c13b549c17712e3</anchor>
+      <anchorfile>group__lemons__gui__unit__tests.html</anchorfile>
+      <anchor>ga45aa6aca22218a8a1c13b549c17712e3</anchor>
       <arglist>(Image &amp;image, juce::Random rng)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>fillMidiBufferWithRandomEvents</name>
-      <anchorfile>namespacelemons_1_1tests.html</anchorfile>
-      <anchor>ac8657000a7bf8aaa4cc93c263c8dbc8e</anchor>
+      <anchorfile>group__lemons__midi__unit__tests.html</anchorfile>
+      <anchor>gac8657000a7bf8aaa4cc93c263c8dbc8e</anchor>
       <arglist>(MidiBuffer &amp;buffer, int numEvents, juce::Random rng)</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
       <name>imagesAreEqual</name>
-      <anchorfile>namespacelemons_1_1tests.html</anchorfile>
-      <anchor>ac207a10fbe432026788c9341794ac68a</anchor>
+      <anchorfile>group__lemons__gui__unit__tests.html</anchorfile>
+      <anchor>gac207a10fbe432026788c9341794ac68a</anchor>
       <arglist>(const Image &amp;image1, const Image &amp;image2)</arglist>
     </member>
     <member kind="function">
       <type>AudioBuffer&lt; SampleType &gt;</type>
       <name>makeCopyOfAudioBuffer</name>
-      <anchorfile>namespacelemons_1_1tests.html</anchorfile>
-      <anchor>ab19c24a71eb5b03abd490ea31e88908e</anchor>
+      <anchorfile>group__lemons__dsp__unit__tests.html</anchorfile>
+      <anchor>gab19c24a71eb5b03abd490ea31e88908e</anchor>
       <arglist>(const AudioBuffer&lt; SampleType &gt; &amp;inputBuffer)</arglist>
     </member>
     <member kind="function">
       <type>MidiBuffer</type>
       <name>makeCopyOfMidiBuffer</name>
-      <anchorfile>namespacelemons_1_1tests.html</anchorfile>
-      <anchor>a05dcafe4b31077a0cff23d9f6d9b9a83</anchor>
+      <anchorfile>group__lemons__midi__unit__tests.html</anchorfile>
+      <anchor>ga05dcafe4b31077a0cff23d9f6d9b9a83</anchor>
       <arglist>(const MidiBuffer &amp;inputBuffer)</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
       <name>midiBuffersAreEqual</name>
-      <anchorfile>namespacelemons_1_1tests.html</anchorfile>
-      <anchor>ac131c73da0a08f4127224d450c02270e</anchor>
+      <anchorfile>group__lemons__midi__unit__tests.html</anchorfile>
+      <anchor>gac131c73da0a08f4127224d450c02270e</anchor>
       <arglist>(const MidiBuffer &amp;buffer1, const MidiBuffer &amp;buffer2)</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
       <name>noSamplesAreClipping</name>
-      <anchorfile>namespacelemons_1_1tests.html</anchorfile>
-      <anchor>a91d1e7095657d0593a3baba099b5ed36</anchor>
+      <anchorfile>group__lemons__dsp__unit__tests.html</anchorfile>
+      <anchor>ga91d1e7095657d0593a3baba099b5ed36</anchor>
       <arglist>(const AudioBuffer&lt; FloatType &gt; &amp;buffer)</arglist>
     </member>
   </compound>
@@ -32228,20 +31738,6 @@
     <name>lemons_audio_buffers</name>
     <title>Audio buffers</title>
     <filename>group__lemons__audio__buffers.html</filename>
-    <member kind="function">
-      <type>AudioBuffer&lt; SampleType &gt;</type>
-      <name>audioFromBinary</name>
-      <anchorfile>group__lemons__audio__buffers.html</anchorfile>
-      <anchor>gab642a13438e30137d80cb0842d314f7b</anchor>
-      <arglist>(const MemoryBlock &amp;block)</arglist>
-    </member>
-    <member kind="function">
-      <type>MemoryBlock</type>
-      <name>audioToBinary</name>
-      <anchorfile>group__lemons__audio__buffers.html</anchorfile>
-      <anchor>gadf7966056fb84074c7d8acfafad74af2</anchor>
-      <arglist>(const AudioBuffer&lt; SampleType &gt; &amp;buffer, double samplerate=48000.)</arglist>
-    </member>
     <member kind="function">
       <type>void</type>
       <name>convert</name>
@@ -32263,92 +31759,139 @@
       <anchor>ga063ba8cbe088e06f78ddd7469aed6e6a</anchor>
       <arglist>(AudioBuffer&lt; SampleType &gt; &amp;bufferToAlias, int startSample, int numSamples, int numChannels=-1, int channelOffset=0)</arglist>
     </member>
-    <member kind="function">
-      <type>AudioBuffer&lt; SampleType &gt;</type>
-      <name>getAudioBuffer</name>
-      <anchorfile>group__lemons__audio__buffers.html</anchorfile>
-      <anchor>gad521bea43ce321600e47f0aac6bbbe18</anchor>
-      <arglist>(const String &amp;filename)</arglist>
-    </member>
-    <member kind="function">
-      <type>AudioBuffer&lt; SampleType &gt;</type>
-      <name>loadAudioBuffer</name>
-      <anchorfile>group__lemons__audio__buffers.html</anchorfile>
-      <anchor>gaf54aae60ea2c1dabbedb0ce11c31c53a</anchor>
-      <arglist>(const File &amp;file)</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>saveAudioBuffer</name>
-      <anchorfile>group__lemons__audio__buffers.html</anchorfile>
-      <anchor>gac003f0c017b579974905b50c95689706</anchor>
-      <arglist>(const AudioBuffer&lt; SampleType &gt; &amp;audio, const File &amp;file, double samplerate=48000.)</arglist>
-    </member>
   </compound>
   <compound kind="group">
     <name>audio_files</name>
     <title>Audio files</title>
     <filename>group__audio__files.html</filename>
+  </compound>
+  <compound kind="group">
+    <name>lemons_basic_oscillators</name>
+    <title>Basic wave shapes</title>
+    <filename>group__lemons__basic__oscillators.html</filename>
+  </compound>
+  <compound kind="group">
+    <name>lemons_binary</name>
+    <title>Binary data</title>
+    <filename>group__lemons__binary.html</filename>
+    <member kind="function">
+      <type>AudioBuffer&lt; SampleType &gt;</type>
+      <name>getAudioBuffer</name>
+      <anchorfile>group__lemons__binary.html</anchorfile>
+      <anchor>gad521bea43ce321600e47f0aac6bbbe18</anchor>
+      <arglist>(const String &amp;filename)</arglist>
+    </member>
     <member kind="function">
       <type>dsp::AudioFile</type>
       <name>getAudioFile</name>
-      <anchorfile>group__audio__files.html</anchorfile>
+      <anchorfile>group__lemons__binary.html</anchorfile>
       <anchor>ga644730095d0f4474c838bd8e357494e5</anchor>
       <arglist>(const String &amp;audioFileName)</arglist>
     </member>
-  </compound>
-  <compound kind="group">
-    <name>basic_binary_data_types</name>
-    <title>Basic types</title>
-    <filename>group__basic__binary__data__types.html</filename>
     <member kind="function">
       <type>MemoryBlock</type>
       <name>getBlob</name>
-      <anchorfile>group__basic__binary__data__types.html</anchorfile>
+      <anchorfile>group__lemons__binary.html</anchorfile>
       <anchor>ga52e71729d422f37cdcd3086f45e7168c</anchor>
+      <arglist>(const String &amp;filename)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::StringArray</type>
+      <name>getFilenames</name>
+      <anchorfile>group__lemons__binary.html</anchorfile>
+      <anchor>ga3f5893ae9f64c4e06e0285bbb38b27c4</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>std::unique_ptr&lt; juce::CustomTypeface &gt;</type>
+      <name>getFont</name>
+      <anchorfile>group__lemons__binary.html</anchorfile>
+      <anchor>ga2a25c99b94d6acd726fad6fea2e7a8c6</anchor>
+      <arglist>(const String &amp;filename)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::Image</type>
+      <name>getImage</name>
+      <anchorfile>group__lemons__binary.html</anchorfile>
+      <anchor>ga0695d683400b6eb86c0198bd13ee8f62</anchor>
+      <arglist>(const String &amp;imageFileName)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::MidiBuffer</type>
+      <name>getMidiBuffer</name>
+      <anchorfile>group__lemons__binary.html</anchorfile>
+      <anchor>ga11624a66328f11467e6467193347138f</anchor>
+      <arglist>(const String &amp;midiFileName)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::MidiFile</type>
+      <name>getMidiFile</name>
+      <anchorfile>group__lemons__binary.html</anchorfile>
+      <anchor>ga4b9c208fff93a49410fc4906db3aedd7</anchor>
+      <arglist>(const String &amp;midiFileName)</arglist>
+    </member>
+    <member kind="function">
+      <type>plugin::ParameterLayout</type>
+      <name>getParameterLayout</name>
+      <anchorfile>group__lemons__binary.html</anchorfile>
+      <anchor>gad3c759ef241f4a9c2e250f4bbe0c85a4</anchor>
+      <arglist>(const String &amp;fileName)</arglist>
+    </member>
+    <member kind="function">
+      <type>plugin::PluginMetadata</type>
+      <name>getPluginMetadata</name>
+      <anchorfile>group__lemons__binary.html</anchorfile>
+      <anchor>ga482ca5ce1b610a09b239221ef21eec9b</anchor>
+      <arglist>(const String &amp;filename)</arglist>
+    </member>
+    <member kind="function">
+      <type>plugin::ProcessorAttributes</type>
+      <name>getProcessorAttributes</name>
+      <anchorfile>group__lemons__binary.html</anchorfile>
+      <anchor>gaa5cccc2760a50960564a6ca940ec41f7</anchor>
       <arglist>(const String &amp;filename)</arglist>
     </member>
     <member kind="function">
       <type>String</type>
       <name>getString</name>
-      <anchorfile>group__basic__binary__data__types.html</anchorfile>
+      <anchorfile>group__lemons__binary.html</anchorfile>
       <anchor>ga5e253707251df7318339c749531c832e</anchor>
       <arglist>(const String &amp;textFileName)</arglist>
     </member>
     <member kind="function">
       <type>juce::StringArray</type>
       <name>getStrings</name>
-      <anchorfile>group__basic__binary__data__types.html</anchorfile>
+      <anchorfile>group__lemons__binary.html</anchorfile>
       <anchor>ga112a983671f03ff2480e8ac670d9495d</anchor>
       <arglist>(const String &amp;textFileName)</arglist>
     </member>
     <member kind="function">
       <type>ValueTree</type>
       <name>getValueTree</name>
-      <anchorfile>group__basic__binary__data__types.html</anchorfile>
+      <anchorfile>group__lemons__binary.html</anchorfile>
       <anchor>ga7fee171f8c16e6a69a6bf67c3910cd9a</anchor>
       <arglist>(const String &amp;filename)</arglist>
-    </member>
-  </compound>
-  <compound kind="group">
-    <name>lemons_binary_data</name>
-    <title>Binary data</title>
-    <filename>group__lemons__binary__data.html</filename>
-    <subgroup>basic_binary_data_types</subgroup>
-    <subgroup>lemons_translation_initialization</subgroup>
-    <member kind="function">
-      <type>juce::StringArray</type>
-      <name>getFilenames</name>
-      <anchorfile>group__lemons__binary__data.html</anchorfile>
-      <anchor>ga3f5893ae9f64c4e06e0285bbb38b27c4</anchor>
-      <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>constexpr bool</type>
       <name>hasBinaryData</name>
-      <anchorfile>group__lemons__binary__data.html</anchorfile>
+      <anchorfile>group__lemons__binary.html</anchorfile>
       <anchor>ga45e0f639b83a42ca3121fdff8dcdcb70</anchor>
       <arglist>() noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>initializeDefaultTranslations</name>
+      <anchorfile>group__lemons__binary.html</anchorfile>
+      <anchor>gaf44434a11b41640afde5b60fae745d01</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>initializeTranslations</name>
+      <anchorfile>group__lemons__binary.html</anchorfile>
+      <anchor>ga4962f8d8921a03dc8a328f6149fa32b5</anchor>
+      <arglist>(const binary::Data &amp;data, bool ignoreCaseOfKeys=true)</arglist>
     </member>
   </compound>
   <compound kind="group">
@@ -32363,6 +31906,94 @@
     <subgroup>lemons_core</subgroup>
   </compound>
   <compound kind="group">
+    <name>lemons_gui_components</name>
+    <title>Components</title>
+    <filename>group__lemons__gui__components.html</filename>
+    <subgroup>lemons_buttons</subgroup>
+  </compound>
+  <compound kind="group">
+    <name>lemons_dsp_unit_tests</name>
+    <title>DSP tests</title>
+    <filename>group__lemons__dsp__unit__tests.html</filename>
+    <member kind="define">
+      <type>#define</type>
+      <name>LEMONS_CREATE_DSP_TEST</name>
+      <anchorfile>group__lemons__dsp__unit__tests.html</anchorfile>
+      <anchor>gae41afeed436f6161b164968f41871379</anchor>
+      <arglist>(ClassTemplate)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>allSamplesAreEqual</name>
+      <anchorfile>group__lemons__dsp__unit__tests.html</anchorfile>
+      <anchor>ga7b7bf566585454b8ecab1b489ecf916c</anchor>
+      <arglist>(const AudioBuffer&lt; FloatType &gt; &amp;buffer1, const AudioBuffer&lt; FloatType &gt; &amp;buffer2, int startIndex1, int numSamples, int startIndex2=-1, int channel1=0, int channel2=-1)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>allSamplesAreValid</name>
+      <anchorfile>group__lemons__dsp__unit__tests.html</anchorfile>
+      <anchor>gadcba4d5065cf05b03e3a70c608eeb836</anchor>
+      <arglist>(const AudioBuffer&lt; FloatType &gt; &amp;buffer)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>allSamplesAreZero</name>
+      <anchorfile>group__lemons__dsp__unit__tests.html</anchorfile>
+      <anchor>ga9eeb99099375f1fa3d717a93454c2c9c</anchor>
+      <arglist>(const AudioBuffer&lt; FloatType &gt; &amp;buffer, int startIndex, int numSamples, int channel=0)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>bufferChannelsAreEqual</name>
+      <anchorfile>group__lemons__dsp__unit__tests.html</anchorfile>
+      <anchor>ga38f39f789d5019726a8d50af6cdb96ab</anchor>
+      <arglist>(const AudioBuffer&lt; FloatType &gt; &amp;buffer1, int channel1, const AudioBuffer&lt; FloatType &gt; &amp;buffer2, int channel2)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>bufferIsSilent</name>
+      <anchorfile>group__lemons__dsp__unit__tests.html</anchorfile>
+      <anchor>gabc03e9fae97d48e1f10d2c5a2131f6ff</anchor>
+      <arglist>(const AudioBuffer&lt; FloatType &gt; &amp;buffer)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>buffersAreEqual</name>
+      <anchorfile>group__lemons__dsp__unit__tests.html</anchorfile>
+      <anchor>ga5e40182d3a34127843dc0487cf7678d2</anchor>
+      <arglist>(const AudioBuffer&lt; FloatType &gt; &amp;buffer1, const AudioBuffer&lt; FloatType &gt; &amp;buffer2)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>buffersAreReasonablyEqual</name>
+      <anchorfile>group__lemons__dsp__unit__tests.html</anchorfile>
+      <anchor>ga7681e5e17b48965aa1416c51ea9c4a61</anchor>
+      <arglist>(const AudioBuffer&lt; FloatType &gt; &amp;buffer1, const AudioBuffer&lt; FloatType &gt; &amp;buffer2)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>fillAudioBufferWithRandomNoise</name>
+      <anchorfile>group__lemons__dsp__unit__tests.html</anchorfile>
+      <anchor>ga8ecdb1df151eda76ed75304aea1dd2b7</anchor>
+      <arglist>(AudioBuffer&lt; SampleType &gt; &amp;buffer, juce::Random rng)</arglist>
+    </member>
+    <member kind="function">
+      <type>AudioBuffer&lt; SampleType &gt;</type>
+      <name>makeCopyOfAudioBuffer</name>
+      <anchorfile>group__lemons__dsp__unit__tests.html</anchorfile>
+      <anchor>gab19c24a71eb5b03abd490ea31e88908e</anchor>
+      <arglist>(const AudioBuffer&lt; SampleType &gt; &amp;inputBuffer)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>noSamplesAreClipping</name>
+      <anchorfile>group__lemons__dsp__unit__tests.html</anchorfile>
+      <anchor>ga91d1e7095657d0593a3baba099b5ed36</anchor>
+      <arglist>(const AudioBuffer&lt; FloatType &gt; &amp;buffer)</arglist>
+    </member>
+  </compound>
+  <compound kind="group">
     <name>lemons_device</name>
     <title>Device</title>
     <filename>group__lemons__device.html</filename>
@@ -32375,9 +32006,9 @@
     </member>
   </compound>
   <compound kind="group">
-    <name>Editors</name>
+    <name>lemons_plugin_editors</name>
     <title>Editors</title>
-    <filename>group___editors.html</filename>
+    <filename>group__lemons__plugin__editors.html</filename>
   </compound>
   <compound kind="group">
     <name>audio_engines</name>
@@ -32393,7 +32024,6 @@
     <name>lemons_files</name>
     <title>Files</title>
     <filename>group__lemons__files.html</filename>
-    <subgroup>lemons_value_trees</subgroup>
     <member kind="enumeration">
       <type></type>
       <name>FileType</name>
@@ -32417,6 +32047,153 @@
       <anchorfile>group__lemons__files.html</anchorfile>
       <anchor>ga402868b2eee4e6897a4a2d458c2797e0</anchor>
       <arglist>(const File &amp;file)</arglist>
+    </member>
+    <member kind="function">
+      <type>AudioBuffer&lt; SampleType &gt;</type>
+      <name>loadAudioBuffer</name>
+      <anchorfile>group__lemons__files.html</anchorfile>
+      <anchor>gaf54aae60ea2c1dabbedb0ce11c31c53a</anchor>
+      <arglist>(const File &amp;file)</arglist>
+    </member>
+    <member kind="function">
+      <type>MemoryBlock</type>
+      <name>loadFileAsBlock</name>
+      <anchorfile>group__lemons__files.html</anchorfile>
+      <anchor>gaeb48ab1af98d76a304450d4fad73f577</anchor>
+      <arglist>(const File &amp;file)</arglist>
+    </member>
+    <member kind="function">
+      <type>std::unique_ptr&lt; juce::CustomTypeface &gt;</type>
+      <name>loadFont</name>
+      <anchorfile>group__lemons__files.html</anchorfile>
+      <anchor>ga383ce132bdd2b76a98e17bdf7db3068b</anchor>
+      <arglist>(const File &amp;file)</arglist>
+    </member>
+    <member kind="function">
+      <type>Image</type>
+      <name>loadImage</name>
+      <anchorfile>group__lemons__files.html</anchorfile>
+      <anchor>ga2bad73088f4cd33294dc30cfed9e208c</anchor>
+      <arglist>(const File &amp;file)</arglist>
+    </member>
+    <member kind="function">
+      <type>MidiBuffer</type>
+      <name>loadMidiBuffer</name>
+      <anchorfile>group__lemons__files.html</anchorfile>
+      <anchor>ga3bf826f1c89c8d7dd79746bfa970a45b</anchor>
+      <arglist>(const File &amp;file)</arglist>
+    </member>
+    <member kind="function">
+      <type>MidiFile</type>
+      <name>loadMidiFile</name>
+      <anchorfile>group__lemons__files.html</anchorfile>
+      <anchor>gae0ba713ecd7bdb010178da5d88b60777</anchor>
+      <arglist>(const File &amp;file)</arglist>
+    </member>
+    <member kind="function">
+      <type>plugin::ParameterLayout</type>
+      <name>loadParameterLayout</name>
+      <anchorfile>group__lemons__files.html</anchorfile>
+      <anchor>ga5e21f36c14abe23185769a0557a09d9c</anchor>
+      <arglist>(const File &amp;file)</arglist>
+    </member>
+    <member kind="function">
+      <type>plugin::PluginMetadata</type>
+      <name>loadPluginMetadata</name>
+      <anchorfile>group__lemons__files.html</anchorfile>
+      <anchor>gaccd4f10eb1f43bebed6a54925091420b</anchor>
+      <arglist>(const File &amp;file)</arglist>
+    </member>
+    <member kind="function">
+      <type>plugin::ProcessorAttributes</type>
+      <name>loadProcessorAttributes</name>
+      <anchorfile>group__lemons__files.html</anchorfile>
+      <anchor>gab2d6ab95437d9c715997be684126035d</anchor>
+      <arglist>(const File &amp;file)</arglist>
+    </member>
+    <member kind="function">
+      <type>ValueTree</type>
+      <name>loadValueTree</name>
+      <anchorfile>group__lemons__files.html</anchorfile>
+      <anchor>ga83377ad1e44d9e25ff0a5879975230c9</anchor>
+      <arglist>(const File &amp;file)</arglist>
+    </member>
+    <member kind="function">
+      <type>ValueTree</type>
+      <name>loadValueTree</name>
+      <anchorfile>group__lemons__files.html</anchorfile>
+      <anchor>gaa4e640b5ec2d9c0d43ff33e1209376ea</anchor>
+      <arglist>(const String &amp;fileContents)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>saveAudioBuffer</name>
+      <anchorfile>group__lemons__files.html</anchorfile>
+      <anchor>gac003f0c017b579974905b50c95689706</anchor>
+      <arglist>(const AudioBuffer&lt; SampleType &gt; &amp;audio, const File &amp;file, double samplerate=48000.)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>saveBlockToFile</name>
+      <anchorfile>group__lemons__files.html</anchorfile>
+      <anchor>ga45f381bf9770d795dc1a94d41207aa58</anchor>
+      <arglist>(const MemoryBlock &amp;block, const File &amp;file)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>saveFont</name>
+      <anchorfile>group__lemons__files.html</anchorfile>
+      <anchor>ga73fc40781ee71e41bf30683c939df08c</anchor>
+      <arglist>(const juce::Font &amp;font, const File &amp;file, int maxNumChars=127, juce_wchar defaultChar=&apos; &apos;)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>saveImage</name>
+      <anchorfile>group__lemons__files.html</anchorfile>
+      <anchor>ga90c99721b94a9923e469d43f6f004bff</anchor>
+      <arglist>(const Image &amp;image, const File &amp;file)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>saveMidi</name>
+      <anchorfile>group__lemons__files.html</anchorfile>
+      <anchor>gac75640aebef14f2210e2a11d9d5b8ae1</anchor>
+      <arglist>(const MidiBuffer &amp;midi, const File &amp;file)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>saveMidi</name>
+      <anchorfile>group__lemons__files.html</anchorfile>
+      <anchor>gad9dc353791d67eb0b4caf98b2cab8bd1</anchor>
+      <arglist>(const MidiFile &amp;midi, const File &amp;file)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>saveParameterLayout</name>
+      <anchorfile>group__lemons__files.html</anchorfile>
+      <anchor>ga5f6319cc91a208675723796f54ec303b</anchor>
+      <arglist>(const plugin::ParameterLayout &amp;layout, const File &amp;file)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>savePluginMetadata</name>
+      <anchorfile>group__lemons__files.html</anchorfile>
+      <anchor>ga50cc46e369de9136fb3f11a13b0fdc1b</anchor>
+      <arglist>(const plugin::PluginMetadata &amp;layout, const File &amp;file)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>saveProcessorAttributes</name>
+      <anchorfile>group__lemons__files.html</anchorfile>
+      <anchor>ga669edbc3aebe00cd284774127aa2bc4f</anchor>
+      <arglist>(const plugin::ProcessorAttributes &amp;layout, const File &amp;file)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>saveValueTree</name>
+      <anchorfile>group__lemons__files.html</anchorfile>
+      <anchor>gaf649a81a1c77e6b8667c62f6276e6d11</anchor>
+      <arglist>(const File &amp;file, const ValueTree &amp;tree)</arglist>
     </member>
   </compound>
   <compound kind="group">
@@ -32450,28 +32227,101 @@
     <filename>group__lemons__gui__app.html</filename>
   </compound>
   <compound kind="group">
-    <name>lemons_translation_initialization</name>
-    <title>Initializing translations</title>
-    <filename>group__lemons__translation__initialization.html</filename>
+    <name>lemons_gui_unit_tests</name>
+    <title>GUI tests</title>
+    <filename>group__lemons__gui__unit__tests.html</filename>
     <member kind="function">
       <type>void</type>
-      <name>initializeDefaultTranslations</name>
-      <anchorfile>group__lemons__translation__initialization.html</anchorfile>
-      <anchor>gaf44434a11b41640afde5b60fae745d01</anchor>
-      <arglist>()</arglist>
+      <name>fillImageWithRandomPixels</name>
+      <anchorfile>group__lemons__gui__unit__tests.html</anchorfile>
+      <anchor>ga45aa6aca22218a8a1c13b549c17712e3</anchor>
+      <arglist>(Image &amp;image, juce::Random rng)</arglist>
     </member>
     <member kind="function">
-      <type>void</type>
-      <name>initializeTranslations</name>
-      <anchorfile>group__lemons__translation__initialization.html</anchorfile>
-      <anchor>ga4962f8d8921a03dc8a328f6149fa32b5</anchor>
-      <arglist>(const binary::Data &amp;data, bool ignoreCaseOfKeys=true)</arglist>
+      <type>bool</type>
+      <name>imagesAreEqual</name>
+      <anchorfile>group__lemons__gui__unit__tests.html</anchorfile>
+      <anchor>gac207a10fbe432026788c9341794ac68a</anchor>
+      <arglist>(const Image &amp;image1, const Image &amp;image2)</arglist>
+    </member>
+  </compound>
+  <compound kind="group">
+    <name>lemons_iso_country_codes</name>
+    <title>ISO country codes</title>
+    <filename>group__lemons__iso__country__codes.html</filename>
+    <member kind="function">
+      <type>StringArray</type>
+      <name>getCountryCodesForLanguage</name>
+      <anchorfile>group__lemons__iso__country__codes.html</anchorfile>
+      <anchor>ga654c5ab00019f58ce358d8f306b706f8</anchor>
+      <arglist>(const String &amp;language, bool languageName=true)</arglist>
+    </member>
+    <member kind="function">
+      <type>StringArray</type>
+      <name>getLanguageCodesForCountry</name>
+      <anchorfile>group__lemons__iso__country__codes.html</anchorfile>
+      <anchor>ga39cc970a4d100be559240b1a6ec42d62</anchor>
+      <arglist>(const String &amp;countryCode, bool asISO639_2=true)</arglist>
+    </member>
+    <member kind="function">
+      <type>StringArray</type>
+      <name>getLanguageNamesForCountry</name>
+      <anchorfile>group__lemons__iso__country__codes.html</anchorfile>
+      <anchor>ga1ab45cf7ce001bddc0cb8ab349be4372</anchor>
+      <arglist>(const String &amp;countryCode)</arglist>
+    </member>
+  </compound>
+  <compound kind="group">
+    <name>lemons_iso_language_codes</name>
+    <title>ISO language codes</title>
+    <filename>group__lemons__iso__language__codes.html</filename>
+    <member kind="function">
+      <type>String</type>
+      <name>languageCodeToName</name>
+      <anchorfile>group__lemons__iso__language__codes.html</anchorfile>
+      <anchor>gaad199ffab3ee7c4e5e8027aaa48986af</anchor>
+      <arglist>(const String &amp;languageCode)</arglist>
+    </member>
+    <member kind="function">
+      <type>String</type>
+      <name>languageNameToCode</name>
+      <anchorfile>group__lemons__iso__language__codes.html</anchorfile>
+      <anchor>ga9377266e261ca703f64e1bf139259520</anchor>
+      <arglist>(const String &amp;name, bool asISO639_2=true)</arglist>
     </member>
   </compound>
   <compound kind="group">
     <name>lemons_locale</name>
     <title>Localization</title>
     <filename>group__lemons__locale.html</filename>
+    <subgroup>lemons_iso_country_codes</subgroup>
+    <subgroup>lemons_iso_language_codes</subgroup>
+  </compound>
+  <compound kind="group">
+    <name>lemons_midi_unit_tests</name>
+    <title>MIDI tests</title>
+    <filename>group__lemons__midi__unit__tests.html</filename>
+    <member kind="function">
+      <type>void</type>
+      <name>fillMidiBufferWithRandomEvents</name>
+      <anchorfile>group__lemons__midi__unit__tests.html</anchorfile>
+      <anchor>gac8657000a7bf8aaa4cc93c263c8dbc8e</anchor>
+      <arglist>(MidiBuffer &amp;buffer, int numEvents, juce::Random rng)</arglist>
+    </member>
+    <member kind="function">
+      <type>MidiBuffer</type>
+      <name>makeCopyOfMidiBuffer</name>
+      <anchorfile>group__lemons__midi__unit__tests.html</anchorfile>
+      <anchor>ga05dcafe4b31077a0cff23d9f6d9b9a83</anchor>
+      <arglist>(const MidiBuffer &amp;inputBuffer)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>midiBuffersAreEqual</name>
+      <anchorfile>group__lemons__midi__unit__tests.html</anchorfile>
+      <anchor>gac131c73da0a08f4127224d450c02270e</anchor>
+      <arglist>(const MidiBuffer &amp;buffer1, const MidiBuffer &amp;buffer2)</arglist>
+    </member>
   </compound>
   <compound kind="group">
     <name>lemons_math</name>
@@ -32487,49 +32337,6 @@
     <name>plugin_metadata</name>
     <title>Metadata</title>
     <filename>group__plugin__metadata.html</filename>
-    <subgroup>plugin_parameter_metadata</subgroup>
-    <member kind="function">
-      <type>plugin::PluginMetadata</type>
-      <name>getPluginMetadata</name>
-      <anchorfile>group__plugin__metadata.html</anchorfile>
-      <anchor>ga482ca5ce1b610a09b239221ef21eec9b</anchor>
-      <arglist>(const String &amp;filename)</arglist>
-    </member>
-    <member kind="function">
-      <type>plugin::ProcessorAttributes</type>
-      <name>getProcessorAttributes</name>
-      <anchorfile>group__plugin__metadata.html</anchorfile>
-      <anchor>gaa5cccc2760a50960564a6ca940ec41f7</anchor>
-      <arglist>(const String &amp;filename)</arglist>
-    </member>
-    <member kind="function">
-      <type>plugin::PluginMetadata</type>
-      <name>loadPluginMetadata</name>
-      <anchorfile>group__plugin__metadata.html</anchorfile>
-      <anchor>gaccd4f10eb1f43bebed6a54925091420b</anchor>
-      <arglist>(const File &amp;file)</arglist>
-    </member>
-    <member kind="function">
-      <type>plugin::ProcessorAttributes</type>
-      <name>loadProcessorAttributes</name>
-      <anchorfile>group__plugin__metadata.html</anchorfile>
-      <anchor>gab2d6ab95437d9c715997be684126035d</anchor>
-      <arglist>(const File &amp;file)</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>savePluginMetadata</name>
-      <anchorfile>group__plugin__metadata.html</anchorfile>
-      <anchor>ga50cc46e369de9136fb3f11a13b0fdc1b</anchor>
-      <arglist>(const plugin::PluginMetadata &amp;layout, const File &amp;file)</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>saveProcessorAttributes</name>
-      <anchorfile>group__plugin__metadata.html</anchorfile>
-      <anchor>ga669edbc3aebe00cd284774127aa2bc4f</anchor>
-      <arglist>(const plugin::ProcessorAttributes &amp;layout, const File &amp;file)</arglist>
-    </member>
   </compound>
   <compound kind="group">
     <name>meter_parameters</name>
@@ -32555,6 +32362,7 @@
     <name>lemons_oscillators</name>
     <title>Oscillators</title>
     <filename>group__lemons__oscillators.html</filename>
+    <subgroup>lemons_basic_oscillators</subgroup>
     <member kind="enumeration">
       <type></type>
       <name>OscType</name>
@@ -32569,40 +32377,14 @@
     </member>
   </compound>
   <compound kind="group">
-    <name>plugin_parameter_metadata</name>
-    <title>Parameter metadata</title>
-    <filename>group__plugin__parameter__metadata.html</filename>
-    <member kind="function">
-      <type>plugin::ParameterLayout</type>
-      <name>getParameterLayout</name>
-      <anchorfile>group__plugin__parameter__metadata.html</anchorfile>
-      <anchor>gad3c759ef241f4a9c2e250f4bbe0c85a4</anchor>
-      <arglist>(const String &amp;fileName)</arglist>
-    </member>
-    <member kind="function">
-      <type>plugin::ParameterLayout</type>
-      <name>loadParameterLayout</name>
-      <anchorfile>group__plugin__parameter__metadata.html</anchorfile>
-      <anchor>ga5e21f36c14abe23185769a0557a09d9c</anchor>
-      <arglist>(const File &amp;file)</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>saveParameterLayout</name>
-      <anchorfile>group__plugin__parameter__metadata.html</anchorfile>
-      <anchor>ga5f6319cc91a208675723796f54ec303b</anchor>
-      <arglist>(const plugin::ParameterLayout &amp;layout, const File &amp;file)</arglist>
-    </member>
-  </compound>
-  <compound kind="group">
     <name>parameter_modulation</name>
     <title>Parameter modulation</title>
     <filename>group__parameter__modulation.html</filename>
   </compound>
   <compound kind="group">
-    <name>parameters</name>
+    <name>lemons_plugin_parameters</name>
     <title>Parameters</title>
-    <filename>group__parameters.html</filename>
+    <filename>group__lemons__plugin__parameters.html</filename>
     <subgroup>fundamental_parameter_types</subgroup>
     <subgroup>meta_parameters</subgroup>
     <subgroup>meter_parameters</subgroup>
@@ -32615,10 +32397,34 @@
     <filename>group__plugin__hosting.html</filename>
   </compound>
   <compound kind="group">
+    <name>lemons_plugin_unit_tests</name>
+    <title>Plugin tests</title>
+    <filename>group__lemons__plugin__unit__tests.html</filename>
+  </compound>
+  <compound kind="group">
     <name>Plugins</name>
     <title>Plugins</title>
     <filename>group___plugins.html</filename>
     <subgroup>lemons_plugin</subgroup>
+  </compound>
+  <compound kind="group">
+    <name>lemons_plugin_processors</name>
+    <title>Processors</title>
+    <filename>group__lemons__plugin__processors.html</filename>
+    <member kind="define">
+      <type>#define</type>
+      <name>LEMONS_DEFINE_PLUGIN_CREATOR</name>
+      <anchorfile>group__lemons__plugin__processors.html</anchorfile>
+      <anchor>gaf649a3a424a181538b5b2ea686561b75</anchor>
+      <arglist>(ProcessorClass)</arglist>
+    </member>
+    <member kind="typedef">
+      <type>Processor&lt; EngineType, State &gt;</type>
+      <name>StatelessProcessor</name>
+      <anchorfile>group__lemons__plugin__processors.html</anchorfile>
+      <anchor>ga402ed40f2d0bc661edca4d34b112d41b</anchor>
+      <arglist></arglist>
+    </member>
   </compound>
   <compound kind="group">
     <name>lemons_midi_processors</name>
@@ -32626,28 +32432,126 @@
     <filename>group__lemons__midi__processors.html</filename>
   </compound>
   <compound kind="group">
-    <name>processors</name>
-    <title>Processors</title>
-    <filename>group__processors.html</filename>
-    <member kind="define">
-      <type>#define</type>
-      <name>LEMONS_DEFINE_PLUGIN_CREATOR</name>
-      <anchorfile>group__processors.html</anchorfile>
-      <anchor>gaf649a3a424a181538b5b2ea686561b75</anchor>
-      <arglist>(ProcessorClass)</arglist>
-    </member>
-    <member kind="typedef">
-      <type>Processor&lt; EngineType, State &gt;</type>
-      <name>StatelessProcessor</name>
-      <anchorfile>group__processors.html</anchorfile>
-      <anchor>ga402ed40f2d0bc661edca4d34b112d41b</anchor>
-      <arglist></arglist>
-    </member>
-  </compound>
-  <compound kind="group">
     <name>lemons_psola_synthesis</name>
     <title>Resynthesis</title>
     <filename>group__lemons__psola__synthesis.html</filename>
+  </compound>
+  <compound kind="group">
+    <name>lemons_serializing</name>
+    <title>Serializing</title>
+    <filename>group__lemons__serializing.html</filename>
+    <member kind="function">
+      <type>AudioBuffer&lt; SampleType &gt;</type>
+      <name>audioFromBinary</name>
+      <anchorfile>group__lemons__serializing.html</anchorfile>
+      <anchor>gab642a13438e30137d80cb0842d314f7b</anchor>
+      <arglist>(const MemoryBlock &amp;block)</arglist>
+    </member>
+    <member kind="function">
+      <type>MemoryBlock</type>
+      <name>audioToBinary</name>
+      <anchorfile>group__lemons__serializing.html</anchorfile>
+      <anchor>gadf7966056fb84074c7d8acfafad74af2</anchor>
+      <arglist>(const AudioBuffer&lt; SampleType &gt; &amp;buffer, double samplerate=48000.)</arglist>
+    </member>
+    <member kind="function">
+      <type>std::unique_ptr&lt; juce::CustomTypeface &gt;</type>
+      <name>fontFromBinary</name>
+      <anchorfile>group__lemons__serializing.html</anchorfile>
+      <anchor>ga79aa52c715672cf46f9b529fd58ef564</anchor>
+      <arglist>(const MemoryBlock &amp;block)</arglist>
+    </member>
+    <member kind="function">
+      <type>MemoryBlock</type>
+      <name>fontToBinary</name>
+      <anchorfile>group__lemons__serializing.html</anchorfile>
+      <anchor>ga30d310f988a2d025e1b89cf636047402</anchor>
+      <arglist>(const juce::Font &amp;font, int maxNumChars=127, juce_wchar defaultChar=&apos; &apos;)</arglist>
+    </member>
+    <member kind="function">
+      <type>Image</type>
+      <name>imageFromBinary</name>
+      <anchorfile>group__lemons__serializing.html</anchorfile>
+      <anchor>ga71a2d7117ba93aff2cff74ce99ee2921</anchor>
+      <arglist>(const MemoryBlock &amp;block)</arglist>
+    </member>
+    <member kind="function">
+      <type>MemoryBlock</type>
+      <name>imageToBinary</name>
+      <anchorfile>group__lemons__serializing.html</anchorfile>
+      <anchor>ga844c15e8011970bd72cddbc16ac54886</anchor>
+      <arglist>(const Image &amp;image)</arglist>
+    </member>
+    <member kind="function">
+      <type>MemoryBlock</type>
+      <name>memoryBlockFromString</name>
+      <anchorfile>group__lemons__serializing.html</anchorfile>
+      <anchor>gac8b999fef48958f498e30029bd9a7eeb</anchor>
+      <arglist>(const String &amp;string)</arglist>
+    </member>
+    <member kind="function">
+      <type>String</type>
+      <name>memoryBlockToString</name>
+      <anchorfile>group__lemons__serializing.html</anchorfile>
+      <anchor>ga0567d1e8fe695183370d8d86edced3c6</anchor>
+      <arglist>(const MemoryBlock &amp;block)</arglist>
+    </member>
+    <member kind="function">
+      <type>MidiBuffer</type>
+      <name>midiBufferFromBinary</name>
+      <anchorfile>group__lemons__serializing.html</anchorfile>
+      <anchor>ga04f7d173de93a9bf72be15fb86f2f518</anchor>
+      <arglist>(const MemoryBlock &amp;block)</arglist>
+    </member>
+    <member kind="function">
+      <type>MidiFile</type>
+      <name>midiFileFromBinary</name>
+      <anchorfile>group__lemons__serializing.html</anchorfile>
+      <anchor>ga1464835a9b444ee16712c67565260518</anchor>
+      <arglist>(const MemoryBlock &amp;block)</arglist>
+    </member>
+    <member kind="function">
+      <type>MemoryBlock</type>
+      <name>midiToBinary</name>
+      <anchorfile>group__lemons__serializing.html</anchorfile>
+      <anchor>ga9f9b5afb4a6bd15f8c8801923c12e1f7</anchor>
+      <arglist>(const MidiBuffer &amp;midi)</arglist>
+    </member>
+    <member kind="function">
+      <type>MemoryBlock</type>
+      <name>midiToBinary</name>
+      <anchorfile>group__lemons__serializing.html</anchorfile>
+      <anchor>gaeacda195ca89506992384c26458355cf</anchor>
+      <arglist>(const MidiFile &amp;midi)</arglist>
+    </member>
+    <member kind="function">
+      <type>ValueTree</type>
+      <name>rangeToValueTree</name>
+      <anchorfile>group__lemons__serializing.html</anchorfile>
+      <anchor>gad52d848aba3f9614ace803cb0b840dda</anchor>
+      <arglist>(const juce::NormalisableRange&lt; ValueType &gt; &amp;range)</arglist>
+    </member>
+    <member kind="function">
+      <type>ValueTree</type>
+      <name>valueTreeFromJSON</name>
+      <anchorfile>group__lemons__serializing.html</anchorfile>
+      <anchor>ga3a28001c151ae9a72cee950b7b0c5fe0</anchor>
+      <arglist>(const String &amp;jsonText)</arglist>
+    </member>
+    <member kind="function">
+      <type>String</type>
+      <name>valueTreeToJSON</name>
+      <anchorfile>group__lemons__serializing.html</anchorfile>
+      <anchor>ga44dc62981a244f674a7b47738595d0ac</anchor>
+      <arglist>(const ValueTree &amp;v)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::NormalisableRange&lt; ValueType &gt;</type>
+      <name>valueTreeToRange</name>
+      <anchorfile>group__lemons__serializing.html</anchorfile>
+      <anchor>gabe8547288b1d7c2cda9ec239589d39fb</anchor>
+      <arglist>(const ValueTree &amp;tree)</arglist>
+    </member>
   </compound>
   <compound kind="group">
     <name>parameter_specializations</name>
@@ -32665,39 +32569,41 @@
     <filename>group__lemons__midi__tuning.html</filename>
   </compound>
   <compound kind="group">
-    <name>lemons_value_trees</name>
-    <title>ValueTrees</title>
-    <filename>group__lemons__value__trees.html</filename>
-    <member kind="function">
-      <type>ValueTree</type>
-      <name>loadValueTree</name>
-      <anchorfile>group__lemons__value__trees.html</anchorfile>
-      <anchor>ga83377ad1e44d9e25ff0a5879975230c9</anchor>
-      <arglist>(const File &amp;file)</arglist>
-    </member>
-    <member kind="function">
-      <type>ValueTree</type>
-      <name>loadValueTree</name>
-      <anchorfile>group__lemons__value__trees.html</anchorfile>
-      <anchor>gaa4e640b5ec2d9c0d43ff33e1209376ea</anchor>
-      <arglist>(const String &amp;fileContents)</arglist>
+    <name>lemons_unit_testing</name>
+    <title>Unit testing</title>
+    <filename>group__lemons__unit__testing.html</filename>
+    <subgroup>lemons_dsp_unit_tests</subgroup>
+    <subgroup>lemons_gui_unit_tests</subgroup>
+    <subgroup>lemons_midi_unit_tests</subgroup>
+    <subgroup>lemons_plugin_unit_tests</subgroup>
+    <member kind="enumeration">
+      <type></type>
+      <name>Intensity</name>
+      <anchorfile>group__lemons__unit__testing.html</anchorfile>
+      <anchor>gabe71616eeadecd56537dd9a10376223c</anchor>
+      <arglist></arglist>
+      <enumvalue file="group__lemons__unit__testing.html" anchor="ggabe71616eeadecd56537dd9a10376223ca28d0edd045e05cf5af64e35ae0c4c6ef">Low</enumvalue>
+      <enumvalue file="group__lemons__unit__testing.html" anchor="ggabe71616eeadecd56537dd9a10376223ca87f8a6ab85c9ced3702b4ea641ad4bb5">Medium</enumvalue>
+      <enumvalue file="group__lemons__unit__testing.html" anchor="ggabe71616eeadecd56537dd9a10376223ca655d20c1ca69519ca647684edbb2db35">High</enumvalue>
     </member>
     <member kind="function">
       <type>bool</type>
-      <name>saveValueTree</name>
-      <anchorfile>group__lemons__value__trees.html</anchorfile>
-      <anchor>gaf649a81a1c77e6b8667c62f6276e6d11</anchor>
-      <arglist>(const File &amp;file, const ValueTree &amp;tree)</arglist>
+      <name>executeUnitTests</name>
+      <anchorfile>group__lemons__unit__testing.html</anchorfile>
+      <anchor>ga012b4a90230fe31d71ca56d673f078c3</anchor>
+      <arglist>(Intensity intensityLevel=Intensity::Medium, const File &amp;logOutput={}, juce::int64 seed=juce::Random::getSystemRandom().nextInt64(), const String &amp;singleTestName={}, const String &amp;categoryName={})</arglist>
     </member>
   </compound>
   <compound kind="group">
     <name>lemons_core</name>
     <title>lemons_core</title>
     <filename>group__lemons__core.html</filename>
-    <subgroup>lemons_binary_data</subgroup>
+    <subgroup>lemons_binary</subgroup>
     <subgroup>lemons_files</subgroup>
     <subgroup>lemons_locale</subgroup>
     <subgroup>lemons_math</subgroup>
+    <subgroup>lemons_serializing</subgroup>
+    <subgroup>lemons_unit_testing</subgroup>
     <member kind="define">
       <type>#define</type>
       <name>LEMONS_MUST_BE_SPECIALIZATION</name>
@@ -32719,6 +32625,7 @@
     <filename>group__lemons__dsp.html</filename>
     <subgroup>lemons_audio_buffers</subgroup>
     <subgroup>audio_files</subgroup>
+    <subgroup>lemons_dsp_unit_tests</subgroup>
     <subgroup>audio_engines</subgroup>
     <subgroup>lemons_audio_fifos</subgroup>
     <subgroup>lemons_stereo_conversion</subgroup>
@@ -32728,7 +32635,7 @@
     <name>lemons_gui</name>
     <title>lemons_gui</title>
     <filename>group__lemons__gui.html</filename>
-    <subgroup>lemons_buttons</subgroup>
+    <subgroup>lemons_gui_components</subgroup>
     <subgroup>lemons_device</subgroup>
     <subgroup>lemons_gui_app</subgroup>
     <namespace>lemons</namespace>
@@ -32739,6 +32646,7 @@
     <name>lemons_midi</name>
     <title>lemons_midi</title>
     <filename>group__lemons__midi.html</filename>
+    <subgroup>lemons_midi_unit_tests</subgroup>
     <subgroup>lemons_midi_processors</subgroup>
     <subgroup>lemons_midi_tuning</subgroup>
     <member kind="function">
@@ -32748,16 +32656,31 @@
       <anchor>ga98b403cf67be59389bdcae888bdb4a6a</anchor>
       <arglist>(const MidiBuffer &amp;readingBuffer, MidiBuffer &amp;destBuffer, int startSampleOfInput, int startSampleOfOutput, int numSamples)</arglist>
     </member>
+    <member kind="function">
+      <type>MidiBuffer</type>
+      <name>midiBufferFromFile</name>
+      <anchorfile>group__lemons__midi.html</anchorfile>
+      <anchor>ga07960c8ccf7e391f88b2d61bd6aac0db</anchor>
+      <arglist>(const MidiFile &amp;file, int trackToRead=-1)</arglist>
+    </member>
+    <member kind="function">
+      <type>MidiFile</type>
+      <name>midiBufferToFile</name>
+      <anchorfile>group__lemons__midi.html</anchorfile>
+      <anchor>ga1e03e28ee699f1c4095d2cf29748a2f7</anchor>
+      <arglist>(const MidiBuffer &amp;midi)</arglist>
+    </member>
   </compound>
   <compound kind="group">
     <name>lemons_plugin</name>
     <title>lemons_plugin</title>
     <filename>group__lemons__plugin.html</filename>
-    <subgroup>Editors</subgroup>
+    <subgroup>lemons_plugin_editors</subgroup>
     <subgroup>plugin_metadata</subgroup>
-    <subgroup>parameters</subgroup>
+    <subgroup>lemons_plugin_parameters</subgroup>
     <subgroup>plugin_hosting</subgroup>
-    <subgroup>processors</subgroup>
+    <subgroup>lemons_plugin_unit_tests</subgroup>
+    <subgroup>lemons_plugin_processors</subgroup>
     <subgroup>plugin_state</subgroup>
   </compound>
   <compound kind="page">

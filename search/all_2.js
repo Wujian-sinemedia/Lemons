@@ -86,5 +86,6 @@ var searchData=
   ['createrange_170',['createRange',['../namespacelemons_1_1plugin_1_1detail.html#ad95fe89519fedeb541f3e9014a5f552b',1,'lemons::plugin::detail']]],
   ['createvoice_171',['createVoice',['../structlemons_1_1dsp_1_1_template_synth.html#ad07b54bfc7da0da1b7ee26e46e2ea8cf',1,'lemons::dsp::TemplateSynth::createVoice()'],['../classlemons_1_1dsp_1_1_synth_base.html#a90865bbbb010903ca5ba65f3f1d3fb8c',1,'lemons::dsp::SynthBase::createVoice()']]],
   ['cursor_2eh_172',['cursor.h',['../cursor_8h.html',1,'']]],
-  ['serializing_2eh_173',['serializing.h',['../_common_2lemons__core_2serializing_2serializing_8h.html',1,'']]]
+  ['components_173',['Components',['../group__lemons__gui__components.html',1,'']]],
+  ['serializing_2eh_174',['serializing.h',['../_common_2lemons__core_2serializing_2serializing_8h.html',1,'']]]
 ];

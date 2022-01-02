@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Lemons: Initializing translations</title>
+<title>Lemons: ISO language codes</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -66,55 +66,55 @@ $(function() {
   <div class="summary">
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">Initializing translations<div class="ingroups"><a class="el" href="group___common.html">Common</a> &raquo; <a class="el" href="group__lemons__core.html">lemons_core</a> &raquo; <a class="el" href="group__lemons__binary__data.html">Binary data</a></div></div>  </div>
+<div class="title">ISO language codes<div class="ingroups"><a class="el" href="group___common.html">Common</a> &raquo; <a class="el" href="group__lemons__core.html">lemons_core</a> &raquo; <a class="el" href="group__lemons__locale.html">Localization</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:gaf44434a11b41640afde5b60fae745d01"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__lemons__translation__initialization.html#gaf44434a11b41640afde5b60fae745d01">lemons::locale::initializeDefaultTranslations</a> ()</td></tr>
-<tr class="separator:gaf44434a11b41640afde5b60fae745d01"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga4962f8d8921a03dc8a328f6149fa32b5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__lemons__translation__initialization.html#ga4962f8d8921a03dc8a328f6149fa32b5">lemons::locale::initializeTranslations</a> (const <a class="el" href="structlemons_1_1binary_1_1_data.html">binary::Data</a> &amp;data, bool ignoreCaseOfKeys=true)</td></tr>
-<tr class="separator:ga4962f8d8921a03dc8a328f6149fa32b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaad199ffab3ee7c4e5e8027aaa48986af"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__lemons__iso__language__codes.html#gaad199ffab3ee7c4e5e8027aaa48986af">lemons::locale::languageCodeToName</a> (const String &amp;languageCode)</td></tr>
+<tr class="separator:gaad199ffab3ee7c4e5e8027aaa48986af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9377266e261ca703f64e1bf139259520"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__lemons__iso__language__codes.html#ga9377266e261ca703f64e1bf139259520">lemons::locale::languageNameToCode</a> (const String &amp;name, bool asISO639_2=true)</td></tr>
+<tr class="separator:ga9377266e261ca703f64e1bf139259520"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p>Functions to initialize translations from binary data. </p>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="gaf44434a11b41640afde5b60fae745d01"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaf44434a11b41640afde5b60fae745d01">&#9670;&nbsp;</a></span>initializeDefaultTranslations()</h2>
+<a id="gaad199ffab3ee7c4e5e8027aaa48986af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaad199ffab3ee7c4e5e8027aaa48986af">&#9670;&nbsp;</a></span>languageCodeToName()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void lemons::locale::initializeDefaultTranslations </td>
+          <td class="memname">String lemons::locale::languageCodeToName </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">const String &amp;&#160;</td>
+          <td class="paramname"><em>languageCode</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Attempts to load a set of default translations from binary data, chosen based on the user's display language settings. </p>
+<p>Converts an ISO language code to the name of the language it represents. If the passed string is 2 characters long, it will be interpreted as an ISO639-1 code; if it is 3 characters long, it will be interpreted as an ISO639-2 code. Other lengths of passed strings are invalid and will cause this method to return an empty string. If the language cannot be identified in the list of known languages, an empty string will be returned. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="group__lemons__iso__language__codes.html#ga9377266e261ca703f64e1bf139259520">languageNameToCode()</a> </dd></dl>
 
 </div>
 </div>
-<a id="ga4962f8d8921a03dc8a328f6149fa32b5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga4962f8d8921a03dc8a328f6149fa32b5">&#9670;&nbsp;</a></span>initializeTranslations()</h2>
+<a id="ga9377266e261ca703f64e1bf139259520"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga9377266e261ca703f64e1bf139259520">&#9670;&nbsp;</a></span>languageNameToCode()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void lemons::locale::initializeTranslations </td>
+          <td class="memname">String lemons::locale::languageNameToCode </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="structlemons_1_1binary_1_1_data.html">binary::Data</a> &amp;&#160;</td>
-          <td class="paramname"><em>data</em>, </td>
+          <td class="paramtype">const String &amp;&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>ignoreCaseOfKeys</em> = <code>true</code>&#160;</td>
+          <td class="paramname"><em>asISO639_2</em> = <code>true</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -123,14 +123,21 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Initializes the juce::LocalisedStrings translation system from a translation file contained in a <a class="el" href="structlemons_1_1binary_1_1_data.html">binary::Data</a> object. </p>
+<p>Converts the name of a language to an ISO639-1 or ISO639-2 language code. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>The name of the language. If the passed language name cannot be located in the list of known languages, an empty string will be returned. </td></tr>
+    <tr><td class="paramname">asISO639_2</td><td>When true, the returned language code will be a 3-character ISO639-2 code. When false, the returned language code will be a 2-character ISO639-1 code. Note that not all known languages have ISO639-1 codes, as some languages were added to the ISO639-2 extension of the standard. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="group__lemons__iso__language__codes.html#gaad199ffab3ee7c4e5e8027aaa48986af">languageCodeToName()</a> </dd></dl>
 
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jan 2 2022 21:31:05 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jan 2 2022 23:45:36 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

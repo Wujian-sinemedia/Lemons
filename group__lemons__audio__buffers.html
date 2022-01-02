@@ -72,12 +72,6 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:gab642a13438e30137d80cb0842d314f7b"><td class="memTemplParams" colspan="2">template&lt;typename SampleType &gt; </td></tr>
-<tr class="memitem:gab642a13438e30137d80cb0842d314f7b"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacelemons_1_1serializing.html#aebcdf9ccc626b6fb5a8dc121e65fec81">AudioBuffer</a>&lt; SampleType &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__lemons__audio__buffers.html#gab642a13438e30137d80cb0842d314f7b">lemons::serializing::audioFromBinary</a> (const MemoryBlock &amp;block)</td></tr>
-<tr class="separator:gab642a13438e30137d80cb0842d314f7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gadf7966056fb84074c7d8acfafad74af2"><td class="memTemplParams" colspan="2">template&lt;typename SampleType &gt; </td></tr>
-<tr class="memitem:gadf7966056fb84074c7d8acfafad74af2"><td class="memTemplItemLeft" align="right" valign="top">MemoryBlock&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__lemons__audio__buffers.html#gadf7966056fb84074c7d8acfafad74af2">lemons::serializing::audioToBinary</a> (const <a class="el" href="namespacelemons_1_1serializing.html#aebcdf9ccc626b6fb5a8dc121e65fec81">AudioBuffer</a>&lt; SampleType &gt; &amp;buffer, double samplerate=48000.)</td></tr>
-<tr class="separator:gadf7966056fb84074c7d8acfafad74af2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga338cb2205ecb51e66fe09025286e62d1"><td class="memTemplParams" colspan="2">template&lt;typename Type1 , typename Type2 &gt; </td></tr>
 <tr class="memitem:ga338cb2205ecb51e66fe09025286e62d1"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__lemons__audio__buffers.html#ga338cb2205ecb51e66fe09025286e62d1">lemons::dsp::buffers::convert</a> (const <a class="el" href="namespacelemons_1_1dsp.html#a18d4de532efb0450f4f594bfbe9cceb0">AudioBuffer</a>&lt; Type1 &gt; &amp;source, <a class="el" href="namespacelemons_1_1dsp.html#a18d4de532efb0450f4f594bfbe9cceb0">AudioBuffer</a>&lt; Type2 &gt; &amp;dest)</td></tr>
 <tr class="separator:ga338cb2205ecb51e66fe09025286e62d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -87,71 +81,10 @@ Functions</h2></td></tr>
 <tr class="memitem:ga063ba8cbe088e06f78ddd7469aed6e6a"><td class="memTemplParams" colspan="2">template&lt;typename SampleType &gt; </td></tr>
 <tr class="memitem:ga063ba8cbe088e06f78ddd7469aed6e6a"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacelemons_1_1dsp.html#a18d4de532efb0450f4f594bfbe9cceb0">AudioBuffer</a>&lt; SampleType &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__lemons__audio__buffers.html#ga063ba8cbe088e06f78ddd7469aed6e6a">lemons::dsp::buffers::getAliasBuffer</a> (<a class="el" href="namespacelemons_1_1dsp.html#a18d4de532efb0450f4f594bfbe9cceb0">AudioBuffer</a>&lt; SampleType &gt; &amp;bufferToAlias, int startSample, int numSamples, int numChannels=-1, int channelOffset=0)</td></tr>
 <tr class="separator:ga063ba8cbe088e06f78ddd7469aed6e6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gad521bea43ce321600e47f0aac6bbbe18"><td class="memTemplParams" colspan="2">template&lt;typename SampleType &gt; </td></tr>
-<tr class="memitem:gad521bea43ce321600e47f0aac6bbbe18"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacelemons_1_1binary.html#a0ab1443f349d800d3ca96bbeed83703f">AudioBuffer</a>&lt; SampleType &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__lemons__audio__buffers.html#gad521bea43ce321600e47f0aac6bbbe18">lemons::binary::getAudioBuffer</a> (const String &amp;filename)</td></tr>
-<tr class="separator:gad521bea43ce321600e47f0aac6bbbe18"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaf54aae60ea2c1dabbedb0ce11c31c53a"><td class="memTemplParams" colspan="2">template&lt;typename SampleType &gt; </td></tr>
-<tr class="memitem:gaf54aae60ea2c1dabbedb0ce11c31c53a"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacelemons_1_1files.html#a709955f26373229b87ba86d5fa902a41">AudioBuffer</a>&lt; SampleType &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__lemons__audio__buffers.html#gaf54aae60ea2c1dabbedb0ce11c31c53a">lemons::files::loadAudioBuffer</a> (const File &amp;file)</td></tr>
-<tr class="separator:gaf54aae60ea2c1dabbedb0ce11c31c53a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gac003f0c017b579974905b50c95689706"><td class="memTemplParams" colspan="2">template&lt;typename SampleType &gt; </td></tr>
-<tr class="memitem:gac003f0c017b579974905b50c95689706"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__lemons__audio__buffers.html#gac003f0c017b579974905b50c95689706">lemons::files::saveAudioBuffer</a> (const <a class="el" href="namespacelemons_1_1files.html#a709955f26373229b87ba86d5fa902a41">AudioBuffer</a>&lt; SampleType &gt; &amp;audio, const File &amp;file, double samplerate=48000.)</td></tr>
-<tr class="separator:gac003f0c017b579974905b50c95689706"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>Audio buffer utility functions. </p>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="gab642a13438e30137d80cb0842d314f7b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gab642a13438e30137d80cb0842d314f7b">&#9670;&nbsp;</a></span>audioFromBinary()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename SampleType &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="namespacelemons_1_1serializing.html#aebcdf9ccc626b6fb5a8dc121e65fec81">AudioBuffer</a>&lt;SampleType&gt; lemons::serializing::audioFromBinary </td>
-          <td>(</td>
-          <td class="paramtype">const MemoryBlock &amp;&#160;</td>
-          <td class="paramname"><em>block</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Returns an AudioBuffer from a binary representation of one. Internally, this uses JUCE's FlacAudioFormat. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="group__lemons__audio__buffers.html#gadf7966056fb84074c7d8acfafad74af2">audioToBinary()</a>, loadAudioFromFile(), binary::Data::getAudio() </dd></dl>
-
-</div>
-</div>
-<a id="gadf7966056fb84074c7d8acfafad74af2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gadf7966056fb84074c7d8acfafad74af2">&#9670;&nbsp;</a></span>audioToBinary()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename SampleType &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">MemoryBlock lemons::serializing::audioToBinary </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="namespacelemons_1_1serializing.html#aebcdf9ccc626b6fb5a8dc121e65fec81">AudioBuffer</a>&lt; SampleType &gt; &amp;&#160;</td>
-          <td class="paramname"><em>buffer</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>samplerate</em> = <code>48000.</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Encodes an AudioBuffer as a blob of binary data. Note that the sample rate may be optionally specified. Internally, this uses JUCE's FlacAudioFormat. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="group__lemons__audio__buffers.html#gab642a13438e30137d80cb0842d314f7b">audioFromBinary()</a>, saveAudioToFile() </dd></dl>
-
-</div>
-</div>
 <a id="ga338cb2205ecb51e66fe09025286e62d1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ga338cb2205ecb51e66fe09025286e62d1">&#9670;&nbsp;</a></span>convert()</h2>
 
@@ -263,88 +196,10 @@ template&lt;typename SampleType &gt; </div>
 
 </div>
 </div>
-<a id="gad521bea43ce321600e47f0aac6bbbe18"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gad521bea43ce321600e47f0aac6bbbe18">&#9670;&nbsp;</a></span>getAudioBuffer()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename SampleType &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="namespacelemons_1_1binary.html#a0ab1443f349d800d3ca96bbeed83703f">AudioBuffer</a>&lt;SampleType&gt; lemons::binary::getAudioBuffer </td>
-          <td>(</td>
-          <td class="paramtype">const String &amp;&#160;</td>
-          <td class="paramname"><em>filename</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="gaf54aae60ea2c1dabbedb0ce11c31c53a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaf54aae60ea2c1dabbedb0ce11c31c53a">&#9670;&nbsp;</a></span>loadAudioBuffer()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename SampleType &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="namespacelemons_1_1files.html#a709955f26373229b87ba86d5fa902a41">AudioBuffer</a>&lt;SampleType&gt; lemons::files::loadAudioBuffer </td>
-          <td>(</td>
-          <td class="paramtype">const File &amp;&#160;</td>
-          <td class="paramname"><em>file</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Loads an AudioBuffer from a file. The buffer must have been previously written to the file using the <a class="el" href="group__lemons__audio__buffers.html#gac003f0c017b579974905b50c95689706">saveAudioBuffer()</a> method. For a more robust, official-format-compatible method of loading audio files, see the AudioFile class. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="group__lemons__audio__buffers.html#gac003f0c017b579974905b50c95689706">saveAudioBuffer()</a> </dd></dl>
-
-</div>
-</div>
-<a id="gac003f0c017b579974905b50c95689706"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gac003f0c017b579974905b50c95689706">&#9670;&nbsp;</a></span>saveAudioBuffer()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename SampleType &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">bool lemons::files::saveAudioBuffer </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="namespacelemons_1_1files.html#a709955f26373229b87ba86d5fa902a41">AudioBuffer</a>&lt; SampleType &gt; &amp;&#160;</td>
-          <td class="paramname"><em>audio</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const File &amp;&#160;</td>
-          <td class="paramname"><em>file</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>samplerate</em> = <code>48000.</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Writes an AudioBuffer to a File in FLAC format. This writes the data in an opaque binary format that can be reloaded by the free functions in this namespace, but may not be compatible with official audio formats. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="group__lemons__audio__buffers.html#gaf54aae60ea2c1dabbedb0ce11c31c53a">loadAudioBuffer()</a> </dd></dl>
-
-</div>
-</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jan 2 2022 21:31:05 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jan 2 2022 23:45:36 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Lemons: Binary data</title>
+<title>Lemons: GUI tests</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -64,78 +64,81 @@ $(function() {
 
 <div class="header">
   <div class="summary">
-<a href="#groups">Modules</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">Binary data<div class="ingroups"><a class="el" href="group___common.html">Common</a> &raquo; <a class="el" href="group__lemons__core.html">lemons_core</a></div></div>  </div>
+<div class="title">GUI tests<div class="ingroups"><a class="el" href="group___common.html">Common</a> &raquo; <a class="el" href="group__lemons__core.html">lemons_core</a> &raquo; <a class="el" href="group__lemons__unit__testing.html">Unit testing</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="groups"></a>
-Modules</h2></td></tr>
-<tr class="memitem:group__basic__binary__data__types"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__basic__binary__data__types.html">Basic types</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:group__lemons__translation__initialization"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__lemons__translation__initialization.html">Initializing translations</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ga3f5893ae9f64c4e06e0285bbb38b27c4"><td class="memItemLeft" align="right" valign="top">juce::StringArray&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__lemons__binary__data.html#ga3f5893ae9f64c4e06e0285bbb38b27c4">lemons::binary::getFilenames</a> ()</td></tr>
-<tr class="separator:ga3f5893ae9f64c4e06e0285bbb38b27c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga45e0f639b83a42ca3121fdff8dcdcb70"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__lemons__binary__data.html#ga45e0f639b83a42ca3121fdff8dcdcb70">lemons::binary::hasBinaryData</a> () noexcept</td></tr>
-<tr class="separator:ga45e0f639b83a42ca3121fdff8dcdcb70"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga45aa6aca22218a8a1c13b549c17712e3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__lemons__gui__unit__tests.html#ga45aa6aca22218a8a1c13b549c17712e3">lemons::tests::fillImageWithRandomPixels</a> (Image &amp;image, juce::Random rng)</td></tr>
+<tr class="separator:ga45aa6aca22218a8a1c13b549c17712e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac207a10fbe432026788c9341794ac68a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__lemons__gui__unit__tests.html#gac207a10fbe432026788c9341794ac68a">lemons::tests::imagesAreEqual</a> (const Image &amp;image1, const Image &amp;image2)</td></tr>
+<tr class="separator:gac207a10fbe432026788c9341794ac68a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p>Utilities for working with embedded binary data. </p>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="ga3f5893ae9f64c4e06e0285bbb38b27c4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga3f5893ae9f64c4e06e0285bbb38b27c4">&#9670;&nbsp;</a></span>getFilenames()</h2>
+<a id="ga45aa6aca22218a8a1c13b549c17712e3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga45aa6aca22218a8a1c13b549c17712e3">&#9670;&nbsp;</a></span>fillImageWithRandomPixels()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">juce::StringArray lemons::binary::getFilenames </td>
+          <td class="memname">void lemons::tests::fillImageWithRandomPixels </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">Image &amp;&#160;</td>
+          <td class="paramname"><em>image</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">juce::Random&#160;</td>
+          <td class="paramname"><em>rng</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Returns a list of file names that are available in the binary data target, ie, filenames that are valid arguments to the <a class="el" href="structlemons_1_1binary_1_1_data.html">Data</a> constructor. </p>
 
 </div>
 </div>
-<a id="ga45e0f639b83a42ca3121fdff8dcdcb70"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga45e0f639b83a42ca3121fdff8dcdcb70">&#9670;&nbsp;</a></span>hasBinaryData()</h2>
+<a id="gac207a10fbe432026788c9341794ac68a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gac207a10fbe432026788c9341794ac68a">&#9670;&nbsp;</a></span>imagesAreEqual()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr bool lemons::binary::hasBinaryData </td>
+          <td class="memname">bool lemons::tests::imagesAreEqual </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">const Image &amp;&#160;</td>
+          <td class="paramname"><em>image1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">const Image &amp;&#160;</td>
+          <td class="paramname"><em>image2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
-<p>Returns true if this module was compiled with the LEMONS_HAS_BINARY_DATA flag set to 1. If this returns false, every <a class="el" href="structlemons_1_1binary_1_1_data.html">Data</a> object you create will be invalid. </p>
 
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jan 2 2022 21:31:05 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jan 2 2022 23:45:36 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

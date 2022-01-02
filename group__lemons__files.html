@@ -64,7 +64,6 @@ $(function() {
 
 <div class="header">
   <div class="summary">
-<a href="#groups">Modules</a> &#124;
 <a href="#enum-members">Enumerations</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
@@ -72,11 +71,6 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="groups"></a>
-Modules</h2></td></tr>
-<tr class="memitem:group__lemons__value__trees"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__lemons__value__trees.html">ValueTrees</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
 <tr class="memitem:gad8666caaa02a1d74f5e234b8900b5390"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__lemons__files.html#gad8666caaa02a1d74f5e234b8900b5390">lemons::files::FileType</a> { <a class="el" href="group__lemons__files.html#ggad8666caaa02a1d74f5e234b8900b5390a3501bb093d363810b671059b9cfed3f8">lemons::files::FileType::XML</a>, 
@@ -91,6 +85,59 @@ Functions</h2></td></tr>
 <tr class="separator:ga1a09c77fee142fb1da7e1101433b4b75"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga402868b2eee4e6897a4a2d458c2797e0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__lemons__files.html#ga402868b2eee4e6897a4a2d458c2797e0">lemons::files::isMidiFile</a> (const File &amp;file)</td></tr>
 <tr class="separator:ga402868b2eee4e6897a4a2d458c2797e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf54aae60ea2c1dabbedb0ce11c31c53a"><td class="memTemplParams" colspan="2">template&lt;typename SampleType &gt; </td></tr>
+<tr class="memitem:gaf54aae60ea2c1dabbedb0ce11c31c53a"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacelemons_1_1files.html#a709955f26373229b87ba86d5fa902a41">AudioBuffer</a>&lt; SampleType &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__lemons__files.html#gaf54aae60ea2c1dabbedb0ce11c31c53a">lemons::files::loadAudioBuffer</a> (const File &amp;file)</td></tr>
+<tr class="separator:gaf54aae60ea2c1dabbedb0ce11c31c53a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaeb48ab1af98d76a304450d4fad73f577"><td class="memItemLeft" align="right" valign="top">MemoryBlock&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__lemons__files.html#gaeb48ab1af98d76a304450d4fad73f577">lemons::files::loadFileAsBlock</a> (const File &amp;file)</td></tr>
+<tr class="separator:gaeb48ab1af98d76a304450d4fad73f577"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga383ce132bdd2b76a98e17bdf7db3068b"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; juce::CustomTypeface &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__lemons__files.html#ga383ce132bdd2b76a98e17bdf7db3068b">lemons::files::loadFont</a> (const File &amp;file)</td></tr>
+<tr class="separator:ga383ce132bdd2b76a98e17bdf7db3068b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2bad73088f4cd33294dc30cfed9e208c"><td class="memItemLeft" align="right" valign="top">Image&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__lemons__files.html#ga2bad73088f4cd33294dc30cfed9e208c">lemons::files::loadImage</a> (const File &amp;file)</td></tr>
+<tr class="separator:ga2bad73088f4cd33294dc30cfed9e208c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3bf826f1c89c8d7dd79746bfa970a45b"><td class="memItemLeft" align="right" valign="top">MidiBuffer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__lemons__files.html#ga3bf826f1c89c8d7dd79746bfa970a45b">lemons::files::loadMidiBuffer</a> (const File &amp;file)</td></tr>
+<tr class="separator:ga3bf826f1c89c8d7dd79746bfa970a45b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae0ba713ecd7bdb010178da5d88b60777"><td class="memItemLeft" align="right" valign="top">MidiFile&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__lemons__files.html#gae0ba713ecd7bdb010178da5d88b60777">lemons::files::loadMidiFile</a> (const File &amp;file)</td></tr>
+<tr class="separator:gae0ba713ecd7bdb010178da5d88b60777"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5e21f36c14abe23185769a0557a09d9c"><td class="memTemplParams" colspan="2">template&lt;FileType Type = FileType::JSON&gt; </td></tr>
+<tr class="memitem:ga5e21f36c14abe23185769a0557a09d9c"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structlemons_1_1plugin_1_1_parameter_layout.html">plugin::ParameterLayout</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__lemons__files.html#ga5e21f36c14abe23185769a0557a09d9c">lemons::files::loadParameterLayout</a> (const File &amp;file)</td></tr>
+<tr class="separator:ga5e21f36c14abe23185769a0557a09d9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaccd4f10eb1f43bebed6a54925091420b"><td class="memTemplParams" colspan="2">template&lt;FileType Type = FileType::JSON&gt; </td></tr>
+<tr class="memitem:gaccd4f10eb1f43bebed6a54925091420b"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structlemons_1_1plugin_1_1_plugin_metadata.html">plugin::PluginMetadata</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__lemons__files.html#gaccd4f10eb1f43bebed6a54925091420b">lemons::files::loadPluginMetadata</a> (const File &amp;file)</td></tr>
+<tr class="separator:gaccd4f10eb1f43bebed6a54925091420b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab2d6ab95437d9c715997be684126035d"><td class="memTemplParams" colspan="2">template&lt;FileType Type = FileType::JSON&gt; </td></tr>
+<tr class="memitem:gab2d6ab95437d9c715997be684126035d"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structlemons_1_1plugin_1_1_processor_attributes.html">plugin::ProcessorAttributes</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__lemons__files.html#gab2d6ab95437d9c715997be684126035d">lemons::files::loadProcessorAttributes</a> (const File &amp;file)</td></tr>
+<tr class="separator:gab2d6ab95437d9c715997be684126035d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga83377ad1e44d9e25ff0a5879975230c9"><td class="memTemplParams" colspan="2">template&lt;FileType Type = FileType::JSON&gt; </td></tr>
+<tr class="memitem:ga83377ad1e44d9e25ff0a5879975230c9"><td class="memTemplItemLeft" align="right" valign="top">ValueTree&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__lemons__files.html#ga83377ad1e44d9e25ff0a5879975230c9">lemons::files::loadValueTree</a> (const File &amp;file)</td></tr>
+<tr class="separator:ga83377ad1e44d9e25ff0a5879975230c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa4e640b5ec2d9c0d43ff33e1209376ea"><td class="memTemplParams" colspan="2">template&lt;FileType Type = FileType::JSON&gt; </td></tr>
+<tr class="memitem:gaa4e640b5ec2d9c0d43ff33e1209376ea"><td class="memTemplItemLeft" align="right" valign="top">ValueTree&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__lemons__files.html#gaa4e640b5ec2d9c0d43ff33e1209376ea">lemons::files::loadValueTree</a> (const String &amp;fileContents)</td></tr>
+<tr class="separator:gaa4e640b5ec2d9c0d43ff33e1209376ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac003f0c017b579974905b50c95689706"><td class="memTemplParams" colspan="2">template&lt;typename SampleType &gt; </td></tr>
+<tr class="memitem:gac003f0c017b579974905b50c95689706"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__lemons__files.html#gac003f0c017b579974905b50c95689706">lemons::files::saveAudioBuffer</a> (const <a class="el" href="namespacelemons_1_1files.html#a709955f26373229b87ba86d5fa902a41">AudioBuffer</a>&lt; SampleType &gt; &amp;audio, const File &amp;file, double samplerate=48000.)</td></tr>
+<tr class="separator:gac003f0c017b579974905b50c95689706"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga45f381bf9770d795dc1a94d41207aa58"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__lemons__files.html#ga45f381bf9770d795dc1a94d41207aa58">lemons::files::saveBlockToFile</a> (const MemoryBlock &amp;block, const File &amp;file)</td></tr>
+<tr class="separator:ga45f381bf9770d795dc1a94d41207aa58"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga73fc40781ee71e41bf30683c939df08c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__lemons__files.html#ga73fc40781ee71e41bf30683c939df08c">lemons::files::saveFont</a> (const juce::Font &amp;font, const File &amp;file, int maxNumChars=127, juce_wchar defaultChar=' ')</td></tr>
+<tr class="separator:ga73fc40781ee71e41bf30683c939df08c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga90c99721b94a9923e469d43f6f004bff"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__lemons__files.html#ga90c99721b94a9923e469d43f6f004bff">lemons::files::saveImage</a> (const Image &amp;image, const File &amp;file)</td></tr>
+<tr class="separator:ga90c99721b94a9923e469d43f6f004bff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac75640aebef14f2210e2a11d9d5b8ae1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__lemons__files.html#gac75640aebef14f2210e2a11d9d5b8ae1">lemons::files::saveMidi</a> (const MidiBuffer &amp;midi, const File &amp;file)</td></tr>
+<tr class="separator:gac75640aebef14f2210e2a11d9d5b8ae1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad9dc353791d67eb0b4caf98b2cab8bd1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__lemons__files.html#gad9dc353791d67eb0b4caf98b2cab8bd1">lemons::files::saveMidi</a> (const MidiFile &amp;midi, const File &amp;file)</td></tr>
+<tr class="separator:gad9dc353791d67eb0b4caf98b2cab8bd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5f6319cc91a208675723796f54ec303b"><td class="memTemplParams" colspan="2">template&lt;FileType Type = FileType::JSON&gt; </td></tr>
+<tr class="memitem:ga5f6319cc91a208675723796f54ec303b"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__lemons__files.html#ga5f6319cc91a208675723796f54ec303b">lemons::files::saveParameterLayout</a> (const <a class="el" href="structlemons_1_1plugin_1_1_parameter_layout.html">plugin::ParameterLayout</a> &amp;layout, const File &amp;file)</td></tr>
+<tr class="separator:ga5f6319cc91a208675723796f54ec303b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga50cc46e369de9136fb3f11a13b0fdc1b"><td class="memTemplParams" colspan="2">template&lt;FileType Type = FileType::JSON&gt; </td></tr>
+<tr class="memitem:ga50cc46e369de9136fb3f11a13b0fdc1b"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__lemons__files.html#ga50cc46e369de9136fb3f11a13b0fdc1b">lemons::files::savePluginMetadata</a> (const <a class="el" href="structlemons_1_1plugin_1_1_plugin_metadata.html">plugin::PluginMetadata</a> &amp;layout, const File &amp;file)</td></tr>
+<tr class="separator:ga50cc46e369de9136fb3f11a13b0fdc1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga669edbc3aebe00cd284774127aa2bc4f"><td class="memTemplParams" colspan="2">template&lt;FileType Type = FileType::JSON&gt; </td></tr>
+<tr class="memitem:ga669edbc3aebe00cd284774127aa2bc4f"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__lemons__files.html#ga669edbc3aebe00cd284774127aa2bc4f">lemons::files::saveProcessorAttributes</a> (const <a class="el" href="structlemons_1_1plugin_1_1_processor_attributes.html">plugin::ProcessorAttributes</a> &amp;layout, const File &amp;file)</td></tr>
+<tr class="separator:ga669edbc3aebe00cd284774127aa2bc4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf649a81a1c77e6b8667c62f6276e6d11"><td class="memTemplParams" colspan="2">template&lt;FileType Type = FileType::JSON&gt; </td></tr>
+<tr class="memitem:gaf649a81a1c77e6b8667c62f6276e6d11"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__lemons__files.html#gaf649a81a1c77e6b8667c62f6276e6d11">lemons::files::saveValueTree</a> (const File &amp;file, const ValueTree &amp;tree)</td></tr>
+<tr class="separator:gaf649a81a1c77e6b8667c62f6276e6d11"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>Utilities for working with files. </p>
@@ -166,10 +213,543 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="gaf54aae60ea2c1dabbedb0ce11c31c53a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaf54aae60ea2c1dabbedb0ce11c31c53a">&#9670;&nbsp;</a></span>loadAudioBuffer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename SampleType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacelemons_1_1files.html#a709955f26373229b87ba86d5fa902a41">AudioBuffer</a>&lt;SampleType&gt; lemons::files::loadAudioBuffer </td>
+          <td>(</td>
+          <td class="paramtype">const File &amp;&#160;</td>
+          <td class="paramname"><em>file</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Loads an AudioBuffer from a file. The buffer must have been previously written to the file using the <a class="el" href="group__lemons__files.html#gac003f0c017b579974905b50c95689706">saveAudioBuffer()</a> method. For a more robust, official-format-compatible method of loading audio files, see the AudioFile class. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="group__lemons__files.html#gac003f0c017b579974905b50c95689706">saveAudioBuffer()</a> </dd></dl>
+
+</div>
+</div>
+<a id="gaeb48ab1af98d76a304450d4fad73f577"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaeb48ab1af98d76a304450d4fad73f577">&#9670;&nbsp;</a></span>loadFileAsBlock()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">MemoryBlock lemons::files::loadFileAsBlock </td>
+          <td>(</td>
+          <td class="paramtype">const File &amp;&#160;</td>
+          <td class="paramname"><em>file</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Loads a File into a MemoryBlock. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="group__lemons__files.html#ga45f381bf9770d795dc1a94d41207aa58">saveBlockToFile()</a> </dd></dl>
+
+</div>
+</div>
+<a id="ga383ce132bdd2b76a98e17bdf7db3068b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga383ce132bdd2b76a98e17bdf7db3068b">&#9670;&nbsp;</a></span>loadFont()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unique_ptr&lt;juce::CustomTypeface&gt; lemons::files::loadFont </td>
+          <td>(</td>
+          <td class="paramtype">const File &amp;&#160;</td>
+          <td class="paramname"><em>file</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ga2bad73088f4cd33294dc30cfed9e208c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga2bad73088f4cd33294dc30cfed9e208c">&#9670;&nbsp;</a></span>loadImage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Image lemons::files::loadImage </td>
+          <td>(</td>
+          <td class="paramtype">const File &amp;&#160;</td>
+          <td class="paramname"><em>file</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Loads an Image from a File. </p><dl class="section see"><dt>See also</dt><dd>saveImageToFile(), <a class="el" href="group__lemons__serializing.html#ga71a2d7117ba93aff2cff74ce99ee2921">imageFromBinary()</a>, <a class="el" href="group__lemons__binary.html#ga0695d683400b6eb86c0198bd13ee8f62">binary::Data::getImage()</a> </dd></dl>
+
+</div>
+</div>
+<a id="ga3bf826f1c89c8d7dd79746bfa970a45b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga3bf826f1c89c8d7dd79746bfa970a45b">&#9670;&nbsp;</a></span>loadMidiBuffer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">MidiBuffer lemons::files::loadMidiBuffer </td>
+          <td>(</td>
+          <td class="paramtype">const File &amp;&#160;</td>
+          <td class="paramname"><em>file</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Loads a MidiBuffer from a file on disk. </p><dl class="section see"><dt>See also</dt><dd>saveMidiToFile(), binary::Data::getMidi() </dd></dl>
+
+</div>
+</div>
+<a id="gae0ba713ecd7bdb010178da5d88b60777"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae0ba713ecd7bdb010178da5d88b60777">&#9670;&nbsp;</a></span>loadMidiFile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">MidiFile lemons::files::loadMidiFile </td>
+          <td>(</td>
+          <td class="paramtype">const File &amp;&#160;</td>
+          <td class="paramname"><em>file</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Loads a MidiFile from a file on disk. </p><dl class="section see"><dt>See also</dt><dd>saveMidiToFile(), <a class="el" href="group__lemons__midi.html#ga07960c8ccf7e391f88b2d61bd6aac0db">midiBufferFromFile()</a>, binary::Data::getMidi() </dd></dl>
+
+</div>
+</div>
+<a id="ga5e21f36c14abe23185769a0557a09d9c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga5e21f36c14abe23185769a0557a09d9c">&#9670;&nbsp;</a></span>loadParameterLayout()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;FileType Type = FileType::JSON&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structlemons_1_1plugin_1_1_parameter_layout.html">plugin::ParameterLayout</a> lemons::files::loadParameterLayout </td>
+          <td>(</td>
+          <td class="paramtype">const File &amp;&#160;</td>
+          <td class="paramname"><em>file</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Loads a ParameterLayout from a file that was serialized in the given format. The default format is JSON. </p>
+
+</div>
+</div>
+<a id="gaccd4f10eb1f43bebed6a54925091420b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaccd4f10eb1f43bebed6a54925091420b">&#9670;&nbsp;</a></span>loadPluginMetadata()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;FileType Type = FileType::JSON&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structlemons_1_1plugin_1_1_plugin_metadata.html">plugin::PluginMetadata</a> lemons::files::loadPluginMetadata </td>
+          <td>(</td>
+          <td class="paramtype">const File &amp;&#160;</td>
+          <td class="paramname"><em>file</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="gab2d6ab95437d9c715997be684126035d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab2d6ab95437d9c715997be684126035d">&#9670;&nbsp;</a></span>loadProcessorAttributes()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;FileType Type = FileType::JSON&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structlemons_1_1plugin_1_1_processor_attributes.html">plugin::ProcessorAttributes</a> lemons::files::loadProcessorAttributes </td>
+          <td>(</td>
+          <td class="paramtype">const File &amp;&#160;</td>
+          <td class="paramname"><em>file</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ga83377ad1e44d9e25ff0a5879975230c9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga83377ad1e44d9e25ff0a5879975230c9">&#9670;&nbsp;</a></span>loadValueTree() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;FileType Type = FileType::JSON&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">ValueTree lemons::files::loadValueTree </td>
+          <td>(</td>
+          <td class="paramtype">const File &amp;&#160;</td>
+          <td class="paramname"><em>file</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Attempts to load a ValueTree from a file of the specified format. The default format is JSON. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="group__lemons__files.html#gaf649a81a1c77e6b8667c62f6276e6d11">saveValueTree()</a> </dd></dl>
+
+</div>
+</div>
+<a id="gaa4e640b5ec2d9c0d43ff33e1209376ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaa4e640b5ec2d9c0d43ff33e1209376ea">&#9670;&nbsp;</a></span>loadValueTree() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;FileType Type = FileType::JSON&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">ValueTree lemons::files::loadValueTree </td>
+          <td>(</td>
+          <td class="paramtype">const String &amp;&#160;</td>
+          <td class="paramname"><em>fileContents</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Attempts to load a ValueTree from the contents of a file of the specified format. The default format is JSON. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="group__lemons__files.html#gaf649a81a1c77e6b8667c62f6276e6d11">saveValueTree()</a> </dd></dl>
+
+</div>
+</div>
+<a id="gac003f0c017b579974905b50c95689706"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gac003f0c017b579974905b50c95689706">&#9670;&nbsp;</a></span>saveAudioBuffer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename SampleType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool lemons::files::saveAudioBuffer </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespacelemons_1_1files.html#a709955f26373229b87ba86d5fa902a41">AudioBuffer</a>&lt; SampleType &gt; &amp;&#160;</td>
+          <td class="paramname"><em>audio</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const File &amp;&#160;</td>
+          <td class="paramname"><em>file</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>samplerate</em> = <code>48000.</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Writes an AudioBuffer to a File in FLAC format. This writes the data in an opaque binary format that can be reloaded by the free functions in this namespace, but may not be compatible with official audio formats. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="group__lemons__files.html#gaf54aae60ea2c1dabbedb0ce11c31c53a">loadAudioBuffer()</a> </dd></dl>
+
+</div>
+</div>
+<a id="ga45f381bf9770d795dc1a94d41207aa58"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga45f381bf9770d795dc1a94d41207aa58">&#9670;&nbsp;</a></span>saveBlockToFile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool lemons::files::saveBlockToFile </td>
+          <td>(</td>
+          <td class="paramtype">const MemoryBlock &amp;&#160;</td>
+          <td class="paramname"><em>block</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const File &amp;&#160;</td>
+          <td class="paramname"><em>file</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Writes the block of data into the File. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="group__lemons__files.html#gaeb48ab1af98d76a304450d4fad73f577">loadFileAsBlock()</a> </dd></dl>
+
+</div>
+</div>
+<a id="ga73fc40781ee71e41bf30683c939df08c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga73fc40781ee71e41bf30683c939df08c">&#9670;&nbsp;</a></span>saveFont()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool lemons::files::saveFont </td>
+          <td>(</td>
+          <td class="paramtype">const juce::Font &amp;&#160;</td>
+          <td class="paramname"><em>font</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const File &amp;&#160;</td>
+          <td class="paramname"><em>file</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>maxNumChars</em> = <code>127</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">juce_wchar&#160;</td>
+          <td class="paramname"><em>defaultChar</em> = <code>'&#160;'</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ga90c99721b94a9923e469d43f6f004bff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga90c99721b94a9923e469d43f6f004bff">&#9670;&nbsp;</a></span>saveImage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool lemons::files::saveImage </td>
+          <td>(</td>
+          <td class="paramtype">const Image &amp;&#160;</td>
+          <td class="paramname"><em>image</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const File &amp;&#160;</td>
+          <td class="paramname"><em>file</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Saves an Image to a File. </p><dl class="section see"><dt>See also</dt><dd>loadImageFromFile(), <a class="el" href="group__lemons__serializing.html#ga844c15e8011970bd72cddbc16ac54886">imageToBinary()</a> </dd></dl>
+
+</div>
+</div>
+<a id="gac75640aebef14f2210e2a11d9d5b8ae1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gac75640aebef14f2210e2a11d9d5b8ae1">&#9670;&nbsp;</a></span>saveMidi() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool lemons::files::saveMidi </td>
+          <td>(</td>
+          <td class="paramtype">const MidiBuffer &amp;&#160;</td>
+          <td class="paramname"><em>midi</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const File &amp;&#160;</td>
+          <td class="paramname"><em>file</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Saves a MidiBuffer to a file on disk, formatted as a MidiFile. </p><dl class="section see"><dt>See also</dt><dd>loadMidiFromFile(), <a class="el" href="group__lemons__midi.html#ga1e03e28ee699f1c4095d2cf29748a2f7">midiBufferToFile()</a> </dd></dl>
+
+</div>
+</div>
+<a id="gad9dc353791d67eb0b4caf98b2cab8bd1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gad9dc353791d67eb0b4caf98b2cab8bd1">&#9670;&nbsp;</a></span>saveMidi() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool lemons::files::saveMidi </td>
+          <td>(</td>
+          <td class="paramtype">const MidiFile &amp;&#160;</td>
+          <td class="paramname"><em>midi</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const File &amp;&#160;</td>
+          <td class="paramname"><em>file</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Saves a MidiFile to a file on disk. </p><dl class="section see"><dt>See also</dt><dd>loadMidiFromFile() </dd></dl>
+
+</div>
+</div>
+<a id="ga5f6319cc91a208675723796f54ec303b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga5f6319cc91a208675723796f54ec303b">&#9670;&nbsp;</a></span>saveParameterLayout()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;FileType Type = FileType::JSON&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool lemons::files::saveParameterLayout </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structlemons_1_1plugin_1_1_parameter_layout.html">plugin::ParameterLayout</a> &amp;&#160;</td>
+          <td class="paramname"><em>layout</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const File &amp;&#160;</td>
+          <td class="paramname"><em>file</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Saves a ParameterLayout to a file in the given format. The default format is JSON. </p>
+
+</div>
+</div>
+<a id="ga50cc46e369de9136fb3f11a13b0fdc1b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga50cc46e369de9136fb3f11a13b0fdc1b">&#9670;&nbsp;</a></span>savePluginMetadata()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;FileType Type = FileType::JSON&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool lemons::files::savePluginMetadata </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structlemons_1_1plugin_1_1_plugin_metadata.html">plugin::PluginMetadata</a> &amp;&#160;</td>
+          <td class="paramname"><em>layout</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const File &amp;&#160;</td>
+          <td class="paramname"><em>file</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ga669edbc3aebe00cd284774127aa2bc4f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga669edbc3aebe00cd284774127aa2bc4f">&#9670;&nbsp;</a></span>saveProcessorAttributes()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;FileType Type = FileType::JSON&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool lemons::files::saveProcessorAttributes </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structlemons_1_1plugin_1_1_processor_attributes.html">plugin::ProcessorAttributes</a> &amp;&#160;</td>
+          <td class="paramname"><em>layout</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const File &amp;&#160;</td>
+          <td class="paramname"><em>file</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="gaf649a81a1c77e6b8667c62f6276e6d11"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaf649a81a1c77e6b8667c62f6276e6d11">&#9670;&nbsp;</a></span>saveValueTree()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;FileType Type = FileType::JSON&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool lemons::files::saveValueTree </td>
+          <td>(</td>
+          <td class="paramtype">const File &amp;&#160;</td>
+          <td class="paramname"><em>file</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const ValueTree &amp;&#160;</td>
+          <td class="paramname"><em>tree</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Saves a ValueTree to a file in the specified format. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="group__lemons__files.html#ga83377ad1e44d9e25ff0a5879975230c9">loadValueTree()</a> </dd></dl>
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jan 2 2022 21:31:05 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jan 2 2022 23:45:36 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

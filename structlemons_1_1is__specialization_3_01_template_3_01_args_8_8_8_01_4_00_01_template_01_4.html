@@ -73,13 +73,20 @@ $(function() {
 <div class="contents">
 
 <p>Inherits true_type.</p>
-<hr/>The documentation for this struct was generated from the following file:<ul>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><h3>template&lt;template&lt; class... &gt; class Template, class... Args&gt;<br />
+struct lemons::is_specialization&lt; Template&lt; Args... &gt;, Template &gt;</h3>
+
+<p>Utility struct that evaluates to std::true_type if the given class specializes the given template, and false otherwise. For example: </p><div class="fragment"><div class="line">is_specialization&lt; std::vector&lt;int&gt;, std::vector &gt;()</div>
+</div><!-- fragment --><p> evaluates to a compile-time true value, and </p><div class="fragment"><div class="line">is_specialization&lt; std::vector&lt;int&gt;, std::list &gt;()</div>
+</div><!-- fragment --><p> evaluates to a compile-time false value. </p>
+</div><hr/>The documentation for this struct was generated from the following file:<ul>
 <li><a class="el" href="_preprocessor_8h.html">Preprocessor.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jan 2 2022 21:31:05 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jan 2 2022 23:45:36 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

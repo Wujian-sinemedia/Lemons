@@ -105,6 +105,10 @@ Typedefs</h2></td></tr>
 Functions</h2></td></tr>
 <tr class="memitem:ga98b403cf67be59389bdcae888bdb4a6a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__lemons__midi.html#ga98b403cf67be59389bdcae888bdb4a6a">copyRangeOfMidiBuffer</a> (const MidiBuffer &amp;readingBuffer, MidiBuffer &amp;destBuffer, int startSampleOfInput, int startSampleOfOutput, int numSamples)</td></tr>
 <tr class="separator:ga98b403cf67be59389bdcae888bdb4a6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga07960c8ccf7e391f88b2d61bd6aac0db"><td class="memItemLeft" align="right" valign="top">MidiBuffer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__lemons__midi.html#ga07960c8ccf7e391f88b2d61bd6aac0db">midiBufferFromFile</a> (const MidiFile &amp;file, int trackToRead=-1)</td></tr>
+<tr class="separator:ga07960c8ccf7e391f88b2d61bd6aac0db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1e03e28ee699f1c4095d2cf29748a2f7"><td class="memItemLeft" align="right" valign="top">MidiFile&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__lemons__midi.html#ga1e03e28ee699f1c4095d2cf29748a2f7">midiBufferToFile</a> (const MidiBuffer &amp;midi)</td></tr>
+<tr class="separator:ga1e03e28ee699f1c4095d2cf29748a2f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Typedef Documentation</h2>
 <a id="ac7365abd81a40c5ff03a23947690d93b"></a>
@@ -123,70 +127,10 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<h2 class="groupheader">Function Documentation</h2>
-<a id="a07960c8ccf7e391f88b2d61bd6aac0db"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a07960c8ccf7e391f88b2d61bd6aac0db">&#9670;&nbsp;</a></span>midiBufferFromFile()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">MidiBuffer lemons::midi::midiBufferFromFile </td>
-          <td>(</td>
-          <td class="paramtype">const MidiFile &amp;&#160;</td>
-          <td class="paramname"><em>file</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>trackToRead</em> = <code>-1</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Converts a MIDI file object to a MIDI buffer. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">file</td><td>The MIDI file object to read from. </td></tr>
-    <tr><td class="paramname">trackToRead</td><td>If this is greater than -1, then only events from the specified track number will be added to the returned buffer. If this is -1, then all events from every track of the MIDI file will be concatenated into the output buffer. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="namespacelemons_1_1midi.html#a1e03e28ee699f1c4095d2cf29748a2f7" title="Converts a MIDI buffer to a MIDI file object.">midiBufferToFile()</a> </dd></dl>
-
-</div>
-</div>
-<a id="a1e03e28ee699f1c4095d2cf29748a2f7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1e03e28ee699f1c4095d2cf29748a2f7">&#9670;&nbsp;</a></span>midiBufferToFile()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">MidiFile lemons::midi::midiBufferToFile </td>
-          <td>(</td>
-          <td class="paramtype">const MidiBuffer &amp;&#160;</td>
-          <td class="paramname"><em>midi</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Converts a MIDI buffer to a MIDI file object. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="namespacelemons_1_1midi.html#a07960c8ccf7e391f88b2d61bd6aac0db" title="Converts a MIDI file object to a MIDI buffer.">midiBufferFromFile()</a> </dd></dl>
-
-</div>
-</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jan 2 2022 21:31:05 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jan 2 2022 23:45:36 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

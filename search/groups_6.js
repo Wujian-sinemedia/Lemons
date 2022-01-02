@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['gui_2546',['GUI',['../group___g_u_i.html',1,'']]],
-  ['gui_20app_2547',['GUI app',['../group__lemons__gui__app.html',1,'']]]
+  ['gui_2555',['GUI',['../group___g_u_i.html',1,'']]],
+  ['gui_20app_2556',['GUI app',['../group__lemons__gui__app.html',1,'']]],
+  ['gui_20tests_2557',['GUI tests',['../group__lemons__gui__unit__tests.html',1,'']]]
 ];
