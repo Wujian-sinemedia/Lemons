@@ -71,8 +71,6 @@ $(function() {
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
-<a href="#pro-methods">Protected Member Functions</a> &#124;
-<a href="#pro-static-methods">Static Protected Member Functions</a> &#124;
 <a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="classlemons_1_1plugin_1_1_processor-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -112,9 +110,14 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ac61b3d0aacc0c41193df08b85d63d98b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structlemons_1_1plugin_1_1_toggle_parameter.html">ToggleParameter</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_processor_base.html#ac61b3d0aacc0c41193df08b85d63d98b">getBypass</a> () const</td></tr>
 <tr class="memdesc:ac61b3d0aacc0c41193df08b85d63d98b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the plugin's bypass parameter.  <a href="classlemons_1_1plugin_1_1_processor_base.html#ac61b3d0aacc0c41193df08b85d63d98b">More...</a><br /></td></tr>
 <tr class="separator:ac61b3d0aacc0c41193df08b85d63d98b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca0a7fcc35cdcd4224ab54130f491652"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structlemons_1_1plugin_1_1_plugin_metadata.html">PluginMetadata</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_processor.html#aca0a7fcc35cdcd4224ab54130f491652">getPluginMetadata</a> () const</td></tr>
+<tr class="separator:aca0a7fcc35cdcd4224ab54130f491652"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a45813074aded389252f9291b1c3d9b3c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classlemons_1_1plugin_1_1_state.html">State</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_processor_base.html#a45813074aded389252f9291b1c3d9b3c">getState</a> () noexcept</td></tr>
 <tr class="memdesc:a45813074aded389252f9291b1c3d9b3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the plugin's state object.  <a href="classlemons_1_1plugin_1_1_processor_base.html#a45813074aded389252f9291b1c3d9b3c">More...</a><br /></td></tr>
 <tr class="separator:a45813074aded389252f9291b1c3d9b3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac86f6d1b4bb73959f90c9b80061b77cf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structlemons_1_1_version.html">Version</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_processor_base.html#ac86f6d1b4bb73959f90c9b80061b77cf">getVersion</a> () const noexcept</td></tr>
+<tr class="memdesc:ac86f6d1b4bb73959f90c9b80061b77cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the <a class="el" href="structlemons_1_1_version.html" title="A class that represents a version of something, with major, minor, and patch numbers.">Version</a> object associated with this processor.  <a href="classlemons_1_1plugin_1_1_processor_base.html#ac86f6d1b4bb73959f90c9b80061b77cf">More...</a><br /></td></tr>
+<tr class="separator:ac86f6d1b4bb73959f90c9b80061b77cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a93d4cfaaa37c0b29eebf687075aaf67a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_processor_base.html#a93d4cfaaa37c0b29eebf687075aaf67a">loadState</a> (const ValueTree &amp;tree)</td></tr>
 <tr class="memdesc:a93d4cfaaa37c0b29eebf687075aaf67a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reloads a previously saved state from a ValueTree.  <a href="classlemons_1_1plugin_1_1_processor_base.html#a93d4cfaaa37c0b29eebf687075aaf67a">More...</a><br /></td></tr>
 <tr class="separator:a93d4cfaaa37c0b29eebf687075aaf67a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -130,6 +133,21 @@ Static Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
+<tr><td colspan="2"><div class="groupHeader">Interacting with the editor</div></td></tr>
+<tr class="memitem:a265e973d843c470029e50920d2e53464"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_basic_processor.html#a265e973d843c470029e50920d2e53464">callEditorMethod</a> (std::function&lt; void(juce::AudioProcessorEditor &amp;)&gt; func) const</td></tr>
+<tr class="memdesc:a265e973d843c470029e50920d2e53464"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asynchronously calls a method of the current editor, if there is one, on the message thread.  <a href="classlemons_1_1plugin_1_1_basic_processor.html#a265e973d843c470029e50920d2e53464">More...</a><br /></td></tr>
+<tr class="separator:a265e973d843c470029e50920d2e53464"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac6e8eacfeda348419aa05cbfb338198c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_basic_processor.html#ac6e8eacfeda348419aa05cbfb338198c">repaintEditor</a> () const</td></tr>
+<tr class="memdesc:ac6e8eacfeda348419aa05cbfb338198c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Repaints the editor, if one exists.  <a href="classlemons_1_1plugin_1_1_basic_processor.html#ac6e8eacfeda348419aa05cbfb338198c">More...</a><br /></td></tr>
+<tr class="separator:ac6e8eacfeda348419aa05cbfb338198c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader">Interacting with the editor</div></td></tr>
+<tr class="memitem:a265e973d843c470029e50920d2e53464"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_basic_processor.html#a265e973d843c470029e50920d2e53464">callEditorMethod</a> (std::function&lt; void(juce::AudioProcessorEditor &amp;)&gt; func) const</td></tr>
+<tr class="memdesc:a265e973d843c470029e50920d2e53464"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asynchronously calls a method of the current editor, if there is one, on the message thread.  <a href="classlemons_1_1plugin_1_1_basic_processor.html#a265e973d843c470029e50920d2e53464">More...</a><br /></td></tr>
+<tr class="separator:a265e973d843c470029e50920d2e53464"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac6e8eacfeda348419aa05cbfb338198c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_basic_processor.html#ac6e8eacfeda348419aa05cbfb338198c">repaintEditor</a> () const</td></tr>
+<tr class="memdesc:ac6e8eacfeda348419aa05cbfb338198c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Repaints the editor, if one exists.  <a href="classlemons_1_1plugin_1_1_basic_processor.html#ac6e8eacfeda348419aa05cbfb338198c">More...</a><br /></td></tr>
+<tr class="separator:ac6e8eacfeda348419aa05cbfb338198c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader">Interacting with the editor</div></td></tr>
 <tr class="memitem:a265e973d843c470029e50920d2e53464"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_basic_processor.html#a265e973d843c470029e50920d2e53464">callEditorMethod</a> (std::function&lt; void(juce::AudioProcessorEditor &amp;)&gt; func) const</td></tr>
 <tr class="memdesc:a265e973d843c470029e50920d2e53464"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asynchronously calls a method of the current editor, if there is one, on the message thread.  <a href="classlemons_1_1plugin_1_1_basic_processor.html#a265e973d843c470029e50920d2e53464">More...</a><br /></td></tr>
 <tr class="separator:a265e973d843c470029e50920d2e53464"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -139,6 +157,17 @@ Protected Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-static-methods"></a>
 Static Protected Member Functions</h2></td></tr>
+<tr><td colspan="2"><div class="groupHeader">Serializing BusesProperties</div></td></tr>
+<tr class="memitem:a7dbd2725134a33bbf9a97660bf7d3a69"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classlemons_1_1plugin_1_1_basic_processor.html#abf03b92410766c2112bba4cd7236b484">BusesProperties</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_basic_processor.html#a7dbd2725134a33bbf9a97660bf7d3a69">busesPropertiesFromValueTree</a> (const ValueTree &amp;tree)</td></tr>
+<tr class="separator:a7dbd2725134a33bbf9a97660bf7d3a69"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3edb9916845558dde0dbbeb22dcb5fd4"><td class="memItemLeft" align="right" valign="top">static ValueTree&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_basic_processor.html#a3edb9916845558dde0dbbeb22dcb5fd4">busesPropertiesToValueTree</a> (const <a class="el" href="classlemons_1_1plugin_1_1_basic_processor.html#abf03b92410766c2112bba4cd7236b484">BusesProperties</a> &amp;properties)</td></tr>
+<tr class="separator:a3edb9916845558dde0dbbeb22dcb5fd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader">Serializing BusesProperties</div></td></tr>
+<tr class="memitem:a7dbd2725134a33bbf9a97660bf7d3a69"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classlemons_1_1plugin_1_1_basic_processor.html#abf03b92410766c2112bba4cd7236b484">BusesProperties</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_basic_processor.html#a7dbd2725134a33bbf9a97660bf7d3a69">busesPropertiesFromValueTree</a> (const ValueTree &amp;tree)</td></tr>
+<tr class="separator:a7dbd2725134a33bbf9a97660bf7d3a69"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3edb9916845558dde0dbbeb22dcb5fd4"><td class="memItemLeft" align="right" valign="top">static ValueTree&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_basic_processor.html#a3edb9916845558dde0dbbeb22dcb5fd4">busesPropertiesToValueTree</a> (const <a class="el" href="classlemons_1_1plugin_1_1_basic_processor.html#abf03b92410766c2112bba4cd7236b484">BusesProperties</a> &amp;properties)</td></tr>
+<tr class="separator:a3edb9916845558dde0dbbeb22dcb5fd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader">Serializing BusesProperties</div></td></tr>
 <tr class="memitem:a7dbd2725134a33bbf9a97660bf7d3a69"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classlemons_1_1plugin_1_1_basic_processor.html#abf03b92410766c2112bba4cd7236b484">BusesProperties</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_basic_processor.html#a7dbd2725134a33bbf9a97660bf7d3a69">busesPropertiesFromValueTree</a> (const ValueTree &amp;tree)</td></tr>
 <tr class="separator:a7dbd2725134a33bbf9a97660bf7d3a69"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3edb9916845558dde0dbbeb22dcb5fd4"><td class="memItemLeft" align="right" valign="top">static ValueTree&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_basic_processor.html#a3edb9916845558dde0dbbeb22dcb5fd4">busesPropertiesToValueTree</a> (const <a class="el" href="classlemons_1_1plugin_1_1_basic_processor.html#abf03b92410766c2112bba4cd7236b484">BusesProperties</a> &amp;properties)</td></tr>
@@ -406,6 +435,8 @@ template&lt;template&lt; typename SampleType &gt; class EngineType, typename Sta
 
 <p>Returns the current state of the <a class="el" href="structlemons_1_1plugin_1_1_processor_attributes.html">ProcessorAttributes</a> object. </p>
 
+<p class="reference">Referenced by <a class="el" href="classlemons_1_1plugin_1_1_processor.html#aca0a7fcc35cdcd4224ab54130f491652">lemons::plugin::Processor&lt; EngineType, StateType,, &gt;::getPluginMetadata()</a>.</p>
+
 </div>
 </div>
 <a id="ac61b3d0aacc0c41193df08b85d63d98b"></a>
@@ -462,6 +493,27 @@ template&lt;template&lt; typename SampleType &gt; class EngineType, typename Sta
 
 </div>
 </div>
+<a id="aca0a7fcc35cdcd4224ab54130f491652"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aca0a7fcc35cdcd4224ab54130f491652">&#9670;&nbsp;</a></span>getPluginMetadata()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;template&lt; typename SampleType &gt; class EngineType, typename StateType , LEMONS_MUST_INHERIT_FROM(EngineType&lt; float &gt;, dsp::Engine&lt; float &gt;) , LEMONS_MUST_INHERIT_FROM(StateType, State) &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structlemons_1_1plugin_1_1_plugin_metadata.html">PluginMetadata</a> <a class="el" href="classlemons_1_1plugin_1_1_processor.html">lemons::plugin::Processor</a>&lt; EngineType, StateType,, &gt;::getPluginMetadata </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="classlemons_1_1plugin_1_1_processor.html#a9a0dfc73cdcc69e6919b08ca16dc6a27">lemons::plugin::Processor&lt; EngineType, StateType,, &gt;::editorAttributes</a>, <a class="el" href="classlemons_1_1plugin_1_1_processor_base.html#af8ae6ca1c4d7ee8db314f7da4f82fdf6">lemons::plugin::ProcessorBase::getAttributes()</a>, <a class="el" href="classlemons_1_1plugin_1_1_processor.html#a04bf5fafa3b1ecf412ca21db527c4867">lemons::plugin::Processor&lt; EngineType, StateType,, &gt;::pluginState</a>, and <a class="el" href="structlemons_1_1_version.html#ab3d61b52ffbb99ff0ca7190ffbbb6ec8">lemons::Version::projectVersion()</a>.</p>
+
+</div>
+</div>
 <a id="a45813074aded389252f9291b1c3d9b3c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a45813074aded389252f9291b1c3d9b3c">&#9670;&nbsp;</a></span>getState()</h2>
 
@@ -486,6 +538,33 @@ template&lt;template&lt; typename SampleType &gt; class EngineType, typename Sta
 </div><div class="memdoc">
 
 <p>Returns the plugin's state object. </p>
+
+</div>
+</div>
+<a id="ac86f6d1b4bb73959f90c9b80061b77cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac86f6d1b4bb73959f90c9b80061b77cf">&#9670;&nbsp;</a></span>getVersion()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structlemons_1_1_version.html">Version</a> lemons::plugin::ProcessorBase::getVersion </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the <a class="el" href="structlemons_1_1_version.html" title="A class that represents a version of something, with major, minor, and patch numbers.">Version</a> object associated with this processor. </p>
 
 </div>
 </div>
@@ -596,6 +675,8 @@ template&lt;template&lt; typename SampleType &gt; class EngineType, typename Sta
 </table>
 </div><div class="memdoc">
 
+<p class="reference">Referenced by <a class="el" href="classlemons_1_1plugin_1_1_processor.html#aca0a7fcc35cdcd4224ab54130f491652">lemons::plugin::Processor&lt; EngineType, StateType,, &gt;::getPluginMetadata()</a>.</p>
+
 </div>
 </div>
 <a id="a04bf5fafa3b1ecf412ca21db527c4867"></a>
@@ -622,6 +703,8 @@ template&lt;template&lt; typename SampleType &gt; class EngineType, typename Sta
 
 <p>The plugin's state object. </p>
 
+<p class="reference">Referenced by <a class="el" href="classlemons_1_1plugin_1_1_processor.html#aca0a7fcc35cdcd4224ab54130f491652">lemons::plugin::Processor&lt; EngineType, StateType,, &gt;::getPluginMetadata()</a>.</p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
@@ -634,7 +717,7 @@ template&lt;template&lt; typename SampleType &gt; class EngineType, typename Sta
 <div class="ttc" id="anamespacelemons_html"><div class="ttname"><a href="namespacelemons.html">lemons</a></div><div class="ttdef"><b>Definition:</b> AudioEffect.h:9</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jan 2 2022 16:16:17 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jan 2 2022 18:24:15 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

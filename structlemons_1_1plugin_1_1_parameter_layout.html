@@ -77,22 +77,29 @@ $(function() {
 <div class="title">lemons::plugin::ParameterLayout Struct Reference<span class="mlabels"><span class="mlabel">final</span></span><div class="ingroups"><a class="el" href="group___plugins.html">Plugins</a> &raquo; <a class="el" href="group__lemons__plugin.html">lemons_plugin</a> &raquo; <a class="el" href="group__parameters.html">parameters</a><a class="el" href="group___plugins.html">Plugins</a> &raquo; <a class="el" href="group__lemons__plugin.html">lemons_plugin</a> &raquo; <a class="el" href="group__parameters.html">parameters</a> &raquo;  &#124; <a class="el" href="group__utils.html">utils</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>A container of <a class="el" href="structlemons_1_1plugin_1_1_parameter_traits.html" title="An ephemeral type-erased way to store all the metadata necessary to reconstruct any given parameter o...">ParameterTraits</a> objects that can be used to recreate an entire <a class="el" href="classlemons_1_1plugin_1_1_parameter_list.html">ParameterList</a>.  
+ <a href="structlemons_1_1plugin_1_1_parameter_layout.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ad68bba6afe79332efc555b3d0d45fdf2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1plugin_1_1_parameter_layout.html#ad68bba6afe79332efc555b3d0d45fdf2">ParameterLayout</a> ()=default</td></tr>
+<tr class="memdesc:ad68bba6afe79332efc555b3d0d45fdf2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a default, empty parameter layout.  <a href="structlemons_1_1plugin_1_1_parameter_layout.html#ad68bba6afe79332efc555b3d0d45fdf2">More...</a><br /></td></tr>
 <tr class="separator:ad68bba6afe79332efc555b3d0d45fdf2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae283e318c80540b98aca76e343ccc028"><td class="memItemLeft" align="right" valign="top">ValueTree&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1plugin_1_1_parameter_layout.html#ae283e318c80540b98aca76e343ccc028">saveToValueTree</a> () const</td></tr>
+<tr class="memdesc:ae283e318c80540b98aca76e343ccc028"><td class="mdescLeft">&#160;</td><td class="mdescRight">Saves this <a class="el" href="structlemons_1_1plugin_1_1_parameter_layout.html" title="A container of ParameterTraits objects that can be used to recreate an entire ParameterList.">ParameterLayout</a> to a ValueTree.  <a href="structlemons_1_1plugin_1_1_parameter_layout.html#ae283e318c80540b98aca76e343ccc028">More...</a><br /></td></tr>
 <tr class="separator:ae283e318c80540b98aca76e343ccc028"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a570cc151c8da9dee39bc8bab12123724"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structlemons_1_1plugin_1_1_parameter_layout.html">ParameterLayout</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1plugin_1_1_parameter_layout.html#a570cc151c8da9dee39bc8bab12123724">fromValueTree</a> (const ValueTree &amp;tree)</td></tr>
+<tr class="memdesc:a570cc151c8da9dee39bc8bab12123724"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reconstructs a <a class="el" href="structlemons_1_1plugin_1_1_parameter_layout.html" title="A container of ParameterTraits objects that can be used to recreate an entire ParameterList.">ParameterLayout</a> from a state saved in a ValueTree.  <a href="structlemons_1_1plugin_1_1_parameter_layout.html#a570cc151c8da9dee39bc8bab12123724">More...</a><br /></td></tr>
 <tr class="separator:a570cc151c8da9dee39bc8bab12123724"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a88c639426625f62ebf9dbc6a3a3c4ba4"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structlemons_1_1plugin_1_1_parameter_traits.html">ParameterTraits</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1plugin_1_1_parameter_layout.html#a88c639426625f62ebf9dbc6a3a3c4ba4">parameters</a></td></tr>
+<tr class="memdesc:a88c639426625f62ebf9dbc6a3a3c4ba4"><td class="mdescLeft">&#160;</td><td class="mdescRight">The parameter metadata.  <a href="structlemons_1_1plugin_1_1_parameter_layout.html#a88c639426625f62ebf9dbc6a3a3c4ba4">More...</a><br /></td></tr>
 <tr class="separator:a88c639426625f62ebf9dbc6a3a3c4ba4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
@@ -100,7 +107,10 @@ Static Public Attributes</h2></td></tr>
 <tr class="memitem:a9eba18e2da6a133fa0016d12113cd686"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1plugin_1_1_parameter_layout.html#a9eba18e2da6a133fa0016d12113cd686">valueTreeType</a> = &quot;ParameterLayout&quot;</td></tr>
 <tr class="separator:a9eba18e2da6a133fa0016d12113cd686"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>A container of <a class="el" href="structlemons_1_1plugin_1_1_parameter_traits.html" title="An ephemeral type-erased way to store all the metadata necessary to reconstruct any given parameter o...">ParameterTraits</a> objects that can be used to recreate an entire <a class="el" href="classlemons_1_1plugin_1_1_parameter_list.html">ParameterList</a>. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="structlemons_1_1plugin_1_1_parameter_traits.html" title="An ephemeral type-erased way to store all the metadata necessary to reconstruct any given parameter o...">ParameterTraits</a>, <a class="el" href="classlemons_1_1plugin_1_1_parameter_list.html">ParameterList</a>, <a class="el" href="classlemons_1_1plugin_1_1_parameter.html" title="A plugin parameter class.">Parameter</a> </dd></dl>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ad68bba6afe79332efc555b3d0d45fdf2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad68bba6afe79332efc555b3d0d45fdf2">&#9670;&nbsp;</a></span>ParameterLayout()</h2>
 
@@ -123,6 +133,8 @@ Static Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Creates a default, empty parameter layout. </p>
 
 </div>
 </div>
@@ -151,6 +163,8 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Reconstructs a <a class="el" href="structlemons_1_1plugin_1_1_parameter_layout.html" title="A container of ParameterTraits objects that can be used to recreate an entire ParameterList.">ParameterLayout</a> from a state saved in a ValueTree. </p>
+
 </div>
 </div>
 <a id="ae283e318c80540b98aca76e343ccc028"></a>
@@ -168,6 +182,8 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Saves this <a class="el" href="structlemons_1_1plugin_1_1_parameter_layout.html" title="A container of ParameterTraits objects that can be used to recreate an entire ParameterList.">ParameterLayout</a> to a ValueTree. </p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
@@ -182,6 +198,8 @@ Static Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>The parameter metadata. </p>
 
 </div>
 </div>
@@ -213,7 +231,7 @@ Static Public Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jan 2 2022 16:16:17 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jan 2 2022 18:24:15 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

@@ -102,20 +102,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a3f5893ae9f64c4e06e0285bbb38b27c4"><td class="memItemLeft" align="right" valign="top">juce::StringArray&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1binary.html#a3f5893ae9f64c4e06e0285bbb38b27c4">getFilenames</a> ()</td></tr>
 <tr class="memdesc:a3f5893ae9f64c4e06e0285bbb38b27c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a list of file names that are available in the binary data target, ie, filenames that are valid arguments to the <a class="el" href="structlemons_1_1binary_1_1_data.html" title="Represents a wrapper around some data contained in a juce BinaryData target.">Data</a> constructor.  <a href="namespacelemons_1_1binary.html#a3f5893ae9f64c4e06e0285bbb38b27c4">More...</a><br /></td></tr>
 <tr class="separator:a3f5893ae9f64c4e06e0285bbb38b27c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2a25c99b94d6acd726fad6fea2e7a8c6"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; juce::CustomTypeface &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1binary.html#a2a25c99b94d6acd726fad6fea2e7a8c6">getFont</a> (const String &amp;filename)</td></tr>
-<tr class="memdesc:a2a25c99b94d6acd726fad6fea2e7a8c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a font that has been previously serialized with the serializing::serializeFont() method.  <a href="namespacelemons_1_1binary.html#a2a25c99b94d6acd726fad6fea2e7a8c6">More...</a><br /></td></tr>
-<tr class="separator:a2a25c99b94d6acd726fad6fea2e7a8c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0695d683400b6eb86c0198bd13ee8f62"><td class="memItemLeft" align="right" valign="top">juce::Image&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1binary.html#a0695d683400b6eb86c0198bd13ee8f62">getImage</a> (const String &amp;imageFileName)</td></tr>
-<tr class="memdesc:a0695d683400b6eb86c0198bd13ee8f62"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns an image object from an image file in the BinaryData target.  <a href="namespacelemons_1_1binary.html#a0695d683400b6eb86c0198bd13ee8f62">More...</a><br /></td></tr>
-<tr class="separator:a0695d683400b6eb86c0198bd13ee8f62"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a11624a66328f11467e6467193347138f"><td class="memItemLeft" align="right" valign="top">juce::MidiBuffer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1binary.html#a11624a66328f11467e6467193347138f">getMidiBuffer</a> (const String &amp;midiFileName)</td></tr>
-<tr class="memdesc:a11624a66328f11467e6467193347138f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a MIDI buffer object from a MIDI file in the BinaryData target.  <a href="namespacelemons_1_1binary.html#a11624a66328f11467e6467193347138f">More...</a><br /></td></tr>
-<tr class="separator:a11624a66328f11467e6467193347138f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4b9c208fff93a49410fc4906db3aedd7"><td class="memItemLeft" align="right" valign="top">juce::MidiFile&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1binary.html#a4b9c208fff93a49410fc4906db3aedd7">getMidiFile</a> (const String &amp;midiFileName)</td></tr>
-<tr class="memdesc:a4b9c208fff93a49410fc4906db3aedd7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a MIDI file object from a MIDI file in the BinaryData target.  <a href="namespacelemons_1_1binary.html#a4b9c208fff93a49410fc4906db3aedd7">More...</a><br /></td></tr>
-<tr class="separator:a4b9c208fff93a49410fc4906db3aedd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad3c759ef241f4a9c2e250f4bbe0c85a4"><td class="memTemplParams" colspan="2">template&lt;files::FileType Type = files::FileType::JSON&gt; </td></tr>
 <tr class="memitem:ad3c759ef241f4a9c2e250f4bbe0c85a4"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structlemons_1_1plugin_1_1_parameter_layout.html">plugin::ParameterLayout</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1binary.html#ad3c759ef241f4a9c2e250f4bbe0c85a4">getParameterLayout</a> (const String &amp;fileName)</td></tr>
+<tr class="memdesc:ad3c759ef241f4a9c2e250f4bbe0c85a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads a ParameterLayout from a file that was serialized in the given format.  <a href="namespacelemons_1_1binary.html#ad3c759ef241f4a9c2e250f4bbe0c85a4">More...</a><br /></td></tr>
 <tr class="separator:ad3c759ef241f4a9c2e250f4bbe0c85a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a482ca5ce1b610a09b239221ef21eec9b"><td class="memTemplParams" colspan="2">template&lt;files::FileType Type = files::FileType::JSON&gt; </td></tr>
 <tr class="memitem:a482ca5ce1b610a09b239221ef21eec9b"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structlemons_1_1plugin_1_1_plugin_metadata.html">plugin::PluginMetadata</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1binary.html#a482ca5ce1b610a09b239221ef21eec9b">getPluginMetadata</a> (const String &amp;filename)</td></tr>
@@ -338,6 +327,9 @@ template&lt;files::FileType Type = files::FileType::JSON&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Loads a ParameterLayout from a file that was serialized in the given format. </p>
+<p>The default format is JSON. </p>
+
 </div>
 </div>
 <a id="a482ca5ce1b610a09b239221ef21eec9b"></a>
@@ -476,7 +468,7 @@ template&lt;files::FileType Type = files::FileType::JSON&gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jan 2 2022 16:16:16 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jan 2 2022 18:24:14 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

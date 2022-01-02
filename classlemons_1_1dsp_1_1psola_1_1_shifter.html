@@ -86,15 +86,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a6268847646c2f7eb3b76a8abf4494b30"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1psola_1_1_shifter.html#a6268847646c2f7eb3b76a8abf4494b30">~Shifter</a> ()</td></tr>
 <tr class="memdesc:a6268847646c2f7eb3b76a8abf4494b30"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <a href="classlemons_1_1dsp_1_1psola_1_1_shifter.html#a6268847646c2f7eb3b76a8abf4494b30">More...</a><br /></td></tr>
 <tr class="separator:a6268847646c2f7eb3b76a8abf4494b30"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7dbb3e0a44fe503c0a415c4b08d72d67"><td class="memItemLeft" align="right" valign="top">SampleType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1psola_1_1_shifter.html#a7dbb3e0a44fe503c0a415c4b08d72d67">getNextSample</a> ()</td></tr>
-<tr class="memdesc:a7dbb3e0a44fe503c0a415c4b08d72d67"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the next repitched sample from the shifter.  <a href="classlemons_1_1dsp_1_1psola_1_1_shifter.html#a7dbb3e0a44fe503c0a415c4b08d72d67">More...</a><br /></td></tr>
-<tr class="separator:a7dbb3e0a44fe503c0a415c4b08d72d67"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2cffdfc5f7a2b191f25b7e2a41e735c6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1psola_1_1_shifter.html#a2cffdfc5f7a2b191f25b7e2a41e735c6">getSamples</a> (<a class="el" href="namespacelemons_1_1dsp_1_1psola.html#a48a7db1db3b14d8c76aa494371dd0287">AudioBuffer</a>&lt; SampleType &gt; &amp;output)</td></tr>
-<tr class="memdesc:a2cffdfc5f7a2b191f25b7e2a41e735c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the next block of repitched samples from the shifter.  <a href="classlemons_1_1dsp_1_1psola_1_1_shifter.html#a2cffdfc5f7a2b191f25b7e2a41e735c6">More...</a><br /></td></tr>
-<tr class="separator:a2cffdfc5f7a2b191f25b7e2a41e735c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0517efb82243046286fc03585dbe0b6e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1psola_1_1_shifter.html#a0517efb82243046286fc03585dbe0b6e">getSamples</a> (SampleType *output, int numSamples)</td></tr>
-<tr class="memdesc:a0517efb82243046286fc03585dbe0b6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the next block of repitched samples from the shifter.  <a href="classlemons_1_1dsp_1_1psola_1_1_shifter.html#a0517efb82243046286fc03585dbe0b6e">More...</a><br /></td></tr>
-<tr class="separator:a0517efb82243046286fc03585dbe0b6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2c92a63fdfc10ca993486235f0362531"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1psola_1_1_shifter.html#a2c92a63fdfc10ca993486235f0362531">releaseResources</a> ()</td></tr>
 <tr class="memdesc:a2c92a63fdfc10ca993486235f0362531"><td class="mdescLeft">&#160;</td><td class="mdescRight">Releases all the resources used by the <a class="el" href="classlemons_1_1dsp_1_1psola_1_1_shifter.html" title="A class that repitches a stream of monophonic audio using PSOLA-like techniques.">Shifter</a>.  <a href="classlemons_1_1dsp_1_1psola_1_1_shifter.html#a2c92a63fdfc10ca993486235f0362531">More...</a><br /></td></tr>
 <tr class="separator:a2c92a63fdfc10ca993486235f0362531"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -104,6 +95,16 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a740765bb7eae2ca43726f39c30f94c9f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1psola_1_1_shifter.html#a740765bb7eae2ca43726f39c30f94c9f">setPitch</a> (int pitchHz) noexcept</td></tr>
 <tr class="memdesc:a740765bb7eae2ca43726f39c30f94c9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the pitch, in Hz, of the shifter's output.  <a href="classlemons_1_1dsp_1_1psola_1_1_shifter.html#a740765bb7eae2ca43726f39c30f94c9f">More...</a><br /></td></tr>
 <tr class="separator:a740765bb7eae2ca43726f39c30f94c9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader">Processing</div></td></tr>
+<tr class="memitem:a2cffdfc5f7a2b191f25b7e2a41e735c6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1psola_1_1_shifter.html#a2cffdfc5f7a2b191f25b7e2a41e735c6">getSamples</a> (<a class="el" href="namespacelemons_1_1dsp_1_1psola.html#a48a7db1db3b14d8c76aa494371dd0287">AudioBuffer</a>&lt; SampleType &gt; &amp;output)</td></tr>
+<tr class="memdesc:a2cffdfc5f7a2b191f25b7e2a41e735c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the next block of repitched samples from the shifter.  <a href="classlemons_1_1dsp_1_1psola_1_1_shifter.html#a2cffdfc5f7a2b191f25b7e2a41e735c6">More...</a><br /></td></tr>
+<tr class="separator:a2cffdfc5f7a2b191f25b7e2a41e735c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0517efb82243046286fc03585dbe0b6e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1psola_1_1_shifter.html#a0517efb82243046286fc03585dbe0b6e">getSamples</a> (SampleType *output, int numSamples)</td></tr>
+<tr class="memdesc:a0517efb82243046286fc03585dbe0b6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the next block of repitched samples from the shifter.  <a href="classlemons_1_1dsp_1_1psola_1_1_shifter.html#a0517efb82243046286fc03585dbe0b6e">More...</a><br /></td></tr>
+<tr class="separator:a0517efb82243046286fc03585dbe0b6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7dbb3e0a44fe503c0a415c4b08d72d67"><td class="memItemLeft" align="right" valign="top">SampleType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1psola_1_1_shifter.html#a7dbb3e0a44fe503c0a415c4b08d72d67">getNextSample</a> ()</td></tr>
+<tr class="memdesc:a7dbb3e0a44fe503c0a415c4b08d72d67"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the next repitched sample from the shifter.  <a href="classlemons_1_1dsp_1_1psola_1_1_shifter.html#a7dbb3e0a44fe503c0a415c4b08d72d67">More...</a><br /></td></tr>
+<tr class="separator:a7dbb3e0a44fe503c0a415c4b08d72d67"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4fb7adf9cb876852a54f58dac38cd06f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1psola_1_1_shifter.html#a4fb7adf9cb876852a54f58dac38cd06f">skipSamples</a> (int numSamples)</td></tr>
 <tr class="memdesc:a4fb7adf9cb876852a54f58dac38cd06f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Skips a number of samples in the shifter's output (ie, for when it is bypassed).  <a href="classlemons_1_1dsp_1_1psola_1_1_shifter.html#a4fb7adf9cb876852a54f58dac38cd06f">More...</a><br /></td></tr>
 <tr class="separator:a4fb7adf9cb876852a54f58dac38cd06f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -355,7 +356,7 @@ template&lt;typename SampleType &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jan 2 2022 16:16:16 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jan 2 2022 18:24:14 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

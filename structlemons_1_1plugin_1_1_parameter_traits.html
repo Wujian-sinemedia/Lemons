@@ -78,6 +78,9 @@ $(function() {
 <div class="title">lemons::plugin::ParameterTraits Struct Reference<span class="mlabels"><span class="mlabel">final</span></span><div class="ingroups"><a class="el" href="group___plugins.html">Plugins</a> &raquo; <a class="el" href="group__lemons__plugin.html">lemons_plugin</a> &raquo; <a class="el" href="group__parameters.html">parameters</a><a class="el" href="group___plugins.html">Plugins</a> &raquo; <a class="el" href="group__lemons__plugin.html">lemons_plugin</a> &raquo; <a class="el" href="group__parameters.html">parameters</a> &raquo;  &#124; <a class="el" href="group__utils.html">utils</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>An ephemeral type-erased way to store all the metadata necessary to reconstruct any given parameter object.  
+ <a href="structlemons_1_1plugin_1_1_parameter_traits.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
@@ -85,48 +88,65 @@ Public Types</h2></td></tr>
 <a class="el" href="structlemons_1_1plugin_1_1_parameter_traits.html#a797e21c8a6569de5d14bc7d5f8160a9ea481f44389b52d587646c4a792551b4dc">ValueType::intValue</a>, 
 <a class="el" href="structlemons_1_1plugin_1_1_parameter_traits.html#a797e21c8a6569de5d14bc7d5f8160a9ea629b3df97da63219e43e431743c5d046">ValueType::boolValue</a>
  }</td></tr>
+<tr class="memdesc:a797e21c8a6569de5d14bc7d5f8160a9e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enum to describe the various types of <a class="el" href="classlemons_1_1plugin_1_1_typed_parameter.html" title="A parameter that can be stored as a type other than a float, but still inherits from my Parameter bas...">TypedParameter</a> that can be instantiated.  <a href="structlemons_1_1plugin_1_1_parameter_traits.html#a797e21c8a6569de5d14bc7d5f8160a9e">More...</a><br /></td></tr>
 <tr class="separator:a797e21c8a6569de5d14bc7d5f8160a9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:aac30ed0d4eac6ca464d22a6f5dc58b70"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1plugin_1_1_parameter_traits.html#aac30ed0d4eac6ca464d22a6f5dc58b70">ParameterTraits</a> ()=default</td></tr>
+<tr class="memdesc:aac30ed0d4eac6ca464d22a6f5dc58b70"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a default, invalid <a class="el" href="structlemons_1_1plugin_1_1_parameter_traits.html" title="An ephemeral type-erased way to store all the metadata necessary to reconstruct any given parameter o...">ParameterTraits</a> object.  <a href="structlemons_1_1plugin_1_1_parameter_traits.html#aac30ed0d4eac6ca464d22a6f5dc58b70">More...</a><br /></td></tr>
 <tr class="separator:aac30ed0d4eac6ca464d22a6f5dc58b70"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acee97707af6533c75246e1f3bf9303c0"><td class="memTemplParams" colspan="2">template&lt;typename ValType &gt; </td></tr>
 <tr class="memitem:acee97707af6533c75246e1f3bf9303c0"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structlemons_1_1plugin_1_1_parameter_traits.html#acee97707af6533c75246e1f3bf9303c0">ParameterTraits</a> (ValType minimum, ValType maximum, ValType defaultVal, const String &amp;nameToUse, const String &amp;labelToUse, <a class="el" href="namespacelemons_1_1plugin.html#a519f88bf5812c42fe49c5582c541a094">ValToStringFunc</a>&lt; ValType &gt; stringFromValue=nullptr, <a class="el" href="namespacelemons_1_1plugin.html#af3f80e149e585d2e481cd61f520a9138">StringToValFunc</a>&lt; ValType &gt; valueFromString=nullptr, bool automatable=true, bool metaParameter=false, <a class="el" href="namespacelemons_1_1plugin.html#a51ca8f18230a5ec3ac9188906661ccaf">ParameterCategory</a> categoryToUse=ParameterCategory::genericParameter)</td></tr>
+<tr class="memdesc:acee97707af6533c75246e1f3bf9303c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a <a class="el" href="structlemons_1_1plugin_1_1_parameter_traits.html" title="An ephemeral type-erased way to store all the metadata necessary to reconstruct any given parameter o...">ParameterTraits</a> object with similar semantics as the <a class="el" href="classlemons_1_1plugin_1_1_typed_parameter.html" title="A parameter that can be stored as a type other than a float, but still inherits from my Parameter bas...">TypedParameter</a> constructor.  <a href="structlemons_1_1plugin_1_1_parameter_traits.html#acee97707af6533c75246e1f3bf9303c0">More...</a><br /></td></tr>
 <tr class="separator:acee97707af6533c75246e1f3bf9303c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac6efe4f2ed2b0e45f7888e2e796e866c"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classlemons_1_1plugin_1_1_parameter.html">Parameter</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1plugin_1_1_parameter_traits.html#ac6efe4f2ed2b0e45f7888e2e796e866c">createParameter</a> (const <a class="el" href="classlemons_1_1plugin_1_1_parameter_list.html">ParameterList</a> &amp;list) const</td></tr>
+<tr class="memdesc:ac6efe4f2ed2b0e45f7888e2e796e866c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a parameter object of the correct type for this <a class="el" href="structlemons_1_1plugin_1_1_parameter_traits.html" title="An ephemeral type-erased way to store all the metadata necessary to reconstruct any given parameter o...">ParameterTraits</a> object.  <a href="structlemons_1_1plugin_1_1_parameter_traits.html#ac6efe4f2ed2b0e45f7888e2e796e866c">More...</a><br /></td></tr>
 <tr class="separator:ac6efe4f2ed2b0e45f7888e2e796e866c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a74a180786e7d3d2fd56542670ade9cff"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1plugin_1_1_parameter_traits.html#a74a180786e7d3d2fd56542670ade9cff">isValid</a> () const</td></tr>
+<tr class="memdesc:a74a180786e7d3d2fd56542670ade9cff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if this <a class="el" href="structlemons_1_1plugin_1_1_parameter_traits.html" title="An ephemeral type-erased way to store all the metadata necessary to reconstruct any given parameter o...">ParameterTraits</a> object represents a valid call to the constructor of a parameter object.  <a href="structlemons_1_1plugin_1_1_parameter_traits.html#a74a180786e7d3d2fd56542670ade9cff">More...</a><br /></td></tr>
 <tr class="separator:a74a180786e7d3d2fd56542670ade9cff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a95c6faa1105d72d52615cc5535898648"><td class="memItemLeft" align="right" valign="top">ValueTree&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1plugin_1_1_parameter_traits.html#a95c6faa1105d72d52615cc5535898648">toValueTree</a> () const</td></tr>
+<tr class="memdesc:a95c6faa1105d72d52615cc5535898648"><td class="mdescLeft">&#160;</td><td class="mdescRight">Saves this <a class="el" href="structlemons_1_1plugin_1_1_parameter_traits.html" title="An ephemeral type-erased way to store all the metadata necessary to reconstruct any given parameter o...">ParameterTraits</a> object to a ValueTree.  <a href="structlemons_1_1plugin_1_1_parameter_traits.html#a95c6faa1105d72d52615cc5535898648">More...</a><br /></td></tr>
 <tr class="separator:a95c6faa1105d72d52615cc5535898648"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a3e93e6411a6f3c44f266dcbbb09716fb"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structlemons_1_1plugin_1_1_parameter_traits.html">ParameterTraits</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1plugin_1_1_parameter_traits.html#a3e93e6411a6f3c44f266dcbbb09716fb">fromValueTree</a> (const ValueTree &amp;tree)</td></tr>
+<tr class="memdesc:a3e93e6411a6f3c44f266dcbbb09716fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a <a class="el" href="structlemons_1_1plugin_1_1_parameter_traits.html" title="An ephemeral type-erased way to store all the metadata necessary to reconstruct any given parameter o...">ParameterTraits</a> object from a state saved in a ValueTree.  <a href="structlemons_1_1plugin_1_1_parameter_traits.html#a3e93e6411a6f3c44f266dcbbb09716fb">More...</a><br /></td></tr>
 <tr class="separator:a3e93e6411a6f3c44f266dcbbb09716fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a662dcab621a60d1a12ba10976563bf93"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacelemons_1_1plugin.html#a51ca8f18230a5ec3ac9188906661ccaf">ParameterCategory</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1plugin_1_1_parameter_traits.html#a662dcab621a60d1a12ba10976563bf93">category</a> { ParameterCategory::genericParameter }</td></tr>
+<tr class="memdesc:a662dcab621a60d1a12ba10976563bf93"><td class="mdescLeft">&#160;</td><td class="mdescRight">The category of the parameter this ParameterTrait object represents.  <a href="structlemons_1_1plugin_1_1_parameter_traits.html#a662dcab621a60d1a12ba10976563bf93">More...</a><br /></td></tr>
 <tr class="separator:a662dcab621a60d1a12ba10976563bf93"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1a81d32d28f0e39045debc0481b5c496"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1plugin_1_1_parameter_traits.html#a1a81d32d28f0e39045debc0481b5c496">defaultValue</a> { 1.f }</td></tr>
+<tr class="memdesc:a1a81d32d28f0e39045debc0481b5c496"><td class="mdescLeft">&#160;</td><td class="mdescRight">The default value (in the normalized range 0-1) of the parameter this ParameterTrait object represents.  <a href="structlemons_1_1plugin_1_1_parameter_traits.html#a1a81d32d28f0e39045debc0481b5c496">More...</a><br /></td></tr>
 <tr class="separator:a1a81d32d28f0e39045debc0481b5c496"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4153bb102fa4b29bc0283c82f448a844"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1plugin_1_1_parameter_traits.html#a4153bb102fa4b29bc0283c82f448a844">isAutomatable</a> { true }</td></tr>
+<tr class="memdesc:a4153bb102fa4b29bc0283c82f448a844"><td class="mdescLeft">&#160;</td><td class="mdescRight">Whether this <a class="el" href="structlemons_1_1plugin_1_1_parameter_traits.html" title="An ephemeral type-erased way to store all the metadata necessary to reconstruct any given parameter o...">ParameterTraits</a>' parameter object is automatable by DAWs.  <a href="structlemons_1_1plugin_1_1_parameter_traits.html#a4153bb102fa4b29bc0283c82f448a844">More...</a><br /></td></tr>
 <tr class="separator:a4153bb102fa4b29bc0283c82f448a844"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a87a46caead3403d9fbfb7d6839d3c22f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1plugin_1_1_parameter_traits.html#a87a46caead3403d9fbfb7d6839d3c22f">isMetaParameter</a> { false }</td></tr>
+<tr class="memdesc:a87a46caead3403d9fbfb7d6839d3c22f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Whether this <a class="el" href="structlemons_1_1plugin_1_1_parameter_traits.html" title="An ephemeral type-erased way to store all the metadata necessary to reconstruct any given parameter o...">ParameterTraits</a>' parameter object is a "meta parameter" &ndash; that is, a parameter that controls the values of other parameters.  <a href="structlemons_1_1plugin_1_1_parameter_traits.html#a87a46caead3403d9fbfb7d6839d3c22f">More...</a><br /></td></tr>
 <tr class="separator:a87a46caead3403d9fbfb7d6839d3c22f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6e9fa868a088a5e5dc5492012b34f7f3"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1plugin_1_1_parameter_traits.html#a6e9fa868a088a5e5dc5492012b34f7f3">label</a></td></tr>
+<tr class="memdesc:a6e9fa868a088a5e5dc5492012b34f7f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">The label of the parameter this ParameterTrait object represents.  <a href="structlemons_1_1plugin_1_1_parameter_traits.html#a6e9fa868a088a5e5dc5492012b34f7f3">More...</a><br /></td></tr>
 <tr class="separator:a6e9fa868a088a5e5dc5492012b34f7f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aea42fd8f57ce3e939b4b303aaa3966f2"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1plugin_1_1_parameter_traits.html#aea42fd8f57ce3e939b4b303aaa3966f2">name</a></td></tr>
+<tr class="memdesc:aea42fd8f57ce3e939b4b303aaa3966f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">The name of the parameter this ParameterTrait object represents.  <a href="structlemons_1_1plugin_1_1_parameter_traits.html#aea42fd8f57ce3e939b4b303aaa3966f2">More...</a><br /></td></tr>
 <tr class="separator:aea42fd8f57ce3e939b4b303aaa3966f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6aa4b42c31ba9593367846837720040f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacelemons_1_1plugin.html#a01b07141fac641d37065cbeea5a33067">ParameterRange</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1plugin_1_1_parameter_traits.html#a6aa4b42c31ba9593367846837720040f">range</a></td></tr>
+<tr class="memdesc:a6aa4b42c31ba9593367846837720040f"><td class="mdescLeft">&#160;</td><td class="mdescRight">The range of the parameter this ParameterTrait object represents.  <a href="structlemons_1_1plugin_1_1_parameter_traits.html#a6aa4b42c31ba9593367846837720040f">More...</a><br /></td></tr>
 <tr class="separator:a6aa4b42c31ba9593367846837720040f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2dc55ee3c6b58956049079dad37543d2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacelemons_1_1plugin.html#a7e6a3b39eed2039d5f75ce0b14783b63">BasicStringToValFunc</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1plugin_1_1_parameter_traits.html#a2dc55ee3c6b58956049079dad37543d2">textToValue</a> { <a class="el" href="namespacelemons_1_1plugin_1_1detail.html#a5d3222389093aa747e9fbaeaf0e29488">detail::createDefaultTextToValueFunction</a>() }</td></tr>
+<tr class="memdesc:a2dc55ee3c6b58956049079dad37543d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">The text to value function of the parameter this ParameterTrait object represents.  <a href="structlemons_1_1plugin_1_1_parameter_traits.html#a2dc55ee3c6b58956049079dad37543d2">More...</a><br /></td></tr>
 <tr class="separator:a2dc55ee3c6b58956049079dad37543d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a076765393f489b92389a7b3716695d40"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacelemons_1_1plugin.html#adcd2a5d53669facd827a7bc5a3989a8d">BasicValToStringFunc</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1plugin_1_1_parameter_traits.html#a076765393f489b92389a7b3716695d40">valueToText</a> { <a class="el" href="namespacelemons_1_1plugin_1_1detail.html#a498baae88bfda3abca7ca937679ca3d5">detail::createDefaultValueToTextFunction</a> (<a class="el" href="structlemons_1_1plugin_1_1_parameter_traits.html#a6e9fa868a088a5e5dc5492012b34f7f3">label</a>) }</td></tr>
+<tr class="memdesc:a076765393f489b92389a7b3716695d40"><td class="mdescLeft">&#160;</td><td class="mdescRight">The value to text function of the parameter this ParameterTrait object represents.  <a href="structlemons_1_1plugin_1_1_parameter_traits.html#a076765393f489b92389a7b3716695d40">More...</a><br /></td></tr>
 <tr class="separator:a076765393f489b92389a7b3716695d40"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aefa68bd23006690926cb706869ee342b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structlemons_1_1plugin_1_1_parameter_traits.html#a797e21c8a6569de5d14bc7d5f8160a9e">ValueType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1plugin_1_1_parameter_traits.html#aefa68bd23006690926cb706869ee342b">valueType</a> { <a class="el" href="structlemons_1_1plugin_1_1_parameter_traits.html#a797e21c8a6569de5d14bc7d5f8160a9ea9ec90e82509332a2d6e51de04dbbe788">ValueType::floatValue</a> }</td></tr>
+<tr class="memdesc:aefa68bd23006690926cb706869ee342b"><td class="mdescLeft">&#160;</td><td class="mdescRight">The value type of the parameter this <a class="el" href="structlemons_1_1plugin_1_1_parameter_traits.html" title="An ephemeral type-erased way to store all the metadata necessary to reconstruct any given parameter o...">ParameterTraits</a> object represents.  <a href="structlemons_1_1plugin_1_1_parameter_traits.html#aefa68bd23006690926cb706869ee342b">More...</a><br /></td></tr>
 <tr class="separator:aefa68bd23006690926cb706869ee342b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
@@ -134,7 +154,10 @@ Static Public Attributes</h2></td></tr>
 <tr class="memitem:a6d017da0c0700254f1842f75152738ce"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1plugin_1_1_parameter_traits.html#a6d017da0c0700254f1842f75152738ce">valueTreeType</a> = &quot;ParameterTraits&quot;</td></tr>
 <tr class="separator:a6d017da0c0700254f1842f75152738ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Enumeration Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>An ephemeral type-erased way to store all the metadata necessary to reconstruct any given parameter object. </p>
+<p>You can use this type to save and later recreate a parameter object. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="structlemons_1_1plugin_1_1_parameter_layout.html" title="A container of ParameterTraits objects that can be used to recreate an entire ParameterList.">ParameterLayout</a>, <a class="el" href="classlemons_1_1plugin_1_1_parameter_list.html">ParameterList</a>, <a class="el" href="classlemons_1_1plugin_1_1_parameter.html" title="A plugin parameter class.">Parameter</a>, <a class="el" href="classlemons_1_1plugin_1_1_typed_parameter.html" title="A parameter that can be stored as a type other than a float, but still inherits from my Parameter bas...">TypedParameter</a> </dd></dl>
+</div><h2 class="groupheader">Member Enumeration Documentation</h2>
 <a id="a797e21c8a6569de5d14bc7d5f8160a9e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a797e21c8a6569de5d14bc7d5f8160a9e">&#9670;&nbsp;</a></span>ValueType</h2>
 
@@ -154,10 +177,15 @@ Static Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Enum to describe the various types of <a class="el" href="classlemons_1_1plugin_1_1_typed_parameter.html" title="A parameter that can be stored as a type other than a float, but still inherits from my Parameter bas...">TypedParameter</a> that can be instantiated. </p>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a797e21c8a6569de5d14bc7d5f8160a9ea9ec90e82509332a2d6e51de04dbbe788"></a>floatValue&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a797e21c8a6569de5d14bc7d5f8160a9ea481f44389b52d587646c4a792551b4dc"></a>intValue&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a797e21c8a6569de5d14bc7d5f8160a9ea629b3df97da63219e43e431743c5d046"></a>boolValue&#160;</td><td class="fielddoc"></td></tr>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a797e21c8a6569de5d14bc7d5f8160a9ea9ec90e82509332a2d6e51de04dbbe788"></a>floatValue&#160;</td><td class="fielddoc"><p>Represents <a class="el" href="classlemons_1_1plugin_1_1_typed_parameter.html">TypedParameter&lt;float&gt;</a>/. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a797e21c8a6569de5d14bc7d5f8160a9ea481f44389b52d587646c4a792551b4dc"></a>intValue&#160;</td><td class="fielddoc"><p>Represents TypedParameter&lt;int&gt;/. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a797e21c8a6569de5d14bc7d5f8160a9ea629b3df97da63219e43e431743c5d046"></a>boolValue&#160;</td><td class="fielddoc"><p>Represents <a class="el" href="classlemons_1_1plugin_1_1_typed_parameter.html">TypedParameter&lt;bool&gt;</a>/. </p>
+</td></tr>
 </table>
 
 </div>
@@ -185,6 +213,8 @@ Static Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Creates a default, invalid <a class="el" href="structlemons_1_1plugin_1_1_parameter_traits.html" title="An ephemeral type-erased way to store all the metadata necessary to reconstruct any given parameter o...">ParameterTraits</a> object. </p>
 
 </div>
 </div>
@@ -272,6 +302,8 @@ template&lt;typename ValType &gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Creates a <a class="el" href="structlemons_1_1plugin_1_1_parameter_traits.html" title="An ephemeral type-erased way to store all the metadata necessary to reconstruct any given parameter o...">ParameterTraits</a> object with similar semantics as the <a class="el" href="classlemons_1_1plugin_1_1_typed_parameter.html" title="A parameter that can be stored as a type other than a float, but still inherits from my Parameter bas...">TypedParameter</a> constructor. </p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -290,6 +322,9 @@ template&lt;typename ValType &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Creates a parameter object of the correct type for this <a class="el" href="structlemons_1_1plugin_1_1_parameter_traits.html" title="An ephemeral type-erased way to store all the metadata necessary to reconstruct any given parameter o...">ParameterTraits</a> object. </p>
+<p>If this <a class="el" href="structlemons_1_1plugin_1_1_parameter_traits.html" title="An ephemeral type-erased way to store all the metadata necessary to reconstruct any given parameter o...">ParameterTraits</a> represents a meta parameter, then the returned object will be a kind of <a class="el" href="classlemons_1_1plugin_1_1_meta_parameter.html" title="A meta parameter class that implements the MetaParameterBase interface.">MetaParameter</a>. If this <a class="el" href="structlemons_1_1plugin_1_1_parameter_traits.html" title="An ephemeral type-erased way to store all the metadata necessary to reconstruct any given parameter o...">ParameterTraits</a> represents a meter parameter, then the returned object will be a kind of <a class="el" href="structlemons_1_1plugin_1_1_meter_parameter.html" title="A parameter that represents a general kind of meter, used for reporting things like level or gain red...">MeterParameter</a>. Otherwise, the returned object will be a kind of <a class="el" href="classlemons_1_1plugin_1_1_typed_parameter.html" title="A parameter that can be stored as a type other than a float, but still inherits from my Parameter bas...">TypedParameter</a>. The parameter's value type is determined by the ValueType enum. </p>
 
 </div>
 </div>
@@ -317,6 +352,8 @@ template&lt;typename ValType &gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Returns a <a class="el" href="structlemons_1_1plugin_1_1_parameter_traits.html" title="An ephemeral type-erased way to store all the metadata necessary to reconstruct any given parameter o...">ParameterTraits</a> object from a state saved in a ValueTree. </p>
+
 </div>
 </div>
 <a id="a74a180786e7d3d2fd56542670ade9cff"></a>
@@ -333,6 +370,8 @@ template&lt;typename ValType &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns true if this <a class="el" href="structlemons_1_1plugin_1_1_parameter_traits.html" title="An ephemeral type-erased way to store all the metadata necessary to reconstruct any given parameter o...">ParameterTraits</a> object represents a valid call to the constructor of a parameter object. </p>
 
 </div>
 </div>
@@ -351,6 +390,8 @@ template&lt;typename ValType &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Saves this <a class="el" href="structlemons_1_1plugin_1_1_parameter_traits.html" title="An ephemeral type-erased way to store all the metadata necessary to reconstruct any given parameter o...">ParameterTraits</a> object to a ValueTree. </p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
@@ -366,6 +407,8 @@ template&lt;typename ValType &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>The category of the parameter this ParameterTrait object represents. </p>
+
 </div>
 </div>
 <a id="a1a81d32d28f0e39045debc0481b5c496"></a>
@@ -379,6 +422,8 @@ template&lt;typename ValType &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>The default value (in the normalized range 0-1) of the parameter this ParameterTrait object represents. </p>
 
 </div>
 </div>
@@ -394,6 +439,8 @@ template&lt;typename ValType &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Whether this <a class="el" href="structlemons_1_1plugin_1_1_parameter_traits.html" title="An ephemeral type-erased way to store all the metadata necessary to reconstruct any given parameter o...">ParameterTraits</a>' parameter object is automatable by DAWs. </p>
+
 </div>
 </div>
 <a id="a87a46caead3403d9fbfb7d6839d3c22f"></a>
@@ -407,6 +454,8 @@ template&lt;typename ValType &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Whether this <a class="el" href="structlemons_1_1plugin_1_1_parameter_traits.html" title="An ephemeral type-erased way to store all the metadata necessary to reconstruct any given parameter o...">ParameterTraits</a>' parameter object is a "meta parameter" &ndash; that is, a parameter that controls the values of other parameters. </p>
 
 </div>
 </div>
@@ -422,6 +471,8 @@ template&lt;typename ValType &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>The label of the parameter this ParameterTrait object represents. </p>
+
 </div>
 </div>
 <a id="aea42fd8f57ce3e939b4b303aaa3966f2"></a>
@@ -435,6 +486,8 @@ template&lt;typename ValType &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>The name of the parameter this ParameterTrait object represents. </p>
 
 </div>
 </div>
@@ -450,6 +503,8 @@ template&lt;typename ValType &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>The range of the parameter this ParameterTrait object represents. </p>
+
 </div>
 </div>
 <a id="a2dc55ee3c6b58956049079dad37543d2"></a>
@@ -464,6 +519,8 @@ template&lt;typename ValType &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>The text to value function of the parameter this ParameterTrait object represents. </p>
+
 </div>
 </div>
 <a id="a076765393f489b92389a7b3716695d40"></a>
@@ -477,6 +534,8 @@ template&lt;typename ValType &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>The value to text function of the parameter this ParameterTrait object represents. </p>
 
 </div>
 </div>
@@ -514,6 +573,8 @@ template&lt;typename ValType &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>The value type of the parameter this <a class="el" href="structlemons_1_1plugin_1_1_parameter_traits.html" title="An ephemeral type-erased way to store all the metadata necessary to reconstruct any given parameter o...">ParameterTraits</a> object represents. </p>
+
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
@@ -522,7 +583,7 @@ template&lt;typename ValType &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jan 2 2022 16:16:17 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jan 2 2022 18:24:15 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>
