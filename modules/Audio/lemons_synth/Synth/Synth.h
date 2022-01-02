@@ -141,7 +141,7 @@ private:
 	/*==============================================================================================================
 	 ===============================================================================================================*/
 
-    ConstructedArray<Voice> voices { 0, [this](){ return this->createVoice(); } };
+    ConstructedArray<Voice> voices { 0, [base = this](){ return base->createVoice(); } };
 
 	bool latchIsOn { false }, shouldStealNotes { true }, aftertouchGainIsOn { true };
 
