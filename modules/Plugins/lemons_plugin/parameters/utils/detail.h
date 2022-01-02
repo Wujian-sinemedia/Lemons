@@ -39,7 +39,8 @@ template <typename ValueType>
 
 template <typename ValueType>
 [[nodiscard]] inline std::function<String (float)> convertValToStringFuncFromTyped (std::function<String (ValueType, int)> origFunc,
-                                                                                    const String&                          paramLabel = {});
+                                                                                    const String&                          paramLabel    = {},
+                                                                                    float                                  rangeInterval = 1.f);
 
 
 template <typename ValueType>

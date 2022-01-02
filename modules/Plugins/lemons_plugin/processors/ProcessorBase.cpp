@@ -27,7 +27,7 @@ ProcessorBase::ProcessorBase (dsp::Engine<float>&        floatEngineToUse,
     , state (stateToUse)
     , processorAttributes (attributes)
 {
-//	state.addTo (*this);
+	state.parameters.addTo (*this);
 }
 
 void ProcessorBase::prepareToPlay (double sampleRate, int samplesPerBlock)
@@ -157,7 +157,7 @@ void ProcessorBase::processBlockBypassed (AudioBuffer<float>& audio, MidiBuffer&
 {
 	const juce::ScopedNoDenormals nodenorms;
 
-	state.parameters.bypass.set (true);
+	getBypass().set (true);
 
 	floatProcessor.process (audio, midi);
 }
@@ -166,7 +166,7 @@ void ProcessorBase::processBlockBypassed (AudioBuffer<double>& audio, MidiBuffer
 {
 	const juce::ScopedNoDenormals nodenorms;
 
-	state.parameters.bypass.set (true);
+	getBypass().set (true);
 
 	doubleProcessor.process (audio, midi);
 }
@@ -202,9 +202,14 @@ void ProcessorBase::changeProgramName (int index, const String& newName)
 		program->name = newName;
 }
 
+ToggleParameter& ProcessorBase::getBypass() const
+{
+	return state.parameters.getBypass();
+}
+
 juce::AudioProcessorParameter* ProcessorBase::getBypassParameter() const
 {
-    return &state.parameters.bypass;
+	return &getBypass();
 }
 
 bool ProcessorBase::supportsDoublePrecisionProcessing() const
@@ -258,7 +263,7 @@ template <typename SampleType>
 ProcessorBase::InternalProcessor<SampleType>::InternalProcessor (dsp::Engine<SampleType>& engineToUse, ProcessorBase& processorBase)
     : engine (engineToUse)
     , audioProcessor (processorBase)
-    , state (processorBase.getState())
+    , list (processorBase.getState().parameters)
 {
 }
 
@@ -269,7 +274,7 @@ bool ProcessorBase::InternalProcessor<SampleType>::shouldChopAroundMidiMessage (
 		return true;
 
 	if (m.isController())
-		return state.parameters.isControllerMapped (m.getControllerNumber());
+		return list.isControllerMapped (m.getControllerNumber());
 
 	return false;
 }
@@ -287,7 +292,7 @@ void ProcessorBase::InternalProcessor<SampleType>::handleMidiMessage (const juce
 
 	if (m.isResetAllControllers())
 	{
-		state.parameters.resetAllControllerMappedParams();
+		list.resetAllControllerMappedParams();
 		return;
 	}
 
@@ -301,9 +306,9 @@ void ProcessorBase::InternalProcessor<SampleType>::handleMidiMessage (const juce
 
 	const auto number = m.getControllerNumber();
 
-	jassert (state.parameters.isControllerMapped (number));
+	jassert (list.isControllerMapped (number));
 
-	state.parameters.processControllerMessage (number, m.getControllerValue());
+	list.processControllerMessage (number, m.getControllerValue());
 }
 
 template <typename SampleType>
@@ -330,7 +335,7 @@ void ProcessorBase::InternalProcessor<SampleType>::renderChunk (AudioBuffer<Samp
 	const auto inBus  = findSubBuffer (true);
 	auto       outBus = findSubBuffer (false);
 
-	engine.process (inBus, outBus, midi, state.parameters.bypass.get());
+	engine.process (inBus, outBus, midi, list.getBypass().get());
 }
 
 template class ProcessorBase::InternalProcessor<float>;

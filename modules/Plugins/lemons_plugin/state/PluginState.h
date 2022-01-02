@@ -26,6 +26,10 @@ class State
 {
 public:
 
+	explicit State() = default;
+
+	explicit State (const ParameterLayout& parameterLayout);
+
 	virtual ~State() = default;
 
 	[[nodiscard]] ValueTree saveToValueTree (bool currentProgramOnly) const;

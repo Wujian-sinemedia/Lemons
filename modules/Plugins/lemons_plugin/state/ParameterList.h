@@ -34,14 +34,7 @@ public:
 
 	void addTo (juce::AudioProcessor& processor) const;
 
-	void add (Parameter& parameter);
-
-	template <typename... Args>
-	void add (Parameter& first, Args&&... rest)
-	{
-		add (first);
-		add (std::forward<Args> (rest)...);
-	}
+	Parameter& add (std::unique_ptr<Parameter> parameter);
 
 	[[nodiscard]] Parameter* getNamedParameter (const String& name) const;
 
@@ -68,7 +61,7 @@ public:
 
 	void loadFromValueTree (const ValueTree& tree);
 
-	ToggleParameter bypass { "Bypass", false };
+	[[nodiscard]] ToggleParameter& getBypass() const;
 
 	static constexpr auto valueTreeType = "Parameters";
 
@@ -85,7 +78,28 @@ public:
 	};
 
 private:
-	std::vector<Parameter*> params;
+
+	void createAndAddBypassParameter();
+
+	struct Holder final
+	{
+		explicit Holder (std::unique_ptr<Parameter> parameter);
+
+		~Holder();
+
+		void addToProcessor (juce::AudioProcessor& processor);
+
+		[[nodiscard]] Parameter& getParameter() const;
+
+	private:
+		bool addedToProcessor { false };
+
+		Parameter* param { nullptr };
+	};
+
+	juce::OwnedArray<Holder> parameters;
+
+	ToggleParameter* bypass { nullptr };
 };
 
 }  // namespace lemons::plugin

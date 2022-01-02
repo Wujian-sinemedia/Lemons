@@ -42,6 +42,9 @@ public:
 	/** Returns the plugin's state object. */
 	[[nodiscard]] State& getState() noexcept;
 
+	/** Returns the plugin's bypass parameter. */
+	[[nodiscard]] ToggleParameter& getBypass() const;
+
 	/** Returns the ProcessorAttributes object. */
 	[[nodiscard]] const ProcessorAttributes& getAttributes() const noexcept;
 
@@ -111,7 +114,7 @@ private:
 
 		juce::AudioProcessor& audioProcessor;
 
-		State& state;
+		ParameterList& list;
 	};
 
 	InternalProcessor<float>  floatProcessor { floatEngine, *this };

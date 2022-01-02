@@ -19,20 +19,23 @@ namespace lemons::plugin
 
 template <typename ValType>
 ParameterTraits::ParameterTraits (ValType minimum, ValType maximum, ValType defaultVal,
+                                  const String& nameToUse, const String& labelToUse,
                                   std::function<String (ValType, int)>   stringFromValue,
-                                  std::function<ValType (const String&)> valueFromString)
-    : range (detail::createRange (minimum, maximum))
+                                  std::function<ValType (const String&)> valueFromString,
+                                  bool automatable, bool metaParameter,
+                                  ParameterCategory categoryToUse)
+    : name (nameToUse)
+    , label (labelToUse)
+    , range (detail::createRange (minimum, maximum))
     , defaultValue (static_cast<float> (defaultVal))
-    , valueToText (detail::convertValToStringFuncFromTyped (stringFromValue, label))
+    , valueToText (detail::convertValToStringFuncFromTyped (stringFromValue, label, range.interval))
     , textToValue (detail::convertStringToValFuncFromTyped (valueFromString))
+    , isAutomatable (automatable)
+    , isMetaParameter (metaParameter)
+    , category (categoryToUse)
 {
-	using namespace detail;
-
-	if (valueToText == nullptr)
-		valueToText = convertValToStringFuncFromTyped (createDefaultStringFromValueFunc<ValType> (range.interval, label));
-
-	if (textToValue == nullptr)
-		textToValue = convertStringToValFuncFromTyped (createDefaultValueFromStringFunc<ValType>());
+	jassert (valueToText != nullptr);
+	jassert (textToValue != nullptr);
 
 	if constexpr (std::is_same_v<ValType, float>)
 	{
@@ -50,9 +53,9 @@ ParameterTraits::ParameterTraits (ValType minimum, ValType maximum, ValType defa
 	}
 }
 
-template ParameterTraits::ParameterTraits (float, float, float, std::function<String (float, int)>, std::function<float (const String&)>);
-template ParameterTraits::ParameterTraits (int, int, int, std::function<String (int, int)>, std::function<int (const String&)>);
-template ParameterTraits::ParameterTraits (bool, bool, bool, std::function<String (bool, int)>, std::function<bool (const String&)>);
+template ParameterTraits::ParameterTraits (float, float, float, const String&, const String&, std::function<String (float, int)>, std::function<float (const String&)>, bool, bool, ParameterCategory);
+template ParameterTraits::ParameterTraits (int, int, int, const String&, const String&, std::function<String (int, int)>, std::function<int (const String&)>, bool, bool, ParameterCategory);
+template ParameterTraits::ParameterTraits (bool, bool, bool, const String&, const String&, std::function<String (bool, int)>, std::function<bool (const String&)>, bool, bool, ParameterCategory);
 
 
 bool ParameterTraits::isValid() const
@@ -174,10 +177,10 @@ std::unique_ptr<Parameter> ParameterTraits::createParameter (const ParameterList
 
 ParameterLayout ParameterLayout::fromValueTree (const ValueTree& tree)
 {
-	if (! tree.hasType (valueTreeType))
-		return {};
-
 	ParameterLayout layout;
+
+	if (! tree.hasType (valueTreeType))
+		return layout;
 
 	for (int i = 0; i < tree.getNumChildren(); ++i)
 	{
@@ -185,7 +188,7 @@ ParameterLayout ParameterLayout::fromValueTree (const ValueTree& tree)
 
 		if (child.hasType (ParameterTraits::valueTreeType))
 		{
-			auto traits = ParameterTraits::fromValueTree (child);
+			const auto traits = ParameterTraits::fromValueTree (child);
 
 			if (traits.isValid())
 				layout.parameters.push_back (traits);

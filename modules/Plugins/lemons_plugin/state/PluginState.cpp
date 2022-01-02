@@ -16,6 +16,11 @@
 namespace lemons::plugin
 {
 
+State::State (const ParameterLayout& parameterLayout)
+    : parameters (parameterLayout)
+{
+}
+
 namespace StateVTProperties
 {
 static constexpr auto fullState    = "PluginState";

@@ -34,7 +34,7 @@ TypedParameter<ValueType>::TypedParameter (ValueType     minimum,
         paramName,
         detail::createRange (minimum, maximum),
         static_cast<float> (defaultValue),
-        detail::convertValToStringFuncFromTyped (stringFromValue, label),
+        detail::convertValToStringFuncFromTyped (stringFromValue, label, getNormalisableRange().interval),
         detail::convertStringToValFuncFromTyped (valueFromString),
         paramLabel, isAutomatable, metaParam, parameterCategory)
     , stringFromValueFunction (stringFromValue)
@@ -63,7 +63,7 @@ TypedParameter<ValueType>::TypedParameter (const ParameterTraits& traits)
 template <typename ValueType>
 ParameterTraits TypedParameter<ValueType>::getParameterTraits() const
 {
-	return ParameterTraits { getMinimum(), getMaximum(), getDefault(), stringFromValueFunction, valueFromStringFunction };
+	return ParameterTraits { getMinimum(), getMaximum(), getDefault(), name, label, stringFromValueFunction, valueFromStringFunction, isAutomatable(), isMetaParameter(), category };
 }
 
 template <>

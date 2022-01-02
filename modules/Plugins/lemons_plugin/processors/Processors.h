@@ -41,7 +41,8 @@ namespace lemons::plugin
     @see ProcessorBase, Engine, ProcessorWithEditor
  */
 template <template <typename SampleType> class EngineType, typename StateType, LEMONS_MUST_INHERIT_FROM (EngineType<float>, dsp::Engine<float>), LEMONS_MUST_INHERIT_FROM (StateType, State)>
-class Processor : public ProcessorBase, private locale::TranslationsInitializer
+class Processor : public ProcessorBase
+    , private locale::TranslationsInitializer
 {
 public:
 	/** Creates a processor with the specified bus layout. */
@@ -64,7 +65,7 @@ private:
 
 /** A handy typedef for if you just want to create a plugin processor that wraps a certain engine type, without supplying a custom state type. */
 template <template <typename SampleType> class EngineType>
-using StatelessProcessor = Processor <EngineType, State>;
+using StatelessProcessor = Processor<EngineType, State>;
 
 
 /** A processor class that has a GUI editor.
@@ -122,16 +123,16 @@ struct ProcessorWithEditor final : ProcessorType
 template <class ProcessorType, LEMONS_MUST_INHERIT_FROM (ProcessorType, ProcessorBase)>
 struct ProcessorWithGenericEditor final : ProcessorType
 {
-    using ProcessorType::ProcessorType;
-    
-    /** Informs the juce::AudioProcessor API that this processor supplies an editor. */
-    bool hasEditor() const final { return true; }
-    
-    /** Creates a generic editor for this processor. */
-    juce::AudioProcessorEditor* createEditor() final
-    {
-        return new juce::GenericAudioProcessorEditor (*this);
-    }
+	using ProcessorType::ProcessorType;
+
+	/** Informs the juce::AudioProcessor API that this processor supplies an editor. */
+	bool hasEditor() const final { return true; }
+
+	/** Creates a generic editor for this processor. */
+	juce::AudioProcessorEditor* createEditor() final
+	{
+		return new juce::GenericAudioProcessorEditor (*this);
+	}
 };
 
 }  // namespace lemons::plugin

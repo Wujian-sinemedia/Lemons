@@ -19,52 +19,61 @@ namespace lemons::plugin
 
 ParameterList::ParameterList()
 {
-	add (bypass);
+	createAndAddBypassParameter();
 }
 
 ParameterList::ParameterList (const ParameterLayout& layout)
 {
-	add (bypass);
+	createAndAddBypassParameter();
 
 	for (const auto& traits : layout.parameters)
-	{
-		auto parameter = traits.createParameter (*this);
+		add (traits.createParameter (*this));
+}
 
-		add (*(parameter.get()));
-	}
+Parameter& ParameterList::add (std::unique_ptr<Parameter> parameter)
+{
+	return parameters.add (new Holder (std::move (parameter)))->getParameter();
+}
+
+void ParameterList::createAndAddBypassParameter()
+{
+	bypass = dynamic_cast<ToggleParameter*> (&add (std::make_unique<ToggleParameter> ("Bypass", false)));
+
+	jassert (bypass != nullptr);
+}
+
+ToggleParameter& ParameterList::getBypass() const
+{
+	jassert (bypass != nullptr);
+	return *bypass;
 }
 
 ParameterLayout ParameterList::getParameterLayout() const
 {
 	ParameterLayout layout;
 
-	for (const auto* param : params)
-		layout.parameters.push_back (param->getParameterTraits());
+	for (const auto* param : parameters)
+		layout.parameters.push_back (param->getParameter().getParameterTraits());
 
 	return layout;
 }
 
 void ParameterList::addTo (juce::AudioProcessor& processor) const
 {
-	std::for_each (params.begin(), params.cend(), [&] (Parameter* p)
-	               { processor.addParameter (p); });
-}
-
-void ParameterList::add (Parameter& parameter)
-{
-	params.emplace_back (&parameter);
+	for (auto* param : parameters)
+		param->addToProcessor (processor);
 }
 
 void ParameterList::processControllerMessage (int number, int value)
 {
-	for (auto* param : params)
-		param->processNewControllerMessage (number, value);
+	for (const auto* param : parameters)
+		param->getParameter().processNewControllerMessage (number, value);
 }
 
 bool ParameterList::isControllerMapped (int number) const
 {
-	for (const auto* param : params)
-		if (param->getMidiControllerNumber() == number)
+	for (const auto* param : parameters)
+		if (param->getParameter().getMidiControllerNumber() == number)
 			return true;
 
 	return false;
@@ -72,16 +81,24 @@ bool ParameterList::isControllerMapped (int number) const
 
 void ParameterList::resetAllControllerMappedParams()
 {
-	for (auto* param : params)
-		if (param->isMidiControllerMapped())
-			param->resetToDefault();
+	for (const auto* param : parameters)
+	{
+		auto& parameter = param->getParameter();
+
+		if (parameter.isMidiControllerMapped())
+			parameter.resetToDefault();
+	}
 }
 
 Parameter* ParameterList::getNamedParameter (const String& name) const
 {
-	for (auto* param : params)
-		if (param->getParameterName() == name)
-			return param;
+	for (const auto* param : parameters)
+	{
+		auto& parameter = param->getParameter();
+
+		if (parameter.getParameterName() == name)
+			return &parameter;
+	}
 
 	return nullptr;
 }
@@ -90,18 +107,20 @@ juce::Array<MetaParameterBase*> ParameterList::getMetaParameters() const
 {
 	juce::Array<MetaParameterBase*> metaParams;
 
-	for (auto* param : params)
+	for (const auto* param : parameters)
 	{
-		if (param->isMetaParameter())
+		auto& parameter = param->getParameter();
+
+		if (! parameter.isMetaParameter())
+			continue;
+
+		if (auto* meta = dynamic_cast<MetaParameterBase*> (&parameter))
 		{
-			if (auto* meta = dynamic_cast<MetaParameterBase*> (param))
-			{
-				metaParams.add (meta);
-			}
-			else
-			{
-				jassertfalse;
-			}
+			metaParams.add (meta);
+		}
+		else
+		{
+			jassertfalse;
 		}
 	}
 
@@ -112,9 +131,13 @@ juce::Array<Parameter*> ParameterList::getMeterParameters() const
 {
 	juce::Array<Parameter*> meterParams;
 
-	for (auto* param : params)
-		if (! param->isAutomatable())
-			meterParams.add (param);
+	for (const auto* param : parameters)
+	{
+		auto& parameter = param->getParameter();
+
+		if (! parameter.isAutomatable())
+			meterParams.add (&parameter);
+	}
 
 	return meterParams;
 }
@@ -123,9 +146,9 @@ ValueTree ParameterList::saveToValueTree() const
 {
 	ValueTree tree { valueTreeType };
 
-	for (const auto* param : params)
+	for (const auto* param : parameters)
 	{
-		const auto child = param->saveToValueTree();
+		const auto child = param->getParameter().saveToValueTree();
 
 		if (child.isValid())
 			tree.appendChild (child, nullptr);
@@ -139,16 +162,51 @@ void ParameterList::loadFromValueTree (const ValueTree& tree)
 	if (! tree.hasType (valueTreeType))
 		return;
 
-	for (auto* param : params)
+	for (const auto* param : parameters)
 	{
-		if (! param->isAutomatable())
+		auto& parameter = param->getParameter();
+
+		if (! parameter.isAutomatable())
 			continue;
 
-		param->loadFromValueTree (tree.getChildWithProperty (Parameter::id_prop, param->getParameterID()));
-		param->refreshDefault();
+		parameter.loadFromValueTree (tree.getChildWithProperty (Parameter::id_prop, parameter.getParameterID()));
+		parameter.refreshDefault();
 	}
 }
 
+/*-----------------------------------------------------------------------------------------------------------------------*/
+
+ParameterList::Holder::Holder (std::unique_ptr<Parameter> parameter)
+    : param (parameter.release())
+{
+	jassert (param != nullptr);
+}
+
+ParameterList::Holder::~Holder()
+{
+	if (! addedToProcessor)
+	{
+		jassert (param != nullptr);
+		delete param;
+	}
+}
+
+void ParameterList::Holder::addToProcessor (juce::AudioProcessor& processor)
+{
+	jassert (! addedToProcessor);
+
+	processor.addParameter (param);
+
+	addedToProcessor = true;
+}
+
+Parameter& ParameterList::Holder::getParameter() const
+{
+	jassert (param != nullptr);
+	return *param;
+}
+
+/*-----------------------------------------------------------------------------------------------------------------------*/
 
 ParameterList::Listener::Listener (const ParameterList& list,
                                    std::function<void (Parameter&)>
@@ -156,21 +214,23 @@ ParameterList::Listener::Listener (const ParameterList& list,
                                    std::function<void (Parameter&, bool)>
                                        onGestureGhange)
 {
-	for (auto* param : list.params)
+	for (const auto* param : list.parameters)
 	{
+		auto* parameter = &param->getParameter();
+
 		const auto change = [=]
 		{
 			if (onParamChange)
-				onParamChange (*param);
+				onParamChange (*parameter);
 		};
 
 		const auto gesture = [=] (bool starting)
 		{
 			if (onGestureGhange)
-				onGestureGhange (*param, starting);
+				onGestureGhange (*parameter, starting);
 		};
 
-		updaters.add (new ParamUpdater (*param, std::move (change), std::move (gesture)));
+		updaters.add (new ParamUpdater (*parameter, std::move (change), std::move (gesture)));
 	}
 }
 

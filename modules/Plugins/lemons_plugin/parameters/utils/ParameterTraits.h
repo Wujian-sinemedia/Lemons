@@ -33,8 +33,11 @@ struct ParameterTraits final
 
 	template <typename ValType>
 	explicit ParameterTraits (ValType minimum, ValType maximum, ValType defaultVal,
+	                          const String& nameToUse, const String& labelToUse,
 	                          std::function<String (ValType, int)>   stringFromValue = nullptr,
-	                          std::function<ValType (const String&)> valueFromString = nullptr);
+	                          std::function<ValType (const String&)> valueFromString = nullptr,
+	                          bool automatable = true, bool metaParameter = false,
+	                          ParameterCategory categoryToUse = ParameterCategory::genericParameter);
 
 	static constexpr auto valueTreeType = "ParameterTraits";
 
@@ -73,6 +76,8 @@ struct ParameterTraits final
 
 struct ParameterLayout final
 {
+	explicit ParameterLayout() = default;
+
 	[[nodiscard]] static ParameterLayout fromValueTree (const ValueTree& tree);
 
 	[[nodiscard]] ValueTree saveToValueTree() const;

@@ -197,18 +197,20 @@ std::function<bool (const String&)> createDefaultValueFromStringFunc()
 /*-------------------------------------------------------------------------------------------------------*/
 
 template <typename ValueType>
-std::function<String (float)> convertValToStringFuncFromTyped (std::function<String (ValueType, int)> origFunc, const String& paramLabel)
+std::function<String (float)> convertValToStringFuncFromTyped (std::function<String (ValueType, int)> origFunc,
+                                                               const String&                          paramLabel,
+                                                               float                                  rangeInterval)
 {
 	if (origFunc == nullptr)
-		origFunc = createDefaultStringFromValueFunc<ValueType> (1.f, paramLabel);
+		origFunc = createDefaultStringFromValueFunc<ValueType> (rangeInterval, paramLabel);
 
 	return [=] (float value) -> String
 	{ return origFunc (static_cast<ValueType> (value), 0); };
 }
 
-template std::function<String (float)> convertValToStringFuncFromTyped (std::function<String (float, int)>, const String&);
-template std::function<String (float)> convertValToStringFuncFromTyped (std::function<String (int, int)>, const String&);
-template std::function<String (float)> convertValToStringFuncFromTyped (std::function<String (bool, int)>, const String&);
+template std::function<String (float)> convertValToStringFuncFromTyped (std::function<String (float, int)>, const String&, float);
+template std::function<String (float)> convertValToStringFuncFromTyped (std::function<String (int, int)>, const String&, float);
+template std::function<String (float)> convertValToStringFuncFromTyped (std::function<String (bool, int)>, const String&, float);
 
 /*-------------------------------------------------------------------------------------------------------*/
 
