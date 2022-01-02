@@ -2,6 +2,7 @@
 
 namespace lemons
 {
+
 /**
     Represents the base for a generic GUI app.
     @tparam ContentComponentType The type of top-level main component for this app's GUI. This must inherit from juce::Component and must be default-constructable.
@@ -9,16 +10,15 @@ namespace lemons
  */
 template <typename ContentComponentType, LEMONS_MUST_INHERIT_FROM (ContentComponentType, juce::Component)>
 class GuiApp : public juce::JUCEApplication
-    , private SystemInitializer
+    , private locale::TranslationsInitializer
 {
 public:
 	using WindowType = DefaultWindow<ContentComponentType>;
-	using Size       = juce::Point<int>;
 
 	/** Creates a default GuiApp. */
 	GuiApp (const String& appName    = LEMONS_DEFAULT_APP_NAME,
 	        const String& appVersion = LEMONS_DEFAULT_APP_VERSION,
-	        const Size&   initSize   = defaultWindowSize())
+	        const Dimensions&   initSize   = Dimensions::getDefault())
 	    : initialSize (initSize)
 	    , name (appName)
 	    , version (appVersion)
@@ -41,7 +41,7 @@ public:
 	const String getApplicationVersion() final { return version; }
 
 private:
-	const Size initialSize;
+	const Dimensions initialSize;
 
 	std::unique_ptr<WindowType> window;
 

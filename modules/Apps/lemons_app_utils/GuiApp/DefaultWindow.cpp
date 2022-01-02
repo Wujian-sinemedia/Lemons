@@ -7,11 +7,13 @@ namespace lemons
 	return juce::Desktop::getInstance().getDefaultLookAndFeel().findColour (juce::ResizableWindow::backgroundColourId);
 }
 
-DefaultWindowBase::DefaultWindowBase (const String& appName, const juce::Point<int>& initSize)
+DefaultWindowBase::DefaultWindowBase (const String& appName, const Dimensions& initialSize)
     : DocumentWindow (appName, getDefaultWindowBackgroundColor(), allButtons)
 {
+    jassert (initialSize.isValid());
+    
 	setUsingNativeTitleBar (true);
-	setSize (initSize.x, initSize.y);
+	setSize (initialSize.getWidth(), initialSize.getHeight());
 }
 
 void DefaultWindowBase::closeButtonPressed()

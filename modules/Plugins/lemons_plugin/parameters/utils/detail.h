@@ -15,8 +15,13 @@
 
 #pragma once
 
+#include <juce_core/juce_core.h>
+
+
 namespace lemons::plugin::detail
 {
+
+using juce::String;
 
 [[nodiscard]] inline String paramNameToID (const String& name);
 

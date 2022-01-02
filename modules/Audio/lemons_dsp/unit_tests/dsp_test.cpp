@@ -1,37 +1,35 @@
 /*
  ======================================================================================
- 
+
  ██╗     ███████╗███╗   ███╗ ██████╗ ███╗   ██╗███████╗
  ██║     ██╔════╝████╗ ████║██╔═══██╗████╗  ██║██╔════╝
  ██║     █████╗  ██╔████╔██║██║   ██║██╔██╗ ██║███████╗
  ██║     ██╔══╝  ██║╚██╔╝██║██║   ██║██║╚██╗██║╚════██║
  ███████╗███████╗██║ ╚═╝ ██║╚██████╔╝██║ ╚████║███████║
  ╚══════╝╚══════╝╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝
- 
+
  This file is part of the Lemons open source library and is licensed under the terms of the GNU Public License.
- 
+
  ======================================================================================
  */
 
-#pragma once
 
 namespace lemons::tests
 {
 
-using juce::File;
-
-class Runner : public juce::UnitTestRunner
+template <typename SampleType>
+String DspTest::getDspTestName (const String& name)
 {
-public:
-	bool hadAnyFailures() const;
+	return name + " (" + getPrecisionString<SampleType>() + ")";
+}
 
-private:
-	void logMessage (const juce::String& message) final;
-};
+template String DspTest::getDspTestName<float> (const String&);
+template String DspTest::getDspTestName<double> (const String&);
 
 
-[[nodiscard]] bool executeUnitTests (Intensity  intensityLevel = Intensity::Medium,
-                                     const File& logOutput = {}, juce::int64 seed = juce::Random::getSystemRandom().nextInt64(),
-                                     const String& singleTestName = {}, const String& categoryName = {});
+DspTest::DspTest (const String& testName)
+    : Test (testName, "DSP")
+{
+}
 
 }  // namespace lemons::tests

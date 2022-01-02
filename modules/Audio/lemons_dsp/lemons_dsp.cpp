@@ -17,6 +17,9 @@
 #include "lemons_dsp.h"
 
 
+#include "unit_tests/dsp_test.cpp"
+#include "unit_tests/dsp_utils.cpp"
+
 #include "fifos/CircularBuffer.cpp"
 #include "fifos/AudioFifo.cpp"
 #include "fifos/AudioAndMidiFIFO.cpp"

@@ -1,7 +1,7 @@
 #pragma once
 
 #include <juce_core/juce_core.h>
-
+#include <lemons_core/lemons_core.h>
 
 namespace lemons::music
 {
@@ -65,9 +65,6 @@ using juce::String;
 /*---------------------------------------------------------------------------------------------------------------------------------*/
 
 #if LEMONS_UNIT_TESTS
-
-#  include <lemons_unit_testing/lemons_unit_testing.h>
-
 
 namespace lemons::tests
 {

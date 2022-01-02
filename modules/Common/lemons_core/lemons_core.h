@@ -49,6 +49,16 @@
 #  endif
 #endif
 
+
+//==============================================================================
+/** Config: LEMONS_GUI_UNIT_TESTS
+
+ Set this to 1 to include GUI unit tests.
+ */
+#ifndef LEMONS_GUI_UNIT_TESTS
+#  define LEMONS_GUI_UNIT_TESTS 0
+#endif
+
 /*=======================================================================*/
 
 
@@ -57,6 +67,9 @@
 #include "misc/Dimensions.h"
 #include "misc/ConstructedArray.h"
 #include "misc/Timers.h"
+
+#include "unit_tests/test.h"
+#include "unit_tests/runner.h"
 
 #include "files/FileUtilities.h"
 

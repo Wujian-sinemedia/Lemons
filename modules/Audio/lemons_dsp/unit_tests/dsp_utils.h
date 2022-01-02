@@ -13,6 +13,7 @@
  ======================================================================================
  */
 
+
 #pragma once
 
 #include <juce_audio_basics/juce_audio_basics.h>
@@ -24,10 +25,6 @@ namespace lemons::tests
 template <typename FloatType>
 using AudioBuffer = juce::AudioBuffer<FloatType>;
 
-using MidiBuffer = juce::MidiBuffer;
-
-
-void fillMidiBufferWithRandomEvents (MidiBuffer& buffer, int numEvents, juce::Random rng);
 
 template <typename SampleType>
 void fillAudioBufferWithRandomNoise (AudioBuffer<SampleType>& buffer, juce::Random rng);
@@ -67,11 +64,7 @@ template <typename FloatType>
 template <typename FloatType>
 [[nodiscard]] bool noSamplesAreClipping (const AudioBuffer<FloatType>& buffer);
 
-[[nodiscard]] bool midiBuffersAreEqual (const MidiBuffer& buffer1, const MidiBuffer& buffer2);
-
 template <typename SampleType>
 [[nodiscard]] AudioBuffer<SampleType> makeCopyOfAudioBuffer (const AudioBuffer<SampleType>& inputBuffer);
-
-[[nodiscard]] MidiBuffer makeCopyOfMidiBuffer (const MidiBuffer& inputBuffer);
 
 }  // namespace lemons::tests

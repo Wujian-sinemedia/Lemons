@@ -1,6 +1,8 @@
 #include "lemons_gui.h"
 
 
+#include "unit_tests/gui_tests.cpp"
+
 #include "utilities/serializing.cpp"
 #include "utilities/cursor.cpp"
 

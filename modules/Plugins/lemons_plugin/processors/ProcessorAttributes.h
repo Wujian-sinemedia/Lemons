@@ -15,7 +15,6 @@
 
 #pragma once
 
-#include <lemons_core/lemons_core.h>
 
 namespace lemons::plugin
 {

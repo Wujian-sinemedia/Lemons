@@ -16,6 +16,10 @@
 
 #pragma once
 
+#include <juce_data_structures/juce_data_structures.h>
+#include <juce_audio_processors/juce_audio_processors.h>
+
+
 namespace lemons::plugin
 {
 
@@ -23,6 +27,7 @@ class Parameter;
 
 class ParameterList;
 
+using juce::String;
 using juce::ValueTree;
 using ParameterCategory = juce::AudioProcessorParameter::Category;
 

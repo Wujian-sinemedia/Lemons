@@ -1,19 +1,17 @@
 /*
  ======================================================================================
- 
+
  ██╗     ███████╗███╗   ███╗ ██████╗ ███╗   ██╗███████╗
  ██║     ██╔════╝████╗ ████║██╔═══██╗████╗  ██║██╔════╝
  ██║     █████╗  ██╔████╔██║██║   ██║██╔██╗ ██║███████╗
  ██║     ██╔══╝  ██║╚██╔╝██║██║   ██║██║╚██╗██║╚════██║
  ███████╗███████╗██║ ╚═╝ ██║╚██████╔╝██║ ╚████║███████║
  ╚══════╝╚══════╝╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝
- 
+
  This file is part of the Lemons open source library and is licensed under the terms of the GNU Public License.
- 
+
  ======================================================================================
  */
-
-#include <lemons_dsp/lemons_dsp.h>
 
 
 namespace lemons::tests
@@ -91,9 +89,9 @@ void AudioProcessorTestBase::runTest()
 	beginTest ("Programs API");
 
 	expectGreaterThan (processor->getNumPrograms(), 0);
-    
-    for (int i = 0; i < processor->getNumPrograms(); ++i)
-        expect (! processor->getProgramName(i).isEmpty());
+
+	for (int i = 0; i < processor->getNumPrograms(); ++i)
+		expect (! processor->getProgramName (i).isEmpty());
 
 
 	runTypedTests<float>();
@@ -169,20 +167,20 @@ void AudioProcessorTestBase::runTypedTests()
 
 			processor->processBlock (audioIO, midiIO);
 
-            if (! processor->isMidiEffect())
-                expect (! bufferIsSilent (audioIO));
+			if (! processor->isMidiEffect())
+				expect (! bufferIsSilent (audioIO));
 
 			for (int i = 0; i < getNumTestingRepetitions(); ++i)
 				processor->processBlock (audioIO, midiIO);
 
 			{
 				const auto subtest = beginSubtest ("Bypassed processing");
-                
-                processor->processBlockBypassed (audioIO, midiIO);
-                processor->processBlockBypassed (audioIO, midiIO);
-                
-                auto out = processor->getBusBuffer (audioIO, false, 0);
-                expect (bufferIsSilent (out));
+
+				processor->processBlockBypassed (audioIO, midiIO);
+				processor->processBlockBypassed (audioIO, midiIO);
+
+				auto out = processor->getBusBuffer (audioIO, false, 0);
+				expect (bufferIsSilent (out));
 
 				if (auto* bypass = processor->getBypassParameter())
 				{
@@ -192,7 +190,7 @@ void AudioProcessorTestBase::runTypedTests()
 
 					bypass->setValueNotifyingHost (1.f);
 					processor->processBlock (audioIO, midiIO);
-                    processor->processBlock (audioIO, midiIO);
+					processor->processBlock (audioIO, midiIO);
 
 					auto outBuf = processor->getBusBuffer (audioIO, false, 0);
 					expect (bufferIsSilent (outBuf));

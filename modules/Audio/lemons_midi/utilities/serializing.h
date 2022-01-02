@@ -1,6 +1,21 @@
+/*
+ ======================================================================================
+
+ ██╗     ███████╗███╗   ███╗ ██████╗ ███╗   ██╗███████╗
+ ██║     ██╔════╝████╗ ████║██╔═══██╗████╗  ██║██╔════╝
+ ██║     █████╗  ██╔████╔██║██║   ██║██╔██╗ ██║███████╗
+ ██║     ██╔══╝  ██║╚██╔╝██║██║   ██║██║╚██╗██║╚════██║
+ ███████╗███████╗██║ ╚═╝ ██║╚██████╔╝██║ ╚████║███████║
+ ╚══════╝╚══════╝╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝
+
+ This file is part of the Lemons open source library and is licensed under the terms of the GNU Public License.
+
+ ======================================================================================
+ */
+
+
 #pragma once
 
-#include <juce_audio_basics/juce_audio_basics.h>
 
 namespace lemons::serializing
 {
@@ -80,7 +95,7 @@ using juce::String;
  */
 [[nodiscard]] juce::MidiBuffer getMidiBuffer (const String& midiFileName);
 
-}
+}  // namespace lemons::binary
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
@@ -116,6 +131,8 @@ private:
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
+#if LEMONS_UNIT_TESTS
+
 namespace lemons::tests
 {
 
@@ -130,3 +147,5 @@ private:
 static MidiSerializingTests midiSerializingTest;
 
 }  // namespace lemons::tests
+
+#endif

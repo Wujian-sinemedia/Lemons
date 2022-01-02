@@ -23,6 +23,9 @@
 #include "misc/Dimensions.cpp"
 #include "misc/ArgParser.cpp"
 
+#include "unit_tests/test.cpp"
+#include "unit_tests/runner.cpp"
+
 #include "files/FileUtilities.cpp"
 
 #include "binary_data/data.cpp"

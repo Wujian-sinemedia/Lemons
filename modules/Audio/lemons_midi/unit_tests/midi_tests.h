@@ -16,25 +16,23 @@
 
 #pragma once
 
-#include <juce_graphics/juce_graphics.h>
+#include <juce_audio_basics/juce_audio_basics.h>
+#include <lemons_core/lemons_core.h>
 
 namespace lemons::tests
 {
 
-using juce::Image;
+using MidiBuffer = juce::MidiBuffer;
 
-void fillImageWithRandomPixels (Image& image, juce::Random rng);
-
-bool imagesAreEqual (const Image& image1, const Image& image2);
-
-
-template <typename Type>
-[[nodiscard]] inline Type toVarAndBack (const Type& orig)
+struct MidiTest : public Test
 {
-	using Converter = juce::VariantConverter<Type>;
+	MidiTest (const String& testName);
+};
 
-	return Converter::fromVar (Converter::toVar (orig));
-}
+void fillMidiBufferWithRandomEvents (MidiBuffer& buffer, int numEvents, juce::Random rng);
 
+[[nodiscard]] bool midiBuffersAreEqual (const MidiBuffer& buffer1, const MidiBuffer& buffer2);
+
+[[nodiscard]] MidiBuffer makeCopyOfMidiBuffer (const MidiBuffer& inputBuffer);
 
 }  // namespace lemons::tests

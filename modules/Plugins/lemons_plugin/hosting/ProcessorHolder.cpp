@@ -40,23 +40,23 @@ bool ProcessorHolder::prepareForPlayback (double samplerate, int blocksize, int 
 		processor.setProcessingPrecision (juce::AudioProcessor::ProcessingPrecision::singlePrecision);
 	else
 		processor.setProcessingPrecision (juce::AudioProcessor::ProcessingPrecision::doublePrecision);
-    
-    processor.setRateAndBufferSizeDetails (samplerate, blocksize);
-    processor.prepareToPlay (samplerate, blocksize);
-    
-    juce::AudioProcessor::BusesLayout layout;
-    
-    const auto channelSet = juce::AudioChannelSet::canonicalChannelSet (numChannels);
-    
-    layout.inputBuses.add  (channelSet);
-    layout.outputBuses.add (channelSet);
-    
-    if (! processor.setBusesLayout (layout))
-        return false;
+
+	processor.setRateAndBufferSizeDetails (samplerate, blocksize);
+	processor.prepareToPlay (samplerate, blocksize);
+
+	juce::AudioProcessor::BusesLayout layout;
+
+	const auto channelSet = juce::AudioChannelSet::canonicalChannelSet (numChannels);
+
+	layout.inputBuses.add (channelSet);
+	layout.outputBuses.add (channelSet);
+
+	if (! processor.setBusesLayout (layout))
+		return false;
 
 	processor.enableAllBuses();
 
-    return true;
+	return true;
 }
 
 template bool ProcessorHolder::prepareForPlayback<float> (double, int, int);

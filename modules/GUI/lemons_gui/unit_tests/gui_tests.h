@@ -16,14 +16,15 @@
 
 #pragma once
 
-namespace juce
+#include <juce_graphics/juce_graphics.h>
+
+namespace lemons::tests
 {
 
-template <>
-struct VariantConverter<PluginDescription>
-{
-	static PluginDescription fromVar (const var& v);
-	static var               toVar (const PluginDescription& d);
-};
+using juce::Image;
 
-}  // namespace juce
+void fillImageWithRandomPixels (Image& image, juce::Random rng);
+
+bool imagesAreEqual (const Image& image1, const Image& image2);
+
+}  // namespace lemons::tests

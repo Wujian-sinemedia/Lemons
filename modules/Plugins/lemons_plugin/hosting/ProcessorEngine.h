@@ -16,9 +16,14 @@
 
 #pragma once
 
+#include <lemons_dsp/lemons_dsp.h>
+
 
 namespace lemons::plugin
 {
+
+template <typename T>
+using AudioBuffer = juce::AudioBuffer<T>;
 
 using juce::MidiBuffer;
 
@@ -34,8 +39,8 @@ public:
 	explicit ProcessorEngine (juce::AudioProcessor& processor);
 
 	/** Reports the latency in samples of the managed AudioProcessor.
-        Note that this class is a dsp::Engine, and not a dsp::LatencyEngine; the AudioProcessor is expected to internally manage its own latency buffering if it requires any.
-     */
+	    Note that this class is a dsp::Engine, and not a dsp::LatencyEngine; the AudioProcessor is expected to internally manage its own latency buffering if it requires any.
+	 */
 	[[nodiscard]] int reportLatency() const noexcept;
 
 	/** The ProcessorHolder managing the AudioProcessor. */

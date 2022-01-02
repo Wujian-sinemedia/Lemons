@@ -1,6 +1,7 @@
 #pragma once
 
 #include <juce_graphics/juce_graphics.h>
+#include <lemons_core/lemons_core.h>
 
 namespace lemons::serializing
 {

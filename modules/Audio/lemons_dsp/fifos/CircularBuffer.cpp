@@ -1,15 +1,15 @@
 /*
  ======================================================================================
- 
+
  ██╗     ███████╗███╗   ███╗ ██████╗ ███╗   ██╗███████╗
  ██║     ██╔════╝████╗ ████║██╔═══██╗████╗  ██║██╔════╝
  ██║     █████╗  ██╔████╔██║██║   ██║██╔██╗ ██║███████╗
  ██║     ██╔══╝  ██║╚██╔╝██║██║   ██║██║╚██╗██║╚════██║
  ███████╗███████╗██║ ╚═╝ ██║╚██████╔╝██║ ╚████║███████║
  ╚══════╝╚══════╝╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝
- 
+
  This file is part of the Lemons open source library and is licensed under the terms of the GNU Public License.
- 
+
  ======================================================================================
  */
 
@@ -42,21 +42,21 @@ void CircularBuffer<SampleType>::storeSamples (const SampleType* samples, int nu
 
 	// the buffer isn't big enough to hold all the samples you want to store!
 	jassert (scopedWrite.blockSize1 + scopedWrite.blockSize2 == numSamples);
-    
-    using FVO = juce::FloatVectorOperations;
-    
+
+	using FVO = juce::FloatVectorOperations;
+
 	if (scopedWrite.blockSize1 > 0)
 	{
-        FVO::copy (buffer.getWritePointer (0, scopedWrite.startIndex1),
-                   samples,
-                   scopedWrite.blockSize1);
+		FVO::copy (buffer.getWritePointer (0, scopedWrite.startIndex1),
+		           samples,
+		           scopedWrite.blockSize1);
 	}
 
 	if (scopedWrite.blockSize2 > 0)
 	{
-        FVO::copy (buffer.getWritePointer (0, scopedWrite.startIndex2),
-                   samples + scopedWrite.blockSize1,
-                   scopedWrite.blockSize2);
+		FVO::copy (buffer.getWritePointer (0, scopedWrite.startIndex2),
+		           samples + scopedWrite.blockSize1,
+		           scopedWrite.blockSize2);
 	}
 }
 
@@ -77,24 +77,24 @@ void CircularBuffer<SampleType>::getSamples (SampleType* output, int numSamples)
 	const auto numZeroes = numSamples - (scopedRead.blockSize1 + scopedRead.blockSize2);
 
 	if (numZeroes > 0)
-        juce::FloatVectorOperations::fill (output, SampleType (0), numZeroes);
+		juce::FloatVectorOperations::fill (output, SampleType (0), numZeroes);
 
 	auto* const sampleOutput = output + numZeroes;
-    
-    using FVO = juce::FloatVectorOperations;
+
+	using FVO = juce::FloatVectorOperations;
 
 	if (scopedRead.blockSize1 > 0)
 	{
-        FVO::copy (sampleOutput,
-                   buffer.getReadPointer (0, scopedRead.startIndex1),
-                   scopedRead.blockSize1);
+		FVO::copy (sampleOutput,
+		           buffer.getReadPointer (0, scopedRead.startIndex1),
+		           scopedRead.blockSize1);
 	}
 
 	if (scopedRead.blockSize2 > 0)
 	{
-        FVO::copy (sampleOutput + scopedRead.blockSize1,
-                   buffer.getReadPointer (0, scopedRead.startIndex2),
-                   scopedRead.blockSize2);
+		FVO::copy (sampleOutput + scopedRead.blockSize1,
+		           buffer.getReadPointer (0, scopedRead.startIndex2),
+		           scopedRead.blockSize2);
 	}
 }
 

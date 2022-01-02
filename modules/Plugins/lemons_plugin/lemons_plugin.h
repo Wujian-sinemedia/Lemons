@@ -35,13 +35,7 @@
 -------------------------------------------------------------------------------------*/
 
 
-#if LEMONS_UNIT_TESTS
-#  include <lemons_unit_testing/lemons_unit_testing.h>
-#endif
-
-
 #include "parameters/utils/detail.h"
-
 #include "parameters/utils/ParameterTraits.h"
 
 #include "parameters/Parameter.h"
@@ -52,24 +46,24 @@
 #include "parameters/utils/ParamUpdater.h"
 
 #include "state/ParameterList.h"
+#include "state/ProgramManager.h"
+#include "state/PluginState.h"
 
 #include "parameters/MetaParameter.h"
 
 // modulation manager
 
+#include "hosting/ProcessorHolder.h"
+#include "hosting/ProcessorEngine.h"
+
+#include "unit_tests/audio_processor_test.h"
+
 #include "processors/ProcessorAttributes.h"
 #include "processors/BasicProcessor.h"
-
-#include "state/ProgramManager.h"
-#include "state/PluginState.h"
-
 #include "processors/ProcessorBase.h"
 
 #include "util/Editors.h"
 #include "util/serializing.h"
 
 #include "processors/Processors.h"
-
-#include "hosting/ProcessorHolder.h"
-#include "hosting/ProcessorEngine.h"
 

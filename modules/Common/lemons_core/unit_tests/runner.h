@@ -13,14 +13,25 @@
  ======================================================================================
  */
 
+#pragma once
 
-#include "lemons_unit_testing.h"
+namespace lemons::tests
+{
+
+using juce::File;
+
+class Runner : public juce::UnitTestRunner
+{
+public:
+	[[nodiscard]] bool hadAnyFailures() const;
+
+private:
+	void logMessage (const juce::String& message) final;
+};
 
 
-#include "util/dsp_helpers.cpp"
-#include "util/helpers.cpp"
+[[nodiscard]] bool executeUnitTests (Intensity   intensityLevel = Intensity::Medium,
+                                     const File& logOutput = {}, juce::int64 seed = juce::Random::getSystemRandom().nextInt64(),
+                                     const String& singleTestName = {}, const String& categoryName = {});
 
-#include "tests/test.cpp"
-#include "tests/audio_processor_test.cpp"
-
-#include "runner/runner.cpp"
+}  // namespace lemons::tests

@@ -15,9 +15,6 @@
 
 #pragma once
 
-#include <juce_audio_processors/juce_audio_processors.h>
-#include <lemons_core/misc/Preprocessor.h>
-
 
 namespace lemons::plugin
 {

@@ -1,4 +1,18 @@
-#include <lemons_core/lemons_core.h>
+/*
+ ======================================================================================
+
+ ██╗     ███████╗███╗   ███╗ ██████╗ ███╗   ██╗███████╗
+ ██║     ██╔════╝████╗ ████║██╔═══██╗████╗  ██║██╔════╝
+ ██║     █████╗  ██╔████╔██║██║   ██║██╔██╗ ██║███████╗
+ ██║     ██╔══╝  ██║╚██╔╝██║██║   ██║██║╚██╗██║╚════██║
+ ███████╗███████╗██║ ╚═╝ ██║╚██████╔╝██║ ╚████║███████║
+ ╚══════╝╚══════╝╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝
+
+ This file is part of the Lemons open source library and is licensed under the terms of the GNU Public License.
+
+ ======================================================================================
+ */
+
 
 namespace lemons::serializing
 {
@@ -119,15 +133,15 @@ namespace lemons::binary
 
 juce::MidiFile getMidiFile (const String& midiFileName)
 {
-    return serializing::midiFileFromBinary (getBlob (midiFileName));
+	return serializing::midiFileFromBinary (getBlob (midiFileName));
 }
 
 juce::MidiBuffer getMidiBuffer (const String& midiFileName)
 {
-    return serializing::midiBufferFromBinary (getBlob (midiFileName));
+	return serializing::midiBufferFromBinary (getBlob (midiFileName));
 }
 
-}
+}  // namespace lemons::binary
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
@@ -209,6 +223,8 @@ var VariantConverter<MidiMessage>::toVar (const MidiMessage& m)
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
+#if LEMONS_UNIT_TESTS
+
 namespace lemons::tests
 {
 
@@ -274,3 +290,5 @@ void MidiSerializingTests::runTest()
 }
 
 }  // namespace lemons::tests
+
+#endif

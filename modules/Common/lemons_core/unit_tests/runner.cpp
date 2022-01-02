@@ -1,15 +1,15 @@
 /*
  ======================================================================================
- 
+
  ██╗     ███████╗███╗   ███╗ ██████╗ ███╗   ██╗███████╗
  ██║     ██╔════╝████╗ ████║██╔═══██╗████╗  ██║██╔════╝
  ██║     █████╗  ██╔████╔██║██║   ██║██╔██╗ ██║███████╗
  ██║     ██╔══╝  ██║╚██╔╝██║██║   ██║██║╚██╗██║╚════██║
  ███████╗███████╗██║ ╚═╝ ██║╚██████╔╝██║ ╚████║███████║
  ╚══════╝╚══════╝╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝
- 
+
  This file is part of the Lemons open source library and is licensed under the terms of the GNU Public License.
- 
+
  ======================================================================================
  */
 
@@ -35,28 +35,28 @@ void Runner::logMessage (const juce::String& message)
 
 struct RAII_FileLogger : public juce::FileLogger
 {
-    explicit RAII_FileLogger (File output)
-    : FileLogger(output, "", 0)
-    {
-        juce::Logger::setCurrentLogger (this);
-    }
-    
-    ~RAII_FileLogger()
-    {
-        juce::Logger::setCurrentLogger (nullptr);
-    }
+	explicit RAII_FileLogger (File output)
+	    : FileLogger (output, "", 0)
+	{
+		juce::Logger::setCurrentLogger (this);
+	}
+
+	~RAII_FileLogger()
+	{
+		juce::Logger::setCurrentLogger (nullptr);
+	}
 };
 
 
 bool executeUnitTests (Intensity intensityLevel, const File& logOutput, juce::int64 seed,
                        const String& singleTestName, const String& categoryName)
 {
-	jassert (! (! singleTestName.isEmpty() && ! categoryName.isEmpty()));
+	jassert (! (singleTestName.isNotEmpty() && categoryName.isNotEmpty()));
 
 	Test::setGlobalTestingIntensityLevel (intensityLevel);
-    
-    RAII_FileLogger logger { logOutput };
-    
+
+	RAII_FileLogger logger { logOutput };
+
 	Runner runner;
 
 #if LEMONS_GUI_UNIT_TESTS
@@ -84,11 +84,11 @@ bool executeUnitTests (Intensity intensityLevel, const File& logOutput, juce::in
 			runner.runTests ({ test }, seed);
 			return ! runner.hadAnyFailures();
 		}
-        else
-        {
-            std::cout << "Test " << singleTestName << " could not be found!" << std::endl;
-            return false;
-        }
+		else
+		{
+			std::cout << "Test " << singleTestName << " could not be found!" << std::endl;
+			return false;
+		}
 	}
 	else if (! categoryName.isEmpty())
 	{

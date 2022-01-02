@@ -35,10 +35,8 @@ END_JUCE_MODULE_DECLARATION
  -------------------------------------------------------------------------------------*/
 
 
-#if LEMONS_UNIT_TESTS
-#  include <lemons_unit_testing/lemons_unit_testing.h>
-#endif
-
+#include "unit_tests/dsp_test.h"
+#include "unit_tests/dsp_utils.h"
 
 #include "fifos/CircularBuffer.h"
 #include "fifos/AudioFifo.h"
@@ -52,7 +50,6 @@ END_JUCE_MODULE_DECLARATION
 #include "oscillators/oscillators.h"
 #include "oscillators/SuperSaw.h"
 #include "oscillators/OscEngine.h"
-
 #include "oscillators/choosable.h"
 
 #include "filters/Filter.h"
