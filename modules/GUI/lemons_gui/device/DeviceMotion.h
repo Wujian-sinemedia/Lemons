@@ -22,7 +22,8 @@
 namespace lemons
 {
 
-/** Use this class to report various aspects of the device's motion, when sensor data is available, and register listeners.
+/** @ingroup lemons_device
+    Use this class to report various aspects of the device's motion, when sensor data is available, and register listeners.
  */
 class DeviceMotion final
 {

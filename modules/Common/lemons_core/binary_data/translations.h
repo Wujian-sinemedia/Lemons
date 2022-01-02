@@ -18,21 +18,22 @@
 namespace lemons::locale
 {
 
-/** @name Initializing translations
+/** @defgroup lemons_translation_initialization Initializing translations
     @ingroup lemons_binary_data
+    Functions to initialize translations from binary data.
  */
-///@{
 
-/** Initializes the juce::LocalisedStrings translation system from a translation file contained in a binary::Data object. */
+/** @ingroup lemons_translation_initialization
+    Initializes the juce::LocalisedStrings translation system from a translation file contained in a binary::Data object. */
 void initializeTranslations (const binary::Data& data, bool ignoreCaseOfKeys = true);
 
 
-/** Attempts to load a set of default translations from binary data, chosen based on the user's display language settings. */
+/** @ingroup lemons_translation_initialization
+    Attempts to load a set of default translations from binary data, chosen based on the user's display language settings. */
 void initializeDefaultTranslations();
 
-///@}
 
-/** @ingroup lemons_binary_data
+/** @ingroup lemons_translation_initialization
     A struct whose constructor simply calls initializeDefaultTranslations().
     This is useful for initializing the translations system as part of a base class, before the other members of your class are created; for example:
     @code

@@ -28,7 +28,9 @@ using juce::ValueTree;
 static constexpr auto rangeTreeType = "NormalisableRange";
 
 
-/** @name NormalisableRange objects */
+/** @name lemons_norm_range_serializing NormalisableRange objects
+    @ingroup lemons_core
+ */
 ///@{
 
 template <typename ValueType>
@@ -40,7 +42,9 @@ template <typename ValueType>
 ///@}
 
 
-/** @name MemoryBlocks */
+/** @name lemons_memory_blocks_serializing MemoryBlocks
+    @ingroup lemons_core
+ */
 ///@{
 
 /** Converts a MemoryBlock to a String representation.
@@ -56,7 +60,9 @@ template <typename ValueType>
 ///@}
 
 
-/** @name ValueTree/JSON conversion */
+/** @name lemons_vt_json_conversion ValueTree/JSON conversion
+    @ingroup lemons_core
+ */
 ///@{
 
 /** Converts a ValueTree to a JSON string.

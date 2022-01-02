@@ -3,7 +3,7 @@
 namespace lemons
 {
 
-/**
+/** @ingroup lemons_gui_app
     Represents the base for a generic GUI app.
     @tparam ContentComponentType The type of top-level main component for this app's GUI. This must inherit from juce::Component and must be default-constructable.
     @see DefaultWindow, SystemInitializer

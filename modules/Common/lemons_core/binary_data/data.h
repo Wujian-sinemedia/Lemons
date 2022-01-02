@@ -95,6 +95,7 @@ private:
 
 /** @defgroup basic_binary_data_types Basic types
     @ingroup lemons_binary_data
+    Basic data types you can retrieve from binary data.
  */
 
 /** @ingroup basic_binary_data_types

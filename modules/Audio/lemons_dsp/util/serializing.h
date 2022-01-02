@@ -21,26 +21,28 @@ namespace lemons::serializing
 template <typename SampleType>
 using AudioBuffer = juce::AudioBuffer<SampleType>;
 
+/** @defgroup lemons_audio_buffers Audio buffers
+    @ingroup lemons_dsp
+    Audio buffer utility functions.
+ */
 
-/** @name AudioBuffers */
-///@{
-
-/** Encodes an AudioBuffer as a blob of binary data. Note that the sample rate may be optionally specified. Internally, this uses JUCE's FlacAudioFormat.
+/** @ingroup lemons_audio_buffers
+    Encodes an AudioBuffer as a blob of binary data. Note that the sample rate may be optionally specified. Internally, this uses JUCE's FlacAudioFormat.
     @see audioFromBinary(), saveAudioToFile()
  */
 template <typename SampleType>
 [[nodiscard]] MemoryBlock audioToBinary (const AudioBuffer<SampleType>& buffer, double samplerate = 48000.);
 
-/** Returns an AudioBuffer from a binary representation of one. Internally, this uses JUCE's FlacAudioFormat.
+/** @ingroup lemons_audio_buffers
+    Returns an AudioBuffer from a binary representation of one. Internally, this uses JUCE's FlacAudioFormat.
     @see audioToBinary(), loadAudioFromFile(), binary::Data::getAudio()
  */
 template <typename SampleType>
 [[nodiscard]] AudioBuffer<SampleType> audioFromBinary (const MemoryBlock& block);
 
-///@}
-
-
-/** @name AudioChannelSet */
+/** @name lemons_audio_channel_set_to_value_tree AudioChannelSet
+    @ingroup lemons_dsp
+ */
 ///@{
 
 [[nodiscard]] juce::AudioChannelSet channelSetFromValueTree (const ValueTree& tree);
@@ -58,23 +60,20 @@ namespace lemons::files
 template <typename SampleType>
 using AudioBuffer = juce::AudioBuffer<SampleType>;
 
-/** @name AudioBuffers */
-///@{
-
-/** Loads an AudioBuffer from a file. The buffer must have been previously written to the file using the saveAudioBuffer() method. For a more robust, official-format-compatible method of loading audio files, see the AudioFile class.
+/** @ingroup lemons_audio_buffers
+    Loads an AudioBuffer from a file. The buffer must have been previously written to the file using the saveAudioBuffer() method. For a more robust, official-format-compatible method of loading audio files, see the AudioFile class.
     @see saveAudioBuffer()
  */
 template <typename SampleType>
 [[nodiscard]] AudioBuffer<SampleType> loadAudioBuffer (const File& file);
 
 
-/** Writes an AudioBuffer to a File in FLAC format. This writes the data in an opaque binary format that can be reloaded by the free functions in this namespace, but may not be compatible with official audio formats.
+/** @ingroup lemons_audio_buffers
+    Writes an AudioBuffer to a File in FLAC format. This writes the data in an opaque binary format that can be reloaded by the free functions in this namespace, but may not be compatible with official audio formats.
     @see loadAudioBuffer()
  */
 template <typename SampleType>
 bool saveAudioBuffer (const AudioBuffer<SampleType>& audio, const File& file, double samplerate = 48000.);
-
-///@}
 
 }  // namespace lemons::files
 
@@ -84,6 +83,8 @@ namespace lemons::binary
 template <typename SampleType>
 using AudioBuffer = juce::AudioBuffer<SampleType>;
 
+/** @ingroup lemons_audio_buffers
+ */
 template <typename SampleType>
 [[nodiscard]] AudioBuffer<SampleType> getAudioBuffer (const String& filename);
 

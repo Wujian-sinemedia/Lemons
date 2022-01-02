@@ -21,6 +21,7 @@ namespace lemons::plugin
 
 /** @defgroup meta_parameters Meta parameters
     @ingroup parameters
+    Building blocks for modulatable LFOs, etc.
  */
 
 

@@ -21,7 +21,7 @@ namespace lemons::locale
 using juce::File;
 
 
-/** @name Translation file generation
+/** @name lemons_translation_file_generation Translation file generation
     @ingroup lemons_locale
  */
 ///@{

@@ -21,7 +21,8 @@
 namespace lemons
 {
 
-/** Use this struct's static methods to control various properties of the device's screen rotation/orientation.
+/** @ingroup lemons_device
+    Use this struct's static methods to control various properties of the device's screen rotation/orientation.
  */
 struct DeviceRotation final
 {

@@ -20,6 +20,7 @@ namespace lemons::plugin
 
 /** @defgroup parameter_specializations Special parameter types
     @ingroup parameters
+    Special pre-made parameter classes.
  */
 
 

@@ -23,7 +23,7 @@ namespace lemons::math
     Math utility functions.
  */
 
-/** @name Divisibility
+/** @name lemons_divisible_by Divisibility
     @ingroup lemons_math
  */
 ///@{
@@ -44,7 +44,7 @@ namespace lemons::math
 ///@}
 
 
-/** @name Frequency/period conversion
+/** @name lemons_freq_period_conversion Frequency/period conversion
     @ingroup lemons_math
  */
 ///@{
@@ -77,7 +77,7 @@ template <typename PeriodType>
 ///@}
 
 
-/** @name Samples/milliseconds conversion
+/** @name lemons_samps_ms_converstion Samples/milliseconds conversion
     @ingroup lemons_math
  */
 ///@{
@@ -104,7 +104,7 @@ template <typename msType>
 ///@}
 
 
-/** @name MIDI/frequency conversion
+/** @name lemons_midi_freq_conversion MIDI/frequency conversion
     @ingroup lemons_math
  */
 ///@{

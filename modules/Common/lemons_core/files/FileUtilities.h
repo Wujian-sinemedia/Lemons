@@ -44,30 +44,34 @@ enum class FileType
 };
 
 
-/** @name ValueTrees
+/** @defgroup lemons_value_trees ValueTrees
     @ingroup lemons_files
+    ValueTree utility functions.
  */
-///@{
 
-/** Attempts to load a ValueTree from a file of the specified format. The default format is JSON.
+
+/** @ingroup lemons_value_trees
+    Attempts to load a ValueTree from a file of the specified format. The default format is JSON.
     @see saveValueTree()
  */
 template <FileType Type = FileType::JSON>
 [[nodiscard]] ValueTree loadValueTree (const File& file);
 
-/** Attempts to load a ValueTree from the contents of a file of the specified format. The default format is JSON.
+/** @ingroup lemons_value_trees
+    Attempts to load a ValueTree from the contents of a file of the specified format. The default format is JSON.
     @see saveValueTree()
  */
 template <FileType Type = FileType::JSON>
 [[nodiscard]] ValueTree loadValueTree (const String& fileContents);
 
-/** Saves a ValueTree to a file in the specified format.
+/** @ingroup lemons_value_trees
+    Saves a ValueTree to a file in the specified format.
     @see loadValueTree()
  */
 template <FileType Type = FileType::JSON>
 bool saveValueTree (const File& file, const ValueTree& tree);
 
-///@}
+
 
 
 /** @name MemoryBlocks

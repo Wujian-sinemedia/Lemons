@@ -28,7 +28,7 @@ using juce::StringArray;
  */
 
 
-/** @name ISO language codes
+/** @name lemons_iso_language_codes ISO language codes
     @ingroup lemons_locale
  */
 ///@{
@@ -51,7 +51,7 @@ using juce::StringArray;
 ///@}
 
 
-/** @name ISO country codes
+/** @name lemons_iso_country_codes ISO country codes
     @ingroup lemons_locale
  */
 ///@{

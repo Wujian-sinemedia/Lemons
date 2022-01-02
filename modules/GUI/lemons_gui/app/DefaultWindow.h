@@ -1,8 +1,5 @@
 #pragma once
 
-//#include <lemons_core/lemons_core.h>
-//#include <juce_gui_basics/juce_gui_basics.h>
-
 namespace lemons
 {
 
@@ -20,7 +17,12 @@ namespace lemons
 #  define LEMONS_DEFAULT_APP_VERSION "0.0.1"
 #endif
 
-/**
+/** @defgroup lemons_gui_app GUI app
+    @ingroup lemons_gui
+    Building blocks for GUI apps.
+ */
+
+/** @ingroup lemons_gui_app
     Base class for a GUI app's main window.
  */
 struct DefaultWindowBase : public juce::DocumentWindow
@@ -39,7 +41,7 @@ private:
 };
 
 
-/**
+/** @ingroup lemons_gui_app
     A class representing a GUI app's main window.
     @tparam ComponentType The type of top-level main component that this window owns and displays. This must inherit from juce::Component and must be default-constructable.
     @see DefaultWindowBase, GuiApp

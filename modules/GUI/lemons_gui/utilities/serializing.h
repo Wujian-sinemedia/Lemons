@@ -11,8 +11,15 @@ using juce::Image;
 using juce::juce_wchar;
 using juce::MemoryBlock;
 
+/** @defgroup lemons_gui lemons_gui
+    @ingroup GUI
+    GUI building blocks.
+ */
 
-/** @name Images */
+
+/** @name lemons_image_serializing Images
+    @ingroup lemons_gui
+ */
 ///@{
 
 /** Encodes an Image object as a blob of binary data. Internally, this uses JUCE's PNGImageFormat.
@@ -28,7 +35,9 @@ using juce::MemoryBlock;
 ///@}
 
 
-/** @name Fonts */
+/** @name lemons_font_serializing Fonts
+    @ingroup lemons_gui
+ */
 ///@{
 
 [[nodiscard]] MemoryBlock fontToBinary (const juce::Font& font, int maxNumChars = 127, juce_wchar defaultChar = ' ');
@@ -45,7 +54,9 @@ namespace lemons::files
 
 using juce::Image;
 
-/** @name Images */
+/** @name lemons_image_files Images
+    @ingroup lemons_gui
+ */
 ///@{
 
 /** Saves an Image to a File.
@@ -61,7 +72,9 @@ bool saveImage (const Image& image, const File& file);
 ///@}
 
 
-/** @name Fonts */
+/** @name lemons_font_files Fonts
+    @ingroup lemons_gui
+ */
 ///@{
 
 bool saveFont (const juce::Font& font, const File& file, int maxNumChars = 127, juce_wchar defaultChar = ' ');
@@ -78,7 +91,9 @@ namespace lemons::binary
 
 using juce::String;
 
-/** @name Graphics */
+/** @name lemons_graphics_binaries Graphics
+    @ingroup lemons_gui
+ */
 ///@{
 
 /** Returns an image object from an image file in the BinaryData target.

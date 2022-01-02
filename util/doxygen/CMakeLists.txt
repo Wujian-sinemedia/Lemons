@@ -61,7 +61,7 @@ list (APPEND DoxygenDepends "${main_page_output}")
 set (modules_output "${out_folder}/lemons_modules.dox")
 
 add_custom_command (OUTPUT "${modules_output}" VERBATIM
-				 	COMMAND Python3::Interpreter ARGS "${CMAKE_CURRENT_LIST_DIR}/scripts/juce_modules/process_juce_modules.py" "${Lemons_SOURCE_DIR}" "${out_folder}" 
+				 	COMMAND Python3::Interpreter ARGS "${CMAKE_CURRENT_LIST_DIR}/scripts/process_juce_modules.py" "${Lemons_SOURCE_DIR}" "${out_folder}" 
 				 	COMMENT "Preparing Doxygen build tree...")
 
 list (APPEND DoxygenDepends "${modules_output}")

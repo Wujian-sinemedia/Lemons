@@ -29,6 +29,7 @@ using juce::ValueTree;
 
 /** @defgroup fundamental_parameter_types Fundamental parameter types
     @ingroup parameters
+    The basic building blocks for all other kinds of parameters.
  */
 
 /** @ingroup fundamental_parameter_types

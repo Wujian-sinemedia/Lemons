@@ -24,7 +24,8 @@ namespace lemons::dsp::psola
 template <typename SampleType>
 using AudioBuffer = juce::AudioBuffer<SampleType>;
 
-/** A pitch detector based on the YIN algorithm.
+/** @ingroup lemons_psola_analysis
+    A pitch detector based on the YIN algorithm.
  */
 template <typename SampleType>
 class PitchDetector final

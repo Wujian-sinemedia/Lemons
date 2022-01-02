@@ -5,6 +5,12 @@
 namespace lemons::gui
 {
 
+/** @name lemons_cursor Cursor
+    @ingroup lemons_gui
+    Utilities for the mouse cursor.
+ */
+///@{
+
 /** An RAII mechanism for temporarily changing the mouse cursor.
     @see ScopedWaitCursor
  */
@@ -43,5 +49,7 @@ struct ScopedWaitCursor
 	 */
 	~ScopedWaitCursor();
 };
+
+///@}
 
 }  // namespace lemons::gui

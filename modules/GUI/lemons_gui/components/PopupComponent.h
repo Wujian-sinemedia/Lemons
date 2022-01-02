@@ -6,6 +6,12 @@
 namespace lemons::gui
 {
 
+/** @name lemons_popup_component Popup component
+    @ingroup lemons_gui
+    Base class for a popup component.
+ */
+///@{
+
 /** Base class for a kind of component that can be held inside a popup.
     Create a subclass of PopupComponent to hold the content that should dynamically appear/disappear, then create a Popup templated on your custom PopupComponent type to actually hold the window.
     Example usage:
@@ -125,5 +131,7 @@ public:
 private:
 	std::unique_ptr<ContentType> window;
 };
+
+///@}
 
 }  // namespace lemons::gui

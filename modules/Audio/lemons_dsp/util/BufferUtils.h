@@ -19,12 +19,6 @@
 namespace lemons::dsp::buffers
 {
 
-/** @defgroup lemons_audio_buffers Audio buffers
-    @ingroup lemons_dsp
-    Audio buffer utility functions.
- */
-
-
 /** @ingroup lemons_audio_buffers
     Copies all channels from the source buffer to the destination buffer. */
 template <typename SampleType>

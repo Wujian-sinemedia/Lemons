@@ -3,7 +3,8 @@
 namespace lemons::gui
 {
 
-/** A simple wrapper around juce::Label that simplifies its API a bit.
+/** @ingroup lemons_gui
+    A simple wrapper around juce::Label that simplifies its API a bit.
  */
 struct Label : juce::Label
 {

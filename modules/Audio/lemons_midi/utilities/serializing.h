@@ -26,7 +26,9 @@ using juce::MidiBuffer;
 using juce::MidiFile;
 
 
-/** @name MidiBuffers */
+/** @name lemons_midi_buffer_serializing MidiBuffers
+    @ingroup lemons_midi
+ */
 ///@{
 
 /** Encodes a MidiBuffer as a blob of binary data.
@@ -42,7 +44,9 @@ using juce::MidiFile;
 ///@}
 
 
-/** @name MidiFiles */
+/** @name lemons_midi_files_serializing MidiFiles
+    @ingroup lemons_midi
+ */
 ///@{
 
 /** Encodes a MidiFile as a blob of binary data.
@@ -68,7 +72,9 @@ using juce::MidiBuffer;
 using juce::MidiFile;
 
 
-/** @name MidiFiles */
+/** @name lemons_midi_files MidiFiles
+    @ingroup lemons_midi
+ */
 ///@{
 
 /** Loads a MidiFile from a file on disk.
@@ -84,7 +90,9 @@ bool saveMidi (const MidiFile& midi, const File& file);
 ///@}
 
 
-/** @name MidiBuffers */
+/** @name MidiBuffers
+    @ingroup lemons_midi_buffers
+ */
 ///@{
 
 /** Loads a MidiBuffer from a file on disk.
@@ -108,7 +116,9 @@ namespace lemons::binary
 using juce::String;
 
 
-/** @name MIDI */
+/** @name lemons_midi_binary_funcs MIDI
+    @ingroup lemons_midi
+ */
 ///@{
 
 /** Returns a MIDI file object from a MIDI file in the BinaryData target. If the MIDI can't be loaded, an assertion will be thrown.

@@ -23,7 +23,18 @@ namespace lemons::dsp::psola
 template <typename T>
 using Array = juce::Array<T>;
 
-/** A class that identifies pitch peaks for PSOLA pitch shifting.
+/** @defgroup lemons_psola lemons_psola
+    @ingroup Audio
+    Utilities for PSOLA pitch shifting of realtime audio signals.
+ */
+
+/** @defgroup lemons_psola_analysis Analysis
+    @ingroup lemons_psola
+    PSOLA analysis classes.
+ */
+
+/** @ingroup lemons_psola_analysis
+    A class that identifies pitch peaks for PSOLA pitch shifting.
     You probably won't ever need to use this class directly, as it's mainly intended as a utilty for the Analyzer class.
     @see Analyzer
  */

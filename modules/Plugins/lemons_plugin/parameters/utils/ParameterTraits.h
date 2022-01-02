@@ -162,19 +162,15 @@ template <files::FileType Type = files::FileType::JSON>
 namespace lemons::files
 {
 
-/** @name ParameterLayout
-    @ingroup plugin_parameter_metadata
- */
-///@{
 
-/** Loads a ParameterLayout from a file that was serialized in the given format. The default format is JSON. */
+/** @ingroup plugin_parameter_metadata
+    Loads a ParameterLayout from a file that was serialized in the given format. The default format is JSON. */
 template <FileType Type = FileType::JSON>
 [[nodiscard]] plugin::ParameterLayout loadParameterLayout (const File& file);
 
-/** Saves a ParameterLayout to a file in the given format. The default format is JSON. */
+/** @ingroup plugin_parameter_metadata
+    Saves a ParameterLayout to a file in the given format. The default format is JSON. */
 template <FileType Type = FileType::JSON>
 bool saveParameterLayout (const plugin::ParameterLayout& layout, const File& file);
-
-///@}
 
 }  // namespace lemons::files

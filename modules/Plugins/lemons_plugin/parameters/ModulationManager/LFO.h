@@ -9,7 +9,7 @@ namespace lemons::plugin
 template <typename T>
 using AudioBuffer = juce::AudioBuffer<T>;
 
-/** @defgroup parameter_modulation Parameter Modulation
+/** @defgroup parameter_modulation Parameter modulation
     @ingroup parameters
     Classes for parameter modulation.
  */

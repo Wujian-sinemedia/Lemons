@@ -215,7 +215,8 @@ private:
 };
 
 
-/** An EngineChain that you can pass templated Engine types to and it will instantiate them all and add them as nodes to the chain for you.
+/** @ingroup audio_engines
+    An EngineChain that you can pass templated Engine types to and it will instantiate them all and add them as nodes to the chain for you.
     For example:
     @code
     template<typename SampleType>

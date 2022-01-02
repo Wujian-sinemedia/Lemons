@@ -1,5 +1,7 @@
 #pragma once
 
+/** @ingroup lemons_gui
+ */
 namespace lemons::gui::colors
 {
 
