@@ -4,6 +4,10 @@ PopupComponentBase::PopupComponentBase (std::function<void()> toClose, bool useC
     : closeFunc (std::move (toClose))
     , escapeKeyDestroys (escapeKeyCloses)
 {
+	if (toClose == nullptr)
+		toClose = [this]()
+		{ delete this; };
+
 	setWantsKeyboardFocus (true);
 
 	if (useCloseButton)
@@ -32,12 +36,13 @@ void PopupComponentBase::close() const { closeFunc(); }
 void PopupComponentBase::resized()
 {
 	grabKeyboardFocus();
-	resizeTriggered();
 
 	if (closeButton.get() != nullptr)
 	{
 		// position close button
 	}
+
+	resizeTriggered();
 }
 
 void PopupComponentBase::resizeTriggered() { }

@@ -24,8 +24,8 @@ bool SwappableComponent::destroy()
 
 void SwappableComponent::resized()
 {
-	if (comp.get() != nullptr)
-		comp->setBounds (getLocalBounds());
+	if (auto* c = comp.get())
+		c->setBounds (getLocalBounds());
 }
 
 }  // namespace lemons::gui
