@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Lemons: lemons::gui::PopupComponent Class Reference</title>
+<title>Lemons: lemons::gui::PopupComponent&lt; OwnedContentType, &gt; Class Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -69,76 +69,72 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="classlemons_1_1gui_1_1_popup_component-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">lemons::gui::PopupComponent Class Reference</div>  </div>
+<div class="title">lemons::gui::PopupComponent&lt; OwnedContentType, &gt; Class Template Reference<span class="mlabels"><span class="mlabel">final</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Base class for a kind of component that can be held inside a popup.  
+<p>A kind of <a class="el" href="classlemons_1_1gui_1_1_popup_component_base.html" title="Base class for a kind of component that can be displayed as a popup.">PopupComponentBase</a> that owns and displays a kind of Component.  
  <a href="classlemons_1_1gui_1_1_popup_component.html#details">More...</a></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Inheritance diagram for lemons::gui::PopupComponent:</div>
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Inheritance diagram for lemons::gui::PopupComponent&lt; OwnedContentType, &gt;:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classlemons_1_1gui_1_1_popup_component__inherit__graph.svg" width="232" height="112"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classlemons_1_1gui_1_1_popup_component__inherit__graph.svg" width="264" height="202"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ad8949b7c4c0fd8b5f7a1ebd268c722c4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1gui_1_1_popup_component.html#ad8949b7c4c0fd8b5f7a1ebd268c722c4">PopupComponent</a> (std::function&lt; void()&gt; toClose, bool useCloseButton=true, bool escapeKeyCloses=true)</td></tr>
-<tr class="memdesc:ad8949b7c4c0fd8b5f7a1ebd268c722c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a popup component.  <a href="classlemons_1_1gui_1_1_popup_component.html#ad8949b7c4c0fd8b5f7a1ebd268c722c4">More...</a><br /></td></tr>
-<tr class="separator:ad8949b7c4c0fd8b5f7a1ebd268c722c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9db620634f80072a62652c2c923ab528"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1gui_1_1_popup_component.html#a9db620634f80072a62652c2c923ab528">PopupComponent</a> (std::unique_ptr&lt; <a class="el" href="classlemons_1_1gui_1_1_popup_component.html">PopupComponent</a> &gt; &amp;holder, bool useCloseButton=true, bool escapeKeyCloses=true)</td></tr>
-<tr class="memdesc:a9db620634f80072a62652c2c923ab528"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a closing lambda that calls reset() on the unique_ptr you pass here.  <a href="classlemons_1_1gui_1_1_popup_component.html#a9db620634f80072a62652c2c923ab528">More...</a><br /></td></tr>
-<tr class="separator:a9db620634f80072a62652c2c923ab528"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaa5efca0df64a53d15ac982fcf89907e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1gui_1_1_popup_component.html#aaa5efca0df64a53d15ac982fcf89907e">close</a> ()</td></tr>
-<tr class="memdesc:aaa5efca0df64a53d15ac982fcf89907e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closes the popup component, by calling the function passed to the constructor.  <a href="classlemons_1_1gui_1_1_popup_component.html#aaa5efca0df64a53d15ac982fcf89907e">More...</a><br /></td></tr>
-<tr class="separator:aaa5efca0df64a53d15ac982fcf89907e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad2420d0881565fdf4970a0f98ebe787b"><td class="memTemplParams" colspan="2">template&lt;typename... Args&gt; </td></tr>
+<tr class="memitem:ad2420d0881565fdf4970a0f98ebe787b"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classlemons_1_1gui_1_1_popup_component.html#ad2420d0881565fdf4970a0f98ebe787b">PopupComponent</a> (std::function&lt; void()&gt; toClose, bool useCloseButton, bool escapeKeyCloses, Args &amp;&amp;... args)</td></tr>
+<tr class="memdesc:ad2420d0881565fdf4970a0f98ebe787b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a <a class="el" href="classlemons_1_1gui_1_1_popup_component.html" title="A kind of PopupComponentBase that owns and displays a kind of Component.">PopupComponent</a> with a lambda to destroy itself.  <a href="classlemons_1_1gui_1_1_popup_component.html#ad2420d0881565fdf4970a0f98ebe787b">More...</a><br /></td></tr>
+<tr class="separator:ad2420d0881565fdf4970a0f98ebe787b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a39cc51a9c4c3d75b43b91704cf870099"><td class="memTemplParams" colspan="2">template&lt;typename... Args&gt; </td></tr>
+<tr class="memitem:a39cc51a9c4c3d75b43b91704cf870099"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classlemons_1_1gui_1_1_popup_component.html#a39cc51a9c4c3d75b43b91704cf870099">PopupComponent</a> (std::unique_ptr&lt; <a class="el" href="classlemons_1_1gui_1_1_popup_component_base.html">PopupComponentBase</a> &gt; &amp;holder, bool useCloseButton, bool escapeKeyCloses, Args &amp;&amp;... args)</td></tr>
+<tr class="memdesc:a39cc51a9c4c3d75b43b91704cf870099"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a <a class="el" href="classlemons_1_1gui_1_1_popup_component.html" title="A kind of PopupComponentBase that owns and displays a kind of Component.">PopupComponent</a> whose destruction lambda calls reset on the unique_ptr it lives in.  <a href="classlemons_1_1gui_1_1_popup_component.html#a39cc51a9c4c3d75b43b91704cf870099">More...</a><br /></td></tr>
+<tr class="separator:a39cc51a9c4c3d75b43b91704cf870099"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0768a11488d3e47c081a9e1471f6112a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1gui_1_1_popup_component_base.html#a0768a11488d3e47c081a9e1471f6112a">close</a> () const</td></tr>
+<tr class="memdesc:a0768a11488d3e47c081a9e1471f6112a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closes the popup component, by calling the function passed to the constructor.  <a href="classlemons_1_1gui_1_1_popup_component_base.html#a0768a11488d3e47c081a9e1471f6112a">More...</a><br /></td></tr>
+<tr class="separator:a0768a11488d3e47c081a9e1471f6112a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
-Private Member Functions</h2></td></tr>
-<tr class="memitem:a4cb50ef3214b3e0109165e1374319950"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1gui_1_1_popup_component.html#a4cb50ef3214b3e0109165e1374319950">keyPressRecieved</a> (const juce::KeyPress &amp;key)</td></tr>
-<tr class="memdesc:a4cb50ef3214b3e0109165e1374319950"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called when a keypress is recieved.  <a href="classlemons_1_1gui_1_1_popup_component.html#a4cb50ef3214b3e0109165e1374319950">More...</a><br /></td></tr>
-<tr class="separator:a4cb50ef3214b3e0109165e1374319950"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae0cb4efff6824179eff41968b0fa5919"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1gui_1_1_popup_component.html#ae0cb4efff6824179eff41968b0fa5919">resizeTriggered</a> ()</td></tr>
-<tr class="memdesc:ae0cb4efff6824179eff41968b0fa5919"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called when this component is resized.  <a href="classlemons_1_1gui_1_1_popup_component.html#ae0cb4efff6824179eff41968b0fa5919">More...</a><br /></td></tr>
-<tr class="separator:ae0cb4efff6824179eff41968b0fa5919"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:acefc6d12f9b6cac4d3edb3046de53395"><td class="memItemLeft" align="right" valign="top">OwnedContentType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1gui_1_1_popup_component.html#acefc6d12f9b6cac4d3edb3046de53395">content</a></td></tr>
+<tr class="memdesc:acefc6d12f9b6cac4d3edb3046de53395"><td class="mdescLeft">&#160;</td><td class="mdescRight">The owned content component.  <a href="classlemons_1_1gui_1_1_popup_component.html#acefc6d12f9b6cac4d3edb3046de53395">More...</a><br /></td></tr>
+<tr class="separator:acefc6d12f9b6cac4d3edb3046de53395"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Base class for a kind of component that can be held inside a popup. </p>
-<p>Create a subclass of <a class="el" href="classlemons_1_1gui_1_1_popup_component.html" title="Base class for a kind of component that can be held inside a popup.">PopupComponent</a> to hold the content that should dynamically appear/disappear, then create a <a class="el" href="classlemons_1_1gui_1_1_popup.html" title="Template class that holds a kind of PopupComponent and can dynamically create and destroy it.">Popup</a> templated on your custom <a class="el" href="classlemons_1_1gui_1_1_popup_component.html" title="Base class for a kind of component that can be held inside a popup.">PopupComponent</a> type to actually hold the window. Example usage: </p><div class="fragment"><div class="line"><span class="keyword">using namespace </span><a class="code" href="namespacelemons_1_1gui.html">lemons::gui</a>;</div>
-<div class="line"> </div>
-<div class="line"><span class="comment">// First, create the component that will hold the popup content...</span></div>
-<div class="line"><span class="keyword">struct </span>MyPopup : <a class="code" href="classlemons_1_1gui_1_1_popup_component.html">PopupComponent</a></div>
-<div class="line">{</div>
-<div class="line">    <span class="keyword">using</span> <a class="code" href="classlemons_1_1gui_1_1_popup_component.html#ad8949b7c4c0fd8b5f7a1ebd268c722c4">PopupComponent::PopupComponent</a>;</div>
-<div class="line">};</div>
-<div class="line"> </div>
-<div class="line"><span class="comment">// Now, we can create a holder to actually display our content:</span></div>
-<div class="line"><a class="code" href="classlemons_1_1gui_1_1_popup.html">Popup&lt;MyPopup&gt;</a> popup;</div>
-<div class="line"> </div>
-<div class="line"><span class="comment">// create/show it like this:</span></div>
-<div class="line">popup.<a class="code" href="classlemons_1_1gui_1_1_popup.html#aac5dfe6c188fcc5dd38cd6ddbed6effb">create</a> ([&amp;]{ popup.<a class="code" href="classlemons_1_1gui_1_1_popup.html#a04fe107db6ea3a6ab6d06afa31fc7fc4">destroy</a>(); });</div>
-<div class="line"> </div>
-<div class="line"><span class="comment">// destroy/hide it like this:</span></div>
-<div class="line">popup.<a class="code" href="classlemons_1_1gui_1_1_popup.html#a04fe107db6ea3a6ab6d06afa31fc7fc4">destroy</a>();</div>
-</div><!-- fragment --> <dl class="section see"><dt>See also</dt><dd><a class="el" href="classlemons_1_1gui_1_1_popup.html" title="Template class that holds a kind of PopupComponent and can dynamically create and destroy it.">Popup</a> </dd></dl>
+<div class="textblock"><h3>template&lt;typename OwnedContentType, LEMONS_MUST_INHERIT_FROM(OwnedContentType, Component)&gt;<br />
+class lemons::gui::PopupComponent&lt; OwnedContentType, &gt;</h3>
+
+<p>A kind of <a class="el" href="classlemons_1_1gui_1_1_popup_component_base.html" title="Base class for a kind of component that can be displayed as a popup.">PopupComponentBase</a> that owns and displays a kind of Component. </p>
+<p>If you use this class, you never have to specialize <a class="el" href="classlemons_1_1gui_1_1_popup_component_base.html" title="Base class for a kind of component that can be displayed as a popup.">PopupComponentBase</a> to create popup windows, you can just write them as regular Components and then stick them in one of these. </p><dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">OwnedContentType</td><td>The type of component this popup will display. This type must inherit from juce::Component. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classlemons_1_1gui_1_1_popup_component_base.html" title="Base class for a kind of component that can be displayed as a popup.">PopupComponentBase</a>, <a class="el" href="classlemons_1_1gui_1_1_popup.html" title="A class that owns and displays a kind of component as a popup, and can dynamically create and destroy...">Popup</a> </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="ad8949b7c4c0fd8b5f7a1ebd268c722c4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad8949b7c4c0fd8b5f7a1ebd268c722c4">&#9670;&nbsp;</a></span>PopupComponent() <span class="overload">[1/2]</span></h2>
+<a id="ad2420d0881565fdf4970a0f98ebe787b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad2420d0881565fdf4970a0f98ebe787b">&#9670;&nbsp;</a></span>PopupComponent() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename OwnedContentType , LEMONS_MUST_INHERIT_FROM(OwnedContentType, Component) &gt; </div>
+<div class="memtemplate">
+template&lt;typename... Args&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">lemons::gui::PopupComponent::PopupComponent </td>
+          <td class="memname"><a class="el" href="classlemons_1_1gui_1_1_popup_component.html">lemons::gui::PopupComponent</a>&lt; OwnedContentType, &gt;::<a class="el" href="classlemons_1_1gui_1_1_popup_component.html">PopupComponent</a> </td>
           <td>(</td>
           <td class="paramtype">std::function&lt; void()&gt;&#160;</td>
           <td class="paramname"><em>toClose</em>, </td>
@@ -147,13 +143,19 @@ Private Member Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>useCloseButton</em> = <code>true</code>, </td>
+          <td class="paramname"><em>useCloseButton</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>escapeKeyCloses</em> = <code>true</code>&#160;</td>
+          <td class="paramname"><em>escapeKeyCloses</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Args &amp;&amp;...&#160;</td>
+          <td class="paramname"><em>args</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -168,42 +170,57 @@ Private Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Creates a popup component. </p>
+<p>Creates a <a class="el" href="classlemons_1_1gui_1_1_popup_component.html" title="A kind of PopupComponentBase that owns and displays a kind of Component.">PopupComponent</a> with a lambda to destroy itself. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">toClose</td><td>Lambda function that must destroy/close this popup. </td></tr>
+    <tr><td class="paramname">toClose</td><td>Lambda function that must destroy this <a class="el" href="classlemons_1_1gui_1_1_popup_component.html" title="A kind of PopupComponentBase that owns and displays a kind of Component.">PopupComponent</a>. </td></tr>
+    <tr><td class="paramname">useCloseButton</td><td>If true, the wrapper component will create a "close" button in the upper left corner of the owned content that, when clicked, will destroy the popup. </td></tr>
+    <tr><td class="paramname">escapeKeyCloses</td><td>If true, the wrapper component consumes all escape key presses, and an escape key press will destroy the popup. </td></tr>
+    <tr><td class="paramname">args</td><td>Optional additional arguments that will be forwarded to the constuctor of OwnedContentType. </td></tr>
   </table>
   </dd>
 </dl>
 
+<p class="reference">References <a class="el" href="classlemons_1_1gui_1_1_popup_component.html#acefc6d12f9b6cac4d3edb3046de53395">lemons::gui::PopupComponent&lt; OwnedContentType, &gt;::content</a>.</p>
+
 </div>
 </div>
-<a id="a9db620634f80072a62652c2c923ab528"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9db620634f80072a62652c2c923ab528">&#9670;&nbsp;</a></span>PopupComponent() <span class="overload">[2/2]</span></h2>
+<a id="a39cc51a9c4c3d75b43b91704cf870099"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a39cc51a9c4c3d75b43b91704cf870099">&#9670;&nbsp;</a></span>PopupComponent() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename OwnedContentType , LEMONS_MUST_INHERIT_FROM(OwnedContentType, Component) &gt; </div>
+<div class="memtemplate">
+template&lt;typename... Args&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">lemons::gui::PopupComponent::PopupComponent </td>
+          <td class="memname"><a class="el" href="classlemons_1_1gui_1_1_popup_component.html">lemons::gui::PopupComponent</a>&lt; OwnedContentType, &gt;::<a class="el" href="classlemons_1_1gui_1_1_popup_component.html">PopupComponent</a> </td>
           <td>(</td>
-          <td class="paramtype">std::unique_ptr&lt; <a class="el" href="classlemons_1_1gui_1_1_popup_component.html">PopupComponent</a> &gt; &amp;&#160;</td>
+          <td class="paramtype">std::unique_ptr&lt; <a class="el" href="classlemons_1_1gui_1_1_popup_component_base.html">PopupComponentBase</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>holder</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>useCloseButton</em> = <code>true</code>, </td>
+          <td class="paramname"><em>useCloseButton</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>escapeKeyCloses</em> = <code>true</code>&#160;</td>
+          <td class="paramname"><em>escapeKeyCloses</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Args &amp;&amp;...&#160;</td>
+          <td class="paramname"><em>args</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -218,83 +235,67 @@ Private Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Creates a closing lambda that calls reset() on the unique_ptr you pass here. </p>
+<p>Creates a <a class="el" href="classlemons_1_1gui_1_1_popup_component.html" title="A kind of PopupComponentBase that owns and displays a kind of Component.">PopupComponent</a> whose destruction lambda calls reset on the unique_ptr it lives in. </p>
+<p>See the constructors for <a class="el" href="classlemons_1_1gui_1_1_popup_component_base.html" title="Base class for a kind of component that can be displayed as a popup.">PopupComponentBase</a> for more detailed docs. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">holder</td><td>unique_ptr holding this <a class="el" href="classlemons_1_1gui_1_1_popup_component.html" title="A kind of PopupComponentBase that owns and displays a kind of Component.">PopupComponent</a>. </td></tr>
+    <tr><td class="paramname">useCloseButton</td><td>If true, the wrapper component will create a "close" button in the upper left corner of the owned content that, when clicked, will destroy the popup. </td></tr>
+    <tr><td class="paramname">escapeKeyCloses</td><td>If true, the wrapper component consumes all escape key presses, and an escape key press will destroy the popup. </td></tr>
+    <tr><td class="paramname">args</td><td>Optional additional arguments that will be forwarded to the constuctor of OwnedContentType. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="reference">References <a class="el" href="classlemons_1_1gui_1_1_popup_component.html#acefc6d12f9b6cac4d3edb3046de53395">lemons::gui::PopupComponent&lt; OwnedContentType, &gt;::content</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="aaa5efca0df64a53d15ac982fcf89907e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaa5efca0df64a53d15ac982fcf89907e">&#9670;&nbsp;</a></span>close()</h2>
+<a id="a0768a11488d3e47c081a9e1471f6112a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0768a11488d3e47c081a9e1471f6112a">&#9670;&nbsp;</a></span>close()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void lemons::gui::PopupComponent::close </td>
+          <td class="memname">void lemons::gui::PopupComponentBase::close </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Closes the popup component, by calling the function passed to the constructor. </p>
 
 </div>
 </div>
-<a id="a4cb50ef3214b3e0109165e1374319950"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4cb50ef3214b3e0109165e1374319950">&#9670;&nbsp;</a></span>keyPressRecieved()</h2>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="acefc6d12f9b6cac4d3edb3046de53395"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acefc6d12f9b6cac4d3edb3046de53395">&#9670;&nbsp;</a></span>content</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
+<div class="memtemplate">
+template&lt;typename OwnedContentType , LEMONS_MUST_INHERIT_FROM(OwnedContentType, Component) &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">virtual bool lemons::gui::PopupComponent::keyPressRecieved </td>
-          <td>(</td>
-          <td class="paramtype">const juce::KeyPress &amp;&#160;</td>
-          <td class="paramname"><em>key</em></td><td>)</td>
-          <td></td>
+          <td class="memname">OwnedContentType <a class="el" href="classlemons_1_1gui_1_1_popup_component.html">lemons::gui::PopupComponent</a>&lt; OwnedContentType, &gt;::content</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Called when a keypress is recieved. </p>
-<p>The <a class="el" href="classlemons_1_1gui_1_1_popup_component.html" title="Base class for a kind of component that can be held inside a popup.">PopupComponent</a> base class automatically intercepts keypresses, and closes itself if an escape key is pressed; all other keypresses are forwarded to this function. </p>
+<p>The owned content component. </p>
 
-</div>
-</div>
-<a id="ae0cb4efff6824179eff41968b0fa5919"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae0cb4efff6824179eff41968b0fa5919">&#9670;&nbsp;</a></span>resizeTriggered()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual void lemons::gui::PopupComponent::resizeTriggered </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Called when this component is resized. </p>
+<p class="reference">Referenced by <a class="el" href="classlemons_1_1gui_1_1_popup_component.html#ad2420d0881565fdf4970a0f98ebe787b">lemons::gui::PopupComponent&lt; OwnedContentType, &gt;::PopupComponent()</a>.</p>
 
 </div>
 </div>
@@ -302,15 +303,9 @@ Private Member Functions</h2></td></tr>
 <li><a class="el" href="_popup_component_8h.html">PopupComponent.h</a></li>
 </ul>
 </div><!-- contents -->
-<div class="ttc" id="aclasslemons_1_1gui_1_1_popup_component_html_ad8949b7c4c0fd8b5f7a1ebd268c722c4"><div class="ttname"><a href="classlemons_1_1gui_1_1_popup_component.html#ad8949b7c4c0fd8b5f7a1ebd268c722c4">lemons::gui::PopupComponent::PopupComponent</a></div><div class="ttdeci">PopupComponent(std::function&lt; void()&gt; toClose, bool useCloseButton=true, bool escapeKeyCloses=true)</div><div class="ttdoc">Creates a popup component.</div></div>
-<div class="ttc" id="anamespacelemons_1_1gui_html"><div class="ttname"><a href="namespacelemons_1_1gui.html">lemons::gui</a></div><div class="ttdef"><b>Definition:</b> GUI/lemons_gui/components/Buttons.h:3</div></div>
-<div class="ttc" id="aclasslemons_1_1gui_1_1_popup_component_html"><div class="ttname"><a href="classlemons_1_1gui_1_1_popup_component.html">lemons::gui::PopupComponent</a></div><div class="ttdoc">Base class for a kind of component that can be held inside a popup.</div><div class="ttdef"><b>Definition:</b> PopupComponent.h:38</div></div>
-<div class="ttc" id="aclasslemons_1_1gui_1_1_popup_html_a04fe107db6ea3a6ab6d06afa31fc7fc4"><div class="ttname"><a href="classlemons_1_1gui_1_1_popup.html#a04fe107db6ea3a6ab6d06afa31fc7fc4">lemons::gui::Popup::destroy</a></div><div class="ttdeci">void destroy()</div><div class="ttdoc">Destroys the popup component, if it exists.</div><div class="ttdef"><b>Definition:</b> PopupComponent.h:131</div></div>
-<div class="ttc" id="aclasslemons_1_1gui_1_1_popup_html_aac5dfe6c188fcc5dd38cd6ddbed6effb"><div class="ttname"><a href="classlemons_1_1gui_1_1_popup.html#aac5dfe6c188fcc5dd38cd6ddbed6effb">lemons::gui::Popup::create</a></div><div class="ttdeci">void create(Args &amp;&amp;... args)</div><div class="ttdoc">Creates the popup component (or recreates it, if it already exists).</div><div class="ttdef"><b>Definition:</b> PopupComponent.h:123</div></div>
-<div class="ttc" id="aclasslemons_1_1gui_1_1_popup_html"><div class="ttname"><a href="classlemons_1_1gui_1_1_popup.html">lemons::gui::Popup</a></div><div class="ttdoc">Template class that holds a kind of PopupComponent and can dynamically create and destroy it.</div><div class="ttdef"><b>Definition:</b> PopupComponent.h:97</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jan 3 2022 06:24:00 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Jan 3 2022 22:40:05 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

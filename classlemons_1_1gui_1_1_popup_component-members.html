@@ -68,21 +68,23 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">lemons::gui::PopupComponent Member List</div>  </div>
+<div class="title">lemons::gui::PopupComponent&lt; OwnedContentType, &gt; Member List</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>This is the complete list of members for <a class="el" href="classlemons_1_1gui_1_1_popup_component.html">lemons::gui::PopupComponent</a>, including all inherited members.</p>
+<p>This is the complete list of members for <a class="el" href="classlemons_1_1gui_1_1_popup_component.html">lemons::gui::PopupComponent&lt; OwnedContentType, &gt;</a>, including all inherited members.</p>
 <table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="classlemons_1_1gui_1_1_popup_component.html#aaa5efca0df64a53d15ac982fcf89907e">close</a>()</td><td class="entry"><a class="el" href="classlemons_1_1gui_1_1_popup_component.html">lemons::gui::PopupComponent</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="classlemons_1_1gui_1_1_popup_component.html#a4cb50ef3214b3e0109165e1374319950">keyPressRecieved</a>(const juce::KeyPress &amp;key)</td><td class="entry"><a class="el" href="classlemons_1_1gui_1_1_popup_component.html">lemons::gui::PopupComponent</a></td><td class="entry"><span class="mlabel">private</span><span class="mlabel">virtual</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classlemons_1_1gui_1_1_popup_component.html#ad8949b7c4c0fd8b5f7a1ebd268c722c4">PopupComponent</a>(std::function&lt; void()&gt; toClose, bool useCloseButton=true, bool escapeKeyCloses=true)</td><td class="entry"><a class="el" href="classlemons_1_1gui_1_1_popup_component.html">lemons::gui::PopupComponent</a></td><td class="entry"><span class="mlabel">explicit</span></td></tr>
-  <tr><td class="entry"><a class="el" href="classlemons_1_1gui_1_1_popup_component.html#a9db620634f80072a62652c2c923ab528">PopupComponent</a>(std::unique_ptr&lt; PopupComponent &gt; &amp;holder, bool useCloseButton=true, bool escapeKeyCloses=true)</td><td class="entry"><a class="el" href="classlemons_1_1gui_1_1_popup_component.html">lemons::gui::PopupComponent</a></td><td class="entry"><span class="mlabel">explicit</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classlemons_1_1gui_1_1_popup_component.html#ae0cb4efff6824179eff41968b0fa5919">resizeTriggered</a>()</td><td class="entry"><a class="el" href="classlemons_1_1gui_1_1_popup_component.html">lemons::gui::PopupComponent</a></td><td class="entry"><span class="mlabel">private</span><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classlemons_1_1gui_1_1_popup_component_base.html#a0768a11488d3e47c081a9e1471f6112a">close</a>() const</td><td class="entry"><a class="el" href="classlemons_1_1gui_1_1_popup_component_base.html">lemons::gui::PopupComponentBase</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classlemons_1_1gui_1_1_popup_component.html#acefc6d12f9b6cac4d3edb3046de53395">content</a></td><td class="entry"><a class="el" href="classlemons_1_1gui_1_1_popup_component.html">lemons::gui::PopupComponent&lt; OwnedContentType, &gt;</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classlemons_1_1gui_1_1_popup_component.html#ad2420d0881565fdf4970a0f98ebe787b">PopupComponent</a>(std::function&lt; void()&gt; toClose, bool useCloseButton, bool escapeKeyCloses, Args &amp;&amp;... args)</td><td class="entry"><a class="el" href="classlemons_1_1gui_1_1_popup_component.html">lemons::gui::PopupComponent&lt; OwnedContentType, &gt;</a></td><td class="entry"><span class="mlabel">explicit</span></td></tr>
+  <tr><td class="entry"><a class="el" href="classlemons_1_1gui_1_1_popup_component.html#a39cc51a9c4c3d75b43b91704cf870099">PopupComponent</a>(std::unique_ptr&lt; PopupComponentBase &gt; &amp;holder, bool useCloseButton, bool escapeKeyCloses, Args &amp;&amp;... args)</td><td class="entry"><a class="el" href="classlemons_1_1gui_1_1_popup_component.html">lemons::gui::PopupComponent&lt; OwnedContentType, &gt;</a></td><td class="entry"><span class="mlabel">explicit</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classlemons_1_1gui_1_1_popup_component_base.html#abe86e3ec752f4acb55378e225b6d2bfb">PopupComponentBase</a>(std::function&lt; void()&gt; toClose, bool useCloseButton=true, bool escapeKeyCloses=true)</td><td class="entry"><a class="el" href="classlemons_1_1gui_1_1_popup_component_base.html">lemons::gui::PopupComponentBase</a></td><td class="entry"><span class="mlabel">explicit</span></td></tr>
+  <tr><td class="entry"><a class="el" href="classlemons_1_1gui_1_1_popup_component_base.html#af7bb76c2fc89fc50725d3adf140e4c66">PopupComponentBase</a>(std::unique_ptr&lt; PopupComponentBase &gt; &amp;holder, bool useCloseButton=true, bool escapeKeyCloses=true)</td><td class="entry"><a class="el" href="classlemons_1_1gui_1_1_popup_component_base.html">lemons::gui::PopupComponentBase</a></td><td class="entry"><span class="mlabel">explicit</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classlemons_1_1gui_1_1_popup_component_base.html#a817793561f53d3678c4770b2b70266a9">~PopupComponentBase</a>()=default</td><td class="entry"><a class="el" href="classlemons_1_1gui_1_1_popup_component_base.html">lemons::gui::PopupComponentBase</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
 </table></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jan 3 2022 06:24:00 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Jan 3 2022 22:40:05 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>
