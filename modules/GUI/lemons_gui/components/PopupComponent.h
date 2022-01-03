@@ -6,6 +6,8 @@
 namespace lemons::gui
 {
 
+using juce::Component;
+
 /** @name lemons_popup_component Popup
     @ingroup lemons_gui_components
     Base class for a popup component.
@@ -35,17 +37,17 @@ namespace lemons::gui
     @endcode
     @see Popup
  */
-class PopupComponent : public juce::Component
+class PopupComponent : public Component
 {
 public:
 	/** Creates a popup component.
 	    @param toClose Lambda function that must destroy/close this popup.
 	 */
-    explicit PopupComponent (std::function<void()> toClose, bool useCloseButton = true, bool escapeKeyCloses = true);
-    
-    /** Creates a closing lambda that calls reset() on the unique_ptr you pass here.
-     */
-    explicit PopupComponent (std::unique_ptr<PopupComponent>& holder, bool useCloseButton = true, bool escapeKeyCloses = true);
+	explicit PopupComponent (std::function<void()> toClose, bool useCloseButton = true, bool escapeKeyCloses = true);
+
+	/** Creates a closing lambda that calls reset() on the unique_ptr you pass here.
+	 */
+	explicit PopupComponent (std::unique_ptr<PopupComponent>& holder, bool useCloseButton = true, bool escapeKeyCloses = true);
 
 	/** Closes the popup component, by calling the function passed to the constructor. */
 	void close();
@@ -63,10 +65,10 @@ private:
 	virtual bool keyPressRecieved (const juce::KeyPress& key);
 
 	std::function<void()> closeFunc;
-    
-    bool escapeKeyDestroys { true };
-    
-    std::unique_ptr<TextButton> closeButton;
+
+	bool escapeKeyDestroys { true };
+
+	std::unique_ptr<TextButton> closeButton;
 };
 
 
@@ -94,22 +96,15 @@ private:
     @see PopupComponent
  */
 template <typename ContentType, LEMONS_MUST_INHERIT_FROM (ContentType, PopupComponent)>
-class Popup : public juce::Component
+class Popup : public Component
 {
 public:
 	/** Creates a popup component holder.
 	    At first, the popup is not visible. You must call the create() method to show the popup.
 	 */
-    explicit Popup()
+	explicit Popup()
 	{
 		setInterceptsMouseClicks (false, true);
-	}
-
-	/** Resizes the popup. */
-	void resized() final
-	{
-		if (window.get() != nullptr)
-			window->setBounds (getLocalBounds());
 	}
 
 	/** Returns true if the popup component is currently showing. */
@@ -127,16 +122,27 @@ public:
 		resized();
 	}
 
-	/** Destroys the popup component, if it exists. */
-	void destroy()
+	/** Destroys the popup component, if it exists.
+	 @returns True if the component existed before this function call.
+	 */
+	bool destroy()
 	{
 		if (window.get() != nullptr)
 		{
 			window.reset();
+			return true;
 		}
+
+		return false;
 	}
 
 private:
+	void resized() final
+	{
+		if (window.get() != nullptr)
+			window->setBounds (getLocalBounds());
+	}
+
 	std::unique_ptr<ContentType> window;
 };
 

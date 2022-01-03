@@ -12,12 +12,13 @@ void Label::set (const String& newText)
 }
 
 
-TextEntry::TextEntry (const String& initialText, std::function<void(const String&)> textChangeFunc)
-: Label(initialText)
+TextEntry::TextEntry (const String& initialText, std::function<void (const String&)> textChangeFunc)
+    : Label (initialText)
 {
-    setEditable (true, true, false);
-    
-    this->onTextChange = [=](){ textChangeFunc (getText (true)); };
+	setEditable (true, true, false);
+
+	this->onTextChange = [=]()
+	{ textChangeFunc (getText (true)); };
 }
 
 }  // namespace lemons::gui

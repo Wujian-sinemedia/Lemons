@@ -29,9 +29,9 @@ struct TextButton : juce::TextButton
  */
 struct ToggleTextButton : TextButton
 {
-    explicit ToggleTextButton (const String& buttonText, bool intialValue, std::function<void (bool)> whenClicked);
-    
-    void set (bool value);
+	explicit ToggleTextButton (const String& buttonText, bool intialValue, std::function<void (bool)> whenClicked);
+
+	void set (bool value);
 };
 
 
@@ -43,7 +43,7 @@ struct ToggleTextButton : TextButton
  */
 struct ImageButton : juce::ImageButton
 {
-    explicit ImageButton (const juce::Image& image, std::function<void()> whenClicked, float opacityRange = 0.2f);
+	explicit ImageButton (const juce::Image& image, std::function<void()> whenClicked, float opacityRange = 0.2f);
 };
 
 }  // namespace lemons::gui

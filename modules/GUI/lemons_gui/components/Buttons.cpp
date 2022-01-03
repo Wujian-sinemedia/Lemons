@@ -15,13 +15,13 @@ ToggleTextButton::ToggleTextButton (const String& buttonText, bool intialValue, 
     : TextButton (buttonText, [whenClicked, this]
                   { whenClicked (getToggleState()); })
 {
-    this->setToggleable (true);
-    set (intialValue);
+	this->setToggleable (true);
+	set (intialValue);
 }
 
 void ToggleTextButton::set (bool value)
 {
-    this->setToggleState (value, juce::NotificationType::sendNotification);
+	this->setToggleState (value, juce::NotificationType::sendNotification);
 }
 
 

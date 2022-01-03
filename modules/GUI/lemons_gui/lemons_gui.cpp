@@ -7,6 +7,7 @@
 #include "utilities/cursor.cpp"
 
 #include "components/PopupComponent.cpp"
+#include "components/SwappableComponent.cpp"
 #include "components/Buttons.cpp"
 #include "components/sliders.cpp"
 #include "components/Label.cpp"

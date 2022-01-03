@@ -29,6 +29,7 @@
 
 #include "components/Buttons.h"
 #include "components/PopupComponent.h"
+#include "components/SwappableComponent.h"
 #include "components/sliders.h"
 #include "components/Label.h"
 
