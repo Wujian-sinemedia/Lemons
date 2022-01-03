@@ -70,7 +70,8 @@ $(function() {
   <div class="summary">
 <a href="#namespaces">Namespaces</a> &#124;
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#typedef-members">Typedefs</a>  </div>
+<a href="#typedef-members">Typedefs</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">lemons::plugin Namespace Reference</div>  </div>
 </div><!--header-->
@@ -190,6 +191,18 @@ Typedefs</h2></td></tr>
 <tr class="memitem:a519f88bf5812c42fe49c5582c541a094"><td class="memTemplParams" colspan="2">template&lt;typename ValueType &gt; </td></tr>
 <tr class="memitem:a519f88bf5812c42fe49c5582c541a094"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1plugin.html#a519f88bf5812c42fe49c5582c541a094">ValToStringFunc</a> = std::function&lt; String(ValueType, int)&gt;</td></tr>
 <tr class="separator:a519f88bf5812c42fe49c5582c541a094"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a7faf0ed53126306421a8442475391c43"><td class="memTemplParams" colspan="2">template&lt;typename SampleType , typename ProcessorType , typename... Args&gt; </td></tr>
+<tr class="memitem:a7faf0ed53126306421a8442475391c43"><td class="memTemplItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classlemons_1_1plugin_1_1_processor_engine.html">ProcessorEngine</a>&lt; SampleType &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1plugin.html#a7faf0ed53126306421a8442475391c43">createEngineForProcessor</a> (Args &amp;&amp;... args)</td></tr>
+<tr class="separator:a7faf0ed53126306421a8442475391c43"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a12a7474229090af2f5d0c9bf91803514"><td class="memTemplParams" colspan="2">template&lt;typename ProcessorType , typename... Args&gt; </td></tr>
+<tr class="memitem:a12a7474229090af2f5d0c9bf91803514"><td class="memTemplItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="structlemons_1_1plugin_1_1_processor_holder.html">ProcessorHolder</a> &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1plugin.html#a12a7474229090af2f5d0c9bf91803514">createHolderForProcessor</a> (Args &amp;&amp;... args)</td></tr>
+<tr class="separator:a12a7474229090af2f5d0c9bf91803514"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa18c15be4bc2b247e0221eb327b7344a"><td class="memTemplParams" colspan="2">template&lt;template&lt; typename SampleType &gt; class EngineType, typename... Args&gt; </td></tr>
+<tr class="memitem:gaa18c15be4bc2b247e0221eb327b7344a"><td class="memTemplItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classlemons_1_1plugin_1_1_processor_base.html">ProcessorBase</a> &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__lemons__plugin__processors.html#gaa18c15be4bc2b247e0221eb327b7344a">createProcessorForEngine</a> (Args &amp;&amp;... args)</td></tr>
+<tr class="separator:gaa18c15be4bc2b247e0221eb327b7344a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Typedef Documentation</h2>
 <a id="a434646676efbc7dc23ed4bf4c67dd901"></a>
@@ -296,10 +309,51 @@ template&lt;typename ValueType &gt; </div>
 
 </div>
 </div>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="a7faf0ed53126306421a8442475391c43"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7faf0ed53126306421a8442475391c43">&#9670;&nbsp;</a></span>createEngineForProcessor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename SampleType , typename ProcessorType , typename... Args&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unique_ptr&lt;<a class="el" href="classlemons_1_1plugin_1_1_processor_engine.html">ProcessorEngine</a>&lt;SampleType&gt; &gt; lemons::plugin::createEngineForProcessor </td>
+          <td>(</td>
+          <td class="paramtype">Args &amp;&amp;...&#160;</td>
+          <td class="paramname"><em>args</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a12a7474229090af2f5d0c9bf91803514"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a12a7474229090af2f5d0c9bf91803514">&#9670;&nbsp;</a></span>createHolderForProcessor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename ProcessorType , typename... Args&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unique_ptr&lt;<a class="el" href="structlemons_1_1plugin_1_1_processor_holder.html">ProcessorHolder</a>&gt; lemons::plugin::createHolderForProcessor </td>
+          <td>(</td>
+          <td class="paramtype">Args &amp;&amp;...&#160;</td>
+          <td class="paramname"><em>args</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jan 3 2022 00:45:37 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Jan 3 2022 06:24:00 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

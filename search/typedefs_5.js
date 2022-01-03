@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['lfonamingfunc_2469',['LfoNamingFunc',['../classlemons_1_1plugin_1_1_modulation_manager.html#aef90e3039d26e0fe8e8d862688e2e004',1,'lemons::plugin::ModulationManager']]]
+  ['intparameter_2521',['IntParameter',['../group__fundamental__parameter__types.html#ga7d5746e33dadd4d351de50a915c6ed49',1,'lemons::plugin']]]
 ];

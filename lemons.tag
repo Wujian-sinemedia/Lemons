@@ -692,6 +692,80 @@
     <namespace>lemons::dsp::FX</namespace>
   </compound>
   <compound kind="file">
+    <name>Factory.h</name>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Audio/lemons_dsp/engines/</path>
+    <filename>_factory_8h.html</filename>
+    <class kind="struct">lemons::dsp::factory::ArgumentsEngineCreator</class>
+    <class kind="struct">lemons::dsp::factory::DefaultEngineCreator</class>
+    <class kind="struct">lemons::dsp::factory::EngineCreator</class>
+    <namespace>lemons</namespace>
+    <namespace>lemons::dsp</namespace>
+    <namespace>lemons::dsp::factory</namespace>
+    <member kind="define">
+      <type>#define</type>
+      <name>LEMONS_CREATE_ARGUMENT_ENGINE_FACTORY</name>
+      <anchorfile>_factory_8h.html</anchorfile>
+      <anchor>a88c4cfcf23b19ceca7823894774df5a4</anchor>
+      <arglist>(TemplateClassName, typeIDstring,...)</arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>LEMONS_CREATE_DEFAULT_ENGINE_FACTORY</name>
+      <anchorfile>_factory_8h.html</anchorfile>
+      <anchor>addc7cbb6e8561201686730afb1e13a66</anchor>
+      <arglist>(TemplateClassName, typeIDstring)</arglist>
+    </member>
+    <member kind="typedef">
+      <type>std::function&lt; EnginePtr&lt; SampleType &gt;()&gt;</type>
+      <name>CreationFunc</name>
+      <anchorfile>namespacelemons_1_1dsp_1_1factory.html</anchorfile>
+      <anchor>ac9747582d88cba67e802e185e46957ca</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="typedef">
+      <type>juce::StringArray</type>
+      <name>EngineList</name>
+      <anchorfile>namespacelemons_1_1dsp_1_1factory.html</anchorfile>
+      <anchor>a99965dfea4bea52ff62ae4604876f38f</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="typedef">
+      <type>std::unique_ptr&lt; Engine&lt; SampleType &gt; &gt;</type>
+      <name>EnginePtr</name>
+      <anchorfile>namespacelemons_1_1dsp_1_1factory.html</anchorfile>
+      <anchor>a0792dea5bb40b546e8eab459d078c67d</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="typedef">
+      <type>juce::OwnedArray&lt; Engine&lt; SampleType &gt; &gt;</type>
+      <name>EngineSet</name>
+      <anchorfile>namespacelemons_1_1dsp_1_1factory.html</anchorfile>
+      <anchor>a502f3af57be546b341a58e9172010316</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type>EnginePtr&lt; SampleType &gt;</type>
+      <name>createEngine</name>
+      <anchorfile>namespacelemons_1_1dsp_1_1factory.html</anchorfile>
+      <anchor>a98b50b8a61599f817bcd8dbb0d8fa812</anchor>
+      <arglist>(const String &amp;typeID) noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>EngineSet&lt; SampleType &gt;</type>
+      <name>getEngineSet</name>
+      <anchorfile>namespacelemons_1_1dsp_1_1factory.html</anchorfile>
+      <anchor>a8a63e226915f0e0c5fa7a5a4ba6dda81</anchor>
+      <arglist>(const EngineList &amp;list)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>registerEngine</name>
+      <anchorfile>namespacelemons_1_1dsp_1_1factory.html</anchorfile>
+      <anchor>a537dfb56467f1c9be4a39b3714f1da82</anchor>
+      <arglist>(CreationFunc&lt; SampleType &gt;, const String &amp;typeID)</arglist>
+    </member>
+  </compound>
+  <compound kind="file">
     <name>FileUtilities.h</name>
     <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Common/lemons_core/files/</path>
     <filename>_file_utilities_8h.html</filename>
@@ -887,6 +961,7 @@
     <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/GUI/lemons_gui/components/</path>
     <filename>_label_8h.html</filename>
     <class kind="struct">lemons::gui::Label</class>
+    <class kind="struct">lemons::gui::TextEntry</class>
     <namespace>lemons</namespace>
     <namespace>lemons::gui</namespace>
   </compound>
@@ -972,6 +1047,7 @@
     <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Common/lemons_core/</path>
     <filename>lemons__core_8h.html</filename>
     <includes id="_preprocessor_8h" name="Preprocessor.h" local="yes" imported="no">misc/Preprocessor.h</includes>
+    <includes id="_serializable_data_8h" name="SerializableData.h" local="yes" imported="no">serializing/SerializableData.h</includes>
     <includes id="_version_8h" name="Version.h" local="yes" imported="no">misc/Version.h</includes>
     <includes id="_dimensions_8h" name="Dimensions.h" local="yes" imported="no">misc/Dimensions.h</includes>
     <includes id="_constructed_array_8h" name="ConstructedArray.h" local="yes" imported="no">misc/ConstructedArray.h</includes>
@@ -1013,6 +1089,7 @@
     <includes id="_audio_and_midi_f_i_f_o_8h" name="AudioAndMidiFIFO.h" local="yes" imported="no">fifos/AudioAndMidiFIFO.h</includes>
     <includes id="_audio_engine_8h" name="AudioEngine.h" local="yes" imported="no">engines/AudioEngine.h</includes>
     <includes id="_latency_engine_8h" name="LatencyEngine.h" local="yes" imported="no">engines/LatencyEngine.h</includes>
+    <includes id="_factory_8h" name="Factory.h" local="yes" imported="no">engines/Factory.h</includes>
     <includes id="_dsp_protection_8h" name="DspProtection.h" local="yes" imported="no">engines/DspProtection.h</includes>
     <includes id="_engine_chain_8h" name="EngineChain.h" local="yes" imported="no">engines/EngineChain.h</includes>
     <includes id="oscillators_8h" name="oscillators.h" local="yes" imported="no">oscillators/oscillators.h</includes>
@@ -1027,6 +1104,13 @@
     <includes id="_mono_stereo_converter_8h" name="MonoStereoConverter.h" local="yes" imported="no">util/MonoStereoConverter.h</includes>
     <includes id="_audio_file_8h" name="AudioFile.h" local="yes" imported="no">audio_files/AudioFile.h</includes>
     <includes id="_audio_file_player_8h" name="AudioFilePlayer.h" local="yes" imported="no">audio_files/AudioFilePlayer.h</includes>
+    <member kind="define">
+      <type>#define</type>
+      <name>LEMONS_DSP_ENGINE_FACTORY</name>
+      <anchorfile>lemons__dsp_8h.html</anchorfile>
+      <anchor>a0da37d98878788002eb7e3aa0c51abae</anchor>
+      <arglist></arglist>
+    </member>
   </compound>
   <compound kind="file">
     <name>lemons_gui.h</name>
@@ -1036,8 +1120,9 @@
     <includes id="_g_u_i_2lemons__gui_2utilities_2serializing_8h" name="GUI/lemons_gui/utilities/serializing.h" local="yes" imported="no">utilities/serializing.h</includes>
     <includes id="colors_8h" name="colors.h" local="yes" imported="no">utilities/colors.h</includes>
     <includes id="cursor_8h" name="cursor.h" local="yes" imported="no">utilities/cursor.h</includes>
-    <includes id="_popup_component_8h" name="PopupComponent.h" local="yes" imported="no">components/PopupComponent.h</includes>
     <includes id="_g_u_i_2lemons__gui_2components_2_buttons_8h" name="GUI/lemons_gui/components/Buttons.h" local="yes" imported="no">components/Buttons.h</includes>
+    <includes id="_popup_component_8h" name="PopupComponent.h" local="yes" imported="no">components/PopupComponent.h</includes>
+    <includes id="_g_u_i_2lemons__gui_2components_2sliders_8h" name="GUI/lemons_gui/components/sliders.h" local="yes" imported="no">components/sliders.h</includes>
     <includes id="_label_8h" name="Label.h" local="yes" imported="no">components/Label.h</includes>
     <includes id="_auto_lock_8h" name="AutoLock.h" local="yes" imported="no">device/AutoLock.h</includes>
     <includes id="_device_motion_8h" name="DeviceMotion.h" local="yes" imported="no">device/DeviceMotion.h</includes>
@@ -1887,6 +1972,13 @@
       <anchor>a434646676efbc7dc23ed4bf4c67dd901</anchor>
       <arglist></arglist>
     </member>
+    <member kind="function">
+      <type>std::unique_ptr&lt; ProcessorEngine&lt; SampleType &gt; &gt;</type>
+      <name>createEngineForProcessor</name>
+      <anchorfile>namespacelemons_1_1plugin.html</anchorfile>
+      <anchor>a7faf0ed53126306421a8442475391c43</anchor>
+      <arglist>(Args &amp;&amp;... args)</arglist>
+    </member>
   </compound>
   <compound kind="file">
     <name>ProcessorHolder.h</name>
@@ -1897,6 +1989,13 @@
     <class kind="struct">lemons::plugin::TypedProcessorHolder</class>
     <namespace>lemons</namespace>
     <namespace>lemons::plugin</namespace>
+    <member kind="function">
+      <type>std::unique_ptr&lt; ProcessorHolder &gt;</type>
+      <name>createHolderForProcessor</name>
+      <anchorfile>namespacelemons_1_1plugin.html</anchorfile>
+      <anchor>a12a7474229090af2f5d0c9bf91803514</anchor>
+      <arglist>(Args &amp;&amp;... args)</arglist>
+    </member>
   </compound>
   <compound kind="file">
     <name>Processors.h</name>
@@ -1920,6 +2019,13 @@
       <anchorfile>group__lemons__plugin__processors.html</anchorfile>
       <anchor>ga402ed40f2d0bc661edca4d34b112d41b</anchor>
       <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type>std::unique_ptr&lt; ProcessorBase &gt;</type>
+      <name>createProcessorForEngine</name>
+      <anchorfile>group__lemons__plugin__processors.html</anchorfile>
+      <anchor>gaa18c15be4bc2b247e0221eb327b7344a</anchor>
+      <arglist>(Args &amp;&amp;... args)</arglist>
     </member>
   </compound>
   <compound kind="file">
@@ -1963,6 +2069,14 @@
     <namespace>lemons</namespace>
     <namespace>lemons::dsp</namespace>
     <namespace>lemons::dsp::FX</namespace>
+  </compound>
+  <compound kind="file">
+    <name>SerializableData.h</name>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Common/lemons_core/serializing/</path>
+    <filename>_serializable_data_8h.html</filename>
+    <class kind="struct">lemons::serializing::SerializableData</class>
+    <namespace>lemons</namespace>
+    <namespace>lemons::serializing</namespace>
   </compound>
   <compound kind="file">
     <name>Audio/lemons_dsp/util/serializing.h</name>
@@ -2319,9 +2433,16 @@
     <namespace>lemons::gui</namespace>
   </compound>
   <compound kind="file">
-    <name>Sliders.h</name>
+    <name>GUI/lemons_gui/components/sliders.h</name>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/GUI/lemons_gui/components/</path>
+    <filename>_g_u_i_2lemons__gui_2components_2sliders_8h.html</filename>
+    <namespace>lemons</namespace>
+    <namespace>lemons::gui</namespace>
+  </compound>
+  <compound kind="file">
+    <name>Plugins/lemons_plugin_gui/sliders/sliders.h</name>
     <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Plugins/lemons_plugin_gui/sliders/</path>
-    <filename>_sliders_8h.html</filename>
+    <filename>_plugins_2lemons__plugin__gui_2sliders_2sliders_8h.html</filename>
     <includes id="_slider_base_8h" name="SliderBase.h" local="yes" imported="no">SliderBase.h</includes>
     <class kind="class">lemons::gui::FloatSlider</class>
     <class kind="class">lemons::gui::IntSlider</class>
@@ -2882,6 +3003,20 @@
       <anchorfile>classlemons_1_1_arg_parser.html</anchorfile>
       <anchor>ae0d629aee36d8a80943f8b4d0cf4849a</anchor>
       <arglist>() const</arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>lemons::dsp::factory::ArgumentsEngineCreator</name>
+    <filename>structlemons_1_1dsp_1_1factory_1_1_arguments_engine_creator.html</filename>
+    <templarg>EngineType</templarg>
+    <templarg>Args</templarg>
+    <base>lemons::dsp::factory::EngineCreator</base>
+    <member kind="function">
+      <type></type>
+      <name>ArgumentsEngineCreator</name>
+      <anchorfile>structlemons_1_1dsp_1_1factory_1_1_arguments_engine_creator.html</anchorfile>
+      <anchor>aa2c8063b4f4c02d34c16724f8a417410</anchor>
+      <arglist>(const String &amp;typeIDtoUse, Args &amp;&amp;... args)</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -7359,6 +7494,20 @@
     </member>
   </compound>
   <compound kind="struct">
+    <name>lemons::dsp::factory::DefaultEngineCreator</name>
+    <filename>structlemons_1_1dsp_1_1factory_1_1_default_engine_creator.html</filename>
+    <templarg>EngineType</templarg>
+    <templarg></templarg>
+    <base>lemons::dsp::factory::EngineCreator</base>
+    <member kind="function">
+      <type></type>
+      <name>DefaultEngineCreator</name>
+      <anchorfile>structlemons_1_1dsp_1_1factory_1_1_default_engine_creator.html</anchorfile>
+      <anchor>aaa27fe44bb84e4756a6087b8743040d9</anchor>
+      <arglist>(const String &amp;typeIDtoUse)</arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
     <name>lemons::DefaultWindow</name>
     <filename>structlemons_1_1_default_window.html</filename>
     <templarg></templarg>
@@ -10362,6 +10511,24 @@
       <anchorfile>classlemons_1_1dsp_1_1_engine_chain.html</anchorfile>
       <anchor>ae1407e6fe248cd0114bb71fc4145dd28</anchor>
       <arglist>(const Node &amp;nodeToInsertBefore, Args &amp;&amp;... args)</arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>lemons::dsp::factory::EngineCreator</name>
+    <filename>structlemons_1_1dsp_1_1factory_1_1_engine_creator.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>EngineCreator</name>
+      <anchorfile>structlemons_1_1dsp_1_1factory_1_1_engine_creator.html</anchorfile>
+      <anchor>a76b2b18e8a16194c969b4cc7c3989237</anchor>
+      <arglist>(const CreationFunc&lt; float &gt; &amp;floatFunc, const CreationFunc&lt; double &gt; &amp;doubleFunc, const String &amp;typeID)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual</type>
+      <name>~EngineCreator</name>
+      <anchorfile>structlemons_1_1dsp_1_1factory_1_1_engine_creator.html</anchorfile>
+      <anchor>a9537041ba8edf2e13e6887eb3a9fadfd</anchor>
+      <arglist>()=default</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -13683,6 +13850,57 @@
     </member>
   </compound>
   <compound kind="struct">
+    <name>lemons::plugin::TypedParameter::Listener</name>
+    <filename>structlemons_1_1plugin_1_1_typed_parameter_1_1_listener.html</filename>
+    <base>lemons::plugin::Parameter::Listener</base>
+    <member kind="function">
+      <type></type>
+      <name>Listener</name>
+      <anchorfile>structlemons_1_1plugin_1_1_typed_parameter_1_1_listener.html</anchorfile>
+      <anchor>a94994114fd355af5caf403b57037de1f</anchor>
+      <arglist>(TypedParameter&lt; ValueType &gt; &amp;param)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>controllerNumberChanged</name>
+      <anchorfile>structlemons_1_1plugin_1_1_parameter_1_1_listener.html</anchorfile>
+      <anchor>a82971aee6ae16d04100949930233e34c</anchor>
+      <arglist>(int newControllerNumber)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>gestureStateChanged</name>
+      <anchorfile>structlemons_1_1plugin_1_1_parameter_1_1_listener.html</anchorfile>
+      <anchor>ac0db7beb485e9164070104f5da7e7b40</anchor>
+      <arglist>(bool gestureIsStarting)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>paramDefaultChanged</name>
+      <anchorfile>structlemons_1_1plugin_1_1_typed_parameter_1_1_listener.html</anchorfile>
+      <anchor>a27517e2ae5e97edfa25dbef712e54347</anchor>
+      <arglist>(ValueType)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>paramValueChanged</name>
+      <anchorfile>structlemons_1_1plugin_1_1_typed_parameter_1_1_listener.html</anchorfile>
+      <anchor>a6b091945117c5ffccf7d42e4ba1ae20a</anchor>
+      <arglist>(ValueType)</arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>lemons::plugin::ParameterList::Listener</name>
+    <filename>structlemons_1_1plugin_1_1_parameter_list_1_1_listener.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>Listener</name>
+      <anchorfile>structlemons_1_1plugin_1_1_parameter_list_1_1_listener.html</anchorfile>
+      <anchor>a76d5ccfde8d54f8785397d81d9d99ad6</anchor>
+      <arglist>(const ParameterList &amp;list, std::function&lt; void(Parameter &amp;)&gt; onParamValueChange, std::function&lt; void(Parameter &amp;)&gt; onParamDefaultChange=nullptr, std::function&lt; void(Parameter &amp;, bool)&gt; onParamGestureGhange=nullptr, std::function&lt; void(Parameter &amp;)&gt; onParamControllerChange=nullptr)</arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
     <name>lemons::plugin::Parameter::Listener</name>
     <filename>structlemons_1_1plugin_1_1_parameter_1_1_listener.html</filename>
     <member kind="function">
@@ -13726,57 +13944,6 @@
       <anchorfile>structlemons_1_1plugin_1_1_parameter_1_1_listener.html</anchorfile>
       <anchor>ac230d1860fb4068115e7d10285b27669</anchor>
       <arglist>(float newNormalizedValue)</arglist>
-    </member>
-  </compound>
-  <compound kind="struct">
-    <name>lemons::plugin::ParameterList::Listener</name>
-    <filename>structlemons_1_1plugin_1_1_parameter_list_1_1_listener.html</filename>
-    <member kind="function">
-      <type></type>
-      <name>Listener</name>
-      <anchorfile>structlemons_1_1plugin_1_1_parameter_list_1_1_listener.html</anchorfile>
-      <anchor>a76d5ccfde8d54f8785397d81d9d99ad6</anchor>
-      <arglist>(const ParameterList &amp;list, std::function&lt; void(Parameter &amp;)&gt; onParamValueChange, std::function&lt; void(Parameter &amp;)&gt; onParamDefaultChange=nullptr, std::function&lt; void(Parameter &amp;, bool)&gt; onParamGestureGhange=nullptr, std::function&lt; void(Parameter &amp;)&gt; onParamControllerChange=nullptr)</arglist>
-    </member>
-  </compound>
-  <compound kind="struct">
-    <name>lemons::plugin::TypedParameter::Listener</name>
-    <filename>structlemons_1_1plugin_1_1_typed_parameter_1_1_listener.html</filename>
-    <base>lemons::plugin::Parameter::Listener</base>
-    <member kind="function">
-      <type></type>
-      <name>Listener</name>
-      <anchorfile>structlemons_1_1plugin_1_1_typed_parameter_1_1_listener.html</anchorfile>
-      <anchor>a94994114fd355af5caf403b57037de1f</anchor>
-      <arglist>(TypedParameter&lt; ValueType &gt; &amp;param)</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual void</type>
-      <name>controllerNumberChanged</name>
-      <anchorfile>structlemons_1_1plugin_1_1_parameter_1_1_listener.html</anchorfile>
-      <anchor>a82971aee6ae16d04100949930233e34c</anchor>
-      <arglist>(int newControllerNumber)</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual void</type>
-      <name>gestureStateChanged</name>
-      <anchorfile>structlemons_1_1plugin_1_1_parameter_1_1_listener.html</anchorfile>
-      <anchor>ac0db7beb485e9164070104f5da7e7b40</anchor>
-      <arglist>(bool gestureIsStarting)</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual void</type>
-      <name>paramDefaultChanged</name>
-      <anchorfile>structlemons_1_1plugin_1_1_typed_parameter_1_1_listener.html</anchorfile>
-      <anchor>a27517e2ae5e97edfa25dbef712e54347</anchor>
-      <arglist>(ValueType)</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual void</type>
-      <name>paramValueChanged</name>
-      <anchorfile>structlemons_1_1plugin_1_1_typed_parameter_1_1_listener.html</anchorfile>
-      <anchor>a6b091945117c5ffccf7d42e4ba1ae20a</anchor>
-      <arglist>(ValueType)</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -19450,6 +19617,13 @@
       <anchor>a7c5df557761ecaac8161c969c0a57c4e</anchor>
       <arglist></arglist>
     </member>
+    <member kind="variable" static="yes">
+      <type>static constexpr auto</type>
+      <name>valueTreeType</name>
+      <anchorfile>structlemons_1_1plugin_1_1_plugin_metadata.html</anchorfile>
+      <anchor>a285ef88b2da55b94db3058e0a2bcc8db</anchor>
+      <arglist></arglist>
+    </member>
   </compound>
   <compound kind="class">
     <name>lemons::gui::Popup</name>
@@ -19499,8 +19673,15 @@
       <type></type>
       <name>PopupComponent</name>
       <anchorfile>classlemons_1_1gui_1_1_popup_component.html</anchorfile>
-      <anchor>a048a1b4a83f6aefee2b6628ac05eccc6</anchor>
-      <arglist>(std::function&lt; void()&gt; toClose)</arglist>
+      <anchor>ad8949b7c4c0fd8b5f7a1ebd268c722c4</anchor>
+      <arglist>(std::function&lt; void()&gt; toClose, bool useCloseButton=true, bool escapeKeyCloses=true)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>PopupComponent</name>
+      <anchorfile>classlemons_1_1gui_1_1_popup_component.html</anchorfile>
+      <anchor>a9db620634f80072a62652c2c923ab528</anchor>
+      <arglist>(std::unique_ptr&lt; PopupComponent &gt; &amp;holder, bool useCloseButton=true, bool escapeKeyCloses=true)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -21379,6 +21560,38 @@
       <anchorfile>classlemons_1_1plugin_1_1_parameter.html</anchorfile>
       <anchor>aebe3716f130dedf9f217a8b19cb84d1b</anchor>
       <arglist>() const</arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>lemons::serializing::SerializableData</name>
+    <filename>structlemons_1_1serializing_1_1_serializable_data.html</filename>
+    <member kind="function" virtualness="pure">
+      <type>virtual</type>
+      <name>~SerializableData</name>
+      <anchorfile>structlemons_1_1serializing_1_1_serializable_data.html</anchorfile>
+      <anchor>a2358871898a34ec6ed3e1c7486609971</anchor>
+      <arglist>()=0</arglist>
+    </member>
+    <member kind="function" virtualness="pure">
+      <type>virtual String</type>
+      <name>getValueTreeType</name>
+      <anchorfile>structlemons_1_1serializing_1_1_serializable_data.html</anchorfile>
+      <anchor>a000ac8c6619c677fbe9f1bcc68022399</anchor>
+      <arglist>() const =0</arglist>
+    </member>
+    <member kind="function" virtualness="pure">
+      <type>virtual void</type>
+      <name>restoreFromValueTree</name>
+      <anchorfile>structlemons_1_1serializing_1_1_serializable_data.html</anchorfile>
+      <anchor>a18a7bee908112986add4013b26952eb3</anchor>
+      <arglist>(const ValueTree &amp;tree)=0</arglist>
+    </member>
+    <member kind="function" virtualness="pure">
+      <type>virtual ValueTree</type>
+      <name>saveToValueTree</name>
+      <anchorfile>structlemons_1_1serializing_1_1_serializable_data.html</anchorfile>
+      <anchor>a2c73c916db7a1e04dc6e4d1ce519e845</anchor>
+      <arglist>() const =0</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -24309,6 +24522,25 @@
       <arglist>(const String &amp;buttonText, std::function&lt; void()&gt; whenClicked)</arglist>
     </member>
   </compound>
+  <compound kind="struct">
+    <name>lemons::gui::TextEntry</name>
+    <filename>structlemons_1_1gui_1_1_text_entry.html</filename>
+    <base>lemons::gui::Label</base>
+    <member kind="function">
+      <type></type>
+      <name>TextEntry</name>
+      <anchorfile>structlemons_1_1gui_1_1_text_entry.html</anchorfile>
+      <anchor>afbb6b373d937811a1cc488fcba321326</anchor>
+      <arglist>(const String &amp;initialText={}, std::function&lt; void(const String &amp;)&gt; textChangeFunc=nullptr)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>set</name>
+      <anchorfile>structlemons_1_1gui_1_1_label.html</anchorfile>
+      <anchor>a2af3ab895996e32dcbb004d8800bf5bb</anchor>
+      <arglist>(const String &amp;newText)</arglist>
+    </member>
+  </compound>
   <compound kind="class">
     <name>lemons::dsp::synth::TimbreMod</name>
     <filename>classlemons_1_1dsp_1_1synth_1_1_timbre_mod.html</filename>
@@ -24476,6 +24708,13 @@
       <anchorfile>classlemons_1_1gui_1_1_toggle_button.html</anchorfile>
       <anchor>aafe0e0cbb1115f922e38f607cb88b6d5</anchor>
       <arglist>()=default</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>set</name>
+      <anchorfile>structlemons_1_1gui_1_1_toggle_text_button.html</anchorfile>
+      <anchor>a95956835b04c42b06fc1de64ad15a8a8</anchor>
+      <arglist>(bool value)</arglist>
     </member>
     <member kind="variable">
       <type>plugin::BoolParameter &amp;</type>
@@ -27648,8 +27887,15 @@
       <type></type>
       <name>ToggleTextButton</name>
       <anchorfile>structlemons_1_1gui_1_1_toggle_text_button.html</anchorfile>
-      <anchor>a8712e743e43258f9d1e83feb226b13f9</anchor>
-      <arglist>(const String &amp;buttonText, std::function&lt; void(bool)&gt; whenClicked)</arglist>
+      <anchor>aa455500b75606b715bfaf4b589160cd3</anchor>
+      <arglist>(const String &amp;buttonText, bool intialValue, std::function&lt; void(bool)&gt; whenClicked)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>set</name>
+      <anchorfile>structlemons_1_1gui_1_1_toggle_text_button.html</anchorfile>
+      <anchor>a95956835b04c42b06fc1de64ad15a8a8</anchor>
+      <arglist>(bool value)</arglist>
     </member>
   </compound>
   <compound kind="struct">
@@ -30564,6 +30810,7 @@
     <name>lemons::dsp</name>
     <filename>namespacelemons_1_1dsp.html</filename>
     <namespace>lemons::dsp::buffers</namespace>
+    <namespace>lemons::dsp::factory</namespace>
     <namespace>lemons::dsp::filters</namespace>
     <namespace>lemons::dsp::FX</namespace>
     <namespace>lemons::dsp::osc</namespace>
@@ -30635,6 +30882,62 @@
       <anchorfile>group__lemons__audio__buffers.html</anchorfile>
       <anchor>ga063ba8cbe088e06f78ddd7469aed6e6a</anchor>
       <arglist>(AudioBuffer&lt; SampleType &gt; &amp;bufferToAlias, int startSample, int numSamples, int numChannels=-1, int channelOffset=0)</arglist>
+    </member>
+  </compound>
+  <compound kind="namespace">
+    <name>lemons::dsp::factory</name>
+    <filename>namespacelemons_1_1dsp_1_1factory.html</filename>
+    <class kind="struct">lemons::dsp::factory::ArgumentsEngineCreator</class>
+    <class kind="struct">lemons::dsp::factory::DefaultEngineCreator</class>
+    <class kind="struct">lemons::dsp::factory::EngineCreator</class>
+    <member kind="typedef">
+      <type>std::function&lt; EnginePtr&lt; SampleType &gt;()&gt;</type>
+      <name>CreationFunc</name>
+      <anchorfile>namespacelemons_1_1dsp_1_1factory.html</anchorfile>
+      <anchor>ac9747582d88cba67e802e185e46957ca</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="typedef">
+      <type>juce::StringArray</type>
+      <name>EngineList</name>
+      <anchorfile>namespacelemons_1_1dsp_1_1factory.html</anchorfile>
+      <anchor>a99965dfea4bea52ff62ae4604876f38f</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="typedef">
+      <type>std::unique_ptr&lt; Engine&lt; SampleType &gt; &gt;</type>
+      <name>EnginePtr</name>
+      <anchorfile>namespacelemons_1_1dsp_1_1factory.html</anchorfile>
+      <anchor>a0792dea5bb40b546e8eab459d078c67d</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="typedef">
+      <type>juce::OwnedArray&lt; Engine&lt; SampleType &gt; &gt;</type>
+      <name>EngineSet</name>
+      <anchorfile>namespacelemons_1_1dsp_1_1factory.html</anchorfile>
+      <anchor>a502f3af57be546b341a58e9172010316</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type>EnginePtr&lt; SampleType &gt;</type>
+      <name>createEngine</name>
+      <anchorfile>namespacelemons_1_1dsp_1_1factory.html</anchorfile>
+      <anchor>a98b50b8a61599f817bcd8dbb0d8fa812</anchor>
+      <arglist>(const String &amp;typeID) noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>EngineSet&lt; SampleType &gt;</type>
+      <name>getEngineSet</name>
+      <anchorfile>namespacelemons_1_1dsp_1_1factory.html</anchorfile>
+      <anchor>a8a63e226915f0e0c5fa7a5a4ba6dda81</anchor>
+      <arglist>(const EngineList &amp;list)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>registerEngine</name>
+      <anchorfile>namespacelemons_1_1dsp_1_1factory.html</anchorfile>
+      <anchor>a537dfb56467f1c9be4a39b3714f1da82</anchor>
+      <arglist>(CreationFunc&lt; SampleType &gt;, const String &amp;typeID)</arglist>
     </member>
   </compound>
   <compound kind="namespace">
@@ -30973,6 +31276,7 @@
     <class kind="struct">lemons::gui::ScopedWaitCursor</class>
     <class kind="class">lemons::gui::SliderBase</class>
     <class kind="struct">lemons::gui::TextButton</class>
+    <class kind="struct">lemons::gui::TextEntry</class>
     <class kind="class">lemons::gui::ToggleButton</class>
     <class kind="struct">lemons::gui::ToggleTextButton</class>
   </compound>
@@ -31340,6 +31644,27 @@
       <anchor>a519f88bf5812c42fe49c5582c541a094</anchor>
       <arglist></arglist>
     </member>
+    <member kind="function">
+      <type>std::unique_ptr&lt; ProcessorEngine&lt; SampleType &gt; &gt;</type>
+      <name>createEngineForProcessor</name>
+      <anchorfile>namespacelemons_1_1plugin.html</anchorfile>
+      <anchor>a7faf0ed53126306421a8442475391c43</anchor>
+      <arglist>(Args &amp;&amp;... args)</arglist>
+    </member>
+    <member kind="function">
+      <type>std::unique_ptr&lt; ProcessorHolder &gt;</type>
+      <name>createHolderForProcessor</name>
+      <anchorfile>namespacelemons_1_1plugin.html</anchorfile>
+      <anchor>a12a7474229090af2f5d0c9bf91803514</anchor>
+      <arglist>(Args &amp;&amp;... args)</arglist>
+    </member>
+    <member kind="function">
+      <type>std::unique_ptr&lt; ProcessorBase &gt;</type>
+      <name>createProcessorForEngine</name>
+      <anchorfile>group__lemons__plugin__processors.html</anchorfile>
+      <anchor>gaa18c15be4bc2b247e0221eb327b7344a</anchor>
+      <arglist>(Args &amp;&amp;... args)</arglist>
+    </member>
   </compound>
   <compound kind="namespace">
     <name>lemons::plugin::detail</name>
@@ -31418,6 +31743,7 @@
   <compound kind="namespace">
     <name>lemons::serializing</name>
     <filename>namespacelemons_1_1serializing.html</filename>
+    <class kind="struct">lemons::serializing::SerializableData</class>
     <member kind="typedef">
       <type>juce::AudioBuffer&lt; SampleType &gt;</type>
       <name>AudioBuffer</name>
@@ -32513,6 +32839,13 @@
       <anchorfile>group__lemons__plugin__processors.html</anchorfile>
       <anchor>ga402ed40f2d0bc661edca4d34b112d41b</anchor>
       <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type>std::unique_ptr&lt; ProcessorBase &gt;</type>
+      <name>createProcessorForEngine</name>
+      <anchorfile>group__lemons__plugin__processors.html</anchorfile>
+      <anchor>gaa18c15be4bc2b247e0221eb327b7344a</anchor>
+      <arglist>(Args &amp;&amp;... args)</arglist>
     </member>
   </compound>
   <compound kind="group">
