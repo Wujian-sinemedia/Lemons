@@ -37,20 +37,22 @@ using juce::Component;
     @endcode
     @see Popup
  */
-class PopupComponent : public Component
+class PopupComponentBase : public Component
 {
 public:
 	/** Creates a popup component.
 	    @param toClose Lambda function that must destroy/close this popup.
 	 */
-	explicit PopupComponent (std::function<void()> toClose, bool useCloseButton = true, bool escapeKeyCloses = true);
+	explicit PopupComponentBase (std::function<void()> toClose, bool useCloseButton = true, bool escapeKeyCloses = true);
 
 	/** Creates a closing lambda that calls reset() on the unique_ptr you pass here.
 	 */
-	explicit PopupComponent (std::unique_ptr<PopupComponent>& holder, bool useCloseButton = true, bool escapeKeyCloses = true);
+	explicit PopupComponentBase (std::unique_ptr<PopupComponentBase>& holder, bool useCloseButton = true, bool escapeKeyCloses = true);
+
+	virtual ~PopupComponentBase() = default;
 
 	/** Closes the popup component, by calling the function passed to the constructor. */
-	void close();
+	void close() const;
 
 private:
 	void resized() final;
@@ -69,6 +71,41 @@ private:
 	bool escapeKeyDestroys { true };
 
 	std::unique_ptr<TextButton> closeButton;
+};
+
+
+template <typename OwnedContentType, LEMONS_MUST_INHERIT_FROM (OwnedContentType, Component)>
+class PopupComponent final : public PopupComponentBase
+{
+public:
+	template <typename... Args>
+	explicit PopupComponent (std::function<void()> toClose, bool useCloseButton, bool escapeKeyCloses, Args&&... args)
+	    : PopupComponentBase (toClose, useCloseButton, escapeKeyCloses)
+	    , content (std::forward<Args> (args)...)
+	{
+		addAndMakeVisible (content);
+	}
+
+	template <typename... Args>
+	explicit PopupComponent (std::unique_ptr<PopupComponentBase>& holder, bool useCloseButton, bool escapeKeyCloses, Args&&... args)
+	    : PopupComponentBase (holder, useCloseButton, escapeKeyCloses)
+	    , content (std::forward<Args> (args)...)
+	{
+		addAndMakeVisible (content);
+	}
+
+	OwnedContentType content;
+
+private:
+	void resizeTriggered() final
+	{
+		content.setBounds (getLocalBounds());
+	}
+
+	bool keyPressRecieved (const juce::KeyPress& key) final
+	{
+		return content.keyPressed (key);
+	}
 };
 
 
@@ -95,7 +132,7 @@ private:
     @tparam ContentType The type of popup component this holder will display; this type must inherit from PopupComponent.
     @see PopupComponent
  */
-template <typename ContentType, LEMONS_MUST_INHERIT_FROM (ContentType, PopupComponent)>
+template <typename ContentType, LEMONS_MUST_INHERIT_FROM (ContentType, Component)>
 class Popup : public Component
 {
 public:
@@ -117,13 +154,13 @@ public:
 	template <typename... Args>
 	juce::Component::SafePointer<ContentType> create (Args&&... args)
 	{
-		window.reset (new ContentType (std::forward<Args> (args)...));
-        
-        auto* ptr = window.get();
+		window.reset (new PopupComponent<ContentType> (window, true, true, std::forward<Args> (args)...));
+
+		auto* ptr = window.get();
 		getTopLevelComponent()->addAndMakeVisible (ptr);
 		resized();
-        
-        return { window.get() };
+
+		return { ptr->content };
 	}
 
 	/** Destroys the popup component, if it exists.
@@ -147,7 +184,7 @@ private:
 			window->setBounds (getLocalBounds());
 	}
 
-	std::unique_ptr<ContentType> window;
+	std::unique_ptr<PopupComponent<ContentType>> window;
 };
 
 ///@}

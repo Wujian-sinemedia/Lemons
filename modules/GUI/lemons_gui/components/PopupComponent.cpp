@@ -1,6 +1,6 @@
 namespace lemons::gui
 {
-PopupComponent::PopupComponent (std::function<void()> toClose, bool useCloseButton, bool escapeKeyCloses)
+PopupComponentBase::PopupComponentBase (std::function<void()> toClose, bool useCloseButton, bool escapeKeyCloses)
     : closeFunc (std::move (toClose))
     , escapeKeyDestroys (escapeKeyCloses)
 {
@@ -13,16 +13,23 @@ PopupComponent::PopupComponent (std::function<void()> toClose, bool useCloseButt
 	}
 }
 
-PopupComponent::PopupComponent (std::unique_ptr<PopupComponent>& holder, bool useCloseButton, bool escapeKeyCloses)
-    : PopupComponent ([&]()
-                      { holder.reset(); },
-                      useCloseButton, escapeKeyCloses)
+
+static inline std::function<void()> makeCloserLambda (std::unique_ptr<PopupComponentBase>& holder, PopupComponentBase* parent)
+{
+	jassert (holder.get() == parent);
+
+	return [&]()
+	{ holder.reset(); };
+}
+
+PopupComponentBase::PopupComponentBase (std::unique_ptr<PopupComponentBase>& holder, bool useCloseButton, bool escapeKeyCloses)
+    : PopupComponentBase (makeCloserLambda (holder, this), useCloseButton, escapeKeyCloses)
 {
 }
 
-void PopupComponent::close() { closeFunc(); }
+void PopupComponentBase::close() const { closeFunc(); }
 
-void PopupComponent::resized()
+void PopupComponentBase::resized()
 {
 	grabKeyboardFocus();
 	resizeTriggered();
@@ -33,9 +40,9 @@ void PopupComponent::resized()
 	}
 }
 
-void PopupComponent::resizeTriggered() { }
+void PopupComponentBase::resizeTriggered() { }
 
-bool PopupComponent::keyPressed (const juce::KeyPress& key)
+bool PopupComponentBase::keyPressed (const juce::KeyPress& key)
 {
 	if (escapeKeyDestroys)
 	{
@@ -49,6 +56,6 @@ bool PopupComponent::keyPressed (const juce::KeyPress& key)
 	return keyPressRecieved (key);
 }
 
-bool PopupComponent::keyPressRecieved (const juce::KeyPress&) { return false; }
+bool PopupComponentBase::keyPressRecieved (const juce::KeyPress&) { return false; }
 
 }  // namespace lemons::gui
