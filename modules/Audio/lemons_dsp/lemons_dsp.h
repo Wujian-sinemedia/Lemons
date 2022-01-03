@@ -44,6 +44,7 @@ END_JUCE_MODULE_DECLARATION
 
 #include "engines/AudioEngine.h"
 #include "engines/LatencyEngine.h"
+#include "engines/Factory.h"
 #include "engines/DspProtection.h"
 #include "engines/EngineChain.h"
 

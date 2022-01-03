@@ -73,4 +73,7 @@ private:
 	const std::array<dsp::Engine<SampleType>*, 5> oscillators { &sine, &saw, &square, &triangle, &superSaw };
 };
 
+
+LEMONS_CREATE_DEFAULT_ENGINE_FACTORY(ChoosableOscillator, "ChoosableOscillator")
+
 }  // namespace lemons::dsp::osc

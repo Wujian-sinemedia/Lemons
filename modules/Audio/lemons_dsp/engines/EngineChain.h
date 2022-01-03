@@ -62,10 +62,10 @@ public:
 		int                                 index { 0 };
 		bool                                bypassed { false };
 	};
-    
-    
-    /** @name Accessing nodes */
-    ///@{
+
+
+	/** @name Accessing nodes */
+	///@{
 
 	/** Returns the node at the specified index. */
 	[[nodiscard]] Node* getNode (int index);
@@ -100,12 +100,12 @@ public:
 
 		return nullptr;
 	}
-    
-    ///@}
-    
-    
-    /** @name Adding nodes */
-    ///@{
+
+	///@}
+
+
+	/** @name Adding nodes */
+	///@{
 
 	/** Adds a node to the end of the chain.
 	    @return Reference to the node.
@@ -174,9 +174,9 @@ public:
 		return addNodeBefore (*new Node (std::make_unique<EngineType> (std::forward<Args> (args)...)),
 		                      nodeToInsertBefore);
 	}
-    
-    ///@}
-    
+
+	///@}
+
 
 	/** Swaps the indices of two nodes in the chain.
 	    @return True if the operation was successful

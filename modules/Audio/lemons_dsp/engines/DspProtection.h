@@ -65,4 +65,7 @@ private:
 	CallbackFunc muteCallback;
 };
 
+
+LEMONS_CREATE_DEFAULT_ENGINE_FACTORY (Protector, "Protection")
+
 }  // namespace lemons::dsp
