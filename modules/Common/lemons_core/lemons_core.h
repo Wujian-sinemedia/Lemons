@@ -59,6 +59,9 @@
 
 
 #include "misc/Preprocessor.h"
+
+#include "serializing/SerializableData.h"
+
 #include "misc/Version.h"
 #include "misc/Dimensions.h"
 #include "misc/ConstructedArray.h"
