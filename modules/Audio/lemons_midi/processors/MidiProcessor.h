@@ -17,10 +17,21 @@ public:
 	virtual ~MidiProcessor() = default;
 
 	void reset();
+    
+    /** @name midi_processor_processing Processing
+     */
+    ///@{
 
 	void process (const MidiBuffer& buffer);
 	void process (const juce::MidiMessageMetadata& meta);
 	void process (const MidiMessage& m);
+    
+    ///@}
+    
+    
+    /** @name midi_processor_attributes State queries
+     */
+    ///@{
 
 	int getLastPitchwheelValue() const noexcept { return lastPitchwheelValue; }
 	int getLastMidiChannel() const noexcept { return lastMidiChannel; }
@@ -31,6 +42,8 @@ public:
 	bool isSoftPedalDown() const noexcept { return softPedalDown; }
 
 	void getLastMovedCCinfo (int& controllerNumber, int& controllerValue) const noexcept;
+    
+    ///@}
 
 private:
 	void processControllerMessage (int controllerNumber, int controllerValue);

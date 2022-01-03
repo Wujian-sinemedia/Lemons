@@ -54,7 +54,7 @@ struct ProcessorHolder
 	bool prepareForPlayback (double samplerate, int blocksize, int numChannels = 2);
 
     
-    /** @name Accessing parameters */
+    /** @name processor_holder_access_params Accessing parameters */
     ///@{
     
 	/** Finds a parameter with a specified name. */

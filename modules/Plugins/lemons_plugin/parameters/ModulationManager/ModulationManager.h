@@ -17,7 +17,7 @@ public:
 	                            LfoNamingFunc&&      namingFunc     = nullptr);
     
     
-    /** @name Accessing LFOs */
+    /** @name mod_manager_access_lfos Accessing LFOs */
     ///@{
 
 	/** Returns the LFO at the given index in the modulation manager's vector of LFOs.
@@ -44,7 +44,7 @@ public:
     ///@}
     
     
-    /** @name Adding LFOs */
+    /** @name mod_manager_add_lfos Adding LFOs */
     ///@{
 
 	LFO& addLFO();

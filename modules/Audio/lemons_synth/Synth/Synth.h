@@ -46,7 +46,7 @@ public:
     [[nodiscard]] const midi::PitchPipeline* getPitchAdjuster() { return &pitch; }
     
     
-    /** MIDI settings */
+    /** @name synth_base_midi MIDI settings */
     ///@{
 
 	void setNoteStealingEnabled (bool shouldSteal) noexcept { shouldStealNotes = shouldSteal; }
@@ -57,7 +57,7 @@ public:
     
     ///@}
     
-    /** @name Chords */
+    /** @name synth_base_chords Chords */
     ///@{
     
     void playChord (const juce::Array<int>& desiredPitches, float velocity = 1.0f, bool allowTailOffOfOld = false);
@@ -71,7 +71,7 @@ public:
     
     ///@}
     
-    /** @name Note reporting */
+    /** @name synth_base_notes Note reporting */
     ///@{
     
     [[nodiscard]] bool isPitchActive (int midiPitch, bool countRingingButReleased = false, bool countKeyUpNotes = false) const;
@@ -79,7 +79,7 @@ public:
     
     ///@}
     
-    /** @name MIDI latch */
+    /** @name synth_base_midi_latch MIDI latch */
     ///@{
 
 	void setMidiLatch (bool shouldBeOn, const bool allowTailOff = false);
@@ -87,7 +87,7 @@ public:
     
     ///@}
     
-    /** @name ADSRs */
+    /** @name synth_base_adsrs ADSRs */
     ///@{
 
 	void updateADSRsettings (float attack, float decay, float sustain, float release);
@@ -95,7 +95,7 @@ public:
     
     ///@}
     
-    /** @name MIDI pedals */
+    /** @name synth_base_midi_pedals MIDI pedals */
     ///@{
 
     [[nodiscard]] bool isSustainPedalDown() const noexcept { return midi.router.isSustainPedalDown(); }
@@ -105,7 +105,7 @@ public:
     
     ///@}
     
-    /** @name MTS-ESP */
+    /** @name synth_base_mtsesp MTS-ESP */
     ///@{
 
     [[nodiscard]] bool   isConnectedToMtsEsp() const { return pitch.tuning.isConnected(); }
@@ -113,7 +113,7 @@ public:
     
     ///@}
     
-    /** @name Pitch glide */
+    /** @name synth_base_pitch_glide Pitch glide */
     ///@{
 
 	void setPitchGlideTime (double glideTimeSeconds);

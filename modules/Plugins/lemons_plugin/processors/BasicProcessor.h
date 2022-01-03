@@ -51,7 +51,7 @@ public:
 
 protected:
     
-    /** @name Interacting with the editor */
+    /** @name basic_processor_editor_funcs Interacting with the editor */
     ///@{
     
 	/** Asynchronously calls a method of the current editor, if there is one, on the message thread.
@@ -66,7 +66,7 @@ protected:
     ///@}
     
     
-    /** @name Serializing BusesProperties */
+    /** @name buses_properties_serializing Serializing BusesProperties */
     ///@{
 
 	[[nodiscard]] static BusesProperties busesPropertiesFromValueTree (const ValueTree& tree);

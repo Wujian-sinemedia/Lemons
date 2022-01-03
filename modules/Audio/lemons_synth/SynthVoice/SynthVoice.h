@@ -25,7 +25,7 @@ public:
     
     void setTargetOutputFrequency (float newFreq);
     
-    /** @name Attribute queries */
+    /** @name synth_voice_attributes Attribute queries */
     ///@{
 
     [[nodiscard]] bool isCurrentPedalVoice() const noexcept { return isPedalPitchVoice; }
@@ -47,7 +47,7 @@ public:
 
     ///@}
     
-    /** @name Pitch glide */
+    /** @name synth_voice_pitch_glide Pitch glide */
     ///@{
 
 	void setPitchGlideTime (double glideTimeSeconds);

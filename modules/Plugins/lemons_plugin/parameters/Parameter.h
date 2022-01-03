@@ -95,7 +95,7 @@ public:
 
 
 	//==============================================================================
-    /** @name Functions for state saving and loading */
+    /** @name parameter_saving_and_loading Functions for state saving and loading */
     ///@{
 
 	/** Saves the state of this parameter to a ValueTree. */
@@ -112,7 +112,7 @@ public:
     ///@}
 
 	//==============================================================================
-    /** @name Functions for gesture state */
+    /** @name parameter_gesture_state Functions for gesture state */
     ///@{
 
 	/** Begins a change gesture for this parameter. */
@@ -127,7 +127,7 @@ public:
     ///@}
 
 	//==============================================================================
-    /** @name Functions for MIDI controller mapping */
+    /** @name parameter_midi_cc_mapping Functions for MIDI controller mapping */
     ///@{
 
 	/** Returns the number of the MIDI controller mapped to this parameter, or -1 if this parameter is unmapped. */
@@ -150,7 +150,7 @@ public:
     ///@}
 
 	//==============================================================================
-    /** @name Functions related to the default value */
+    /** @name parameter_default_value Functions related to the default value */
     ///@{
 
 	/** Sets the parameter's current value as the default value. */
@@ -182,7 +182,7 @@ public:
     ///@}
 
 	//==============================================================================
-	/** @name Functions for converting to/from text */
+	/** @name parameter_to_and_from_text Functions for converting to/from text */
     ///@{
 
 	/** Returns a textual description of a normalized value in the range 0-1.

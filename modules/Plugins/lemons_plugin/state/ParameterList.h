@@ -43,7 +43,7 @@ public:
 	Parameter& add (std::unique_ptr<Parameter> parameter);
     
     
-    /** @name Accessing parameters */
+    /** @name parameter_list_access_params Accessing parameters */
     ///@{
 
 	[[nodiscard]] ToggleParameter& getBypass() const;
@@ -77,7 +77,7 @@ public:
     ///@}
     
     
-    /** @name MIDI controller messages */
+    /** @name parameter_list_midi_cc MIDI controller messages */
     ///@{
 
 	void processControllerMessage (int number, int value);
@@ -89,7 +89,7 @@ public:
     ///@}
     
     
-    /** @name Saving and loading state */
+    /** @name parameter_list_save_load Saving and loading state */
     ///@{
 
 	[[nodiscard]] ValueTree saveToValueTree() const;
