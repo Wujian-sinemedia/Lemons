@@ -38,15 +38,51 @@ struct DefaultEngineCreator : EngineCreator
 	}
 };
 
-#define LEMONS_CREATE_DEFAULT_ENGINE_FACTORY(TemplateClassName, typeIDstring)                                     \
-  struct TemplateClassName##_creator final : public lemons::dsp::factory::DefaultEngineCreator<TemplateClassName> \
-  {                                                                                                               \
-	explicit TemplateClassName##_creator()                                                                        \
-		: DefaultEngineCreator<TemplateClassName> (typeIDstring)                                                  \
-	{                                                                                                             \
-	}                                                                                                             \
-  };                                                                                                              \
-  static const TemplateClassName##_creator TemplateClassName##_creation_object;
+
+template <template <typename SampleType> class EngineType, typename... Args>
+struct ArgumentsEngineCreator : EngineCreator
+{
+	explicit ArgumentsEngineCreator (const String& typeIDtoUse, Args&&... args)
+	    : EngineCreator ([=]()
+	                     { return std::make_unique<EngineType<float>> (std::forward<Args> (args)...); },
+	                     [=]()
+	                     { return std::make_unique<EngineType<double>> (std::forward<Args> (args)...); },
+	                     typeIDtoUse)
+	{
+	}
+};
+
+
+#if LEMONS_DSP_ENGINE_FACTORY
+
+#  define LEMONS_CREATE_DEFAULT_ENGINE_FACTORY(TemplateClassName, typeIDstring)                                     \
+	struct TemplateClassName##_creator final : public lemons::dsp::factory::DefaultEngineCreator<TemplateClassName> \
+	{                                                                                                               \
+	  explicit TemplateClassName##_creator()                                                                        \
+		  : DefaultEngineCreator<TemplateClassName> (typeIDstring)                                                  \
+	  {                                                                                                             \
+	  }                                                                                                             \
+	};                                                                                                              \
+	static const TemplateClassName##_creator TemplateClassName##_creation_object;
+
+
+#  define LEMONS_CREATE_ARGUMENT_ENGINE_FACTORY(TemplateClassName, typeIDstring, ...)                                   \
+	struct TemplateClassName##_creator final : public ArgumentsEngineCreator<TemplateClassName, decltype (__VA_ARGS__)> \
+	{                                                                                                                   \
+	  explicit TemplateClassName##_creator()                                                                            \
+		  : ArgumentsEngineCreator<TemplateClassName, decltype (__VA_ARGS__)> (typeIDstring, __VA_ARGS__)               \
+	  {                                                                                                                 \
+	  }                                                                                                                 \
+	};                                                                                                                  \
+	static const TemplateClassName##_creator TemplateClassName##_creation_object;
+
+#else
+
+#  define LEMONS_CREATE_DEFAULT_ENGINE_FACTORY(TemplateClassName, typeIDstring)
+
+#  define LEMONS_CREATE_ARGUMENT_ENGINE_FACTORY(TemplateClassName, typeIDstring, ...)
+
+#endif
 
 
 template <typename SampleType>

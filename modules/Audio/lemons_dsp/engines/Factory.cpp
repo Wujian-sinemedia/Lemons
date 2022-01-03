@@ -3,7 +3,7 @@ namespace lemons::dsp::factory
 
 
 template <typename SampleType>
-static std::map<String, CreationFunc<SampleType>>& getEngineBank()
+std::map<String, CreationFunc<SampleType>>& getEngineBank()
 {
 	static std::map<String, CreationFunc<SampleType>> engines;
 
@@ -19,7 +19,11 @@ void registerEngine (CreationFunc<SampleType> func, const String& typeID)
 {
 	auto& engines = getEngineBank<SampleType>();
 
-	jassert (engines.find (typeID) == engines.end());
+	if (engines.find (typeID) != engines.end())
+	{
+		DBG ("Duplicate engine TypeID: " << typeID);
+		return;
+	}
 
 	engines.emplace (std::make_pair (typeID, func));
 }
@@ -32,8 +36,8 @@ EngineCreator::EngineCreator (const CreationFunc<float>&  floatFunc,
                               const CreationFunc<double>& doubleFunc,
                               const String&               typeID)
 {
-	registerEngine (floatFunc, typeID);
-	registerEngine (doubleFunc, typeID);
+	registerEngine<float> (floatFunc, typeID);
+	registerEngine<double> (doubleFunc, typeID);
 }
 
 

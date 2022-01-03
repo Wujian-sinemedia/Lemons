@@ -74,6 +74,4 @@ private:
 };
 
 
-LEMONS_CREATE_DEFAULT_ENGINE_FACTORY(ChoosableOscillator, "ChoosableOscillator")
-
 }  // namespace lemons::dsp::osc

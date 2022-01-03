@@ -241,4 +241,7 @@ bool EngineChain<SampleType>::removeNode (int index)
 template class EngineChain<float>;
 template class EngineChain<double>;
 
+
+LEMONS_CREATE_DEFAULT_ENGINE_FACTORY (EngineChain, "EngineChain")
+
 }  // namespace lemons::dsp
