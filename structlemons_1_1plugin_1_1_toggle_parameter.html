@@ -155,14 +155,14 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a4fd0b7b94418f9101ded10541e67c3d2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#a4fd0b7b94418f9101ded10541e67c3d2">setNormalizedValue</a> (float value)</td></tr>
 <tr class="memdesc:a4fd0b7b94418f9101ded10541e67c3d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the parameter's value, in a normalized 0-1 range.  <a href="classlemons_1_1plugin_1_1_parameter.html#a4fd0b7b94418f9101ded10541e67c3d2">More...</a><br /></td></tr>
 <tr class="separator:a4fd0b7b94418f9101ded10541e67c3d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">Functions for state saving and loading</div></td></tr>
+<tr><td colspan="2"><div class="groupHeader">parameter_saving_and_loading Functions for state saving and loading</div></td></tr>
 <tr class="memitem:a421551f74a17bc31fa3488aae8407a4c"><td class="memItemLeft" align="right" valign="top">virtual ValueTree&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#a421551f74a17bc31fa3488aae8407a4c">saveToValueTree</a> () const</td></tr>
 <tr class="memdesc:a421551f74a17bc31fa3488aae8407a4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Saves the state of this parameter to a ValueTree.  <a href="classlemons_1_1plugin_1_1_parameter.html#a421551f74a17bc31fa3488aae8407a4c">More...</a><br /></td></tr>
 <tr class="separator:a421551f74a17bc31fa3488aae8407a4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6707d107c3f255f06510597c5b36431e"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="structlemons_1_1plugin_1_1_parameter_traits.html">ParameterTraits</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#a6707d107c3f255f06510597c5b36431e">getParameterTraits</a> () const</td></tr>
 <tr class="memdesc:a6707d107c3f255f06510597c5b36431e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a <a class="el" href="structlemons_1_1plugin_1_1_parameter_traits.html">ParameterTraits</a> object representing this parameter.  <a href="classlemons_1_1plugin_1_1_parameter.html#a6707d107c3f255f06510597c5b36431e">More...</a><br /></td></tr>
 <tr class="separator:a6707d107c3f255f06510597c5b36431e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">Functions for gesture state</div></td></tr>
+<tr><td colspan="2"><div class="groupHeader">parameter_gesture_state Functions for gesture state</div></td></tr>
 <tr class="memitem:ab401bba2feb1c21a43c9e1ebb0e9089e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#ab401bba2feb1c21a43c9e1ebb0e9089e">beginGesture</a> ()</td></tr>
 <tr class="memdesc:ab401bba2feb1c21a43c9e1ebb0e9089e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Begins a change gesture for this parameter.  <a href="classlemons_1_1plugin_1_1_parameter.html#ab401bba2feb1c21a43c9e1ebb0e9089e">More...</a><br /></td></tr>
 <tr class="separator:ab401bba2feb1c21a43c9e1ebb0e9089e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -172,7 +172,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a89a3783fca20082cb1ded6ec34a60fcd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#a89a3783fca20082cb1ded6ec34a60fcd">isChanging</a> () const noexcept</td></tr>
 <tr class="memdesc:a89a3783fca20082cb1ded6ec34a60fcd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if this parameter is currently in the middle of a change gesture.  <a href="classlemons_1_1plugin_1_1_parameter.html#a89a3783fca20082cb1ded6ec34a60fcd">More...</a><br /></td></tr>
 <tr class="separator:a89a3783fca20082cb1ded6ec34a60fcd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">Functions for MIDI controller mapping</div></td></tr>
+<tr><td colspan="2"><div class="groupHeader">parameter_midi_cc_mapping Functions for MIDI controller mapping</div></td></tr>
 <tr class="memitem:ae04873e41210558565f97b2a98a5a621"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#ae04873e41210558565f97b2a98a5a621">getMidiControllerNumber</a> () const noexcept</td></tr>
 <tr class="memdesc:ae04873e41210558565f97b2a98a5a621"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of the MIDI controller mapped to this parameter, or -1 if this parameter is unmapped.  <a href="classlemons_1_1plugin_1_1_parameter.html#ae04873e41210558565f97b2a98a5a621">More...</a><br /></td></tr>
 <tr class="separator:ae04873e41210558565f97b2a98a5a621"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -188,7 +188,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:af4b036bf5f1e1dcb75d3289ccf3f8f5b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#af4b036bf5f1e1dcb75d3289ccf3f8f5b">processNewControllerMessage</a> (int controllerNumber, int controllerValue)</td></tr>
 <tr class="memdesc:af4b036bf5f1e1dcb75d3289ccf3f8f5b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Call this function with each MIDI CC message your plugin recieves, and the <a class="el" href="classlemons_1_1plugin_1_1_parameter.html">Parameter</a> class will automatically update itself with changes in the appropriate controller, if a mapping is active.  <a href="classlemons_1_1plugin_1_1_parameter.html#af4b036bf5f1e1dcb75d3289ccf3f8f5b">More...</a><br /></td></tr>
 <tr class="separator:af4b036bf5f1e1dcb75d3289ccf3f8f5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">Functions related to the default value</div></td></tr>
+<tr><td colspan="2"><div class="groupHeader">parameter_default_value Functions related to the default value</div></td></tr>
 <tr class="memitem:a06ee7850537979ed797fbe016f8700b5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#a06ee7850537979ed797fbe016f8700b5">refreshDefault</a> ()</td></tr>
 <tr class="memdesc:a06ee7850537979ed797fbe016f8700b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the parameter's current value as the default value.  <a href="classlemons_1_1plugin_1_1_parameter.html#a06ee7850537979ed797fbe016f8700b5">More...</a><br /></td></tr>
 <tr class="separator:a06ee7850537979ed797fbe016f8700b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -207,7 +207,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:afa210c9638d5fc5e09f8e659eb41c120"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#afa210c9638d5fc5e09f8e659eb41c120">setDenormalizedDefault</a> (float value)</td></tr>
 <tr class="memdesc:afa210c9638d5fc5e09f8e659eb41c120"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the parameter's default, in the parameter's denormalized range.  <a href="classlemons_1_1plugin_1_1_parameter.html#afa210c9638d5fc5e09f8e659eb41c120">More...</a><br /></td></tr>
 <tr class="separator:afa210c9638d5fc5e09f8e659eb41c120"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">Functions for converting to/from text</div></td></tr>
+<tr><td colspan="2"><div class="groupHeader">parameter_to_and_from_text Functions for converting to/from text</div></td></tr>
 <tr class="memitem:a07202aa895f5c0e7a49dba3ffb5e275e"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#a07202aa895f5c0e7a49dba3ffb5e275e">getTextForNormalizedValue</a> (float value) const</td></tr>
 <tr class="memdesc:a07202aa895f5c0e7a49dba3ffb5e275e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a textual description of a normalized value in the range 0-1.  <a href="classlemons_1_1plugin_1_1_parameter.html#a07202aa895f5c0e7a49dba3ffb5e275e">More...</a><br /></td></tr>
 <tr class="separator:a07202aa895f5c0e7a49dba3ffb5e275e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -223,7 +223,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aebe3716f130dedf9f217a8b19cb84d1b"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#aebe3716f130dedf9f217a8b19cb84d1b">getTextForMin</a> () const</td></tr>
 <tr class="memdesc:aebe3716f130dedf9f217a8b19cb84d1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a textual description of the parameter's minimum value.  <a href="classlemons_1_1plugin_1_1_parameter.html#aebe3716f130dedf9f217a8b19cb84d1b">More...</a><br /></td></tr>
 <tr class="separator:aebe3716f130dedf9f217a8b19cb84d1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">Functions for gesture state</div></td></tr>
+<tr><td colspan="2"><div class="groupHeader">parameter_gesture_state Functions for gesture state</div></td></tr>
 <tr class="memitem:ab401bba2feb1c21a43c9e1ebb0e9089e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#ab401bba2feb1c21a43c9e1ebb0e9089e">beginGesture</a> ()</td></tr>
 <tr class="memdesc:ab401bba2feb1c21a43c9e1ebb0e9089e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Begins a change gesture for this parameter.  <a href="classlemons_1_1plugin_1_1_parameter.html#ab401bba2feb1c21a43c9e1ebb0e9089e">More...</a><br /></td></tr>
 <tr class="separator:ab401bba2feb1c21a43c9e1ebb0e9089e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -233,7 +233,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a89a3783fca20082cb1ded6ec34a60fcd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#a89a3783fca20082cb1ded6ec34a60fcd">isChanging</a> () const noexcept</td></tr>
 <tr class="memdesc:a89a3783fca20082cb1ded6ec34a60fcd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if this parameter is currently in the middle of a change gesture.  <a href="classlemons_1_1plugin_1_1_parameter.html#a89a3783fca20082cb1ded6ec34a60fcd">More...</a><br /></td></tr>
 <tr class="separator:a89a3783fca20082cb1ded6ec34a60fcd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">Functions for MIDI controller mapping</div></td></tr>
+<tr><td colspan="2"><div class="groupHeader">parameter_midi_cc_mapping Functions for MIDI controller mapping</div></td></tr>
 <tr class="memitem:ae04873e41210558565f97b2a98a5a621"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#ae04873e41210558565f97b2a98a5a621">getMidiControllerNumber</a> () const noexcept</td></tr>
 <tr class="memdesc:ae04873e41210558565f97b2a98a5a621"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of the MIDI controller mapped to this parameter, or -1 if this parameter is unmapped.  <a href="classlemons_1_1plugin_1_1_parameter.html#ae04873e41210558565f97b2a98a5a621">More...</a><br /></td></tr>
 <tr class="separator:ae04873e41210558565f97b2a98a5a621"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -249,7 +249,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:af4b036bf5f1e1dcb75d3289ccf3f8f5b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#af4b036bf5f1e1dcb75d3289ccf3f8f5b">processNewControllerMessage</a> (int controllerNumber, int controllerValue)</td></tr>
 <tr class="memdesc:af4b036bf5f1e1dcb75d3289ccf3f8f5b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Call this function with each MIDI CC message your plugin recieves, and the <a class="el" href="classlemons_1_1plugin_1_1_parameter.html">Parameter</a> class will automatically update itself with changes in the appropriate controller, if a mapping is active.  <a href="classlemons_1_1plugin_1_1_parameter.html#af4b036bf5f1e1dcb75d3289ccf3f8f5b">More...</a><br /></td></tr>
 <tr class="separator:af4b036bf5f1e1dcb75d3289ccf3f8f5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">Functions related to the default value</div></td></tr>
+<tr><td colspan="2"><div class="groupHeader">parameter_default_value Functions related to the default value</div></td></tr>
 <tr class="memitem:a06ee7850537979ed797fbe016f8700b5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#a06ee7850537979ed797fbe016f8700b5">refreshDefault</a> ()</td></tr>
 <tr class="memdesc:a06ee7850537979ed797fbe016f8700b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the parameter's current value as the default value.  <a href="classlemons_1_1plugin_1_1_parameter.html#a06ee7850537979ed797fbe016f8700b5">More...</a><br /></td></tr>
 <tr class="separator:a06ee7850537979ed797fbe016f8700b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -268,7 +268,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:afa210c9638d5fc5e09f8e659eb41c120"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#afa210c9638d5fc5e09f8e659eb41c120">setDenormalizedDefault</a> (float value)</td></tr>
 <tr class="memdesc:afa210c9638d5fc5e09f8e659eb41c120"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the parameter's default, in the parameter's denormalized range.  <a href="classlemons_1_1plugin_1_1_parameter.html#afa210c9638d5fc5e09f8e659eb41c120">More...</a><br /></td></tr>
 <tr class="separator:afa210c9638d5fc5e09f8e659eb41c120"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">Functions for converting to/from text</div></td></tr>
+<tr><td colspan="2"><div class="groupHeader">parameter_to_and_from_text Functions for converting to/from text</div></td></tr>
 <tr class="memitem:a07202aa895f5c0e7a49dba3ffb5e275e"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#a07202aa895f5c0e7a49dba3ffb5e275e">getTextForNormalizedValue</a> (float value) const</td></tr>
 <tr class="memdesc:a07202aa895f5c0e7a49dba3ffb5e275e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a textual description of a normalized value in the range 0-1.  <a href="classlemons_1_1plugin_1_1_parameter.html#a07202aa895f5c0e7a49dba3ffb5e275e">More...</a><br /></td></tr>
 <tr class="separator:a07202aa895f5c0e7a49dba3ffb5e275e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -284,14 +284,14 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aebe3716f130dedf9f217a8b19cb84d1b"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#aebe3716f130dedf9f217a8b19cb84d1b">getTextForMin</a> () const</td></tr>
 <tr class="memdesc:aebe3716f130dedf9f217a8b19cb84d1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a textual description of the parameter's minimum value.  <a href="classlemons_1_1plugin_1_1_parameter.html#aebe3716f130dedf9f217a8b19cb84d1b">More...</a><br /></td></tr>
 <tr class="separator:aebe3716f130dedf9f217a8b19cb84d1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">Functions for state saving and loading</div></td></tr>
+<tr><td colspan="2"><div class="groupHeader">parameter_saving_and_loading Functions for state saving and loading</div></td></tr>
 <tr class="memitem:a421551f74a17bc31fa3488aae8407a4c"><td class="memItemLeft" align="right" valign="top">virtual ValueTree&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#a421551f74a17bc31fa3488aae8407a4c">saveToValueTree</a> () const</td></tr>
 <tr class="memdesc:a421551f74a17bc31fa3488aae8407a4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Saves the state of this parameter to a ValueTree.  <a href="classlemons_1_1plugin_1_1_parameter.html#a421551f74a17bc31fa3488aae8407a4c">More...</a><br /></td></tr>
 <tr class="separator:a421551f74a17bc31fa3488aae8407a4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6707d107c3f255f06510597c5b36431e"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="structlemons_1_1plugin_1_1_parameter_traits.html">ParameterTraits</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#a6707d107c3f255f06510597c5b36431e">getParameterTraits</a> () const</td></tr>
 <tr class="memdesc:a6707d107c3f255f06510597c5b36431e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a <a class="el" href="structlemons_1_1plugin_1_1_parameter_traits.html">ParameterTraits</a> object representing this parameter.  <a href="classlemons_1_1plugin_1_1_parameter.html#a6707d107c3f255f06510597c5b36431e">More...</a><br /></td></tr>
 <tr class="separator:a6707d107c3f255f06510597c5b36431e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">Functions for gesture state</div></td></tr>
+<tr><td colspan="2"><div class="groupHeader">parameter_gesture_state Functions for gesture state</div></td></tr>
 <tr class="memitem:ab401bba2feb1c21a43c9e1ebb0e9089e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#ab401bba2feb1c21a43c9e1ebb0e9089e">beginGesture</a> ()</td></tr>
 <tr class="memdesc:ab401bba2feb1c21a43c9e1ebb0e9089e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Begins a change gesture for this parameter.  <a href="classlemons_1_1plugin_1_1_parameter.html#ab401bba2feb1c21a43c9e1ebb0e9089e">More...</a><br /></td></tr>
 <tr class="separator:ab401bba2feb1c21a43c9e1ebb0e9089e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -301,7 +301,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a89a3783fca20082cb1ded6ec34a60fcd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#a89a3783fca20082cb1ded6ec34a60fcd">isChanging</a> () const noexcept</td></tr>
 <tr class="memdesc:a89a3783fca20082cb1ded6ec34a60fcd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if this parameter is currently in the middle of a change gesture.  <a href="classlemons_1_1plugin_1_1_parameter.html#a89a3783fca20082cb1ded6ec34a60fcd">More...</a><br /></td></tr>
 <tr class="separator:a89a3783fca20082cb1ded6ec34a60fcd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">Functions for MIDI controller mapping</div></td></tr>
+<tr><td colspan="2"><div class="groupHeader">parameter_midi_cc_mapping Functions for MIDI controller mapping</div></td></tr>
 <tr class="memitem:ae04873e41210558565f97b2a98a5a621"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#ae04873e41210558565f97b2a98a5a621">getMidiControllerNumber</a> () const noexcept</td></tr>
 <tr class="memdesc:ae04873e41210558565f97b2a98a5a621"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of the MIDI controller mapped to this parameter, or -1 if this parameter is unmapped.  <a href="classlemons_1_1plugin_1_1_parameter.html#ae04873e41210558565f97b2a98a5a621">More...</a><br /></td></tr>
 <tr class="separator:ae04873e41210558565f97b2a98a5a621"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -317,7 +317,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:af4b036bf5f1e1dcb75d3289ccf3f8f5b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#af4b036bf5f1e1dcb75d3289ccf3f8f5b">processNewControllerMessage</a> (int controllerNumber, int controllerValue)</td></tr>
 <tr class="memdesc:af4b036bf5f1e1dcb75d3289ccf3f8f5b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Call this function with each MIDI CC message your plugin recieves, and the <a class="el" href="classlemons_1_1plugin_1_1_parameter.html">Parameter</a> class will automatically update itself with changes in the appropriate controller, if a mapping is active.  <a href="classlemons_1_1plugin_1_1_parameter.html#af4b036bf5f1e1dcb75d3289ccf3f8f5b">More...</a><br /></td></tr>
 <tr class="separator:af4b036bf5f1e1dcb75d3289ccf3f8f5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">Functions related to the default value</div></td></tr>
+<tr><td colspan="2"><div class="groupHeader">parameter_default_value Functions related to the default value</div></td></tr>
 <tr class="memitem:a06ee7850537979ed797fbe016f8700b5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#a06ee7850537979ed797fbe016f8700b5">refreshDefault</a> ()</td></tr>
 <tr class="memdesc:a06ee7850537979ed797fbe016f8700b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the parameter's current value as the default value.  <a href="classlemons_1_1plugin_1_1_parameter.html#a06ee7850537979ed797fbe016f8700b5">More...</a><br /></td></tr>
 <tr class="separator:a06ee7850537979ed797fbe016f8700b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -336,7 +336,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:afa210c9638d5fc5e09f8e659eb41c120"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#afa210c9638d5fc5e09f8e659eb41c120">setDenormalizedDefault</a> (float value)</td></tr>
 <tr class="memdesc:afa210c9638d5fc5e09f8e659eb41c120"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the parameter's default, in the parameter's denormalized range.  <a href="classlemons_1_1plugin_1_1_parameter.html#afa210c9638d5fc5e09f8e659eb41c120">More...</a><br /></td></tr>
 <tr class="separator:afa210c9638d5fc5e09f8e659eb41c120"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">Functions for converting to/from text</div></td></tr>
+<tr><td colspan="2"><div class="groupHeader">parameter_to_and_from_text Functions for converting to/from text</div></td></tr>
 <tr class="memitem:a07202aa895f5c0e7a49dba3ffb5e275e"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#a07202aa895f5c0e7a49dba3ffb5e275e">getTextForNormalizedValue</a> (float value) const</td></tr>
 <tr class="memdesc:a07202aa895f5c0e7a49dba3ffb5e275e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a textual description of a normalized value in the range 0-1.  <a href="classlemons_1_1plugin_1_1_parameter.html#a07202aa895f5c0e7a49dba3ffb5e275e">More...</a><br /></td></tr>
 <tr class="separator:a07202aa895f5c0e7a49dba3ffb5e275e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -352,14 +352,14 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aebe3716f130dedf9f217a8b19cb84d1b"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#aebe3716f130dedf9f217a8b19cb84d1b">getTextForMin</a> () const</td></tr>
 <tr class="memdesc:aebe3716f130dedf9f217a8b19cb84d1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a textual description of the parameter's minimum value.  <a href="classlemons_1_1plugin_1_1_parameter.html#aebe3716f130dedf9f217a8b19cb84d1b">More...</a><br /></td></tr>
 <tr class="separator:aebe3716f130dedf9f217a8b19cb84d1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">Functions for state saving and loading</div></td></tr>
+<tr><td colspan="2"><div class="groupHeader">parameter_saving_and_loading Functions for state saving and loading</div></td></tr>
 <tr class="memitem:a421551f74a17bc31fa3488aae8407a4c"><td class="memItemLeft" align="right" valign="top">virtual ValueTree&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#a421551f74a17bc31fa3488aae8407a4c">saveToValueTree</a> () const</td></tr>
 <tr class="memdesc:a421551f74a17bc31fa3488aae8407a4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Saves the state of this parameter to a ValueTree.  <a href="classlemons_1_1plugin_1_1_parameter.html#a421551f74a17bc31fa3488aae8407a4c">More...</a><br /></td></tr>
 <tr class="separator:a421551f74a17bc31fa3488aae8407a4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6707d107c3f255f06510597c5b36431e"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="structlemons_1_1plugin_1_1_parameter_traits.html">ParameterTraits</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#a6707d107c3f255f06510597c5b36431e">getParameterTraits</a> () const</td></tr>
 <tr class="memdesc:a6707d107c3f255f06510597c5b36431e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a <a class="el" href="structlemons_1_1plugin_1_1_parameter_traits.html">ParameterTraits</a> object representing this parameter.  <a href="classlemons_1_1plugin_1_1_parameter.html#a6707d107c3f255f06510597c5b36431e">More...</a><br /></td></tr>
 <tr class="separator:a6707d107c3f255f06510597c5b36431e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">Functions for gesture state</div></td></tr>
+<tr><td colspan="2"><div class="groupHeader">parameter_gesture_state Functions for gesture state</div></td></tr>
 <tr class="memitem:ab401bba2feb1c21a43c9e1ebb0e9089e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#ab401bba2feb1c21a43c9e1ebb0e9089e">beginGesture</a> ()</td></tr>
 <tr class="memdesc:ab401bba2feb1c21a43c9e1ebb0e9089e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Begins a change gesture for this parameter.  <a href="classlemons_1_1plugin_1_1_parameter.html#ab401bba2feb1c21a43c9e1ebb0e9089e">More...</a><br /></td></tr>
 <tr class="separator:ab401bba2feb1c21a43c9e1ebb0e9089e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -369,7 +369,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a89a3783fca20082cb1ded6ec34a60fcd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#a89a3783fca20082cb1ded6ec34a60fcd">isChanging</a> () const noexcept</td></tr>
 <tr class="memdesc:a89a3783fca20082cb1ded6ec34a60fcd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if this parameter is currently in the middle of a change gesture.  <a href="classlemons_1_1plugin_1_1_parameter.html#a89a3783fca20082cb1ded6ec34a60fcd">More...</a><br /></td></tr>
 <tr class="separator:a89a3783fca20082cb1ded6ec34a60fcd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">Functions for MIDI controller mapping</div></td></tr>
+<tr><td colspan="2"><div class="groupHeader">parameter_midi_cc_mapping Functions for MIDI controller mapping</div></td></tr>
 <tr class="memitem:ae04873e41210558565f97b2a98a5a621"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#ae04873e41210558565f97b2a98a5a621">getMidiControllerNumber</a> () const noexcept</td></tr>
 <tr class="memdesc:ae04873e41210558565f97b2a98a5a621"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of the MIDI controller mapped to this parameter, or -1 if this parameter is unmapped.  <a href="classlemons_1_1plugin_1_1_parameter.html#ae04873e41210558565f97b2a98a5a621">More...</a><br /></td></tr>
 <tr class="separator:ae04873e41210558565f97b2a98a5a621"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -385,7 +385,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:af4b036bf5f1e1dcb75d3289ccf3f8f5b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#af4b036bf5f1e1dcb75d3289ccf3f8f5b">processNewControllerMessage</a> (int controllerNumber, int controllerValue)</td></tr>
 <tr class="memdesc:af4b036bf5f1e1dcb75d3289ccf3f8f5b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Call this function with each MIDI CC message your plugin recieves, and the <a class="el" href="classlemons_1_1plugin_1_1_parameter.html">Parameter</a> class will automatically update itself with changes in the appropriate controller, if a mapping is active.  <a href="classlemons_1_1plugin_1_1_parameter.html#af4b036bf5f1e1dcb75d3289ccf3f8f5b">More...</a><br /></td></tr>
 <tr class="separator:af4b036bf5f1e1dcb75d3289ccf3f8f5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">Functions related to the default value</div></td></tr>
+<tr><td colspan="2"><div class="groupHeader">parameter_default_value Functions related to the default value</div></td></tr>
 <tr class="memitem:a06ee7850537979ed797fbe016f8700b5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#a06ee7850537979ed797fbe016f8700b5">refreshDefault</a> ()</td></tr>
 <tr class="memdesc:a06ee7850537979ed797fbe016f8700b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the parameter's current value as the default value.  <a href="classlemons_1_1plugin_1_1_parameter.html#a06ee7850537979ed797fbe016f8700b5">More...</a><br /></td></tr>
 <tr class="separator:a06ee7850537979ed797fbe016f8700b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -404,7 +404,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:afa210c9638d5fc5e09f8e659eb41c120"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#afa210c9638d5fc5e09f8e659eb41c120">setDenormalizedDefault</a> (float value)</td></tr>
 <tr class="memdesc:afa210c9638d5fc5e09f8e659eb41c120"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the parameter's default, in the parameter's denormalized range.  <a href="classlemons_1_1plugin_1_1_parameter.html#afa210c9638d5fc5e09f8e659eb41c120">More...</a><br /></td></tr>
 <tr class="separator:afa210c9638d5fc5e09f8e659eb41c120"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">Functions for converting to/from text</div></td></tr>
+<tr><td colspan="2"><div class="groupHeader">parameter_to_and_from_text Functions for converting to/from text</div></td></tr>
 <tr class="memitem:a07202aa895f5c0e7a49dba3ffb5e275e"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#a07202aa895f5c0e7a49dba3ffb5e275e">getTextForNormalizedValue</a> (float value) const</td></tr>
 <tr class="memdesc:a07202aa895f5c0e7a49dba3ffb5e275e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a textual description of a normalized value in the range 0-1.  <a href="classlemons_1_1plugin_1_1_parameter.html#a07202aa895f5c0e7a49dba3ffb5e275e">More...</a><br /></td></tr>
 <tr class="separator:a07202aa895f5c0e7a49dba3ffb5e275e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -420,14 +420,14 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aebe3716f130dedf9f217a8b19cb84d1b"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#aebe3716f130dedf9f217a8b19cb84d1b">getTextForMin</a> () const</td></tr>
 <tr class="memdesc:aebe3716f130dedf9f217a8b19cb84d1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a textual description of the parameter's minimum value.  <a href="classlemons_1_1plugin_1_1_parameter.html#aebe3716f130dedf9f217a8b19cb84d1b">More...</a><br /></td></tr>
 <tr class="separator:aebe3716f130dedf9f217a8b19cb84d1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">Functions for state saving and loading</div></td></tr>
+<tr><td colspan="2"><div class="groupHeader">parameter_saving_and_loading Functions for state saving and loading</div></td></tr>
 <tr class="memitem:a421551f74a17bc31fa3488aae8407a4c"><td class="memItemLeft" align="right" valign="top">virtual ValueTree&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#a421551f74a17bc31fa3488aae8407a4c">saveToValueTree</a> () const</td></tr>
 <tr class="memdesc:a421551f74a17bc31fa3488aae8407a4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Saves the state of this parameter to a ValueTree.  <a href="classlemons_1_1plugin_1_1_parameter.html#a421551f74a17bc31fa3488aae8407a4c">More...</a><br /></td></tr>
 <tr class="separator:a421551f74a17bc31fa3488aae8407a4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6707d107c3f255f06510597c5b36431e"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="structlemons_1_1plugin_1_1_parameter_traits.html">ParameterTraits</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#a6707d107c3f255f06510597c5b36431e">getParameterTraits</a> () const</td></tr>
 <tr class="memdesc:a6707d107c3f255f06510597c5b36431e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a <a class="el" href="structlemons_1_1plugin_1_1_parameter_traits.html">ParameterTraits</a> object representing this parameter.  <a href="classlemons_1_1plugin_1_1_parameter.html#a6707d107c3f255f06510597c5b36431e">More...</a><br /></td></tr>
 <tr class="separator:a6707d107c3f255f06510597c5b36431e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">Functions for gesture state</div></td></tr>
+<tr><td colspan="2"><div class="groupHeader">parameter_gesture_state Functions for gesture state</div></td></tr>
 <tr class="memitem:ab401bba2feb1c21a43c9e1ebb0e9089e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#ab401bba2feb1c21a43c9e1ebb0e9089e">beginGesture</a> ()</td></tr>
 <tr class="memdesc:ab401bba2feb1c21a43c9e1ebb0e9089e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Begins a change gesture for this parameter.  <a href="classlemons_1_1plugin_1_1_parameter.html#ab401bba2feb1c21a43c9e1ebb0e9089e">More...</a><br /></td></tr>
 <tr class="separator:ab401bba2feb1c21a43c9e1ebb0e9089e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -437,7 +437,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a89a3783fca20082cb1ded6ec34a60fcd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#a89a3783fca20082cb1ded6ec34a60fcd">isChanging</a> () const noexcept</td></tr>
 <tr class="memdesc:a89a3783fca20082cb1ded6ec34a60fcd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if this parameter is currently in the middle of a change gesture.  <a href="classlemons_1_1plugin_1_1_parameter.html#a89a3783fca20082cb1ded6ec34a60fcd">More...</a><br /></td></tr>
 <tr class="separator:a89a3783fca20082cb1ded6ec34a60fcd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">Functions for MIDI controller mapping</div></td></tr>
+<tr><td colspan="2"><div class="groupHeader">parameter_midi_cc_mapping Functions for MIDI controller mapping</div></td></tr>
 <tr class="memitem:ae04873e41210558565f97b2a98a5a621"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#ae04873e41210558565f97b2a98a5a621">getMidiControllerNumber</a> () const noexcept</td></tr>
 <tr class="memdesc:ae04873e41210558565f97b2a98a5a621"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of the MIDI controller mapped to this parameter, or -1 if this parameter is unmapped.  <a href="classlemons_1_1plugin_1_1_parameter.html#ae04873e41210558565f97b2a98a5a621">More...</a><br /></td></tr>
 <tr class="separator:ae04873e41210558565f97b2a98a5a621"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -453,7 +453,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:af4b036bf5f1e1dcb75d3289ccf3f8f5b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#af4b036bf5f1e1dcb75d3289ccf3f8f5b">processNewControllerMessage</a> (int controllerNumber, int controllerValue)</td></tr>
 <tr class="memdesc:af4b036bf5f1e1dcb75d3289ccf3f8f5b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Call this function with each MIDI CC message your plugin recieves, and the <a class="el" href="classlemons_1_1plugin_1_1_parameter.html">Parameter</a> class will automatically update itself with changes in the appropriate controller, if a mapping is active.  <a href="classlemons_1_1plugin_1_1_parameter.html#af4b036bf5f1e1dcb75d3289ccf3f8f5b">More...</a><br /></td></tr>
 <tr class="separator:af4b036bf5f1e1dcb75d3289ccf3f8f5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">Functions related to the default value</div></td></tr>
+<tr><td colspan="2"><div class="groupHeader">parameter_default_value Functions related to the default value</div></td></tr>
 <tr class="memitem:a06ee7850537979ed797fbe016f8700b5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#a06ee7850537979ed797fbe016f8700b5">refreshDefault</a> ()</td></tr>
 <tr class="memdesc:a06ee7850537979ed797fbe016f8700b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the parameter's current value as the default value.  <a href="classlemons_1_1plugin_1_1_parameter.html#a06ee7850537979ed797fbe016f8700b5">More...</a><br /></td></tr>
 <tr class="separator:a06ee7850537979ed797fbe016f8700b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -472,7 +472,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:afa210c9638d5fc5e09f8e659eb41c120"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#afa210c9638d5fc5e09f8e659eb41c120">setDenormalizedDefault</a> (float value)</td></tr>
 <tr class="memdesc:afa210c9638d5fc5e09f8e659eb41c120"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the parameter's default, in the parameter's denormalized range.  <a href="classlemons_1_1plugin_1_1_parameter.html#afa210c9638d5fc5e09f8e659eb41c120">More...</a><br /></td></tr>
 <tr class="separator:afa210c9638d5fc5e09f8e659eb41c120"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">Functions for converting to/from text</div></td></tr>
+<tr><td colspan="2"><div class="groupHeader">parameter_to_and_from_text Functions for converting to/from text</div></td></tr>
 <tr class="memitem:a07202aa895f5c0e7a49dba3ffb5e275e"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#a07202aa895f5c0e7a49dba3ffb5e275e">getTextForNormalizedValue</a> (float value) const</td></tr>
 <tr class="memdesc:a07202aa895f5c0e7a49dba3ffb5e275e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a textual description of a normalized value in the range 0-1.  <a href="classlemons_1_1plugin_1_1_parameter.html#a07202aa895f5c0e7a49dba3ffb5e275e">More...</a><br /></td></tr>
 <tr class="separator:a07202aa895f5c0e7a49dba3ffb5e275e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -488,11 +488,11 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aebe3716f130dedf9f217a8b19cb84d1b"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#aebe3716f130dedf9f217a8b19cb84d1b">getTextForMin</a> () const</td></tr>
 <tr class="memdesc:aebe3716f130dedf9f217a8b19cb84d1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a textual description of the parameter's minimum value.  <a href="classlemons_1_1plugin_1_1_parameter.html#aebe3716f130dedf9f217a8b19cb84d1b">More...</a><br /></td></tr>
 <tr class="separator:aebe3716f130dedf9f217a8b19cb84d1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">Functions for state saving and loading</div></td></tr>
+<tr><td colspan="2"><div class="groupHeader">parameter_saving_and_loading Functions for state saving and loading</div></td></tr>
 <tr class="memitem:a6707d107c3f255f06510597c5b36431e"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="structlemons_1_1plugin_1_1_parameter_traits.html">ParameterTraits</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#a6707d107c3f255f06510597c5b36431e">getParameterTraits</a> () const</td></tr>
 <tr class="memdesc:a6707d107c3f255f06510597c5b36431e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a <a class="el" href="structlemons_1_1plugin_1_1_parameter_traits.html">ParameterTraits</a> object representing this parameter.  <a href="classlemons_1_1plugin_1_1_parameter.html#a6707d107c3f255f06510597c5b36431e">More...</a><br /></td></tr>
 <tr class="separator:a6707d107c3f255f06510597c5b36431e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">Functions for gesture state</div></td></tr>
+<tr><td colspan="2"><div class="groupHeader">parameter_gesture_state Functions for gesture state</div></td></tr>
 <tr class="memitem:ab401bba2feb1c21a43c9e1ebb0e9089e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#ab401bba2feb1c21a43c9e1ebb0e9089e">beginGesture</a> ()</td></tr>
 <tr class="memdesc:ab401bba2feb1c21a43c9e1ebb0e9089e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Begins a change gesture for this parameter.  <a href="classlemons_1_1plugin_1_1_parameter.html#ab401bba2feb1c21a43c9e1ebb0e9089e">More...</a><br /></td></tr>
 <tr class="separator:ab401bba2feb1c21a43c9e1ebb0e9089e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -502,7 +502,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a89a3783fca20082cb1ded6ec34a60fcd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#a89a3783fca20082cb1ded6ec34a60fcd">isChanging</a> () const noexcept</td></tr>
 <tr class="memdesc:a89a3783fca20082cb1ded6ec34a60fcd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if this parameter is currently in the middle of a change gesture.  <a href="classlemons_1_1plugin_1_1_parameter.html#a89a3783fca20082cb1ded6ec34a60fcd">More...</a><br /></td></tr>
 <tr class="separator:a89a3783fca20082cb1ded6ec34a60fcd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">Functions for MIDI controller mapping</div></td></tr>
+<tr><td colspan="2"><div class="groupHeader">parameter_midi_cc_mapping Functions for MIDI controller mapping</div></td></tr>
 <tr class="memitem:ae04873e41210558565f97b2a98a5a621"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#ae04873e41210558565f97b2a98a5a621">getMidiControllerNumber</a> () const noexcept</td></tr>
 <tr class="memdesc:ae04873e41210558565f97b2a98a5a621"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of the MIDI controller mapped to this parameter, or -1 if this parameter is unmapped.  <a href="classlemons_1_1plugin_1_1_parameter.html#ae04873e41210558565f97b2a98a5a621">More...</a><br /></td></tr>
 <tr class="separator:ae04873e41210558565f97b2a98a5a621"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -518,7 +518,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:af4b036bf5f1e1dcb75d3289ccf3f8f5b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#af4b036bf5f1e1dcb75d3289ccf3f8f5b">processNewControllerMessage</a> (int controllerNumber, int controllerValue)</td></tr>
 <tr class="memdesc:af4b036bf5f1e1dcb75d3289ccf3f8f5b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Call this function with each MIDI CC message your plugin recieves, and the <a class="el" href="classlemons_1_1plugin_1_1_parameter.html">Parameter</a> class will automatically update itself with changes in the appropriate controller, if a mapping is active.  <a href="classlemons_1_1plugin_1_1_parameter.html#af4b036bf5f1e1dcb75d3289ccf3f8f5b">More...</a><br /></td></tr>
 <tr class="separator:af4b036bf5f1e1dcb75d3289ccf3f8f5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">Functions related to the default value</div></td></tr>
+<tr><td colspan="2"><div class="groupHeader">parameter_default_value Functions related to the default value</div></td></tr>
 <tr class="memitem:a06ee7850537979ed797fbe016f8700b5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#a06ee7850537979ed797fbe016f8700b5">refreshDefault</a> ()</td></tr>
 <tr class="memdesc:a06ee7850537979ed797fbe016f8700b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the parameter's current value as the default value.  <a href="classlemons_1_1plugin_1_1_parameter.html#a06ee7850537979ed797fbe016f8700b5">More...</a><br /></td></tr>
 <tr class="separator:a06ee7850537979ed797fbe016f8700b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -537,7 +537,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:afa210c9638d5fc5e09f8e659eb41c120"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#afa210c9638d5fc5e09f8e659eb41c120">setDenormalizedDefault</a> (float value)</td></tr>
 <tr class="memdesc:afa210c9638d5fc5e09f8e659eb41c120"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the parameter's default, in the parameter's denormalized range.  <a href="classlemons_1_1plugin_1_1_parameter.html#afa210c9638d5fc5e09f8e659eb41c120">More...</a><br /></td></tr>
 <tr class="separator:afa210c9638d5fc5e09f8e659eb41c120"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">Functions for converting to/from text</div></td></tr>
+<tr><td colspan="2"><div class="groupHeader">parameter_to_and_from_text Functions for converting to/from text</div></td></tr>
 <tr class="memitem:a07202aa895f5c0e7a49dba3ffb5e275e"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#a07202aa895f5c0e7a49dba3ffb5e275e">getTextForNormalizedValue</a> (float value) const</td></tr>
 <tr class="memdesc:a07202aa895f5c0e7a49dba3ffb5e275e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a textual description of a normalized value in the range 0-1.  <a href="classlemons_1_1plugin_1_1_parameter.html#a07202aa895f5c0e7a49dba3ffb5e275e">More...</a><br /></td></tr>
 <tr class="separator:a07202aa895f5c0e7a49dba3ffb5e275e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -553,7 +553,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aebe3716f130dedf9f217a8b19cb84d1b"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#aebe3716f130dedf9f217a8b19cb84d1b">getTextForMin</a> () const</td></tr>
 <tr class="memdesc:aebe3716f130dedf9f217a8b19cb84d1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a textual description of the parameter's minimum value.  <a href="classlemons_1_1plugin_1_1_parameter.html#aebe3716f130dedf9f217a8b19cb84d1b">More...</a><br /></td></tr>
 <tr class="separator:aebe3716f130dedf9f217a8b19cb84d1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">Functions for gesture state</div></td></tr>
+<tr><td colspan="2"><div class="groupHeader">parameter_gesture_state Functions for gesture state</div></td></tr>
 <tr class="memitem:ab401bba2feb1c21a43c9e1ebb0e9089e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#ab401bba2feb1c21a43c9e1ebb0e9089e">beginGesture</a> ()</td></tr>
 <tr class="memdesc:ab401bba2feb1c21a43c9e1ebb0e9089e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Begins a change gesture for this parameter.  <a href="classlemons_1_1plugin_1_1_parameter.html#ab401bba2feb1c21a43c9e1ebb0e9089e">More...</a><br /></td></tr>
 <tr class="separator:ab401bba2feb1c21a43c9e1ebb0e9089e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -563,7 +563,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a89a3783fca20082cb1ded6ec34a60fcd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#a89a3783fca20082cb1ded6ec34a60fcd">isChanging</a> () const noexcept</td></tr>
 <tr class="memdesc:a89a3783fca20082cb1ded6ec34a60fcd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if this parameter is currently in the middle of a change gesture.  <a href="classlemons_1_1plugin_1_1_parameter.html#a89a3783fca20082cb1ded6ec34a60fcd">More...</a><br /></td></tr>
 <tr class="separator:a89a3783fca20082cb1ded6ec34a60fcd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">Functions for MIDI controller mapping</div></td></tr>
+<tr><td colspan="2"><div class="groupHeader">parameter_midi_cc_mapping Functions for MIDI controller mapping</div></td></tr>
 <tr class="memitem:ae04873e41210558565f97b2a98a5a621"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#ae04873e41210558565f97b2a98a5a621">getMidiControllerNumber</a> () const noexcept</td></tr>
 <tr class="memdesc:ae04873e41210558565f97b2a98a5a621"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of the MIDI controller mapped to this parameter, or -1 if this parameter is unmapped.  <a href="classlemons_1_1plugin_1_1_parameter.html#ae04873e41210558565f97b2a98a5a621">More...</a><br /></td></tr>
 <tr class="separator:ae04873e41210558565f97b2a98a5a621"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -579,7 +579,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:af4b036bf5f1e1dcb75d3289ccf3f8f5b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#af4b036bf5f1e1dcb75d3289ccf3f8f5b">processNewControllerMessage</a> (int controllerNumber, int controllerValue)</td></tr>
 <tr class="memdesc:af4b036bf5f1e1dcb75d3289ccf3f8f5b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Call this function with each MIDI CC message your plugin recieves, and the <a class="el" href="classlemons_1_1plugin_1_1_parameter.html">Parameter</a> class will automatically update itself with changes in the appropriate controller, if a mapping is active.  <a href="classlemons_1_1plugin_1_1_parameter.html#af4b036bf5f1e1dcb75d3289ccf3f8f5b">More...</a><br /></td></tr>
 <tr class="separator:af4b036bf5f1e1dcb75d3289ccf3f8f5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">Functions related to the default value</div></td></tr>
+<tr><td colspan="2"><div class="groupHeader">parameter_default_value Functions related to the default value</div></td></tr>
 <tr class="memitem:a06ee7850537979ed797fbe016f8700b5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#a06ee7850537979ed797fbe016f8700b5">refreshDefault</a> ()</td></tr>
 <tr class="memdesc:a06ee7850537979ed797fbe016f8700b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the parameter's current value as the default value.  <a href="classlemons_1_1plugin_1_1_parameter.html#a06ee7850537979ed797fbe016f8700b5">More...</a><br /></td></tr>
 <tr class="separator:a06ee7850537979ed797fbe016f8700b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -598,7 +598,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:afa210c9638d5fc5e09f8e659eb41c120"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#afa210c9638d5fc5e09f8e659eb41c120">setDenormalizedDefault</a> (float value)</td></tr>
 <tr class="memdesc:afa210c9638d5fc5e09f8e659eb41c120"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the parameter's default, in the parameter's denormalized range.  <a href="classlemons_1_1plugin_1_1_parameter.html#afa210c9638d5fc5e09f8e659eb41c120">More...</a><br /></td></tr>
 <tr class="separator:afa210c9638d5fc5e09f8e659eb41c120"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">Functions for converting to/from text</div></td></tr>
+<tr><td colspan="2"><div class="groupHeader">parameter_to_and_from_text Functions for converting to/from text</div></td></tr>
 <tr class="memitem:a07202aa895f5c0e7a49dba3ffb5e275e"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#a07202aa895f5c0e7a49dba3ffb5e275e">getTextForNormalizedValue</a> (float value) const</td></tr>
 <tr class="memdesc:a07202aa895f5c0e7a49dba3ffb5e275e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a textual description of a normalized value in the range 0-1.  <a href="classlemons_1_1plugin_1_1_parameter.html#a07202aa895f5c0e7a49dba3ffb5e275e">More...</a><br /></td></tr>
 <tr class="separator:a07202aa895f5c0e7a49dba3ffb5e275e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -614,14 +614,14 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aebe3716f130dedf9f217a8b19cb84d1b"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#aebe3716f130dedf9f217a8b19cb84d1b">getTextForMin</a> () const</td></tr>
 <tr class="memdesc:aebe3716f130dedf9f217a8b19cb84d1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a textual description of the parameter's minimum value.  <a href="classlemons_1_1plugin_1_1_parameter.html#aebe3716f130dedf9f217a8b19cb84d1b">More...</a><br /></td></tr>
 <tr class="separator:aebe3716f130dedf9f217a8b19cb84d1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">Functions for state saving and loading</div></td></tr>
+<tr><td colspan="2"><div class="groupHeader">parameter_saving_and_loading Functions for state saving and loading</div></td></tr>
 <tr class="memitem:a421551f74a17bc31fa3488aae8407a4c"><td class="memItemLeft" align="right" valign="top">virtual ValueTree&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#a421551f74a17bc31fa3488aae8407a4c">saveToValueTree</a> () const</td></tr>
 <tr class="memdesc:a421551f74a17bc31fa3488aae8407a4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Saves the state of this parameter to a ValueTree.  <a href="classlemons_1_1plugin_1_1_parameter.html#a421551f74a17bc31fa3488aae8407a4c">More...</a><br /></td></tr>
 <tr class="separator:a421551f74a17bc31fa3488aae8407a4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6707d107c3f255f06510597c5b36431e"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="structlemons_1_1plugin_1_1_parameter_traits.html">ParameterTraits</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#a6707d107c3f255f06510597c5b36431e">getParameterTraits</a> () const</td></tr>
 <tr class="memdesc:a6707d107c3f255f06510597c5b36431e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a <a class="el" href="structlemons_1_1plugin_1_1_parameter_traits.html">ParameterTraits</a> object representing this parameter.  <a href="classlemons_1_1plugin_1_1_parameter.html#a6707d107c3f255f06510597c5b36431e">More...</a><br /></td></tr>
 <tr class="separator:a6707d107c3f255f06510597c5b36431e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">Functions for gesture state</div></td></tr>
+<tr><td colspan="2"><div class="groupHeader">parameter_gesture_state Functions for gesture state</div></td></tr>
 <tr class="memitem:ab401bba2feb1c21a43c9e1ebb0e9089e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#ab401bba2feb1c21a43c9e1ebb0e9089e">beginGesture</a> ()</td></tr>
 <tr class="memdesc:ab401bba2feb1c21a43c9e1ebb0e9089e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Begins a change gesture for this parameter.  <a href="classlemons_1_1plugin_1_1_parameter.html#ab401bba2feb1c21a43c9e1ebb0e9089e">More...</a><br /></td></tr>
 <tr class="separator:ab401bba2feb1c21a43c9e1ebb0e9089e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -631,7 +631,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a89a3783fca20082cb1ded6ec34a60fcd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#a89a3783fca20082cb1ded6ec34a60fcd">isChanging</a> () const noexcept</td></tr>
 <tr class="memdesc:a89a3783fca20082cb1ded6ec34a60fcd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if this parameter is currently in the middle of a change gesture.  <a href="classlemons_1_1plugin_1_1_parameter.html#a89a3783fca20082cb1ded6ec34a60fcd">More...</a><br /></td></tr>
 <tr class="separator:a89a3783fca20082cb1ded6ec34a60fcd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">Functions for MIDI controller mapping</div></td></tr>
+<tr><td colspan="2"><div class="groupHeader">parameter_midi_cc_mapping Functions for MIDI controller mapping</div></td></tr>
 <tr class="memitem:ae04873e41210558565f97b2a98a5a621"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#ae04873e41210558565f97b2a98a5a621">getMidiControllerNumber</a> () const noexcept</td></tr>
 <tr class="memdesc:ae04873e41210558565f97b2a98a5a621"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of the MIDI controller mapped to this parameter, or -1 if this parameter is unmapped.  <a href="classlemons_1_1plugin_1_1_parameter.html#ae04873e41210558565f97b2a98a5a621">More...</a><br /></td></tr>
 <tr class="separator:ae04873e41210558565f97b2a98a5a621"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -647,7 +647,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:af4b036bf5f1e1dcb75d3289ccf3f8f5b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#af4b036bf5f1e1dcb75d3289ccf3f8f5b">processNewControllerMessage</a> (int controllerNumber, int controllerValue)</td></tr>
 <tr class="memdesc:af4b036bf5f1e1dcb75d3289ccf3f8f5b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Call this function with each MIDI CC message your plugin recieves, and the <a class="el" href="classlemons_1_1plugin_1_1_parameter.html">Parameter</a> class will automatically update itself with changes in the appropriate controller, if a mapping is active.  <a href="classlemons_1_1plugin_1_1_parameter.html#af4b036bf5f1e1dcb75d3289ccf3f8f5b">More...</a><br /></td></tr>
 <tr class="separator:af4b036bf5f1e1dcb75d3289ccf3f8f5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">Functions related to the default value</div></td></tr>
+<tr><td colspan="2"><div class="groupHeader">parameter_default_value Functions related to the default value</div></td></tr>
 <tr class="memitem:a06ee7850537979ed797fbe016f8700b5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#a06ee7850537979ed797fbe016f8700b5">refreshDefault</a> ()</td></tr>
 <tr class="memdesc:a06ee7850537979ed797fbe016f8700b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the parameter's current value as the default value.  <a href="classlemons_1_1plugin_1_1_parameter.html#a06ee7850537979ed797fbe016f8700b5">More...</a><br /></td></tr>
 <tr class="separator:a06ee7850537979ed797fbe016f8700b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -666,7 +666,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:afa210c9638d5fc5e09f8e659eb41c120"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#afa210c9638d5fc5e09f8e659eb41c120">setDenormalizedDefault</a> (float value)</td></tr>
 <tr class="memdesc:afa210c9638d5fc5e09f8e659eb41c120"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the parameter's default, in the parameter's denormalized range.  <a href="classlemons_1_1plugin_1_1_parameter.html#afa210c9638d5fc5e09f8e659eb41c120">More...</a><br /></td></tr>
 <tr class="separator:afa210c9638d5fc5e09f8e659eb41c120"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">Functions for converting to/from text</div></td></tr>
+<tr><td colspan="2"><div class="groupHeader">parameter_to_and_from_text Functions for converting to/from text</div></td></tr>
 <tr class="memitem:a07202aa895f5c0e7a49dba3ffb5e275e"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#a07202aa895f5c0e7a49dba3ffb5e275e">getTextForNormalizedValue</a> (float value) const</td></tr>
 <tr class="memdesc:a07202aa895f5c0e7a49dba3ffb5e275e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a textual description of a normalized value in the range 0-1.  <a href="classlemons_1_1plugin_1_1_parameter.html#a07202aa895f5c0e7a49dba3ffb5e275e">More...</a><br /></td></tr>
 <tr class="separator:a07202aa895f5c0e7a49dba3ffb5e275e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -682,7 +682,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aebe3716f130dedf9f217a8b19cb84d1b"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#aebe3716f130dedf9f217a8b19cb84d1b">getTextForMin</a> () const</td></tr>
 <tr class="memdesc:aebe3716f130dedf9f217a8b19cb84d1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a textual description of the parameter's minimum value.  <a href="classlemons_1_1plugin_1_1_parameter.html#aebe3716f130dedf9f217a8b19cb84d1b">More...</a><br /></td></tr>
 <tr class="separator:aebe3716f130dedf9f217a8b19cb84d1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">Functions for gesture state</div></td></tr>
+<tr><td colspan="2"><div class="groupHeader">parameter_gesture_state Functions for gesture state</div></td></tr>
 <tr class="memitem:ab401bba2feb1c21a43c9e1ebb0e9089e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#ab401bba2feb1c21a43c9e1ebb0e9089e">beginGesture</a> ()</td></tr>
 <tr class="memdesc:ab401bba2feb1c21a43c9e1ebb0e9089e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Begins a change gesture for this parameter.  <a href="classlemons_1_1plugin_1_1_parameter.html#ab401bba2feb1c21a43c9e1ebb0e9089e">More...</a><br /></td></tr>
 <tr class="separator:ab401bba2feb1c21a43c9e1ebb0e9089e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -692,7 +692,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a89a3783fca20082cb1ded6ec34a60fcd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#a89a3783fca20082cb1ded6ec34a60fcd">isChanging</a> () const noexcept</td></tr>
 <tr class="memdesc:a89a3783fca20082cb1ded6ec34a60fcd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if this parameter is currently in the middle of a change gesture.  <a href="classlemons_1_1plugin_1_1_parameter.html#a89a3783fca20082cb1ded6ec34a60fcd">More...</a><br /></td></tr>
 <tr class="separator:a89a3783fca20082cb1ded6ec34a60fcd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">Functions for MIDI controller mapping</div></td></tr>
+<tr><td colspan="2"><div class="groupHeader">parameter_midi_cc_mapping Functions for MIDI controller mapping</div></td></tr>
 <tr class="memitem:ae04873e41210558565f97b2a98a5a621"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#ae04873e41210558565f97b2a98a5a621">getMidiControllerNumber</a> () const noexcept</td></tr>
 <tr class="memdesc:ae04873e41210558565f97b2a98a5a621"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of the MIDI controller mapped to this parameter, or -1 if this parameter is unmapped.  <a href="classlemons_1_1plugin_1_1_parameter.html#ae04873e41210558565f97b2a98a5a621">More...</a><br /></td></tr>
 <tr class="separator:ae04873e41210558565f97b2a98a5a621"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -708,7 +708,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:af4b036bf5f1e1dcb75d3289ccf3f8f5b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#af4b036bf5f1e1dcb75d3289ccf3f8f5b">processNewControllerMessage</a> (int controllerNumber, int controllerValue)</td></tr>
 <tr class="memdesc:af4b036bf5f1e1dcb75d3289ccf3f8f5b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Call this function with each MIDI CC message your plugin recieves, and the <a class="el" href="classlemons_1_1plugin_1_1_parameter.html">Parameter</a> class will automatically update itself with changes in the appropriate controller, if a mapping is active.  <a href="classlemons_1_1plugin_1_1_parameter.html#af4b036bf5f1e1dcb75d3289ccf3f8f5b">More...</a><br /></td></tr>
 <tr class="separator:af4b036bf5f1e1dcb75d3289ccf3f8f5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">Functions related to the default value</div></td></tr>
+<tr><td colspan="2"><div class="groupHeader">parameter_default_value Functions related to the default value</div></td></tr>
 <tr class="memitem:a06ee7850537979ed797fbe016f8700b5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#a06ee7850537979ed797fbe016f8700b5">refreshDefault</a> ()</td></tr>
 <tr class="memdesc:a06ee7850537979ed797fbe016f8700b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the parameter's current value as the default value.  <a href="classlemons_1_1plugin_1_1_parameter.html#a06ee7850537979ed797fbe016f8700b5">More...</a><br /></td></tr>
 <tr class="separator:a06ee7850537979ed797fbe016f8700b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -727,7 +727,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:afa210c9638d5fc5e09f8e659eb41c120"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#afa210c9638d5fc5e09f8e659eb41c120">setDenormalizedDefault</a> (float value)</td></tr>
 <tr class="memdesc:afa210c9638d5fc5e09f8e659eb41c120"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the parameter's default, in the parameter's denormalized range.  <a href="classlemons_1_1plugin_1_1_parameter.html#afa210c9638d5fc5e09f8e659eb41c120">More...</a><br /></td></tr>
 <tr class="separator:afa210c9638d5fc5e09f8e659eb41c120"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">Functions for converting to/from text</div></td></tr>
+<tr><td colspan="2"><div class="groupHeader">parameter_to_and_from_text Functions for converting to/from text</div></td></tr>
 <tr class="memitem:a07202aa895f5c0e7a49dba3ffb5e275e"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#a07202aa895f5c0e7a49dba3ffb5e275e">getTextForNormalizedValue</a> (float value) const</td></tr>
 <tr class="memdesc:a07202aa895f5c0e7a49dba3ffb5e275e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a textual description of a normalized value in the range 0-1.  <a href="classlemons_1_1plugin_1_1_parameter.html#a07202aa895f5c0e7a49dba3ffb5e275e">More...</a><br /></td></tr>
 <tr class="separator:a07202aa895f5c0e7a49dba3ffb5e275e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -743,14 +743,14 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aebe3716f130dedf9f217a8b19cb84d1b"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#aebe3716f130dedf9f217a8b19cb84d1b">getTextForMin</a> () const</td></tr>
 <tr class="memdesc:aebe3716f130dedf9f217a8b19cb84d1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a textual description of the parameter's minimum value.  <a href="classlemons_1_1plugin_1_1_parameter.html#aebe3716f130dedf9f217a8b19cb84d1b">More...</a><br /></td></tr>
 <tr class="separator:aebe3716f130dedf9f217a8b19cb84d1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">Functions for state saving and loading</div></td></tr>
+<tr><td colspan="2"><div class="groupHeader">parameter_saving_and_loading Functions for state saving and loading</div></td></tr>
 <tr class="memitem:a421551f74a17bc31fa3488aae8407a4c"><td class="memItemLeft" align="right" valign="top">virtual ValueTree&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#a421551f74a17bc31fa3488aae8407a4c">saveToValueTree</a> () const</td></tr>
 <tr class="memdesc:a421551f74a17bc31fa3488aae8407a4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Saves the state of this parameter to a ValueTree.  <a href="classlemons_1_1plugin_1_1_parameter.html#a421551f74a17bc31fa3488aae8407a4c">More...</a><br /></td></tr>
 <tr class="separator:a421551f74a17bc31fa3488aae8407a4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6707d107c3f255f06510597c5b36431e"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="structlemons_1_1plugin_1_1_parameter_traits.html">ParameterTraits</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#a6707d107c3f255f06510597c5b36431e">getParameterTraits</a> () const</td></tr>
 <tr class="memdesc:a6707d107c3f255f06510597c5b36431e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a <a class="el" href="structlemons_1_1plugin_1_1_parameter_traits.html">ParameterTraits</a> object representing this parameter.  <a href="classlemons_1_1plugin_1_1_parameter.html#a6707d107c3f255f06510597c5b36431e">More...</a><br /></td></tr>
 <tr class="separator:a6707d107c3f255f06510597c5b36431e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">Functions for gesture state</div></td></tr>
+<tr><td colspan="2"><div class="groupHeader">parameter_gesture_state Functions for gesture state</div></td></tr>
 <tr class="memitem:ab401bba2feb1c21a43c9e1ebb0e9089e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#ab401bba2feb1c21a43c9e1ebb0e9089e">beginGesture</a> ()</td></tr>
 <tr class="memdesc:ab401bba2feb1c21a43c9e1ebb0e9089e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Begins a change gesture for this parameter.  <a href="classlemons_1_1plugin_1_1_parameter.html#ab401bba2feb1c21a43c9e1ebb0e9089e">More...</a><br /></td></tr>
 <tr class="separator:ab401bba2feb1c21a43c9e1ebb0e9089e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -760,7 +760,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a89a3783fca20082cb1ded6ec34a60fcd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#a89a3783fca20082cb1ded6ec34a60fcd">isChanging</a> () const noexcept</td></tr>
 <tr class="memdesc:a89a3783fca20082cb1ded6ec34a60fcd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if this parameter is currently in the middle of a change gesture.  <a href="classlemons_1_1plugin_1_1_parameter.html#a89a3783fca20082cb1ded6ec34a60fcd">More...</a><br /></td></tr>
 <tr class="separator:a89a3783fca20082cb1ded6ec34a60fcd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">Functions for MIDI controller mapping</div></td></tr>
+<tr><td colspan="2"><div class="groupHeader">parameter_midi_cc_mapping Functions for MIDI controller mapping</div></td></tr>
 <tr class="memitem:ae04873e41210558565f97b2a98a5a621"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#ae04873e41210558565f97b2a98a5a621">getMidiControllerNumber</a> () const noexcept</td></tr>
 <tr class="memdesc:ae04873e41210558565f97b2a98a5a621"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of the MIDI controller mapped to this parameter, or -1 if this parameter is unmapped.  <a href="classlemons_1_1plugin_1_1_parameter.html#ae04873e41210558565f97b2a98a5a621">More...</a><br /></td></tr>
 <tr class="separator:ae04873e41210558565f97b2a98a5a621"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -776,7 +776,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:af4b036bf5f1e1dcb75d3289ccf3f8f5b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#af4b036bf5f1e1dcb75d3289ccf3f8f5b">processNewControllerMessage</a> (int controllerNumber, int controllerValue)</td></tr>
 <tr class="memdesc:af4b036bf5f1e1dcb75d3289ccf3f8f5b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Call this function with each MIDI CC message your plugin recieves, and the <a class="el" href="classlemons_1_1plugin_1_1_parameter.html">Parameter</a> class will automatically update itself with changes in the appropriate controller, if a mapping is active.  <a href="classlemons_1_1plugin_1_1_parameter.html#af4b036bf5f1e1dcb75d3289ccf3f8f5b">More...</a><br /></td></tr>
 <tr class="separator:af4b036bf5f1e1dcb75d3289ccf3f8f5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">Functions related to the default value</div></td></tr>
+<tr><td colspan="2"><div class="groupHeader">parameter_default_value Functions related to the default value</div></td></tr>
 <tr class="memitem:a06ee7850537979ed797fbe016f8700b5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#a06ee7850537979ed797fbe016f8700b5">refreshDefault</a> ()</td></tr>
 <tr class="memdesc:a06ee7850537979ed797fbe016f8700b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the parameter's current value as the default value.  <a href="classlemons_1_1plugin_1_1_parameter.html#a06ee7850537979ed797fbe016f8700b5">More...</a><br /></td></tr>
 <tr class="separator:a06ee7850537979ed797fbe016f8700b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -795,7 +795,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:afa210c9638d5fc5e09f8e659eb41c120"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#afa210c9638d5fc5e09f8e659eb41c120">setDenormalizedDefault</a> (float value)</td></tr>
 <tr class="memdesc:afa210c9638d5fc5e09f8e659eb41c120"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the parameter's default, in the parameter's denormalized range.  <a href="classlemons_1_1plugin_1_1_parameter.html#afa210c9638d5fc5e09f8e659eb41c120">More...</a><br /></td></tr>
 <tr class="separator:afa210c9638d5fc5e09f8e659eb41c120"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">Functions for converting to/from text</div></td></tr>
+<tr><td colspan="2"><div class="groupHeader">parameter_to_and_from_text Functions for converting to/from text</div></td></tr>
 <tr class="memitem:a07202aa895f5c0e7a49dba3ffb5e275e"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#a07202aa895f5c0e7a49dba3ffb5e275e">getTextForNormalizedValue</a> (float value) const</td></tr>
 <tr class="memdesc:a07202aa895f5c0e7a49dba3ffb5e275e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a textual description of a normalized value in the range 0-1.  <a href="classlemons_1_1plugin_1_1_parameter.html#a07202aa895f5c0e7a49dba3ffb5e275e">More...</a><br /></td></tr>
 <tr class="separator:a07202aa895f5c0e7a49dba3ffb5e275e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -811,7 +811,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aebe3716f130dedf9f217a8b19cb84d1b"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#aebe3716f130dedf9f217a8b19cb84d1b">getTextForMin</a> () const</td></tr>
 <tr class="memdesc:aebe3716f130dedf9f217a8b19cb84d1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a textual description of the parameter's minimum value.  <a href="classlemons_1_1plugin_1_1_parameter.html#aebe3716f130dedf9f217a8b19cb84d1b">More...</a><br /></td></tr>
 <tr class="separator:aebe3716f130dedf9f217a8b19cb84d1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">Functions for gesture state</div></td></tr>
+<tr><td colspan="2"><div class="groupHeader">parameter_gesture_state Functions for gesture state</div></td></tr>
 <tr class="memitem:ab401bba2feb1c21a43c9e1ebb0e9089e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#ab401bba2feb1c21a43c9e1ebb0e9089e">beginGesture</a> ()</td></tr>
 <tr class="memdesc:ab401bba2feb1c21a43c9e1ebb0e9089e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Begins a change gesture for this parameter.  <a href="classlemons_1_1plugin_1_1_parameter.html#ab401bba2feb1c21a43c9e1ebb0e9089e">More...</a><br /></td></tr>
 <tr class="separator:ab401bba2feb1c21a43c9e1ebb0e9089e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -821,7 +821,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a89a3783fca20082cb1ded6ec34a60fcd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#a89a3783fca20082cb1ded6ec34a60fcd">isChanging</a> () const noexcept</td></tr>
 <tr class="memdesc:a89a3783fca20082cb1ded6ec34a60fcd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if this parameter is currently in the middle of a change gesture.  <a href="classlemons_1_1plugin_1_1_parameter.html#a89a3783fca20082cb1ded6ec34a60fcd">More...</a><br /></td></tr>
 <tr class="separator:a89a3783fca20082cb1ded6ec34a60fcd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">Functions for MIDI controller mapping</div></td></tr>
+<tr><td colspan="2"><div class="groupHeader">parameter_midi_cc_mapping Functions for MIDI controller mapping</div></td></tr>
 <tr class="memitem:ae04873e41210558565f97b2a98a5a621"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#ae04873e41210558565f97b2a98a5a621">getMidiControllerNumber</a> () const noexcept</td></tr>
 <tr class="memdesc:ae04873e41210558565f97b2a98a5a621"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of the MIDI controller mapped to this parameter, or -1 if this parameter is unmapped.  <a href="classlemons_1_1plugin_1_1_parameter.html#ae04873e41210558565f97b2a98a5a621">More...</a><br /></td></tr>
 <tr class="separator:ae04873e41210558565f97b2a98a5a621"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -837,7 +837,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:af4b036bf5f1e1dcb75d3289ccf3f8f5b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#af4b036bf5f1e1dcb75d3289ccf3f8f5b">processNewControllerMessage</a> (int controllerNumber, int controllerValue)</td></tr>
 <tr class="memdesc:af4b036bf5f1e1dcb75d3289ccf3f8f5b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Call this function with each MIDI CC message your plugin recieves, and the <a class="el" href="classlemons_1_1plugin_1_1_parameter.html">Parameter</a> class will automatically update itself with changes in the appropriate controller, if a mapping is active.  <a href="classlemons_1_1plugin_1_1_parameter.html#af4b036bf5f1e1dcb75d3289ccf3f8f5b">More...</a><br /></td></tr>
 <tr class="separator:af4b036bf5f1e1dcb75d3289ccf3f8f5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">Functions related to the default value</div></td></tr>
+<tr><td colspan="2"><div class="groupHeader">parameter_default_value Functions related to the default value</div></td></tr>
 <tr class="memitem:a06ee7850537979ed797fbe016f8700b5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#a06ee7850537979ed797fbe016f8700b5">refreshDefault</a> ()</td></tr>
 <tr class="memdesc:a06ee7850537979ed797fbe016f8700b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the parameter's current value as the default value.  <a href="classlemons_1_1plugin_1_1_parameter.html#a06ee7850537979ed797fbe016f8700b5">More...</a><br /></td></tr>
 <tr class="separator:a06ee7850537979ed797fbe016f8700b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -856,7 +856,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:afa210c9638d5fc5e09f8e659eb41c120"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#afa210c9638d5fc5e09f8e659eb41c120">setDenormalizedDefault</a> (float value)</td></tr>
 <tr class="memdesc:afa210c9638d5fc5e09f8e659eb41c120"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the parameter's default, in the parameter's denormalized range.  <a href="classlemons_1_1plugin_1_1_parameter.html#afa210c9638d5fc5e09f8e659eb41c120">More...</a><br /></td></tr>
 <tr class="separator:afa210c9638d5fc5e09f8e659eb41c120"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">Functions for converting to/from text</div></td></tr>
+<tr><td colspan="2"><div class="groupHeader">parameter_to_and_from_text Functions for converting to/from text</div></td></tr>
 <tr class="memitem:a07202aa895f5c0e7a49dba3ffb5e275e"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#a07202aa895f5c0e7a49dba3ffb5e275e">getTextForNormalizedValue</a> (float value) const</td></tr>
 <tr class="memdesc:a07202aa895f5c0e7a49dba3ffb5e275e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a textual description of a normalized value in the range 0-1.  <a href="classlemons_1_1plugin_1_1_parameter.html#a07202aa895f5c0e7a49dba3ffb5e275e">More...</a><br /></td></tr>
 <tr class="separator:a07202aa895f5c0e7a49dba3ffb5e275e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -872,7 +872,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aebe3716f130dedf9f217a8b19cb84d1b"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#aebe3716f130dedf9f217a8b19cb84d1b">getTextForMin</a> () const</td></tr>
 <tr class="memdesc:aebe3716f130dedf9f217a8b19cb84d1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a textual description of the parameter's minimum value.  <a href="classlemons_1_1plugin_1_1_parameter.html#aebe3716f130dedf9f217a8b19cb84d1b">More...</a><br /></td></tr>
 <tr class="separator:aebe3716f130dedf9f217a8b19cb84d1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">Functions for gesture state</div></td></tr>
+<tr><td colspan="2"><div class="groupHeader">parameter_gesture_state Functions for gesture state</div></td></tr>
 <tr class="memitem:ab401bba2feb1c21a43c9e1ebb0e9089e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#ab401bba2feb1c21a43c9e1ebb0e9089e">beginGesture</a> ()</td></tr>
 <tr class="memdesc:ab401bba2feb1c21a43c9e1ebb0e9089e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Begins a change gesture for this parameter.  <a href="classlemons_1_1plugin_1_1_parameter.html#ab401bba2feb1c21a43c9e1ebb0e9089e">More...</a><br /></td></tr>
 <tr class="separator:ab401bba2feb1c21a43c9e1ebb0e9089e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -882,7 +882,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a89a3783fca20082cb1ded6ec34a60fcd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#a89a3783fca20082cb1ded6ec34a60fcd">isChanging</a> () const noexcept</td></tr>
 <tr class="memdesc:a89a3783fca20082cb1ded6ec34a60fcd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if this parameter is currently in the middle of a change gesture.  <a href="classlemons_1_1plugin_1_1_parameter.html#a89a3783fca20082cb1ded6ec34a60fcd">More...</a><br /></td></tr>
 <tr class="separator:a89a3783fca20082cb1ded6ec34a60fcd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">Functions for MIDI controller mapping</div></td></tr>
+<tr><td colspan="2"><div class="groupHeader">parameter_midi_cc_mapping Functions for MIDI controller mapping</div></td></tr>
 <tr class="memitem:ae04873e41210558565f97b2a98a5a621"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#ae04873e41210558565f97b2a98a5a621">getMidiControllerNumber</a> () const noexcept</td></tr>
 <tr class="memdesc:ae04873e41210558565f97b2a98a5a621"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of the MIDI controller mapped to this parameter, or -1 if this parameter is unmapped.  <a href="classlemons_1_1plugin_1_1_parameter.html#ae04873e41210558565f97b2a98a5a621">More...</a><br /></td></tr>
 <tr class="separator:ae04873e41210558565f97b2a98a5a621"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -898,7 +898,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:af4b036bf5f1e1dcb75d3289ccf3f8f5b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#af4b036bf5f1e1dcb75d3289ccf3f8f5b">processNewControllerMessage</a> (int controllerNumber, int controllerValue)</td></tr>
 <tr class="memdesc:af4b036bf5f1e1dcb75d3289ccf3f8f5b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Call this function with each MIDI CC message your plugin recieves, and the <a class="el" href="classlemons_1_1plugin_1_1_parameter.html">Parameter</a> class will automatically update itself with changes in the appropriate controller, if a mapping is active.  <a href="classlemons_1_1plugin_1_1_parameter.html#af4b036bf5f1e1dcb75d3289ccf3f8f5b">More...</a><br /></td></tr>
 <tr class="separator:af4b036bf5f1e1dcb75d3289ccf3f8f5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">Functions related to the default value</div></td></tr>
+<tr><td colspan="2"><div class="groupHeader">parameter_default_value Functions related to the default value</div></td></tr>
 <tr class="memitem:a06ee7850537979ed797fbe016f8700b5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#a06ee7850537979ed797fbe016f8700b5">refreshDefault</a> ()</td></tr>
 <tr class="memdesc:a06ee7850537979ed797fbe016f8700b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the parameter's current value as the default value.  <a href="classlemons_1_1plugin_1_1_parameter.html#a06ee7850537979ed797fbe016f8700b5">More...</a><br /></td></tr>
 <tr class="separator:a06ee7850537979ed797fbe016f8700b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -917,7 +917,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:afa210c9638d5fc5e09f8e659eb41c120"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#afa210c9638d5fc5e09f8e659eb41c120">setDenormalizedDefault</a> (float value)</td></tr>
 <tr class="memdesc:afa210c9638d5fc5e09f8e659eb41c120"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the parameter's default, in the parameter's denormalized range.  <a href="classlemons_1_1plugin_1_1_parameter.html#afa210c9638d5fc5e09f8e659eb41c120">More...</a><br /></td></tr>
 <tr class="separator:afa210c9638d5fc5e09f8e659eb41c120"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">Functions for converting to/from text</div></td></tr>
+<tr><td colspan="2"><div class="groupHeader">parameter_to_and_from_text Functions for converting to/from text</div></td></tr>
 <tr class="memitem:a07202aa895f5c0e7a49dba3ffb5e275e"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#a07202aa895f5c0e7a49dba3ffb5e275e">getTextForNormalizedValue</a> (float value) const</td></tr>
 <tr class="memdesc:a07202aa895f5c0e7a49dba3ffb5e275e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a textual description of a normalized value in the range 0-1.  <a href="classlemons_1_1plugin_1_1_parameter.html#a07202aa895f5c0e7a49dba3ffb5e275e">More...</a><br /></td></tr>
 <tr class="separator:a07202aa895f5c0e7a49dba3ffb5e275e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -933,7 +933,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aebe3716f130dedf9f217a8b19cb84d1b"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#aebe3716f130dedf9f217a8b19cb84d1b">getTextForMin</a> () const</td></tr>
 <tr class="memdesc:aebe3716f130dedf9f217a8b19cb84d1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a textual description of the parameter's minimum value.  <a href="classlemons_1_1plugin_1_1_parameter.html#aebe3716f130dedf9f217a8b19cb84d1b">More...</a><br /></td></tr>
 <tr class="separator:aebe3716f130dedf9f217a8b19cb84d1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">Functions for gesture state</div></td></tr>
+<tr><td colspan="2"><div class="groupHeader">parameter_gesture_state Functions for gesture state</div></td></tr>
 <tr class="memitem:ab401bba2feb1c21a43c9e1ebb0e9089e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#ab401bba2feb1c21a43c9e1ebb0e9089e">beginGesture</a> ()</td></tr>
 <tr class="memdesc:ab401bba2feb1c21a43c9e1ebb0e9089e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Begins a change gesture for this parameter.  <a href="classlemons_1_1plugin_1_1_parameter.html#ab401bba2feb1c21a43c9e1ebb0e9089e">More...</a><br /></td></tr>
 <tr class="separator:ab401bba2feb1c21a43c9e1ebb0e9089e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -943,7 +943,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a89a3783fca20082cb1ded6ec34a60fcd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#a89a3783fca20082cb1ded6ec34a60fcd">isChanging</a> () const noexcept</td></tr>
 <tr class="memdesc:a89a3783fca20082cb1ded6ec34a60fcd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if this parameter is currently in the middle of a change gesture.  <a href="classlemons_1_1plugin_1_1_parameter.html#a89a3783fca20082cb1ded6ec34a60fcd">More...</a><br /></td></tr>
 <tr class="separator:a89a3783fca20082cb1ded6ec34a60fcd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">Functions for MIDI controller mapping</div></td></tr>
+<tr><td colspan="2"><div class="groupHeader">parameter_midi_cc_mapping Functions for MIDI controller mapping</div></td></tr>
 <tr class="memitem:ae04873e41210558565f97b2a98a5a621"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#ae04873e41210558565f97b2a98a5a621">getMidiControllerNumber</a> () const noexcept</td></tr>
 <tr class="memdesc:ae04873e41210558565f97b2a98a5a621"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of the MIDI controller mapped to this parameter, or -1 if this parameter is unmapped.  <a href="classlemons_1_1plugin_1_1_parameter.html#ae04873e41210558565f97b2a98a5a621">More...</a><br /></td></tr>
 <tr class="separator:ae04873e41210558565f97b2a98a5a621"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -959,7 +959,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:af4b036bf5f1e1dcb75d3289ccf3f8f5b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#af4b036bf5f1e1dcb75d3289ccf3f8f5b">processNewControllerMessage</a> (int controllerNumber, int controllerValue)</td></tr>
 <tr class="memdesc:af4b036bf5f1e1dcb75d3289ccf3f8f5b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Call this function with each MIDI CC message your plugin recieves, and the <a class="el" href="classlemons_1_1plugin_1_1_parameter.html">Parameter</a> class will automatically update itself with changes in the appropriate controller, if a mapping is active.  <a href="classlemons_1_1plugin_1_1_parameter.html#af4b036bf5f1e1dcb75d3289ccf3f8f5b">More...</a><br /></td></tr>
 <tr class="separator:af4b036bf5f1e1dcb75d3289ccf3f8f5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">Functions related to the default value</div></td></tr>
+<tr><td colspan="2"><div class="groupHeader">parameter_default_value Functions related to the default value</div></td></tr>
 <tr class="memitem:a06ee7850537979ed797fbe016f8700b5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#a06ee7850537979ed797fbe016f8700b5">refreshDefault</a> ()</td></tr>
 <tr class="memdesc:a06ee7850537979ed797fbe016f8700b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the parameter's current value as the default value.  <a href="classlemons_1_1plugin_1_1_parameter.html#a06ee7850537979ed797fbe016f8700b5">More...</a><br /></td></tr>
 <tr class="separator:a06ee7850537979ed797fbe016f8700b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -978,7 +978,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:afa210c9638d5fc5e09f8e659eb41c120"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#afa210c9638d5fc5e09f8e659eb41c120">setDenormalizedDefault</a> (float value)</td></tr>
 <tr class="memdesc:afa210c9638d5fc5e09f8e659eb41c120"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the parameter's default, in the parameter's denormalized range.  <a href="classlemons_1_1plugin_1_1_parameter.html#afa210c9638d5fc5e09f8e659eb41c120">More...</a><br /></td></tr>
 <tr class="separator:afa210c9638d5fc5e09f8e659eb41c120"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">Functions for converting to/from text</div></td></tr>
+<tr><td colspan="2"><div class="groupHeader">parameter_to_and_from_text Functions for converting to/from text</div></td></tr>
 <tr class="memitem:a07202aa895f5c0e7a49dba3ffb5e275e"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#a07202aa895f5c0e7a49dba3ffb5e275e">getTextForNormalizedValue</a> (float value) const</td></tr>
 <tr class="memdesc:a07202aa895f5c0e7a49dba3ffb5e275e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a textual description of a normalized value in the range 0-1.  <a href="classlemons_1_1plugin_1_1_parameter.html#a07202aa895f5c0e7a49dba3ffb5e275e">More...</a><br /></td></tr>
 <tr class="separator:a07202aa895f5c0e7a49dba3ffb5e275e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -994,7 +994,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aebe3716f130dedf9f217a8b19cb84d1b"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#aebe3716f130dedf9f217a8b19cb84d1b">getTextForMin</a> () const</td></tr>
 <tr class="memdesc:aebe3716f130dedf9f217a8b19cb84d1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a textual description of the parameter's minimum value.  <a href="classlemons_1_1plugin_1_1_parameter.html#aebe3716f130dedf9f217a8b19cb84d1b">More...</a><br /></td></tr>
 <tr class="separator:aebe3716f130dedf9f217a8b19cb84d1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">Functions for gesture state</div></td></tr>
+<tr><td colspan="2"><div class="groupHeader">parameter_gesture_state Functions for gesture state</div></td></tr>
 <tr class="memitem:ab401bba2feb1c21a43c9e1ebb0e9089e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#ab401bba2feb1c21a43c9e1ebb0e9089e">beginGesture</a> ()</td></tr>
 <tr class="memdesc:ab401bba2feb1c21a43c9e1ebb0e9089e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Begins a change gesture for this parameter.  <a href="classlemons_1_1plugin_1_1_parameter.html#ab401bba2feb1c21a43c9e1ebb0e9089e">More...</a><br /></td></tr>
 <tr class="separator:ab401bba2feb1c21a43c9e1ebb0e9089e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1004,7 +1004,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a89a3783fca20082cb1ded6ec34a60fcd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#a89a3783fca20082cb1ded6ec34a60fcd">isChanging</a> () const noexcept</td></tr>
 <tr class="memdesc:a89a3783fca20082cb1ded6ec34a60fcd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if this parameter is currently in the middle of a change gesture.  <a href="classlemons_1_1plugin_1_1_parameter.html#a89a3783fca20082cb1ded6ec34a60fcd">More...</a><br /></td></tr>
 <tr class="separator:a89a3783fca20082cb1ded6ec34a60fcd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">Functions for MIDI controller mapping</div></td></tr>
+<tr><td colspan="2"><div class="groupHeader">parameter_midi_cc_mapping Functions for MIDI controller mapping</div></td></tr>
 <tr class="memitem:ae04873e41210558565f97b2a98a5a621"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#ae04873e41210558565f97b2a98a5a621">getMidiControllerNumber</a> () const noexcept</td></tr>
 <tr class="memdesc:ae04873e41210558565f97b2a98a5a621"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of the MIDI controller mapped to this parameter, or -1 if this parameter is unmapped.  <a href="classlemons_1_1plugin_1_1_parameter.html#ae04873e41210558565f97b2a98a5a621">More...</a><br /></td></tr>
 <tr class="separator:ae04873e41210558565f97b2a98a5a621"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1020,7 +1020,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:af4b036bf5f1e1dcb75d3289ccf3f8f5b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#af4b036bf5f1e1dcb75d3289ccf3f8f5b">processNewControllerMessage</a> (int controllerNumber, int controllerValue)</td></tr>
 <tr class="memdesc:af4b036bf5f1e1dcb75d3289ccf3f8f5b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Call this function with each MIDI CC message your plugin recieves, and the <a class="el" href="classlemons_1_1plugin_1_1_parameter.html">Parameter</a> class will automatically update itself with changes in the appropriate controller, if a mapping is active.  <a href="classlemons_1_1plugin_1_1_parameter.html#af4b036bf5f1e1dcb75d3289ccf3f8f5b">More...</a><br /></td></tr>
 <tr class="separator:af4b036bf5f1e1dcb75d3289ccf3f8f5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">Functions related to the default value</div></td></tr>
+<tr><td colspan="2"><div class="groupHeader">parameter_default_value Functions related to the default value</div></td></tr>
 <tr class="memitem:a06ee7850537979ed797fbe016f8700b5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#a06ee7850537979ed797fbe016f8700b5">refreshDefault</a> ()</td></tr>
 <tr class="memdesc:a06ee7850537979ed797fbe016f8700b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the parameter's current value as the default value.  <a href="classlemons_1_1plugin_1_1_parameter.html#a06ee7850537979ed797fbe016f8700b5">More...</a><br /></td></tr>
 <tr class="separator:a06ee7850537979ed797fbe016f8700b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1039,7 +1039,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:afa210c9638d5fc5e09f8e659eb41c120"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#afa210c9638d5fc5e09f8e659eb41c120">setDenormalizedDefault</a> (float value)</td></tr>
 <tr class="memdesc:afa210c9638d5fc5e09f8e659eb41c120"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the parameter's default, in the parameter's denormalized range.  <a href="classlemons_1_1plugin_1_1_parameter.html#afa210c9638d5fc5e09f8e659eb41c120">More...</a><br /></td></tr>
 <tr class="separator:afa210c9638d5fc5e09f8e659eb41c120"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">Functions for converting to/from text</div></td></tr>
+<tr><td colspan="2"><div class="groupHeader">parameter_to_and_from_text Functions for converting to/from text</div></td></tr>
 <tr class="memitem:a07202aa895f5c0e7a49dba3ffb5e275e"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#a07202aa895f5c0e7a49dba3ffb5e275e">getTextForNormalizedValue</a> (float value) const</td></tr>
 <tr class="memdesc:a07202aa895f5c0e7a49dba3ffb5e275e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a textual description of a normalized value in the range 0-1.  <a href="classlemons_1_1plugin_1_1_parameter.html#a07202aa895f5c0e7a49dba3ffb5e275e">More...</a><br /></td></tr>
 <tr class="separator:a07202aa895f5c0e7a49dba3ffb5e275e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1055,14 +1055,14 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aebe3716f130dedf9f217a8b19cb84d1b"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#aebe3716f130dedf9f217a8b19cb84d1b">getTextForMin</a> () const</td></tr>
 <tr class="memdesc:aebe3716f130dedf9f217a8b19cb84d1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a textual description of the parameter's minimum value.  <a href="classlemons_1_1plugin_1_1_parameter.html#aebe3716f130dedf9f217a8b19cb84d1b">More...</a><br /></td></tr>
 <tr class="separator:aebe3716f130dedf9f217a8b19cb84d1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">Functions for state saving and loading</div></td></tr>
+<tr><td colspan="2"><div class="groupHeader">parameter_saving_and_loading Functions for state saving and loading</div></td></tr>
 <tr class="memitem:a421551f74a17bc31fa3488aae8407a4c"><td class="memItemLeft" align="right" valign="top">virtual ValueTree&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#a421551f74a17bc31fa3488aae8407a4c">saveToValueTree</a> () const</td></tr>
 <tr class="memdesc:a421551f74a17bc31fa3488aae8407a4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Saves the state of this parameter to a ValueTree.  <a href="classlemons_1_1plugin_1_1_parameter.html#a421551f74a17bc31fa3488aae8407a4c">More...</a><br /></td></tr>
 <tr class="separator:a421551f74a17bc31fa3488aae8407a4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6707d107c3f255f06510597c5b36431e"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="structlemons_1_1plugin_1_1_parameter_traits.html">ParameterTraits</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#a6707d107c3f255f06510597c5b36431e">getParameterTraits</a> () const</td></tr>
 <tr class="memdesc:a6707d107c3f255f06510597c5b36431e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a <a class="el" href="structlemons_1_1plugin_1_1_parameter_traits.html">ParameterTraits</a> object representing this parameter.  <a href="classlemons_1_1plugin_1_1_parameter.html#a6707d107c3f255f06510597c5b36431e">More...</a><br /></td></tr>
 <tr class="separator:a6707d107c3f255f06510597c5b36431e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">Functions for gesture state</div></td></tr>
+<tr><td colspan="2"><div class="groupHeader">parameter_gesture_state Functions for gesture state</div></td></tr>
 <tr class="memitem:ab401bba2feb1c21a43c9e1ebb0e9089e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#ab401bba2feb1c21a43c9e1ebb0e9089e">beginGesture</a> ()</td></tr>
 <tr class="memdesc:ab401bba2feb1c21a43c9e1ebb0e9089e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Begins a change gesture for this parameter.  <a href="classlemons_1_1plugin_1_1_parameter.html#ab401bba2feb1c21a43c9e1ebb0e9089e">More...</a><br /></td></tr>
 <tr class="separator:ab401bba2feb1c21a43c9e1ebb0e9089e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1072,7 +1072,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a89a3783fca20082cb1ded6ec34a60fcd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#a89a3783fca20082cb1ded6ec34a60fcd">isChanging</a> () const noexcept</td></tr>
 <tr class="memdesc:a89a3783fca20082cb1ded6ec34a60fcd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if this parameter is currently in the middle of a change gesture.  <a href="classlemons_1_1plugin_1_1_parameter.html#a89a3783fca20082cb1ded6ec34a60fcd">More...</a><br /></td></tr>
 <tr class="separator:a89a3783fca20082cb1ded6ec34a60fcd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">Functions for MIDI controller mapping</div></td></tr>
+<tr><td colspan="2"><div class="groupHeader">parameter_midi_cc_mapping Functions for MIDI controller mapping</div></td></tr>
 <tr class="memitem:ae04873e41210558565f97b2a98a5a621"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#ae04873e41210558565f97b2a98a5a621">getMidiControllerNumber</a> () const noexcept</td></tr>
 <tr class="memdesc:ae04873e41210558565f97b2a98a5a621"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of the MIDI controller mapped to this parameter, or -1 if this parameter is unmapped.  <a href="classlemons_1_1plugin_1_1_parameter.html#ae04873e41210558565f97b2a98a5a621">More...</a><br /></td></tr>
 <tr class="separator:ae04873e41210558565f97b2a98a5a621"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1088,7 +1088,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:af4b036bf5f1e1dcb75d3289ccf3f8f5b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#af4b036bf5f1e1dcb75d3289ccf3f8f5b">processNewControllerMessage</a> (int controllerNumber, int controllerValue)</td></tr>
 <tr class="memdesc:af4b036bf5f1e1dcb75d3289ccf3f8f5b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Call this function with each MIDI CC message your plugin recieves, and the <a class="el" href="classlemons_1_1plugin_1_1_parameter.html">Parameter</a> class will automatically update itself with changes in the appropriate controller, if a mapping is active.  <a href="classlemons_1_1plugin_1_1_parameter.html#af4b036bf5f1e1dcb75d3289ccf3f8f5b">More...</a><br /></td></tr>
 <tr class="separator:af4b036bf5f1e1dcb75d3289ccf3f8f5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">Functions related to the default value</div></td></tr>
+<tr><td colspan="2"><div class="groupHeader">parameter_default_value Functions related to the default value</div></td></tr>
 <tr class="memitem:a06ee7850537979ed797fbe016f8700b5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#a06ee7850537979ed797fbe016f8700b5">refreshDefault</a> ()</td></tr>
 <tr class="memdesc:a06ee7850537979ed797fbe016f8700b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the parameter's current value as the default value.  <a href="classlemons_1_1plugin_1_1_parameter.html#a06ee7850537979ed797fbe016f8700b5">More...</a><br /></td></tr>
 <tr class="separator:a06ee7850537979ed797fbe016f8700b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1107,7 +1107,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:afa210c9638d5fc5e09f8e659eb41c120"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#afa210c9638d5fc5e09f8e659eb41c120">setDenormalizedDefault</a> (float value)</td></tr>
 <tr class="memdesc:afa210c9638d5fc5e09f8e659eb41c120"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the parameter's default, in the parameter's denormalized range.  <a href="classlemons_1_1plugin_1_1_parameter.html#afa210c9638d5fc5e09f8e659eb41c120">More...</a><br /></td></tr>
 <tr class="separator:afa210c9638d5fc5e09f8e659eb41c120"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">Functions for converting to/from text</div></td></tr>
+<tr><td colspan="2"><div class="groupHeader">parameter_to_and_from_text Functions for converting to/from text</div></td></tr>
 <tr class="memitem:a07202aa895f5c0e7a49dba3ffb5e275e"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#a07202aa895f5c0e7a49dba3ffb5e275e">getTextForNormalizedValue</a> (float value) const</td></tr>
 <tr class="memdesc:a07202aa895f5c0e7a49dba3ffb5e275e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a textual description of a normalized value in the range 0-1.  <a href="classlemons_1_1plugin_1_1_parameter.html#a07202aa895f5c0e7a49dba3ffb5e275e">More...</a><br /></td></tr>
 <tr class="separator:a07202aa895f5c0e7a49dba3ffb5e275e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1123,7 +1123,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aebe3716f130dedf9f217a8b19cb84d1b"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#aebe3716f130dedf9f217a8b19cb84d1b">getTextForMin</a> () const</td></tr>
 <tr class="memdesc:aebe3716f130dedf9f217a8b19cb84d1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a textual description of the parameter's minimum value.  <a href="classlemons_1_1plugin_1_1_parameter.html#aebe3716f130dedf9f217a8b19cb84d1b">More...</a><br /></td></tr>
 <tr class="separator:aebe3716f130dedf9f217a8b19cb84d1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">Functions for gesture state</div></td></tr>
+<tr><td colspan="2"><div class="groupHeader">parameter_gesture_state Functions for gesture state</div></td></tr>
 <tr class="memitem:ab401bba2feb1c21a43c9e1ebb0e9089e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#ab401bba2feb1c21a43c9e1ebb0e9089e">beginGesture</a> ()</td></tr>
 <tr class="memdesc:ab401bba2feb1c21a43c9e1ebb0e9089e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Begins a change gesture for this parameter.  <a href="classlemons_1_1plugin_1_1_parameter.html#ab401bba2feb1c21a43c9e1ebb0e9089e">More...</a><br /></td></tr>
 <tr class="separator:ab401bba2feb1c21a43c9e1ebb0e9089e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1133,7 +1133,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a89a3783fca20082cb1ded6ec34a60fcd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#a89a3783fca20082cb1ded6ec34a60fcd">isChanging</a> () const noexcept</td></tr>
 <tr class="memdesc:a89a3783fca20082cb1ded6ec34a60fcd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if this parameter is currently in the middle of a change gesture.  <a href="classlemons_1_1plugin_1_1_parameter.html#a89a3783fca20082cb1ded6ec34a60fcd">More...</a><br /></td></tr>
 <tr class="separator:a89a3783fca20082cb1ded6ec34a60fcd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">Functions for MIDI controller mapping</div></td></tr>
+<tr><td colspan="2"><div class="groupHeader">parameter_midi_cc_mapping Functions for MIDI controller mapping</div></td></tr>
 <tr class="memitem:ae04873e41210558565f97b2a98a5a621"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#ae04873e41210558565f97b2a98a5a621">getMidiControllerNumber</a> () const noexcept</td></tr>
 <tr class="memdesc:ae04873e41210558565f97b2a98a5a621"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of the MIDI controller mapped to this parameter, or -1 if this parameter is unmapped.  <a href="classlemons_1_1plugin_1_1_parameter.html#ae04873e41210558565f97b2a98a5a621">More...</a><br /></td></tr>
 <tr class="separator:ae04873e41210558565f97b2a98a5a621"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1149,7 +1149,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:af4b036bf5f1e1dcb75d3289ccf3f8f5b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#af4b036bf5f1e1dcb75d3289ccf3f8f5b">processNewControllerMessage</a> (int controllerNumber, int controllerValue)</td></tr>
 <tr class="memdesc:af4b036bf5f1e1dcb75d3289ccf3f8f5b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Call this function with each MIDI CC message your plugin recieves, and the <a class="el" href="classlemons_1_1plugin_1_1_parameter.html">Parameter</a> class will automatically update itself with changes in the appropriate controller, if a mapping is active.  <a href="classlemons_1_1plugin_1_1_parameter.html#af4b036bf5f1e1dcb75d3289ccf3f8f5b">More...</a><br /></td></tr>
 <tr class="separator:af4b036bf5f1e1dcb75d3289ccf3f8f5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">Functions related to the default value</div></td></tr>
+<tr><td colspan="2"><div class="groupHeader">parameter_default_value Functions related to the default value</div></td></tr>
 <tr class="memitem:a06ee7850537979ed797fbe016f8700b5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#a06ee7850537979ed797fbe016f8700b5">refreshDefault</a> ()</td></tr>
 <tr class="memdesc:a06ee7850537979ed797fbe016f8700b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the parameter's current value as the default value.  <a href="classlemons_1_1plugin_1_1_parameter.html#a06ee7850537979ed797fbe016f8700b5">More...</a><br /></td></tr>
 <tr class="separator:a06ee7850537979ed797fbe016f8700b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1168,7 +1168,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:afa210c9638d5fc5e09f8e659eb41c120"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#afa210c9638d5fc5e09f8e659eb41c120">setDenormalizedDefault</a> (float value)</td></tr>
 <tr class="memdesc:afa210c9638d5fc5e09f8e659eb41c120"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the parameter's default, in the parameter's denormalized range.  <a href="classlemons_1_1plugin_1_1_parameter.html#afa210c9638d5fc5e09f8e659eb41c120">More...</a><br /></td></tr>
 <tr class="separator:afa210c9638d5fc5e09f8e659eb41c120"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">Functions for converting to/from text</div></td></tr>
+<tr><td colspan="2"><div class="groupHeader">parameter_to_and_from_text Functions for converting to/from text</div></td></tr>
 <tr class="memitem:a07202aa895f5c0e7a49dba3ffb5e275e"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#a07202aa895f5c0e7a49dba3ffb5e275e">getTextForNormalizedValue</a> (float value) const</td></tr>
 <tr class="memdesc:a07202aa895f5c0e7a49dba3ffb5e275e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a textual description of a normalized value in the range 0-1.  <a href="classlemons_1_1plugin_1_1_parameter.html#a07202aa895f5c0e7a49dba3ffb5e275e">More...</a><br /></td></tr>
 <tr class="separator:a07202aa895f5c0e7a49dba3ffb5e275e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1184,14 +1184,14 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aebe3716f130dedf9f217a8b19cb84d1b"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#aebe3716f130dedf9f217a8b19cb84d1b">getTextForMin</a> () const</td></tr>
 <tr class="memdesc:aebe3716f130dedf9f217a8b19cb84d1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a textual description of the parameter's minimum value.  <a href="classlemons_1_1plugin_1_1_parameter.html#aebe3716f130dedf9f217a8b19cb84d1b">More...</a><br /></td></tr>
 <tr class="separator:aebe3716f130dedf9f217a8b19cb84d1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">Functions for state saving and loading</div></td></tr>
+<tr><td colspan="2"><div class="groupHeader">parameter_saving_and_loading Functions for state saving and loading</div></td></tr>
 <tr class="memitem:a421551f74a17bc31fa3488aae8407a4c"><td class="memItemLeft" align="right" valign="top">virtual ValueTree&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#a421551f74a17bc31fa3488aae8407a4c">saveToValueTree</a> () const</td></tr>
 <tr class="memdesc:a421551f74a17bc31fa3488aae8407a4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Saves the state of this parameter to a ValueTree.  <a href="classlemons_1_1plugin_1_1_parameter.html#a421551f74a17bc31fa3488aae8407a4c">More...</a><br /></td></tr>
 <tr class="separator:a421551f74a17bc31fa3488aae8407a4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6707d107c3f255f06510597c5b36431e"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="structlemons_1_1plugin_1_1_parameter_traits.html">ParameterTraits</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#a6707d107c3f255f06510597c5b36431e">getParameterTraits</a> () const</td></tr>
 <tr class="memdesc:a6707d107c3f255f06510597c5b36431e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a <a class="el" href="structlemons_1_1plugin_1_1_parameter_traits.html">ParameterTraits</a> object representing this parameter.  <a href="classlemons_1_1plugin_1_1_parameter.html#a6707d107c3f255f06510597c5b36431e">More...</a><br /></td></tr>
 <tr class="separator:a6707d107c3f255f06510597c5b36431e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">Functions for gesture state</div></td></tr>
+<tr><td colspan="2"><div class="groupHeader">parameter_gesture_state Functions for gesture state</div></td></tr>
 <tr class="memitem:ab401bba2feb1c21a43c9e1ebb0e9089e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#ab401bba2feb1c21a43c9e1ebb0e9089e">beginGesture</a> ()</td></tr>
 <tr class="memdesc:ab401bba2feb1c21a43c9e1ebb0e9089e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Begins a change gesture for this parameter.  <a href="classlemons_1_1plugin_1_1_parameter.html#ab401bba2feb1c21a43c9e1ebb0e9089e">More...</a><br /></td></tr>
 <tr class="separator:ab401bba2feb1c21a43c9e1ebb0e9089e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1201,7 +1201,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a89a3783fca20082cb1ded6ec34a60fcd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#a89a3783fca20082cb1ded6ec34a60fcd">isChanging</a> () const noexcept</td></tr>
 <tr class="memdesc:a89a3783fca20082cb1ded6ec34a60fcd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if this parameter is currently in the middle of a change gesture.  <a href="classlemons_1_1plugin_1_1_parameter.html#a89a3783fca20082cb1ded6ec34a60fcd">More...</a><br /></td></tr>
 <tr class="separator:a89a3783fca20082cb1ded6ec34a60fcd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">Functions for MIDI controller mapping</div></td></tr>
+<tr><td colspan="2"><div class="groupHeader">parameter_midi_cc_mapping Functions for MIDI controller mapping</div></td></tr>
 <tr class="memitem:ae04873e41210558565f97b2a98a5a621"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#ae04873e41210558565f97b2a98a5a621">getMidiControllerNumber</a> () const noexcept</td></tr>
 <tr class="memdesc:ae04873e41210558565f97b2a98a5a621"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of the MIDI controller mapped to this parameter, or -1 if this parameter is unmapped.  <a href="classlemons_1_1plugin_1_1_parameter.html#ae04873e41210558565f97b2a98a5a621">More...</a><br /></td></tr>
 <tr class="separator:ae04873e41210558565f97b2a98a5a621"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1217,7 +1217,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:af4b036bf5f1e1dcb75d3289ccf3f8f5b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#af4b036bf5f1e1dcb75d3289ccf3f8f5b">processNewControllerMessage</a> (int controllerNumber, int controllerValue)</td></tr>
 <tr class="memdesc:af4b036bf5f1e1dcb75d3289ccf3f8f5b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Call this function with each MIDI CC message your plugin recieves, and the <a class="el" href="classlemons_1_1plugin_1_1_parameter.html">Parameter</a> class will automatically update itself with changes in the appropriate controller, if a mapping is active.  <a href="classlemons_1_1plugin_1_1_parameter.html#af4b036bf5f1e1dcb75d3289ccf3f8f5b">More...</a><br /></td></tr>
 <tr class="separator:af4b036bf5f1e1dcb75d3289ccf3f8f5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">Functions related to the default value</div></td></tr>
+<tr><td colspan="2"><div class="groupHeader">parameter_default_value Functions related to the default value</div></td></tr>
 <tr class="memitem:a06ee7850537979ed797fbe016f8700b5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#a06ee7850537979ed797fbe016f8700b5">refreshDefault</a> ()</td></tr>
 <tr class="memdesc:a06ee7850537979ed797fbe016f8700b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the parameter's current value as the default value.  <a href="classlemons_1_1plugin_1_1_parameter.html#a06ee7850537979ed797fbe016f8700b5">More...</a><br /></td></tr>
 <tr class="separator:a06ee7850537979ed797fbe016f8700b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1236,7 +1236,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:afa210c9638d5fc5e09f8e659eb41c120"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#afa210c9638d5fc5e09f8e659eb41c120">setDenormalizedDefault</a> (float value)</td></tr>
 <tr class="memdesc:afa210c9638d5fc5e09f8e659eb41c120"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the parameter's default, in the parameter's denormalized range.  <a href="classlemons_1_1plugin_1_1_parameter.html#afa210c9638d5fc5e09f8e659eb41c120">More...</a><br /></td></tr>
 <tr class="separator:afa210c9638d5fc5e09f8e659eb41c120"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">Functions for converting to/from text</div></td></tr>
+<tr><td colspan="2"><div class="groupHeader">parameter_to_and_from_text Functions for converting to/from text</div></td></tr>
 <tr class="memitem:a07202aa895f5c0e7a49dba3ffb5e275e"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#a07202aa895f5c0e7a49dba3ffb5e275e">getTextForNormalizedValue</a> (float value) const</td></tr>
 <tr class="memdesc:a07202aa895f5c0e7a49dba3ffb5e275e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a textual description of a normalized value in the range 0-1.  <a href="classlemons_1_1plugin_1_1_parameter.html#a07202aa895f5c0e7a49dba3ffb5e275e">More...</a><br /></td></tr>
 <tr class="separator:a07202aa895f5c0e7a49dba3ffb5e275e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1252,7 +1252,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aebe3716f130dedf9f217a8b19cb84d1b"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#aebe3716f130dedf9f217a8b19cb84d1b">getTextForMin</a> () const</td></tr>
 <tr class="memdesc:aebe3716f130dedf9f217a8b19cb84d1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a textual description of the parameter's minimum value.  <a href="classlemons_1_1plugin_1_1_parameter.html#aebe3716f130dedf9f217a8b19cb84d1b">More...</a><br /></td></tr>
 <tr class="separator:aebe3716f130dedf9f217a8b19cb84d1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">Functions for gesture state</div></td></tr>
+<tr><td colspan="2"><div class="groupHeader">parameter_gesture_state Functions for gesture state</div></td></tr>
 <tr class="memitem:ab401bba2feb1c21a43c9e1ebb0e9089e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#ab401bba2feb1c21a43c9e1ebb0e9089e">beginGesture</a> ()</td></tr>
 <tr class="memdesc:ab401bba2feb1c21a43c9e1ebb0e9089e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Begins a change gesture for this parameter.  <a href="classlemons_1_1plugin_1_1_parameter.html#ab401bba2feb1c21a43c9e1ebb0e9089e">More...</a><br /></td></tr>
 <tr class="separator:ab401bba2feb1c21a43c9e1ebb0e9089e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1262,7 +1262,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a89a3783fca20082cb1ded6ec34a60fcd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#a89a3783fca20082cb1ded6ec34a60fcd">isChanging</a> () const noexcept</td></tr>
 <tr class="memdesc:a89a3783fca20082cb1ded6ec34a60fcd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if this parameter is currently in the middle of a change gesture.  <a href="classlemons_1_1plugin_1_1_parameter.html#a89a3783fca20082cb1ded6ec34a60fcd">More...</a><br /></td></tr>
 <tr class="separator:a89a3783fca20082cb1ded6ec34a60fcd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">Functions for MIDI controller mapping</div></td></tr>
+<tr><td colspan="2"><div class="groupHeader">parameter_midi_cc_mapping Functions for MIDI controller mapping</div></td></tr>
 <tr class="memitem:ae04873e41210558565f97b2a98a5a621"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#ae04873e41210558565f97b2a98a5a621">getMidiControllerNumber</a> () const noexcept</td></tr>
 <tr class="memdesc:ae04873e41210558565f97b2a98a5a621"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of the MIDI controller mapped to this parameter, or -1 if this parameter is unmapped.  <a href="classlemons_1_1plugin_1_1_parameter.html#ae04873e41210558565f97b2a98a5a621">More...</a><br /></td></tr>
 <tr class="separator:ae04873e41210558565f97b2a98a5a621"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1278,7 +1278,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:af4b036bf5f1e1dcb75d3289ccf3f8f5b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#af4b036bf5f1e1dcb75d3289ccf3f8f5b">processNewControllerMessage</a> (int controllerNumber, int controllerValue)</td></tr>
 <tr class="memdesc:af4b036bf5f1e1dcb75d3289ccf3f8f5b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Call this function with each MIDI CC message your plugin recieves, and the <a class="el" href="classlemons_1_1plugin_1_1_parameter.html">Parameter</a> class will automatically update itself with changes in the appropriate controller, if a mapping is active.  <a href="classlemons_1_1plugin_1_1_parameter.html#af4b036bf5f1e1dcb75d3289ccf3f8f5b">More...</a><br /></td></tr>
 <tr class="separator:af4b036bf5f1e1dcb75d3289ccf3f8f5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">Functions related to the default value</div></td></tr>
+<tr><td colspan="2"><div class="groupHeader">parameter_default_value Functions related to the default value</div></td></tr>
 <tr class="memitem:a06ee7850537979ed797fbe016f8700b5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#a06ee7850537979ed797fbe016f8700b5">refreshDefault</a> ()</td></tr>
 <tr class="memdesc:a06ee7850537979ed797fbe016f8700b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the parameter's current value as the default value.  <a href="classlemons_1_1plugin_1_1_parameter.html#a06ee7850537979ed797fbe016f8700b5">More...</a><br /></td></tr>
 <tr class="separator:a06ee7850537979ed797fbe016f8700b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1297,7 +1297,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:afa210c9638d5fc5e09f8e659eb41c120"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#afa210c9638d5fc5e09f8e659eb41c120">setDenormalizedDefault</a> (float value)</td></tr>
 <tr class="memdesc:afa210c9638d5fc5e09f8e659eb41c120"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the parameter's default, in the parameter's denormalized range.  <a href="classlemons_1_1plugin_1_1_parameter.html#afa210c9638d5fc5e09f8e659eb41c120">More...</a><br /></td></tr>
 <tr class="separator:afa210c9638d5fc5e09f8e659eb41c120"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">Functions for converting to/from text</div></td></tr>
+<tr><td colspan="2"><div class="groupHeader">parameter_to_and_from_text Functions for converting to/from text</div></td></tr>
 <tr class="memitem:a07202aa895f5c0e7a49dba3ffb5e275e"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#a07202aa895f5c0e7a49dba3ffb5e275e">getTextForNormalizedValue</a> (float value) const</td></tr>
 <tr class="memdesc:a07202aa895f5c0e7a49dba3ffb5e275e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a textual description of a normalized value in the range 0-1.  <a href="classlemons_1_1plugin_1_1_parameter.html#a07202aa895f5c0e7a49dba3ffb5e275e">More...</a><br /></td></tr>
 <tr class="separator:a07202aa895f5c0e7a49dba3ffb5e275e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1313,14 +1313,14 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aebe3716f130dedf9f217a8b19cb84d1b"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#aebe3716f130dedf9f217a8b19cb84d1b">getTextForMin</a> () const</td></tr>
 <tr class="memdesc:aebe3716f130dedf9f217a8b19cb84d1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a textual description of the parameter's minimum value.  <a href="classlemons_1_1plugin_1_1_parameter.html#aebe3716f130dedf9f217a8b19cb84d1b">More...</a><br /></td></tr>
 <tr class="separator:aebe3716f130dedf9f217a8b19cb84d1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">Functions for state saving and loading</div></td></tr>
+<tr><td colspan="2"><div class="groupHeader">parameter_saving_and_loading Functions for state saving and loading</div></td></tr>
 <tr class="memitem:a421551f74a17bc31fa3488aae8407a4c"><td class="memItemLeft" align="right" valign="top">virtual ValueTree&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#a421551f74a17bc31fa3488aae8407a4c">saveToValueTree</a> () const</td></tr>
 <tr class="memdesc:a421551f74a17bc31fa3488aae8407a4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Saves the state of this parameter to a ValueTree.  <a href="classlemons_1_1plugin_1_1_parameter.html#a421551f74a17bc31fa3488aae8407a4c">More...</a><br /></td></tr>
 <tr class="separator:a421551f74a17bc31fa3488aae8407a4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6707d107c3f255f06510597c5b36431e"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="structlemons_1_1plugin_1_1_parameter_traits.html">ParameterTraits</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#a6707d107c3f255f06510597c5b36431e">getParameterTraits</a> () const</td></tr>
 <tr class="memdesc:a6707d107c3f255f06510597c5b36431e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a <a class="el" href="structlemons_1_1plugin_1_1_parameter_traits.html">ParameterTraits</a> object representing this parameter.  <a href="classlemons_1_1plugin_1_1_parameter.html#a6707d107c3f255f06510597c5b36431e">More...</a><br /></td></tr>
 <tr class="separator:a6707d107c3f255f06510597c5b36431e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">Functions for gesture state</div></td></tr>
+<tr><td colspan="2"><div class="groupHeader">parameter_gesture_state Functions for gesture state</div></td></tr>
 <tr class="memitem:ab401bba2feb1c21a43c9e1ebb0e9089e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#ab401bba2feb1c21a43c9e1ebb0e9089e">beginGesture</a> ()</td></tr>
 <tr class="memdesc:ab401bba2feb1c21a43c9e1ebb0e9089e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Begins a change gesture for this parameter.  <a href="classlemons_1_1plugin_1_1_parameter.html#ab401bba2feb1c21a43c9e1ebb0e9089e">More...</a><br /></td></tr>
 <tr class="separator:ab401bba2feb1c21a43c9e1ebb0e9089e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1330,7 +1330,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a89a3783fca20082cb1ded6ec34a60fcd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#a89a3783fca20082cb1ded6ec34a60fcd">isChanging</a> () const noexcept</td></tr>
 <tr class="memdesc:a89a3783fca20082cb1ded6ec34a60fcd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if this parameter is currently in the middle of a change gesture.  <a href="classlemons_1_1plugin_1_1_parameter.html#a89a3783fca20082cb1ded6ec34a60fcd">More...</a><br /></td></tr>
 <tr class="separator:a89a3783fca20082cb1ded6ec34a60fcd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">Functions for MIDI controller mapping</div></td></tr>
+<tr><td colspan="2"><div class="groupHeader">parameter_midi_cc_mapping Functions for MIDI controller mapping</div></td></tr>
 <tr class="memitem:ae04873e41210558565f97b2a98a5a621"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#ae04873e41210558565f97b2a98a5a621">getMidiControllerNumber</a> () const noexcept</td></tr>
 <tr class="memdesc:ae04873e41210558565f97b2a98a5a621"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of the MIDI controller mapped to this parameter, or -1 if this parameter is unmapped.  <a href="classlemons_1_1plugin_1_1_parameter.html#ae04873e41210558565f97b2a98a5a621">More...</a><br /></td></tr>
 <tr class="separator:ae04873e41210558565f97b2a98a5a621"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1346,7 +1346,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:af4b036bf5f1e1dcb75d3289ccf3f8f5b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#af4b036bf5f1e1dcb75d3289ccf3f8f5b">processNewControllerMessage</a> (int controllerNumber, int controllerValue)</td></tr>
 <tr class="memdesc:af4b036bf5f1e1dcb75d3289ccf3f8f5b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Call this function with each MIDI CC message your plugin recieves, and the <a class="el" href="classlemons_1_1plugin_1_1_parameter.html">Parameter</a> class will automatically update itself with changes in the appropriate controller, if a mapping is active.  <a href="classlemons_1_1plugin_1_1_parameter.html#af4b036bf5f1e1dcb75d3289ccf3f8f5b">More...</a><br /></td></tr>
 <tr class="separator:af4b036bf5f1e1dcb75d3289ccf3f8f5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">Functions related to the default value</div></td></tr>
+<tr><td colspan="2"><div class="groupHeader">parameter_default_value Functions related to the default value</div></td></tr>
 <tr class="memitem:a06ee7850537979ed797fbe016f8700b5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#a06ee7850537979ed797fbe016f8700b5">refreshDefault</a> ()</td></tr>
 <tr class="memdesc:a06ee7850537979ed797fbe016f8700b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the parameter's current value as the default value.  <a href="classlemons_1_1plugin_1_1_parameter.html#a06ee7850537979ed797fbe016f8700b5">More...</a><br /></td></tr>
 <tr class="separator:a06ee7850537979ed797fbe016f8700b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1365,7 +1365,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:afa210c9638d5fc5e09f8e659eb41c120"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#afa210c9638d5fc5e09f8e659eb41c120">setDenormalizedDefault</a> (float value)</td></tr>
 <tr class="memdesc:afa210c9638d5fc5e09f8e659eb41c120"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the parameter's default, in the parameter's denormalized range.  <a href="classlemons_1_1plugin_1_1_parameter.html#afa210c9638d5fc5e09f8e659eb41c120">More...</a><br /></td></tr>
 <tr class="separator:afa210c9638d5fc5e09f8e659eb41c120"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">Functions for converting to/from text</div></td></tr>
+<tr><td colspan="2"><div class="groupHeader">parameter_to_and_from_text Functions for converting to/from text</div></td></tr>
 <tr class="memitem:a07202aa895f5c0e7a49dba3ffb5e275e"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#a07202aa895f5c0e7a49dba3ffb5e275e">getTextForNormalizedValue</a> (float value) const</td></tr>
 <tr class="memdesc:a07202aa895f5c0e7a49dba3ffb5e275e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a textual description of a normalized value in the range 0-1.  <a href="classlemons_1_1plugin_1_1_parameter.html#a07202aa895f5c0e7a49dba3ffb5e275e">More...</a><br /></td></tr>
 <tr class="separator:a07202aa895f5c0e7a49dba3ffb5e275e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1381,14 +1381,14 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aebe3716f130dedf9f217a8b19cb84d1b"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#aebe3716f130dedf9f217a8b19cb84d1b">getTextForMin</a> () const</td></tr>
 <tr class="memdesc:aebe3716f130dedf9f217a8b19cb84d1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a textual description of the parameter's minimum value.  <a href="classlemons_1_1plugin_1_1_parameter.html#aebe3716f130dedf9f217a8b19cb84d1b">More...</a><br /></td></tr>
 <tr class="separator:aebe3716f130dedf9f217a8b19cb84d1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">Functions for state saving and loading</div></td></tr>
+<tr><td colspan="2"><div class="groupHeader">parameter_saving_and_loading Functions for state saving and loading</div></td></tr>
 <tr class="memitem:a421551f74a17bc31fa3488aae8407a4c"><td class="memItemLeft" align="right" valign="top">virtual ValueTree&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#a421551f74a17bc31fa3488aae8407a4c">saveToValueTree</a> () const</td></tr>
 <tr class="memdesc:a421551f74a17bc31fa3488aae8407a4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Saves the state of this parameter to a ValueTree.  <a href="classlemons_1_1plugin_1_1_parameter.html#a421551f74a17bc31fa3488aae8407a4c">More...</a><br /></td></tr>
 <tr class="separator:a421551f74a17bc31fa3488aae8407a4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6707d107c3f255f06510597c5b36431e"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="structlemons_1_1plugin_1_1_parameter_traits.html">ParameterTraits</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#a6707d107c3f255f06510597c5b36431e">getParameterTraits</a> () const</td></tr>
 <tr class="memdesc:a6707d107c3f255f06510597c5b36431e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a <a class="el" href="structlemons_1_1plugin_1_1_parameter_traits.html">ParameterTraits</a> object representing this parameter.  <a href="classlemons_1_1plugin_1_1_parameter.html#a6707d107c3f255f06510597c5b36431e">More...</a><br /></td></tr>
 <tr class="separator:a6707d107c3f255f06510597c5b36431e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">Functions for gesture state</div></td></tr>
+<tr><td colspan="2"><div class="groupHeader">parameter_gesture_state Functions for gesture state</div></td></tr>
 <tr class="memitem:ab401bba2feb1c21a43c9e1ebb0e9089e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#ab401bba2feb1c21a43c9e1ebb0e9089e">beginGesture</a> ()</td></tr>
 <tr class="memdesc:ab401bba2feb1c21a43c9e1ebb0e9089e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Begins a change gesture for this parameter.  <a href="classlemons_1_1plugin_1_1_parameter.html#ab401bba2feb1c21a43c9e1ebb0e9089e">More...</a><br /></td></tr>
 <tr class="separator:ab401bba2feb1c21a43c9e1ebb0e9089e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1398,7 +1398,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a89a3783fca20082cb1ded6ec34a60fcd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#a89a3783fca20082cb1ded6ec34a60fcd">isChanging</a> () const noexcept</td></tr>
 <tr class="memdesc:a89a3783fca20082cb1ded6ec34a60fcd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if this parameter is currently in the middle of a change gesture.  <a href="classlemons_1_1plugin_1_1_parameter.html#a89a3783fca20082cb1ded6ec34a60fcd">More...</a><br /></td></tr>
 <tr class="separator:a89a3783fca20082cb1ded6ec34a60fcd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">Functions for MIDI controller mapping</div></td></tr>
+<tr><td colspan="2"><div class="groupHeader">parameter_midi_cc_mapping Functions for MIDI controller mapping</div></td></tr>
 <tr class="memitem:ae04873e41210558565f97b2a98a5a621"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#ae04873e41210558565f97b2a98a5a621">getMidiControllerNumber</a> () const noexcept</td></tr>
 <tr class="memdesc:ae04873e41210558565f97b2a98a5a621"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of the MIDI controller mapped to this parameter, or -1 if this parameter is unmapped.  <a href="classlemons_1_1plugin_1_1_parameter.html#ae04873e41210558565f97b2a98a5a621">More...</a><br /></td></tr>
 <tr class="separator:ae04873e41210558565f97b2a98a5a621"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1414,7 +1414,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:af4b036bf5f1e1dcb75d3289ccf3f8f5b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#af4b036bf5f1e1dcb75d3289ccf3f8f5b">processNewControllerMessage</a> (int controllerNumber, int controllerValue)</td></tr>
 <tr class="memdesc:af4b036bf5f1e1dcb75d3289ccf3f8f5b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Call this function with each MIDI CC message your plugin recieves, and the <a class="el" href="classlemons_1_1plugin_1_1_parameter.html">Parameter</a> class will automatically update itself with changes in the appropriate controller, if a mapping is active.  <a href="classlemons_1_1plugin_1_1_parameter.html#af4b036bf5f1e1dcb75d3289ccf3f8f5b">More...</a><br /></td></tr>
 <tr class="separator:af4b036bf5f1e1dcb75d3289ccf3f8f5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">Functions related to the default value</div></td></tr>
+<tr><td colspan="2"><div class="groupHeader">parameter_default_value Functions related to the default value</div></td></tr>
 <tr class="memitem:a06ee7850537979ed797fbe016f8700b5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#a06ee7850537979ed797fbe016f8700b5">refreshDefault</a> ()</td></tr>
 <tr class="memdesc:a06ee7850537979ed797fbe016f8700b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the parameter's current value as the default value.  <a href="classlemons_1_1plugin_1_1_parameter.html#a06ee7850537979ed797fbe016f8700b5">More...</a><br /></td></tr>
 <tr class="separator:a06ee7850537979ed797fbe016f8700b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1433,7 +1433,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:afa210c9638d5fc5e09f8e659eb41c120"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#afa210c9638d5fc5e09f8e659eb41c120">setDenormalizedDefault</a> (float value)</td></tr>
 <tr class="memdesc:afa210c9638d5fc5e09f8e659eb41c120"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the parameter's default, in the parameter's denormalized range.  <a href="classlemons_1_1plugin_1_1_parameter.html#afa210c9638d5fc5e09f8e659eb41c120">More...</a><br /></td></tr>
 <tr class="separator:afa210c9638d5fc5e09f8e659eb41c120"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">Functions for converting to/from text</div></td></tr>
+<tr><td colspan="2"><div class="groupHeader">parameter_to_and_from_text Functions for converting to/from text</div></td></tr>
 <tr class="memitem:a07202aa895f5c0e7a49dba3ffb5e275e"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#a07202aa895f5c0e7a49dba3ffb5e275e">getTextForNormalizedValue</a> (float value) const</td></tr>
 <tr class="memdesc:a07202aa895f5c0e7a49dba3ffb5e275e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a textual description of a normalized value in the range 0-1.  <a href="classlemons_1_1plugin_1_1_parameter.html#a07202aa895f5c0e7a49dba3ffb5e275e">More...</a><br /></td></tr>
 <tr class="separator:a07202aa895f5c0e7a49dba3ffb5e275e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -2892,7 +2892,7 @@ Static Protected Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jan 2 2022 23:55:02 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Jan 3 2022 00:10:05 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

@@ -16127,76 +16127,6 @@
       <arglist>()=default</arglist>
     </member>
     <member kind="function">
-      <type>int</type>
-      <name>getLastMidiChannel</name>
-      <anchorfile>classlemons_1_1midi_1_1_midi_processor.html</anchorfile>
-      <anchor>a0b7c7b4161c1c7a3f12b02bc2a548935</anchor>
-      <arglist>() const noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>int</type>
-      <name>getLastMidiTimestamp</name>
-      <anchorfile>classlemons_1_1midi_1_1_midi_processor.html</anchorfile>
-      <anchor>ae9de4a1652b1d55ed7ec146849d8f18e</anchor>
-      <arglist>() const noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>getLastMovedCCinfo</name>
-      <anchorfile>classlemons_1_1midi_1_1_midi_processor.html</anchorfile>
-      <anchor>ab2d46b01a2c660049db621140833bba8</anchor>
-      <arglist>(int &amp;controllerNumber, int &amp;controllerValue) const noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>int</type>
-      <name>getLastPitchwheelValue</name>
-      <anchorfile>classlemons_1_1midi_1_1_midi_processor.html</anchorfile>
-      <anchor>a40b779da63a4a9232fd7157b9262ec98</anchor>
-      <arglist>() const noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>isSoftPedalDown</name>
-      <anchorfile>classlemons_1_1midi_1_1_midi_processor.html</anchorfile>
-      <anchor>a9c1c62f875497f2e7167b8248bbeaa89</anchor>
-      <arglist>() const noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>isSostenutoPedalDown</name>
-      <anchorfile>classlemons_1_1midi_1_1_midi_processor.html</anchorfile>
-      <anchor>a2f35020fe0ba5868082237981d1cf341</anchor>
-      <arglist>() const noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>isSustainPedalDown</name>
-      <anchorfile>classlemons_1_1midi_1_1_midi_processor.html</anchorfile>
-      <anchor>aa697c3932a894cd1bdc4268456594628</anchor>
-      <arglist>() const noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>process</name>
-      <anchorfile>classlemons_1_1midi_1_1_midi_processor.html</anchorfile>
-      <anchor>a895a6099331ab85ff6dc352412c02f23</anchor>
-      <arglist>(const juce::MidiMessageMetadata &amp;meta)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>process</name>
-      <anchorfile>classlemons_1_1midi_1_1_midi_processor.html</anchorfile>
-      <anchor>a46dc394d6b5f093912668f626afd3f16</anchor>
-      <arglist>(const MidiBuffer &amp;buffer)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>process</name>
-      <anchorfile>classlemons_1_1midi_1_1_midi_processor.html</anchorfile>
-      <anchor>a7c28d67582d6686c7b0d8ac5cb1317f7</anchor>
-      <arglist>(const MidiMessage &amp;m)</arglist>
-    </member>
-    <member kind="function">
       <type>void</type>
       <name>reset</name>
       <anchorfile>classlemons_1_1midi_1_1_midi_processor.html</anchorfile>
@@ -16273,17 +16203,33 @@
       <anchor>a385f445352437559370d13d364bc3c2b</anchor>
       <arglist>(int controllerValue)</arglist>
     </member>
-  </compound>
-  <compound kind="class">
-    <name>lemons::dsp::synth::MidiManager::MidiRouter</name>
-    <filename>classlemons_1_1dsp_1_1synth_1_1_midi_manager_1_1_midi_router.html</filename>
-    <base>lemons::midi::MidiProcessor</base>
     <member kind="function">
-      <type></type>
-      <name>MidiRouter</name>
-      <anchorfile>classlemons_1_1dsp_1_1synth_1_1_midi_manager_1_1_midi_router.html</anchorfile>
-      <anchor>ad09289fcf5c59c45b44f311000ff7e37</anchor>
-      <arglist>(SynthBase&lt; SampleType &gt; &amp;s)</arglist>
+      <type>void</type>
+      <name>process</name>
+      <anchorfile>classlemons_1_1midi_1_1_midi_processor.html</anchorfile>
+      <anchor>a46dc394d6b5f093912668f626afd3f16</anchor>
+      <arglist>(const MidiBuffer &amp;buffer)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>process</name>
+      <anchorfile>classlemons_1_1midi_1_1_midi_processor.html</anchorfile>
+      <anchor>a895a6099331ab85ff6dc352412c02f23</anchor>
+      <arglist>(const juce::MidiMessageMetadata &amp;meta)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>process</name>
+      <anchorfile>classlemons_1_1midi_1_1_midi_processor.html</anchorfile>
+      <anchor>a7c28d67582d6686c7b0d8ac5cb1317f7</anchor>
+      <arglist>(const MidiMessage &amp;m)</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>getLastPitchwheelValue</name>
+      <anchorfile>classlemons_1_1midi_1_1_midi_processor.html</anchorfile>
+      <anchor>a40b779da63a4a9232fd7157b9262ec98</anchor>
+      <arglist>() const noexcept</arglist>
     </member>
     <member kind="function">
       <type>int</type>
@@ -16300,24 +16246,10 @@
       <arglist>() const noexcept</arglist>
     </member>
     <member kind="function">
-      <type>void</type>
-      <name>getLastMovedCCinfo</name>
-      <anchorfile>classlemons_1_1midi_1_1_midi_processor.html</anchorfile>
-      <anchor>ab2d46b01a2c660049db621140833bba8</anchor>
-      <arglist>(int &amp;controllerNumber, int &amp;controllerValue) const noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>int</type>
-      <name>getLastPitchwheelValue</name>
-      <anchorfile>classlemons_1_1midi_1_1_midi_processor.html</anchorfile>
-      <anchor>a40b779da63a4a9232fd7157b9262ec98</anchor>
-      <arglist>() const noexcept</arglist>
-    </member>
-    <member kind="function">
       <type>bool</type>
-      <name>isSoftPedalDown</name>
+      <name>isSustainPedalDown</name>
       <anchorfile>classlemons_1_1midi_1_1_midi_processor.html</anchorfile>
-      <anchor>a9c1c62f875497f2e7167b8248bbeaa89</anchor>
+      <anchor>aa697c3932a894cd1bdc4268456594628</anchor>
       <arglist>() const noexcept</arglist>
     </member>
     <member kind="function">
@@ -16329,17 +16261,36 @@
     </member>
     <member kind="function">
       <type>bool</type>
-      <name>isSustainPedalDown</name>
+      <name>isSoftPedalDown</name>
       <anchorfile>classlemons_1_1midi_1_1_midi_processor.html</anchorfile>
-      <anchor>aa697c3932a894cd1bdc4268456594628</anchor>
+      <anchor>a9c1c62f875497f2e7167b8248bbeaa89</anchor>
       <arglist>() const noexcept</arglist>
     </member>
     <member kind="function">
       <type>void</type>
-      <name>process</name>
+      <name>getLastMovedCCinfo</name>
       <anchorfile>classlemons_1_1midi_1_1_midi_processor.html</anchorfile>
-      <anchor>a895a6099331ab85ff6dc352412c02f23</anchor>
-      <arglist>(const juce::MidiMessageMetadata &amp;meta)</arglist>
+      <anchor>ab2d46b01a2c660049db621140833bba8</anchor>
+      <arglist>(int &amp;controllerNumber, int &amp;controllerValue) const noexcept</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>lemons::dsp::synth::MidiManager::MidiRouter</name>
+    <filename>classlemons_1_1dsp_1_1synth_1_1_midi_manager_1_1_midi_router.html</filename>
+    <base>lemons::midi::MidiProcessor</base>
+    <member kind="function">
+      <type></type>
+      <name>MidiRouter</name>
+      <anchorfile>classlemons_1_1dsp_1_1synth_1_1_midi_manager_1_1_midi_router.html</anchorfile>
+      <anchor>ad09289fcf5c59c45b44f311000ff7e37</anchor>
+      <arglist>(SynthBase&lt; SampleType &gt; &amp;s)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>reset</name>
+      <anchorfile>classlemons_1_1midi_1_1_midi_processor.html</anchorfile>
+      <anchor>a10de583b28a458c514d684f8cdd30888</anchor>
+      <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -16352,15 +16303,204 @@
       <type>void</type>
       <name>process</name>
       <anchorfile>classlemons_1_1midi_1_1_midi_processor.html</anchorfile>
+      <anchor>a895a6099331ab85ff6dc352412c02f23</anchor>
+      <arglist>(const juce::MidiMessageMetadata &amp;meta)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>process</name>
+      <anchorfile>classlemons_1_1midi_1_1_midi_processor.html</anchorfile>
       <anchor>a7c28d67582d6686c7b0d8ac5cb1317f7</anchor>
       <arglist>(const MidiMessage &amp;m)</arglist>
     </member>
     <member kind="function">
-      <type>void</type>
-      <name>reset</name>
+      <type>int</type>
+      <name>getLastPitchwheelValue</name>
       <anchorfile>classlemons_1_1midi_1_1_midi_processor.html</anchorfile>
-      <anchor>a10de583b28a458c514d684f8cdd30888</anchor>
-      <arglist>()</arglist>
+      <anchor>a40b779da63a4a9232fd7157b9262ec98</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>getLastMidiChannel</name>
+      <anchorfile>classlemons_1_1midi_1_1_midi_processor.html</anchorfile>
+      <anchor>a0b7c7b4161c1c7a3f12b02bc2a548935</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>getLastMidiTimestamp</name>
+      <anchorfile>classlemons_1_1midi_1_1_midi_processor.html</anchorfile>
+      <anchor>ae9de4a1652b1d55ed7ec146849d8f18e</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isSustainPedalDown</name>
+      <anchorfile>classlemons_1_1midi_1_1_midi_processor.html</anchorfile>
+      <anchor>aa697c3932a894cd1bdc4268456594628</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isSostenutoPedalDown</name>
+      <anchorfile>classlemons_1_1midi_1_1_midi_processor.html</anchorfile>
+      <anchor>a2f35020fe0ba5868082237981d1cf341</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isSoftPedalDown</name>
+      <anchorfile>classlemons_1_1midi_1_1_midi_processor.html</anchorfile>
+      <anchor>a9c1c62f875497f2e7167b8248bbeaa89</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>getLastMovedCCinfo</name>
+      <anchorfile>classlemons_1_1midi_1_1_midi_processor.html</anchorfile>
+      <anchor>ab2d46b01a2c660049db621140833bba8</anchor>
+      <arglist>(int &amp;controllerNumber, int &amp;controllerValue) const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>process</name>
+      <anchorfile>classlemons_1_1midi_1_1_midi_processor.html</anchorfile>
+      <anchor>a46dc394d6b5f093912668f626afd3f16</anchor>
+      <arglist>(const MidiBuffer &amp;buffer)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>process</name>
+      <anchorfile>classlemons_1_1midi_1_1_midi_processor.html</anchorfile>
+      <anchor>a895a6099331ab85ff6dc352412c02f23</anchor>
+      <arglist>(const juce::MidiMessageMetadata &amp;meta)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>process</name>
+      <anchorfile>classlemons_1_1midi_1_1_midi_processor.html</anchorfile>
+      <anchor>a7c28d67582d6686c7b0d8ac5cb1317f7</anchor>
+      <arglist>(const MidiMessage &amp;m)</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>getLastPitchwheelValue</name>
+      <anchorfile>classlemons_1_1midi_1_1_midi_processor.html</anchorfile>
+      <anchor>a40b779da63a4a9232fd7157b9262ec98</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>getLastMidiChannel</name>
+      <anchorfile>classlemons_1_1midi_1_1_midi_processor.html</anchorfile>
+      <anchor>a0b7c7b4161c1c7a3f12b02bc2a548935</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>getLastMidiTimestamp</name>
+      <anchorfile>classlemons_1_1midi_1_1_midi_processor.html</anchorfile>
+      <anchor>ae9de4a1652b1d55ed7ec146849d8f18e</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isSustainPedalDown</name>
+      <anchorfile>classlemons_1_1midi_1_1_midi_processor.html</anchorfile>
+      <anchor>aa697c3932a894cd1bdc4268456594628</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isSostenutoPedalDown</name>
+      <anchorfile>classlemons_1_1midi_1_1_midi_processor.html</anchorfile>
+      <anchor>a2f35020fe0ba5868082237981d1cf341</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isSoftPedalDown</name>
+      <anchorfile>classlemons_1_1midi_1_1_midi_processor.html</anchorfile>
+      <anchor>a9c1c62f875497f2e7167b8248bbeaa89</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>getLastMovedCCinfo</name>
+      <anchorfile>classlemons_1_1midi_1_1_midi_processor.html</anchorfile>
+      <anchor>ab2d46b01a2c660049db621140833bba8</anchor>
+      <arglist>(int &amp;controllerNumber, int &amp;controllerValue) const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>process</name>
+      <anchorfile>classlemons_1_1midi_1_1_midi_processor.html</anchorfile>
+      <anchor>a46dc394d6b5f093912668f626afd3f16</anchor>
+      <arglist>(const MidiBuffer &amp;buffer)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>process</name>
+      <anchorfile>classlemons_1_1midi_1_1_midi_processor.html</anchorfile>
+      <anchor>a895a6099331ab85ff6dc352412c02f23</anchor>
+      <arglist>(const juce::MidiMessageMetadata &amp;meta)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>process</name>
+      <anchorfile>classlemons_1_1midi_1_1_midi_processor.html</anchorfile>
+      <anchor>a7c28d67582d6686c7b0d8ac5cb1317f7</anchor>
+      <arglist>(const MidiMessage &amp;m)</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>getLastPitchwheelValue</name>
+      <anchorfile>classlemons_1_1midi_1_1_midi_processor.html</anchorfile>
+      <anchor>a40b779da63a4a9232fd7157b9262ec98</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>getLastMidiChannel</name>
+      <anchorfile>classlemons_1_1midi_1_1_midi_processor.html</anchorfile>
+      <anchor>a0b7c7b4161c1c7a3f12b02bc2a548935</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>getLastMidiTimestamp</name>
+      <anchorfile>classlemons_1_1midi_1_1_midi_processor.html</anchorfile>
+      <anchor>ae9de4a1652b1d55ed7ec146849d8f18e</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isSustainPedalDown</name>
+      <anchorfile>classlemons_1_1midi_1_1_midi_processor.html</anchorfile>
+      <anchor>aa697c3932a894cd1bdc4268456594628</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isSostenutoPedalDown</name>
+      <anchorfile>classlemons_1_1midi_1_1_midi_processor.html</anchorfile>
+      <anchor>a2f35020fe0ba5868082237981d1cf341</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isSoftPedalDown</name>
+      <anchorfile>classlemons_1_1midi_1_1_midi_processor.html</anchorfile>
+      <anchor>a9c1c62f875497f2e7167b8248bbeaa89</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>getLastMovedCCinfo</name>
+      <anchorfile>classlemons_1_1midi_1_1_midi_processor.html</anchorfile>
+      <anchor>ab2d46b01a2c660049db621140833bba8</anchor>
+      <arglist>(int &amp;controllerNumber, int &amp;controllerValue) const noexcept</arglist>
     </member>
   </compound>
   <compound kind="struct">
