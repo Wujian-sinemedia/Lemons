@@ -115,11 +115,15 @@ public:
 
 	/** Creates the popup component (or recreates it, if it already exists). All constructor arguments are forwarded verbatim to the constructor of ContentType. */
 	template <typename... Args>
-	void create (Args&&... args)
+	juce::Component::SafePointer<ContentType> create (Args&&... args)
 	{
 		window.reset (new ContentType (std::forward<Args> (args)...));
-		getTopLevelComponent()->addAndMakeVisible (window.get());
+        
+        auto* ptr = window.get();
+		getTopLevelComponent()->addAndMakeVisible (ptr);
 		resized();
+        
+        return { window.get() };
 	}
 
 	/** Destroys the popup component, if it exists.
