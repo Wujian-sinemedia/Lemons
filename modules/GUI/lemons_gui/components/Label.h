@@ -9,10 +9,16 @@ namespace lemons::gui
 struct Label : juce::Label
 {
 	/** Creates a label. */
-	Label (const String& textToUse = {});
+    explicit Label (const String& textToUse = {});
 
 	/** Changes the label's text. */
 	void set (const String& newText);
+};
+
+
+struct TextEntry : public Label
+{
+    explicit TextEntry (const String& initialText = {}, std::function<void(const String&)> textChangeFunc = nullptr);
 };
 
 }  // namespace lemons::gui

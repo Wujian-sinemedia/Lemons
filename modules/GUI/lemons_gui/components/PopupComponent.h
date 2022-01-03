@@ -45,7 +45,7 @@ public:
 	/** Creates a popup component.
 	    @param toClose Lambda function that must destroy/close this popup.
 	 */
-	PopupComponent (std::function<void()> toClose);
+    explicit PopupComponent (std::function<void()> toClose);
 
 	/** Closes the popup component, by calling the function passed to the constructor. */
 	void close();
@@ -96,7 +96,7 @@ public:
 	/** Creates a popup component holder.
 	    At first, the popup is not visible. You must call the create() method to show the popup.
 	 */
-	Popup()
+    explicit Popup()
 	{
 		setInterceptsMouseClicks (false, true);
 	}
