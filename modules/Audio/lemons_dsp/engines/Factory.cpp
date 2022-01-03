@@ -1,6 +1,12 @@
 namespace lemons::dsp::factory
 {
 
+template <template <typename SampleType> typename EngineType>
+String getTypeID()
+{
+	return "";
+}
+
 
 template <typename SampleType>
 std::map<String, CreationFunc<SampleType>>& getEngineBank()

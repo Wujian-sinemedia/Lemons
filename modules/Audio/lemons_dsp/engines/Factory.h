@@ -55,26 +55,28 @@ struct ArgumentsEngineCreator : EngineCreator
 
 #if LEMONS_DSP_ENGINE_FACTORY
 
-#  define LEMONS_CREATE_DEFAULT_ENGINE_FACTORY(TemplateClassName, typeIDstring)                                     \
-	struct TemplateClassName##_creator final : public lemons::dsp::factory::DefaultEngineCreator<TemplateClassName> \
-	{                                                                                                               \
-	  explicit TemplateClassName##_creator()                                                                        \
-		  : DefaultEngineCreator<TemplateClassName> (typeIDstring)                                                  \
-	  {                                                                                                             \
-	  }                                                                                                             \
-	};                                                                                                              \
+#  define LEMONS_CREATE_DEFAULT_ENGINE_FACTORY(TemplateClassName, typeIDstring)                        \
+	struct TemplateClassName##_creator final : public factory::DefaultEngineCreator<TemplateClassName> \
+	{                                                                                                  \
+	  explicit TemplateClassName##_creator()                                                           \
+		  : DefaultEngineCreator<TemplateClassName> (typeIDstring)                                     \
+	  {                                                                                                \
+	  }                                                                                                \
+	};                                                                                                 \
 	static const TemplateClassName##_creator TemplateClassName##_creation_object;
 
 
-#  define LEMONS_CREATE_ARGUMENT_ENGINE_FACTORY(TemplateClassName, typeIDstring, ...)                                   \
-	struct TemplateClassName##_creator final : public ArgumentsEngineCreator<TemplateClassName, decltype (__VA_ARGS__)> \
-	{                                                                                                                   \
-	  explicit TemplateClassName##_creator()                                                                            \
-		  : ArgumentsEngineCreator<TemplateClassName, decltype (__VA_ARGS__)> (typeIDstring, __VA_ARGS__)               \
-	  {                                                                                                                 \
-	  }                                                                                                                 \
-	};                                                                                                                  \
-	static const TemplateClassName##_creator TemplateClassName##_creation_object;
+#  define LEMONS_MANGLE_ARGUMENT_ENGINE_CREATOR_NAME(TemplateClassName, ...) TemplateClassName##_creator##_decltype (__VA_ARGS__)
+
+#  define LEMONS_CREATE_ARGUMENT_ENGINE_FACTORY(TemplateClassName, typeIDstring, ...)                                                                                            \
+	struct LEMONS_MANGLE_ARGUMENT_ENGINE_CREATOR_NAME (TemplateClassName, __VA_ARGS__) final : public factory::ArgumentsEngineCreator<TemplateClassName, decltype (__VA_ARGS__)> \
+	{                                                                                                                                                                            \
+	  explicit LEMONS_MANGLE_ARGUMENT_ENGINE_CREATOR_NAME (TemplateClassName, __VA_ARGS__)()                                                                                     \
+		  : ArgumentsEngineCreator<TemplateClassName, decltype (__VA_ARGS__)> (typeIDstring, __VA_ARGS__)                                                                        \
+	  {                                                                                                                                                                          \
+	  }                                                                                                                                                                          \
+	};                                                                                                                                                                           \
+	static const LEMONS_MANGLE_ARGUMENT_ENGINE_CREATOR_NAME (TemplateClassName, __VA_ARGS__) LEMONS_MANGLE_ARGUMENT_ENGINE_CREATOR_NAME (TemplateClassName, __VA_ARGS__)##_object;
 
 #else
 
