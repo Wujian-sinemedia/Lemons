@@ -5,7 +5,7 @@ namespace lemons
 
 #ifdef JUCE_APPLICATION_NAME_STRING
 #  define LEMONS_DEFAULT_APP_NAME JUCE_APPLICATION_NAME_STRING
-#elifdef JucePlugin_Name
+#elif defined JucePlugin_Name
 #  define LEMONS_DEFAULT_APP_NAME JucePlugin_Name
 #else
 #  define LEMONS_DEFAULT_APP_NAME "LemonsApp"

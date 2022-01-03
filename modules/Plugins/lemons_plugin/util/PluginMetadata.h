@@ -23,6 +23,8 @@ struct PluginMetadata final
 	EditorAttributes    editorAttributes;
 
 	Version version { Version::projectVersion() };
+    
+    static constexpr auto valueTreeType = "PluginMetadata";
 };
 
 }  // namespace lemons::plugin

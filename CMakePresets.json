@@ -32,6 +32,14 @@
       }
     },
     {
+      "name": "editor",
+      "displayName": "Configure the metadata editor",
+      "inherits": "base",
+      "cacheVariables": {
+        "LEMONS_BUILD_METADATA_EDITOR": "ON"
+    }
+    },
+    {
       "name": "utils",
       "displayName": "Configure for building the command line utilities",
       "inherits": "base",
@@ -73,6 +81,12 @@
       "configurePreset": "tests",
       "configuration": "Debug",
       "targets": ["UnitTestRunner"]
+    },
+    {
+      "name": "editor",
+      "displayName": "Build the plugin metadata GUI editor",
+      "configurePreset": "editor",
+      "targets": [ "PluginMetadataEditor" ]
     },
     {
       "name": "utils",

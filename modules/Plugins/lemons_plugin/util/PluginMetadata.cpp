@@ -13,8 +13,6 @@ PluginMetadata::PluginMetadata (const ProcessorAttributes& processorAttributesTo
 }
 
 
-static constexpr auto valueTreeType = "PluginMetadata";
-
 ValueTree PluginMetadata::toValueTree() const
 {
 	ValueTree tree { valueTreeType };

@@ -50,11 +50,11 @@ using StringToValFunc = std::function<ValueType (const String&)>;
 namespace lemons::plugin::detail
 {
 
-[[nodiscard]] inline String paramNameToID (const String& name);
+[[nodiscard]] String paramNameToID (const String& name);
 
-[[nodiscard]] inline BasicValToStringFunc createDefaultValueToTextFunction (const String& paramLabel);
+[[nodiscard]] BasicValToStringFunc createDefaultValueToTextFunction (const String& paramLabel);
 
-[[nodiscard]] inline BasicStringToValFunc createDefaultTextToValueFunction();
+[[nodiscard]] BasicStringToValFunc createDefaultTextToValueFunction();
 
 template <typename ValueType>
 [[nodiscard]] inline ParameterRange createRange (ValueType minimum, ValueType maximum);

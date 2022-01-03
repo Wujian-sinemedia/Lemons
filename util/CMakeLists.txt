@@ -18,3 +18,7 @@ endif()
 if (LEMONS_BUILD_UTILS)
 	add_subdirectory (CommandLineUtils)
 endif()
+
+if (LEMONS_BUILD_METADATA_EDITOR)
+	add_subdirectory (PluginMetadataEditor)
+endif()
