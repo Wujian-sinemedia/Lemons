@@ -21,4 +21,7 @@ struct TextEntry : public Label
     explicit TextEntry (const String& initialText = {}, std::function<void(const String&)> textChangeFunc = nullptr);
 };
 
+
+// number box
+
 }  // namespace lemons::gui

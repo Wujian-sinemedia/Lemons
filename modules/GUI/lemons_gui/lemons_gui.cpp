@@ -8,6 +8,7 @@
 
 #include "components/PopupComponent.cpp"
 #include "components/Buttons.cpp"
+#include "components/sliders.cpp"
 #include "components/Label.cpp"
 
 #include "device/AutoLock.cpp"

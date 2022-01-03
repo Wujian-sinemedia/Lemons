@@ -77,4 +77,11 @@ struct TypedProcessorEngine final : public ProcessorEngine<SampleType>
 	ProcessorType typedProcessor;
 };
 
+
+template <typename SampleType, typename ProcessorType, typename... Args>
+[[nodiscard]] std::unique_ptr<ProcessorEngine<SampleType>> createEngineForProcessor (Args&&... args)
+{
+    return std::make_unique<TypedProcessorEngine<SampleType, ProcessorType>> (std::forward<Args>(args)...);
+}
+
 }  // namespace lemons::plugin

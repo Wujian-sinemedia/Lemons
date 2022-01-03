@@ -6,10 +6,6 @@
 namespace lemons::gui
 {
 
-/** @defgroup lemons_gui_components Components
-    @ingroup lemons_gui
- */
-
 /** @name lemons_popup_component Popup
     @ingroup lemons_gui_components
     Base class for a popup component.
@@ -45,7 +41,11 @@ public:
 	/** Creates a popup component.
 	    @param toClose Lambda function that must destroy/close this popup.
 	 */
-    explicit PopupComponent (std::function<void()> toClose);
+    explicit PopupComponent (std::function<void()> toClose, bool useCloseButton = true, bool escapeKeyCloses = true);
+    
+    /** Creates a closing lambda that calls reset() on the unique_ptr you pass here.
+     */
+    explicit PopupComponent (std::unique_ptr<PopupComponent>& holder, bool useCloseButton = true, bool escapeKeyCloses = true);
 
 	/** Closes the popup component, by calling the function passed to the constructor. */
 	void close();
@@ -63,6 +63,10 @@ private:
 	virtual bool keyPressRecieved (const juce::KeyPress& key);
 
 	std::function<void()> closeFunc;
+    
+    bool escapeKeyDestroys { true };
+    
+    std::unique_ptr<TextButton> closeButton;
 };
 
 
@@ -109,7 +113,7 @@ public:
 	}
 
 	/** Returns true if the popup component is currently showing. */
-	bool isVisible() const
+	[[nodiscard]] bool isVisible() const
 	{
 		return window.get() != nullptr;
 	}

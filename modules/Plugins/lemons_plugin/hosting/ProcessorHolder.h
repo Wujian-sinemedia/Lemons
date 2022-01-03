@@ -129,4 +129,11 @@ struct TypedProcessorHolder final : public ProcessorHolder
 	ProcessorType typedProcessor;
 };
 
+
+template <typename ProcessorType, typename... Args>
+[[nodiscard]] std::unique_ptr<ProcessorHolder> createHolderForProcessor (Args&&... args)
+{
+    return std::make_unique<TypedProcessorHolder<ProcessorType>> (std::forward<Args>(args)...);
+}
+
 }  // namespace lemons::plugin

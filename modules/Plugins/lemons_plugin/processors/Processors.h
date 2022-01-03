@@ -92,6 +92,16 @@ template <template <typename SampleType> class EngineType>
 using StatelessProcessor = Processor<EngineType, State>;
 
 
+/** @ingroup lemons_plugin_processors
+    A handy free function that creates a plugin processor wrapping the desired engine type.
+ */
+template <template <typename SampleType> class EngineType, typename... Args>
+[[nodiscard]] std::unique_ptr<ProcessorBase> createProcessorForEngine (Args&&... args)
+{
+    return std::make_unique<StatelessProcessor<EngineType>> (std::forward<Args>(args)...);
+}
+
+
 /** @ingroup lemons_plugin_processors lemons_plugin_editors
     A processor class that has a GUI editor.
     Example usage:

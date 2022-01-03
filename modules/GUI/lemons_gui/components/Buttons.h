@@ -3,6 +3,11 @@
 namespace lemons::gui
 {
 
+/** @defgroup lemons_gui_components Components
+    @ingroup lemons_gui
+    GUI components and widgets.
+ */
+
 /** @defgroup lemons_buttons Buttons
     @ingroup lemons_gui_components
     Button component classes.

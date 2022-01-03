@@ -27,8 +27,9 @@
 #include "utilities/colors.h"
 #include "utilities/cursor.h"
 
-#include "components/PopupComponent.h"
 #include "components/Buttons.h"
+#include "components/PopupComponent.h"
+#include "components/sliders.h"
 #include "components/Label.h"
 
 #include "device/AutoLock.h"
