@@ -1,5 +1,5 @@
 
-namespace lemons::gui
+namespace lemons::gui::components
 {
 Label::Label (const String& textToUse)
     : juce::Label (TRANS (textToUse), TRANS (textToUse))
@@ -19,6 +19,20 @@ TextEntry::TextEntry (const String& initialText, std::function<void (const Strin
 
 	this->onTextChange = [=]()
 	{ textChangeFunc (getText (true)); };
+}
+
+
+
+static inline String getCompilationDateAsString()
+{
+    const auto compTime = juce::Time::getCompilationDate();
+    
+    return compTime.toString (true, true, false, true);
+}
+
+std::unique_ptr<Label> createCompilationDateViewer()
+{
+    return std::make_unique<Label> (getCompilationDateAsString());
 }
 
 }  // namespace lemons::gui

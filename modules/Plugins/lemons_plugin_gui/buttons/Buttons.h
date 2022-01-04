@@ -1,6 +1,6 @@
 #pragma once
 
-namespace lemons::gui
+namespace lemons::gui::components
 {
 /**
     A stateful on/off button attached to a boolean plugin parameter.
@@ -15,10 +15,7 @@ public:
 	    @param paramToUse The parameter to attach to.
 	    @param cb A lambda function that will be called when the state of the button/parameter changes.
 	 */
-	ToggleButton (plugin::BoolParameter& paramToUse, std::function<void (bool)> cb = {});
-
-	/** Destructor. */
-	virtual ~ToggleButton() = default;
+	explicit ToggleButton (plugin::BoolParameter& paramToUse, std::function<void (bool)> cb = {});
 
 	plugin::BoolParameter& param;
 

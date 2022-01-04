@@ -26,12 +26,16 @@
 #include "utilities/serializing.h"
 #include "utilities/colors.h"
 #include "utilities/cursor.h"
+#include "utilities/util.h"
 
 #include "components/Buttons.h"
-#include "components/PopupComponent.h"
 #include "components/SwappableComponent.h"
 #include "components/sliders.h"
 #include "components/Label.h"
+#include "components/VersionViewer.h"
+#include "components/popups/PopupComponent.h"
+#include "components/popups/VersionBumpPrompt.h"
+#include "components/popups/SaveToFilePrompt.h"
 
 #include "device/AutoLock.h"
 #include "device/DeviceMotion.h"

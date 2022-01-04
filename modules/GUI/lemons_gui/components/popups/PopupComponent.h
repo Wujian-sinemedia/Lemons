@@ -3,10 +3,8 @@
 
 #include <lemons_core/lemons_core.h>
 
-namespace lemons::gui
+namespace lemons::gui::components
 {
-
-using juce::Component;
 
 /** @addtogroup lemons_popup_component Popup components
     @ingroup lemons_gui_components

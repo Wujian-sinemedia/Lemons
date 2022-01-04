@@ -3,8 +3,9 @@
 
 #include "SliderBase.h"
 
-namespace lemons::gui
+namespace lemons::gui::components
 {
+
 /**
     Plugin slider that attaches to a float parameter
     @see plugin::FloatParameter
@@ -16,7 +17,7 @@ public:
 	/**
 	    Creates a FloatSlider attached to a float parameter.
 	 */
-	FloatSlider (plugin::FloatParameter& paramToUse, SliderStyle style = SliderStyle::LinearVertical);
+	explicit FloatSlider (plugin::FloatParameter& paramToUse, SliderStyle style = SliderStyle::LinearVertical);
 
 	plugin::FloatParameter& param;
 
@@ -42,7 +43,7 @@ public:
 	/**
 	 Creates an IntSlider attached to an integer parameter.
 	 */
-	IntSlider (plugin::IntParameter& paramToUse, SliderStyle style = SliderStyle::LinearVertical);
+	explicit IntSlider (plugin::IntParameter& paramToUse, SliderStyle style = SliderStyle::LinearVertical);
 
 	plugin::IntParameter& param;
 

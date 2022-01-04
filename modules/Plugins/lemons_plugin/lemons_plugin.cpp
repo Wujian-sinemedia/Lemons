@@ -18,7 +18,6 @@
 
 
 #include "parameters/utils/detail.cpp"
-#include "parameters/utils/ParameterTraits.cpp"
 #include "parameters/Parameter.cpp"
 #include "parameters/types/ParameterTypes.cpp"
 #include "parameters/types/Specializations.cpp"
@@ -28,8 +27,11 @@
 #include "parameters/ModulationManager/ModulationManager.cpp"
 
 #include "util/serializing.cpp"
-#include "util/ProcessorAttributes.cpp"
-#include "util/PluginMetadata.cpp"
+
+#include "metadata/ProcessorAttributes.cpp"
+#include "metadata/PluginMetadata.cpp"
+#include "metadata/EditorAttributes.cpp"
+#include "metadata/ParameterTraits.cpp"
 
 #include "processors/BasicProcessor.cpp"
 #include "processors/ProcessorBase.cpp"
@@ -44,4 +46,4 @@
 #include "unit_tests/audio_processor_test.cpp"
 #include "unit_tests/parameter_tests.cpp"
 
-#include "editors/EditorAttributes.cpp"
+#include "hosting/PluginScanning.cpp"

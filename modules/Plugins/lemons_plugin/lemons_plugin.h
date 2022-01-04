@@ -36,7 +36,8 @@
 
 
 #include "parameters/utils/detail.h"
-#include "parameters/utils/ParameterTraits.h"
+
+#include "metadata/ParameterTraits.h"
 
 #include "parameters/Parameter.h"
 
@@ -59,10 +60,9 @@
 #include "unit_tests/audio_processor_test.h"
 #include "unit_tests/parameter_tests.h"
 
-#include "editors/EditorAttributes.h"
-
-#include "util/ProcessorAttributes.h"
-#include "util/PluginMetadata.h"
+#include "metadata/EditorAttributes.h"
+#include "metadata/ProcessorAttributes.h"
+#include "metadata/PluginMetadata.h"
 
 #include "processors/BasicProcessor.h"
 #include "processors/ProcessorBase.h"
@@ -72,3 +72,5 @@
 #include "util/serializing.h"
 
 #include "processors/Processors.h"
+
+#include "hosting/PluginScanning.h"

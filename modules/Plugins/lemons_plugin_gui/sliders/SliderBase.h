@@ -3,7 +3,7 @@
 #include <lemons_plugin/lemons_plugin.h>
 #include <lemons_gui/lemons_gui.h>
 
-namespace lemons::gui
+namespace lemons::gui::components
 {
 /**
     Base class for plugin sliders that handles some logic common to both int and float parameter sliders.
@@ -18,7 +18,7 @@ public:
 	    The slider will map its range, default value, name, label, and some other properties to the parameter's settings. Your parameter should be fully constructed and configured before you attach it to a slider.
 	    @see plugin::Parameter
 	 */
-	SliderBase (plugin::Parameter& paramToUse);
+	explicit SliderBase (plugin::Parameter& paramToUse);
 
 private:
 	plugin::Parameter& param_;

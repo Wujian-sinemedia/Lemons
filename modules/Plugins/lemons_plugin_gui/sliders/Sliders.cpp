@@ -1,5 +1,5 @@
 
-namespace lemons::gui
+namespace lemons::gui::components
 {
 FloatSlider::FloatSlider (plugin::FloatParameter& paramToUse, SliderStyle style)
     : SliderBase (paramToUse)

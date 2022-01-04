@@ -1,13 +1,15 @@
 #pragma once
 
-namespace lemons::gui
+namespace lemons::gui::components
 {
+
+using juce::Component;
 
 /** @ingroup lemons_gui_components
     A component that owns and displays another type of component, which can be dynamically destroyed and recreated as different types of components.
     This object is itself a component, similar to Popup.
  */
-struct SwappableComponent final : public Component
+struct SwappableComponent : public Component
 {
 	/** Constructor. */
 	explicit SwappableComponent();

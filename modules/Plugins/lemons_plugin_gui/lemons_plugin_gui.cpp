@@ -1,11 +1,13 @@
 #include "lemons_plugin_gui.h"
 
 
-//#include "sliders/Sliders.cpp"
-//#include "sliders/SliderBase.cpp"
-//
-//#include "buttons/Buttons.cpp"
-//
+#include "sliders/Sliders.cpp"
+#include "sliders/SliderBase.cpp"
+
+#include "buttons/Buttons.cpp"
+
+#include "plugin_library/PluginLibraryComponent.cpp"
+
 //#include "PresetBar/StateToggleButtons.cpp"
 //
 //#include "PresetBar/PresetSavingComponent/NamePopup.cpp"

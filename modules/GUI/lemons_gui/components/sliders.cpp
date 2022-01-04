@@ -1,4 +1,4 @@
-namespace lemons::gui
+namespace lemons::gui::components
 {
 
 

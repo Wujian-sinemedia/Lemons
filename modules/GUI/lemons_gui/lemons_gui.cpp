@@ -6,11 +6,14 @@
 #include "utilities/serializing.cpp"
 #include "utilities/cursor.cpp"
 
-#include "components/PopupComponent.cpp"
 #include "components/SwappableComponent.cpp"
 #include "components/Buttons.cpp"
 #include "components/sliders.cpp"
 #include "components/Label.cpp"
+#include "components/VersionViewer.cpp"
+#include "components/popups/PopupComponent.cpp"
+#include "components/popups/VersionBumpPrompt.cpp"
+#include "components/popups/SaveToFilePrompt.cpp"
 
 #include "device/AutoLock.cpp"
 #include "device/DeviceMotion.cpp"

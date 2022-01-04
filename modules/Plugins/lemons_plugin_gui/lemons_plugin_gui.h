@@ -19,8 +19,10 @@
  -------------------------------------------------------------------------------------*/
 
 
-//#include "sliders/Sliders.h"
-//
-//#include "buttons/Buttons.h"
-//
+#include "sliders/Sliders.h"
+
+#include "buttons/Buttons.h"
+
+#include "plugin_library/PluginLibraryComponent.h"
+
 //#include "PresetBar/PresetBar.h"

@@ -1,6 +1,6 @@
 #pragma once
 
-namespace lemons::gui
+namespace lemons::gui::components
 {
 
 /** @ingroup lemons_gui_components
@@ -24,6 +24,10 @@ struct TextEntry : public Label
 	explicit TextEntry (const String& initialText = {}, std::function<void (const String&)> textChangeFunc = nullptr);
 };
 
+
+
+/** Returns a Label displaying the compilation date of this module. */
+std::unique_ptr<Label> createCompilationDateViewer();
 
 // number box
 

@@ -1,6 +1,6 @@
 #pragma once
 
-namespace lemons::gui
+namespace lemons::gui::components
 {
 
 /** @defgroup lemons_gui_components Components
