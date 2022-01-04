@@ -24,6 +24,7 @@
 #include "utilities/VelocityHelper.cpp"
 #include "utilities/MidiUtilities.cpp"
 
+#include "processors/processors.cpp"
 #include "processors/MidiProcessor.cpp"
 #include "processors/MidiChoppingProcessor.cpp"
 

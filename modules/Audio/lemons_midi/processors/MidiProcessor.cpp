@@ -55,9 +55,9 @@ void MidiProcessor::processControllerMessage (int controllerNumber, int controll
 
 	switch (controllerNumber)
 	{
-		case 0x40 : processSustainPedal (controllerValue); return;
-		case 0x42 : processSostenutoPedal (controllerValue); return;
-		case 0x43 : processSoftPedal (controllerValue); return;
+		case 0x40 : return processSustainPedal (controllerValue);
+		case 0x42 : return processSostenutoPedal (controllerValue);
+		case 0x43 : return processSoftPedal (controllerValue);
 		default : handleController (controllerNumber, controllerValue);
 	}
 }

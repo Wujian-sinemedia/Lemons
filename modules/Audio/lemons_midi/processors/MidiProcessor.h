@@ -63,17 +63,11 @@ private:
 	virtual void handleController (int controllerNumber, int controllerValue);
 	virtual void handleAllSoundOff() { }
 
-	int lastMidiChannel { 1 };
-	int lastMidiTimestamp { 0 };
+    int lastMidiChannel { 1 }, lastMidiTimestamp { 0 };
+    int lastPitchwheelValue { 64 };
+	int lastMovedController { 0 }, lastControllerValue { 0 };
 
-	int lastPitchwheelValue { 64 };
-
-	int lastMovedController { 0 };
-	int lastControllerValue { 0 };
-
-	bool sustainPedalDown { false };
-	bool sostenutoPedalDown { false };
-	bool softPedalDown { false };
+	bool sustainPedalDown { false }, sostenutoPedalDown { false }, softPedalDown { false };
 };
 
 }  // namespace lemons::midi
