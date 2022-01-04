@@ -13,29 +13,19 @@
  ======================================================================================
  */
 
+#if JUCE_ANDROID
+#  error
+#endif
 
-#include "lemons_core.h"
+#include <juce_gui_basics/juce_gui_basics.h>
 
 
-#include "math/math_tests.cpp"
+namespace lemons
+{
 
-#include "misc/Version.cpp"
-#include "misc/Dimensions.cpp"
-#include "misc/ArgParser.cpp"
+void setAutoLockEnabled (bool shouldBeEnabled)
+{
+	juce::Desktop::getInstance().setScreenSaverEnabled (shouldBeEnabled);
+}
 
-#include "unit_tests/test.cpp"
-#include "unit_tests/runner.cpp"
-
-#include "files/FileUtilities.cpp"
-
-#include "binary_data/data.cpp"
-#include "binary_data/translations.cpp"
-
-#include "serializing/ValueTrees.cpp"
-#include "serializing/serializing.cpp"
-#include "serializing/VariantConversions.cpp"
-#include "serializing/VariantConversions_tests.cpp"
-
-#include "localization/languages.cpp"
-#include "localization/TranslationFiles.cpp"
-
+}  // namespace lemons
