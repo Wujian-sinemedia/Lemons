@@ -1,86 +1,7 @@
-namespace lemons::plugin
+namespace lemons::plugin::scanning
 {
 
-PluginCategory::PluginCategory (const String& categoryName,
-                const juce::KnownPluginList::PluginTree& folder,
-                SortMethod sortMethodToUse,
-                SortingCallback sortingCallback,
-                SubcategoryNamingCallback subcategoryNaming)
-: shouldPutInThisCategory(sortingCallback), getSubcategoryName(subcategoryNaming), sortMethod (sortMethodToUse), name(categoryName)
-{
-    addFromPluginTree (folder);
-}
-
-PluginCategory::SortMethod PluginCategory::getSortMethod() const noexcept
-{
-    return sortMethod;
-}
-
-String PluginCategory::getName() const
-{
-    return name;
-}
-
-const juce::OwnedArray<PluginCategory>& PluginCategory::getSubcategories() const
-{
-    return subcategories;
-}
-
-const juce::Array<juce::PluginDescription>& PluginCategory::getPlugins() const
-{
-    return plugins;
-}
-
-
-juce::KnownPluginList::SortMethod getSortingMethod (PluginCategory::SortMethod sortMethod)
-{
-    if (sortMethod == PluginCategory::SortMethod::sortByCategory)
-        return juce::KnownPluginList::SortMethod::sortByCategory;
-    
-    if (sortMethod == PluginCategory::SortMethod::sortByManufacturer)
-        return juce::KnownPluginList::SortMethod::sortByManufacturer;
-    
-    return juce::KnownPluginList::SortMethod::sortByFormat;
-}
-
-
-void PluginCategory::addFromPluginTree (const juce::KnownPluginList::PluginTree& tree)
-{
-    for (const auto& plugin : tree.plugins)
-    {
-        if (shouldPutInThisCategory (plugin, *this))
-        {
-            plugins.add (plugin);
-            continue;
-        }
-        
-        auto subcategory = [&]() -> PluginCategory*
-        {
-            const auto subcategoryName = getSubcategoryName (plugin);
-            
-            for (auto* subcat : subcategories)
-                if (subcat->getName() == subcategoryName)
-                    return subcat;
-            
-            auto subTree = juce::KnownPluginList::createTree (tree.plugins, getSortingMethod (sortMethod));
-            
-            return subcategories.add (new PluginCategory (subcategoryName,
-                                                          *subTree, sortMethod,
-                                                          shouldPutInThisCategory, getSubcategoryName));
-        }();
-        
-        jassert (subcategory != nullptr);
-        
-        subcategory->plugins.add (plugin);
-    }
-    
-    for (const auto* subfolder : tree.subFolders)
-        addFromPluginTree (*subfolder);
-}
-
-
-
-juce::AudioPluginFormatManager& getPluginFormatManager()
+juce::AudioPluginFormatManager& getDefaultPluginFormatManager()
 {
     struct DefaultPluginFormats final : public juce::AudioPluginFormatManager
     {
@@ -96,27 +17,127 @@ juce::AudioPluginFormatManager& getPluginFormatManager()
 }
 
 
-std::function<String(const juce::PluginDescription&)> getSubcategoryNamingCallback (PluginCategory::SortMethod sortMethod)
+std::unique_ptr<juce::KnownPluginList> scanDirectoryForPlugins (juce::FileSearchPath rootDirectory,
+                                                                const File& blacklistFile)
 {
-    if (sortMethod == PluginCategory::SortMethod::sortByCategory)
+    auto list = std::make_unique<juce::KnownPluginList>();
+    
+    for (auto* format : getDefaultPluginFormatManager().getFormats())
     {
-        return [](const juce::PluginDescription& d){ return d.category; };
+        juce::PluginDirectoryScanner scanner { *list, *format, rootDirectory, true, blacklistFile, false };
+        
+        while (true)
+        {
+            String name;
+            
+            if (! scanner.scanNextFile (true, name))
+                break;
+        }
     }
     
-    if (sortMethod == PluginCategory::SortMethod::sortByManufacturer)
-    {
-        return [](const juce::PluginDescription& d){ return d.manufacturerName; };
-    }
+    return list;
+}
+
+/*------------------------------------------------------------------------------------------------------------------------*/
+
+
+Category::Category (const String& categoryName,
+                   SortMethod sortMethodToUse,
+                   SortingCallback sortingCallback,
+                   SubcategoryNamingCallback subcategoryNaming)
+: shouldPutInThisCategory(sortingCallback), getSubcategoryName(subcategoryNaming), sortMethod (sortMethodToUse), name(categoryName)
+{
     
-    return [](const juce::PluginDescription& d){ return d.pluginFormatName; };
+}
+
+Category::SortMethod Category::getSortMethod() const noexcept
+{
+    return sortMethod;
+}
+
+String Category::getName() const
+{
+    return name;
+}
+
+const juce::OwnedArray<Category>& Category::getSubcategories() const
+{
+    return subcategories;
+}
+
+const juce::Array<juce::PluginDescription>& Category::getPlugins() const
+{
+    return plugins;
 }
 
 
-std::function<bool(const juce::PluginDescription&, const PluginCategory&)> getSortingCallback (PluginCategory::SortMethod sortMethod)
+static inline juce::KnownPluginList::SortMethod getSortingMethod (Category::SortMethod sortMethod)
 {
-    if (sortMethod == PluginCategory::SortMethod::sortByCategory)
+    if (sortMethod == Category::SortMethod::sortByCategory)
+        return juce::KnownPluginList::SortMethod::sortByCategory;
+    
+    if (sortMethod == Category::SortMethod::sortByManufacturer)
+        return juce::KnownPluginList::SortMethod::sortByManufacturer;
+    
+    return juce::KnownPluginList::SortMethod::sortByFormat;
+}
+
+
+void Category::addFromPluginTree (const juce::KnownPluginList::PluginTree& tree)
+{
+    for (const auto& plugin : tree.plugins)
     {
-        return [](const juce::PluginDescription& d, const PluginCategory& c)
+        if (shouldPutInThisCategory (plugin, *this))
+        {
+            plugins.add (plugin);
+            continue;
+        }
+        
+        auto subcategory = [&]() -> Category*
+        {
+            const auto subcategoryName = getSubcategoryName (plugin);
+            
+            for (auto* subcat : subcategories)
+                if (subcat->getName() == subcategoryName)
+                    return subcat;
+            
+            return subcategories.add (new Category (subcategoryName, sortMethod,
+                                                    shouldPutInThisCategory, getSubcategoryName));
+        }();
+        
+        jassert (subcategory != nullptr);
+        
+        subcategory->plugins.add (plugin);
+    }
+    
+    for (const auto* subfolder : tree.subFolders)
+        addFromPluginTree (*subfolder);
+}
+
+
+static inline void fromCategoryToKnownPluginList (juce::KnownPluginList& list, const Category& category)
+{
+    for (const auto& plugin : category.getPlugins())
+        list.addType (plugin);
+    
+    for (const auto* subcat : category.getSubcategories())
+        fromCategoryToKnownPluginList (list, *subcat);
+}
+
+std::unique_ptr<juce::KnownPluginList> Category::createKnownPluginList() const
+{
+    auto list = std::make_unique<juce::KnownPluginList>();
+    
+    fromCategoryToKnownPluginList (*list, *this);
+    
+    return list;
+}
+
+Category::SortingCallback Category::getDefaultSortingCallback (SortMethod sortMethod)
+{
+    if (sortMethod == Category::SortMethod::sortByCategory)
+    {
+        return [](const juce::PluginDescription& d, const Category& c)
         {
             for (const auto& plugin : c.getPlugins())
                 if (d.category != plugin.category)
@@ -126,9 +147,9 @@ std::function<bool(const juce::PluginDescription&, const PluginCategory&)> getSo
         };
     }
     
-    if (sortMethod == PluginCategory::SortMethod::sortByManufacturer)
+    if (sortMethod == Category::SortMethod::sortByManufacturer)
     {
-        return [](const juce::PluginDescription& d, const PluginCategory& c)
+        return [](const juce::PluginDescription& d, const Category& c)
         {
             for (const auto& plugin : c.getPlugins())
                 if (d.manufacturerName != plugin.manufacturerName)
@@ -138,7 +159,7 @@ std::function<bool(const juce::PluginDescription&, const PluginCategory&)> getSo
         };
     }
     
-    return [](const juce::PluginDescription& d, const PluginCategory& c)
+    return [](const juce::PluginDescription& d, const Category& c)
     {
         for (const auto& plugin : c.getPlugins())
             if (d.pluginFormatName != plugin.pluginFormatName)
@@ -149,32 +170,58 @@ std::function<bool(const juce::PluginDescription&, const PluginCategory&)> getSo
 }
 
 
-std::unique_ptr<PluginCategory> PluginCategory::scanDirectory (juce::FileSearchPath rootDirectory,
-                                                               const File& blacklistFile,
-                                                               SortMethod sortMethod)
+Category::SubcategoryNamingCallback Category::getDefaultSubcategoryNamingCallback (SortMethod sortMethod)
 {
-    juce::KnownPluginList list;
-    
-    for (auto* format : getPluginFormatManager().getFormats())
+    if (sortMethod == Category::SortMethod::sortByCategory)
     {
-        juce::PluginDirectoryScanner scanner { list, *format, rootDirectory, true, blacklistFile, true };
-        
-        while (true)
-        {
-            String name;
-            auto res = scanner.scanNextFile (true, name);
-            
-            if (! res)
-                break;
-        }
+        return [](const juce::PluginDescription& d){ return d.category; };
     }
     
-    auto tree = juce::KnownPluginList::createTree (list.getTypes(), getSortingMethod (sortMethod));
+    if (sortMethod == Category::SortMethod::sortByManufacturer)
+    {
+        return [](const juce::PluginDescription& d){ return d.manufacturerName; };
+    }
     
-    return std::make_unique<PluginCategory> ("Plugins", *tree, sortMethod,
-                                             getSortingCallback (sortMethod),
-                                             getSubcategoryNamingCallback (sortMethod));
+    return [](const juce::PluginDescription& d){ return d.pluginFormatName; };
+}
+
+
+
+std::unique_ptr<Category> scanDirectory (juce::FileSearchPath rootDirectory,
+                                                   const File& blacklistFile,
+                                         Category::SortMethod sortMethod,
+                                                   const String& rootCategoryName)
+{
+    auto category = std::make_unique<Category> (rootCategoryName, sortMethod,
+                                                Category::getDefaultSortingCallback (sortMethod),
+                                                Category::getDefaultSubcategoryNamingCallback (sortMethod));
+    
+    const auto list = scanDirectoryForPlugins (rootDirectory, blacklistFile);
+    const auto tree = juce::KnownPluginList::createTree (list->getTypes(), getSortingMethod (sortMethod));
+    
+    category->addFromPluginTree (*tree);
+    
+    return category;
 }
 
 }
 
+
+namespace juce
+{
+
+PluginDescription VariantConverter<PluginDescription>::fromVar (const var& v)
+{
+    PluginDescription d;
+    
+    d.loadFromXml (VariantConverter<XmlElement>::fromVar (v));
+    
+    return d;
+}
+
+var VariantConverter<PluginDescription>::toVar (const PluginDescription& d)
+{
+    return VariantConverter<XmlElement>::toVar (*d.createXml());
+}
+
+}  // namespace juce

@@ -1,11 +1,6 @@
 namespace lemons::gui::components
 {
 
-SwappableComponent::SwappableComponent()
-{
-	setInterceptsMouseClicks (false, true);
-}
-
 bool SwappableComponent::isVisible() const
 {
 	return comp.get() != nullptr;

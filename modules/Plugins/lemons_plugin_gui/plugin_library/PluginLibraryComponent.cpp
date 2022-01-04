@@ -1,24 +1,6 @@
 namespace lemons::gui::components
 {
 
-juce::AudioPluginFormatManager& getPluginFormatManager()
-{
-    struct DefaultPluginFormats final : public juce::AudioPluginFormatManager
-    {
-        explicit DefaultPluginFormats()
-        {
-            addDefaultFormats();
-        }
-    };
-    
-    static DefaultPluginFormats manager;
-    
-    return manager;
-}
-
-
-/*-------------------------------------------------------------------------------------------------------------------------*/
-
 
 PluginDetailView::PluginDetailView (const juce::PluginDescription& descriptionToUse)
 : description(descriptionToUse)
@@ -34,19 +16,48 @@ void PluginDetailView::resized()
 std::unique_ptr<juce::AudioPluginInstance> PluginDetailView::createPluginInstance (double initialSampleRate, int initialBlocksize) const
 {
     String error;
-    return getPluginFormatManager().createPluginInstance (description, initialSampleRate, initialBlocksize, error);
+    
+    return plugin::scanning::getDefaultPluginFormatManager().createPluginInstance (description, initialSampleRate, initialBlocksize, error);
 }
 
 
 /*-------------------------------------------------------------------------------------------------------------------------*/
 
-PluginCategoryComponent::PluginCategoryComponent (const PluginCategory& category)
+PluginCategoryComponent::PluginCategoryComponent (const plugin::scanning::Category& category)
 {
     for (const auto* subcat : category.getSubcategories())
-        subcategories.add (new PluginCategoryComponent (*subcat));
+    {
+        auto* subcategory = subcategories.add (new PluginCategoryComponent (*subcat));
+        addAndMakeVisible (subcategory);
+    }
     
-    for (const auto& plugin : category.getPlugins())
-        plugins.add (new PluginDetailView (plugin));
+    for (const auto& description : category.getPlugins())
+        plugins.createAndAddTo (*this, description);
+    
+    categoryName.setText (category.getName(),
+                          juce::NotificationType::dontSendNotification);
+    
+    addAndMakeVisible (categoryName);
+}
+
+
+/*-------------------------------------------------------------------------------------------------------------------------*/
+
+PluginLibraryComponent::PluginLibraryComponent (juce::FileSearchPath searchPath,
+                                               const File& blacklistFile,
+                                                SortMethod initialSortMethod)
+: rootPath(searchPath), blacklist(blacklistFile)
+{
+    addAndMakeVisible (rootCategoryComponent);
+    
+    resort (initialSortMethod);
+}
+
+void PluginLibraryComponent::resort (SortMethod sortMethod)
+{
+    const auto rootCategory = plugin::scanning::scanDirectory (rootPath, blacklist, sortMethod);
+    
+    rootCategoryComponent.create (*rootCategory);
 }
 
 }

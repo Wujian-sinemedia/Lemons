@@ -15,6 +15,7 @@
 
 #pragma once
 
+
 namespace lemons::serializing
 {
 
@@ -25,6 +26,7 @@ using AudioBuffer = juce::AudioBuffer<SampleType>;
     @ingroup lemons_dsp
     Audio buffer utility functions.
  */
+
 
 /** @ingroup lemons_audio_buffers lemons_serializing
     Encodes an AudioBuffer as a blob of binary data. Note that the sample rate may be optionally specified. Internally, this uses JUCE's FlacAudioFormat.

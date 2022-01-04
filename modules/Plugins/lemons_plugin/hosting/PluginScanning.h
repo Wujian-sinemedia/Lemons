@@ -1,9 +1,16 @@
 #pragma once
 
-namespace lemons::plugin
+namespace lemons::plugin::scanning
 {
 
-struct PluginCategory
+[[nodiscard]] juce::AudioPluginFormatManager& getDefaultPluginFormatManager();
+
+
+[[nodiscard]] std::unique_ptr<juce::KnownPluginList> scanDirectoryForPlugins (juce::FileSearchPath rootDirectory,
+                                                                              const File& blacklistFile);
+
+
+struct Category
 {
     enum class SortMethod
     {
@@ -12,31 +19,32 @@ struct PluginCategory
         sortByFormat
     };
     
-    using SortingCallback = std::function<bool(const juce::PluginDescription&, const PluginCategory&)>;
+    using SortingCallback = std::function<bool(const juce::PluginDescription&, const Category&)>;
     
     using SubcategoryNamingCallback = std::function<String(const juce::PluginDescription&)>;
     
-    explicit PluginCategory (const String& categoryName,
-                                      const juce::KnownPluginList::PluginTree& folder,
-                                      SortMethod sortMethodToUse,
-                                      SortingCallback sortingCallback,
-                                      SubcategoryNamingCallback subcategoryNaming);
+    explicit Category (const String& categoryName,
+                       SortMethod sortMethodToUse,
+                       SortingCallback sortingCallback,
+                       SubcategoryNamingCallback subcategoryNaming);
     
-    [[nodiscard]] static std::unique_ptr<PluginCategory> scanDirectory (juce::FileSearchPath rootDirectory,
-                                                                        const File& blacklistFile,
-                                                                        SortMethod sortMethod);
+    void addFromPluginTree (const juce::KnownPluginList::PluginTree& tree);
     
     [[nodiscard]] SortMethod getSortMethod() const noexcept;
     
     [[nodiscard]] String getName() const;
     
-    [[nodiscard]] const juce::OwnedArray<PluginCategory>& getSubcategories() const;
+    [[nodiscard]] const juce::OwnedArray<Category>& getSubcategories() const;
     
     [[nodiscard]] const juce::Array<juce::PluginDescription>& getPlugins() const;
     
-private:
+    [[nodiscard]] std::unique_ptr<juce::KnownPluginList> createKnownPluginList() const;
     
-    void addFromPluginTree (const juce::KnownPluginList::PluginTree& tree);
+    [[nodiscard]] static SortingCallback getDefaultSortingCallback (SortMethod method);
+    
+    [[nodiscard]] static SubcategoryNamingCallback getDefaultSubcategoryNamingCallback (SortMethod method);
+    
+private:
     
     SortingCallback shouldPutInThisCategory;
     
@@ -48,8 +56,26 @@ private:
     
     juce::Array<juce::PluginDescription> plugins;
     
-    juce::OwnedArray<PluginCategory> subcategories;
+    juce::OwnedArray<Category> subcategories;
 };
 
 
+[[nodiscard]] std::unique_ptr<Category> scanDirectory (juce::FileSearchPath rootDirectory,
+                                                              const File& blacklistFile,
+                                                       Category::SortMethod sortMethod,
+                                                              const String& rootCategoryName = "Plugins");
+
 }
+
+
+namespace juce
+{
+
+template <>
+struct VariantConverter<PluginDescription>
+{
+    static PluginDescription fromVar (const var& v);
+    static var               toVar (const PluginDescription& d);
+};
+
+}  // namespace juce

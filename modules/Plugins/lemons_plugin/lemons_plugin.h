@@ -69,8 +69,6 @@
 
 #include "editors/Editors.h"
 
-#include "util/serializing.h"
-
 #include "processors/Processors.h"
 
 #include "hosting/PluginScanning.h"

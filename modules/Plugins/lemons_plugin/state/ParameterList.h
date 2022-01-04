@@ -74,6 +74,8 @@ public:
 
 	[[nodiscard]] juce::Array<Parameter*> getMeterParameters() const;
     
+    [[nodiscard]] juce::Array<Parameter*> getAllParameters() const;
+    
     ///@}
     
     

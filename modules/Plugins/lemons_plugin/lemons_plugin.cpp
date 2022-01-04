@@ -26,8 +26,6 @@
 #include "parameters/ModulationManager/LFO.cpp"
 #include "parameters/ModulationManager/ModulationManager.cpp"
 
-#include "util/serializing.cpp"
-
 #include "metadata/ProcessorAttributes.cpp"
 #include "metadata/PluginMetadata.cpp"
 #include "metadata/EditorAttributes.cpp"

@@ -23,6 +23,8 @@
 
 #include "buttons/Buttons.h"
 
+#include "parameters/ParameterMidiMappings.h"
+
 #include "plugin_library/PluginLibraryComponent.h"
 
 //#include "PresetBar/PresetBar.h"

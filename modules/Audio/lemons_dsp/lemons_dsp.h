@@ -66,6 +66,7 @@ END_JUCE_MODULE_DECLARATION
 
 #include "filters/Filter.h"
 
+#include "util/AudioFormats.h"
 #include "util/serializing.h"
 #include "util/ValueSmoother.h"
 #include "util/BufferUtils.h"

@@ -47,11 +47,43 @@ class PluginCategoryComponent : public Component
 {
 public:
     
-    explicit PluginCategoryComponent (const PluginCategory& category);
+    explicit PluginCategoryComponent (const plugin::scanning::Category& category);
     
 private:
-    juce::OwnedArray<PluginDetailView> plugins;
+    
+    Label categoryName;
+    
+    ComponentArray<PluginDetailView> plugins;
+    
     juce::OwnedArray<PluginCategoryComponent> subcategories;
+};
+
+
+/*-------------------------------------------------------------------------------------------------------------------------*/
+
+
+class PluginLibraryComponent : public Component
+{
+public:
+    
+    using SortMethod = plugin::scanning::Category::SortMethod;
+    
+    explicit PluginLibraryComponent (juce::FileSearchPath searchPath,
+                                     const File& blacklistFile,
+                                     SortMethod initialSortMethod = SortMethod::sortByFormat);
+    
+    void resort (SortMethod sortMethod);
+    
+private:
+    OptionalComponent<PluginCategoryComponent> rootCategoryComponent;
+    
+    juce::FileSearchPath rootPath;
+    
+    File blacklist;
+    
+    /*
+     view / edit blacklist
+     */
 };
 
 }

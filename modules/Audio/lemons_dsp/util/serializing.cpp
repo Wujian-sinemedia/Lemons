@@ -16,70 +16,36 @@
 namespace lemons::serializing
 {
 
-template <>
-MemoryBlock audioToBinary (const AudioBuffer<float>& buffer, double samplerate)
+template <typename SampleType>
+MemoryBlock audioToBinary (const AudioBuffer<SampleType>& buffer, double samplerate)
 {
-	jassert (buffer.getNumChannels() > 0 && buffer.getNumSamples() > 0);
-
-	MemoryBlock              block;
-	juce::MemoryOutputStream stream { block, false };
-	juce::FlacAudioFormat    format;
-
-	if (auto* writer = format.createWriterFor (&stream, samplerate, static_cast<unsigned> (buffer.getNumChannels()), 24, {}, 0))
-		writer->writeFromAudioSampleBuffer (buffer, 0, buffer.getNumSamples());
-	else
-		jassertfalse;
-
-	return block;
+    juce::FlacAudioFormat format;
+    
+    MemoryBlock block;
+    
+    dsp::formats::writeAudioToBlock (block, buffer, samplerate, format);
+    
+    return block;
 }
 
-template <>
-AudioBuffer<float> audioFromBinary (const MemoryBlock& block)
+template MemoryBlock audioToBinary (const AudioBuffer<float>&, double);
+template MemoryBlock audioToBinary (const AudioBuffer<double>&, double);
+
+
+template <typename SampleType>
+AudioBuffer<SampleType> audioFromBinary (const MemoryBlock& block)
 {
-	AudioBuffer<float> buffer;
+    juce::FlacAudioFormat format;
+    
+    AudioBuffer<SampleType> buffer;
 
-	juce::MemoryInputStream in { block.getData(), block.getSize(), false };
-	juce::FlacAudioFormat   format;
-
-	if (auto* reader = format.createReaderFor (&in, false))
-	{
-		const auto numChannels = static_cast<int> (reader->numChannels);
-		const auto numSamples  = static_cast<int> (reader->lengthInSamples);
-
-		jassert (numChannels > 0 && numSamples > 0);
-
-		buffer.setSize (numChannels, numSamples);
-		reader->read (&buffer, 0, numSamples, 0, true, numChannels > 1);
-	}
-	else
-	{
-		jassertfalse;
-	}
-
-	return buffer;
+    dsp::formats::readAudioFromBlock (buffer, block, format);
+    
+    return buffer;
 }
 
-template <>
-MemoryBlock audioToBinary (const AudioBuffer<double>& buffer, double samplerate)
-{
-	AudioBuffer<float> floatBuf;
-
-	floatBuf.makeCopyOf (buffer);
-
-	return audioToBinary (floatBuf, samplerate);
-}
-
-template <>
-AudioBuffer<double> audioFromBinary (const MemoryBlock& block)
-{
-	const auto floatBuf = audioFromBinary<float> (block);
-
-	AudioBuffer<double> doubleBuf;
-
-	doubleBuf.makeCopyOf (floatBuf);
-
-	return doubleBuf;
-}
+template AudioBuffer<float> audioFromBinary (const MemoryBlock&);
+template AudioBuffer<double> audioFromBinary (const MemoryBlock&);
 
 
 namespace ChannelSetVT

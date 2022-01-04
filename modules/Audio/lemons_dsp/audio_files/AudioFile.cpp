@@ -16,38 +16,13 @@
 namespace lemons::dsp
 {
 
-juce::AudioFormatManager& AudioFile::getFormatManager()
-{
-	struct DefaultAudioFormats : public juce::AudioFormatManager
-	{
-		DefaultAudioFormats()
-		{
-			this->registerBasicFormats();
-		}
-	};
-
-	static DefaultAudioFormats manager;
-
-	return manager;
-}
-
-bool AudioFile::isValidAudioFile (const File& file)
-{
-	if (! file.existsAsFile())
-		return false;
-
-	return file.hasFileExtension (getFormatManager().getWildcardForAllFormats());
-}
-
-/*---------------------------------------------------------------------------------------------------------------------------------*/
-
 AudioFile::AudioFile (const File& audioFile)
-    : AudioFile (getFormatManager().createReaderFor (audioFile), audioFile)
+    : AudioFile (formats::getDefaultAudioFormatManager().createReaderFor (audioFile), audioFile)
 {
 }
 
 AudioFile::AudioFile (std::unique_ptr<juce::InputStream> audioStream)
-    : AudioFile (getFormatManager().createReaderFor (std::move (audioStream)), {})
+    : AudioFile (formats::getDefaultAudioFormatManager().createReaderFor (std::move (audioStream)), {})
 {
 }
 
@@ -142,6 +117,11 @@ File AudioFile::getFile() const noexcept
 String AudioFile::getFormatName() const noexcept
 {
 	return audioFormat;
+}
+
+juce::AudioFormat* AudioFile::getAudioFormat() const
+{
+    return formats::getNamedFormat (audioFormat);
 }
 
 const juce::StringPairArray& AudioFile::getMetadata() const noexcept

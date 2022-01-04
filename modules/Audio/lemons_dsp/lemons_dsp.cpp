@@ -33,6 +33,7 @@
 #include "filters/Coeffecients.cpp"
 #include "filters/Filter.cpp"
 
+#include "util/AudioFormats.cpp"
 #include "util/serializing.cpp"
 #include "util/ValueSmoother.cpp"
 #include "util/BufferUtils.cpp"

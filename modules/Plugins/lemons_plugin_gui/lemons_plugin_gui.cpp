@@ -6,6 +6,8 @@
 
 #include "buttons/Buttons.cpp"
 
+#include "parameters/ParameterMidiMappings.cpp"
+
 #include "plugin_library/PluginLibraryComponent.cpp"
 
 //#include "PresetBar/StateToggleButtons.cpp"
