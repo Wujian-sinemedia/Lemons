@@ -67,7 +67,6 @@ private:
 template <typename SampleType, typename ProcessorType, LEMONS_MUST_INHERIT_FROM (ProcessorType, juce::AudioProcessor)>
 struct TypedProcessorEngine final : public ProcessorEngine<SampleType>
 {
-	/** Constructor. */
 	TypedProcessorEngine()
 	    : ProcessorEngine<SampleType> (typedProcessor)
 	{
