@@ -56,42 +56,40 @@ String writeTranslationFileHeader (const String& language, bool languageName)
 
 	for (const auto& line : fileLines)
 	{
+        if (line.isEmpty())
+            continue;
+        
 		const auto lineLength = line.length();
 
 		for (const auto& stringToFind : stringsToFind)
 		{
-			const auto findNextPhrase = [&]() -> int
-			{
-				const auto idx = line.indexOfWholeWord (stringToFind);
-
-				if (idx == -1)
-					return lineLength;
-
-				const auto restOfString = line.substring (idx + stringToFind.length());
-
-				const auto firstQuoteIdx = restOfString.indexOfChar ('"');
-
-				if (firstQuoteIdx == -1)
-					return lineLength;
-
-				const auto afterFirstQuote = restOfString.substring (firstQuoteIdx + 1);
-
-				const auto endIdx = afterFirstQuote.indexOfChar ('"');
-
-				if (endIdx == -1)
-					return lineLength;
-
-				phrases.add (afterFirstQuote.substring (0, endIdx));
-
-				return endIdx;
-			};
-
-			int idx { 0 };
-
-			do
-			{
-				idx = findNextPhrase();
-			} while (idx < lineLength);
+            int idx { 0 };
+            
+            while (idx < lineLength)
+            {
+                const auto begin = line.indexOfWholeWord (stringToFind);
+                
+                if (begin == -1)
+                    break;
+                
+                const auto restOfString = line.substring (idx + stringToFind.length());
+                
+                const auto firstQuoteIdx = restOfString.indexOfChar ('"');
+                
+                if (firstQuoteIdx == -1)
+                    break;
+                
+                const auto afterFirstQuote = restOfString.substring (firstQuoteIdx + 1);
+                
+                const auto endIdx = afterFirstQuote.indexOfChar ('"');
+                
+                if (endIdx == -1)
+                    break;
+                
+                phrases.add (afterFirstQuote.substring (0, endIdx));
+                
+                idx = endIdx + 1;
+            }
 		}
 	}
 
@@ -136,11 +134,14 @@ void generateTranslationFiles (const File& rootDir, const StringArray& languageC
 	{
 		const auto languageName = languageCodeToName (language);
 
-		const auto outFile = outputDir.getChildFile (filenamePrefix + languageName + fileExtension);
-
-		outFile.deleteFile();
-
 		auto fileText = writeTranslationFileHeader (languageName, true);
+        
+        if (fileText.isEmpty())
+            continue;
+        
+        const auto outFile = outputDir.getChildFile (filenamePrefix + languageName + fileExtension);
+        
+        outFile.deleteFile();
 
 		fileText << juce::newLine << juce::newLine << fileBody;
 
