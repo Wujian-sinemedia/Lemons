@@ -27,6 +27,8 @@ class Runner : public juce::UnitTestRunner
 public:
 	[[nodiscard]] bool hadAnyFailures() const;
 
+	bool runTest (const String& testName, juce::int64 seed = juce::Random::getSystemRandom().nextInt64());
+
 private:
 	void logMessage (const juce::String& message) final;
 };

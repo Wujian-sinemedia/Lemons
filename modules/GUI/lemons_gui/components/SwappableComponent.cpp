@@ -23,4 +23,4 @@ void SwappableComponent::resized()
 		c->setBounds (getLocalBounds());
 }
 
-}  // namespace lemons::gui
+}  // namespace lemons::gui::components

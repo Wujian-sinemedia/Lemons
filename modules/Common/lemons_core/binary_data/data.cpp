@@ -44,9 +44,8 @@ Data::Data (const char* fileToFind)
 }
 
 Data::Data (const String& fileToFind)
-: Data (fileToFind.toRawUTF8())
+    : Data (fileToFind.toRawUTF8())
 {
-    
 }
 
 const char* const Data::getData() const noexcept
@@ -69,7 +68,7 @@ String Data::getAsString() const
 	if (! isValid())
 		return {};
 
-    return String::createStringFromData (data, size);
+	return String::createStringFromData (data, size);
 }
 
 MemoryBlock Data::getAsMemoryBlock() const
@@ -144,4 +143,3 @@ juce::StringArray getStrings (const String& textFileName)
 }
 
 }  // namespace lemons::binary
-

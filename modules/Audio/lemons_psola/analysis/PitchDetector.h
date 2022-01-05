@@ -113,5 +113,3 @@ private:
 };
 
 }  // namespace lemons::dsp::psola
-
-

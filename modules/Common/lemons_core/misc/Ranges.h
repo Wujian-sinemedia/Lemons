@@ -7,7 +7,7 @@ namespace lemons::ranges
 
 using juce::ValueTree;
 
-template<typename ValueType>
+template <typename ValueType>
 using Range = juce::NormalisableRange<ValueType>;
 
 using ParameterRange = Range<float>;
@@ -36,4 +36,4 @@ template <typename ValueType>
 template <typename ValueType>
 [[nodiscard]] Range<ValueType> fromValueTree (const ValueTree& tree);
 
-}
+}  // namespace lemons::ranges

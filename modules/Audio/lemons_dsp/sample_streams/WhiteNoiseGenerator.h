@@ -26,7 +26,7 @@ template <typename SampleType>
 class WhiteNoiseGenerator final : public SampleStream<SampleType>
 {
 public:
-    explicit WhiteNoiseGenerator (juce::Random rng = {});
+	explicit WhiteNoiseGenerator (juce::Random rng = {});
 
 private:
 	juce::Random rand;

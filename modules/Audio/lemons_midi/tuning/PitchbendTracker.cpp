@@ -29,24 +29,3 @@ void PitchBendTracker::processMidiMessage (const MidiMessage& m) noexcept
 }
 
 }  // namespace lemons::midi
-
-
-/*---------------------------------------------------------------------------------------------------------------------------------*/
-
-#if LEMONS_UNIT_TESTS
-
-namespace lemons::tests
-{
-
-PitchbendTests::PitchbendTests()
-    : MidiTest ("Pitchbend tracker")
-{
-}
-
-void PitchbendTests::runTest()
-{
-}
-
-}  // namespace lemons::tests
-
-#endif

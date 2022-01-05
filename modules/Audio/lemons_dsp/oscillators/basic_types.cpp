@@ -179,4 +179,3 @@ template struct Triangle<float>;
 template struct Triangle<double>;
 
 }  // namespace lemons::dsp::osc
-

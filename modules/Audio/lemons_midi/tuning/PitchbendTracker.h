@@ -40,25 +40,3 @@ private:
 };
 
 }  // namespace lemons::midi
-
-
-/*---------------------------------------------------------------------------------------------------------------------------------*/
-
-#if LEMONS_UNIT_TESTS
-
-namespace lemons::tests
-{
-
-struct PitchbendTests : public MidiTest
-{
-	PitchbendTests();
-
-private:
-	void runTest() final;
-};
-
-static PitchbendTests pitchbendTest;
-
-}  // namespace lemons::tests
-
-#endif

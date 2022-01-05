@@ -10,8 +10,8 @@ namespace lemons
 DefaultWindowBase::DefaultWindowBase (const String& appName, const Dimensions& initialSize)
     : DocumentWindow (appName, getDefaultWindowBackgroundColor(), allButtons)
 {
-    jassert (initialSize.isValid());
-    
+	jassert (initialSize.isValid());
+
 	setUsingNativeTitleBar (true);
 	setSize (initialSize.getWidth(), initialSize.getHeight());
 }

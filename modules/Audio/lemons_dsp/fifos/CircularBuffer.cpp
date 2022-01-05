@@ -141,4 +141,3 @@ template class CircularBuffer<float>;
 template class CircularBuffer<double>;
 
 }  // namespace lemons::dsp
-

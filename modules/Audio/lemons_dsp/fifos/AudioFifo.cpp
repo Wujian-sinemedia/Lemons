@@ -91,4 +91,3 @@ template class AudioFifo<float>;
 template class AudioFifo<double>;
 
 }  // namespace lemons::dsp
-

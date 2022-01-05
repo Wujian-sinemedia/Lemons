@@ -358,17 +358,3 @@ template class ProcessorBase::InternalProcessor<double>;
 
 }  // namespace lemons::plugin
 
-
-#if LEMONS_UNIT_TESTS
-
-namespace lemons::tests
-{
-
-ProcessorBaseTest::ProcessorBaseTest()
-    : AudioProcessorTestBase (processor, "ProcessorBase")
-{
-}
-
-}  // namespace lemons::tests
-
-#endif

@@ -80,7 +80,7 @@ const Array<int>& PeakFinder<SampleType>::findPeaks (const SampleType* inputSamp
 	// marks the center of the analysis windows, which are 1 period long
 	auto analysisIndex = analysisFrameStart + halfPeriod;
 
-    int lastFrameRealEnd { 0 };
+	int lastFrameRealEnd { 0 };
 
 	do
 	{
@@ -91,8 +91,8 @@ const Array<int>& PeakFinder<SampleType>::findPeaks (const SampleType* inputSamp
 		const auto frameEnd = std::min (numSamples, lastFrameRealEnd);
 
 		jassert (frameStart >= 0 && frameEnd <= numSamples && frameEnd > frameStart);
-        
-//        jassert (analysisIndex <= frameEnd);
+
+		//        jassert (analysisIndex <= frameEnd);
 
 		peakIndices.add (findNextPeak (frameStart, frameEnd, std::min (analysisIndex, frameEnd),
 		                               inputSamples, intPeriod, grainSize));
@@ -388,4 +388,3 @@ template class PeakFinder<float>;
 template class PeakFinder<double>;
 
 }  // namespace lemons::dsp::psola
-

@@ -121,7 +121,7 @@ String AudioFile::getFormatName() const noexcept
 
 juce::AudioFormat* AudioFile::getAudioFormat() const
 {
-    return formats::getNamedFormat (audioFormat);
+	return formats::getNamedFormat (audioFormat);
 }
 
 const juce::StringPairArray& AudioFile::getMetadata() const noexcept

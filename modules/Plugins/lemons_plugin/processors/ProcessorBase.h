@@ -137,29 +137,3 @@ private:
 
 }  // namespace lemons::plugin
 
-
-#if LEMONS_UNIT_TESTS
-
-namespace lemons::tests
-{
-
-class ProcessorBaseTest : public AudioProcessorTestBase
-{
-public:
-	ProcessorBaseTest();
-
-private:
-
-	plugin::State state;
-
-	dsp::PassThroughEngine<float>  floatEngine;
-	dsp::PassThroughEngine<double> doubleEngine;
-
-	plugin::ProcessorBase processor { floatEngine, doubleEngine, state };
-};
-
-// static ProcessorBaseTest processorBaseTest;
-
-}  // namespace lemons::tests
-
-#endif

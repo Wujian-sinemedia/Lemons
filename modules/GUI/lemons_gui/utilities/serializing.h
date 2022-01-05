@@ -66,7 +66,7 @@ bool saveFont (const juce::Font& font, const File& file, int maxNumChars = 127, 
  */
 [[nodiscard]] std::unique_ptr<juce::CustomTypeface> loadFont (const File& file);
 
-}
+}  // namespace lemons::files
 
 
 namespace lemons::binary
@@ -88,7 +88,7 @@ using juce::String;
  */
 [[nodiscard]] std::unique_ptr<juce::CustomTypeface> getFont (const String& filename);
 
-}
+}  // namespace lemons::binary
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
@@ -117,24 +117,3 @@ struct VariantConverter<Justification>
 };
 
 }  // namespace juce
-
-/*---------------------------------------------------------------------------------------------------------------------------*/
-
-#if LEMONS_UNIT_TESTS
-
-namespace lemons::tests
-{
-
-struct GuiSerializingTests : public CoreTest
-{
-	GuiSerializingTests();
-
-private:
-	void runTest() final;
-};
-
-static GuiSerializingTests guiSerializingTest;
-
-}  // namespace lemons::tests
-
-#endif

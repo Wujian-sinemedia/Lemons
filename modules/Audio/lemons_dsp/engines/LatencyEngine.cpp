@@ -112,4 +112,3 @@ template class LatencyEngine<float>;
 template class LatencyEngine<double>;
 
 }  // namespace lemons::dsp
-

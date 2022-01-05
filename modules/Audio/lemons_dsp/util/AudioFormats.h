@@ -20,7 +20,7 @@ using juce::MemoryBlock;
 
 
 template <typename SampleType>
-bool writeAudioToBlock (MemoryBlock& outputBlock,
+bool writeAudioToBlock (MemoryBlock&                   outputBlock,
                         const AudioBuffer<SampleType>& buffer, double samplerate,
                         juce::AudioFormat& format);
 
@@ -29,13 +29,13 @@ bool readAudioFromBlock (AudioBuffer<SampleType>& outputBuffer,
                          const MemoryBlock& block, juce::AudioFormat& format);
 
 
-template<typename SampleType>
-bool saveAudioToFile (const File& destFile,
+template <typename SampleType>
+bool saveAudioToFile (const File&                    destFile,
                       const AudioBuffer<SampleType>& buffer, double samplerate,
                       juce::AudioFormat& format);
 
-template<typename SampleType>
+template <typename SampleType>
 bool loadAudioFromFile (AudioBuffer<SampleType>& outputBuffer,
                         const File& sourceFile, juce::AudioFormat& format);
 
-}
+}  // namespace lemons::dsp::formats

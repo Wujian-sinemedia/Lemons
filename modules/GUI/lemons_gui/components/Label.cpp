@@ -22,17 +22,16 @@ TextEntry::TextEntry (const String& initialText, std::function<void (const Strin
 }
 
 
-
 static inline String getCompilationDateAsString()
 {
-    const auto compTime = juce::Time::getCompilationDate();
-    
-    return compTime.toString (true, true, false, true);
+	const auto compTime = juce::Time::getCompilationDate();
+
+	return compTime.toString (true, true, false, true);
 }
 
 std::unique_ptr<Label> createCompilationDateViewer()
 {
-    return std::make_unique<Label> (getCompilationDateAsString());
+	return std::make_unique<Label> (getCompilationDateAsString());
 }
 
-}  // namespace lemons::gui
+}  // namespace lemons::gui::components

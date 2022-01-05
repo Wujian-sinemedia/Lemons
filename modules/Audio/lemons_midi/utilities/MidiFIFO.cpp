@@ -61,4 +61,3 @@ void MidiFIFO::popEvents (MidiBuffer& output, int numSamples)
 }
 
 }  // namespace lemons::midi
-

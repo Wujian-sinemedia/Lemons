@@ -68,4 +68,3 @@ template class AudioAndMidiFIFO<float>;
 template class AudioAndMidiFIFO<double>;
 
 }  // namespace lemons::dsp
-

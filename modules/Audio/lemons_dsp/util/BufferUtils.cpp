@@ -77,4 +77,3 @@ template AudioBuffer<float>  getAliasBuffer (AudioBuffer<float>&, int, int, int,
 template AudioBuffer<double> getAliasBuffer (AudioBuffer<double>&, int, int, int, int);
 
 }  // namespace lemons::dsp::buffers
-

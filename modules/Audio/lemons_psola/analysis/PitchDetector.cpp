@@ -219,4 +219,3 @@ template class PitchDetector<float>;
 template class PitchDetector<double>;
 
 }  // namespace lemons::dsp::psola
-

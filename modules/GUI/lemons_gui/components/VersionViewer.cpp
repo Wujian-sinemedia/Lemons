@@ -2,36 +2,35 @@ namespace lemons::gui::components
 {
 
 VersionViewer::VersionViewer (const Version& versionToUse)
-: version (versionToUse)
+    : version (versionToUse)
 {
-    util::addAndMakeVisible (*this, major, minor, patch);
+	util::addAndMakeVisible (*this, major, minor, patch);
 }
 
 void VersionViewer::resized()
 {
-    // to do
+	// to do
 }
 
 
 ToggleableVersionViewer::ToggleableVersionViewer()
 {
-    addAndMakeVisible (viewer);
+	addAndMakeVisible (viewer);
 }
 
 void ToggleableVersionViewer::showProjectVersion()
 {
-    viewer.create<VersionViewer> (projectVersion);
+	viewer.create<VersionViewer> (projectVersion);
 }
 
 void ToggleableVersionViewer::showJuceVersion()
 {
-    viewer.create<VersionViewer> (juceVersion);
+	viewer.create<VersionViewer> (juceVersion);
 }
 
 void ToggleableVersionViewer::showLemonsVersion()
 {
-    viewer.create<VersionViewer> (lemonsVersion);
+	viewer.create<VersionViewer> (lemonsVersion);
 }
 
-}
-
+}  // namespace lemons::gui::components

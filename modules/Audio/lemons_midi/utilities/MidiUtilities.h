@@ -82,7 +82,6 @@ private:
 };
 
 
-
 /** @ingroup lemons_midi
     Converts a MIDI buffer to a MIDI file object.
     @see midiBufferFromFile()

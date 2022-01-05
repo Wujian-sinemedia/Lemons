@@ -27,6 +27,31 @@ bool Runner::hadAnyFailures() const
 	return false;
 }
 
+bool Runner::runTest (const String& testName, juce::int64 seed)
+{
+	if (testName.isEmpty())
+	{
+		std::cout << "Test name cannot be empty!" << std::endl;
+		return false;
+	}
+
+	if (auto* test = [&testName]() -> juce::UnitTest*
+	    {
+		    for (auto* t : juce::UnitTest::getAllTests())
+			    if (t->getName() == testName)
+				    return t;
+
+		    return nullptr;
+	    }())
+	{
+		runTests ({ test }, seed);
+		return ! hadAnyFailures();
+	}
+
+	std::cout << "Test " << testName << " could not be found!" << std::endl;
+	return false;
+}
+
 void Runner::logMessage (const juce::String& message)
 {
 	juce::Logger::writeToLog (message);
@@ -70,27 +95,10 @@ bool executeUnitTests (Intensity intensityLevel, const File& logOutput, juce::in
 	else
 		logger.writeToLog ("Testing intensity - HIGH");
 
-	if (! singleTestName.isEmpty())
-	{
-		if (auto* test = [&singleTestName]() -> juce::UnitTest*
-		    {
-			    for (auto* t : juce::UnitTest::getAllTests())
-				    if (t->getName() == singleTestName)
-					    return t;
+	if (singleTestName.isNotEmpty())
+		return runner.runTest (singleTestName);
 
-			    return nullptr;
-		    }())
-		{
-			runner.runTests ({ test }, seed);
-			return ! runner.hadAnyFailures();
-		}
-		else
-		{
-			std::cout << "Test " << singleTestName << " could not be found!" << std::endl;
-			return false;
-		}
-	}
-	else if (! categoryName.isEmpty())
+	if (! categoryName.isEmpty())
 	{
 		runner.runTestsInCategory (categoryName, seed);
 		return ! runner.hadAnyFailures();

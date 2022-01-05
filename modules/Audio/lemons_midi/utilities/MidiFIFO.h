@@ -63,4 +63,3 @@ private:
 };
 
 }  // namespace lemons::midi
-

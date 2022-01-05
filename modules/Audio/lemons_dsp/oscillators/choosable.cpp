@@ -89,6 +89,6 @@ template class ChoosableOscillator<float>;
 template class ChoosableOscillator<double>;
 
 
-LEMONS_CREATE_DEFAULT_ENGINE_FACTORY(ChoosableOscillator, "ChoosableOscillator")
+LEMONS_CREATE_DEFAULT_ENGINE_FACTORY (ChoosableOscillator, "ChoosableOscillator")
 
 }  // namespace lemons::dsp::osc

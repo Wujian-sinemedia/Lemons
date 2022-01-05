@@ -189,4 +189,3 @@ template class PassThroughEngine<double>;
 #endif
 
 }  // namespace lemons::dsp
-

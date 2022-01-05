@@ -79,13 +79,13 @@ struct AudioFile final
 
 	/** Returns the name of the audio format, eg, 'wav' or 'aiff'. */
 	[[nodiscard]] String getFormatName() const noexcept;
-    
-    /** Returns the audio format object for this file's audio format. */
-    [[nodiscard]] juce::AudioFormat* getAudioFormat() const;
+
+	/** Returns the audio format object for this file's audio format. */
+	[[nodiscard]] juce::AudioFormat* getAudioFormat() const;
 
 	/** Returns the audio file's metadata values. */
 	[[nodiscard]] const juce::StringPairArray& getMetadata() const noexcept;
-    
+
 private:
 	explicit AudioFile (juce::AudioFormatReader* reader, const File& f);
 

@@ -38,4 +38,4 @@ ImageButton::ImageButton (const juce::Image& image, std::function<void()> whenCl
 }
 
 
-}  // namespace lemons::gui
+}  // namespace lemons::gui::components

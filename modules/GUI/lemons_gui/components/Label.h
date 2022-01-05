@@ -25,10 +25,9 @@ struct TextEntry : public Label
 };
 
 
-
 /** Returns a Label displaying the compilation date of this module. */
 std::unique_ptr<Label> createCompilationDateViewer();
 
 // number box
 
-}  // namespace lemons::gui
+}  // namespace lemons::gui::components

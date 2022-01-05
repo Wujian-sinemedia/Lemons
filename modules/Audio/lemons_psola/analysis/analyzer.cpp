@@ -56,8 +56,8 @@ void Analyzer<SampleType>::analyzeInput (const SampleType* inputAudio, int numSa
 
 	if (! incompleteGrainsFromLastFrame.isEmpty())
 	{
-        jassert (lastFrameGrainSize > 0 && lastBlocksize > 0);
-        
+		jassert (lastFrameGrainSize > 0 && lastBlocksize > 0);
+
 		makeWindow (lastFrameGrainSize);
 
 		const auto* prevFrameSamples = prevFrame.getReadPointer (0);
@@ -105,13 +105,13 @@ void Analyzer<SampleType>::analyzeInput (const SampleType* inputAudio, int numSa
 		if (start < 0)
 		{
 			if (lastBlocksize == 0)
-            {
-                getGrainToStoreIn().storeNewGrain (inputAudio, 0, windowSamples, grainSize);
-                
+			{
+				getGrainToStoreIn().storeNewGrain (inputAudio, 0, windowSamples, grainSize);
+
 				continue;
-            }
-            
-            jassert (lastBlocksize > 0 && lastFrameGrainSize > 0);
+			}
+
+			jassert (lastBlocksize > 0 && lastFrameGrainSize > 0);
 
 			const auto samplesFromPrevFrame = grainSize + start;
 			jassert (samplesFromPrevFrame > 0);
@@ -157,8 +157,8 @@ typename Analyzer<SampleType>::Grain& Analyzer<SampleType>::getGrainToStoreIn()
 template <typename SampleType>
 inline void Analyzer<SampleType>::makeWindow (int size)
 {
-    jassert (size > 1);
-    
+	jassert (size > 1);
+
 	if (window.size() == size)
 		return;
 
@@ -225,9 +225,9 @@ typename Analyzer<SampleType>::Grain& Analyzer<SampleType>::getClosestGrain (int
 	{
 		if (after.grain == nullptr)
 			return *before.grain;
-        
-        if (after.distance < lastFrameGrainSize && after.distance < before.distance)
-            return *after.grain;
+
+		if (after.distance < lastFrameGrainSize && after.distance < before.distance)
+			return *after.grain;
 
 		return *before.grain;
 	}
@@ -352,7 +352,7 @@ void Analyzer<SampleType>::Grain::storeNewGrain (const SampleType* origSamples1,
 	origStartIndex = grainStartIdx;
 	grainSize      = totalNumSamples;
 
-    jassert (samples.getNumSamples() >= totalNumSamples);
+	jassert (samples.getNumSamples() >= totalNumSamples);
 
 	auto* const destSamples = samples.getWritePointer (0);
 

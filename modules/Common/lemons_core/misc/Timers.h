@@ -37,12 +37,12 @@ struct TimerCallback final : public juce::Timer
 	    @param start If true, the timer will be started instantly when this object is created.
 	 */
 	explicit TimerCallback (std::function<void()>&& callbackToUse,
-	                        int            rateInMs = 100,
-	                        bool           start    = true)
+	                        int                     rateInMs = 100,
+	                        bool                    start    = true)
 	    : callback (std::move (callbackToUse))
 	{
-        jassert (callback != nullptr);
-        
+		jassert (callback != nullptr);
+
 		if (start)
 			startTimer (rateInMs);
 	}
@@ -60,7 +60,7 @@ private:
 		callback();
 	}
 
-    std::function<void()> callback;
+	std::function<void()> callback;
 };
 
 }  // namespace lemons::events

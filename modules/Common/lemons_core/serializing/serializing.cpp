@@ -40,5 +40,3 @@ ValueTree valueTreeFromJSON (const String& jsonText)
 }
 
 }  // namespace lemons::serializing
-
-

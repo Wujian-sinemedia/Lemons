@@ -160,5 +160,3 @@ struct VariantConverter<lemons::Version>
 };
 
 }  // namespace juce
-
-

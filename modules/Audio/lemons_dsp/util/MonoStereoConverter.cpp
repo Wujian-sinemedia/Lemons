@@ -103,4 +103,3 @@ template class MonoStereoConverter<float>;
 template class MonoStereoConverter<double>;
 
 }  // namespace lemons::dsp
-

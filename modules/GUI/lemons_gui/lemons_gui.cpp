@@ -43,3 +43,7 @@
 #endif
 
 #include "app/DefaultWindow.cpp"
+
+#if LEMONS_UNIT_TESTS
+#  include "utilities/serializing_tests.cpp"
+#endif

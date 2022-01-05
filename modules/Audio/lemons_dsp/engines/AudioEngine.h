@@ -164,4 +164,3 @@ class PassThroughEngine : public Engine<SampleType>
 #endif
 
 }  // namespace lemons::dsp
-

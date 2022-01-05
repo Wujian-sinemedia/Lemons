@@ -30,13 +30,13 @@ template <typename SampleType, template <typename T> class StreamType,
 class StreamEngine : public dsp::Engine<SampleType>
 {
 public:
-    
-    explicit StreamEngine() = default;
-	
+
+	explicit StreamEngine() = default;
+
 protected:
-    /** The managed stream objects. */
-    ConstructedArray<StreamType<SampleType>> streams;
-    
+	/** The managed stream objects. */
+	ConstructedArray<StreamType<SampleType>> streams;
+
 private:
 	void renderBlock (const AudioBuffer<SampleType>&,
 	                  AudioBuffer<SampleType>& output,
@@ -52,19 +52,19 @@ private:
 		if (isBypassed)
 		{
 			for (auto* stream : streams)
-                stream->skipSamples (numSamples);
+				stream->skipSamples (numSamples);
 		}
 		else
 		{
 			for (int chan = 0; chan < numChannels; ++chan)
-                streams[chan]->getSamples (output, chan);
+				streams[chan]->getSamples (output, chan);
 		}
 	}
 
 	void prepared (int, double samplerate, int numChannels) override
 	{
-        streams.resize (numChannels);
+		streams.resize (numChannels);
 	}
 };
 
-}  // namespace lemons::dsp::osc
+}  // namespace lemons::dsp

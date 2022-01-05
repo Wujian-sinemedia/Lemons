@@ -1,5 +1,5 @@
 #if ! LEMONS_UNIT_TESTS
-#error
+#  error
 #endif
 
 
@@ -8,19 +8,20 @@ namespace lemons::tests
 
 struct CoreSerializingTests final : public CoreTest
 {
-    explicit CoreSerializingTests()
-    : CoreTest ("Core serializing functions")
-    { }
-    
+	explicit CoreSerializingTests()
+	    : CoreTest ("Core serializing functions")
+	{
+	}
+
 private:
-    void runTest() final
-    {
-        beginTest ("Memory block to/from string");
-        
-        beginTest ("ValueTree to/from JSON");
-    }
+	void runTest() final
+	{
+		beginTest ("Memory block to/from string");
+
+		beginTest ("ValueTree to/from JSON");
+	}
 };
 
-//static CoreSerializingTests coreSerializingTests;
+// static CoreSerializingTests coreSerializingTests;
 
-}
+}  // namespace lemons::tests

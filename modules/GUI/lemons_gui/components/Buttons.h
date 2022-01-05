@@ -46,4 +46,4 @@ struct ImageButton : juce::ImageButton
 	explicit ImageButton (const juce::Image& image, std::function<void()> whenClicked, float opacityRange = 0.2f);
 };
 
-}  // namespace lemons::gui
+}  // namespace lemons::gui::components

@@ -1,5 +1,5 @@
 #if ! JUCE_ANDROID
-#error
+#  error
 #endif
 
 namespace lemons
@@ -81,4 +81,4 @@ void MotionManager::update()
 	}
 }
 
-}
+}  // namespace lemons

@@ -19,13 +19,13 @@ namespace lemons::serializing
 template <typename SampleType>
 MemoryBlock audioToBinary (const AudioBuffer<SampleType>& buffer, double samplerate)
 {
-    juce::FlacAudioFormat format;
-    
-    MemoryBlock block;
-    
-    dsp::formats::writeAudioToBlock (block, buffer, samplerate, format);
-    
-    return block;
+	juce::FlacAudioFormat format;
+
+	MemoryBlock block;
+
+	dsp::formats::writeAudioToBlock (block, buffer, samplerate, format);
+
+	return block;
 }
 
 template MemoryBlock audioToBinary (const AudioBuffer<float>&, double);
@@ -35,16 +35,16 @@ template MemoryBlock audioToBinary (const AudioBuffer<double>&, double);
 template <typename SampleType>
 AudioBuffer<SampleType> audioFromBinary (const MemoryBlock& block)
 {
-    juce::FlacAudioFormat format;
-    
-    AudioBuffer<SampleType> buffer;
+	juce::FlacAudioFormat format;
 
-    dsp::formats::readAudioFromBlock (buffer, block, format);
-    
-    return buffer;
+	AudioBuffer<SampleType> buffer;
+
+	dsp::formats::readAudioFromBlock (buffer, block, format);
+
+	return buffer;
 }
 
-template AudioBuffer<float> audioFromBinary (const MemoryBlock&);
+template AudioBuffer<float>  audioFromBinary (const MemoryBlock&);
 template AudioBuffer<double> audioFromBinary (const MemoryBlock&);
 
 
@@ -57,61 +57,61 @@ static constexpr auto channelTypeProp = "channel_type";
 
 [[nodiscard]] static ValueTree channelTypeToValueTree (juce::AudioChannelSet::ChannelType type)
 {
-    ValueTree tree { channelTreeType };
-    
-    tree.setProperty (channelTypeProp, static_cast<int>(type), nullptr);
-    
-    return tree;
+	ValueTree tree { channelTreeType };
+
+	tree.setProperty (channelTypeProp, static_cast<int> (type), nullptr);
+
+	return tree;
 }
 
 [[nodiscard]] static juce::AudioChannelSet::ChannelType channelTypeFromValueTree (const ValueTree& tree)
 {
-    if (! tree.hasType (channelTreeType))
-        return {};
-    
-    if (tree.hasProperty (channelTypeProp))
-        return static_cast<juce::AudioChannelSet::ChannelType>((int) tree.getProperty (channelTypeProp));
-    
-    return {};
+	if (! tree.hasType (channelTreeType))
+		return {};
+
+	if (tree.hasProperty (channelTypeProp))
+		return static_cast<juce::AudioChannelSet::ChannelType> ((int) tree.getProperty (channelTypeProp));
+
+	return {};
 }
 
-}
+}  // namespace ChannelSetVT
 
 juce::AudioChannelSet channelSetFromValueTree (const ValueTree& tree)
 {
-    using namespace ChannelSetVT;
-    
-    juce::AudioChannelSet set;
-    
-    if (! tree.hasType (valueTreeType))
-        return set;
-    
-    for (int i = 0; i < tree.getNumChildren(); ++i)
-    {
-        const auto child = tree.getChild (i);
-        
-        if (child.hasType (channelTreeType))
-            set.addChannel (channelTypeFromValueTree (child));
-    }
-    
-    return set;
+	using namespace ChannelSetVT;
+
+	juce::AudioChannelSet set;
+
+	if (! tree.hasType (valueTreeType))
+		return set;
+
+	for (int i = 0; i < tree.getNumChildren(); ++i)
+	{
+		const auto child = tree.getChild (i);
+
+		if (child.hasType (channelTreeType))
+			set.addChannel (channelTypeFromValueTree (child));
+	}
+
+	return set;
 }
 
 ValueTree channelSetToValueTree (const juce::AudioChannelSet& set)
 {
-    using namespace ChannelSetVT;
-    
-    ValueTree tree { valueTreeType };
-    
-    for (int i = 0; i < set.size(); ++i)
-    {
-        const auto child = channelTypeToValueTree (set.getTypeOfChannel (i));
-        
-        if (child.isValid())
-            tree.appendChild (child, nullptr);
-    }
-    
-    return tree;
+	using namespace ChannelSetVT;
+
+	ValueTree tree { valueTreeType };
+
+	for (int i = 0; i < set.size(); ++i)
+	{
+		const auto child = channelTypeToValueTree (set.getTypeOfChannel (i));
+
+		if (child.isValid())
+			tree.appendChild (child, nullptr);
+	}
+
+	return tree;
 }
 
 }  // namespace lemons::serializing
@@ -155,14 +155,14 @@ using namespace lemons::serializing;
 
 AudioChannelSet VariantConverter<AudioChannelSet>::fromVar (const var& v)
 {
-    const auto tree = VariantConverter<ValueTree>::fromVar (v);
-    return channelSetFromValueTree (tree);
+	const auto tree = VariantConverter<ValueTree>::fromVar (v);
+	return channelSetFromValueTree (tree);
 }
 
 var VariantConverter<AudioChannelSet>::toVar (const AudioChannelSet& s)
 {
-    const auto tree = channelSetToValueTree (s);
-    return VariantConverter<ValueTree>::toVar (tree);
+	const auto tree = channelSetToValueTree (s);
+	return VariantConverter<ValueTree>::toVar (tree);
 }
 
 ADSR::Parameters VariantConverter<ADSR::Parameters>::fromVar (const var& v)

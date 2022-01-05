@@ -122,15 +122,3 @@ private:
 
 
 }  // namespace lemons::plugin
-
-
-#if LEMONS_UNIT_TESTS
-
-namespace lemons::tests
-{
-
-static AudioProcessorTest<plugin::BasicProcessor> basicProcessorTest { "BasicProcessor tests" };
-
-}
-
-#endif

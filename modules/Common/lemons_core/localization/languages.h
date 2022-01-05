@@ -50,7 +50,6 @@ using juce::StringArray;
 [[nodiscard]] String languageCodeToName (const String& languageCode);
 
 
-
 /** @defgroup lemons_iso_country_codes ISO country codes
     @ingroup lemons_locale
  */

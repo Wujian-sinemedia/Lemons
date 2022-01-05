@@ -29,7 +29,7 @@ struct DefaultWindowBase : public juce::DocumentWindow
 {
 public:
 	/** Constructs a window with a specified initial size. */
-	DefaultWindowBase (const String&           appName  = LEMONS_DEFAULT_APP_NAME,
+	DefaultWindowBase (const String&     appName     = LEMONS_DEFAULT_APP_NAME,
 	                   const Dimensions& initialSize = Dimensions::getDefault());
 
 protected:
@@ -50,11 +50,11 @@ template <typename ComponentType, LEMONS_MUST_INHERIT_FROM (ComponentType, juce:
 struct DefaultWindow : public DefaultWindowBase
 {
 	/** Constructs a default window. */
-	DefaultWindow (const String&           appName  = LEMONS_DEFAULT_APP_NAME,
-                   const Dimensions& initialSize = Dimensions::getDefault())
+	DefaultWindow (const String&     appName     = LEMONS_DEFAULT_APP_NAME,
+	               const Dimensions& initialSize = Dimensions::getDefault())
 	    : DefaultWindowBase (appName, initialSize)
 	{
-        jassert (initialSize.isValid());
+		jassert (initialSize.isValid());
 		setSize (initialSize.getWidth(), initialSize.getHeight());
 		setContentOwned (new ComponentType(), false);
 		init();

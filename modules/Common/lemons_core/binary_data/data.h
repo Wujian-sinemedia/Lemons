@@ -57,8 +57,8 @@ struct Data final
 
 	/** Creates a Data object referencing a named resource. */
 	explicit Data (const char* fileToFind);
-    
-    explicit Data (const String& fileToFind);
+
+	explicit Data (const String& fileToFind);
 
 	/** Returns true if the requested data has been loaded successfully from the binary data target. */
 	bool isValid() const noexcept;
@@ -127,4 +127,3 @@ template <files::FileType Type = files::FileType::JSON>
 
 
 }  // namespace lemons::binary
-

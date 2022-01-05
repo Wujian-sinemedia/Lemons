@@ -19,7 +19,7 @@
 namespace lemons::dsp::osc
 {
 
-template<typename T>
+template <typename T>
 using Oscillator = dsp::Oscillator<T>;
 
 /** @defgroup lemons_oscillators Oscillators
@@ -53,8 +53,8 @@ struct Sine final : public Oscillator<SampleType>
 	[[nodiscard]] SampleType getFrequency() const noexcept final;
 
 private:
-    typename Oscillator<SampleType>::Phase phase;
-	SampleType        freq { 0 };
+	typename Oscillator<SampleType>::Phase phase;
+	SampleType                             freq { 0 };
 };
 
 /*--------------------------------------------------------------------------------------------*/
@@ -79,8 +79,8 @@ struct Saw final : public Oscillator<SampleType>
 	[[nodiscard]] SampleType getFrequency() const noexcept final;
 
 private:
-    typename Oscillator<SampleType>::Phase phase;
-	SampleType        freq { 0 };
+	typename Oscillator<SampleType>::Phase phase;
+	SampleType                             freq { 0 };
 };
 
 /*--------------------------------------------------------------------------------------------*/
@@ -111,8 +111,8 @@ struct Square final : public Oscillator<SampleType>
 private:
 	friend struct Triangle<SampleType>;
 
-    typename Oscillator<SampleType>::Phase phase;
-	SampleType        freq { 0 };
+	typename Oscillator<SampleType>::Phase phase;
+	SampleType                             freq { 0 };
 };
 
 /*--------------------------------------------------------------------------------------------*/
@@ -143,4 +143,3 @@ private:
 };
 
 }  // namespace lemons::dsp::osc
-

@@ -100,8 +100,8 @@ namespace juce
 template <>
 struct VariantConverter<AudioChannelSet>
 {
-    static AudioChannelSet fromVar (const var& v);
-    static var             toVar (const AudioChannelSet& s);
+	static AudioChannelSet fromVar (const var& v);
+	static var             toVar (const AudioChannelSet& s);
 };
 
 template <>

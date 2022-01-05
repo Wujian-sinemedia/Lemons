@@ -10,8 +10,8 @@ ParameterRange create (float minimum, float maximum)
 template <>
 ParameterRange create (double minimum, double maximum)
 {
-    return create (static_cast<float>(minimum),
-                   static_cast<float>(maximum));
+	return create (static_cast<float> (minimum),
+	               static_cast<float> (maximum));
 }
 
 template <>
@@ -44,12 +44,12 @@ ParameterRange create (int minimum, int maximum)
 template <>
 ParameterRange create (bool, bool)
 {
-    return createBool();
+	return createBool();
 }
 
 ParameterRange createBool()
 {
-    return { 0.f, 1.f, 1.f };
+	return { 0.f, 1.f, 1.f };
 }
 
 
@@ -123,4 +123,4 @@ template Range<float>  fromValueTree (const ValueTree&);
 template Range<int>    fromValueTree (const ValueTree&);
 template Range<double> fromValueTree (const ValueTree&);
 
-}
+}  // namespace lemons::ranges

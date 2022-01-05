@@ -21,7 +21,7 @@ namespace lemons::math
 /** @addtogroup lemons_math Math
     @ingroup lemons_core
     Math utility functions.
- 
+
  @{
  */
 
@@ -45,9 +45,9 @@ template <typename FreqType>
 [[nodiscard]] inline int periodInSamples (double samplerate, FreqType freqHz) noexcept
 {
 	jassert (freqHz > FreqType (0.));
-    
-    const auto val = samplerate / static_cast<double> (freqHz);
-    
+
+	const auto val = samplerate / static_cast<double> (freqHz);
+
 	return juce::roundToInt (val);
 }
 
@@ -70,10 +70,10 @@ template <typename PeriodType>
 [[nodiscard]] constexpr double sampsToMs (double samplerate, int numSamples) noexcept
 {
 	jassert (samplerate > 0.);
-    
-    const auto val = static_cast<double> (numSamples) / samplerate * 1000.;
-    
-    return static_cast<double> (val);
+
+	const auto val = static_cast<double> (numSamples) / samplerate * 1000.;
+
+	return static_cast<double> (val);
 }
 
 /** Converts a number of milliseconds to the closest integer number of samples at the specified samplerate. */
@@ -82,7 +82,7 @@ template <typename msType>
 {
 	const auto val = samplerate / 1000. * static_cast<double> (ms);
 
-    return juce::roundToInt (val);
+	return juce::roundToInt (val);
 }
 
 /** Converts a MIDI note to a frequency in Hz. */
@@ -112,4 +112,3 @@ template <typename T>
 ///@}
 
 }  // namespace lemons::math
-
