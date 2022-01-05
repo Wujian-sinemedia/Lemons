@@ -69,7 +69,6 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="structlemons_1_1dsp_1_1_audio_file-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">lemons::dsp::AudioFile Struct Reference<span class="mlabels"><span class="mlabel">final</span></span></div>  </div>
@@ -87,6 +86,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a050fe18f621b82247d6e43c1049b0c4f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1dsp_1_1_audio_file.html#a050fe18f621b82247d6e43c1049b0c4f">existsOnDisk</a> () const noexcept</td></tr>
 <tr class="memdesc:a050fe18f621b82247d6e43c1049b0c4f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the file this data represents exists locally on the current device.  <a href="structlemons_1_1dsp_1_1_audio_file.html#a050fe18f621b82247d6e43c1049b0c4f">More...</a><br /></td></tr>
 <tr class="separator:a050fe18f621b82247d6e43c1049b0c4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a68c2a43397fc989e0af5b168ecd07c4a"><td class="memItemLeft" align="right" valign="top">juce::AudioFormat *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1dsp_1_1_audio_file.html#a68c2a43397fc989e0af5b168ecd07c4a">getAudioFormat</a> () const</td></tr>
+<tr class="memdesc:a68c2a43397fc989e0af5b168ecd07c4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the audio format object for this file's audio format.  <a href="structlemons_1_1dsp_1_1_audio_file.html#a68c2a43397fc989e0af5b168ecd07c4a">More...</a><br /></td></tr>
+<tr class="separator:a68c2a43397fc989e0af5b168ecd07c4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afb420bd0c55fa940eeb6d2b42dd3ce08"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1dsp_1_1_audio_file.html#afb420bd0c55fa940eeb6d2b42dd3ce08">getBitsPerSample</a> () const noexcept</td></tr>
 <tr class="memdesc:afb420bd0c55fa940eeb6d2b42dd3ce08"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of bits per sample in this audio file.  <a href="structlemons_1_1dsp_1_1_audio_file.html#afb420bd0c55fa940eeb6d2b42dd3ce08">More...</a><br /></td></tr>
 <tr class="separator:afb420bd0c55fa940eeb6d2b42dd3ce08"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -118,15 +120,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a0271747b986c358e9f4f31797c04aa89"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1dsp_1_1_audio_file.html#a0271747b986c358e9f4f31797c04aa89">isValid</a> () const noexcept</td></tr>
 <tr class="memdesc:a0271747b986c358e9f4f31797c04aa89"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the file's data was loaded successfully.  <a href="structlemons_1_1dsp_1_1_audio_file.html#a0271747b986c358e9f4f31797c04aa89">More...</a><br /></td></tr>
 <tr class="separator:a0271747b986c358e9f4f31797c04aa89"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
-Static Public Member Functions</h2></td></tr>
-<tr class="memitem:ae5cd8fac5d9c8ffb5f8423932023949c"><td class="memItemLeft" align="right" valign="top">static juce::AudioFormatManager &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1dsp_1_1_audio_file.html#ae5cd8fac5d9c8ffb5f8423932023949c">getFormatManager</a> ()</td></tr>
-<tr class="memdesc:ae5cd8fac5d9c8ffb5f8423932023949c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a static AudioFormatManager used for creating all AudioFiles.  <a href="structlemons_1_1dsp_1_1_audio_file.html#ae5cd8fac5d9c8ffb5f8423932023949c">More...</a><br /></td></tr>
-<tr class="separator:ae5cd8fac5d9c8ffb5f8423932023949c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a94d460b9b4b91a3b64a9dc8ca197f0cc"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1dsp_1_1_audio_file.html#a94d460b9b4b91a3b64a9dc8ca197f0cc">isValidAudioFile</a> (const File &amp;file)</td></tr>
-<tr class="memdesc:a94d460b9b4b91a3b64a9dc8ca197f0cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the file has a file extension matching any of the audio file extensions that the default AudioFormatManager can handle.  <a href="structlemons_1_1dsp_1_1_audio_file.html#a94d460b9b4b91a3b64a9dc8ca197f0cc">More...</a><br /></td></tr>
-<tr class="separator:a94d460b9b4b91a3b64a9dc8ca197f0cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This class represents the data of an audio file, including the AudioBuffer itself, as well as the samplerate, bit depth, and metadata information. One of these can be created from an audio file on disk, or from any kind of juce::InputStream. </p>
@@ -216,6 +209,25 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a68c2a43397fc989e0af5b168ecd07c4a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a68c2a43397fc989e0af5b168ecd07c4a">&#9670;&nbsp;</a></span>getAudioFormat()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">juce::AudioFormat* lemons::dsp::AudioFile::getAudioFormat </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the audio format object for this file's audio format. </p>
+
+</div>
+</div>
 <a id="afb420bd0c55fa940eeb6d2b42dd3ce08"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#afb420bd0c55fa940eeb6d2b42dd3ce08">&#9670;&nbsp;</a></span>getBitsPerSample()</h2>
 
@@ -290,33 +302,6 @@ template&lt;typename SampleType &gt; </div>
 
 <p>Returns the File object that this audio file was loaded from. </p>
 <p>Note that this may return an invalid File object if you used the constructor that takes an input stream. </p>
-
-</div>
-</div>
-<a id="ae5cd8fac5d9c8ffb5f8423932023949c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae5cd8fac5d9c8ffb5f8423932023949c">&#9670;&nbsp;</a></span>getFormatManager()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static juce::AudioFormatManager&amp; lemons::dsp::AudioFile::getFormatManager </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns a static AudioFormatManager used for creating all AudioFiles. </p>
 
 </div>
 </div>
@@ -509,41 +494,13 @@ template&lt;typename SampleType &gt; </div>
 
 </div>
 </div>
-<a id="a94d460b9b4b91a3b64a9dc8ca197f0cc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a94d460b9b4b91a3b64a9dc8ca197f0cc">&#9670;&nbsp;</a></span>isValidAudioFile()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static bool lemons::dsp::AudioFile::isValidAudioFile </td>
-          <td>(</td>
-          <td class="paramtype">const File &amp;&#160;</td>
-          <td class="paramname"><em>file</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns true if the file has a file extension matching any of the audio file extensions that the default AudioFormatManager can handle. </p>
-
-</div>
-</div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
 <li><a class="el" href="_audio_file_8h.html">AudioFile.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jan 4 2022 00:46:45 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Jan 5 2022 00:49:01 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

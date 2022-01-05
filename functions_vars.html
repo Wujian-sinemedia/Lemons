@@ -72,6 +72,9 @@ $(function() {
 <li>alternateNames
 : <a class="el" href="structlemons_1_1plugin_1_1_processor_attributes.html#a96ca10d6d2be566987682005f4c7d62e">lemons::plugin::ProcessorAttributes</a>
 </li>
+<li>altitude
+: <a class="el" href="classlemons_1_1_g_p_s_location.html#a699cb7b58f0e35ca81ce8e3773aa4cf0">lemons::GPSLocation</a>
+</li>
 <li>array
 : <a class="el" href="structlemons_1_1_constructed_array.html#aeec75de76ffb978428307e53a6abd35d">lemons::ConstructedArray&lt; ObjectType &gt;</a>
 </li>
@@ -96,8 +99,11 @@ $(function() {
 : <a class="el" href="classlemons_1_1dsp_1_1filters_1_1_filter.html#aa2a2553de95ae712e5d0e74599dd908b">lemons::dsp::filters::Filter&lt; SampleType &gt;</a>
 , <a class="el" href="structlemons_1_1dsp_1_1filters_1_1_multi_filter.html#a9508ef62f004c93f863d0f1338d05ee9">lemons::dsp::filters::MultiFilter&lt; SampleType, numChannels &gt;</a>
 </li>
+<li>components
+: <a class="el" href="structlemons_1_1gui_1_1components_1_1_component_array.html#a27d9f750e3e748bae62a9fdff540e2c2">lemons::gui::components::ComponentArray&lt; ComponentType, &gt;</a>
+</li>
 <li>content
-: <a class="el" href="classlemons_1_1gui_1_1_popup_component.html#acefc6d12f9b6cac4d3edb3046de53395">lemons::gui::PopupComponent&lt; OwnedContentType, &gt;</a>
+: <a class="el" href="classlemons_1_1gui_1_1components_1_1_popup_component.html#a99fc6f9d4362fb6cb4cac0e07a360c57">lemons::gui::components::PopupComponent&lt; OwnedContentType, &gt;</a>
 </li>
 <li>controller_prop
 : <a class="el" href="classlemons_1_1plugin_1_1_parameter.html#a8ba87a20a351c338fe833eed2a024542">lemons::plugin::Parameter</a>
@@ -120,6 +126,9 @@ $(function() {
 </li>
 <li>descant
 : <a class="el" href="classlemons_1_1dsp_1_1_synth_base.html#a4483f9aef1275bfa7627cbacfcde85e2">lemons::dsp::SynthBase&lt; SampleType &gt;</a>
+</li>
+<li>description
+: <a class="el" href="classlemons_1_1gui_1_1components_1_1_plugin_detail_view.html#a253a8f768d8f83f20ac4f2baf9caf355">lemons::gui::components::PluginDetailView</a>
 </li>
 <li>dragStart
 : <a class="el" href="structlemons_1_1spline_1_1_knot.html#ab0aa56e638a7cef7b7ee238378782cea">lemons::spline::Knot</a>
@@ -197,8 +206,17 @@ $(function() {
 <li>label
 : <a class="el" href="structlemons_1_1plugin_1_1_parameter_traits.html#a6e9fa868a088a5e5dc5492012b34f7f3">lemons::plugin::ParameterTraits</a>
 </li>
+<li>latitude
+: <a class="el" href="classlemons_1_1_g_p_s_location.html#a1dba9e7e17d24f20904da2dbb47083bb">lemons::GPSLocation</a>
+</li>
+<li>list
+: <a class="el" href="structlemons_1_1gui_1_1components_1_1_parameter_list_m_i_d_i_mappings_editor.html#aa22c4d4a929e89c26de645f48d6af394">lemons::gui::components::ParameterListMIDIMappingsEditor</a>
+</li>
 <li>location
 : <a class="el" href="structlemons_1_1spline_1_1_knot.html#a0d2bdd96e97eba6698c2d274424325f8">lemons::spline::Knot</a>
+</li>
+<li>longitude
+: <a class="el" href="classlemons_1_1_g_p_s_location.html#a708153e6aad5de730475605ae659bdd9">lemons::GPSLocation</a>
 </li>
 </ul>
 
@@ -225,9 +243,15 @@ $(function() {
 : <a class="el" href="classlemons_1_1dsp_1_1_synth_base.html#a44e8d83ce7c5dabc59976bce5434c7c7">lemons::dsp::SynthBase&lt; SampleType &gt;</a>
 </li>
 <li>param
-: <a class="el" href="classlemons_1_1gui_1_1_float_slider.html#a0f77529a32cb43b5d5ce17cad158ffe6">lemons::gui::FloatSlider</a>
-, <a class="el" href="classlemons_1_1gui_1_1_int_slider.html#adc30e60ba8a41f3e84e927e26085f1fb">lemons::gui::IntSlider</a>
-, <a class="el" href="classlemons_1_1gui_1_1_toggle_button.html#a894d737728d6aaaa39e0c484438c3059">lemons::gui::ToggleButton</a>
+: <a class="el" href="classlemons_1_1gui_1_1components_1_1_float_slider.html#a0bc4c1fb4461164fdddf9003e0968e62">lemons::gui::components::FloatSlider</a>
+, <a class="el" href="classlemons_1_1gui_1_1components_1_1_int_slider.html#aa1a10bd52d01c71b7c15aa68423ffb2e">lemons::gui::components::IntSlider</a>
+, <a class="el" href="classlemons_1_1gui_1_1components_1_1_toggle_button.html#a2ad890fa7513a37d5d872153d73230a2">lemons::gui::components::ToggleButton</a>
+</li>
+<li>parameter
+: <a class="el" href="classlemons_1_1gui_1_1components_1_1_parameter_midi_mapping_editor.html#a28f427d91c21787bd9550e937e53cf33">lemons::gui::components::ParameterMidiMappingEditor</a>
+</li>
+<li>parameterEditors
+: <a class="el" href="structlemons_1_1gui_1_1components_1_1_parameter_list_m_i_d_i_mappings_editor.html#adfecb19b8b6e7ca3ae9765a17ba9d3dc">lemons::gui::components::ParameterListMIDIMappingsEditor</a>
 </li>
 <li>parameterLayout
 : <a class="el" href="structlemons_1_1plugin_1_1_plugin_metadata.html#ace0ea917040243e6fc8adbe7591d4918">lemons::plugin::PluginMetadata</a>
@@ -249,7 +273,8 @@ $(function() {
 : <a class="el" href="structlemons_1_1spline_1_1_spline.html#a19e04b8203f38adc5c515b9f8d9001d7">lemons::spline::Spline</a>
 </li>
 <li>processor
-: <a class="el" href="structlemons_1_1plugin_1_1_processor_holder.html#a35a8c3b7adda52f8308cf61d1d4ee8f0">lemons::plugin::ProcessorHolder</a>
+: <a class="el" href="structlemons_1_1dsp_1_1_midi_processor_engine.html#ad9a5b3abb8ed5609ef21977c008783cc">lemons::dsp::MidiProcessorEngine&lt; SampleType, MidiProcessorType, &gt;</a>
+, <a class="el" href="structlemons_1_1plugin_1_1_processor_holder.html#a35a8c3b7adda52f8308cf61d1d4ee8f0">lemons::plugin::ProcessorHolder</a>
 </li>
 <li>processorAttributes
 : <a class="el" href="structlemons_1_1plugin_1_1_plugin_metadata.html#af7e609fb6a2680967f85ee9f7e38ec80">lemons::plugin::PluginMetadata</a>
@@ -373,7 +398,7 @@ $(function() {
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jan 4 2022 00:46:45 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Jan 5 2022 00:49:01 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

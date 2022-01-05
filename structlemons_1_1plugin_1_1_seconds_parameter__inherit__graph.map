@@ -1,7 +1,6 @@
 <map id="lemons::plugin::SecondsParameter" name="lemons::plugin::SecondsParameter">
-<area shape="rect" id="node1" title=" " alt="" coords="5,337,252,364"/>
-<area shape="rect" id="node2" href="$classlemons_1_1plugin_1_1_typed_parameter.html" title=" " alt="" coords="67,261,190,288"/>
-<area shape="rect" id="node3" href="$classlemons_1_1plugin_1_1_parameter.html" title=" " alt="" coords="27,81,220,108"/>
-<area shape="rect" id="node5" href="$classlemons_1_1plugin_1_1_typed_parameter.html" title=" " alt="" coords="145,157,376,199"/>
-<area shape="rect" id="node4" title=" " alt="" coords="18,5,229,32"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,229,252,256"/>
+<area shape="rect" id="node2" href="$classlemons_1_1plugin_1_1_typed_parameter.html" title=" " alt="" coords="67,155,190,181"/>
+<area shape="rect" id="node3" href="$classlemons_1_1plugin_1_1_parameter.html" title=" " alt="" coords="32,80,225,107"/>
+<area shape="rect" id="node4" title=" " alt="" coords="23,5,234,32"/>
 </map>

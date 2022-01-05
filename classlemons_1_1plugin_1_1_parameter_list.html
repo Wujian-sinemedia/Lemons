@@ -108,6 +108,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a829da5064c9472090f750577d02ae7c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1c62f3f343c3ab5c51777888fd217178"><td class="memItemLeft" align="right" valign="top">juce::Array&lt; <a class="el" href="classlemons_1_1plugin_1_1_parameter.html">Parameter</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter_list.html#a1c62f3f343c3ab5c51777888fd217178">getMeterParameters</a> () const</td></tr>
 <tr class="separator:a1c62f3f343c3ab5c51777888fd217178"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af577910c0f3de1fe66723be9ecc65fbf"><td class="memItemLeft" align="right" valign="top">juce::Array&lt; <a class="el" href="classlemons_1_1plugin_1_1_parameter.html">Parameter</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter_list.html#af577910c0f3de1fe66723be9ecc65fbf">getAllParameters</a> () const</td></tr>
+<tr class="separator:af577910c0f3de1fe66723be9ecc65fbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader">parameter_list_midi_cc MIDI controller messages</div></td></tr>
 <tr class="memitem:a0adcbb89ddcfe171b3ccb090ff47d814"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter_list.html#a0adcbb89ddcfe171b3ccb090ff47d814">processControllerMessage</a> (int number, int value)</td></tr>
 <tr class="separator:a0adcbb89ddcfe171b3ccb090ff47d814"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -209,6 +211,23 @@ parameter_list_save_load Saving and loading state</h2></td></tr>
           <td>(</td>
           <td class="paramtype">juce::AudioProcessor &amp;&#160;</td>
           <td class="paramname"><em>processor</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af577910c0f3de1fe66723be9ecc65fbf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af577910c0f3de1fe66723be9ecc65fbf">&#9670;&nbsp;</a></span>getAllParameters()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">juce::Array&lt;<a class="el" href="classlemons_1_1plugin_1_1_parameter.html">Parameter</a>*&gt; lemons::plugin::ParameterList::getAllParameters </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
@@ -495,7 +514,7 @@ template&lt;typename ParameterType , LEMONS_MUST_INHERIT_FROM(ParameterType, Par
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jan 4 2022 00:46:45 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Jan 5 2022 00:49:01 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>
