@@ -15,42 +15,6 @@
 
 namespace lemons::dsp::osc
 {
-template <typename SampleType>
-void Phase<SampleType>::resetPhase() noexcept
-{
-	phase = 0;
-}
-
-template <typename SampleType>
-void Phase<SampleType>::setFrequency (SampleType frequency, SampleType sampleRate)
-{
-	jassert (sampleRate > 0 && frequency > 0);
-	increment = frequency / sampleRate;
-}
-
-template <typename SampleType>
-SampleType Phase<SampleType>::next (SampleType wrapLimit) noexcept
-{
-	const auto p = phase;
-
-	phase += increment;
-
-	while (phase >= wrapLimit)
-		phase -= wrapLimit;
-
-	return p;
-}
-
-template <typename SampleType>
-SampleType Phase<SampleType>::getIncrement() const noexcept
-{
-	return increment;
-}
-
-template struct Phase<float>;
-template struct Phase<double>;
-
-/*--------------------------------------------------------------------------------------------*/
 
 template <typename SampleType>
 static inline SampleType blep (SampleType phase, SampleType increment) noexcept
@@ -74,43 +38,6 @@ static inline SampleType blep (SampleType phase, SampleType increment) noexcept
 
 template float  blep (float, float) noexcept;
 template double blep (double, double) noexcept;
-
-/*--------------------------------------------------------------------------------------------*/
-
-template <typename SampleType>
-Oscillator<SampleType>::Oscillator (std::function<SampleType()>&& sampleFuncToUse)
-    : sampleFunc (std::move (sampleFuncToUse))
-{
-}
-
-template <typename SampleType>
-SampleType Oscillator<SampleType>::getSample()
-{
-	return sampleFunc();
-}
-
-template <typename SampleType>
-void Oscillator<SampleType>::getSamples (SampleType* output, int numSamples)
-{
-	for (int i = 0; i < numSamples; ++i)
-		output[i] = sampleFunc();
-}
-
-template <typename SampleType>
-void Oscillator<SampleType>::getSamples (AudioBuffer<SampleType>& output, int channel)
-{
-	getSamples (output.getWritePointer (channel), output.getNumSamples());
-}
-
-template <typename SampleType>
-void Oscillator<SampleType>::skipSamples (int numToSkip)
-{
-	for (int i = 0; i < numToSkip; ++i)
-		sampleFunc();
-}
-
-template struct Oscillator<float>;
-template struct Oscillator<double>;
 
 /*--------------------------------------------------------------------------------------------*/
 

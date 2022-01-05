@@ -33,15 +33,18 @@
 #include "filters/Coeffecients.cpp"
 #include "filters/Filter.cpp"
 
+#include "sample_streams/SampleStream.cpp"
+#include "sample_streams/WhiteNoiseGenerator.cpp"
+#include "sample_streams/oscillator.cpp"
+
 #include "util/AudioFormats.cpp"
 #include "util/serializing.cpp"
 #include "util/ValueSmoother.cpp"
 #include "util/BufferUtils.cpp"
-#include "util/WhiteNoiseGenerator.cpp"
 #include "util/MonoStereoConverter.cpp"
 
-#include "oscillators/oscillators.cpp"
-#include "oscillators/SuperSaw.cpp"
+#include "oscillators/basic_types.cpp"
+#include "oscillators/Detunable.cpp"
 #include "oscillators/choosable.cpp"
 
 #include "audio_files/AudioFile.cpp"

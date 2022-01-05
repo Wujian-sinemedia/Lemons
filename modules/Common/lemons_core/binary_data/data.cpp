@@ -21,20 +21,18 @@
 namespace lemons::binary
 {
 
-Data::Data (const String& fileToFind)
+Data::Data (const char* fileToFind)
 {
 #if LEMONS_HAS_BINARY_DATA
 	data = [&]() -> const char*
 	{
 		using namespace BinaryData;
 
-		const auto utf8 = fileToFind.toRawUTF8();
-
 		for (int index = 0; index < namedResourceListSize; ++index)
 		{
 			const auto binaryName = namedResourceList[index];
 
-			if (getNamedResourceOriginalFilename (binaryName) == utf8)
+			if (std::strcmp (getNamedResourceOriginalFilename (binaryName), fileToFind) == 0)
 				return getNamedResource (binaryName, size);
 		}
 
@@ -43,6 +41,12 @@ Data::Data (const String& fileToFind)
 #else
 	juce::ignoreUnused (fileToFind);
 #endif
+}
+
+Data::Data (const String& fileToFind)
+: Data (fileToFind.toRawUTF8())
+{
+    
 }
 
 const char* const Data::getData() const noexcept
@@ -65,7 +69,7 @@ String Data::getAsString() const
 	if (! isValid())
 		return {};
 
-	return { juce::CharPointer_UTF8 (data) };
+    return String::createStringFromData (data, size);
 }
 
 MemoryBlock Data::getAsMemoryBlock() const
@@ -141,41 +145,3 @@ juce::StringArray getStrings (const String& textFileName)
 
 }  // namespace lemons::binary
 
-
-/*---------------------------------------------------------------------------------------------------------------------------------*/
-
-#if 0
-
-namespace lemons::tests
-{
-
-BinaryDataTests::BinaryDataTests()
-: Test ("Binary data tests", "BinaryData")
-{
-
-}
-
-#  if ! LEMONS_BINARIES_UNIT_TESTS
-
-void BinaryDataTests::runTest()
-{
-    beginTest ("binary::Data objects are invalid");
-
-    binary::Data data { "MyFile.txt" };
-
-    expect (! data.isValid());
-}
-
-#  else /* LEMONS_BINARIES_UNIT_TESTS is true... */
-
-void BinaryDataTests::runTest()
-{
-
-}
-
-
-#  endif
-
-}
-
-#endif

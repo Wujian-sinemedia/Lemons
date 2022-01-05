@@ -72,6 +72,8 @@ function (lemons_add_resources_folder)
             return()
         endif()
 
+        list (REMOVE_ITEM files ".DS_Store")
+
         juce_add_binary_data (${resourcesTarget} SOURCES ${files})
 
         set_target_properties (${resourcesTarget} PROPERTIES POSITION_INDEPENDENT_CODE TRUE)

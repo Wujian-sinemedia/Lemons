@@ -56,7 +56,9 @@ struct Data final
 	explicit Data() = default;
 
 	/** Creates a Data object referencing a named resource. */
-	explicit Data (const String& fileToFind);
+	explicit Data (const char* fileToFind);
+    
+    explicit Data (const String& fileToFind);
 
 	/** Returns true if the requested data has been loaded successfully from the binary data target. */
 	bool isValid() const noexcept;
@@ -126,31 +128,3 @@ template <files::FileType Type = files::FileType::JSON>
 
 }  // namespace lemons::binary
 
-
-/*---------------------------------------------------------------------------------------------------------------------------------*/
-
-#if 0
-
-namespace lemons::tests
-{
-
-struct BinaryDataTests : public Test
-{
-    static_assert (binary::Data::hasBinaryData(),
-                   "Target must have binary data!");
-    
-    BinaryDataTests();
-
-private:
-    void runTest() final;
-};
-
-}
-
-#  if LEMONS_BINARIES_UNIT_TESTS
-#	if ! LEMONS_HAS_BINARY_DATA
-#	  error "LEMONS_BINARIES_UNIT_TESTS is enabled, but LEMONS_HAS_BINARY_DATA is false!"
-#	endif
-#  endif
-
-#endif

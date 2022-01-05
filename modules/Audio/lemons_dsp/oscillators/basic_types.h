@@ -19,77 +19,14 @@
 namespace lemons::dsp::osc
 {
 
+template<typename T>
+using Oscillator = dsp::Oscillator<T>;
+
 /** @defgroup lemons_oscillators Oscillators
     @ingroup lemons_dsp
     %Oscillator classes.
  */
 
-/** @ingroup lemons_oscillators
-    Represents the phase of an oscillator.
-    @see Oscillator
- */
-template <typename SampleType>
-struct Phase final
-{
-	/** Resets the phase, */
-	void resetPhase() noexcept;
-
-	/** Sets the output frequency and samplerate. */
-	void setFrequency (SampleType frequency, SampleType sampleRate);
-
-	/** Returns the current phase increment. */
-	[[nodiscard]] SampleType getIncrement() const noexcept;
-
-	/** Returns the next phase value and handles wraparound logic. */
-	[[nodiscard]] SampleType next (SampleType wrapLimit) noexcept;
-
-private:
-	SampleType phase { 0 }, increment { 0 };
-};
-
-/*--------------------------------------------------------------------------------------------*/
-
-/** @ingroup lemons_oscillators
-    Base class for any kind of oscillator.
-    Oscillators process only a single channel of samples at a time.
-    @see Phase
- */
-template <typename SampleType>
-struct Oscillator
-{
-	/** Destructor. */
-	virtual ~Oscillator() = default;
-
-	/** Resets the oscillator's phase. */
-	virtual void resetPhase() = 0;
-
-	/** Sets the oscillator's output frequency and samplerate. */
-	virtual void setFrequency (SampleType frequency, SampleType sampleRate) = 0;
-
-	/** Returns the oscillator's frequency. */
-	[[nodiscard]] virtual SampleType getFrequency() const noexcept = 0;
-
-	/** Returns the next output sample for the oscillator. */
-	[[nodiscard]] SampleType getSample();
-
-	/** Returns a stream of samples from the oscillator. */
-	void getSamples (SampleType* output, int numSamples);
-
-	/** Returns a stream of samples from the oscillator. */
-	void getSamples (AudioBuffer<SampleType>& output, int channel = 0);
-
-	/** Skips a number of samples in the stream. */
-	void skipSamples (int numToSkip);
-
-protected:
-	/** Creates an oscillator with a specified lambda function for producing the next sample. */
-	explicit Oscillator (std::function<SampleType()>&& sampleFuncToUse);
-
-private:
-	std::function<SampleType()> sampleFunc;
-};
-
-/*--------------------------------------------------------------------------------------------*/
 
 /** @defgroup lemons_basic_oscillators Basic wave shapes
     @ingroup lemons_oscillators
@@ -116,7 +53,7 @@ struct Sine final : public Oscillator<SampleType>
 	[[nodiscard]] SampleType getFrequency() const noexcept final;
 
 private:
-	Phase<SampleType> phase;
+    typename Oscillator<SampleType>::Phase phase;
 	SampleType        freq { 0 };
 };
 
@@ -142,7 +79,7 @@ struct Saw final : public Oscillator<SampleType>
 	[[nodiscard]] SampleType getFrequency() const noexcept final;
 
 private:
-	Phase<SampleType> phase;
+    typename Oscillator<SampleType>::Phase phase;
 	SampleType        freq { 0 };
 };
 
@@ -174,7 +111,7 @@ struct Square final : public Oscillator<SampleType>
 private:
 	friend struct Triangle<SampleType>;
 
-	Phase<SampleType> phase;
+    typename Oscillator<SampleType>::Phase phase;
 	SampleType        freq { 0 };
 };
 

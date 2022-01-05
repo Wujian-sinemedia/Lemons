@@ -34,11 +34,12 @@
 #include "serializing/serializing.cpp"
 #include "serializing/VariantConversions.cpp"
 
-#if LEMONS_UNIT_TESTS
-#include "math/math_tests.cpp"
-#include "serializing/VariantConversions_tests.cpp"
-#endif
-
 #include "localization/languages.cpp"
 #include "localization/TranslationFiles.cpp"
 
+#if LEMONS_UNIT_TESTS
+#include "math/math_tests.cpp"
+#include "serializing/serializing_tests.cpp"
+#include "serializing/VariantConversions_tests.cpp"
+#include "binary_data/BinaryData_tests.cpp"
+#endif

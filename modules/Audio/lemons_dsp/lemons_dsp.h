@@ -60,9 +60,14 @@ END_JUCE_MODULE_DECLARATION
 #include "engines/DspProtection.h"
 #include "engines/EngineChain.h"
 
-#include "oscillators/oscillators.h"
-#include "oscillators/SuperSaw.h"
-#include "oscillators/OscEngine.h"
+#include "sample_streams/SampleStream.h"
+#include "sample_streams/WhiteNoiseGenerator.h"
+#include "sample_streams/oscillator.h"
+#include "sample_streams/StreamEngine.h"
+
+#include "oscillators/basic_types.h"
+#include "oscillators/Detunable.h"
+#include "oscillators/OscillatorEngine.h"
 #include "oscillators/choosable.h"
 
 #include "filters/Filter.h"
@@ -71,7 +76,6 @@ END_JUCE_MODULE_DECLARATION
 #include "util/serializing.h"
 #include "util/ValueSmoother.h"
 #include "util/BufferUtils.h"
-#include "util/WhiteNoiseGenerator.h"
 #include "util/MonoStereoConverter.h"
 
 #include "audio_files/AudioFile.h"

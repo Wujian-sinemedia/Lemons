@@ -14,32 +14,22 @@
  */
 
 
+#pragma once
+
 namespace lemons::dsp
 {
 
+/** @ingroup lemons_dsp
+    A simple processor that generates random noise.
+ */
 template <typename SampleType>
-SampleType WhiteNoiseGenerator<SampleType>::getNextSample()
+class WhiteNoiseGenerator final : public SampleStream<SampleType>
 {
-	return rand.nextFloat() * 0.25f - 0.125f;
-}
+public:
+    explicit WhiteNoiseGenerator (juce::Random rng = {});
 
-template <typename SampleType>
-void WhiteNoiseGenerator<SampleType>::getSamples (SampleType* output, int numSamples)
-{
-	for (int i = 0; i < numSamples; ++i)
-		output[i] = getNextSample();
-}
-
-template <typename SampleType>
-void WhiteNoiseGenerator<SampleType>::getSamples (AudioBuffer<SampleType>& output)
-{
-	const auto numSamples = output.getNumSamples();
-
-	for (int chan = 0; chan < output.getNumChannels(); ++chan)
-		getSamples (output.getWritePointer (chan), numSamples);
-}
-
-template class WhiteNoiseGenerator<float>;
-template class WhiteNoiseGenerator<double>;
+private:
+	juce::Random rand;
+};
 
 }  // namespace lemons::dsp
