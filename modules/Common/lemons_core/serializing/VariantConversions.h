@@ -162,23 +162,3 @@ struct VariantConverter<lemons::Version>
 }  // namespace juce
 
 
-/*---------------------------------------------------------------------------------------------------------------------------------*/
-
-#if LEMONS_UNIT_TESTS
-
-namespace lemons::tests
-{
-
-struct VariantConversionTests : public CoreTest
-{
-	VariantConversionTests();
-
-private:
-	void runTest() final;
-};
-
-static VariantConversionTests variantConverterTest;
-
-}  // namespace lemons::tests
-
-#endif

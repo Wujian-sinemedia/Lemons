@@ -64,30 +64,3 @@ private:
 
 }  // namespace lemons::midi
 
-
-/*---------------------------------------------------------------------------------------------------------------------------------*/
-
-
-#if LEMONS_UNIT_TESTS
-
-namespace lemons::tests
-{
-
-struct MidiFifoTests : public MidiTest
-{
-public:
-	MidiFifoTests();
-
-private:
-	void runTest() final;
-
-	midi::MidiFIFO fifo;
-
-	juce::MidiBuffer input, output;
-};
-
-static MidiFifoTests midiFifoTest;
-
-}  // namespace lemons::tests
-
-#endif

@@ -91,33 +91,3 @@ private:
 
 }  // namespace lemons::dsp
 
-
-/*---------------------------------------------------------------------------------------------------------------------------------*/
-
-
-#if LEMONS_UNIT_TESTS
-
-namespace lemons::tests
-{
-
-template <typename FloatType>
-struct CircularBufferTests : public DspTest
-{
-public:
-	CircularBufferTests();
-
-private:
-	void runTest() final;
-
-	void resizeAllBuffers (int newSize);
-
-	AudioBuffer<FloatType> origStorage, circOutput;
-
-	dsp::CircularBuffer<FloatType> circularBuffer;
-};
-
-LEMONS_CREATE_DSP_TEST (CircularBufferTests)
-
-}  // namespace lemons::tests
-
-#endif

@@ -16,9 +16,6 @@
 
 #include "lemons_core.h"
 
-
-#include "math/math_tests.cpp"
-
 #include "misc/Version.cpp"
 #include "misc/Dimensions.cpp"
 #include "misc/ArgParser.cpp"
@@ -36,7 +33,11 @@
 #include "serializing/ValueTrees.cpp"
 #include "serializing/serializing.cpp"
 #include "serializing/VariantConversions.cpp"
+
+#if LEMONS_UNIT_TESTS
+#include "math/math_tests.cpp"
 #include "serializing/VariantConversions_tests.cpp"
+#endif
 
 #include "localization/languages.cpp"
 #include "localization/TranslationFiles.cpp"

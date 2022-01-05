@@ -42,35 +42,3 @@ template <typename SampleType>
                                                       int                      channelOffset = 0);
 
 }  // namespace lemons::dsp::buffers
-
-
-/*---------------------------------------------------------------------------------------------------------------------------------*/
-
-
-#if LEMONS_UNIT_TESTS
-
-namespace lemons::tests
-{
-
-template <typename FloatType>
-struct AudioBufferUtilsTests : public DspTest
-{
-public:
-	AudioBufferUtilsTests();
-
-private:
-	void runTest() final;
-
-	template <typename OtherFloatType>
-	void runConversionTests (int numChannels, int numSamples);
-
-	void resizeAllBuffers (int numSamples, int numChannels);
-
-	AudioBuffer<FloatType> bufferA, bufferB;
-};
-
-LEMONS_CREATE_DSP_TEST (AudioBufferUtilsTests)
-
-}  // namespace lemons::tests
-
-#endif

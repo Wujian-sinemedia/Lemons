@@ -132,27 +132,3 @@ struct VariantConverter<AudioBuffer<double>>
 };
 
 }  // namespace juce
-
-/*---------------------------------------------------------------------------------------------------------------------------*/
-
-#if LEMONS_UNIT_TESTS
-
-namespace lemons::tests
-{
-
-struct DspSerializingTests : public CoreTest
-{
-	DspSerializingTests();
-
-private:
-	void runTest() final;
-
-	template <typename SampleType>
-	void runAudioBufferTest();
-};
-
-static DspSerializingTests dspSerializingTest;
-
-}  // namespace lemons::tests
-
-#endif

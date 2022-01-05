@@ -113,25 +113,3 @@ template <typename T>
 
 }  // namespace lemons::math
 
-
-/*---------------------------------------------------------------------------------------------------------------------------------*/
-
-
-#if LEMONS_UNIT_TESTS
-
-namespace lemons::tests
-{
-
-struct MathTests : public CoreTest
-{
-	MathTests();
-
-private:
-	void runTest() final;
-};
-
-static MathTests mathFunctionsTest;
-
-}  // namespace lemons::tests
-
-#endif

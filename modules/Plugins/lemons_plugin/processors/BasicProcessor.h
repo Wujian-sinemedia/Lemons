@@ -48,6 +48,8 @@ public:
 
 	/** Returns a BusesLayout with stereo in and out buses that are enabled by default. */
 	[[nodiscard]] static BusesProperties getDefaultBusesLayout();
+    
+    [[nodiscard]] juce::AudioProcessorParameter* getParameter (const String& parameterName) const;
 
 protected:
     

@@ -143,24 +143,3 @@ private:
 };
 
 }  // namespace juce
-
-/*---------------------------------------------------------------------------------------------------------------------------*/
-
-#if LEMONS_UNIT_TESTS
-
-namespace lemons::tests
-{
-
-struct MidiSerializingTests : public CoreTest
-{
-	MidiSerializingTests();
-
-private:
-	void runTest() final;
-};
-
-static MidiSerializingTests midiSerializingTest;
-
-}  // namespace lemons::tests
-
-#endif

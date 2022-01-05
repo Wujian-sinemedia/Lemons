@@ -46,3 +46,15 @@
 
 #include "audio_files/AudioFile.cpp"
 #include "audio_files/AudioFilePlayer.cpp"
+
+#if LEMONS_UNIT_TESTS
+#include "fifos/CircularBuffer_tests.cpp"
+#include "fifos/AudioFifo_tests.cpp"
+#include "fifos/AudioAndMidiFIFO_tests.cpp"
+#include "engines/AudioEngine_tests.cpp"
+#include "engines/LatencyEngine_tests.cpp"
+#include "oscillators/oscillator_tests.cpp"
+#include "util/BufferUtils_tests.cpp"
+#include "util/MonoStereoConverter_tests.cpp"
+#include "util/serializing_tests.cpp"
+#endif

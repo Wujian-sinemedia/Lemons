@@ -54,24 +54,3 @@ using juce::ValueTree;
 
 }  // namespace lemons::serializing
 
-
-/*---------------------------------------------------------------------------------------------------------------------------------*/
-
-#if LEMONS_UNIT_TESTS
-
-namespace lemons::tests
-{
-
-struct DataConversionTests : public CoreTest
-{
-	DataConversionTests();
-
-private:
-	void runTest() final;
-};
-
-static DataConversionTests dataConversionTest;
-
-}  // namespace lemons::tests
-
-#endif

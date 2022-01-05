@@ -165,33 +165,3 @@ class PassThroughEngine : public Engine<SampleType>
 
 }  // namespace lemons::dsp
 
-
-/*---------------------------------------------------------------------------------------------------------------------------------*/
-
-
-#if LEMONS_UNIT_TESTS
-
-namespace lemons::tests
-{
-
-template <typename FloatType>
-struct AudioEngineTests : public DspTest
-{
-public:
-	AudioEngineTests();
-
-private:
-	void runTest() final;
-
-	dsp::PassThroughEngine<FloatType> engine;
-
-	AudioBuffer<FloatType> audioIn, audioOut;
-
-	MidiBuffer midiStorage;
-};
-
-LEMONS_CREATE_DSP_TEST (AudioEngineTests)
-
-}  // namespace lemons::tests
-
-#endif

@@ -32,3 +32,8 @@
 #include "tuning/mts_client.cpp"
 #include "tuning/PitchbendTracker.cpp"
 #include "tuning/PitchPipeline.cpp"
+
+#if LEMONS_UNIT_TESTING
+#include "utilities/MidiFIFO_tests.cpp"
+#include "utilities/serializing_tests.cpp"
+#endif

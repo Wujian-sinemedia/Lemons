@@ -85,30 +85,3 @@ private:
 
 }  // namespace lemons::dsp
 
-
-/*---------------------------------------------------------------------------------------------------------------------------------*/
-
-#if LEMONS_UNIT_TESTS
-
-namespace lemons::tests
-{
-
-template <typename FloatType>
-struct MonoStereoConverterTests : public DspTest
-{
-public:
-	MonoStereoConverterTests();
-
-private:
-	void runTest() final;
-
-	AudioBuffer<FloatType> monoBuffer, stereoBuffer;
-
-	dsp::MonoStereoConverter<FloatType> converter;
-};
-
-LEMONS_CREATE_DSP_TEST (MonoStereoConverterTests)
-
-}  // namespace lemons::tests
-
-#endif

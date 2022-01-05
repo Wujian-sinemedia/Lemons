@@ -42,33 +42,3 @@ ValueTree valueTreeFromJSON (const String& jsonText)
 }  // namespace lemons::serializing
 
 
-/*-------------------------------------------------------------------------------------------------------------------------------------*/
-
-#if LEMONS_UNIT_TESTS
-
-namespace lemons::tests
-{
-
-DataConversionTests::DataConversionTests()
-    : CoreTest ("Data conversion functions")
-{
-}
-
-void DataConversionTests::runTest()
-{
-	/*
-	 - ValueTree to JSON
-	 - ValueTree from JSON
-	 */
-
-	beginTest ("Memory block to/from string");
-
-	//	const auto memStr     = serializing::memoryBlockToString (block);
-	//	const auto memDecoded = serializing::memoryBlockFromString (memStr);
-	//
-	//	expect (block == memDecoded);
-}
-
-}  // namespace lemons::tests
-
-#endif

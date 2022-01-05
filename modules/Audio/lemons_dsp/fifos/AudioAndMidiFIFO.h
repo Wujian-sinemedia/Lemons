@@ -58,35 +58,3 @@ private:
 
 }  // namespace lemons::dsp
 
-
-/*---------------------------------------------------------------------------------------------------------------------------------*/
-
-
-#if LEMONS_UNIT_TESTS
-
-namespace lemons::tests
-{
-
-template <typename FloatType>
-struct AudioAndMidiFifoTests : public DspTest
-{
-public:
-	AudioAndMidiFifoTests();
-
-private:
-	void runTest() final;
-
-	void resizeAllBuffers (int newSize, int numChannels);
-
-	AudioBuffer<FloatType> origAudio, audioOut;
-
-	MidiBuffer origMidi, midiOut;
-
-	dsp::AudioAndMidiFIFO<FloatType> fifo;
-};
-
-LEMONS_CREATE_DSP_TEST (AudioAndMidiFifoTests)
-
-}  // namespace lemons::tests
-
-#endif

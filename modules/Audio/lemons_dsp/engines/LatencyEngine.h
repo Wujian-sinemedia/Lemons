@@ -62,39 +62,3 @@ private:
 
 }  // namespace lemons::dsp
 
-
-/*---------------------------------------------------------------------------------------------------------------------------------*/
-
-#if LEMONS_UNIT_TESTS
-
-namespace lemons::tests
-{
-
-template <typename FloatType>
-struct LatencyEngineTests : public DspTest
-{
-public:
-	LatencyEngineTests();
-
-private:
-	void runTest() final;
-
-	struct PassThroughEngine : public dsp::LatencyEngine<FloatType>
-	{
-		void renderChunk (const AudioBuffer<FloatType>& input,
-		                  AudioBuffer<FloatType>&       output,
-		                  MidiBuffer& midiMessages, bool isBypassed) final;
-	};
-
-	PassThroughEngine engine;
-
-	AudioBuffer<FloatType> audioIn, audioOut;
-
-	MidiBuffer midiStorage;
-};
-
-LEMONS_CREATE_DSP_TEST (LatencyEngineTests)
-
-}  // namespace lemons::tests
-
-#endif

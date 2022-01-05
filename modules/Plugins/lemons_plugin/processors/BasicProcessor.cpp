@@ -30,6 +30,15 @@ BasicProcessor::BasicProcessor (const BusesProperties& busesLayout)
 {
 }
 
+juce::AudioProcessorParameter* BasicProcessor::getParameter (const String& parameterName) const
+{
+    for (auto* param : getParameters())
+        if (param->getName(50) == parameterName)
+            return param;
+    
+    return nullptr;
+}
+
 void BasicProcessor::processBlockBypassed (AudioBuffer<float>& audio, MidiBuffer&)
 {
 	audio.clear();

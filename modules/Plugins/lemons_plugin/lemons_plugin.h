@@ -39,6 +39,11 @@
 
 #include "metadata/ParameterTraits.h"
 
+#include "hosting/ProcessorHolder.h"
+
+#include "unit_tests/audio_processor_test.h"
+#include "processors/BasicProcessor.h"
+
 #include "parameters/Parameter.h"
 
 #include "parameters/types/ParameterTypes.h"
@@ -54,16 +59,11 @@
 #include "parameters/ModulationManager/LFO.h"
 #include "parameters/ModulationManager/ModulationManager.h"
 
-#include "hosting/ProcessorHolder.h"
 #include "hosting/ProcessorEngine.h"
-
-#include "unit_tests/audio_processor_test.h"
-#include "unit_tests/parameter_tests.h"
 
 #include "metadata/EditorAttributes.h"
 #include "metadata/ProcessorAttributes.h"
 
-#include "processors/BasicProcessor.h"
 #include "processors/ProcessorBase.h"
 
 #include "metadata/PluginMetadata.h"
