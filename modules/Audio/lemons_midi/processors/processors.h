@@ -16,6 +16,7 @@ struct Processor
 	virtual void reset() { }
 };
 
+/*---------------------------------------------------------------------------------------------------------------------------------------*/
 
 class RoutingProcessor : public Processor
 {
@@ -46,6 +47,34 @@ private:
 	virtual void handleSongPositionEvent (int midiBeat);
 	virtual void handleMachineControl (MidiMessage::MidiMachineControlCommand) { }
 	virtual void handleOtherMessage (const MidiMessage&) { }
+};
+
+/*---------------------------------------------------------------------------------------------------------------------------------------*/
+
+struct StatefulRoutingProcessor : public RoutingProcessor
+{
+	[[nodiscard]] int getLastPitchwheelValue() const noexcept;
+
+	[[nodiscard]] bool isSustainPedalDown() const noexcept;
+	[[nodiscard]] bool isSostenutoPedalDown() const noexcept;
+	[[nodiscard]] bool isSoftPedalDown() const noexcept;
+
+	void reset();
+
+private:
+	void handlePitchwheel (int wheelValue) final;
+	void handleSustainPedal (int controllerValue) final;
+	void handleSostenutoPedal (int controllerValue) final;
+	void handleSoftPedal (int controllerValue) final;
+
+	virtual void processPitchWheel (int) { }
+	virtual void processSustainPedal (int) { }
+	virtual void processSostenutoPedal (int) { }
+	virtual void processSoftPedal (int) { }
+
+	int pitchwheel { 64 };
+
+	bool sustainPedalDown { false }, sostenutoPedalDown { false }, softPedalDown { false };
 };
 
 }  // namespace lemons::midi

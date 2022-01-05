@@ -1,5 +1,6 @@
 #include "lemons_synth.h"
 
+#if 0
 
 #include "SynthVoice/TimbreMod.cpp"
 #include "SynthVoice/SynthVoice.cpp"
@@ -15,3 +16,5 @@
 #include "Synth/Synth.cpp"
 
 #include "BasicSynths/OscSynth.cpp"
+
+#endif

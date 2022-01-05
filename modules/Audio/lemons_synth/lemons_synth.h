@@ -18,6 +18,7 @@ END_JUCE_MODULE_DECLARATION
 
  -------------------------------------------------------------------------------------*/
 
+#if 0
 
 namespace lemons::dsp
 {
@@ -45,3 +46,5 @@ class MidiManager;
 #include "BasicSynths/LambdaSynth.h"
 #include "BasicSynths/TemplateSynth.h"
 #include "BasicSynths/OscSynth.h"
+
+#endif

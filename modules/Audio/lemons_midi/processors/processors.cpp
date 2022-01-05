@@ -90,7 +90,6 @@ void RoutingProcessor::processMessage (const MidiMessage& m)
 	handleOtherMessage (m);
 }
 
-
 void RoutingProcessor::handleNoteOn (int, float) { }
 void RoutingProcessor::handleNoteOff (int, float) { }
 void RoutingProcessor::handlePitchwheel (int) { }
@@ -108,5 +107,66 @@ void RoutingProcessor::handleTempoMetaEvent (double) { }
 void RoutingProcessor::handleTimeSignatureMetaEvent (int, int) { }
 void RoutingProcessor::handleKeySignatureMetaEvent (int, bool, bool) { }
 void RoutingProcessor::handleSongPositionEvent (int) { }
+
+
+/*---------------------------------------------------------------------------------------------------------------------------------------*/
+
+
+void StatefulRoutingProcessor::handlePitchwheel (int wheelValue)
+{
+	jassert (wheelValue >= 0 && wheelValue <= 127);
+	pitchwheel = wheelValue;
+	processPitchWheel (wheelValue);
+}
+
+int StatefulRoutingProcessor::getLastPitchwheelValue() const noexcept
+{
+	return pitchwheel;
+}
+
+void StatefulRoutingProcessor::handleSustainPedal (int controllerValue)
+{
+	jassert (controllerValue >= 0 && controllerValue <= 127);
+	sustainPedalDown = controllerValue >= 64;
+	processSustainPedal (controllerValue);
+}
+
+bool StatefulRoutingProcessor::isSustainPedalDown() const noexcept
+{
+	return sustainPedalDown;
+}
+
+void StatefulRoutingProcessor::handleSostenutoPedal (int controllerValue)
+{
+	jassert (controllerValue >= 0 && controllerValue <= 127);
+	sostenutoPedalDown = controllerValue >= 64;
+	processSostenutoPedal (controllerValue);
+}
+
+bool StatefulRoutingProcessor::isSostenutoPedalDown() const noexcept
+{
+	return sostenutoPedalDown;
+}
+
+void StatefulRoutingProcessor::handleSoftPedal (int controllerValue)
+{
+	jassert (controllerValue >= 0 && controllerValue <= 127);
+	softPedalDown = controllerValue >= 64;
+	processSoftPedal (controllerValue);
+}
+
+bool StatefulRoutingProcessor::isSoftPedalDown() const noexcept
+{
+	return softPedalDown;
+}
+
+void StatefulRoutingProcessor::reset()
+{
+	pitchwheel = 64;
+
+	sustainPedalDown   = false;
+	sostenutoPedalDown = false;
+	softPedalDown      = false;
+}
 
 }  // namespace lemons::midi

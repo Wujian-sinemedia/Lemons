@@ -47,5 +47,4 @@
 #include "tuning/PitchPipeline.h"
 
 #include "processors/processors.h"
-#include "processors/MidiProcessor.h"
 #include "processors/MidiChoppingProcessor.h"
