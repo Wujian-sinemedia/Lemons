@@ -18,8 +18,6 @@
 #  include "BinaryData.h"
 #endif
 
-#include <lemons_midi/lemons_midi.h>
-
 namespace lemons::binary
 {
 

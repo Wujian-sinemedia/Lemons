@@ -26,7 +26,7 @@ ParameterTraits::ParameterTraits (ValType minimum, ValType maximum, ValType defa
                                   ParameterCategory categoryToUse)
     : name (nameToUse)
     , label (labelToUse)
-    , range (detail::createRange (minimum, maximum))
+    , range (ranges::create (minimum, maximum))
     , defaultValue (static_cast<float> (defaultVal))
     , valueToText (detail::convertValToStringFuncFromTyped (stringFromValue, label, range.interval))
     , textToValue (detail::convertStringToValFuncFromTyped (valueFromString))
@@ -92,7 +92,7 @@ ValueTree ParameterTraits::toValueTree() const
 	tree.setProperty (metaProp, isMetaParameter, nullptr);
 	tree.setProperty (categoryProp, static_cast<int> (category), nullptr);
 
-	tree.appendChild (serializing::rangeToValueTree (range), nullptr);
+	tree.appendChild (ranges::toValueTree (range), nullptr);
 
 	return tree;
 }
@@ -127,10 +127,10 @@ ParameterTraits ParameterTraits::fromValueTree (const ValueTree& tree)
 	if (tree.hasProperty (categoryProp))
         traits.category = static_cast<ParameterCategory> ((int) tree.getProperty (categoryProp));
 
-	const auto rangeTree = tree.getChildWithName (serializing::rangeTreeType);
+	const auto rangeTree = tree.getChildWithName (ranges::valueTreeType);
 
 	if (rangeTree.isValid())
-        traits.range = serializing::valueTreeToRange<float> (rangeTree);
+        traits.range = ranges::fromValueTree<float> (rangeTree);
     
     return traits;
 }

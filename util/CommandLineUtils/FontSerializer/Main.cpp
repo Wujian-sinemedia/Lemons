@@ -46,10 +46,10 @@ int main (int argc, char** argv)
 		                    args.getArgumentAsType<float> ("--size|-s"),
 		                    style };
 
-	const auto res = lemons::serializing::serializeFont (font,
-                                                         args.getFilepathForOption ("--file|-f"),
-                                                         args.getArgumentAsType<int> ("--chars|-c"),
-                                                         args.getArgumentAsType<juce::juce_wchar> ("--default|-d"));
+    const auto res = lemons::files::saveFont (font,
+                                              args.getFilepathForOption ("--file|-f"),
+                                              args.getArgumentAsType<int> ("--chars|-c"),
+                                              args.getArgumentAsType<juce::juce_wchar> ("--default|-d"));
 
 	if (res)
 		return EXIT_SUCCESS;

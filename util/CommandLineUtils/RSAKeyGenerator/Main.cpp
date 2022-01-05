@@ -1,4 +1,3 @@
-#include <lemons_cryptography/lemons_cryptography.h>
 #include <lemons_core/lemons_core.h>
 
 
@@ -15,8 +14,8 @@ int main (int argc, char** argv)
 	if (! args.checkForRequiredArgs())
 		return EXIT_FAILURE;
 
-	lemons::crypto::generateKeyPair (args.getFilepathForOption ("--file|-f"),
-	                                 args.getArgumentAsType<int> ("--bits|-b"));
+	lemons::rsa::generateKeyPair (args.getFilepathForOption ("--file|-f"),
+                                  args.getArgumentAsType<int> ("--bits|-b"));
 
 	return EXIT_SUCCESS;
 }

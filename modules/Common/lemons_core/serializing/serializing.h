@@ -25,23 +25,6 @@ namespace lemons::serializing
 using juce::MemoryBlock;
 using juce::ValueTree;
 
-static constexpr auto rangeTreeType = "NormalisableRange";
-
-/** @defgroup lemons_serializing Serializing
-    @ingroup lemons_core
-    Utilities for serializing.
- */
-
-/** @ingroup lemons_serializing
- */
-template <typename ValueType>
-[[nodiscard]] ValueTree rangeToValueTree (const juce::NormalisableRange<ValueType>& range);
-
-/** @ingroup lemons_serializing
- */
-template <typename ValueType>
-[[nodiscard]] juce::NormalisableRange<ValueType> valueTreeToRange (const ValueTree& tree);
-
 
 /** @ingroup lemons_serializing
     Converts a MemoryBlock to a String representation.

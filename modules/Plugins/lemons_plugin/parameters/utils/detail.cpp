@@ -24,50 +24,6 @@ String paramNameToID (const String& name)
 
 /*-------------------------------------------------------------------------------------------------------*/
 
-template <typename ValueType>
-ParameterRange createRange (ValueType minimum, ValueType maximum)
-{
-	static_assert (std::is_same_v<ValueType, float>, "");
-
-	return { minimum, maximum, 0.01f };
-}
-
-template <>
-ParameterRange createRange (int minimum, int maximum)
-{
-	auto denormalize = [] (float start, float end, float v)
-	{
-		return juce::jlimit (start, end,
-		                     v * (end - start) + start);
-	};
-
-	auto normalize = [] (float start, float end, float v)
-	{
-		return juce::jlimit (0.f, 1.f,
-		                     (v - start) / (end - start));
-	};
-
-	auto snap = [] (float start, float end, float v)
-	{
-		return static_cast<float> (juce::roundToInt (juce::jlimit (start, end, v)));
-	};
-
-	ParameterRange rangeWithInterval { static_cast<float> (minimum), static_cast<float> (maximum), std::move (denormalize), std::move (normalize), std::move (snap) };
-
-	rangeWithInterval.interval = 1.f;
-
-	return rangeWithInterval;
-}
-
-template <>
-ParameterRange createRange (bool, bool)
-{
-	return { 0.f, 1.f, 1.f };
-}
-
-
-/*-------------------------------------------------------------------------------------------------------*/
-
 static inline String appendParamLabel (const String& orig, const String& paramLabel)
 {
 	if (paramLabel.isNotEmpty())

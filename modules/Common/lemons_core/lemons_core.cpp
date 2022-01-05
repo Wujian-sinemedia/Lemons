@@ -22,6 +22,8 @@
 #include "misc/Version.cpp"
 #include "misc/Dimensions.cpp"
 #include "misc/ArgParser.cpp"
+#include "misc/Ranges.cpp"
+#include "misc/rsa.cpp"
 
 #include "unit_tests/test.cpp"
 #include "unit_tests/runner.cpp"

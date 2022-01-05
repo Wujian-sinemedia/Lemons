@@ -13,6 +13,7 @@
  ======================================================================================
  */
 
+#include <lemons_core/lemons_core.h>
 
 namespace lemons::plugin
 {
@@ -32,7 +33,7 @@ TypedParameter<ValueType>::TypedParameter (ValueType     minimum,
                                            ParameterCategory parameterCategory)
     : Parameter (
         paramName,
-        detail::createRange (minimum, maximum),
+        ranges::create (minimum, maximum),
         static_cast<float> (defaultValue),
         detail::convertValToStringFuncFromTyped (stringFromValue, label, getNormalisableRange().interval),
         detail::convertStringToValFuncFromTyped (valueFromString),
