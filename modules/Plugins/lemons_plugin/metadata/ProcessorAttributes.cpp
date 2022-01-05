@@ -50,6 +50,8 @@ static constexpr auto supports_mpe   = "SupportsMPE";
 static constexpr auto is_midi_effect = "IsMidiEffect";
 static constexpr auto processor_name = "ProcessorName";
 static constexpr auto alt_names      = "AlternateDisplayNames";
+static constexpr auto has_editor = "HasEditor";
+static constexpr auto engine_type_name = "EngineType";
 }  // namespace ProcessorAttributeProperties
 
 
@@ -64,6 +66,8 @@ ValueTree ProcessorAttributes::toValueTree() const
 	tree.setProperty (supports_mpe, supportsMPE, nullptr);
 	tree.setProperty (is_midi_effect, isMidiEffect, nullptr);
 	tree.setProperty (processor_name, name, nullptr);
+    tree.setProperty (has_editor, hasEditor, nullptr);
+    tree.setProperty (engine_type_name, engineType, nullptr);
 	tree.setProperty (alt_names, juce::VariantConverter<juce::StringArray>::toVar (alternateNames), nullptr);
 
 	tree.appendChild (defaultBusesLayout, nullptr);
@@ -94,6 +98,12 @@ ProcessorAttributes ProcessorAttributes::fromValueTree (const ValueTree& tree)
 
 	if (tree.hasProperty (processor_name))
 		attributes.name = tree.getProperty (processor_name).toString();
+    
+    if (tree.hasProperty (has_editor))
+        attributes.hasEditor = (bool) tree.getProperty (has_editor);
+    
+    if (tree.hasProperty (engine_type_name))
+        attributes.engineType = tree.getProperty (engine_type_name).toString();
 
 	if (tree.hasProperty (alt_names))
 		attributes.alternateNames = juce::VariantConverter<juce::StringArray>::fromVar (tree.getProperty (alt_names));

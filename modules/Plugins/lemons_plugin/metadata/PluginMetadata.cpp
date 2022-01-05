@@ -38,6 +38,37 @@ PluginMetadata PluginMetadata::fromValueTree (const ValueTree& tree)
 		                    EditorAttributes::fromValueTree (editor) };
 }
 
+std::unique_ptr<ProcessorBase> PluginMetadata::createProcessor() const
+{
+    struct TypeErasedProcessor final : public ProcessorBase
+    {
+        explicit TypeErasedProcessor (std::unique_ptr<dsp::Engine<float>> floatEngineToUse,
+                                      std::unique_ptr<dsp::Engine<double>> doubleEngineToUse,
+                                      std::unique_ptr<State> stateToUse,
+                                      const ProcessorAttributes& attributes,
+                                      const EditorAttributes& editorAttributes)
+        : ProcessorBase(*floatEngineToUse, *doubleEngineToUse, *stateToUse, attributes),
+        editorAttributes(editorAttributes), state(std::move (stateToUse)), floatEngine(std::move (floatEngineToUse)), doubleEngine(std::move (doubleEngineToUse))
+        {
+            
+        }
+        
+    protected:
+        const EditorAttributes editorAttributes;
+        
+    private:
+        std::unique_ptr<State> state;
+        
+        std::unique_ptr<dsp::Engine<float>> floatEngine;
+        std::unique_ptr<dsp::Engine<double>> doubleEngine;
+    };
+    
+    return std::make_unique<TypeErasedProcessor> (dsp::factory::createEngine<float> (processorAttributes.engineType),
+                                                  dsp::factory::createEngine<double> (processorAttributes.engineType),
+                                                  std::make_unique<State> (parameterLayout),
+                                                  processorAttributes, editorAttributes);
+}
+
 }  // namespace lemons::plugin
 
 

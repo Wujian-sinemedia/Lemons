@@ -41,13 +41,13 @@ protected:
     @tparam ContentComponentType The type of your plugin's main component. This type must inherit from GUI<StateType>.
     @tparam StateType The type of the plugin's state object. This type must inherit from State.
  */
-template <typename ContentComponentType, typename StateType,
-          LEMONS_MUST_INHERIT_FROM (ContentComponentType, GUI<StateType>),
-          LEMONS_MUST_INHERIT_FROM (StateType, State)>
+template <typename ContentComponentType,
+          LEMONS_MUST_INHERIT_FROM (ContentComponentType, juce::Component)>
 class Editor final : public juce::AudioProcessorEditor
 {
 public:
 	/** Creates a plugin editor. */
+    template<typename StateType, LEMONS_MUST_INHERIT_FROM(StateType, State)>
 	explicit Editor (ProcessorBase& p, StateType& state, bool resizable = true, bool useDraggableCorner = true, int msBeforeTooltip = 700, const Dimensions& defaultInitialSize = Dimensions::getDefault())
 	    : AudioProcessorEditor (p)
 	    , content (state)
@@ -87,6 +87,7 @@ public:
 		setSize (width, height);
 	}
 
+    template<typename StateType, LEMONS_MUST_INHERIT_FROM(StateType, State)>
 	explicit Editor (ProcessorBase& p, StateType& state, const EditorAttributes& attributes)
 	    : Editor (p, state, attributes.isResizable, attributes.useResizableCorner, attributes.msBeforeTooltip, attributes.initialSize)
 	{

@@ -62,10 +62,11 @@
 
 #include "metadata/EditorAttributes.h"
 #include "metadata/ProcessorAttributes.h"
-#include "metadata/PluginMetadata.h"
 
 #include "processors/BasicProcessor.h"
 #include "processors/ProcessorBase.h"
+
+#include "metadata/PluginMetadata.h"
 
 #include "editors/Editors.h"
 

@@ -146,7 +146,7 @@ struct ProcessorWithEditor final : ProcessorType
 	/** Creates an editor for this processor. */
 	juce::AudioProcessorEditor* createEditor() final
 	{
-		return new Editor<ComponentType, decltype (this->pluginState)> (*this, this->pluginState, this->editorAttributes);
+		return new Editor<ComponentType> (*this, this->pluginState, this->editorAttributes);
 	}
 };
 

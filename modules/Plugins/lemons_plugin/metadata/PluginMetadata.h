@@ -17,6 +17,8 @@ struct PluginMetadata final
 	[[nodiscard]] ValueTree toValueTree() const;
 
 	[[nodiscard]] static PluginMetadata fromValueTree (const ValueTree& tree);
+    
+    [[nodiscard]] std::unique_ptr<ProcessorBase> createProcessor() const;
 
 	ProcessorAttributes processorAttributes;
 	ParameterLayout     parameterLayout;

@@ -38,6 +38,8 @@ struct ProcessorAttributes final
 	static constexpr auto valueTreeType = "ProcessorAttributes";
 
 	bool acceptsMidi { true }, producesMidi { true }, supportsMPE { false }, isMidiEffect { false };
+    
+    bool hasEditor { true };
 
 	String name;
 
@@ -46,6 +48,8 @@ struct ProcessorAttributes final
 	static constexpr auto defaultBusesLayoutProp = "BusesProperties";
 
 	ValueTree defaultBusesLayout { defaultBusesLayoutProp };
+    
+    String engineType;
 };
 
 }  // namespace lemons::plugin
