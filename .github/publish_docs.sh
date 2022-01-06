@@ -44,7 +44,7 @@ cmake --build --preset docs
 echo "" > .nojekyll
 
 # copy generated docs to cloned copy of docs git tree
-mv $lemons_root/docs/* "$docs_git_tree"
+mv $lemons_root/util/doxygen/doc/* "$docs_git_tree"
 
 cd "$docs_git_tree"
 

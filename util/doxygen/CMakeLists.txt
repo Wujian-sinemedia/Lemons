@@ -21,33 +21,9 @@ if (NOT DEFINED Lemons_SOURCE_DIR)
 	set (Lemons_SOURCE_DIR "${CMAKE_CURRENT_LIST_DIR}/../.." CACHE INTERNAL "")
 endif()
 
-set (out_folder "${CMAKE_CURRENT_BINARY_DIR}/build")
+set (out_folder "${CMAKE_CURRENT_LIST_DIR}/build")
 
 set (DoxygenDepends "")
-
-#
-
-function (_lemons_configure_doxygen_file_copy_target input output)
-
-	cmake_path (GET input FILENAME filename)
-
-	add_custom_command (OUTPUT "${output}" MAIN_DEPENDENCY "${input}" VERBATIM
-				    	COMMAND "${CMAKE_COMMAND}" ARGS -E copy "${input}" "${output}"
-				    	COMMENT "Copying ${filename} to Doxygen build tree...")
-
-	list (APPEND DoxygenDepends "${output}")
-	set (DoxygenDepends ${DoxygenDepends} PARENT_SCOPE)
-	
-endfunction()
-
-_lemons_configure_doxygen_file_copy_target ("${CMAKE_CURRENT_LIST_DIR}/Doxyfile" 
-											"${CMAKE_CURRENT_BINARY_DIR}/Doxyfile")
-
-_lemons_configure_doxygen_file_copy_target ("${CMAKE_CURRENT_LIST_DIR}/DoxygenLayout.xml" 
-											"${CMAKE_CURRENT_BINARY_DIR}/DoxygenLayout.xml")
-
-_lemons_configure_doxygen_file_copy_target ("${Lemons_SOURCE_DIR}/util/assets/logo.png" 
-											"${out_folder}/logo.png")
 
 #
 
@@ -68,7 +44,7 @@ add_custom_command (OUTPUT "${modules_output}" VERBATIM
 				 	COMMAND Python3::Interpreter ARGS "${CMAKE_CURRENT_LIST_DIR}/scripts/process_juce_modules.py" "${Lemons_SOURCE_DIR}" "${out_folder}" 
 				 	COMMENT "Preparing Doxygen build tree...")
 
-list (APPEND DoxygenDepends "${modules_output}")
+list (APPEND DoxygenDepends "${out_folder}/lemons_modules.dox")
 
 #
 
@@ -82,12 +58,16 @@ list (APPEND DoxygenDepends "${cmake_modules_output}")
 
 #
 
-add_custom_target (Doxygen COMMAND Doxygen::doxygen
+add_custom_target (Doxygen
+				   COMMAND Doxygen::doxygen VERBATIM
 				   DEPENDS ${DoxygenDepends}
-				   WORKING_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}"
+				   BYPRODUCTS "doc/index.html"
+				   WORKING_DIRECTORY "${CMAKE_CURRENT_LIST_DIR}"
 				   COMMENT "Running Doxygen...")
 
-add_custom_command (TARGET Doxygen POST_BUILD
-					COMMAND "${CMAKE_COMMAND}" ARGS -E copy_directory "${CMAKE_CURRENT_BINARY_DIR}/doc" "${Lemons_SOURCE_DIR}/docs"
-					COMMENT "Copying to output...")
+add_custom_command (TARGET Doxygen PRE_BUILD
+					COMMAND Doxygen::doxygen --version
+					COMMENT "Doxygen version:")
+
+set_target_properties (Doxygen PROPERTIES ADDITIONAL_CLEAN_FILES "${out_folder}")
 

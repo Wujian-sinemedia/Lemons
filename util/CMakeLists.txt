@@ -3,16 +3,7 @@ include (LemonsDefaultPlatformSettings)
 option (LEMONS_ENABLE_INTEGRATIONS "Enable all available integrations by default" ON)
 
 if (LEMONS_ENABLE_INTEGRATIONS)
-	include (LemonsCcache)
-	include (LemonsClangFormat)
-	include (LemonsClangTidy)
-	include (LemonsCppCheck)
-	include (LemonsCppLint)
-	include (LemonsIncludeWhatYouUse)
-
-	if (LEMONS_SANITIZERS_TO_ENABLE)
-		include (LemonsSanitizers)
-	endif()
+	include (LemonsAllIntegrations)
 endif()
 
 option (LEMONS_CONFIGURE_CPACK "Configure default CPack settings" OFF)
