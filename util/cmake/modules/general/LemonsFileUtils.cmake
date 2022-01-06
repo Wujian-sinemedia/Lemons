@@ -5,7 +5,7 @@ General filesystem utilities.
 
 ### lemons_subdir_list
 ```
-lemons_subdir_list (DIR <directory> RESULT <out_var> [RECURSE])
+lemons_subdir_list (DIR <directory> RESULT <out_var> [RECURSE] [FILES])
 ```
 Returns a list of subdirectories within the specified directory.
 
@@ -13,6 +13,8 @@ Returns a list of subdirectories within the specified directory.
 `RESULT` is required and is the name of the variable to which the resulting list will be set in the parent scope.
 
 `RECURSE` is optional, and when present, the search will recurse into all levels of subdirectories.
+
+If the `FILES` flag is present, the function returns a list of files that are in the parent directory. If it is not present, the function returns a list of subdirectories that are in the parent directory.
 
 ]]
 
@@ -22,7 +24,7 @@ include_guard (GLOBAL)
 
 function (lemons_subdir_list)
 
-	set (options RECURSE)
+	set (options RECURSE FILES)
 	set (oneValueArgs RESULT DIR)
 
 	cmake_parse_arguments (LEMONS_SUBDIR "${options}" "${oneValueArgs}" "" ${ARGN})
@@ -52,9 +54,15 @@ function (lemons_subdir_list)
   	set (dirlist "")
 
   	foreach (child ${children})
-    	if (IS_DIRECTORY "${dir}/${child}")
-      		list (APPEND dirlist "${child}")
-    	endif()
+  		if (LEMONS_SUBDIR_FILES)
+			if (EXISTS "${dir}/${child}" AND NOT IS_DIRECTORY "${dir}/${child}")
+				list (APPEND dirlist "${child}")
+			endif()
+  		else()
+			if (IS_DIRECTORY "${dir}/${child}" AND EXISTS "${dir}/${child}")
+      			list (APPEND dirlist "${child}")
+    		endif()
+  		endif()
   	endforeach()
 
   	set (${LEMONS_SUBDIR_RESULT} ${dirlist} PARENT_SCOPE)
