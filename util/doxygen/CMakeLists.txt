@@ -69,5 +69,5 @@ add_custom_command (TARGET Doxygen PRE_BUILD
 					COMMAND Doxygen::doxygen --version
 					COMMENT "Doxygen version:")
 
-set_target_properties (Doxygen PROPERTIES ADDITIONAL_CLEAN_FILES "${out_folder}")
+set_target_properties (Doxygen PROPERTIES ADDITIONAL_CLEAN_FILES "${out_folder}" "${CMAKE_CURRENT_LIST_DIR}/doc")
 
