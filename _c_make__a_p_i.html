@@ -75,9 +75,7 @@ $(function() {
 <li><b>LEMONS_BUILD_TEMPLATES:</b> Build the Lemons project templates.</li>
 <li><b>LEMONS_BUILD_TESTS:</b> Build the Lemons unit tests.</li>
 <li><b>LEMONS_BUILD_UTILS:</b> Build the command line utilities.</li>
-<li><b>LEMONS_CMAKE_MODULE_PATH:</b> . Defaults to ${CMAKE_MODULE_PATH}.</li>
 <li><b>LEMONS_CREATE_AGGREGATE_TARGETS:</b> Generate ALL_APPS and ALL_PLUGINS targets, populated accordingly. Defaults to ON.</li>
-<li><b>LEMONS_ENABLE_INTEGRATIONS:</b> Enable all available integrations by default. Defaults to ON.</li>
 <li><b>LEMONS_IGNORE_ALL_EXTRAS:</b> Ignore everything except what's needed to make compiling your project work. Defaults to OFF.</li>
 <li><b>LEMONS_IOS_SIMULATOR:</b> Build for an iOS simulator, rather than a real device. Defaults to ON.</li>
 <li><b>LEMONS_JUCE_BRANCH:</b> The branch of the JUCE GitHub repository to use - should be develop or master. Defaults to develop.</li>
@@ -115,9 +113,9 @@ CMake modules</h1>
 </div><!-- fragment --><p>It is possible to use Lemons only for its default CMake set-up, without including any of the JUCE modules in the build tree at all. Categories of JUCE modules can be included by the relevant module in the 'Juce module inclusion' category below:</p>
 <h2>Integrations</h2>
 <ul>
-<li><a class="el" href="_lemons_sanitizer_integration.html">LemonsSanitizerIntegration</a></li>
-<li><a class="el" href="_lemons_clang_format_integration.html">LemonsClangFormatIntegration</a></li>
-<li><a class="el" href="_lemons_ccache_integration.html">LemonsCcacheIntegration</a></li>
+<li><a class="el" href="_lemons_sanitizers.html">LemonsSanitizers</a></li>
+<li><a class="el" href="_lemons_clang_format.html">LemonsClangFormat</a></li>
+<li><a class="el" href="_lemons_ccache.html">LemonsCcache</a></li>
 </ul>
 <h2>Juce</h2>
 <ul>
@@ -145,13 +143,13 @@ CMake modules</h1>
 <ul>
 <li><a class="el" href="_lemons_plugin_utilities.html">LemonsPluginUtilities</a></li>
 <li><a class="el" href="_lemons_a_a_x_utils.html">LemonsAAXUtils</a></li>
-<li><a class="el" href="_lemons_d_s_p_chains.html">LemonsDSPChains</a></li>
 </ul>
 <h2>Platform</h2>
 <ul>
 <li><a class="el" href="_lemons_default_platform_settings.html">LemonsDefaultPlatformSettings</a></li>
 <li><a class="el" href="_linux_l_s_b_info.html">LinuxLSBInfo</a></li>
 </ul>
+<h2>Tests</h2>
 <h2>Rpm</h2>
 <h2>Deb</h2>
 <h2>Juce module inclusion</h2>
@@ -167,7 +165,7 @@ CMake modules</h1>
 </div><!-- PageDoc -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Jan 6 2022 00:51:33 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Jan 6 2022 14:09:06 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

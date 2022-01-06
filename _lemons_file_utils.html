@@ -71,15 +71,16 @@ $(function() {
 <p>General filesystem utilities.</p>
 <h1>Function:</h1>
 <h2>lemons_subdir_list</h2>
-<div class="fragment"><div class="line">lemons_subdir_list (DIR &lt;directory&gt; RESULT &lt;out_var&gt; [RECURSE])</div>
+<div class="fragment"><div class="line">lemons_subdir_list (DIR &lt;directory&gt; RESULT &lt;out_var&gt; [RECURSE] [FILES])</div>
 </div><!-- fragment --><p>Returns a list of subdirectories within the specified directory.</p>
 <p><code>DIR</code> is required and must be the absolute path to the directory to be searched. <code>RESULT</code> is required and is the name of the variable to which the resulting list will be set in the parent scope.</p>
-<p><code>RECURSE</code> is optional, and when present, the search will recurse into all levels of subdirectories. </p>
+<p><code>RECURSE</code> is optional, and when present, the search will recurse into all levels of subdirectories.</p>
+<p>If the <code>FILES</code> flag is present, the function returns a list of files that are in the parent directory. If it is not present, the function returns a list of subdirectories that are in the parent directory. </p>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Jan 6 2022 00:51:33 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Jan 6 2022 14:09:06 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>
