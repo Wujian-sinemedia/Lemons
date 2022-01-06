@@ -1,5 +1,14 @@
 include (LemonsDefaultPlatformSettings)
 
+if (LEMONS_ENABLE_INTEGRATIONS)
+	include (LemonsCcacheIntegration)
+	include (LemonsClangFormatIntegration)
+
+	if (LEMONS_SANITIZERS_TO_ENABLE)
+		include (LemonsSanitizerIntegration)
+	endif()
+endif()
+
 if (LEMONS_BUILD_DOCS)
 	add_subdirectory (doxygen)
 endif()

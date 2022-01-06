@@ -69,14 +69,5 @@ set (CPM_Lemons_SOURCE "${CMAKE_CURRENT_LIST_DIR}" CACHE INTERNAL "")
 
 include ("${CMAKE_CURRENT_LIST_DIR}/AddCMakeModules.cmake")
 
-if (LEMONS_ENABLE_INTEGRATIONS)
-	include (LemonsCcacheIntegration)
-	include (LemonsClangFormatIntegration)
-
-	if (LEMONS_SANITIZERS_TO_ENABLE)
-		include (LemonsSanitizerIntegration)
-	endif()
-endif()
-
 add_subdirectory (util)
 
