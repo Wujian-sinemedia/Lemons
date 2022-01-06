@@ -14,13 +14,9 @@ if (NOT DEFINED ENV{CPM_SOURCE_CACHE})
     set (ENV{CPM_SOURCE_CACHE} "${CPM_Lemons_SOURCE}/Cache")
 endif()
 
-include (LemonsGetCPM)
+set (LEMONS_BUILD_TESTS ON CACHE INTERNAL "")
 
-CPMAddPackage (
-        NAME Lemons
-        GITHUB_REPOSITORY benthevining/Lemons
-        GIT_TAG origin/main
-        OPTIONS "LEMONS_BUILD_TESTS ON")
+include ("${CPM_Lemons_SOURCE}/AddLemons.cmake")
 
 include (AllLemonsModules)
 include (LemonsAssetsHelpers)
@@ -48,6 +44,6 @@ lemons_add_resources_folder (TARGET ${PROJECT_NAME} ASSET_FOLDER "${CPM_Lemons_S
 
 enable_testing()
 
-add_test (NAME LemonsUnitTests 
+add_test (NAME UnitTests 
           COMMAND ${PROJECT_NAME} -f "logs/unit_tests.log"
           WORKING_DIRECTORY "${Lemons_SOURCE_DIR}")

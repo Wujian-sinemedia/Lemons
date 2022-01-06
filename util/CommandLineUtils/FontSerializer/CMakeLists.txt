@@ -14,13 +14,7 @@ if (NOT DEFINED ENV{CPM_SOURCE_CACHE})
     set (ENV{CPM_SOURCE_CACHE} "${CPM_Lemons_SOURCE}/Cache")
 endif()
 
-include (LemonsGetCPM)
-
-CPMAddPackage (
-        NAME Lemons
-        GITHUB_REPOSITORY benthevining/Lemons
-        GIT_TAG origin/main
-        OPTIONS "LEMONS_BUILD_UTILS ON")
+include ("${CPM_Lemons_SOURCE}/AddLemons.cmake")
 
 include (LemonsGUIModules)
 

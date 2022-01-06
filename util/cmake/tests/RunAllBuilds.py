@@ -53,9 +53,9 @@ if __name__ == "__main__":
 		print ("Configure preset: {p}".format (p=preset_name))
 		execute_command ("cmake --preset {p} -G {g}".format(p=preset_name, g=generator))
 
-	for preset_name in "docs", "tests", "utils":
 		print ("Build preset: {p}".format (p=preset_name))
 		execute_command ("cmake --build --preset {p}".format(p=preset_name))
+		
 
 	# test running cmake from every subdirectory with a project() command
 	# to do: add templates, metadata editor

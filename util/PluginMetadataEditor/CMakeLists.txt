@@ -16,13 +16,7 @@ endif()
 
 #
 
-include (LemonsGetCPM)
-
-CPMAddPackage (
-        NAME Lemons
-        GITHUB_REPOSITORY benthevining/Lemons
-        GIT_TAG origin/main
-        OPTIONS "LEMONS_BUILD_UTILS ON")
+include ("${CPM_Lemons_SOURCE}/AddLemons.cmake")
 
 include (AllLemonsModules)
 include (BVBrandFlags)
