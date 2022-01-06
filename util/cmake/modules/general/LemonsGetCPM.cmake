@@ -6,12 +6,15 @@ You can use the environment variable CPM_SOURCE_CACHE to control where the cache
 
 include_guard (GLOBAL)
 
-if (COMMAND CPMAddPackage)
-    return()
-endif()
-
 if (NOT DEFINED ENV{CPM_SOURCE_CACHE})
 	set (ENV{CPM_SOURCE_CACHE} "${CMAKE_SOURCE_DIR}/Cache")
+endif()
+
+list (APPEND CMAKE_PREFIX_PATH "$ENV{CPM_SOURCE_CACHE}")
+set (CMAKE_PREFIX_PATH "${CMAKE_PREFIX_PATH}" CACHE INTERNAL "")
+
+if (COMMAND CPMAddPackage)
+    return()
 endif()
 
 set (LEMONS_CPM_PATH "$ENV{CPM_SOURCE_CACHE}/CPM.cmake" CACHE PATH "Path to the CPM.cmake script")

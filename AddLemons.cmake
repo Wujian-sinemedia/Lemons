@@ -9,6 +9,9 @@ if (NOT COMMAND CPMAddPackage)
 	    endif()
 	endif()
 
+	list (APPEND CMAKE_PREFIX_PATH $ENV{CPM_SOURCE_CACHE})
+	set (CMAKE_PREFIX_PATH "${CMAKE_PREFIX_PATH}" CACHE INTERNAL "")
+
 	set (LEMONS_CPM_PATH "$ENV{CPM_SOURCE_CACHE}/CPM.cmake" CACHE PATH "Path to the CPM.cmake script")
 	mark_as_advanced (FORCE LEMONS_CPM_PATH)
 
