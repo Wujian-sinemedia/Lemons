@@ -19,5 +19,11 @@ write_basic_package_version_file ("LemonsConfigVersion.cmake"
 								  VERSION ${Lemons_VERSION}
 								  COMPATIBILITY SameMajorVersion)
 
-install (FILES "LemonsConfigVersion.cmake"
+set (generatedFile "${CMAKE_CURRENT_BINARY_DIR}/LemonsConfig.cmake")
+
+configure_file ("${CPM_Lemons_SOURCE}/AddLemons.cmake" "${generatedFile}"
+			    COPYONLY
+			    NEWLINE_STYLE UNIX)
+
+install (FILES ${generatedFile} "LemonsConfigVersion.cmake"
 		 DESTINATION lib/cmake/Lemons)

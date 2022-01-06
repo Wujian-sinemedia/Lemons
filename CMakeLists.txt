@@ -7,6 +7,8 @@ project (Lemons VERSION 0.1.0 LANGUAGES CXX C)
 
 #
 
+set (CMAKE_DEBUG_POSTFIX "-d" CACHE INTERNAL "")
+
 set (CMAKE_CXX_STANDARD 20 CACHE STRING "C++ standard version")
 mark_as_advanced (FORCE CMAKE_CXX_STANDARD)
 
