@@ -1,7 +1,6 @@
 # Lemons
 
 [![UnitTests](https://github.com/benthevining/Lemons/actions/workflows/run_unit_tests.yml/badge.svg?branch=main)](https://github.com/benthevining/Lemons/actions/workflows/run_unit_tests.yml)
-[![Utils](https://github.com/benthevining/Lemons/actions/workflows/build_utils.yml/badge.svg)](https://github.com/benthevining/Lemons/actions/workflows/build_utils.yml)
 
 <p align="center">
   <img src="https://github.com/benthevining/Lemons/blob/main/util/assets/lemons.jpg" alt="Watercolor painting of some lemons" width="1191" height="585"/>
