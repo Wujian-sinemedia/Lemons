@@ -74,78 +74,149 @@ $(function() {
 <div class="title">lemons::dsp::WhiteNoiseGenerator&lt; SampleType &gt; Class Template Reference<span class="mlabels"><span class="mlabel">final</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
+<div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Inheritance diagram for lemons::dsp::WhiteNoiseGenerator&lt; SampleType &gt;:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classlemons_1_1dsp_1_1_white_noise_generator__inherit__graph.svg" width="260" height="142"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ae3cab3546e1aea778b0b5a2bf14d80f3"><td class="memItemLeft" align="right" valign="top">SampleType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1_white_noise_generator.html#ae3cab3546e1aea778b0b5a2bf14d80f3">getNextSample</a> ()</td></tr>
-<tr class="memdesc:ae3cab3546e1aea778b0b5a2bf14d80f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the next sample of random noise.  <a href="classlemons_1_1dsp_1_1_white_noise_generator.html#ae3cab3546e1aea778b0b5a2bf14d80f3">More...</a><br /></td></tr>
-<tr class="separator:ae3cab3546e1aea778b0b5a2bf14d80f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7e6686176553ec727430168812234587"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1_white_noise_generator.html#a7e6686176553ec727430168812234587">getSamples</a> (<a class="el" href="namespacelemons_1_1dsp.html#a18d4de532efb0450f4f594bfbe9cceb0">AudioBuffer</a>&lt; SampleType &gt; &amp;output)</td></tr>
-<tr class="memdesc:a7e6686176553ec727430168812234587"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fills all channels of the AudioBuffer with random noise.  <a href="classlemons_1_1dsp_1_1_white_noise_generator.html#a7e6686176553ec727430168812234587">More...</a><br /></td></tr>
-<tr class="separator:a7e6686176553ec727430168812234587"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a21f4ea9e6f5ed15f0bb215ee02a1b43b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1_white_noise_generator.html#a21f4ea9e6f5ed15f0bb215ee02a1b43b">getSamples</a> (SampleType *output, int numSamples)</td></tr>
-<tr class="memdesc:a21f4ea9e6f5ed15f0bb215ee02a1b43b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Outputs a stream of random samples.  <a href="classlemons_1_1dsp_1_1_white_noise_generator.html#a21f4ea9e6f5ed15f0bb215ee02a1b43b">More...</a><br /></td></tr>
-<tr class="separator:a21f4ea9e6f5ed15f0bb215ee02a1b43b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a670cc4b89a8b3861972bcb9973f9b098"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1_white_noise_generator.html#a670cc4b89a8b3861972bcb9973f9b098">WhiteNoiseGenerator</a> (juce::Random rng={})</td></tr>
+<tr class="separator:a670cc4b89a8b3861972bcb9973f9b098"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4bf2120d911bf1c0be71a09d1071b94a"><td class="memItemLeft" align="right" valign="top">SampleType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1dsp_1_1_sample_stream.html#a4bf2120d911bf1c0be71a09d1071b94a">getSample</a> () const</td></tr>
+<tr class="memdesc:a4bf2120d911bf1c0be71a09d1071b94a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the next output sample from the stream.  <a href="structlemons_1_1dsp_1_1_sample_stream.html#a4bf2120d911bf1c0be71a09d1071b94a">More...</a><br /></td></tr>
+<tr class="separator:a4bf2120d911bf1c0be71a09d1071b94a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae016afe9f440869680ce67155eff28c9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1dsp_1_1_sample_stream.html#ae016afe9f440869680ce67155eff28c9">getSamples</a> (<a class="el" href="namespacelemons_1_1dsp.html#a18d4de532efb0450f4f594bfbe9cceb0">AudioBuffer</a>&lt; SampleType &gt; &amp;output, int channel=0) const</td></tr>
+<tr class="memdesc:ae016afe9f440869680ce67155eff28c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a stream of samples.  <a href="structlemons_1_1dsp_1_1_sample_stream.html#ae016afe9f440869680ce67155eff28c9">More...</a><br /></td></tr>
+<tr class="separator:ae016afe9f440869680ce67155eff28c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9bf15bd287fd678fd420381777dd3e4a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1dsp_1_1_sample_stream.html#a9bf15bd287fd678fd420381777dd3e4a">getSamples</a> (SampleType *output, int numSamples) const</td></tr>
+<tr class="memdesc:a9bf15bd287fd678fd420381777dd3e4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a stream of samples.  <a href="structlemons_1_1dsp_1_1_sample_stream.html#a9bf15bd287fd678fd420381777dd3e4a">More...</a><br /></td></tr>
+<tr class="separator:a9bf15bd287fd678fd420381777dd3e4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa57a4dfb17a1fd98fe3cbb6f27fbeebb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1dsp_1_1_sample_stream.html#aa57a4dfb17a1fd98fe3cbb6f27fbeebb">skipSamples</a> (int numToSkip) const</td></tr>
+<tr class="memdesc:aa57a4dfb17a1fd98fe3cbb6f27fbeebb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Skips a number of samples in the stream.  <a href="structlemons_1_1dsp_1_1_sample_stream.html#aa57a4dfb17a1fd98fe3cbb6f27fbeebb">More...</a><br /></td></tr>
+<tr class="separator:aa57a4dfb17a1fd98fe3cbb6f27fbeebb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;typename SampleType&gt;<br />
 class lemons::dsp::WhiteNoiseGenerator&lt; SampleType &gt;</h3>
 
 <p>A simple processor that generates random noise. </p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="ae3cab3546e1aea778b0b5a2bf14d80f3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae3cab3546e1aea778b0b5a2bf14d80f3">&#9670;&nbsp;</a></span>getNextSample()</h2>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a670cc4b89a8b3861972bcb9973f9b098"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a670cc4b89a8b3861972bcb9973f9b098">&#9670;&nbsp;</a></span>WhiteNoiseGenerator()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;typename SampleType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">SampleType <a class="el" href="classlemons_1_1dsp_1_1_white_noise_generator.html">lemons::dsp::WhiteNoiseGenerator</a>&lt; SampleType &gt;::getNextSample </td>
+          <td class="memname"><a class="el" href="classlemons_1_1dsp_1_1_white_noise_generator.html">lemons::dsp::WhiteNoiseGenerator</a>&lt; SampleType &gt;::<a class="el" href="classlemons_1_1dsp_1_1_white_noise_generator.html">WhiteNoiseGenerator</a> </td>
+          <td>(</td>
+          <td class="paramtype">juce::Random&#160;</td>
+          <td class="paramname"><em>rng</em> = <code>{}</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a4bf2120d911bf1c0be71a09d1071b94a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4bf2120d911bf1c0be71a09d1071b94a">&#9670;&nbsp;</a></span>getSample()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename SampleType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">SampleType <a class="el" href="structlemons_1_1dsp_1_1_sample_stream.html">lemons::dsp::SampleStream</a>&lt; SampleType &gt;::getSample </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>Returns the next sample of random noise. </p>
+<p>Returns the next output sample from the stream. </p>
 
 </div>
 </div>
-<a id="a7e6686176553ec727430168812234587"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7e6686176553ec727430168812234587">&#9670;&nbsp;</a></span>getSamples() <span class="overload">[1/2]</span></h2>
+<a id="ae016afe9f440869680ce67155eff28c9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae016afe9f440869680ce67155eff28c9">&#9670;&nbsp;</a></span>getSamples() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;typename SampleType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classlemons_1_1dsp_1_1_white_noise_generator.html">lemons::dsp::WhiteNoiseGenerator</a>&lt; SampleType &gt;::getSamples </td>
+          <td class="memname">void <a class="el" href="structlemons_1_1dsp_1_1_sample_stream.html">lemons::dsp::SampleStream</a>&lt; SampleType &gt;::getSamples </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="namespacelemons_1_1dsp.html#a18d4de532efb0450f4f594bfbe9cceb0">AudioBuffer</a>&lt; SampleType &gt; &amp;&#160;</td>
-          <td class="paramname"><em>output</em></td><td>)</td>
+          <td class="paramname"><em>output</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>channel</em> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>Fills all channels of the AudioBuffer with random noise. </p>
+<p>Returns a stream of samples. </p>
 
 </div>
 </div>
-<a id="a21f4ea9e6f5ed15f0bb215ee02a1b43b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a21f4ea9e6f5ed15f0bb215ee02a1b43b">&#9670;&nbsp;</a></span>getSamples() <span class="overload">[2/2]</span></h2>
+<a id="a9bf15bd287fd678fd420381777dd3e4a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9bf15bd287fd678fd420381777dd3e4a">&#9670;&nbsp;</a></span>getSamples() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;typename SampleType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classlemons_1_1dsp_1_1_white_noise_generator.html">lemons::dsp::WhiteNoiseGenerator</a>&lt; SampleType &gt;::getSamples </td>
+          <td class="memname">void <a class="el" href="structlemons_1_1dsp_1_1_sample_stream.html">lemons::dsp::SampleStream</a>&lt; SampleType &gt;::getSamples </td>
           <td>(</td>
           <td class="paramtype">SampleType *&#160;</td>
           <td class="paramname"><em>output</em>, </td>
@@ -159,12 +230,47 @@ template&lt;typename SampleType &gt; </div>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td></td>
+          <td></td><td> const</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>Outputs a stream of random samples. </p>
+<p>Returns a stream of samples. </p>
+
+</div>
+</div>
+<a id="aa57a4dfb17a1fd98fe3cbb6f27fbeebb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa57a4dfb17a1fd98fe3cbb6f27fbeebb">&#9670;&nbsp;</a></span>skipSamples()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename SampleType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="structlemons_1_1dsp_1_1_sample_stream.html">lemons::dsp::SampleStream</a>&lt; SampleType &gt;::skipSamples </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numToSkip</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Skips a number of samples in the stream. </p>
 
 </div>
 </div>
@@ -174,7 +280,7 @@ template&lt;typename SampleType &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Jan 5 2022 00:49:01 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Jan 6 2022 00:51:33 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

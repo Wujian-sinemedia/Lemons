@@ -1,11 +1,10 @@
 var searchData=
 [
-  ['processors_2833',['Processors',['../group__lemons__midi__processors.html',1,'']]],
-  ['parameters_2834',['Parameters',['../group__lemons__plugin__parameters.html',1,'']]],
-  ['processors_2835',['Processors',['../group__lemons__plugin__processors.html',1,'']]],
-  ['plugin_20tests_2836',['Plugin tests',['../group__lemons__plugin__unit__tests.html',1,'']]],
-  ['popup_20components_2837',['Popup components',['../group__lemons__popup__component.html',1,'']]],
-  ['parameter_20modulation_2838',['Parameter modulation',['../group__parameter__modulation.html',1,'']]],
-  ['plugin_20hosting_2839',['Plugin hosting',['../group__plugin__hosting.html',1,'']]],
-  ['plugins_2840',['Plugins',['../group___plugins.html',1,'']]]
+  ['parameters_2887',['Parameters',['../group__lemons__plugin__parameters.html',1,'']]],
+  ['processors_2888',['Processors',['../group__lemons__plugin__processors.html',1,'']]],
+  ['plugin_20tests_2889',['Plugin tests',['../group__lemons__plugin__unit__tests.html',1,'']]],
+  ['popup_20components_2890',['Popup components',['../group__lemons__popup__component.html',1,'']]],
+  ['parameter_20modulation_2891',['Parameter modulation',['../group__parameter__modulation.html',1,'']]],
+  ['plugin_20hosting_2892',['Plugin hosting',['../group__plugin__hosting.html',1,'']]],
+  ['plugins_2893',['Plugins',['../group___plugins.html',1,'']]]
 ];

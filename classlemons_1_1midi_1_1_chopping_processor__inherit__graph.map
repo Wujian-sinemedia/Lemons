@@ -1,7 +1,8 @@
 <map id="lemons::midi::ChoppingProcessor&lt; SampleType &gt;" name="lemons::midi::ChoppingProcessor&lt; SampleType &gt;">
-<area shape="rect" id="node1" title=" " alt="" coords="5,57,244,98"/>
-<area shape="rect" id="node2" href="$classlemons_1_1midi_1_1_chopping_processor.html" title=" " alt="" coords="371,17,609,58"/>
-<area shape="rect" id="node4" href="$classlemons_1_1midi_1_1_chopping_processor.html" title=" " alt="" coords="371,89,609,130"/>
-<area shape="rect" id="node3" title=" " alt="" coords="659,5,848,61"/>
-<area shape="rect" id="node5" title=" " alt="" coords="659,85,848,141"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,71,244,112"/>
+<area shape="rect" id="node2" href="$classlemons_1_1dsp_1_1synth_1_1_midi_manager.html" title=" " alt="" coords="378,5,602,47"/>
+<area shape="rect" id="node3" href="$classlemons_1_1midi_1_1_chopping_processor.html" title=" " alt="" coords="371,71,609,112"/>
+<area shape="rect" id="node5" href="$classlemons_1_1midi_1_1_chopping_processor.html" title=" " alt="" coords="371,143,609,184"/>
+<area shape="rect" id="node4" title=" " alt="" coords="659,59,848,115"/>
+<area shape="rect" id="node6" title=" " alt="" coords="659,139,848,195"/>
 </map>

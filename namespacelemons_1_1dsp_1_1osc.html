@@ -69,6 +69,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
+<a href="#typedef-members">Typedefs</a> &#124;
 <a href="#enum-members">Enumerations</a>  </div>
   <div class="headertitle">
 <div class="title">lemons::dsp::osc Namespace Reference</div>  </div>
@@ -79,11 +80,11 @@ $(function() {
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1osc_1_1_choosable_oscillator.html">ChoosableOscillator</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1osc_1_1_detunable.html">Detunable</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1osc_1_1_detunable_base.html">DetunableBase</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1osc_1_1_engine.html">Engine</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1dsp_1_1osc_1_1_oscillator.html">Oscillator</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1dsp_1_1osc_1_1_phase.html">Phase</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1dsp_1_1osc_1_1_saw.html">Saw</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -91,10 +92,17 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1dsp_1_1osc_1_1_square.html">Square</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1osc_1_1_super_saw.html">SuperSaw</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1dsp_1_1osc_1_1_triangle.html">Triangle</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:af60c8bbc11cfce575ed6ca2e4151a870"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:af60c8bbc11cfce575ed6ca2e4151a870"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1dsp_1_1osc.html#af60c8bbc11cfce575ed6ca2e4151a870">Oscillator</a> = <a class="el" href="structlemons_1_1dsp_1_1_oscillator.html">dsp::Oscillator</a>&lt; T &gt;</td></tr>
+<tr class="separator:af60c8bbc11cfce575ed6ca2e4151a870"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3e373801395c682bb0c4bc6a103bf34"><td class="memTemplParams" colspan="2">template&lt;typename SampleType &gt; </td></tr>
+<tr class="memitem:aa3e373801395c682bb0c4bc6a103bf34"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1dsp_1_1osc.html#aa3e373801395c682bb0c4bc6a103bf34">SuperSaw</a> = <a class="el" href="classlemons_1_1dsp_1_1osc_1_1_detunable.html">Detunable</a>&lt; SampleType, <a class="el" href="structlemons_1_1dsp_1_1osc_1_1_saw.html">Saw</a> &gt;</td></tr>
+<tr class="separator:aa3e373801395c682bb0c4bc6a103bf34"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
@@ -109,10 +117,43 @@ Enumerations</h2></td></tr>
  }</td></tr>
 <tr class="separator:ga1771007d411d4f6426cc3773961dfa5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Typedef Documentation</h2>
+<a id="af60c8bbc11cfce575ed6ca2e4151a870"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af60c8bbc11cfce575ed6ca2e4151a870">&#9670;&nbsp;</a></span>Oscillator</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="namespacelemons_1_1dsp_1_1osc.html#af60c8bbc11cfce575ed6ca2e4151a870">lemons::dsp::osc::Oscillator</a> = typedef <a class="el" href="structlemons_1_1dsp_1_1_oscillator.html">dsp::Oscillator</a>&lt;T&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa3e373801395c682bb0c4bc6a103bf34"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3e373801395c682bb0c4bc6a103bf34">&#9670;&nbsp;</a></span>SuperSaw</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename SampleType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="namespacelemons_1_1dsp_1_1osc.html#aa3e373801395c682bb0c4bc6a103bf34">lemons::dsp::osc::SuperSaw</a> = typedef <a class="el" href="classlemons_1_1dsp_1_1osc_1_1_detunable.html">Detunable</a>&lt;SampleType, <a class="el" href="structlemons_1_1dsp_1_1osc_1_1_saw.html">Saw</a>&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Jan 5 2022 00:49:01 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Jan 6 2022 00:51:33 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

@@ -1,7 +1,6 @@
 <map id="lemons::plugin::FrequencyParameter" name="lemons::plugin::FrequencyParameter">
-<area shape="rect" id="node1" title=" " alt="" coords="19,337,213,379"/>
-<area shape="rect" id="node2" href="$classlemons_1_1plugin_1_1_typed_parameter.html" title=" " alt="" coords="55,261,177,288"/>
-<area shape="rect" id="node3" href="$classlemons_1_1plugin_1_1_parameter.html" title=" " alt="" coords="14,81,207,108"/>
-<area shape="rect" id="node5" href="$classlemons_1_1plugin_1_1_typed_parameter.html" title=" " alt="" coords="133,157,363,199"/>
+<area shape="rect" id="node1" title=" " alt="" coords="14,229,207,271"/>
+<area shape="rect" id="node2" href="$classlemons_1_1plugin_1_1_typed_parameter.html" title=" " alt="" coords="49,155,172,181"/>
+<area shape="rect" id="node3" href="$classlemons_1_1plugin_1_1_parameter.html" title=" " alt="" coords="14,80,207,107"/>
 <area shape="rect" id="node4" title=" " alt="" coords="5,5,216,32"/>
 </map>

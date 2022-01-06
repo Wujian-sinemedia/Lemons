@@ -66,6 +66,9 @@ $(function() {
 &#160;
 
 <h3><a id="index_s"></a>- s -</h3><ul>
+<li>SampleStream()
+: <a class="el" href="structlemons_1_1dsp_1_1_sample_stream.html#a4b8c5e9ff2fc8a0ce6fd17eccbb7b89e">lemons::dsp::SampleStream&lt; SampleType &gt;</a>
+</li>
 <li>saveAllToValueTree()
 : <a class="el" href="structlemons_1_1plugin_1_1_program_manager.html#a9a8e111725fb685754c9bd0396cd17a4">lemons::plugin::ProgramManager</a>
 </li>
@@ -91,7 +94,6 @@ $(function() {
 , <a class="el" href="structlemons_1_1plugin_1_1_program.html#ab77962b6326f78647c279a3f6095764e">lemons::plugin::Program</a>
 , <a class="el" href="classlemons_1_1plugin_1_1_state.html#a746b2efd2b9ce30e5eab88a69c6a59db">lemons::plugin::State</a>
 , <a class="el" href="classlemons_1_1plugin_1_1_typed_parameter.html#ae2c23845527074bb64c601925ee40898">lemons::plugin::TypedParameter&lt; ValueType &gt;</a>
-, <a class="el" href="structlemons_1_1serializing_1_1_serializable_data.html#a2c73c916db7a1e04dc6e4d1ce519e845">lemons::serializing::SerializableData</a>
 </li>
 <li>Saw()
 : <a class="el" href="structlemons_1_1dsp_1_1osc_1_1_saw.html#a158a37dab3759be9e39f00ab1a72663f">lemons::dsp::osc::Saw&lt; SampleType &gt;</a>
@@ -172,7 +174,7 @@ $(function() {
 : <a class="el" href="classlemons_1_1plugin_1_1_parameter.html#af9c19c3fdb79022f085f83903c80f89a">lemons::plugin::Parameter</a>
 </li>
 <li>setDetuneAmount()
-: <a class="el" href="classlemons_1_1dsp_1_1osc_1_1_super_saw.html#a4990ad07773cbb3fae93582e33064bcc">lemons::dsp::osc::SuperSaw&lt; SampleType &gt;</a>
+: <a class="el" href="classlemons_1_1dsp_1_1osc_1_1_detunable_base.html#a24a4e8243f4117bd149550d78150ca38">lemons::dsp::osc::DetunableBase&lt; SampleType &gt;</a>
 </li>
 <li>setDryWet()
 : <a class="el" href="classlemons_1_1dsp_1_1_f_x_1_1_delay.html#a3fd064c9d499bab90219c0f9fac7aaa6">lemons::dsp::FX::Delay&lt; SampleType &gt;</a>
@@ -192,14 +194,14 @@ $(function() {
 </li>
 <li>setFrequency()
 : <a class="el" href="classlemons_1_1dsp_1_1osc_1_1_choosable_oscillator.html#a6ed30db2672c60de56d8858abfadc7ee">lemons::dsp::osc::ChoosableOscillator&lt; SampleType &gt;</a>
-, <a class="el" href="classlemons_1_1dsp_1_1osc_1_1_engine.html#a1dff90309bc92e1b4dcaa66ac723f7cb">lemons::dsp::osc::Engine&lt; SampleType, Osctype, &gt;</a>
-, <a class="el" href="structlemons_1_1dsp_1_1osc_1_1_oscillator.html#a85e60c81999d18bfc2c363b89acd8ba1">lemons::dsp::osc::Oscillator&lt; SampleType &gt;</a>
-, <a class="el" href="structlemons_1_1dsp_1_1osc_1_1_phase.html#aeca90e459a6529d338e8f47923b5d6f3">lemons::dsp::osc::Phase&lt; SampleType &gt;</a>
+, <a class="el" href="classlemons_1_1dsp_1_1osc_1_1_detunable_base.html#a061c2307daa604b14b502010fea84a97">lemons::dsp::osc::DetunableBase&lt; SampleType &gt;</a>
+, <a class="el" href="classlemons_1_1dsp_1_1osc_1_1_engine.html#a565c57b50a63fcbfae30f7e8a08199c3">lemons::dsp::osc::Engine&lt; SampleType, OscType, &gt;</a>
 , <a class="el" href="structlemons_1_1dsp_1_1osc_1_1_saw.html#ad693ea714d9a074cad7538bd1d4ddd22">lemons::dsp::osc::Saw&lt; SampleType &gt;</a>
 , <a class="el" href="structlemons_1_1dsp_1_1osc_1_1_sine.html#ab9a250d4a8800c416635bb9ba8ae4b64">lemons::dsp::osc::Sine&lt; SampleType &gt;</a>
 , <a class="el" href="structlemons_1_1dsp_1_1osc_1_1_square.html#a2f9f7288f85f8699a4b15f6041de2632">lemons::dsp::osc::Square&lt; SampleType &gt;</a>
-, <a class="el" href="classlemons_1_1dsp_1_1osc_1_1_super_saw.html#aebb73235f424cd217b88523dfdc35bab">lemons::dsp::osc::SuperSaw&lt; SampleType &gt;</a>
 , <a class="el" href="structlemons_1_1dsp_1_1osc_1_1_triangle.html#ae558e62ec53f88ca35bf65f9cc40c7ad">lemons::dsp::osc::Triangle&lt; SampleType &gt;</a>
+, <a class="el" href="structlemons_1_1dsp_1_1_oscillator_1_1_phase.html#aff19d83433d1be70d67b7660f03bef7d">lemons::dsp::Oscillator&lt; SampleType &gt;::Phase</a>
+, <a class="el" href="structlemons_1_1dsp_1_1_oscillator.html#a7c039ee4c664a357c1a8a48b5bd09746">lemons::dsp::Oscillator&lt; SampleType &gt;</a>
 </li>
 <li>setGain()
 : <a class="el" href="classlemons_1_1dsp_1_1_f_x_1_1_filter.html#a6d2f3fbc1ecd254bf6e3cfa3822d5742">lemons::dsp::FX::Filter&lt; SampleType &gt;</a>
@@ -298,7 +300,7 @@ $(function() {
 : <a class="el" href="classlemons_1_1spline_1_1_editor.html#a8d046d58e4a4bee4c97ead87f35ecb6a">lemons::spline::Editor</a>
 </li>
 <li>setSensitivity()
-: <a class="el" href="structlemons_1_1midi_1_1_velocity_helper.html#a21b24a158808039e7812e80f5f83bdc2">lemons::midi::VelocityHelper</a>
+: <a class="el" href="structlemons_1_1midi_1_1_velocity_helper.html#a21ab77678a01a8567bc0cb7bf9d0a8c0">lemons::midi::VelocityHelper</a>
 </li>
 <li>setSize()
 : <a class="el" href="classlemons_1_1dsp_1_1_audio_and_midi_f_i_f_o.html#a4edd7711409ec84103fd5cb81b47df1a">lemons::dsp::AudioAndMidiFIFO&lt; SampleType &gt;</a>
@@ -362,15 +364,18 @@ $(function() {
 : <a class="el" href="structlemons_1_1dsp_1_1osc_1_1_sine.html#aea160e6cbd0caf65fcc163bb476c5f97">lemons::dsp::osc::Sine&lt; SampleType &gt;</a>
 </li>
 <li>skipSamples()
-: <a class="el" href="structlemons_1_1dsp_1_1osc_1_1_oscillator.html#a0b8e5aa0764eecf8eeaa0d24b879a5ab">lemons::dsp::osc::Oscillator&lt; SampleType &gt;</a>
-, <a class="el" href="classlemons_1_1dsp_1_1psola_1_1_shifter.html#a4fb7adf9cb876852a54f58dac38cd06f">lemons::dsp::psola::Shifter&lt; SampleType &gt;</a>
+: <a class="el" href="classlemons_1_1dsp_1_1psola_1_1_shifter.html#a4fb7adf9cb876852a54f58dac38cd06f">lemons::dsp::psola::Shifter&lt; SampleType &gt;</a>
+, <a class="el" href="structlemons_1_1dsp_1_1_sample_stream.html#aa57a4dfb17a1fd98fe3cbb6f27fbeebb">lemons::dsp::SampleStream&lt; SampleType &gt;</a>
 , <a class="el" href="classlemons_1_1dsp_1_1synth_1_1_timbre_mod.html#af916d1d7e007570c17a517260bd00a5b">lemons::dsp::synth::TimbreMod&lt; SampleType &gt;</a>
+</li>
+<li>Slider()
+: <a class="el" href="structlemons_1_1gui_1_1components_1_1_slider.html#ac1d61436eb9615902e32136f13426d9f">lemons::gui::components::Slider</a>
 </li>
 <li>SliderBase()
 : <a class="el" href="classlemons_1_1gui_1_1components_1_1_slider_base.html#aa6a486960b44998e2698a9a48599860b">lemons::gui::components::SliderBase</a>
 </li>
 <li>SmoothedGain()
-: <a class="el" href="classlemons_1_1dsp_1_1_f_x_1_1_smoothed_gain.html#af47c7b82ba55f1eebe16eb7c5f94bf5c">lemons::dsp::FX::SmoothedGain&lt; SampleType, channels &gt;</a>
+: <a class="el" href="classlemons_1_1dsp_1_1_f_x_1_1_smoothed_gain.html#a793fe0ab3a62e6cb9e81d5af115bf507">lemons::dsp::FX::SmoothedGain&lt; SampleType, channels &gt;</a>
 </li>
 <li>sort()
 : <a class="el" href="structlemons_1_1spline_1_1_knots.html#acb55dd5a344178e4b781990662824ca9">lemons::spline::Knots</a>
@@ -391,13 +396,13 @@ $(function() {
 : <a class="el" href="structlemons_1_1dsp_1_1filters_1_1_coefficients_1_1_storage.html#a6f29c40ffdcf28f2b8b4ec08b05b6f40">lemons::dsp::filters::Coefficients&lt; NumericType &gt;::Storage</a>
 </li>
 <li>storeSamples()
-: <a class="el" href="classlemons_1_1dsp_1_1_circular_buffer.html#ace39516126a8df18306ac337d29d9321">lemons::dsp::CircularBuffer&lt; SampleType &gt;</a>
+: <a class="el" href="classlemons_1_1dsp_1_1_circular_buffer.html#a2a4e8eed89a54f705eaf8d64ba2516c0">lemons::dsp::CircularBuffer&lt; SampleType &gt;</a>
+</li>
+<li>StreamEngine()
+: <a class="el" href="classlemons_1_1dsp_1_1_stream_engine.html#a21d12f5fad24914217dae7b12f9f560c">lemons::dsp::StreamEngine&lt; SampleType, StreamType, &gt;</a>
 </li>
 <li>Subtest()
 : <a class="el" href="structlemons_1_1tests_1_1_test_1_1_subtest.html#ae3c4208cb073662962ba76080d7115e8">lemons::tests::Test::Subtest</a>
-</li>
-<li>SuperSaw()
-: <a class="el" href="classlemons_1_1dsp_1_1osc_1_1_super_saw.html#a394f803e344df738e0a3da085bfc6792">lemons::dsp::osc::SuperSaw&lt; SampleType &gt;</a>
 </li>
 <li>swapNodes()
 : <a class="el" href="classlemons_1_1dsp_1_1_engine_chain.html#ae9f7a80cc7a6ad012fe73a8468bc0f57">lemons::dsp::EngineChain&lt; SampleType &gt;</a>
@@ -412,7 +417,7 @@ $(function() {
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Jan 5 2022 00:49:01 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Jan 6 2022 00:51:33 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

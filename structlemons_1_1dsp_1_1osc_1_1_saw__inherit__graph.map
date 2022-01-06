@@ -1,4 +1,5 @@
 <map id="lemons::dsp::osc::Saw&lt; SampleType &gt;" name="lemons::dsp::osc::Saw&lt; SampleType &gt;">
-<area shape="rect" id="node1" title=" " alt="" coords="23,95,189,136"/>
-<area shape="rect" id="node2" href="$structlemons_1_1dsp_1_1osc_1_1_oscillator.html" title=" " alt="" coords="5,5,207,47"/>
+<area shape="rect" id="node1" title=" " alt="" coords="25,169,191,211"/>
+<area shape="rect" id="node2" href="$structlemons_1_1dsp_1_1_oscillator.html" title="Base class for any kind of oscillator." alt="" coords="11,95,205,121"/>
+<area shape="rect" id="node3" href="$structlemons_1_1dsp_1_1_sample_stream.html" title="Base class for any object that can output a stream of audio samples, with no audio or MIDI input." alt="" coords="5,5,211,47"/>
 </map>

@@ -145,9 +145,9 @@ $(function() {
 , <a class="el" href="classlemons_1_1dsp_1_1psola_1_1_shifter.html#a475f995541abd17def52ea48beeb6a70">lemons::dsp::psola::Shifter&lt; SampleType &gt;</a>
 , <a class="el" href="classlemons_1_1dsp_1_1synth_1_1_timbre_mod.html#a5a0b1cb7c0942a2447f78de7c7e6de46">lemons::dsp::synth::TimbreMod&lt; SampleType &gt;</a>
 , <a class="el" href="classlemons_1_1dsp_1_1_synth_base.html#af9854fe81bf30725700d97c69f504f3d">lemons::dsp::SynthBase&lt; SampleType &gt;</a>
-, <a class="el" href="classlemons_1_1midi_1_1_midi_processor.html#a10de583b28a458c514d684f8cdd30888">lemons::midi::MidiProcessor</a>
 , <a class="el" href="structlemons_1_1midi_1_1_pitch_pipeline.html#a4c25eefd5523c214caf28a97353cbd11">lemons::midi::PitchPipeline</a>
 , <a class="el" href="structlemons_1_1midi_1_1_processor.html#aa321480409a2f56f10a6b3024e54b9b1">lemons::midi::Processor</a>
+, <a class="el" href="structlemons_1_1midi_1_1_stateful_routing_processor.html#ac9e5be25a4c684a406dd843d6b1266a1">lemons::midi::StatefulRoutingProcessor</a>
 </li>
 <li>resetAllControllerMappedParams()
 : <a class="el" href="classlemons_1_1plugin_1_1_parameter_list.html#a780a6fbad33c5f135289951fa7d822d4">lemons::plugin::ParameterList</a>
@@ -156,13 +156,13 @@ $(function() {
 : <a class="el" href="classlemons_1_1dsp_1_1_protector.html#a2198c89cff7a97cd9f94ff09f70ec559">lemons::dsp::Protector&lt; SampleType &gt;</a>
 </li>
 <li>resetPhase()
-: <a class="el" href="structlemons_1_1dsp_1_1osc_1_1_oscillator.html#af0337e1ba93847789802aef01ccff72f">lemons::dsp::osc::Oscillator&lt; SampleType &gt;</a>
-, <a class="el" href="structlemons_1_1dsp_1_1osc_1_1_phase.html#a3b35afc1047194a152c3de9ffb2b1072">lemons::dsp::osc::Phase&lt; SampleType &gt;</a>
+: <a class="el" href="classlemons_1_1dsp_1_1osc_1_1_detunable_base.html#a47f1816b8f3a646f17ae1f4cf9c45bfd">lemons::dsp::osc::DetunableBase&lt; SampleType &gt;</a>
 , <a class="el" href="structlemons_1_1dsp_1_1osc_1_1_saw.html#ae2b0a0d1924b4873813d8163f4bb01a7">lemons::dsp::osc::Saw&lt; SampleType &gt;</a>
 , <a class="el" href="structlemons_1_1dsp_1_1osc_1_1_sine.html#a4b1a66de3b0cfc53a9c811536bcba5ad">lemons::dsp::osc::Sine&lt; SampleType &gt;</a>
 , <a class="el" href="structlemons_1_1dsp_1_1osc_1_1_square.html#aa90412a6f665b0bab29e8688970abbeb">lemons::dsp::osc::Square&lt; SampleType &gt;</a>
-, <a class="el" href="classlemons_1_1dsp_1_1osc_1_1_super_saw.html#a80528ee05c8ada9460bc49cd435e8ae3">lemons::dsp::osc::SuperSaw&lt; SampleType &gt;</a>
 , <a class="el" href="structlemons_1_1dsp_1_1osc_1_1_triangle.html#a58e11fd6ce2733815fd528f4bce17a0f">lemons::dsp::osc::Triangle&lt; SampleType &gt;</a>
+, <a class="el" href="structlemons_1_1dsp_1_1_oscillator_1_1_phase.html#a9e362c84a7f4c9ead444de1eab420131">lemons::dsp::Oscillator&lt; SampleType &gt;::Phase</a>
+, <a class="el" href="structlemons_1_1dsp_1_1_oscillator.html#a285bf8fe56baf838a6ef5295789b30f2">lemons::dsp::Oscillator&lt; SampleType &gt;</a>
 </li>
 <li>resetToCenter()
 : <a class="el" href="classlemons_1_1dsp_1_1_f_x_1_1_panner_base.html#a6653d42f45530c55fe6e608199aff158">lemons::dsp::FX::PannerBase</a>
@@ -188,9 +188,6 @@ $(function() {
 <li>restoreAllFromValueTree()
 : <a class="el" href="structlemons_1_1plugin_1_1_program_manager.html#a7597f47976c04fed12c48874ddc5713b">lemons::plugin::ProgramManager</a>
 </li>
-<li>restoreFromValueTree()
-: <a class="el" href="structlemons_1_1serializing_1_1_serializable_data.html#a18a7bee908112986add4013b26952eb3">lemons::serializing::SerializableData</a>
-</li>
 <li>retuneAmountInSemitones()
 : <a class="el" href="classlemons_1_1midi_1_1_mts_client.html#ae5cc910f3d6fa61212e84b83990a8902">lemons::midi::MtsClient</a>
 </li>
@@ -205,13 +202,13 @@ $(function() {
 </li>
 <li>runTest()
 : <a class="el" href="structlemons_1_1tests_1_1_audio_processor_test_base.html#adfe05c422b0cb45e68f29ed48ba663dc">lemons::tests::AudioProcessorTestBase</a>
-, <a class="el" href="structlemons_1_1tests_1_1_parameter_test_base.html#af2b6558aac2bde4a1a01b8b00c650333">lemons::tests::ParameterTestBase</a>
+, <a class="el" href="classlemons_1_1tests_1_1_runner.html#af738b9caf3c0e05ef4355eb23b8b9e13">lemons::tests::Runner</a>
 </li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Jan 5 2022 00:49:01 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Jan 6 2022 00:51:33 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

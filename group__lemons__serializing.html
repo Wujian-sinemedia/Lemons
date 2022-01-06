@@ -82,6 +82,9 @@ Functions</h2></td></tr>
 <tr class="separator:ga79aa52c715672cf46f9b529fd58ef564"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga30d310f988a2d025e1b89cf636047402"><td class="memItemLeft" align="right" valign="top">MemoryBlock&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__lemons__serializing.html#ga30d310f988a2d025e1b89cf636047402">lemons::serializing::fontToBinary</a> (const juce::Font &amp;font, int maxNumChars=127, juce_wchar defaultChar=' ')</td></tr>
 <tr class="separator:ga30d310f988a2d025e1b89cf636047402"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad6de626044fe5aa84f620f71f4ffaabb"><td class="memTemplParams" colspan="2">template&lt;typename ValueType &gt; </td></tr>
+<tr class="memitem:gad6de626044fe5aa84f620f71f4ffaabb"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacelemons_1_1ranges.html#af0a23e248c541e8060297580f967b1b2">Range</a>&lt; ValueType &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__lemons__serializing.html#gad6de626044fe5aa84f620f71f4ffaabb">lemons::ranges::fromValueTree</a> (const ValueTree &amp;tree)</td></tr>
+<tr class="separator:gad6de626044fe5aa84f620f71f4ffaabb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga71a2d7117ba93aff2cff74ce99ee2921"><td class="memItemLeft" align="right" valign="top">Image&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__lemons__serializing.html#ga71a2d7117ba93aff2cff74ce99ee2921">lemons::serializing::imageFromBinary</a> (const MemoryBlock &amp;block)</td></tr>
 <tr class="separator:ga71a2d7117ba93aff2cff74ce99ee2921"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga844c15e8011970bd72cddbc16ac54886"><td class="memItemLeft" align="right" valign="top">MemoryBlock&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__lemons__serializing.html#ga844c15e8011970bd72cddbc16ac54886">lemons::serializing::imageToBinary</a> (const Image &amp;image)</td></tr>
@@ -98,16 +101,13 @@ Functions</h2></td></tr>
 <tr class="separator:ga9f9b5afb4a6bd15f8c8801923c12e1f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaeacda195ca89506992384c26458355cf"><td class="memItemLeft" align="right" valign="top">MemoryBlock&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__lemons__serializing.html#gaeacda195ca89506992384c26458355cf">lemons::serializing::midiToBinary</a> (const MidiFile &amp;midi)</td></tr>
 <tr class="separator:gaeacda195ca89506992384c26458355cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gad52d848aba3f9614ace803cb0b840dda"><td class="memTemplParams" colspan="2">template&lt;typename ValueType &gt; </td></tr>
-<tr class="memitem:gad52d848aba3f9614ace803cb0b840dda"><td class="memTemplItemLeft" align="right" valign="top">ValueTree&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__lemons__serializing.html#gad52d848aba3f9614ace803cb0b840dda">lemons::serializing::rangeToValueTree</a> (const juce::NormalisableRange&lt; ValueType &gt; &amp;range)</td></tr>
-<tr class="separator:gad52d848aba3f9614ace803cb0b840dda"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3d8f520003440966229ea2a6dd4b0e7b"><td class="memTemplParams" colspan="2">template&lt;typename ValueType &gt; </td></tr>
+<tr class="memitem:ga3d8f520003440966229ea2a6dd4b0e7b"><td class="memTemplItemLeft" align="right" valign="top">ValueTree&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__lemons__serializing.html#ga3d8f520003440966229ea2a6dd4b0e7b">lemons::ranges::toValueTree</a> (const <a class="el" href="namespacelemons_1_1ranges.html#af0a23e248c541e8060297580f967b1b2">Range</a>&lt; ValueType &gt; &amp;range)</td></tr>
+<tr class="separator:ga3d8f520003440966229ea2a6dd4b0e7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga3a28001c151ae9a72cee950b7b0c5fe0"><td class="memItemLeft" align="right" valign="top">ValueTree&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__lemons__serializing.html#ga3a28001c151ae9a72cee950b7b0c5fe0">lemons::serializing::valueTreeFromJSON</a> (const String &amp;jsonText)</td></tr>
 <tr class="separator:ga3a28001c151ae9a72cee950b7b0c5fe0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga44dc62981a244f674a7b47738595d0ac"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__lemons__serializing.html#ga44dc62981a244f674a7b47738595d0ac">lemons::serializing::valueTreeToJSON</a> (const ValueTree &amp;v)</td></tr>
 <tr class="separator:ga44dc62981a244f674a7b47738595d0ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gabe8547288b1d7c2cda9ec239589d39fb"><td class="memTemplParams" colspan="2">template&lt;typename ValueType &gt; </td></tr>
-<tr class="memitem:gabe8547288b1d7c2cda9ec239589d39fb"><td class="memTemplItemLeft" align="right" valign="top">juce::NormalisableRange&lt; ValueType &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__lemons__serializing.html#gabe8547288b1d7c2cda9ec239589d39fb">lemons::serializing::valueTreeToRange</a> (const ValueTree &amp;tree)</td></tr>
-<tr class="separator:gabe8547288b1d7c2cda9ec239589d39fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>Utilities for serializing. </p>
@@ -210,6 +210,26 @@ template&lt;typename SampleType &gt; </div>
           <td></td>
           <td>)</td>
           <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="gad6de626044fe5aa84f620f71f4ffaabb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gad6de626044fe5aa84f620f71f4ffaabb">&#9670;&nbsp;</a></span>fromValueTree()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename ValueType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacelemons_1_1ranges.html#af0a23e248c541e8060297580f967b1b2">Range</a>&lt;ValueType&gt; lemons::ranges::fromValueTree </td>
+          <td>(</td>
+          <td class="paramtype">const ValueTree &amp;&#160;</td>
+          <td class="paramname"><em>tree</em></td><td>)</td>
+          <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -368,8 +388,8 @@ template&lt;typename SampleType &gt; </div>
 
 </div>
 </div>
-<a id="gad52d848aba3f9614ace803cb0b840dda"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gad52d848aba3f9614ace803cb0b840dda">&#9670;&nbsp;</a></span>rangeToValueTree()</h2>
+<a id="ga3d8f520003440966229ea2a6dd4b0e7b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga3d8f520003440966229ea2a6dd4b0e7b">&#9670;&nbsp;</a></span>toValueTree()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -377,9 +397,9 @@ template&lt;typename SampleType &gt; </div>
 template&lt;typename ValueType &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">ValueTree lemons::serializing::rangeToValueTree </td>
+          <td class="memname">ValueTree lemons::ranges::toValueTree </td>
           <td>(</td>
-          <td class="paramtype">const juce::NormalisableRange&lt; ValueType &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacelemons_1_1ranges.html#af0a23e248c541e8060297580f967b1b2">Range</a>&lt; ValueType &gt; &amp;&#160;</td>
           <td class="paramname"><em>range</em></td><td>)</td>
           <td></td>
         </tr>
@@ -426,30 +446,10 @@ template&lt;typename ValueType &gt; </div>
 
 </div>
 </div>
-<a id="gabe8547288b1d7c2cda9ec239589d39fb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gabe8547288b1d7c2cda9ec239589d39fb">&#9670;&nbsp;</a></span>valueTreeToRange()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename ValueType &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">juce::NormalisableRange&lt;ValueType&gt; lemons::serializing::valueTreeToRange </td>
-          <td>(</td>
-          <td class="paramtype">const ValueTree &amp;&#160;</td>
-          <td class="paramname"><em>tree</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Jan 5 2022 00:49:01 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Jan 6 2022 00:51:33 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

@@ -115,7 +115,7 @@ $(function() {
 : <a class="el" href="classlemons_1_1_device_motion.html#ab07f7b889fe9e229cc068be32184ba90">lemons::DeviceMotion</a>
 </li>
 <li>getAttributes()
-: <a class="el" href="classlemons_1_1plugin_1_1_editor.html#a4d83247523467ce5df37c83f78e025eb">lemons::plugin::Editor&lt; ContentComponentType, StateType,, &gt;</a>
+: <a class="el" href="classlemons_1_1plugin_1_1_editor.html#a7604bc108a5d20e0d46fa82142ec61fc">lemons::plugin::Editor&lt; ContentComponentType, &gt;</a>
 , <a class="el" href="classlemons_1_1plugin_1_1_processor_base.html#af8ae6ca1c4d7ee8db314f7da4f82fdf6">lemons::plugin::ProcessorBase</a>
 </li>
 <li>getAudioFormat()
@@ -222,13 +222,13 @@ $(function() {
 </li>
 <li>getFrequency()
 : <a class="el" href="classlemons_1_1dsp_1_1osc_1_1_choosable_oscillator.html#aabcca2d31c9712b289f7af88aa925da6">lemons::dsp::osc::ChoosableOscillator&lt; SampleType &gt;</a>
-, <a class="el" href="classlemons_1_1dsp_1_1osc_1_1_engine.html#a9c15dd22b1c6fd7bf5999b665766e7d4">lemons::dsp::osc::Engine&lt; SampleType, Osctype, &gt;</a>
-, <a class="el" href="structlemons_1_1dsp_1_1osc_1_1_oscillator.html#a02a2d868a67dcc351cae78ac66af7fd3">lemons::dsp::osc::Oscillator&lt; SampleType &gt;</a>
+, <a class="el" href="classlemons_1_1dsp_1_1osc_1_1_detunable_base.html#a481bc169268546a95ad4d50b8dade1ef">lemons::dsp::osc::DetunableBase&lt; SampleType &gt;</a>
+, <a class="el" href="classlemons_1_1dsp_1_1osc_1_1_engine.html#a6f4d84553e80985399422a0cb5612d8e">lemons::dsp::osc::Engine&lt; SampleType, OscType, &gt;</a>
 , <a class="el" href="structlemons_1_1dsp_1_1osc_1_1_saw.html#acb4af8eacda48a91de0f1829ddb2078e">lemons::dsp::osc::Saw&lt; SampleType &gt;</a>
 , <a class="el" href="structlemons_1_1dsp_1_1osc_1_1_sine.html#a76b08c05789ad0982bdb8943da8b3159">lemons::dsp::osc::Sine&lt; SampleType &gt;</a>
 , <a class="el" href="structlemons_1_1dsp_1_1osc_1_1_square.html#ad6119ae82ca3bc00932db8a10dd3607e">lemons::dsp::osc::Square&lt; SampleType &gt;</a>
-, <a class="el" href="classlemons_1_1dsp_1_1osc_1_1_super_saw.html#a29df4a478c35bf72a9729a9b08e1d441">lemons::dsp::osc::SuperSaw&lt; SampleType &gt;</a>
 , <a class="el" href="structlemons_1_1dsp_1_1osc_1_1_triangle.html#a49d6e63b531b0c0a87c86dd8d79a684a">lemons::dsp::osc::Triangle&lt; SampleType &gt;</a>
+, <a class="el" href="structlemons_1_1dsp_1_1_oscillator.html#a27b3446efcfa9ff08c426942145a67a6">lemons::dsp::Oscillator&lt; SampleType &gt;</a>
 </li>
 <li>getFrequencyForMidi()
 : <a class="el" href="structlemons_1_1midi_1_1_pitch_pipeline.html#ab18e21177a8fb05a383847c868282518">lemons::midi::PitchPipeline</a>
@@ -259,7 +259,7 @@ $(function() {
 : <a class="el" href="classlemons_1_1music_1_1_chord.html#a472964fdb50c3cb6759b6103e13129de">lemons::music::Chord</a>
 </li>
 <li>getIncrement()
-: <a class="el" href="structlemons_1_1dsp_1_1osc_1_1_phase.html#acb6dee2858f02f252733532bdcf5ed69">lemons::dsp::osc::Phase&lt; SampleType &gt;</a>
+: <a class="el" href="structlemons_1_1dsp_1_1_oscillator_1_1_phase.html#a9832d90d55ac6b7b0d9ae0acf78fed2f">lemons::dsp::Oscillator&lt; SampleType &gt;::Phase</a>
 </li>
 <li>getIndex()
 : <a class="el" href="structlemons_1_1dsp_1_1_engine_chain_1_1_node.html#a403cd1a62d555e7bae825c70c48b14ea">lemons::dsp::EngineChain&lt; SampleType &gt;::Node</a>
@@ -267,20 +267,11 @@ $(function() {
 <li>getKnot()
 : <a class="el" href="structlemons_1_1spline_1_1_knots.html#a848ea41039c0622df410cc41a414b948">lemons::spline::Knots</a>
 </li>
-<li>getLastMidiChannel()
-: <a class="el" href="classlemons_1_1midi_1_1_midi_processor.html#a0b7c7b4161c1c7a3f12b02bc2a548935">lemons::midi::MidiProcessor</a>
-</li>
 <li>getLastMidiPan()
 : <a class="el" href="classlemons_1_1dsp_1_1_f_x_1_1_panner_base.html#ae8871e9d712186ba640183a7791242e6">lemons::dsp::FX::PannerBase</a>
 </li>
-<li>getLastMidiTimestamp()
-: <a class="el" href="classlemons_1_1midi_1_1_midi_processor.html#ae9de4a1652b1d55ed7ec146849d8f18e">lemons::midi::MidiProcessor</a>
-</li>
-<li>getLastMovedCCinfo()
-: <a class="el" href="classlemons_1_1midi_1_1_midi_processor.html#ab2d46b01a2c660049db621140833bba8">lemons::midi::MidiProcessor</a>
-</li>
 <li>getLastPitchwheelValue()
-: <a class="el" href="classlemons_1_1midi_1_1_midi_processor.html#a40b779da63a4a9232fd7157b9262ec98">lemons::midi::MidiProcessor</a>
+: <a class="el" href="structlemons_1_1midi_1_1_stateful_routing_processor.html#a61cb87d9cfd4003a9bb9fb632381ef8e">lemons::midi::StatefulRoutingProcessor</a>
 </li>
 <li>getLastRecievedPitchbend()
 : <a class="el" href="classlemons_1_1midi_1_1_pitch_bend_tracker.html#af2cb699d8149f9372e56fa71e5d0f769">lemons::midi::PitchBendTracker</a>
@@ -338,7 +329,7 @@ $(function() {
 : <a class="el" href="classlemons_1_1plugin_1_1_parameter.html#ae04873e41210558565f97b2a98a5a621">lemons::plugin::Parameter</a>
 </li>
 <li>getMidiForFrequency()
-: <a class="el" href="structlemons_1_1midi_1_1_pitch_pipeline.html#a661405df83027a3b848aaa18914fb379">lemons::midi::PitchPipeline</a>
+: <a class="el" href="structlemons_1_1midi_1_1_pitch_pipeline.html#ac6310064c54059187bc85fef3e0dcc7a">lemons::midi::PitchPipeline</a>
 </li>
 <li>getMinHz()
 : <a class="el" href="classlemons_1_1dsp_1_1psola_1_1_pitch_detector.html#a32da61434cdaa898def22ae676a4501e">lemons::dsp::psola::PitchDetector&lt; SampleType &gt;</a>
@@ -357,7 +348,6 @@ $(function() {
 </li>
 <li>getNextSample()
 : <a class="el" href="classlemons_1_1dsp_1_1psola_1_1_shifter.html#a7dbb3e0a44fe503c0a415c4b08d72d67">lemons::dsp::psola::Shifter&lt; SampleType &gt;</a>
-, <a class="el" href="classlemons_1_1dsp_1_1_white_noise_generator.html#ae3cab3546e1aea778b0b5a2bf14d80f3">lemons::dsp::WhiteNoiseGenerator&lt; SampleType &gt;</a>
 </li>
 <li>getNode()
 : <a class="el" href="classlemons_1_1dsp_1_1_engine_chain.html#a74577e9fe5f78807da60a6dbb85fd3a3">lemons::dsp::EngineChain&lt; SampleType &gt;</a>
@@ -403,7 +393,8 @@ $(function() {
 : <a class="el" href="classlemons_1_1music_1_1_chord.html#a305e7250881baddb530fa6f37dbee5fa">lemons::music::Chord</a>
 </li>
 <li>getNumVoices()
-: <a class="el" href="classlemons_1_1dsp_1_1_synth_base.html#a22a13afada1f072993befdbf3197d47c">lemons::dsp::SynthBase&lt; SampleType &gt;</a>
+: <a class="el" href="classlemons_1_1dsp_1_1osc_1_1_detunable_base.html#a8583b0ac20602773dee12970e796e22c">lemons::dsp::osc::DetunableBase&lt; SampleType &gt;</a>
+, <a class="el" href="classlemons_1_1dsp_1_1_synth_base.html#a22a13afada1f072993befdbf3197d47c">lemons::dsp::SynthBase&lt; SampleType &gt;</a>
 </li>
 <li>getOscillator()
 : <a class="el" href="structlemons_1_1plugin_1_1_l_f_o.html#ac2d829448a0083b1da49efd070738a2c">lemons::plugin::LFO</a>
@@ -412,7 +403,8 @@ $(function() {
 : <a class="el" href="classlemons_1_1dsp_1_1osc_1_1_choosable_oscillator.html#a5283633e6dcf6884232f78e5ae20117a">lemons::dsp::osc::ChoosableOscillator&lt; SampleType &gt;</a>
 </li>
 <li>getParameter()
-: <a class="el" href="structlemons_1_1plugin_1_1_meta_parameter_base.html#ae664f8bd744eb52f07bb2b814fe95398">lemons::plugin::MetaParameterBase</a>
+: <a class="el" href="classlemons_1_1plugin_1_1_basic_processor.html#a61480f90f31ad0b1563bd5b4c36ba635">lemons::plugin::BasicProcessor</a>
+, <a class="el" href="structlemons_1_1plugin_1_1_meta_parameter_base.html#ae664f8bd744eb52f07bb2b814fe95398">lemons::plugin::MetaParameterBase</a>
 </li>
 <li>getParameterLayout()
 : <a class="el" href="classlemons_1_1plugin_1_1_parameter_list.html#afc2b5a0afb7def5e2ef00bfbe4601edb">lemons::plugin::ParameterList</a>
@@ -434,7 +426,7 @@ $(function() {
 : <a class="el" href="classlemons_1_1dsp_1_1_synth_base.html#af119c05b5f84f9dc81e8cfd5c0af15c4">lemons::dsp::SynthBase&lt; SampleType &gt;</a>
 </li>
 <li>getPitchSpreadCents()
-: <a class="el" href="classlemons_1_1dsp_1_1osc_1_1_super_saw.html#ab147bbae63bba206564d52a837b930ec">lemons::dsp::osc::SuperSaw&lt; SampleType &gt;</a>
+: <a class="el" href="classlemons_1_1dsp_1_1osc_1_1_detunable_base.html#a954b3450776c209cbdf538d4cf07b00b">lemons::dsp::osc::DetunableBase&lt; SampleType &gt;</a>
 </li>
 <li>getPluginMetadata()
 : <a class="el" href="classlemons_1_1plugin_1_1_processor.html#aca0a7fcc35cdcd4224ab54130f491652">lemons::plugin::Processor&lt; EngineType, StateType,, &gt;</a>
@@ -473,7 +465,7 @@ $(function() {
 : <a class="el" href="classlemons_1_1_device_motion.html#aa846762a056ce6946a9e50d4c7be8648">lemons::DeviceMotion</a>
 </li>
 <li>getSample()
-: <a class="el" href="structlemons_1_1dsp_1_1osc_1_1_oscillator.html#a97cc6da86abb7492de0d097740923932">lemons::dsp::osc::Oscillator&lt; SampleType &gt;</a>
+: <a class="el" href="structlemons_1_1dsp_1_1_sample_stream.html#a4bf2120d911bf1c0be71a09d1071b94a">lemons::dsp::SampleStream&lt; SampleType &gt;</a>
 </li>
 <li>getSamplerate()
 : <a class="el" href="structlemons_1_1dsp_1_1_audio_file.html#a470ba38bb275f8d62029626ae8db14d7">lemons::dsp::AudioFile</a>
@@ -481,9 +473,8 @@ $(function() {
 </li>
 <li>getSamples()
 : <a class="el" href="classlemons_1_1dsp_1_1_circular_buffer.html#a719fb2a904df96cb3942259fbd0d71ef">lemons::dsp::CircularBuffer&lt; SampleType &gt;</a>
-, <a class="el" href="structlemons_1_1dsp_1_1osc_1_1_oscillator.html#a0d4e7108f8cb508f01efeb7e7d423c84">lemons::dsp::osc::Oscillator&lt; SampleType &gt;</a>
-, <a class="el" href="classlemons_1_1dsp_1_1psola_1_1_shifter.html#a0517efb82243046286fc03585dbe0b6e">lemons::dsp::psola::Shifter&lt; SampleType &gt;</a>
-, <a class="el" href="classlemons_1_1dsp_1_1_white_noise_generator.html#a7e6686176553ec727430168812234587">lemons::dsp::WhiteNoiseGenerator&lt; SampleType &gt;</a>
+, <a class="el" href="classlemons_1_1dsp_1_1psola_1_1_shifter.html#a2cffdfc5f7a2b191f25b7e2a41e735c6">lemons::dsp::psola::Shifter&lt; SampleType &gt;</a>
+, <a class="el" href="structlemons_1_1dsp_1_1_sample_stream.html#a9bf15bd287fd678fd420381777dd3e4a">lemons::dsp::SampleStream&lt; SampleType &gt;</a>
 </li>
 <li>getScaleName()
 : <a class="el" href="classlemons_1_1dsp_1_1_synth_base.html#a16a6e5209b303a6347c07b70a33a3069">lemons::dsp::SynthBase&lt; SampleType &gt;</a>
@@ -552,9 +543,6 @@ $(function() {
 <li>getValueForString()
 : <a class="el" href="classlemons_1_1plugin_1_1_typed_parameter.html#ab115e4682d29dba03b949c7aace71f7d">lemons::plugin::TypedParameter&lt; ValueType &gt;</a>
 </li>
-<li>getValueTreeType()
-: <a class="el" href="structlemons_1_1serializing_1_1_serializable_data.html#a000ac8c6619c677fbe9f1bcc68022399">lemons::serializing::SerializableData</a>
-</li>
 <li>getVersion()
 : <a class="el" href="classlemons_1_1plugin_1_1_processor_base.html#ac86f6d1b4bb73959f90c9b80061b77cf">lemons::plugin::ProcessorBase</a>
 </li>
@@ -565,7 +553,7 @@ $(function() {
 : <a class="el" href="structlemons_1_1_dimensions.html#a983cfe964151fc65a3561fdca5532612">lemons::Dimensions</a>
 </li>
 <li>GPSLocation()
-: <a class="el" href="classlemons_1_1_g_p_s_location.html#a90a9e1253e7133d1b0173bd7148b1cff">lemons::GPSLocation</a>
+: <a class="el" href="classlemons_1_1_g_p_s_location.html#a92607086ab5c40a5c30927d4336a2fef">lemons::GPSLocation</a>
 </li>
 <li>gravityChanged()
 : <a class="el" href="structlemons_1_1_device_motion_1_1_listener.html#a26cd203521fa3258187221cbd0244a9a">lemons::DeviceMotion::Listener</a>
@@ -580,7 +568,7 @@ $(function() {
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Jan 5 2022 00:49:01 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Jan 6 2022 00:51:33 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>
