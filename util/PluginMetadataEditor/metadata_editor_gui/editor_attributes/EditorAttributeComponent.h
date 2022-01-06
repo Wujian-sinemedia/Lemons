@@ -5,6 +5,8 @@
 namespace lemons::PluginMetadataEditor::gui
 {
 
+using namespace lemons::gui::components;
+
 using namespace lemons::gui;
 
 class EditorAttributeComponent final : public juce::Component

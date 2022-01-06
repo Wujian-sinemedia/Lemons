@@ -2,11 +2,6 @@ if (LEMONS_BUILD_DOCS)
 	add_subdirectory (doxygen)
 endif()
 
-if (LEMONS_BUILD_TESTS)
-	enable_testing()
-    add_subdirectory (UnitTestRunner)
-endif()
-
 # if (LEMONS_BUILD_TEST_LAB)
 # 	add_subdirectory (TestLab)
 # endif()
@@ -21,4 +16,10 @@ endif()
 
 if (LEMONS_BUILD_METADATA_EDITOR)
 	add_subdirectory (PluginMetadataEditor)
+endif()
+
+if (LEMONS_BUILD_TESTS)
+	enable_testing()
+    add_subdirectory (UnitTestRunner)
+    include (cmake/tests/ConfigureCmakeTests.cmake)
 endif()
