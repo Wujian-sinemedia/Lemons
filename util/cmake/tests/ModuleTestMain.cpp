@@ -1,4 +1,5 @@
 #include <@moduleName@/@moduleName@.h>
+#include <cstdlib>
 
 
 int main (int, char**)
