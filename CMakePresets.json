@@ -134,6 +134,11 @@
       "execution": {
         "noTestsAction": "error",
         "timeout": 1800
+      },
+      "filter": {
+        "include": {
+          "name": "Lemons."
+        }
       }
     }
   ]

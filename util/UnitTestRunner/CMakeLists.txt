@@ -49,6 +49,6 @@ lemons_add_resources_folder (TARGET ${PROJECT_NAME} ASSET_FOLDER "${CPM_Lemons_S
 
 enable_testing()
 
-add_test (NAME UnitTests 
+add_test (NAME Lemons.UnitTests 
           COMMAND ${PROJECT_NAME} -f "logs/unit_tests.log" -i High
           WORKING_DIRECTORY "${Lemons_SOURCE_DIR}")

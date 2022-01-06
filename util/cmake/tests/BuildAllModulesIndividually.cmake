@@ -44,7 +44,7 @@ foreach (moduleName ${lemons_all_modules})
 endforeach()
 
 
-add_test (NAME BuildEachJuceModuleIndividually
+add_test (NAME Lemons.BuildEachJuceModuleIndividually
 		  COMMAND "${CMAKE_COMMAND}" --build "${Lemons_BINARY_DIR}" --target LemonsModuleIndividualTests
 		  WORKING_DIRECTORY "${Lemons_SOURCE_DIR}")
 

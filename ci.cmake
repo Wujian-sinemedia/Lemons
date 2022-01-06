@@ -33,7 +33,7 @@ ctest_configure (OPTIONS LEMONS_BUILD_TESTS=ON)
 ctest_build (CONFIGURATION Debug
 			 TARGET UnitTestRunner)
 
-ctest_test()
+ctest_test (INCLUDE "Lemons.")
 
 ctest_coverage()
 

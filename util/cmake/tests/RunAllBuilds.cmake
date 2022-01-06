@@ -7,6 +7,6 @@ if (NOT Python3_Interpreter_FOUND)
 endif()
 
 
-add_test (NAME RunAllBuilds 
+add_test (NAME Lemons.RunAllBuilds 
           COMMAND Python3::Interpreter "${CMAKE_CURRENT_LIST_DIR}/RunAllBuilds.py" "${Lemons_SOURCE_DIR}"
           WORKING_DIRECTORY "${Lemons_SOURCE_DIR}")
