@@ -32,5 +32,4 @@ configure_file ("${CMAKE_CURRENT_LIST_DIR}/RunCmakeUnitTests.cmake" "RunCmakeUni
 			    @ONLY
 			    NEWLINE_STYLE UNIX)
 
-add_test (NAME CmakeUnitTests
-		  COMMAND "${CMAKE_COMMAND}" -P "${CMAKE_CURRENT_BINARY_DIR}/RunCmakeUnitTests.cmake")
+include ("${CMAKE_CURRENT_BINARY_DIR}/RunCmakeUnitTests.cmake")

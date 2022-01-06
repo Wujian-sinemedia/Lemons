@@ -19,6 +19,9 @@ def get_cmake_generator_for_system():
 
 
 def execute_command (command):
+
+	print ("Executing command: {c}".format (c=command))
+
 	cp = subprocess.run (command, stderr=subprocess.PIPE, stdout=subprocess.PIPE, text=True, shell=True)
 
 	if cp.returncode != 0:
@@ -49,7 +52,7 @@ if __name__ == "__main__":
 
 	# to do: add editor presets
 
-	for preset_name in "docs", "tests", "utils":
+	for preset_name in "docs", "utils":
 		print ("Configure preset: {p}".format (p=preset_name))
 		execute_command ("cmake --preset {p} -G {g}".format(p=preset_name, g=generator))
 
@@ -59,7 +62,7 @@ if __name__ == "__main__":
 
 	# test running cmake from every subdirectory with a project() command
 	# to do: add templates, metadata editor
-	for subdir in "util/doxygen", "util/UnitTestRunner", "util/CommandLineUtils", "util/CommandLineUtils/FontSerializer", "util/CommandLineUtils/KeyFileGenerator", "util/CommandLineUtils/RSAKeyGenerator", "util/CommandLineUtils/TranslationFileGenerator":
+	for subdir in "util/doxygen", "util/UnitTestRunner", "util/CommandLineUtils":
 		subdir_path = os.path.join (args.lemons_root, subdir)
 
 		os.chdir (subdir_path)

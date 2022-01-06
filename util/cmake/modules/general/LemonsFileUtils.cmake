@@ -55,7 +55,7 @@ function (lemons_subdir_list)
 
   	foreach (child ${children})
   		if (LEMONS_SUBDIR_FILES)
-			if (EXISTS "${dir}/${child}" AND NOT IS_DIRECTORY "${dir}/${child}")
+			if (EXISTS "${dir}/${child}" AND NOT IS_DIRECTORY "${dir}/${child}" AND NOT "${child}" STREQUAL ".DS_Store")
 				list (APPEND dirlist "${child}")
 			endif()
   		else()

@@ -6,3 +6,4 @@ logs/
 __pycache__/
 .github/docs
 CMakeUserPresets.json
+cpm-package-lock.cmake

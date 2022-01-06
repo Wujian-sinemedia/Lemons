@@ -16,10 +16,16 @@ endif()
 
 #
 
-add_subdirectory (KeyFileGenerator)
-add_subdirectory (RSAKeyGenerator)
-add_subdirectory (FontSerializer)
-add_subdirectory (TranslationFileGenerator)
+add_custom_target (${PROJECT_NAME} COMMENT "Building command line utils...")
 
-add_custom_target (CommandLineUtils COMMENT "Building command line utils...")
-add_dependencies (CommandLineUtils KeyFileGenerator RSAKeyGenerator FontSerializer TranslationFileGenerator)
+macro (_lemons_add_cmd_line_util subprojectName)
+    add_subdirectory (${subprojectName})
+    add_dependencies (${PROJECT_NAME} ${subprojectName})
+endmacro()
+
+#
+
+_lemons_add_cmd_line_util (KeyFileGenerator)
+_lemons_add_cmd_line_util (RSAKeyGenerator)
+_lemons_add_cmd_line_util (FontSerializer)
+_lemons_add_cmd_line_util (TranslationFileGenerator)

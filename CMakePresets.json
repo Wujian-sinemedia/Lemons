@@ -8,8 +8,19 @@
   "configurePresets": [
     {
       "name": "base",
+      "hidden": true,
       "binaryDir": "${sourceDir}/Builds/${presetName}",
-      "hidden": true
+      "warnings": {
+        "deprecated": true,
+        "unusedCli": false,
+        "systemVars": true
+      },
+      "errors": {
+        "deprecated": true
+      },
+      "debug": {
+        "output": true
+      }
     },
     {
       "name": "docs",
@@ -117,10 +128,12 @@
       "configurePreset": "tests",
       "configuration": "Debug",
       "output": {
-        "outputLogFile": "${sourceDir}/logs/unitTests.log"
+        "outputLogFile": "${sourceDir}/logs/unitTests.log",
+        "verbosity": "verbose"
       },
       "execution": {
-        "noTestsAction": "error"
+        "noTestsAction": "error",
+        "timeout": 1800
       }
     }
   ]
