@@ -44,5 +44,8 @@ macro (_lemons_add_module_subcategory target)
     foreach (folder ${moduleFolders})
         juce_add_module ("${CMAKE_CURRENT_LIST_DIR}/${folder}")
         target_link_libraries (${target} INTERFACE ${folder})
+
+        list (APPEND lemons_all_modules "${folder}")
+        set (lemons_all_modules ${lemons_all_modules} CACHE INTERNAL "")
     endforeach()
 endmacro()
