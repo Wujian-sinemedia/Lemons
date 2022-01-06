@@ -87,5 +87,6 @@ function (lemons_add_resources_folder)
     juce_add_bundle_resources_directory (${LEMONS_RSRC_FLDR_TARGET} ${dest_folder})
 
     target_link_libraries (${LEMONS_RSRC_FLDR_TARGET} PRIVATE ${resourcesTarget})
+    target_compile_definitions (${LEMONS_RSRC_FLDR_TARGET} PRIVATE LEMONS_HAS_BINARY_DATA=1)
     
 endfunction()

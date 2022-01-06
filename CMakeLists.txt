@@ -5,7 +5,7 @@ cmake_minimum_required (VERSION 3.21 FATAL_ERROR)
 project (Lemons VERSION 0.1.0 LANGUAGES CXX C)
 
 
-# Options and settings
+#
 
 set (CMAKE_CXX_STANDARD 20 CACHE STRING "C++ standard version")
 mark_as_advanced (FORCE CMAKE_CXX_STANDARD)
@@ -53,8 +53,7 @@ set (LEMONS_JUCE_BRANCH "develop" CACHE STRING "The branch of the JUCE GitHub re
 
 mark_as_advanced (FORCE LEMONS_CREATE_AGGREGATE_TARGETS LEMONS_JUCE_BRANCH)
 
-
-# General configuration
+# 
 
 set_property (GLOBAL PROPERTY USE_FOLDERS YES)
 set_property (GLOBAL PROPERTY PREDEFINED_TARGETS_FOLDER "Targets")
@@ -64,17 +63,11 @@ set (CMAKE_EXPORT_COMPILE_COMMANDS TRUE CACHE INTERNAL "")
 set (CMAKE_CXX_STANDARD_REQUIRED   ON CACHE INTERNAL "")
 set (CMAKE_INCLUDE_CURRENT_DIR     ON CACHE INTERNAL "")
 
-# in case any subprojects we include as subdirs try to include Lemons again via CPM...
 set (CPM_Lemons_SOURCE "${CMAKE_CURRENT_LIST_DIR}" CACHE INTERNAL "")
-
-
-# Add CMake modules
-
-include ("${CMAKE_CURRENT_LIST_DIR}/AddCMakeModules.cmake")
 
 #
 
-include (LemonsDefaultPlatformSettings)
+include ("${CMAKE_CURRENT_LIST_DIR}/AddCMakeModules.cmake")
 
 if (LEMONS_ENABLE_INTEGRATIONS)
 	include (LemonsCcacheIntegration)
