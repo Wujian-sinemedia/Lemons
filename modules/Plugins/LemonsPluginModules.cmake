@@ -1,11 +1,6 @@
 #[[
 Building blocks for audio plugins
 
-## Includes:
-- LemonsCommonModules
-- LemonsAudioModules
-- LemonsPluginUtilities
-
 ## Targets:
 - LemonsPluginModules
 
@@ -14,9 +9,7 @@ Building blocks for audio plugins
 
 include_guard (GLOBAL)
 
-include (LemonsCommonModules)
-include (LemonsAudioModules)
 include (LemonsPluginUtilities)
+include (LemonsJuceModuleUtilities)
 
-_lemons_add_module_subcategory (LemonsPluginModules)
-target_link_libraries (LemonsPluginModules INTERFACE LemonsCommonModules LemonsAudioModules)
+_lemons_add_module_subcategory (TARGET LemonsPluginModules CATEGORY_DEPS LemonsCommonModules LemonsAudioModules)

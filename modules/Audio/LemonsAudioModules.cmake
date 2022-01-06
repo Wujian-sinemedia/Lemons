@@ -1,9 +1,6 @@
 #[[
 JUCE modules for audio and DSP
 
-## Includes:
-- LemonsCommonModules
-
 ## Targets:
 - LemonsAudioModules
 
@@ -12,9 +9,9 @@ JUCE modules for audio and DSP
 
 include_guard (GLOBAL)
 
-include (LemonsCommonModules)
+include (LemonsJuceModuleUtilities)
 
-_lemons_add_module_subcategory (LemonsAudioModules)
+_lemons_add_module_subcategory (TARGET LemonsAudioModules CATEGORY_DEPS LemonsCommonModules)
 
 CPMAddPackage (
         NAME MTS-ESP
@@ -22,5 +19,3 @@ CPMAddPackage (
         GIT_TAG origin/main)
 
 target_include_directories (lemons_midi INTERFACE "${MTS-ESP_SOURCE_DIR}/Client")
-
-target_link_libraries (LemonsAudioModules INTERFACE LemonsCommonModules)

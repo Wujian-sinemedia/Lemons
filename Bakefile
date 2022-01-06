@@ -16,6 +16,7 @@ Clean:
 * util/doxygen/Builds/
 * docs/
 * .github/docs/
+* util/CommandLineUtils/Builds/
 * util/cmake/modules/assets/scripts/__pycache__/
 * util/doxygen/scripts/__pycache__
 

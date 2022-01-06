@@ -41,7 +41,7 @@ target_compile_definitions (${PROJECT_NAME} PUBLIC
     JUCE_DISPLAY_SPLASH_SCREEN=0
     LEMONS_UNIT_TESTS=1)
 
-target_link_libraries (${PROJECT_NAME} PUBLIC AllLemonsModules)
+target_link_libraries (${PROJECT_NAME} PUBLIC Lemons::AllLemonsModules)
 
 lemons_add_resources_folder (TARGET ${PROJECT_NAME} ASSET_FOLDER "${CPM_Lemons_SOURCE}/util/assets")
 

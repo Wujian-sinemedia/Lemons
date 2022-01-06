@@ -4,8 +4,8 @@ set (CMAKE_OSX_DEPLOYMENT_TARGET "9.3" CACHE INTERNAL "")
 
 set (CMAKE_XCODE_ATTRIBUTE_ONLY_ACTIVE_ARCH NO CACHE INTERNAL "")
 
-enable_language (OBJC)
 enable_language (OBJCXX)
+enable_language (OBJC)
 
 
 option (LEMONS_IOS_SIMULATOR "Build for an iOS simulator, rather than a real device" ON)

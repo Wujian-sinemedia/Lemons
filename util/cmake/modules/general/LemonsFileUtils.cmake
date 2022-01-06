@@ -21,6 +21,7 @@ If the `FILES` flag is present, the function returns a list of files that are in
 
 include_guard (GLOBAL)
 
+include (LemonsCmakeDevTools)
 
 function (lemons_subdir_list)
 
@@ -29,13 +30,7 @@ function (lemons_subdir_list)
 
 	cmake_parse_arguments (LEMONS_SUBDIR "${options}" "${oneValueArgs}" "" ${ARGN})
 
-	if (NOT LEMONS_SUBDIR_RESULT)
-		message (FATAL_ERROR "Result variable not defined in call to ${CMAKE_CURRENT_FUNCTION}!")
-	endif()
-
-	if (NOT LEMONS_SUBDIR_DIR)
-		message (FATAL_ERROR "Directory to search not defined in call to ${CMAKE_CURRENT_FUNCTION}!")
-	endif()
+	lemons_require_function_arguments (LEMONS_SUBDIR RESULT DIR)
 
 	cmake_path (IS_ABSOLUTE LEMONS_SUBDIR_DIR dir_path_is_absolute)
 

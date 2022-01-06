@@ -1,11 +1,6 @@
 #[[
 Utilities for adding custom JUCE modules to projects.
 
-## Includes:
-- LemonsFileUtils
-- LemonsJuceUtilities
-
-
 ## Function:
 
 ### lemons_add_juce_modules
@@ -21,6 +16,7 @@ include_guard (GLOBAL)
 
 include (LemonsFileUtils)
 include (LemonsJuceUtilities)
+include (LemonsCmakeDevTools)
 
 #
 
@@ -34,18 +30,36 @@ endfunction()
 
 #
 
-macro (_lemons_add_module_subcategory target)
-    if (NOT TARGET ${target})
-        add_library (${target} INTERFACE)
+function (_lemons_add_module_subcategory)
+
+    cmake_parse_arguments (LEMONS_SUBMOD "" "TARGET" "CATEGORY_DEPS" ${ARGN})
+
+    lemons_require_function_arguments (LEMONS_SUBMOD TARGET)
+
+    if (NOT TARGET ${LEMONS_SUBMOD_TARGET})
+        add_library (${LEMONS_SUBMOD_TARGET} INTERFACE)
     endif()
 
     lemons_subdir_list (RESULT moduleFolders DIR "${CMAKE_CURRENT_LIST_DIR}")
 
     foreach (folder ${moduleFolders})
-        juce_add_module ("${CMAKE_CURRENT_LIST_DIR}/${folder}")
-        target_link_libraries (${target} INTERFACE ${folder})
+        if (TARGET ${folder})
+            message (AUTHOR_WARNING "Duplicate juce module found: ${folder}")
+            continue()
+        endif()
+
+        juce_add_module ("${CMAKE_CURRENT_LIST_DIR}/${folder}" ALIAS_NAMESPACE Lemons)
+        target_link_libraries (${LEMONS_SUBMOD_TARGET} INTERFACE Lemons::${folder})
 
         list (APPEND lemons_all_modules "${folder}")
-        set (lemons_all_modules ${lemons_all_modules} CACHE INTERNAL "")
     endforeach()
-endmacro()
+
+    set (lemons_all_modules ${lemons_all_modules} CACHE INTERNAL "")
+
+    foreach (categoryDependancy ${LEMONS_SUBMOD_CATEGORY_DEPS})
+        include (${categoryDependancy})
+        target_link_libraries (${LEMONS_SUBMOD_TARGET} INTERFACE Lemons::${categoryDependancy})
+    endforeach()
+
+    add_library (Lemons::${LEMONS_SUBMOD_TARGET} ALIAS ${LEMONS_SUBMOD_TARGET})
+endfunction()

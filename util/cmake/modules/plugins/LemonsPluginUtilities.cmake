@@ -1,10 +1,6 @@
 #[[
 Utilities for audio plugins.
 
-## Includes:
-- LemonsJuceUtilities
-- LemonsAAXUtils
-
 ## Include-time actions:
 Determines the list of all available plugin formats.
 
@@ -56,7 +52,7 @@ if (NOT IOS)
         list (APPEND available_formats AU)
     endif()
 
-    if (TARGET AAXSDK)
+    if (TARGET Lemons::AAXSDK)
         list (APPEND available_formats AAX)
     endif()
 
@@ -91,7 +87,7 @@ function (lemons_configure_juce_plugin)
                                      GUID "${LEMONS_PLUGIN_AAX_GUID}")
     endif()
 
-    target_link_libraries (${LEMONS_PLUGIN_TARGET} PUBLIC LemonsPluginModules)
+    target_link_libraries (${LEMONS_PLUGIN_TARGET} PUBLIC Lemons::LemonsPluginModules)
 
     target_compile_definitions (${LEMONS_PLUGIN_TARGET} PUBLIC JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=0)
 

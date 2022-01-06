@@ -1,12 +1,6 @@
 #[[
 General JUCE CMake utilities.
 
-## Includes:
-- LemonsGetCPM
-- LemonsAssetsHelpers
-- LemonsDefaultPlatformSettings
-
-
 ## Include-time actions:
 This module adds JUCE using CPM.cmake. By default the tip of JUCE's develop branch is added.
 
@@ -40,6 +34,7 @@ include_guard (GLOBAL)
 
 include (LemonsGetCPM)
 include (LemonsDefaultPlatformSettings)
+include (LemonsCmakeDevTools)
 
 #
 
@@ -88,9 +83,7 @@ function (lemons_configure_juce_target)
 
     cmake_parse_arguments (LEMONS_TARGETCONFIG "${options}" "${oneValueArgs}" "" ${ARGN})
 
-    if (NOT LEMONS_TARGETCONFIG_TARGET)
-        message (FATAL_ERROR "Target name not specified in call to ${CMAKE_CURRENT_FUNCTION}!")
-    endif()
+    lemons_require_function_arguments (LEMONS_TARGETCONFIG TARGET)
 
     target_compile_definitions (${LEMONS_TARGETCONFIG_TARGET} PUBLIC
             JUCE_VST3_CAN_REPLACE_VST2=0
@@ -106,7 +99,7 @@ function (lemons_configure_juce_target)
             _CRT_SECURE_NO_WARNINGS=1)
 
     target_link_libraries (${LEMONS_TARGETCONFIG_TARGET} PUBLIC
-        LemonsCommonModules
+        Lemons::LemonsCommonModules
         juce::juce_recommended_config_flags
         juce::juce_recommended_lto_flags
         juce::juce_recommended_warning_flags)

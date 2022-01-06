@@ -1,9 +1,6 @@
 #[[
 Utilities for AAX plugins.
 
-## Includes:
-- LemonsJuceUtilities
-
 ## Include-time actions:
 Attempts to configure a target to build the AAX SDK based on the path you've provided to LEMONS_AAX_SDK_PATH. 
 This module may return early if the AAXSDK target cannot be configured correctly, in which case the AAXSDK target will not exist and the functions provided by this module may not exist.
@@ -131,6 +128,8 @@ if (NOT TARGET AAXSDK)
 	return()
 endif()
 
+add_library (Lemons::AAXSDK ALIAS AAXSDK)
+
 
 include (LemonsJuceUtilities)
 juce_set_aax_sdk_path ("${LEMONS_AAX_SDK_PATH}")
@@ -245,7 +244,7 @@ function (lemons_configure_aax_plugin)
 
     set_target_properties (${LEMONS_AAX_TARGET} PROPERTIES OSX_ARCHITECTURES x86_64)
 
-    add_dependencies (${LEMONS_AAX_TARGET} AAXSDK)
+    add_dependencies (${LEMONS_AAX_TARGET} Lemons::AAXSDK)
 
     if (LEMONS_AAX_PAGETABLE_FILE)
         cmake_path (IS_ABSOLUTE LEMONS_AAX_PAGETABLE_FILE pagetable_path_is_absolute)

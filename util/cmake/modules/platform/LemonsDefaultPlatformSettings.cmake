@@ -1,9 +1,6 @@
 #[[
 Default settings and configuration for a CMake build on the OS you're currently running.
 
-## Includes:
-- LinuxLSBInfo
-
 ## Include-time actions:
 Sets appropriate platform-specific settings for the current build.
 

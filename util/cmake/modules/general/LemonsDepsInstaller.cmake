@@ -1,12 +1,15 @@
 include_guard (GLOBAL)
 
 include (LemonsGetCPM)
+include (LemonsCmakeDevTools)
 
 function (lemons_install_dependencies)
 
 	set (oneValueArgs DEPFILE CATEGORY)
 
 	cmake_parse_arguments (LEMONS_DEPS "" "${oneValueArgs}" "")
+
+	lemons_require_function_arguments (LEMONS_DEPS DEPFILE)
 
 	if (NOT LEMONS_DEPS_DEPFILE)
 		message (FATAL_ERROR "Depfile path not specified in call to ${CMAKE_CURRENT_FUNCTION}!")

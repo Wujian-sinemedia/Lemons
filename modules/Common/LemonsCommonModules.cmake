@@ -1,9 +1,6 @@
 #[[
 Common building blocks and utilities
 
-## Includes:
-- LemonsJuceModuleUtilities
-
 ## Targets:
 - LemonsCommonModules
 
@@ -19,7 +16,7 @@ include_guard (GLOBAL)
 
 include (LemonsJuceModuleUtilities)
 
-_lemons_add_module_subcategory (LemonsCommonModules)
+_lemons_add_module_subcategory (TARGET LemonsCommonModules)
 
 target_compile_definitions (lemons_core INTERFACE 
         LEMONS_VERSION_MAJOR="${Lemons_VERSION_MAJOR}"

@@ -1,10 +1,6 @@
 #[[
 Utilities for configuring JUCE GUI apps.
 
-## Includes:
-- LemonsJuceUtilities
-
-
 ## Functions:
 
 ### lemons_configure_headless_app
@@ -45,12 +41,12 @@ endmacro()
 
 function (lemons_configure_headless_app)
     _lemons_configure_app_internal (${ARGN})
+    target_link_libraries (${LEMONS_APP_TARGET} PUBLIC Lemons::LemonsCommonModules)
 endfunction()
 
 #
 
 function (lemons_configure_juce_app)
     _lemons_configure_app_internal (${ARGN})
-
-    target_link_libraries (${LEMONS_APP_TARGET} PUBLIC LemonsAppModules)
+    target_link_libraries (${LEMONS_APP_TARGET} PUBLIC Lemons::LemonsAppModules)
 endfunction()

@@ -1,9 +1,6 @@
 #[[
 Building blocks for GUIs
 
-## Includes:
-- LemonsJuceModuleUtilities
-
 ## Targets:
 - LemonsGUIModules
 
@@ -12,7 +9,6 @@ Building blocks for GUIs
 
 include_guard (GLOBAL)
 
-include (LemonsCommonModules)
+include (LemonsJuceModuleUtilities)
 
-_lemons_add_module_subcategory (LemonsGUIModules)
-target_link_libraries (LemonsGUIModules INTERFACE LemonsCommonModules)
+_lemons_add_module_subcategory (TARGET LemonsGUIModules CATEGORY_DEPS LemonsCommonModules)

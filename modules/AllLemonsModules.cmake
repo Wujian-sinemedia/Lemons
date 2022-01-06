@@ -1,10 +1,6 @@
 #[[
 Includes all available Lemons JUCE modules in your build, and provides a target to allow linking to all of them at once.
 
-## Includes:
-- LemonsAppModules
-- LemonsPluginModules
-
 ## Targets:
 - AllLemonsModules
 
@@ -17,4 +13,6 @@ include (LemonsPluginModules)
 
 
 add_library (AllLemonsModules INTERFACE)
-target_link_libraries (AllLemonsModules INTERFACE LemonsPluginModules LemonsAppModules)
+target_link_libraries (AllLemonsModules INTERFACE Lemons::LemonsPluginModules Lemons::LemonsAppModules)
+
+add_library (Lemons::AllLemonsModules ALIAS AllLemonsModules)

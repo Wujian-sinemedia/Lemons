@@ -42,4 +42,4 @@ lemons_configure_juce_app (TARGET ${PROJECT_NAME})
 
 target_sources (${PROJECT_NAME} PRIVATE "${CMAKE_CURRENT_LIST_DIR}/Main.cpp")
 
-target_link_libraries (${PROJECT_NAME} PRIVATE metadata_editor_gui AllLemonsModules)
+target_link_libraries (${PROJECT_NAME} PRIVATE metadata_editor_gui Lemons::AllLemonsModules)
