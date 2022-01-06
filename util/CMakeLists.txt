@@ -9,6 +9,12 @@ if (LEMONS_ENABLE_INTEGRATIONS)
 	endif()
 endif()
 
+option (LEMONS_CONFIGURE_CPACK "Configure default CPack settings" OFF)
+
+if (LEMONS_CONFIGURE_CPACK)
+	include (LemonsDefaultCpackSettings)
+endif()
+
 if (LEMONS_BUILD_DOCS)
 	add_subdirectory (doxygen)
 endif()
