@@ -33,6 +33,8 @@ foreach (moduleName ${lemons_all_modules})
 
 	juce_add_console_app (${moduleTestName})
 
+	lemons_configure_juce_target (TARGET ${moduleTestName})
+
 	target_sources (${moduleTestName} PRIVATE "${CMAKE_CURRENT_BINARY_DIR}/${generated_file}")
 
 	target_link_libraries (${moduleTestName} PUBLIC ${moduleName})
