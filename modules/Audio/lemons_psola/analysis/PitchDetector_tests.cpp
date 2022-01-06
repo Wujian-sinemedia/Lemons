@@ -81,7 +81,7 @@ private:
 
 			const auto estFreq = detector.detectPitch (storage);
 
-			expectWithinAbsoluteError (estFreq, correctFreq, 15.f);
+			expectWithinAbsoluteError (estFreq, correctFreq, 17.f);
 
 			expectWithinAbsoluteError (math::freqToMidi (estFreq),
 			                           math::freqToMidi (correctFreq),

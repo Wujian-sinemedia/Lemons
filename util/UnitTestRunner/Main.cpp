@@ -26,7 +26,7 @@ int main (int argc, char** argv)
 {
 	lemons::ArgParser args { argc, argv };
 
-	args.addArgument ("--intensity|-i", false, "Testing intensity level", "Medium", { "Low", "Medium", "High" });
+	args.addArgument ("--intensity|-i", false, "Testing intensity level", "Low", { "Low", "Medium", "High" });
 	args.addArgument ("--file|-f", false, "Path to the log output file");
 	args.addArgument ("--seed|-s", false, "Random seed");
 	args.addArgument ("--test|-t", false, "Run a single named test");
