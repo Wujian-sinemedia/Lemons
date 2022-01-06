@@ -1,11 +1,6 @@
 #[[
 Utilities for adding binary data targets to JUCE projects.
 
-## Includes:
-- LemonsJuceUtilities
-- LemonsTranslationFileGeneration
-
-
 ## Function:
 
 ### lemons_add_resources_folder {#lemons_add_resources_folder}
@@ -28,6 +23,9 @@ If the `TRANSLATIONS` option is present, then this will call [lemons_generate_tr
 include_guard (GLOBAL)
 
 include (LemonsJuceUtilities)
+include (LemonsCmakeDevTools)
+
+lemons_warn_if_not_processing_project()
 
 
 function (lemons_add_resources_folder)
@@ -37,13 +35,7 @@ function (lemons_add_resources_folder)
 
     cmake_parse_arguments (LEMONS_RSRC_FLDR "${options}" "${oneValueArgs}" "" ${ARGN})
 
-    if (NOT LEMONS_RSRC_FLDR_TARGET)
-        message (FATAL_ERROR "Target name not specified in call to ${CMAKE_CURRENT_FUNCTION}!")
-    endif()
-
-    if (NOT LEMONS_RSRC_FLDR_ASSET_FOLDER)
-        message (FATAL_ERROR "Folder name not specified in call to ${CMAKE_CURRENT_FUNCTION}!")
-    endif()
+    lemons_require_function_arguments (LEMONS_RSRC_FLDR TARGET ASSET_FOLDER)
 
     cmake_path (IS_ABSOLUTE LEMONS_RSRC_FLDR_ASSET_FOLDER folder_path_is_absolute)
 
@@ -82,10 +74,12 @@ function (lemons_add_resources_folder)
             message (AUTHOR_WARNING "Error creating resources target.")
             return()
         endif()
+
+        add_library (${LEMONS_RSRC_FLDR_TARGET}::${resourcesTarget} ALIAS ${resourcesTarget})
     endif()
 
     juce_add_bundle_resources_directory (${LEMONS_RSRC_FLDR_TARGET} ${dest_folder})
 
-    target_link_libraries (${LEMONS_RSRC_FLDR_TARGET} PUBLIC ${resourcesTarget})
+    target_link_libraries (${LEMONS_RSRC_FLDR_TARGET} PUBLIC ${LEMONS_RSRC_FLDR_TARGET}::${resourcesTarget})
     
 endfunction()

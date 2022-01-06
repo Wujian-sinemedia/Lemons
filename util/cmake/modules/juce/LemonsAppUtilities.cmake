@@ -25,6 +25,9 @@ include_guard (GLOBAL)
 
 include (LemonsJuceUtilities)
 include (lemons_internal)
+include (LemonsCmakeDevTools)
+
+lemons_warn_if_not_processing_project()
 
 #
 

@@ -56,6 +56,10 @@ I recommend you create a `YourBrand.cmake` module in some shared location that e
 
 include_guard (GLOBAL)
 
+include (LemonsCmakeDevTools)
+
+lemons_warn_if_not_processing_project()
+
 #
 
 if (IOS OR NOT (APPLE OR WIN32))
@@ -170,18 +174,7 @@ function (lemons_configure_aax_plugin_signing)
 
     cmake_parse_arguments (LEMONS_AAX "" "${oneValueArgs}" "" ${ARGN})
 
-    if (NOT LEMONS_AAX_TARGET)
-        message (FATAL_ERROR "Target name not specified in call to ${CMAKE_CURRENT_FUNCTION}!")
-    endif()
-
-    if (NOT LEMONS_AAX_GUID)
-        message (FATAL_ERROR "GUID must be specified in order to enable AAX signing!")
-    endif()
-
-    if (NOT LEMONS_AAX_ACCOUNT)
-        message (WARNING "ACCOUNT must be specified in order to enable AAX signing!")
-        return()
-    endif()
+    lemons_require_function_arguments (LEMONS_AAX TARGET GUID ACCOUNT)
 
     find_program (WRAPTOOL_PROGRAM wraptool)
 
@@ -191,25 +184,14 @@ function (lemons_configure_aax_plugin_signing)
     endif()
 
     if (APPLE)
-        if (NOT LEMONS_AAX_SIGNID)
-            message (WARNING "SIGNID is required to enable AAX signing on Mac!")
-            return()
-        endif()
-
+        lemons_require_function_arguments (LEMONS_AAX SIGNID)
+        
         add_custom_command (TARGET ${LEMONS_AAX_TARGET} POST_BUILD VERBATIM
                             COMMAND "${WRAPTOOL_PROGRAM}" 
                             ARGS sign --verbose --dsig1-compat off --account "${LEMONS_AAX_ACCOUNT}" --wcguid "${LEMONS_AAX_GUID}" --signid "${LEMONS_AAX_SIGNID}" --in "$<TARGET_PROPERTY:${aaxTarget},JUCE_PLUGIN_ARTEFACT_FILE>" --out "$<TARGET_PROPERTY:${aaxTarget},JUCE_PLUGIN_ARTEFACT_FILE>"
                             COMMENT "Signing AAX...")
     elseif (WIN32)
-        if (NOT LEMONS_AAX_KEYFILE)
-            message (WARNING "KEYFILE is required to enable AAX signing on Windows!")
-            return()
-        endif()
-
-        if (NOT LEMONS_AAX_KEYPASSWORD)
-            message (WARNING "KEYPASSWORD is required to enable AAX signing on Windows!")
-            return()
-        endif()
+        lemons_require_function_arguments (LEMONS_AAX KEYFILE KEYPASSWORD)
 
         add_custom_command (TARGET ${LEMONS_AAX_TARGET} POST_BUILD VERBATIM
                             COMMAND "${WRAPTOOL_PROGRAM}" 
@@ -229,9 +211,7 @@ function (lemons_configure_aax_plugin)
 
     cmake_parse_arguments (LEMONS_AAX "${options}" "${oneValueArgs}" "" ${ARGN})
 
-    if (NOT LEMONS_AAX_TARGET)
-        message (FATAL_ERROR "Target name not specified in call to ${CMAKE_CURRENT_FUNCTION}!")
-    endif()
+    lemons_require_function_arguments (LEMONS_AAX TARGET)
 
     if (NOT TARGET ${LEMONS_AAX_TARGET})
         message (WARNING "AAX target does not exist!")

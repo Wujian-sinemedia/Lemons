@@ -1,8 +1,6 @@
 include_guard (GLOBAL)
 
 if (NOT COMMAND CPMAddPackage)
-    # fetch the CPM.cmake script
-
 	if (NOT DEFINED ENV{CPM_SOURCE_CACHE})
 	    if (CPM_Lemons_SOURCE)
 	        set (ENV{CPM_SOURCE_CACHE} "${CPM_Lemons_SOURCE}/Cache")

@@ -32,10 +32,13 @@ include_guard (GLOBAL)
 
 include (LemonsJuceUtilities)
 include (lemons_internal)
+include (LemonsCmakeDevTools)
 
 if (LEMONS_AAX_SDK_PATH AND NOT IOS AND (APPLE OR WIN32))
     include (LemonsAAXUtils)
 endif()
+
+lemons_warn_if_not_processing_project()
 
 #
 
