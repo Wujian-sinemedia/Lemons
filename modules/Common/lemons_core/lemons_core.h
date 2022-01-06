@@ -55,6 +55,21 @@
 #  define LEMONS_GUI_UNIT_TESTS 0
 #endif
 
+
+//==============================================================================
+/** Config: LEMONS_HAS_BINARY_DATA
+
+    Set this to 1 if your project has a juce BinaryData target.
+    The Lemons repo's cmake scripts set this automatically for you; if that's how you added the Lemons package, then you don't need to worry about setting this manually.
+ */
+#ifndef LEMONS_HAS_BINARY_DATA
+#  if __has_include("BinaryData/BinaryData.h")
+#    define LEMONS_HAS_BINARY_DATA 1
+#  else 
+#    define LEMONS_HAS_BINARY_DATA 0
+#  endif
+#endif
+
 /*=======================================================================*/
 
 
