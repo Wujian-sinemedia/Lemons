@@ -66,18 +66,17 @@ function (lemons_add_resources_folder)
         endif()
 
         file (GLOB_RECURSE files "${dest_folder}/*.*")
+        list (REMOVE_ITEM files ".DS_Store")
 
         if (NOT files)
             message (AUTHOR_WARNING "No files found for inclusion in resources target!")
             return()
         endif()
 
-        list (REMOVE_ITEM files ".DS_Store")
-
         juce_add_binary_data (${resourcesTarget} SOURCES ${files})
 
         set_target_properties (${resourcesTarget} PROPERTIES POSITION_INDEPENDENT_CODE TRUE)
-        target_compile_definitions (${resourcesTarget} INTERFACE LEMONS_HAS_BINARY_DATA=1)
+        target_compile_definitions (${resourcesTarget} PUBLIC LEMONS_HAS_BINARY_DATA=1)
 
         if (NOT TARGET ${resourcesTarget})
             message (AUTHOR_WARNING "Error creating resources target.")
@@ -87,6 +86,6 @@ function (lemons_add_resources_folder)
 
     juce_add_bundle_resources_directory (${LEMONS_RSRC_FLDR_TARGET} ${dest_folder})
 
-    target_link_libraries (${LEMONS_RSRC_FLDR_TARGET} INTERFACE ${resourcesTarget})
+    target_link_libraries (${LEMONS_RSRC_FLDR_TARGET} PRIVATE ${resourcesTarget})
     
 endfunction()

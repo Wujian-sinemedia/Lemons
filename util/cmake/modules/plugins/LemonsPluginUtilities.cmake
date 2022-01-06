@@ -83,7 +83,7 @@ function (lemons_configure_juce_plugin)
 
     lemons_configure_juce_target (${ARGN})
 
-    set (oneValueArgs TARGET AAX_PAGETABLE_FILE)
+    set (oneValueArgs TARGET AAX_PAGETABLE_FILE AAX_GUID)
     cmake_parse_arguments (LEMONS_PLUGIN "" "${oneValueArgs}" "" ${ARGN})
 
     set (aax_target "${LEMONS_PLUGIN_TARGET}_AAX")
@@ -103,6 +103,5 @@ function (lemons_configure_juce_plugin)
     if (TARGET ${stdaln_target})
         _lemons_add_to_all_apps_target (${stdaln_target})
     endif()
-
 endfunction()
 
