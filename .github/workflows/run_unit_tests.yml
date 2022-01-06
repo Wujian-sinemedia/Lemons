@@ -36,17 +36,17 @@ jobs:
         depfile_path: '${{ github.workspace }}/Depsfile'
 
     - name: Configure CMake
-      if: runner.os == 'darwin'
+      if: runner.os == 'macOS'
       shell: bash
       run: cmake --preset tests -G Xcode
 
     - name: Configure CMake
-      if: runner.os == 'windows'
+      if: runner.os == 'Windows'
       shell: bash
       run: cmake --preset tests -G "Visual Studio 16 2019"
 
     - name: Configure CMake
-      if: runner.os == 'linux'
+      if: runner.os == 'Linux'
       shell: bash
       run: cmake --preset tests -G Ninja
 
