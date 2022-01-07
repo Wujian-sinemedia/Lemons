@@ -3,16 +3,17 @@
 from argparse import ArgumentParser
 
 import os
-import sys
 import subprocess
+from sys import platform as os_name
+from shutil import rmtree
 
 
 def get_cmake_generator_for_system():
-	if sys.platform.startswith ("linux"):
+	if os_name.startswith ("linux"):
 		return "Ninja"
-	elif sys.platform == "darwin":
+	elif os_name == "darwin":
 		return "Xcode"
-	elif sys.platform == "win32" or sys.platform == "cygwin":
+	elif os_name == "win32" or "cygwin":
 		return "\"Visual Studio 16 2019\""
 	else:
 		raise Exception("Unknown OS!")
@@ -44,6 +45,9 @@ if __name__ == "__main__":
 		print ("Lemons root directory does not exist!")
 		exit (1)
 
+	# remove build dir, if it exists
+	rmtree (os.path.join (args.lemons_root, "Builds"), ignore_errors=True)
+
 	generator = get_cmake_generator_for_system()
 
 	os.chdir (args.lemons_root)
@@ -64,6 +68,9 @@ if __name__ == "__main__":
 	# to do: add templates, metadata editor
 	for subdir in "util/doxygen", "util/UnitTestRunner", "util/CommandLineUtils":
 		subdir_path = os.path.join (args.lemons_root, subdir)
+
+		# remove build dir, if it exists
+		rmtree (os.path.join (subdir_path, "Builds"), ignore_errors=True)
 
 		os.chdir (subdir_path)
 

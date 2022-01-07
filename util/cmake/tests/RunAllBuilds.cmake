@@ -2,7 +2,7 @@ include_guard (GLOBAL)
 
 find_package (Python3 COMPONENTS Interpreter)
 
-if (NOT Python3_Interpreter_FOUND)
+if (NOT TARGET Python3::Interpreter)
 	message (FATAL_ERROR "Python not found!")
 endif()
 
