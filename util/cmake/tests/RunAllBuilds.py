@@ -45,24 +45,7 @@ if __name__ == "__main__":
 		print ("Lemons root directory does not exist!")
 		exit (1)
 
-	# remove build dir, if it exists
-	rmtree (os.path.join (args.lemons_root, "Builds"), ignore_errors=True)
-
 	generator = get_cmake_generator_for_system()
-
-	os.chdir (args.lemons_root)
-
-	print ("Running CMake from Lemons root...")
-
-	# to do: add editor presets
-
-	for preset_name in "docs", "utils":
-		print ("Configure preset: {p}".format (p=preset_name))
-		execute_command ("cmake --preset {p} -G {g}".format(p=preset_name, g=generator))
-
-		print ("Build preset: {p}".format (p=preset_name))
-		execute_command ("cmake --build --preset {p}".format(p=preset_name))
-		
 
 	# test running cmake from every subdirectory with a project() command
 	# to do: add templates, metadata editor
