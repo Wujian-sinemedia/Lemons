@@ -132,6 +132,8 @@ if (NOT TARGET AAXSDK)
 	return()
 endif()
 
+set_target_properties (AAXSDK PROPERTIES OSX_ARCHITECTURES x86_64)
+
 add_library (Lemons::AAXSDK ALIAS AAXSDK)
 
 
@@ -206,10 +208,9 @@ endfunction()
 
 function (lemons_configure_aax_plugin)
 
-    set (options SIGN)
     set (oneValueArgs TARGET PAGETABLE_FILE)
 
-    cmake_parse_arguments (LEMONS_AAX "${options}" "${oneValueArgs}" "" ${ARGN})
+    cmake_parse_arguments (LEMONS_AAX "SIGN" "${oneValueArgs}" "" ${ARGN})
 
     lemons_require_function_arguments (LEMONS_AAX TARGET)
 
@@ -223,8 +224,6 @@ function (lemons_configure_aax_plugin)
     endif()
 
     set_target_properties (${LEMONS_AAX_TARGET} PROPERTIES OSX_ARCHITECTURES x86_64)
-
-    add_dependencies (${LEMONS_AAX_TARGET} Lemons::AAXSDK)
 
     target_link_libraries (${LEMONS_AAX_TARGET} PRIVATE Lemons::AAXSDK)
 

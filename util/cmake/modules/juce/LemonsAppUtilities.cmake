@@ -43,6 +43,7 @@ endmacro()
 
 function (lemons_configure_headless_app)
     _lemons_configure_app_internal (${ARGN})
+
     target_link_libraries (${LEMONS_APP_TARGET} PRIVATE Lemons::LemonsCommonModules)
 endfunction()
 
@@ -50,5 +51,6 @@ endfunction()
 
 function (lemons_configure_juce_app)
     _lemons_configure_app_internal (${ARGN})
+    
     target_link_libraries (${LEMONS_APP_TARGET} PRIVATE Lemons::LemonsAppModules)
 endfunction()
