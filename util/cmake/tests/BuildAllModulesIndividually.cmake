@@ -12,6 +12,12 @@ add_custom_target (LemonsModuleIndividualTests
 
 include (AllLemonsModules)
 
+get_target_property (lemons_all_modules Lemons::AllLemonsModules OriginalModuleNames)
+
+if (NOT lemons_all_modules)
+	message (AUTHOR_WARNING "Error retrieving original juce module names!")
+endif()
+
 foreach (moduleName ${lemons_all_modules})
 
 	if (NOT TARGET "Lemons::${moduleName}")

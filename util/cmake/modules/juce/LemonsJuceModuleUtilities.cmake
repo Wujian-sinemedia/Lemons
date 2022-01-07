@@ -30,6 +30,12 @@ endfunction()
 
 #
 
+define_property (TARGET 
+                 PROPERTY OriginalModuleNames INHERITED
+                 BRIEF_DOCS "Original juce module names"
+                 FULL_DOCS "The original names of the lemons juce module targets, without the Lemons:: prefix.")
+
+
 function (_lemons_add_module_subcategory)
 
     cmake_parse_arguments (LEMONS_SUBMOD "" "TARGET" "CATEGORY_DEPS" ${ARGN})
@@ -38,6 +44,10 @@ function (_lemons_add_module_subcategory)
 
     if (NOT TARGET ${LEMONS_SUBMOD_TARGET})
         add_library (${LEMONS_SUBMOD_TARGET} INTERFACE)
+    endif()
+
+    if (NOT TARGET AllLemonsModules)
+        add_library (AllLemonsModules INTERFACE)
     endif()
 
     lemons_subdir_list (RESULT moduleFolders DIR "${CMAKE_CURRENT_LIST_DIR}")
@@ -50,15 +60,15 @@ function (_lemons_add_module_subcategory)
 
         juce_add_module ("${CMAKE_CURRENT_LIST_DIR}/${folder}" ALIAS_NAMESPACE Lemons)
         target_link_libraries (${LEMONS_SUBMOD_TARGET} INTERFACE Lemons::${folder})
+        target_link_libraries (AllLemonsModules INTERFACE Lemons::${folder})
 
-        list (APPEND lemons_all_modules "${folder}")
+        lemons_append_to_target_property_list (TARGET AllLemonsModules PROPERTY OriginalModuleNames ADD ${folder})
     endforeach()
-
-    set (lemons_all_modules ${lemons_all_modules} CACHE INTERNAL "")
 
     foreach (categoryDependancy ${LEMONS_SUBMOD_CATEGORY_DEPS})
         include (${categoryDependancy})
         target_link_libraries (${LEMONS_SUBMOD_TARGET} INTERFACE Lemons::${categoryDependancy})
+        target_link_libraries (AllLemonsModules INTERFACE Lemons::${categoryDependancy})
     endforeach()
 
     add_library (Lemons::${LEMONS_SUBMOD_TARGET} ALIAS ${LEMONS_SUBMOD_TARGET})
