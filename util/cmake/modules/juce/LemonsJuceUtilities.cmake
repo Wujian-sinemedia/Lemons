@@ -63,14 +63,14 @@ function (lemons_enable_plugin_hosting target)
         return()
     endif()
 
-    target_compile_definitions ("${target}" PUBLIC JUCE_PLUGINHOST_VST3=1 JUCE_PLUGINHOST_LADSPA=1)
+    target_compile_definitions ("${target}" PRIVATE JUCE_PLUGINHOST_VST3=1 JUCE_PLUGINHOST_LADSPA=1)
 
     if (LEMONS_VST2_SDK_PATH)
-        target_compile_definitions ("${target}" PUBLIC  JUCE_PLUGINHOST_VST=1)
+        target_compile_definitions ("${target}" PRIVATE  JUCE_PLUGINHOST_VST=1)
     endif()
 
     if (APPLE)
-        target_compile_definitions ("${target}" PUBLIC JUCE_PLUGINHOST_AU=1)
+        target_compile_definitions ("${target}" PRIVATE JUCE_PLUGINHOST_AU=1)
     endif()
 endfunction()
 
@@ -85,7 +85,7 @@ function (lemons_configure_juce_target)
 
     lemons_require_function_arguments (LEMONS_TARGETCONFIG TARGET)
 
-    target_compile_definitions (${LEMONS_TARGETCONFIG_TARGET} PUBLIC
+    target_compile_definitions (${LEMONS_TARGETCONFIG_TARGET} PRIVATE
             JUCE_VST3_CAN_REPLACE_VST2=0
             JUCE_APPLICATION_NAME_STRING="$<TARGET_PROPERTY:${LEMONS_TARGETCONFIG_TARGET},JUCE_PRODUCT_NAME>"
             JUCE_APPLICATION_VERSION_STRING="$<TARGET_PROPERTY:${LEMONS_TARGETCONFIG_TARGET},JUCE_VERSION>"
@@ -98,13 +98,13 @@ function (lemons_configure_juce_target)
             JUCE_DISPLAY_SPLASH_SCREEN=0
             _CRT_SECURE_NO_WARNINGS=1)
 
-    target_link_libraries (${LEMONS_TARGETCONFIG_TARGET} PUBLIC
+    target_link_libraries (${LEMONS_TARGETCONFIG_TARGET} PRIVATE
         Lemons::LemonsCommonModules
         juce::juce_recommended_config_flags
         juce::juce_recommended_lto_flags
         juce::juce_recommended_warning_flags)
 
-    target_compile_features (${LEMONS_TARGETCONFIG_TARGET} PUBLIC cxx_std_${CMAKE_CXX_STANDARD})
+    target_compile_features (${LEMONS_TARGETCONFIG_TARGET} PRIVATE cxx_std_${CMAKE_CXX_STANDARD})
 
     if (APPLE)
         lemons_set_default_macos_options (${LEMONS_TARGETCONFIG_TARGET})
@@ -119,14 +119,14 @@ function (lemons_configure_juce_target)
     endif()
 
     if (LEMONS_TARGETCONFIG_BROWSER)
-        target_compile_definitions ("${LEMONS_TARGETCONFIG_TARGET}" PUBLIC JUCE_WEB_BROWSER=1 JUCE_USE_CURL=1 JUCE_LOAD_CURL_SYMBOLS_LAZILY=1)
+        target_compile_definitions ("${LEMONS_TARGETCONFIG_TARGET}" PRIVATE JUCE_WEB_BROWSER=1 JUCE_USE_CURL=1 JUCE_LOAD_CURL_SYMBOLS_LAZILY=1)
 
         # Linux
         if (NOT (APPLE OR WIN32))
             target_link_libraries ("${LEMONS_TARGETCONFIG_TARGET}" PRIVATE juce::pkgconfig_JUCE_CURL_LINUX_DEPS)
         endif()
     else()
-        target_compile_definitions ("${LEMONS_TARGETCONFIG_TARGET}" PUBLIC JUCE_WEB_BROWSER=0 JUCE_USE_CURL=0)
+        target_compile_definitions ("${LEMONS_TARGETCONFIG_TARGET}" PRIVATE JUCE_WEB_BROWSER=0 JUCE_USE_CURL=0)
     endif()
 
     if (LEMONS_TARGETCONFIG_PLUGIN_HOST)
@@ -134,11 +134,11 @@ function (lemons_configure_juce_target)
     endif()
 
     if (LEMONS_TARGETCONFIG_CAMERA)
-        target_compile_definitions (${LEMONS_TARGETCONFIG_TARGET} PUBLIC JUCE_USE_CAMERA=1)
-        target_link_libraries (${LEMONS_TARGETCONFIG_TARGET} PUBLIC juce_video)
+        target_compile_definitions (${LEMONS_TARGETCONFIG_TARGET} PRIVATE JUCE_USE_CAMERA=1)
+        target_link_libraries (${LEMONS_TARGETCONFIG_TARGET} PRIVATE juce_video)
     endif()
 
     if (LEMONS_TARGETCONFIG_MICROPHONE)
-        target_compile_definitions (${LEMONS_TARGETCONFIG_TARGET} PUBLIC JUCE_MICROPHONE_PERMISSION_ENABLED=1)
+        target_compile_definitions (${LEMONS_TARGETCONFIG_TARGET} PRIVATE JUCE_MICROPHONE_PERMISSION_ENABLED=1)
     endif()
 endfunction()

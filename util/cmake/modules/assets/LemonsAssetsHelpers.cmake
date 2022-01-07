@@ -52,6 +52,10 @@ function (lemons_add_resources_folder)
     endif()
 
     if (NOT TARGET ${resourcesTarget})
+        if (TARGET ${LEMONS_RSRC_FLDR_TARGET}::${resourcesTarget})
+            message (AUTHOR_WARNING "Target ${LEMONS_RSRC_FLDR_TARGET}::${resourcesTarget} exists, but target ${resourcesTarget} not found!")
+        endif()
+
         if (LEMONS_RSRC_FLDR_TRANSLATIONS)
             include (LemonsTranslationFileGeneration)
             lemons_generate_translation_files (TARGET "${LEMONS_RSRC_FLDR_TARGET}" FOLDER "${dest_folder}/translations")
@@ -68,7 +72,7 @@ function (lemons_add_resources_folder)
         juce_add_binary_data (${resourcesTarget} SOURCES ${files})
 
         set_target_properties (${resourcesTarget} PROPERTIES POSITION_INDEPENDENT_CODE TRUE)
-        target_compile_definitions (${resourcesTarget} PUBLIC LEMONS_HAS_BINARY_DATA=1)
+        target_compile_definitions (${resourcesTarget} INTERFACE LEMONS_HAS_BINARY_DATA=1)
 
         if (NOT TARGET ${resourcesTarget})
             message (AUTHOR_WARNING "Error creating resources target.")
@@ -78,8 +82,13 @@ function (lemons_add_resources_folder)
         add_library (${LEMONS_RSRC_FLDR_TARGET}::${resourcesTarget} ALIAS ${resourcesTarget})
     endif()
 
+    if (NOT TARGET ${LEMONS_RSRC_FLDR_TARGET}::${resourcesTarget})
+        message (AUTHOR_WARNING "Error creating resources target - target ${LEMONS_RSRC_FLDR_TARGET}::${resourcesTarget} not found.")
+        return()
+    endif()
+
     juce_add_bundle_resources_directory (${LEMONS_RSRC_FLDR_TARGET} ${dest_folder})
 
-    target_link_libraries (${LEMONS_RSRC_FLDR_TARGET} PUBLIC ${LEMONS_RSRC_FLDR_TARGET}::${resourcesTarget})
+    target_link_libraries (${LEMONS_RSRC_FLDR_TARGET} PRIVATE ${LEMONS_RSRC_FLDR_TARGET}::${resourcesTarget})
     
 endfunction()

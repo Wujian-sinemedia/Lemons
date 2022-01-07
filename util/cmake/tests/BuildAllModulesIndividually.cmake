@@ -37,7 +37,7 @@ foreach (moduleName ${lemons_all_modules})
 
 	target_sources (${moduleTestName} PRIVATE "${CMAKE_CURRENT_BINARY_DIR}/${generated_file}")
 
-	target_link_libraries (${moduleTestName} PUBLIC Lemons::${moduleName})
+	target_link_libraries (${moduleTestName} PRIVATE Lemons::${moduleName})
 
 	add_dependencies (LemonsModuleIndividualTests ${moduleTestName})
 

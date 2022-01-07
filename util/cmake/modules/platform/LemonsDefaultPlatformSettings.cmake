@@ -48,7 +48,7 @@ function (lemons_set_default_macos_options target)
         return()
     endif()
 
-    target_compile_definitions (${target} INTERFACE JUCE_USE_VDSP_FRAMEWORK=1)
+    target_compile_definitions (${target} PRIVATE JUCE_USE_VDSP_FRAMEWORK=1)
     
     set_target_properties (${target} PROPERTIES XCODE_ATTRIBUTE_ENABLE_HARDENED_RUNTIME YES)
 
@@ -60,7 +60,7 @@ function (lemons_set_default_macos_options target)
     endif()
 
     set_target_properties  (${target} PROPERTIES XCODE_ATTRIBUTE_MACOSX_DEPLOYMENT_TARGET ${CMAKE_OSX_DEPLOYMENT_TARGET})
-    target_compile_options (${target} PUBLIC "-mmacosx-version-min=${CMAKE_OSX_DEPLOYMENT_TARGET}")
-    target_link_options    (${target} PUBLIC "-mmacosx-version-min=${CMAKE_OSX_DEPLOYMENT_TARGET}")
+    target_compile_options (${target} PRIVATE "-mmacosx-version-min=${CMAKE_OSX_DEPLOYMENT_TARGET}")
+    target_link_options    (${target} PRIVATE "-mmacosx-version-min=${CMAKE_OSX_DEPLOYMENT_TARGET}")
 
 endfunction()

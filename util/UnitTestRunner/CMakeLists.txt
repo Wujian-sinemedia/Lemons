@@ -35,13 +35,13 @@ juce_add_console_app (${PROJECT_NAME})
 
 target_sources (${PROJECT_NAME} PRIVATE "${CMAKE_CURRENT_LIST_DIR}/Main.cpp")
 
-target_compile_definitions (${PROJECT_NAME} PUBLIC
+target_compile_definitions (${PROJECT_NAME} PRIVATE
     JUCE_USE_CURL=0
     JUCE_WEB_BROWSER=0
     JUCE_DISPLAY_SPLASH_SCREEN=0
     LEMONS_UNIT_TESTS=1)
 
-target_link_libraries (${PROJECT_NAME} PUBLIC Lemons::AllLemonsModules)
+target_link_libraries (${PROJECT_NAME} PRIVATE Lemons::AllLemonsModules)
 
 lemons_add_resources_folder (TARGET ${PROJECT_NAME} ASSET_FOLDER "${CPM_Lemons_SOURCE}/util/assets")
 

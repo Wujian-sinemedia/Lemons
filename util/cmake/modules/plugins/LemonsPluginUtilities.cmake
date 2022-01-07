@@ -90,9 +90,9 @@ function (lemons_configure_juce_plugin)
                                      GUID "${LEMONS_PLUGIN_AAX_GUID}")
     endif()
 
-    target_link_libraries (${LEMONS_PLUGIN_TARGET} PUBLIC Lemons::LemonsPluginModules)
+    target_link_libraries (${LEMONS_PLUGIN_TARGET} PRIVATE Lemons::LemonsPluginModules)
 
-    target_compile_definitions (${LEMONS_PLUGIN_TARGET} PUBLIC JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=0)
+    target_compile_definitions (${LEMONS_PLUGIN_TARGET} PRIVATE JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=0)
 
     _lemons_add_to_all_plugins_target (${LEMONS_PLUGIN_TARGET})
 

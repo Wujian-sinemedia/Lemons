@@ -218,13 +218,15 @@ function (lemons_configure_aax_plugin)
         return()
     endif()
 
-    if (NOT TARGET AAXSDK)
+    if (NOT TARGET Lemons::AAXSDK)
         message (FATAL_ERROR "AAX plugin target created, but AAXSDK target doesn't exist!")
     endif()
 
     set_target_properties (${LEMONS_AAX_TARGET} PROPERTIES OSX_ARCHITECTURES x86_64)
 
     add_dependencies (${LEMONS_AAX_TARGET} Lemons::AAXSDK)
+
+    target_link_libraries (${LEMONS_AAX_TARGET} PRIVATE Lemons::AAXSDK)
 
     if (LEMONS_AAX_PAGETABLE_FILE)
         cmake_path (IS_ABSOLUTE LEMONS_AAX_PAGETABLE_FILE pagetable_path_is_absolute)
@@ -235,7 +237,7 @@ function (lemons_configure_aax_plugin)
             set (pagetable_file "${PROJECT_SOURCE_DIR}/${LEMONS_AAX_PAGETABLE_FILE}")
         endif()
 
-        target_compile_definitions (${LEMONS_AAX_TARGET} PUBLIC "JucePlugin_AAXPageTableFile=\"${pagetable_file}\"")
+        target_compile_definitions (${LEMONS_AAX_TARGET} PRIVATE "JucePlugin_AAXPageTableFile=\"${pagetable_file}\"")
 
         if (WIN32)
             # On Windows, pagetable files need a special post-build copy step to be included in the binary correctly

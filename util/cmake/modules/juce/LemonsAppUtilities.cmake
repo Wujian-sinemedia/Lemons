@@ -34,8 +34,7 @@ lemons_warn_if_not_processing_project()
 macro (_lemons_configure_app_internal)
     lemons_configure_juce_target (${ARGN})
 
-    set (oneValueArgs TARGET)
-    cmake_parse_arguments (LEMONS_APP "" "${oneValueArgs}" "" ${ARGN})
+    cmake_parse_arguments (LEMONS_APP "" "TARGET" "" ${ARGN})
 
     _lemons_add_to_all_apps_target (${LEMONS_APP_TARGET})
 endmacro()
@@ -44,12 +43,12 @@ endmacro()
 
 function (lemons_configure_headless_app)
     _lemons_configure_app_internal (${ARGN})
-    target_link_libraries (${LEMONS_APP_TARGET} PUBLIC Lemons::LemonsCommonModules)
+    target_link_libraries (${LEMONS_APP_TARGET} PRIVATE Lemons::LemonsCommonModules)
 endfunction()
 
 #
 
 function (lemons_configure_juce_app)
     _lemons_configure_app_internal (${ARGN})
-    target_link_libraries (${LEMONS_APP_TARGET} PUBLIC Lemons::LemonsAppModules)
+    target_link_libraries (${LEMONS_APP_TARGET} PRIVATE Lemons::LemonsAppModules)
 endfunction()
