@@ -103,7 +103,6 @@
       <constantgroups visible="yes" title=""/>
       <interfaces visible="yes" title=""/>
       <classes visible="yes" title=""/>
-      <concepts visible="yes" title=""/>
       <structs visible="yes" title=""/>
       <exceptions visible="yes" title=""/>
       <typedefs title=""/>
@@ -140,7 +139,6 @@
       <structs visible="yes" title=""/>
       <exceptions visible="yes" title=""/>
       <namespaces visible="yes" title=""/>
-      <concepts visible="yes" title=""/>
       <constantgroups visible="yes" title=""/>
       <defines title=""/>
       <typedefs title=""/>
@@ -174,7 +172,6 @@
       <dirs visible="yes" title=""/>
       <files visible="yes" title=""/>
       <namespaces visible="yes" title=""/>
-      <concepts visible="yes" title=""/>
       <classes visible="yes" title=""/>
       <defines title=""/>
       <typedefs title=""/>
