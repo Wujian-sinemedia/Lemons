@@ -34,7 +34,7 @@
 		{
 			"name": "Docker",
 			"packages": [ "clang-11" ],
-			"categories": "Docs"
+			"categories": [ "Docs" ]
 		},
 		{
 			"name": "Android",

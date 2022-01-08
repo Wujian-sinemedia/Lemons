@@ -25,12 +25,12 @@ if (NOT CPACK_PACKAGE_FILE_NAME)
 endif()
 
 if (NOT CPACK_DEBIAN_BUILD_DEPENDS)
-    # attempt to parse project's Depsfile
-    set (depfile_path ${PROJECT_SOURCE_DIR}/Depsfile)
+    # attempt to parse project's config file
+    set (depfile_path ${PROJECT_SOURCE_DIR}/${LOWER_PROJECT_NAME}_config.json)
 
     if (EXISTS ${depfile_path})
 
-        include (LemonsParseDepsfile)
+        include (LemonsInstallDeps)
 
         lemons_get_list_of_deps_to_install (OUTPUT deps_list FILE ${depfile_path})
 
