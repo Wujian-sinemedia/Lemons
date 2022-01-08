@@ -46,3 +46,9 @@ jobs:
     - name: Run tests
       shell: bash
       run: ctest --preset all
+
+    - name: Upload log
+      uses: actions/upload-artifact@v2
+      with:
+        name: UnitTestLog
+        path: Builds/tests/Testing/Temporary/LastTest.log
