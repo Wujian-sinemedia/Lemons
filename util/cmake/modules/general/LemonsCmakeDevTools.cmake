@@ -71,6 +71,8 @@ function (lemons_append_to_target_property_list)
 		list (APPEND orig_value ${new_value})
 	endforeach()
 
+	list (REMOVE_DUPLICATES orig_value)
+
 	set_target_properties (${PROP_APPEND_TARGET} PROPERTIES ${PROP_APPEND_PROPERTY} "${orig_value}")
 
 endfunction()

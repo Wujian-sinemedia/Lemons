@@ -31,7 +31,6 @@ mesa-common-dev
 openssh-client
 ninja-build
 
-# This is a named category, not an OS specification
 - Android
 openjdk-8-jre
 openjdk-8-jdk

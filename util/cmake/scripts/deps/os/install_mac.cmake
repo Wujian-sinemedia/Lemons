@@ -26,6 +26,18 @@ endif()
 
 #
 
+function (_lemons_deps_os_update_func)
+
+	execute_process (COMMAND "${HOMEBREW}" update
+					 COMMAND_ECHO STDOUT)
+
+	execute_process (COMMAND "${HOMEBREW}" upgrade
+					 COMMAND_ECHO STDOUT)
+
+endfunction()
+
+#
+
 function (_lemons_deps_os_install_func deps)
 
 	execute_process (COMMAND "${HOMEBREW}" install ${deps}

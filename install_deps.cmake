@@ -4,7 +4,9 @@ include (${CMAKE_CURRENT_LIST_DIR}/AddCMakeModules.cmake)
 
 list (APPEND CMAKE_MODULE_PATH ${LEMONS_CMAKE_MODULE_PATH})
 
-include (LemonsRunClean)
+set (LEMONS_DEPS_UPDATE_ALL_FIRST TRUE)
+
+include (LemonsInstallDeps)
 
 
-lemons_run_clean (FILE Bakefile DIR ${CMAKE_CURRENT_LIST_DIR})
+lemons_install_deps (FILE "${CMAKE_CURRENT_LIST_DIR}/Depsfile")

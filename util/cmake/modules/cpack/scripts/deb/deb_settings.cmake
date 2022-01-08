@@ -25,8 +25,21 @@ if (NOT CPACK_PACKAGE_FILE_NAME)
 endif()
 
 if (NOT CPACK_DEBIAN_BUILD_DEPENDS)
-    # TO DO: parse a Depsfile...
-    set (CPACK_DEBIAN_BUILD_DEPENDS cmake git pkg-config python3 CACHE INTERNAL "")
+    # attempt to parse project's Depsfile
+    set (depfile_path ${PROJECT_SOURCE_DIR}/Depsfile)
+
+    if (EXISTS ${depfile_path})
+
+        include (LemonsParseDepsfile)
+
+        lemons_get_list_of_deps_to_install (OUTPUT deps_list FILE ${depfile_path})
+
+        if (deps_list)
+            set (CPACK_DEBIAN_BUILD_DEPENDS ${deps_list} CACHE INTERNAL "")
+        endif()
+    else()
+        message (AUTHOR_WARNING "Depsfile not found, please specify CPACK_DEBIAN_BUILD_DEPENDS")
+    endif()
 endif()
 
 #if (NOT CPACK_DEBIAN_PACKAGE_CONFLICTS)
@@ -41,7 +54,6 @@ endif()
 
 if (NOT CPACK_DEBIAN_PACKAGE_DEPENDS)
    set (CPACK_DEBIAN_PACKAGE_DEPENDS ${${UPPER_PROJECT_NAME}_PACKAGE_DEB_DEPENDS} CACHE INTERNAL "")
-   #list_to_string (CPACK_DEBIAN_PACKAGE_DEPENDS)
 endif()
 
 if (NOT CPACK_DEBIAN_PACKAGE_HOMEPAGE)

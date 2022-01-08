@@ -1,76 +1,77 @@
 include_guard (GLOBAL)
 
+include (LemonsParseConfigFile)
 
-function (lemons_parse_depsfile filepath)
 
-	file (STRINGS "${filepath}" file_lines)
+macro (lemons_parse_depsfile filepath)
+	lemons_parse_config_file (FILE ${filepath} SUBCATEGORIES_ALLOWED)
+endmacro()
 
-	foreach (line ${file_lines})
 
-		string (STRIP ${line} stripped_line)
+function (lemons_get_list_of_deps_to_install)
 
-		if (NOT stripped_line)
-			continue()
+	set (oneValueArgs FILE OUTPUT)
+
+	cmake_parse_arguments (LEMONS_DEPS "OMIT_DEFAULT" "${oneValueArgs}" "CATEGORIES" ${ARGN})
+
+	lemons_require_function_arguments (LEMONS_DEPS FILE OUTPUT)
+
+	lemons_parse_depsfile (${LEMONS_DEPS_FILE})
+
+	set (lemons_deps_list "")
+
+	macro (_lemons_deps_add_list depsList)
+		foreach (dep_name ${depsList})
+			list (APPEND lemons_deps_list ${dep_name})
+		endforeach()
+	endmacro()
+
+	if (NOT LEMONS_DEPS_OMIT_DEFAULT)
+		if (CATEGORY_Default)
+			_lemons_deps_add_list ("${CATEGORY_Default}")
 		endif()
 
-		string (SUBSTRING ${stripped_line} 0 1 first_char)
-
-		if (${first_char} STREQUAL "#") # comment
-			continue()
-		endif()
-
-		if (${first_char} STREQUAL "-") # category name
-
-			string (SUBSTRING ${stripped_line} 1 -1 category_name)	
-			string (STRIP ${category_name} category)
-
-			set (CurrentCategoryName "${category}")
-			set ("CATEGORY_${CurrentCategoryName}" "")
-
-			continue()
-		endif()
-
-		# category member
-
-		if (NOT CurrentCategoryName)
-			message (AUTHOR_WARNING "Category item declared outside of category in Depsfile!")
-			continue()
-		endif()
-
-		if (NOT ${first_char} STREQUAL "<") # simple category member
-
-			list (APPEND "CATEGORY_${CurrentCategoryName}" "${stripped_line}")
-			set (CATEGORY_${CurrentCategoryName} "${CATEGORY_${CurrentCategoryName}}" PARENT_SCOPE)
-
-			continue()
-		endif()
-
-		# referencing another category
-
-		string (FIND ${stripped_line} ">" end_idx REVERSE)
-
-		string (COMPARE GREATER ${end_idx} "-1" found)
-
-		if (NOT found)
-			message (AUTHOR_WARNING "Unterminated '<' character in Depsfile!")
-			continue()
-		endif()
-
-		math (EXPR end_idx "${end_idx} - 1" OUTPUT_FORMAT DECIMAL)
-
-		string (SUBSTRING ${stripped_line} 1 ${end_idx} subcat_name)
-
-		if (subcat_name)
-			message (STATUS "subcategory name: ${subcat_name}")
-
-			if (CATEGORY_${subcat_name})
-				list (APPEND CATEGORY_${CurrentCategoryName} ${CATEGORY_${subcat_name}})
-				set (CATEGORY_${CurrentCategoryName} "${CATEGORY_${CurrentCategoryName}}" PARENT_SCOPE)
-			else()
-				message (AUTHOR_WARNING "Dependant subcategory ${CATEGORY_${subcat_name}} does not exist!")
+		if (APPLE)
+			if (CATEGORY_Mac)
+				_lemons_deps_add_list ("${CATEGORY_Mac}")
+			endif()
+		elseif (WIN32)
+			if (CATEGORY_Windows)
+				_lemons_deps_add_list ("${CATEGORY_Windows}")
+			endif()
+		else()
+			if (CATEGORY_Linux)
+				_lemons_deps_add_list ("${CATEGORY_Linux}")
 			endif()
 		endif()
 
+		if (IOS)
+			if (CATEGORY_iOS)
+				_lemons_deps_add_list ("${CATEGORY_iOS}")
+			endif()
+		elseif (ANDROID)
+			if (CATEGORY_Android)
+				_lemons_deps_add_list ("${CATEGORY_Android}")
+			endif()
+		endif()
+	endif()
+
+	foreach (category ${LEMONS_DEPS_CATEGORIES})
+		if (CATEGORY_${category})
+			_lemons_deps_add_list ("${CATEGORY_${category}}")
+		else()
+			message (AUTHOR_WARNING "Depsfile category ${category} not found!")
+		endif()
 	endforeach()
 
+	if (NOT lemons_deps_list)
+		message (AUTHOR_WARNING "Parsed dependency list is empty!")
+		return()
+	endif()
+
+	list (REMOVE_DUPLICATES lemons_deps_list)
+
+	set (${LEMONS_DEPS_OUTPUT} ${lemons_deps_list} PARENT_SCOPE)
+
 endfunction()
+

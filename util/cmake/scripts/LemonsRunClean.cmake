@@ -3,6 +3,11 @@ include_guard (GLOBAL)
 include (LemonsParseConfigFile)
 
 
+macro (lemons_parse_bakefile filepath)
+	lemons_parse_config_file (FILE ${filepath})
+endmacro()
+
+
 function (lemons_run_clean)
 
 	set (oneValueArgs FILE DIR)
@@ -21,24 +26,24 @@ function (lemons_run_clean)
 		set (LEMONS_CLEAN_FILE "${LEMONS_CLEAN_DIR}/${LEMONS_CLEAN_FILE}")
 	endif()
 
-	lemons_parse_config_file (OUT_PREFIX configFile FILE "${LEMONS_CLEAN_FILE}")
+	lemons_parse_bakefile ("${LEMONS_CLEAN_FILE}")
 
-	if (NOT configFile_Clean)
+	if (NOT CATEGORY_Clean)
 		message (AUTHOR_WARNING "No clean items specified in config file!")
 		return()
 	endif()
 
-	foreach (cleanItem ${configFile_Clean})
+	foreach (cleanItem ${CATEGORY_Clean})
 		file (REMOVE_RECURSE "${LEMONS_CLEAN_DIR}/${cleanItem}")
 	endforeach()
 
 	if (LEMONS_CLEAN_WIPE)
-		if (NOT configFile_Wipe)
+		if (NOT CATEGORY_Wipe)
 			message (AUTHOR_WARNING "Wipe requested, but no wipe items found in config file!")
 			return()
 		endif()
 
-		foreach (wipeItem ${configFile_Wipe})
+		foreach (wipeItem ${CATEGORY_Wipe})
 			file (REMOVE_RECURSE "${LEMONS_CLEAN_DIR}/${wipeItem}")
 		endforeach()
 	endif()

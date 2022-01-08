@@ -1,30 +1,13 @@
-Generators:
-* Mac: Xcode
-* Windows: Visual Studio 16 2019
-* Linux: Ninja
+- Clean
+Builds/
+util/Templates/Builds/
+util/UnitTestRunner/Builds/
+util/doxygen/Builds/
+docs/
+.github/docs/
+util/CommandLineUtils/Builds/
+util/cmake/modules/assets/scripts/__pycache__/
+util/doxygen/scripts/__pycache__
 
-Aliases:
-* docs: build[docs]
-* templates: build[templates]
-* lab: build[lab]
-* tests: test[all]
-
-Clean:
-* Builds/
-* util/Templates/Builds/
-* util/UnitTestRunner/Builds/
-* util/doxygen/Builds/
-* docs/
-* .github/docs/
-* util/CommandLineUtils/Builds/
-* util/cmake/modules/assets/scripts/__pycache__/
-* util/doxygen/scripts/__pycache__
-
-Wipe:
-* Cache/
-
-Logs:
-* logs
-
-Git branch name: 
-* main
+- Wipe
+Cache/

@@ -1,59 +1,31 @@
 include_guard (GLOBAL)
 
-include (LemonsCmakeDevTools)
 include (LemonsParseDepsfile)
 
 if (APPLE)
-	include (os/install_mac.cmake)
+	include (${CMAKE_CURRENT_LIST_DIR}/os/install_mac.cmake)
 elseif (WIN32)
-	include (os/install_win.cmake)
+	include (${CMAKE_CURRENT_LIST_DIR}/os/install_win.cmake)
 else()
-	include (os/install_linux.cmake)
+	include (${CMAKE_CURRENT_LIST_DIR}/os/install_linux.cmake)
+endif()
+
+
+option (LEMONS_DEPS_UPDATE_ALL_FIRST "Whether to update all installed system packages before installing additional dependencies" OFF)
+
+if (LEMONS_DEPS_UPDATE_ALL_FIRST)
+	_lemons_deps_os_update_func()
 endif()
 
 
 function (lemons_install_deps)
 
-	function (_lemons_install_deps_list list)
-		if (list)
-			list (JOIN list " " deps)
+	lemons_get_list_of_deps_to_install (OUTPUT deps_list ${ARGN})
 
-			separate_arguments (command UNIX_COMMAND "${deps}")
-
-			_lemons_deps_os_install_func ("${command}")
-		endif()
-	endfunction()
-
-	cmake_parse_arguments (LEMONS_DEPS "OMIT_DEFAULT" "FILE" "CATEGORIES" ${ARGN})
-
-	lemons_require_function_arguments (LEMONS_DEPS FILE)
-
-	lemons_parse_depsfile (${LEMONS_DEPS_FILE})
-
-	if (NOT LEMONS_DEPS_OMIT_DEFAULT)
-		if (APPLE)
-			if (CATEGORY_Mac)
-				_lemons_install_deps_list ("${CATEGORY_Mac}")
-			endif()
-		elseif (WIN32)
-			if (CATEGORY_Windows)
-				_lemons_install_deps_list ("${CATEGORY_Windows}")
-			endif()
-		else()
-			if (CATEGORY_Linux)
-				_lemons_install_deps_list ("${CATEGORY_Linux}")
-			endif()
-		endif()
-
-		if (CATEGORY_Default)
-			_lemons_install_deps_list ("${CATEGORY_Default}")
-		endif()
+	if (deps_list)
+		_lemons_deps_os_install_func ("${deps_list}")
+	else()
+		message (AUTHOR_WARNING "No dependencies found to install!")
 	endif()
-
-	foreach (category ${LEMONS_DEPS_CATEGORIES})
-		if (CATEGORY_${category})
-			_lemons_install_deps_list ("${CATEGORY_${category}}")
-		endif()
-	endforeach()
 
 endfunction()

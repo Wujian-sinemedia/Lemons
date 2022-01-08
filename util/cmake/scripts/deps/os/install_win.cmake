@@ -8,7 +8,7 @@ if (NOT CHOCO)
 	find_program (POWERSHELL powershell)
 
 	if (NOT POWERSHELL)
-		message (FATAL_ERROR "powershell is required for installing Homebrew, and cannot be found!")
+		message (FATAL_ERROR "powershell is required for installing Chocolatey, and cannot be found!")
 	endif()
 
 	message (STATUS "Installing Chocolatey...")
@@ -23,6 +23,15 @@ if (NOT CHOCO)
 		message (FATAL_ERROR "Error installing Chocolatey!")
 	endif()
 endif()
+
+#
+
+function (_lemons_deps_os_update_func)
+
+	execute_process (COMMAND "${CHOCO}" update all
+					 COMMAND_ECHO STDOUT)
+
+endfunction()
 
 #
 
