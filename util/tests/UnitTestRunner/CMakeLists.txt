@@ -34,5 +34,5 @@ add_dependencies (LemonsTests ${PROJECT_NAME})
 enable_testing()
 
 add_test (NAME Lemons.UnitTests 
-          COMMAND ${PROJECT_NAME} -f "logs/unit_tests.log" -i High
+          COMMAND ${PROJECT_NAME} -f "logs/unit_tests.log" -i Low
           WORKING_DIRECTORY "${Lemons_SOURCE_DIR}")
