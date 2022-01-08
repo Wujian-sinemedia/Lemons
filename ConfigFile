@@ -1,3 +1,6 @@
+Dependencies
+{
+
 - Default
 ccache
 git
@@ -36,3 +39,26 @@ openjdk-8-jre
 openjdk-8-jdk
 android-sdk 
 sdkmanager
+
+}
+
+Cleaning
+{
+
+- Clean
+Builds
+logs
+CPM_modules
+cpm-package-lock.cmake
+util/Templates/Builds
+util/doxygen/build
+util/doxygen/doc
+util/doxygen/Builds
+docs
+.github/docs
+util/doxygen/scripts/__pycache_
+
+- Wipe
+Cache/
+
+}

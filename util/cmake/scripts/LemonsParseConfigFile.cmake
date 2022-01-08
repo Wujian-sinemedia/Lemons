@@ -5,19 +5,21 @@ include (LemonsCmakeDevTools)
 
 function (lemons_parse_config_file)
 
-	set (oneValueArgs FILE OUT_PREFIX)
+	set (oneValueArgs FILE SECTION OUT_PREFIX)
 
 	cmake_parse_arguments (LEMONS_CONFIG "" "${oneValueArgs}" "" ${ARGN})
 
-	lemons_require_function_arguments (LEMONS_CONFIG FILE)
+	lemons_require_function_arguments (LEMONS_CONFIG FILE SECTION)
 
 	if (NOT LEMONS_CONFIG_OUT_PREFIX)
 		set (LEMONS_CONFIG_OUT_PREFIX "CATEGORY")
 	endif()
 
+	# parse just the lines in this section of the config file
+
 	file (STRINGS "${LEMONS_CONFIG_FILE}" file_lines)
 
-	set (AllCategoryNames "")
+	set (SectionLines "")
 
 	foreach (line ${file_lines})
 
@@ -32,6 +34,37 @@ function (lemons_parse_config_file)
 		if (${first_char} STREQUAL "#") # comment
 			continue()
 		endif()
+
+		if (${first_char} STREQUAL "{") # beginning of a section
+			set (LastSectionName "${lastLine}")
+			continue()
+		endif()
+
+		if (${first_char} STREQUAL "}") # end of a section
+			if ("${LastSectionName}" STREQUAL "${LEMONS_CONFIG_SECTION}")
+				break()
+			else()
+				continue()
+			endif()
+		endif()
+
+		if ("${LastSectionName}" STREQUAL "${LEMONS_CONFIG_SECTION}")
+			list (APPEND SectionLines "${line}")
+			continue()
+		endif()
+
+		if (NOT ${first_char} STREQUAL "-")
+			set (lastLine "${stripped_line}")
+		endif()
+	endforeach()
+
+	# parse these lines into categories
+
+	set (AllCategoryNames "")
+
+	foreach (stripped_line ${SectionLines})
+
+		string (SUBSTRING ${stripped_line} 0 1 first_char)
 
 		if (${first_char} STREQUAL "-") # category name
 
@@ -80,6 +113,13 @@ function (lemons_parse_config_file)
 
 	endforeach()
 
+
+	if (NOT AllCategoryNames)
+		message (AUTHOR_WARNING "No categories found in ${LEMONS_CONFIG_SECTION} section of file ${LEMONS_CONFIG_FILE}")
+		return()
+	endif()	
+
+	# resolve all categories that have dependencies on other categories
 
 	while (TRUE)
 

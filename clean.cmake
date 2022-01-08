@@ -7,4 +7,4 @@ list (APPEND CMAKE_MODULE_PATH ${LEMONS_CMAKE_MODULE_PATH})
 include (LemonsRunClean)
 
 
-lemons_run_clean (FILE Bakefile DIR ${CMAKE_CURRENT_LIST_DIR})
+lemons_run_clean (FILE ConfigFile DIR ${CMAKE_CURRENT_LIST_DIR})

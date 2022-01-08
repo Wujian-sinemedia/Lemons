@@ -21,10 +21,8 @@ jobs:
         submodules: recursive
 
     - name: Install deps
-      uses: benthevining/DepsInstaller@v0.5.0
-      with:
-        depfile_path: '${{ github.workspace }}/Depsfile'
-        category: 'Docs'
+      shell: bash
+      run: cmake -D LEMONS_DOCS=1 -P '${{ github.workspace }}/install_deps.cmake'
 
     - name: Run script
       shell: bash

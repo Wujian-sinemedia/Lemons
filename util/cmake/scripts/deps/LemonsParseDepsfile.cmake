@@ -11,7 +11,7 @@ function (lemons_get_list_of_deps_to_install)
 
 	lemons_require_function_arguments (LEMONS_DEPS FILE OUTPUT)
 
-	lemons_parse_config_file (FILE ${LEMONS_DEPS_FILE})
+	lemons_parse_config_file (FILE ${LEMONS_DEPS_FILE} SECTION Dependencies OUT_PREFIX CATEGORY)
 
 	set (lemons_deps_list "")
 

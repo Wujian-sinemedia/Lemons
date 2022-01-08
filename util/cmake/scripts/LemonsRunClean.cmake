@@ -21,7 +21,7 @@ function (lemons_run_clean)
 		set (LEMONS_CLEAN_FILE "${LEMONS_CLEAN_DIR}/${LEMONS_CLEAN_FILE}")
 	endif()
 
-	lemons_parse_config_file (FILE "${LEMONS_CLEAN_FILE}")
+	lemons_parse_config_file (FILE "${LEMONS_CLEAN_FILE}" SECTION Cleaning OUT_PREFIX CATEGORY)
 
 	if (NOT CATEGORY_Clean)
 		message (AUTHOR_WARNING "No clean items specified in config file!")
