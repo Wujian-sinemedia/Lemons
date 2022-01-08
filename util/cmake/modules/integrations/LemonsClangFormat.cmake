@@ -15,21 +15,24 @@ If the `LEMONS_ENABLE_INTEGRATIONS` option is ON, then this module will be inclu
 
 include_guard (GLOBAL)
 
-find_program (CLANG_FORMAT clang-format)
+include (LemonsCmakeDevTools)
 
-if (NOT CLANG_FORMAT)
-	return()
-endif()
 
-set (script_name "run_clang_format.cmake")
+function (lemons_configure_clang_format_integration)
 
-set (LEMONS_FILE_UTILS "${CMAKE_CURRENT_LIST_DIR}/../general/LemonsFileUtils.cmake")
+    set (multiValueArgs DIRS EXCLUDE_DIRS)
 
-configure_file ("${CMAKE_CURRENT_LIST_DIR}/scripts/${script_name}" "${script_name}" @ONLY)
+    cmake_parse_arguments (LEMONS_CF "" "TARGET" "${multiValueArgs}" ${ARGN})
 
-add_custom_target (ClangFormat
-                   COMMAND "${CMAKE_COMMAND}" -P "${CMAKE_CURRENT_BINARY_DIR}/${script_name}"
-                   WORKING_DIRECTORY "${CMAKE_SOURCE_DIR}"
-                   COMMENT "Running clang-format...")
+    lemons_require_function_arguments (LEMONS_CF TARGET DIRS)
 
-message (VERBOSE " -- using clang-format! -- ")
+    list (APPEND LEMONS_CF_EXCLUDE_DIRS ${CMAKE_CURRENT_BINARY_DIR})
+
+    set (script_name "run_clang_format.cmake")
+
+    configure_file ("${CMAKE_CURRENT_LIST_DIR}/scripts/${script_name}" "${script_name}" @ONLY)
+
+    add_custom_target (${LEMONS_CF_TARGET}
+                       COMMAND "${CMAKE_COMMAND}" -P "${CMAKE_CURRENT_BINARY_DIR}/${script_name}"
+                       COMMENT "Running clang-format...")
+endfunction()

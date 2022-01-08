@@ -11,9 +11,11 @@ function (lemons_run_clang_format)
 		message (FATAL_ERROR "clang-format cannot be found!")
 	endif()
 
-	cmake_parse_arguments (LEMONS_CF "" "DIR" "EXCLUDE" ${ARGN})
+	set (multiValueArgs DIRS EXCLUDE)
 
-	lemons_require_function_arguments (LEMONS_CF DIR)
+	cmake_parse_arguments (LEMONS_CF "" "" "${multiValueArgs}" ${ARGN})
+
+	lemons_require_function_arguments (LEMONS_CF DIRS)
 
 	if (LEMONS_CF_EXCLUDE)
 		foreach (excludeDir ${LEMONS_CF_EXCLUDE})
@@ -21,7 +23,7 @@ function (lemons_run_clang_format)
 
 			if (NOT is_abs_path)
 				list (REMOVE_ITEM LEMONS_CF_EXCLUDE ${excludeDir})
-				list (APPEND LEMONS_CF_EXCLUDE "${LEMONS_CF_DIR}/${excludeDir}")
+				list (APPEND LEMONS_CF_EXCLUDE "${CMAKE_CURRENT_SOURCE_DIR}/${excludeDir}")
 			endif()
 		endforeach()
 	else()
@@ -30,35 +32,46 @@ function (lemons_run_clang_format)
 
 	#
 
-	execute_process (COMMAND ${CLANG_FORMAT} -i *.h *.hpp *.c *.cpp
-					 WORKING_DIRECTORY ${LEMONS_CF_DIR})
+	function (_lemons_clang_format_process_subdir directory)
 
+		if (NOT IS_DIRECTORY ${directory})
+			return()
+		endif()
 
-	function (_lemons_run_clang_format_in_subdir directory)
+		separate_arguments (clang_format_command UNIX_COMMAND "-i *.h *.hpp *.c *.cpp")
+
+		execute_process (COMMAND ${CLANG_FORMAT} ${clang_format_command}
+						 WORKING_DIRECTORY ${directory}
+						 OUTPUT_QUIET ERROR_QUIET)
 
 		lemons_subdir_list (RESULT subdirs DIR ${directory} FULL_PATHS)
 
-		foreach (subdir subdirs)
+		foreach (subdir ${subdirs})
 
-			cmake_path (IS_ABSOLUTE subdir is_abs_path)
-
-			if (NOT is_abs_path)
-				set (subdir "${LEMONS_CF_DIR}/${subdir}")
+			if (LEMONS_CF_EXCLUDE)
+				if (${subdir} IN_LIST ${LEMONS_CF_EXCLUDE})
+					continue()
+				endif()
 			endif()
 
-			if (${subdir} IN_LIST ${LEMONS_CF_EXCLUDE})
-				continue()
-			endif()
-
-			execute_process (COMMAND ${CLANG_FORMAT} -i *.h *.hpp *.c *.cpp
-						 	 WORKING_DIRECTORY ${subdir})
-
-			_lemons_run_clang_format_in_subdir (${subdir})
+			_lemons_clang_format_process_subdir (${subdir})
 			
 		endforeach()
 
 	endfunction()
 
-	_lemons_run_clang_format_in_subdir (${LEMONS_CF_DIR})
+	#
+
+	foreach (directory ${LEMONS_CF_DIRS})
+
+		cmake_path (IS_ABSOLUTE directory is_abs_path)
+
+		if (NOT is_abs_path)
+			set (directory "${CMAKE_CURRENT_SOURCE_DIR}/${directory}")
+		endif()
+
+		_lemons_clang_format_process_subdir (${directory})
+
+	endforeach()
 
 endfunction()

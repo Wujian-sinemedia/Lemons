@@ -7,5 +7,4 @@ list (APPEND CMAKE_MODULE_PATH ${LEMONS_CMAKE_MODULE_PATH})
 
 include (LemonsRunClangFormat)
 
-lemons_run_clang_format (DIR ${CMAKE_CURRENT_LIST_DIR}
-						 EXCLUDE Builds
+lemons_run_clang_format (DIRS ${CMAKE_CURRENT_LIST_DIR}/modules ${CMAKE_CURRENT_LIST_DIR}/util)

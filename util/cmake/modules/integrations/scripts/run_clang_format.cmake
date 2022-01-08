@@ -1,27 +1,10 @@
-list (APPEND CMAKE_MODULE_PATH @CMAKE_MODULE_PATH@)
+#!/usr/bin/env cmake -P
 
-#
+include (@Lemons_SOURCE_DIR@/AddCMakeModules.cmake)
 
-function (_lemons_cf_process_dir dirpath)
-	if (NOT IS_DIRECTORY "${dirpath}")
-		return()
-	endif()
+list (APPEND CMAKE_MODULE_PATH ${LEMONS_CMAKE_MODULE_PATH})
 
-	if ("${dirpath}" STREQUAL "@CMAKE_BINARY_DIR@")
-		return()
-	endif()
+include (LemonsRunClangFormat)
 
-	execute_process (COMMAND "@CLANG_FORMAT@" -i *.h *.hpp *.c *.cpp
-				 	 WORKING_DIRECTORY "${dirpath}"
-				 	 OUTPUT_QUIET ERROR_QUIET)
-
-	lemons_subdir_list (DIR "${dirpath}" RESULT subdirs)
-
-	foreach (subdir ${subdirs})
-		_lemons_cf_process_dir ("${dirpath}/${subdir}")
-	endforeach()
-endfunction()
-
-#
-
-_lemons_cf_process_dir ("@CMAKE_SOURCE_DIR@")
+lemons_run_clang_format (DIRS @LEMONS_CF_DIRS@
+						 EXCLUDE @LEMONS_CF_EXCLUDE_DIRS@)

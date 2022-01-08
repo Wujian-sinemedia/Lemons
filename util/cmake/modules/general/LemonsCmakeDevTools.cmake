@@ -37,6 +37,12 @@ macro (lemons_require_function_arguments prefix)
 		if (NOT ${prefix}_${requiredArgument})
 			message (FATAL_ERROR "Required argument ${requiredArgument} not specified in call to ${CMAKE_CURRENT_FUNCTION}!")
 		endif()
+
+		if (${requiredArgument} STREQUAL "TARGET")
+			if (NOT TARGET ${prefix}_TARGET)
+				message (AUTHOR_WARNING "Target ${${prefix}_TARGET} does not exist!")
+			endif()
+		endif()
 	endforeach()
 endmacro()
 
