@@ -23,11 +23,12 @@ else()
 endif()
 
 
+include (${CTEST_SOURCE_DIRECTORY}/clean.cmake)
+
+
 ctest_start ("CI build")
 
-ctest_update (SOURCE ${CTEST_SOURCE_DIRECTORY})
-
-ctest_empty_binary_directory (${CTEST_BINARY_DIRECTORY})
+#ctest_update (SOURCE ${CTEST_SOURCE_DIRECTORY})
 
 ctest_configure (OPTIONS LEMONS_BUILD_TESTS=ON)
 
