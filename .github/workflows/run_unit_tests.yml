@@ -31,9 +31,8 @@ jobs:
         restore-keys: ${{ runner.os }}.unit_tests.
 
     - name: Install deps
-      uses: benthevining/DepsInstaller@v0.5.0
-      with:
-        depfile_path: '${{ github.workspace }}/Depsfile'
+      shell: bash
+      run: cmake -P ${{ github.workspace }}/install_deps.cmake
 
     - name: Configure CMake
       uses: benthevining/CMakeAction@v0.0.1
