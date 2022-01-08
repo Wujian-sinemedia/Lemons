@@ -16,12 +16,14 @@ struct GuiSerializingTests final : public CoreTest
 private:
 	void runTest() final
 	{
-		Image image { juce::Image::PixelFormat::RGB, 250, 250, true };
+		beginTest ("GUI serializing");
 
-		fillImageWithRandomPixels (image, getRandom());
+		// Image image { juce::Image::PixelFormat::RGB, 250, 250, true };
 
-		const auto blob         = serializing::imageToBinary (image);
-		const auto decodedImage = serializing::imageFromBinary (blob);
+		// fillImageWithRandomPixels (image, getRandom());
+
+		// const auto blob         = serializing::imageToBinary (image);
+		// const auto decodedImage = serializing::imageFromBinary (blob);
 
 		//    expect (imagesAreEqual (decodedImage, image));
 
@@ -30,17 +32,17 @@ private:
 		{
 			const auto subtest = beginSubtest ("Colour");
 
-			const juce::Colour orig { rand.nextFloat(), rand.nextFloat(), rand.nextFloat(), rand.nextFloat() };
+			juce::Colour orig { rand.nextFloat(), rand.nextFloat(), rand.nextFloat(), rand.nextFloat() };
 
 			expect (orig == toVarAndBack (orig));
 		}
 
 		{
-			const auto subtest = beginSubtest ("Image");
+			// const auto subtest = beginSubtest ("Image");
 
-			Image orig { juce::Image::PixelFormat::RGB, 250, 250, true };
+			// Image orig { juce::Image::PixelFormat::RGB, 250, 250, true };
 
-			fillImageWithRandomPixels (orig, rand);
+			// fillImageWithRandomPixels (orig, rand);
 
 			//        expect (imagesAreEqual (orig, toVarAndBack (orig)));
 		}
@@ -50,7 +52,7 @@ private:
 
 			using juce::Justification;
 
-			const Justification orig { Justification::Flags::left };
+			Justification orig { Justification::Flags::left };
 
 			expect (orig == toVarAndBack (orig));
 		}
