@@ -8,7 +8,8 @@ find_program (CLANG_FORMAT clang-format)
 function (lemons_run_clang_format)
 
 	if (NOT CLANG_FORMAT)
-		message (FATAL_ERROR "clang-format cannot be found!")
+		message (AUTHOR_WARNING "clang-format cannot be found!")
+		return()
 	endif()
 
 	set (multiValueArgs DIRS EXCLUDE)
@@ -29,6 +30,8 @@ function (lemons_run_clang_format)
 	else()
 		set (LEMONS_CF_EXCLUDE "")
 	endif()
+
+	list (APPEND LEMONS_CF_EXCLUDE ${CMAKE_CURRENT_BINARY_DIR})
 
 	#
 
@@ -64,11 +67,7 @@ function (lemons_run_clang_format)
 
 	foreach (directory ${LEMONS_CF_DIRS})
 
-		cmake_path (IS_ABSOLUTE directory is_abs_path)
-
-		if (NOT is_abs_path)
-			set (directory "${CMAKE_CURRENT_SOURCE_DIR}/${directory}")
-		endif()
+		lemons_make_path_absolute (VAR directory BASE_DIR ${CMAKE_CURRENT_LIST_DIR})
 
 		_lemons_clang_format_process_subdir (${directory})
 

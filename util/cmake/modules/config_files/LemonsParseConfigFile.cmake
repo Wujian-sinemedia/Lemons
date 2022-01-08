@@ -1,6 +1,6 @@
 include_guard (GLOBAL)
 
-include (LemonsCmakeDevTools)
+include (LemonsFileUtils)
 
 
 function (lemons_parse_config_file)
@@ -16,6 +16,8 @@ function (lemons_parse_config_file)
 	endif()
 
 	# parse just the lines in this section of the config file
+
+	lemons_make_path_absolute (VAR LEMONS_CONFIG_FILE BASE_DIR ${CMAKE_CURRENT_LIST_DIR})
 
 	file (STRINGS "${LEMONS_CONFIG_FILE}" file_lines)
 

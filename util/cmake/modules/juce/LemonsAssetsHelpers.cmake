@@ -35,13 +35,8 @@ function (lemons_add_resources_folder)
 
     lemons_require_function_arguments (LEMONS_RSRC_FLDR TARGET ASSET_FOLDER)
 
-    cmake_path (IS_ABSOLUTE LEMONS_RSRC_FLDR_ASSET_FOLDER folder_path_is_absolute)
-
-    if (folder_path_is_absolute)
-        set (dest_folder "${LEMONS_RSRC_FLDR_ASSET_FOLDER}")
-    else()
-        set (dest_folder "${PROJECT_SOURCE_DIR}/${LEMONS_RSRC_FLDR_ASSET_FOLDER}")
-    endif()
+    lemons_make_path_absolute (VAR LEMONS_RSRC_FLDR_ASSET_FOLDER 
+                               BASE_DIR ${PROJECT_SOURCE_DIR})
 
     if (LEMONS_RSRC_FLDR_OUTPUT_TARGET)
         set (resourcesTarget "${LEMONS_RSRC_FLDR_OUTPUT_TARGET}")
@@ -54,7 +49,7 @@ function (lemons_add_resources_folder)
             message (AUTHOR_WARNING "Target ${LEMONS_RSRC_FLDR_TARGET}::${resourcesTarget} exists, but target ${resourcesTarget} not found!")
         endif()
 
-        lemons_subdir_list (DIR "${dest_folder}" FILES FULL_PATHS RECURSE RESULT files)
+        lemons_subdir_list (DIR "${LEMONS_RSRC_FLDR_ASSET_FOLDER}" FILES FULL_PATHS RECURSE RESULT files)
 
         if (NOT files)
             message (AUTHOR_WARNING "No files found for inclusion in resources target!")
@@ -79,7 +74,7 @@ function (lemons_add_resources_folder)
         return()
     endif()
 
-    juce_add_bundle_resources_directory (${LEMONS_RSRC_FLDR_TARGET} ${dest_folder})
+    juce_add_bundle_resources_directory (${LEMONS_RSRC_FLDR_TARGET} ${LEMONS_RSRC_FLDR_ASSET_FOLDER})
 
     target_link_libraries (${LEMONS_RSRC_FLDR_TARGET} PRIVATE ${LEMONS_RSRC_FLDR_TARGET}::${resourcesTarget})
     

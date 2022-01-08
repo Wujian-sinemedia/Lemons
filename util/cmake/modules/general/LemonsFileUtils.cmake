@@ -79,3 +79,24 @@ function (lemons_subdir_list)
   	set (${LEMONS_SUBDIR_RESULT} ${dirlist} PARENT_SCOPE)
 
 endfunction()
+
+#
+
+function (lemons_make_path_absolute)
+
+	set (oneValueArgs VAR BASE_DIR)
+
+	cmake_parse_arguments (LEMONS_PATH "" "${oneValueArgs}" "" ${ARGN})
+
+	lemons_require_function_arguments (LEMONS_PATH VAR BASE_DIR) 
+
+	cmake_path (IS_ABSOLUTE ${LEMONS_PATH_VAR} is_abs_path)
+
+	if (is_abs_path)
+		return()
+	endif()
+
+	set (${LEMONS_PATH_VAR} "${LEMONS_PATH_BASE_DIR}/${${LEMONS_PATH_VAR}}" PARENT_SCOPE)
+
+endfunction()
+

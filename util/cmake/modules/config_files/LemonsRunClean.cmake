@@ -15,11 +15,7 @@ function (lemons_run_clean)
 		set (LEMONS_CLEAN_DIR ${CMAKE_CURRENT_SOURCE_DIR})
 	endif()
 
-	cmake_path (IS_ABSOLUTE LEMONS_CLEAN_FILE absPath)
-
-	if (NOT absPath)
-		set (LEMONS_CLEAN_FILE "${LEMONS_CLEAN_DIR}/${LEMONS_CLEAN_FILE}")
-	endif()
+	lemons_make_path_absolute (VAR LEMONS_CLEAN_FILE BASE_DIR ${LEMONS_CLEAN_DIR})
 
 	lemons_parse_config_file (FILE "${LEMONS_CLEAN_FILE}" SECTION Cleaning OUT_PREFIX CATEGORY)
 

@@ -54,7 +54,6 @@ CPMAddPackage (
         OPTIONS "JUCE_ENABLE_MODULE_SOURCE_GROUPS ON" "JUCE_BUILD_EXAMPLES OFF" "JUCE_BUILD_EXTRAS OFF")
 
 
-# N.B. must be included AFTER Juce is added, because this includes the translations module, which needs to know the location of the Juce package as defined by CPM
 include (LemonsAssetsHelpers)
 
 
