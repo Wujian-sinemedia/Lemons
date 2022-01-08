@@ -4,7 +4,7 @@ include (${CMAKE_CURRENT_LIST_DIR}/AddCMakeModules.cmake)
 
 list (APPEND CMAKE_MODULE_PATH ${LEMONS_CMAKE_MODULE_PATH})
 
-if (NOT APPLE) # Homebrew takes forever to update installed deps on GH actions runners...
+if (NOT APPLE AND NOT WIN32)
 	set (LEMONS_DEPS_UPDATE_ALL_FIRST TRUE)
 endif()
 
