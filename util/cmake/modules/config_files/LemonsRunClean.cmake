@@ -1,6 +1,7 @@
 include_guard (GLOBAL)
 
-include (LemonsParseConfigFile)
+include (LemonsJsonUtils)
+include (LemonsFileUtils)
 
 
 function (lemons_run_clean)
@@ -17,26 +18,26 @@ function (lemons_run_clean)
 
 	lemons_make_path_absolute (VAR LEMONS_CLEAN_FILE BASE_DIR ${LEMONS_CLEAN_DIR})
 
-	lemons_parse_config_file (FILE "${LEMONS_CLEAN_FILE}" SECTION Cleaning OUT_PREFIX CATEGORY)
+	file (READ ${LEMONS_CLEAN_FILE} file_contents)
 
-	if (NOT CATEGORY_Clean)
-		message (AUTHOR_WARNING "No clean items specified in config file!")
-		return()
-	endif()
+	string (JSON cleaningObj GET "${file_contents}" "Cleaning")
 
-	foreach (cleanItem ${CATEGORY_Clean})
-		file (REMOVE_RECURSE "${LEMONS_CLEAN_DIR}/${cleanItem}")
-	endforeach()
+	lemons_json_array_to_list (TEXT "${cleaningObj}" ARRAY "clean" OUT cleanItems)
 
-	if (LEMONS_CLEAN_WIPE)
-		if (NOT CATEGORY_Wipe)
-			message (AUTHOR_WARNING "Wipe requested, but no wipe items found in config file!")
-			return()
-		endif()
-
-		foreach (wipeItem ${CATEGORY_Wipe})
-			file (REMOVE_RECURSE "${LEMONS_CLEAN_DIR}/${wipeItem}")
+	if (cleanItems)
+		foreach (cleanItem ${CATEGORY_Clean})
+			file (REMOVE_RECURSE "${LEMONS_CLEAN_DIR}/${cleanItem}")
 		endforeach()
 	endif()
-	
+
+	if (LEMONS_CLEAN_WIPE)
+		lemons_json_array_to_list (TEXT "${cleaningObj}" ARRAY "wipe" OUT wipeItems)
+
+		if (wipeItems)
+			foreach (wipeItem ${CATEGORY_Wipe})
+				file (REMOVE_RECURSE "${LEMONS_CLEAN_DIR}/${wipeItem}")
+			endforeach()
+		endif()
+	endif()
+
 endfunction()

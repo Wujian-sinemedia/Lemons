@@ -1,0 +1,65 @@
+{
+	"project":
+	{
+		"name": "Lemons"
+	},
+	"Dependencies": [
+		{
+			"name": "Default",
+			"packages": [ "ccache", "git", "python3" ],
+			"LinuxPackages": [
+				"libasound2-dev",
+				"libjack-jackd2-dev",
+				"ladspa-sdk",
+				"libcurl4-openssl-dev",
+				"libfreetype6-dev",
+				"libx11-dev",
+				"libxcomposite-dev",
+				"libxcursor-dev",
+				"libxext-dev",
+				"libxinerama-dev",
+				"libxrandr-dev",
+				"libxrender-dev",
+				"libwebkit2gtk-4.0-dev",
+				"libglu1-mesa-dev",
+				"mesa-common-dev",
+				"openssh-client",
+				"ninja-build"
+			]
+		},
+		{
+			"name": "Docs",
+			"packages": [ "doxygen", "graphviz" ]
+		},
+		{
+			"name": "Docker",
+			"packages": [ "clang-11" ],
+			"categories": "Docs"
+		},
+		{
+			"name": "Android",
+			"packages": [
+				"openjdk-8-jre",
+				"openjdk-8-jdk",
+				"android-sdk",
+				"sdkmanager"
+			]
+		}
+	],
+	"Cleaning": {
+		"clean": [
+			"Builds",
+			"logs",
+			"CPM_modules",
+			"cpm-package-lock.cmake",
+			"util/doxygen/build",
+			"util/doxygen/doc",
+			"util/doxygen/Builds",
+			"docs",
+			".github/docs"
+		],
+		"wipe": [
+			"Cache"
+		]
+	}
+}

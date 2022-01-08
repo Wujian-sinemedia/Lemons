@@ -14,8 +14,8 @@ include (LemonsInstallDeps)
 option (LEMONS_DOCS "Install dependencies for building docs" OFF)
 
 if (LEMONS_DOCS)
-	lemons_install_deps (FILE "${CMAKE_CURRENT_LIST_DIR}/ConfigFile" CATEGORIES Docs)
+	lemons_install_deps (FILE lemons_config.json CATEGORIES Docs)
 else()
-	lemons_install_deps (FILE "${CMAKE_CURRENT_LIST_DIR}/ConfigFile")
+	lemons_install_deps (FILE lemons_config.json)
 endif()
 

@@ -1,9 +1,74 @@
 include_guard (GLOBAL)
 
-include (LemonsParseConfigFile)
+include (LemonsJsonUtils)
+include (LemonsFileUtils)
 
 
 function (lemons_get_list_of_deps_to_install)
+
+	function (_lemons_deps_get_category_with_name rootJsonObj catName outVar)
+
+		string (JSON numCategories LENGTH ${rootJsonObj} "Dependencies")
+
+		math (EXPR numCategories "${numCategories} - 1" OUTPUT_FORMAT DECIMAL)
+
+		foreach (idx RANGE ${numCategories})
+			string (JSON cat_name GET ${rootJsonObj} "Dependencies" ${idx} "name")
+
+			if ("${cat_name}" STREQUAL "${catName}")
+				string (JSON cat_obj GET ${rootJsonObj} "Dependencies" ${idx})
+				set (${outVar} "${cat_obj}" PARENT_SCOPE)
+				return()
+			endif()
+		endforeach()
+
+	endfunction()
+
+	#
+	
+	function (_lemons_deps_add_from_category rootJsonObj catJsonObj outVar)
+
+		lemons_json_array_to_list (TEXT "${catJsonObj}" ARRAY "packages" OUT outList)
+
+		# check for dependencies on other categories
+
+		lemons_json_array_to_list (TEXT "${catJsonObj}" ARRAY "categories" OUT subCats)
+
+		if (subCats)
+			foreach (subcategory ${subCats})
+
+				_lemons_deps_get_category_with_name ("${rootJsonObj}" ${subcategory} subcatObj)
+
+				if (subcatObj)
+					_lemons_deps_add_from_category ("${rootJsonObj}" "${subcatObj}" subCatPackages)
+					list (APPEND outList ${subCatPackages})
+				else()
+					message (AUTHOR_WARNING "Category dependancy ${subcategory} not found!")
+				endif()
+			endforeach()
+		endif()
+
+		# check for OS-specific packages
+
+		if (APPLE)
+			set (osCatName "MacPackages")
+		elseif (WIN32)
+			set (osCatName "WindowsPackages")
+		else()
+			set (osCatName "LinuxPackages")
+		endif()
+
+		lemons_json_array_to_list (TEXT "${catJsonObj}" ARRAY ${osCatName} OUT osPackages)
+
+		if (osPackages)
+			list (APPEND outList ${osPackages})
+		endif()
+
+		set (${outVar} "${outList}" PARENT_SCOPE)
+
+	endfunction()
+
+	#
 
 	set (oneValueArgs FILE OUTPUT)
 
@@ -11,62 +76,38 @@ function (lemons_get_list_of_deps_to_install)
 
 	lemons_require_function_arguments (LEMONS_DEPS FILE OUTPUT)
 
-	lemons_parse_config_file (FILE ${LEMONS_DEPS_FILE} SECTION Dependencies OUT_PREFIX CATEGORY)
+	lemons_make_path_absolute (VAR LEMONS_DEPS_FILE BASE_DIR ${CMAKE_CURRENT_LIST_DIR})
 
-	set (lemons_deps_list "")
+	file (READ ${LEMONS_DEPS_FILE} fileContents)
 
-	macro (_lemons_deps_add_list depsList)
-		foreach (dep_name ${depsList})
-			list (APPEND lemons_deps_list ${dep_name})
-		endforeach()
-	endmacro()
+	string (JSON depsJsonObj GET ${fileContents} "Dependencies")
+
+	set (outList "")
 
 	if (NOT LEMONS_DEPS_OMIT_DEFAULT)
-		if (CATEGORY_Default)
-			_lemons_deps_add_list ("${CATEGORY_Default}")
-		endif()
+		_lemons_deps_get_category_with_name ("${fileContents}" Default defaultCatObj)
 
-		if (APPLE)
-			if (CATEGORY_Mac)
-				_lemons_deps_add_list ("${CATEGORY_Mac}")
-			endif()
-		elseif (WIN32)
-			if (CATEGORY_Windows)
-				_lemons_deps_add_list ("${CATEGORY_Windows}")
-			endif()
-		else()
-			if (CATEGORY_Linux)
-				_lemons_deps_add_list ("${CATEGORY_Linux}")
-			endif()
-		endif()
-
-		if (IOS)
-			if (CATEGORY_iOS)
-				_lemons_deps_add_list ("${CATEGORY_iOS}")
-			endif()
-		elseif (ANDROID)
-			if (CATEGORY_Android)
-				_lemons_deps_add_list ("${CATEGORY_Android}")
-			endif()
+		if (defaultCatObj)
+			_lemons_deps_add_from_category ("${fileContents}" "${defaultCatObj}" defaultPackages)
+			list (APPEND outList ${defaultPackages})
 		endif()
 	endif()
 
 	foreach (category ${LEMONS_DEPS_CATEGORIES})
-		if (CATEGORY_${category})
-			_lemons_deps_add_list ("${CATEGORY_${category}}")
-		else()
-			message (AUTHOR_WARNING "Depsfile category ${category} not found!")
+
+		_lemons_deps_get_category_with_name ("${fileContents}" ${category} categoryObj)
+
+		if (NOT categoryObj)
+			message (AUTHOR_WARNING "Requested category ${category} not found in JSON file!")
+			continue()
 		endif()
+
+		_lemons_deps_add_from_category ("${fileContents}" "${categoryObj}" categoryPackages)
+		list (APPEND outList ${categoryPackages})
 	endforeach()
 
-	if (NOT lemons_deps_list)
-		message (AUTHOR_WARNING "Parsed dependency list is empty!")
-		return()
-	endif()
+	list (REMOVE_DUPLICATES outList)
 
-	list (REMOVE_DUPLICATES lemons_deps_list)
-
-	set (${LEMONS_DEPS_OUTPUT} ${lemons_deps_list} PARENT_SCOPE)
+	set (${LEMONS_DEPS_OUTPUT} ${outList} PARENT_SCOPE)
 
 endfunction()
-
