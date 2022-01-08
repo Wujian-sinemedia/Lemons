@@ -3,11 +3,6 @@ include_guard (GLOBAL)
 include (LemonsParseConfigFile)
 
 
-macro (lemons_parse_depsfile filepath)
-	lemons_parse_config_file (FILE ${filepath} SUBCATEGORIES_ALLOWED)
-endmacro()
-
-
 function (lemons_get_list_of_deps_to_install)
 
 	set (oneValueArgs FILE OUTPUT)
@@ -16,7 +11,7 @@ function (lemons_get_list_of_deps_to_install)
 
 	lemons_require_function_arguments (LEMONS_DEPS FILE OUTPUT)
 
-	lemons_parse_depsfile (${LEMONS_DEPS_FILE})
+	lemons_parse_config_file (FILE ${LEMONS_DEPS_FILE})
 
 	set (lemons_deps_list "")
 

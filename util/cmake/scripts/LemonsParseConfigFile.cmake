@@ -5,11 +5,19 @@ include (LemonsCmakeDevTools)
 
 function (lemons_parse_config_file)
 
-	cmake_parse_arguments (LEMONS_CONFIG "SUBCATEGORIES_ALLOWED" "FILE" "" ${ARGN})
+	set (oneValueArgs FILE OUT_PREFIX)
+
+	cmake_parse_arguments (LEMONS_CONFIG "" "${oneValueArgs}" "" ${ARGN})
 
 	lemons_require_function_arguments (LEMONS_CONFIG FILE)
 
+	if (NOT LEMONS_CONFIG_OUT_PREFIX)
+		set (LEMONS_CONFIG_OUT_PREFIX "CATEGORY")
+	endif()
+
 	file (STRINGS "${LEMONS_CONFIG_FILE}" file_lines)
+
+	set (AllCategoryNames "")
 
 	foreach (line ${file_lines})
 
@@ -31,7 +39,9 @@ function (lemons_parse_config_file)
 			string (STRIP ${category_name} category)
 
 			set (CurrentCategoryName "${category}")
-			set ("CATEGORY_${CurrentCategoryName}" "")
+			set ("CATEGORY_${category}" "")
+
+			list (APPEND AllCategoryNames ${category})
 
 			continue()
 		endif()
@@ -44,22 +54,13 @@ function (lemons_parse_config_file)
 		endif()
 
 		if (NOT ${first_char} STREQUAL "<")
-
 			list (APPEND "CATEGORY_${CurrentCategoryName}" "${stripped_line}")
-			set (CATEGORY_${CurrentCategoryName} "${CATEGORY_${CurrentCategoryName}}" PARENT_SCOPE)
-
 			continue()
 		endif()
 
 		# referencing another category
 
-		if (NOT LEMONS_CONFIG_SUBCATEGORIES_ALLOWED)
-			message (AUTHOR_WARNING "Subcategory identifier character '<' is invalid in this configuration file!")
-			continue()
-		endif()
-
 		string (FIND ${stripped_line} ">" end_idx REVERSE)
-
 		string (COMPARE GREATER ${end_idx} "-1" found)
 
 		if (NOT found)
@@ -72,14 +73,84 @@ function (lemons_parse_config_file)
 		string (SUBSTRING ${stripped_line} 1 ${end_idx} subcat_name)
 
 		if (subcat_name)
-			if (CATEGORY_${subcat_name})
-				list (APPEND CATEGORY_${CurrentCategoryName} ${CATEGORY_${subcat_name}})
-				set (CATEGORY_${CurrentCategoryName} "${CATEGORY_${CurrentCategoryName}}" PARENT_SCOPE)
-			else()
-				message (AUTHOR_WARNING "Dependant subcategory ${CATEGORY_${subcat_name}} does not exist!")
-			endif()
+			list (APPEND CATEGORY_${CurrentCategoryName} "SUBCAT_${subcat_name}")
+		else()
+			message (AUTHOR_WARNING "Invalid subcategory name: ${subcat_name}")
 		endif()
 
+	endforeach()
+
+
+	while (TRUE)
+
+		foreach (category ${AllCategoryNames})
+
+			if (NOT CATEGORY_${category})
+				message (AUTHOR_WARNING "Category ${category} is empty!")
+				continue()
+			endif()
+
+			foreach (item ${CATEGORY_${category}})
+
+				string (FIND ${item} "SUBCAT_" subcat_substring)
+				string (COMPARE GREATER ${subcat_substring} "-1" is_subcategory)
+
+				if (NOT is_subcategory) # item isn't referencing another category
+					continue()
+				endif()
+
+				list (REMOVE_ITEM CATEGORY_${category} ${item})
+
+				string (SUBSTRING ${item} 7 -1 subcat_name)
+
+				if (NOT subcat_name)
+					message (AUTHOR_WARNING "Error parsing name of subcategory dependancy ${item}!")
+					continue()
+				endif()
+
+				if (NOT CATEGORY_${subcat_name})
+					message (AUTHOR_WARNING "Dependant subcategory ${subcat_name} is empty!")
+					continue()
+				endif()
+
+				foreach (subcat_item ${CATEGORY_${subcat_name}})
+					list (APPEND CATEGORY_${category} ${subcat_item})
+				endforeach()
+			endforeach()
+
+			list (REMOVE_DUPLICATES CATEGORY_${subcat_name})
+
+		endforeach()
+
+
+		set (shouldBreak TRUE)
+
+		foreach (category ${AllCategoryNames})
+			foreach (item ${CATEGORY_${category}})
+				string (FIND ${item} "SUBCAT_" subcat_substring)
+				string (COMPARE GREATER ${subcat_substring} "-1" is_subcategory)
+
+				if (is_subcategory)
+					set (shouldBreak FALSE)
+					break()
+				endif()
+			endforeach()
+
+			if (${shouldBreak} STREQUAL "FALSE")
+				break()
+			endif()
+		endforeach()
+
+		if (${shouldBreak} STREQUAL "TRUE")
+			break()
+		endif()
+
+	endwhile()
+
+
+	foreach (category ${AllCategoryNames})
+		list (REMOVE_DUPLICATES CATEGORY_${category})
+		set (${LEMONS_CONFIG_OUT_PREFIX}_${category} "${CATEGORY_${category}}" PARENT_SCOPE)
 	endforeach()
 
 endfunction()

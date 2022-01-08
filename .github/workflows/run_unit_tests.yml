@@ -50,5 +50,5 @@ jobs:
     - name: Upload log
       uses: actions/upload-artifact@v2
       with:
-        name: UnitTestLog
+        name: UnitTestLog_${{ runner.os }}
         path: Builds/tests/Testing/Temporary/LastTest.log
