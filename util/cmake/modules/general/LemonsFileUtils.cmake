@@ -5,7 +5,8 @@ General filesystem utilities.
 
 ### lemons_subdir_list
 ```
-lemons_subdir_list (DIR <directory> RESULT <out_var> [RECURSE] [FILES])
+lemons_subdir_list (DIR <directory> RESULT <out_var> 
+					[RECURSE] [FILES] [FULL_PATHS])
 ```
 Returns a list of subdirectories within the specified directory.
 
@@ -21,11 +22,14 @@ If the `FILES` flag is present, the function returns a list of files that are in
 
 include_guard (GLOBAL)
 
+cmake_minimum_required (VERSION 3.21 FATAL_ERROR)
+
 include (LemonsCmakeDevTools)
+
 
 function (lemons_subdir_list)
 
-	set (options RECURSE FILES)
+	set (options RECURSE FILES FULL_PATHS)
 	set (oneValueArgs RESULT DIR)
 
 	cmake_parse_arguments (LEMONS_SUBDIR "${options}" "${oneValueArgs}" "" ${ARGN})
@@ -50,12 +54,24 @@ function (lemons_subdir_list)
 
   	foreach (child ${children})
   		if (LEMONS_SUBDIR_FILES)
-			if (EXISTS "${dir}/${child}" AND NOT IS_DIRECTORY "${dir}/${child}" AND NOT "${child}" STREQUAL ".DS_Store")
-				list (APPEND dirlist "${child}")
+  			set (filepath "${dir}/${child}")
+
+			if (EXISTS ${filepath} AND NOT IS_DIRECTORY ${filepath} AND NOT "${child}" STREQUAL ".DS_Store")
+				if (LEMONS_SUBDIR_FULL_PATHS)
+					list (APPEND dirlist "${filepath}")
+				else()
+					list (APPEND dirlist "${child}")
+				endif()
 			endif()
   		else()
-			if (IS_DIRECTORY "${dir}/${child}" AND EXISTS "${dir}/${child}")
-      			list (APPEND dirlist "${child}")
+  			set (dirpath "${dir}/${child}")
+
+			if (EXISTS ${dirpath} AND IS_DIRECTORY ${dirpath})
+				if (LEMONS_SUBDIR_FULL_PATHS)
+					list (APPEND dirlist "${dirpath}")
+				else()
+					list (APPEND dirlist "${child}")
+				endif()
     		endif()
   		endif()
   	endforeach()

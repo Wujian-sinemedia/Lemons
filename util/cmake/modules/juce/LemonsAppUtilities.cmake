@@ -23,6 +23,8 @@ Forwards `${ARGN`} to [lemons_configure_juce_target](@ref lemons_configure_juce_
 
 include_guard (GLOBAL)
 
+cmake_minimum_required (VERSION 3.21 FATAL_ERROR)
+
 include (LemonsJuceUtilities)
 include (lemons_internal)
 include (LemonsCmakeDevTools)

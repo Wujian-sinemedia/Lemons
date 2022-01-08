@@ -32,6 +32,8 @@ The `PLUGIN_HOST`, `BROWSER`, `CAMERA`, and `MICROPHONE` options are all optiona
 
 include_guard (GLOBAL)
 
+cmake_minimum_required (VERSION 3.21 FATAL_ERROR)
+
 include (LemonsGetCPM)
 include (LemonsDefaultPlatformSettings)
 include (LemonsCmakeDevTools)

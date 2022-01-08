@@ -12,40 +12,58 @@ add_custom_target (LemonsModuleIndividualTests
 
 include (AllLemonsModules)
 
-get_target_property (lemons_all_modules Lemons::AllLemonsModules OriginalModuleNames)
+get_target_property (lemons_module_categories Lemons::AllLemonsModules ModuleCategoryNames)
 
-if (NOT lemons_all_modules)
-	message (AUTHOR_WARNING "Error retrieving original juce module names!")
+if (NOT lemons_module_categories)
+	message (AUTHOR_WARNING "Error retrieving juce module category names!")
+	return()
 endif()
 
-foreach (moduleName ${lemons_all_modules})
+foreach (module_category ${lemons_module_categories})
 
-	if (NOT TARGET "Lemons::${moduleName}")
-		message (AUTHOR_WARNING "Juce module ${moduleName} not found!")
+	if (NOT TARGET Lemons::${module_category})
+		message ("Module category target ${module_category} not found!")
 		continue()
 	endif()
 
-	set (moduleTestName "${moduleName}_test")
+	get_target_property (module_names Lemons::${module_category} OriginalModuleNames)
 
-	if (TARGET "${moduleTestName}")
-		continue()
+	if (NOT module_names)
+		message (AUTHOR_WARNING "Error retrieving original juce module names from category ${module_names}!")
+		return()
 	endif()
 
-	set (generated_file "${moduleName}_test.cpp")
+	foreach (moduleName ${module_names})
 
-	configure_file ("${CMAKE_CURRENT_LIST_DIR}/ModuleTestMain.cpp" "${generated_file}"
-					@ONLY
-					NEWLINE_STYLE UNIX)
+		if (NOT TARGET "Lemons::${moduleName}")
+			message (AUTHOR_WARNING "Juce module ${moduleName} not found!")
+			continue()
+		endif()
 
-	juce_add_console_app (${moduleTestName})
+		set (moduleTestName "${moduleName}_test")
 
-	lemons_configure_juce_target (TARGET ${moduleTestName})
+		if (TARGET "${moduleTestName}")
+			message (AUTHOR_WARNING "Duplicate juce module test ${moduleTestName} found!")
+			continue()
+		endif()
 
-	target_sources (${moduleTestName} PRIVATE "${CMAKE_CURRENT_BINARY_DIR}/${generated_file}")
+		set (generated_file "${moduleName}_test.cpp")
 
-	target_link_libraries (${moduleTestName} PRIVATE Lemons::${moduleName})
+		configure_file ("${CMAKE_CURRENT_LIST_DIR}/ModuleTestMain.cpp" "${generated_file}"
+						@ONLY
+						NEWLINE_STYLE UNIX)
 
-	add_dependencies (LemonsModuleIndividualTests ${moduleTestName})
+		juce_add_console_app (${moduleTestName})
+
+		lemons_configure_juce_target (TARGET ${moduleTestName})
+
+		target_sources (${moduleTestName} PRIVATE "${CMAKE_CURRENT_BINARY_DIR}/${generated_file}")
+
+		target_link_libraries (${moduleTestName} PRIVATE Lemons::${moduleName})
+
+		add_dependencies (LemonsModuleIndividualTests ${moduleTestName})
+
+	endforeach()
 
 endforeach()
 

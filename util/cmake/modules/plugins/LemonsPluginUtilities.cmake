@@ -96,9 +96,5 @@ function (lemons_configure_juce_plugin)
 
     _lemons_add_to_all_plugins_target (${LEMONS_PLUGIN_TARGET})
 
-    set (stdaln_target "${LEMONS_PLUGIN_TARGET}_Standalone")
-    if (TARGET ${stdaln_target})
-        _lemons_add_to_all_apps_target (${stdaln_target})
-    endif()
 endfunction()
 

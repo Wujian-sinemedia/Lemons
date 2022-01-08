@@ -37,6 +37,12 @@ function (_lemons_add_to_all_plugins_target target)
 
     add_dependencies (LEMONS_ALL_PLUGINS "${target}_All")
 
+    set (stdaln_target "${target}_Standalone")
+    
+    if (TARGET ${stdaln_target})
+        _lemons_add_to_all_apps_target (${stdaln_target})
+    endif()
+
     if (NOT TARGET Lemons::ALL_PLUGINS)
     	add_library (Lemons::ALL_PLUGINS ALIAS LEMONS_ALL_PLUGINS)
     endif()

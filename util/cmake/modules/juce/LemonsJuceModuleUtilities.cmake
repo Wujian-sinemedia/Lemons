@@ -5,7 +5,9 @@ Utilities for adding custom JUCE modules to projects.
 
 ### lemons_add_juce_modules
 ```
-lemons_add_juce_modules (<directory>)
+lemons_add_juce_modules (DIR <directory>
+                         [AGGREGATE <aggregateTarget>]
+                         [ALIAS_NAMESPACE <aliasNamespace>])
 ```
 Adds any/all JUCE modules that are nested subdirectories within the specified directory.
 
@@ -14,26 +16,64 @@ Adds any/all JUCE modules that are nested subdirectories within the specified di
 
 include_guard (GLOBAL)
 
+cmake_minimum_required (VERSION 3.21 FATAL_ERROR)
+
 include (LemonsFileUtils)
 include (LemonsJuceUtilities)
 include (LemonsCmakeDevTools)
 
 #
 
-function (lemons_add_juce_modules dir)
-    lemons_subdir_list (RESULT moduleFolders DIR "${dir}")
-
-    foreach (folder ${moduleFolders})
-        juce_add_module ("${dir}/${folder}")
-    endforeach()
-endfunction()
-
-#
-
 define_property (TARGET 
                  PROPERTY OriginalModuleNames INHERITED
                  BRIEF_DOCS "Original juce module names"
-                 FULL_DOCS "The original names of the lemons juce module targets, without the Lemons:: prefix.")
+                 FULL_DOCS "The original names of a juce module category target's individual juce modules, without the Namespace:: prefixes.")
+
+
+function (lemons_add_juce_modules)
+
+    set (oneValueArgs DIR AGGREGATE ALIAS_NAMESPACE)
+
+    cmake_parse_arguments (LEMONS_MOD "" "${oneValueArgs}" "" ${ARGN})
+
+    lemons_require_function_arguments (LEMONS_MOD DIR)
+
+    if (LEMONS_MOD_AGGREGATE)
+        if (NOT TARGET ${LEMONS_MOD_AGGREGATE})
+            add_library (${LEMONS_MOD_AGGREGATE} INTERFACE)
+        endif()
+    endif()
+
+    lemons_subdir_list (RESULT moduleFolders DIR "${LEMONS_MOD_DIR}")
+
+    foreach (folder ${moduleFolders})
+        if (LEMONS_MOD_ALIAS_NAMESPACE)
+            juce_add_module ("${LEMONS_MOD_DIR}/${folder}" ALIAS_NAMESPACE ${LEMONS_MOD_ALIAS_NAMESPACE})
+        else()
+            juce_add_module ("${LEMONS_MOD_DIR}/${folder}")
+        endif()
+
+        if (LEMONS_MOD_AGGREGATE)
+            if (LEMONS_MOD_ALIAS_NAMESPACE)
+                target_link_libraries (${LEMONS_MOD_AGGREGATE} INTERFACE "${LEMONS_MOD_ALIAS_NAMESPACE}::${folder}")
+            else()
+                target_link_libraries (${LEMONS_MOD_AGGREGATE} INTERFACE ${folder})
+            endif()
+
+            lemons_append_to_target_property_list (TARGET ${LEMONS_MOD_AGGREGATE} PROPERTY OriginalModuleNames ADD ${folder})
+        endif()
+    endforeach()
+
+    if (LEMONS_MOD_ALIAS_NAMESPACE AND LEMONS_MOD_AGGREGATE)
+        set (aggregateAlias "${LEMONS_MOD_ALIAS_NAMESPACE}::${LEMONS_MOD_AGGREGATE}")
+
+        if (NOT TARGET ${aggregateAlias})
+            add_library (${aggregateAlias} ALIAS ${LEMONS_MOD_AGGREGATE})
+        endif()
+    endif()
+endfunction()
+
+#
 
 define_property (TARGET
                  PROPERTY ModuleCategoryNames INHERITED
@@ -48,38 +88,21 @@ function (_lemons_add_module_subcategory)
 
     lemons_require_function_arguments (LEMONS_SUBMOD TARGET)
 
-    if (NOT TARGET ${LEMONS_SUBMOD_TARGET})
-        add_library (${LEMONS_SUBMOD_TARGET} INTERFACE)
-    endif()
+    lemons_add_juce_modules (DIR "${CMAKE_CURRENT_LIST_DIR}"
+                             AGGREGATE ${LEMONS_SUBMOD_TARGET}
+                             ALIAS_NAMESPACE Lemons)
 
     if (NOT TARGET AllLemonsModules)
         add_library (AllLemonsModules INTERFACE)
     endif()
 
-    lemons_subdir_list (RESULT moduleFolders DIR "${CMAKE_CURRENT_LIST_DIR}")
+    target_link_libraries (AllLemonsModules INTERFACE Lemons::${LEMONS_SUBMOD_TARGET})
 
-    foreach (folder ${moduleFolders})
-        if (TARGET ${folder})
-            message (AUTHOR_WARNING "Duplicate juce module found: ${folder}")
-            continue()
-        endif()
-
-        juce_add_module ("${CMAKE_CURRENT_LIST_DIR}/${folder}" ALIAS_NAMESPACE Lemons)
-
-        target_link_libraries (${LEMONS_SUBMOD_TARGET} INTERFACE Lemons::${folder})
-        target_link_libraries (AllLemonsModules INTERFACE Lemons::${folder})
-
-        lemons_append_to_target_property_list (TARGET AllLemonsModules PROPERTY OriginalModuleNames ADD ${folder})
-    endforeach()
+    lemons_append_to_target_property_list (TARGET AllLemonsModules PROPERTY ModuleCategoryNames ADD ${LEMONS_SUBMOD_TARGET})
 
     foreach (categoryDependancy ${LEMONS_SUBMOD_CATEGORY_DEPS})
         include (${categoryDependancy})
 
         target_link_libraries (${LEMONS_SUBMOD_TARGET} INTERFACE Lemons::${categoryDependancy})
-        target_link_libraries (AllLemonsModules INTERFACE Lemons::${categoryDependancy})
-
-        lemons_append_to_target_property_list (TARGET AllLemonsModules PROPERTY ModuleCategoryNames ADD ${categoryDependancy})
     endforeach()
-
-    add_library (Lemons::${LEMONS_SUBMOD_TARGET} ALIAS ${LEMONS_SUBMOD_TARGET})
 endfunction()

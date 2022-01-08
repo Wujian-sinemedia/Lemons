@@ -77,6 +77,7 @@ endif()
 
 
 if (APPLE)
+
     if (NOT "x86_64" IN_LIST CMAKE_OSX_ARCHITECTURES)
     	message (AUTHOR_WARNING "You're not building for x86_64, which will cause linker errors with AAX targets! Enable universal binaries to build for AAX.")
     	return()
@@ -105,6 +106,7 @@ if (APPLE)
     set_target_properties (AAXSDK PROPERTIES OSX_ARCHITECTURES x86_64)
 
 elseif (WIN32)
+
     find_program (MS_BUILD msbuild)
 
     if (NOT MS_BUILD)
@@ -215,7 +217,7 @@ function (lemons_configure_aax_plugin)
     lemons_require_function_arguments (LEMONS_AAX TARGET)
 
     if (NOT TARGET ${LEMONS_AAX_TARGET})
-        message (WARNING "AAX target does not exist!")
+        message (AUTHOR_WARNING "AAX target does not exist!")
         return()
     endif()
 

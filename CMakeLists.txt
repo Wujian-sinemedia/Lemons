@@ -8,22 +8,24 @@ project (Lemons
 		 HOMEPAGE_URL "www.github.com/benthevining/Lemons"
 		 LANGUAGES CXX C)
 
-
 #
 
-set (CMAKE_DEBUG_POSTFIX "-d" CACHE INTERNAL "")
+include (CMakeDependentOption)
 
 set (CMAKE_CXX_STANDARD 20 CACHE STRING "C++ standard version")
-mark_as_advanced (FORCE CMAKE_CXX_STANDARD)
 
 set (LEMONS_SANITIZERS_TO_ENABLE "" CACHE STRING "List of sanitizers to enable")
 
 set (LEMONS_AAX_SDK_PATH ""  CACHE PATH "Path to the AAX SDK")
 set (LEMONS_VST2_SDK_PATH "" CACHE PATH "Path to the VST2 SDK")
 
-option (LEMONS_IGNORE_ALL_EXTRAS "Ignore everything except what's needed to make compiling your project work" OFF)
+option (LEMONS_CREATE_AGGREGATE_TARGETS "Generate ALL_APPS and ALL_PLUGINS targets, populated accordingly" ON)
+set (LEMONS_JUCE_BRANCH "develop" CACHE STRING "The branch of the JUCE GitHub repository to use - should be develop or master")
 
-include (CMakeDependentOption)
+mark_as_advanced (FORCE CMAKE_CXX_STANDARD LEMONS_SANITIZERS_TO_ENABLE LEMONS_CREATE_AGGREGATE_TARGETS LEMONS_JUCE_BRANCH)
+
+
+option (LEMONS_IGNORE_ALL_EXTRAS "Ignore everything except what's needed to make compiling your project work" OFF)
 
 cmake_dependent_option (LEMONS_BUILD_TESTS "Build the Lemons unit tests" OFF "NOT LEMONS_IGNORE_ALL_EXTRAS" OFF)
 cmake_dependent_option (LEMONS_BUILD_DOCS "Build the Lemons documentation" OFF "NOT LEMONS_IGNORE_ALL_EXTRAS" OFF)
@@ -32,6 +34,7 @@ cmake_dependent_option (LEMONS_BUILD_UTILS "Build the command line utilities" OF
 cmake_dependent_option (LEMONS_BUILD_METADATA_EDITOR "Build the plugin metadata GUI editor" OFF "NOT LEMONS_IGNORE_ALL_EXTRAS" OFF)
 
 #cmake_dependent_option (LEMONS_BUILD_TEST_LAB "Build the TestLab application" OFF "NOT LEMONS_IGNORE_ALL_EXTRAS" OFF)
+
 
 if (LEMONS_BUILD_TESTS)
 	set (LEMONS_PLUGINVAL_LEVEL "10" CACHE STRING "Pluginval testing level")
@@ -52,12 +55,11 @@ elseif (APPLE)
 	option (LEMONS_MAC_UNIVERSAL_BINARY "Builds for x86_64 and arm64" ON)
 endif()
 
-option (LEMONS_CREATE_AGGREGATE_TARGETS "Generate ALL_APPS and ALL_PLUGINS targets, populated accordingly" ON)
-set (LEMONS_JUCE_BRANCH "develop" CACHE STRING "The branch of the JUCE GitHub repository to use - should be develop or master")
-
-mark_as_advanced (FORCE LEMONS_CREATE_AGGREGATE_TARGETS LEMONS_JUCE_BRANCH)
-
 # 
+
+set (CMAKE_CXX_VISIBILITY_PRESET hidden CACHE INTERNAL "")
+set (CMAKE_VISIBILITY_INLINES_HIDDEN YES CACHE INTERNAL "")
+set (CMAKE_DEBUG_POSTFIX "-d" CACHE INTERNAL "")
 
 set_property (GLOBAL PROPERTY USE_FOLDERS YES)
 set_property (GLOBAL PROPERTY PREDEFINED_TARGETS_FOLDER "Targets")

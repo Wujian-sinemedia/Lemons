@@ -6,8 +6,7 @@ Utilities for adding binary data targets to JUCE projects.
 ### lemons_add_resources_folder {#lemons_add_resources_folder}
 ```
 lemons_add_resources_folder (TARGET <target> ASSET_FOLDER <folder>
-                            [OUTPUT_TARGET <targetName>]
-                            [TRANSLATIONS])
+                            [OUTPUT_TARGET <targetName>])
 ```
 
 Adds a JUCE binary data folder for the specified `<target>`, and populates it with all the files found in `<folder>`. 
@@ -15,25 +14,24 @@ if `<folder>` is a relative path, it will be evaluated relative to your project'
 
 If `[OUTPUT_TARGET]` is present, `targetName` will be the name of the generated resources target; otherwise, it will default to `${PROJECT_NAME}-Assets`.
 
-If the `TRANSLATIONS` option is present, then this will call [lemons_generate_translation_files()](@ref lemons_generate_translation_files), placing the output in `<folder>/translations` and also bundling these files in the generated resources target.
-
 ]]
 
 
 include_guard (GLOBAL)
 
+cmake_minimum_required (VERSION 3.21 FATAL_ERROR)
+
 include (LemonsJuceUtilities)
-include (LemonsCmakeDevTools)
+include (LemonsFileUtils)
 
 lemons_warn_if_not_processing_project()
 
 
 function (lemons_add_resources_folder)
 
-    set (options TRANSLATIONS)
     set (oneValueArgs TARGET ASSET_FOLDER OUTPUT_TARGET)
 
-    cmake_parse_arguments (LEMONS_RSRC_FLDR "${options}" "${oneValueArgs}" "" ${ARGN})
+    cmake_parse_arguments (LEMONS_RSRC_FLDR "" "${oneValueArgs}" "" ${ARGN})
 
     lemons_require_function_arguments (LEMONS_RSRC_FLDR TARGET ASSET_FOLDER)
 
@@ -56,13 +54,7 @@ function (lemons_add_resources_folder)
             message (AUTHOR_WARNING "Target ${LEMONS_RSRC_FLDR_TARGET}::${resourcesTarget} exists, but target ${resourcesTarget} not found!")
         endif()
 
-        if (LEMONS_RSRC_FLDR_TRANSLATIONS)
-            include (LemonsTranslationFileGeneration)
-            lemons_generate_translation_files (TARGET "${LEMONS_RSRC_FLDR_TARGET}" FOLDER "${dest_folder}/translations")
-        endif()
-
-        file (GLOB_RECURSE files "${dest_folder}/*.*")
-        list (REMOVE_ITEM files ".DS_Store")
+        lemons_subdir_list (DIR "${dest_folder}" FILES FULL_PATHS RECURSE RESULT files)
 
         if (NOT files)
             message (AUTHOR_WARNING "No files found for inclusion in resources target!")

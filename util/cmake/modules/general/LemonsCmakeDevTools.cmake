@@ -1,5 +1,7 @@
 include_guard (GLOBAL)
 
+cmake_minimum_required (VERSION 3.21 FATAL_ERROR)
+
 
 ##  Deprecations
 
@@ -42,9 +44,9 @@ endmacro()
 #
 
 macro (lemons_warn_if_not_processing_project)
-	if (NOT CMAKE_ROLE STREQUAL "PROJECT")
-    	message (AUTHOR_WARNING "This module (${CMAKE_CURRENT_LIST_FILE}) isn't meant to be used outside of project configurations. Some commands may not be available.")
-	endif()
+	# if (NOT CMAKE_ROLE STREQUAL "PROJECT")
+ #    	message (AUTHOR_WARNING "This module (${CMAKE_CURRENT_LIST_FILE}) isn't meant to be used outside of project configurations. Some commands may not be available.")
+	# endif()
 endmacro()
 
 

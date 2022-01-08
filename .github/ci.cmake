@@ -1,6 +1,6 @@
-set (CTEST_SOURCE_DIRECTORY ${CTEST_SCRIPT_DIRECTORY})
+set (CTEST_SOURCE_DIRECTORY ${CTEST_SCRIPT_DIRECTORY}/..)
 
-set (CTEST_BINARY_DIRECTORY ${CTEST_SCRIPT_DIRECTORY}/Builds/tests)
+set (CTEST_BINARY_DIRECTORY ${CTEST_SCRIPT_DIRECTORY}/../Builds/tests)
 
 set (CTEST_CONFIGURATION_TYPE Debug)
 
@@ -22,11 +22,12 @@ else()
 	set (CTEST_CMAKE_GENERATOR "Ninja")
 endif()
 
-#ctest_update (SOURCE ${CTEST_SCRIPT_DIRECTORY})
 
 ctest_start ("CI build")
 
-#ctest_empty_binary_directory (Builds/tests)
+ctest_update (SOURCE ${CTEST_SOURCE_DIRECTORY})
+
+ctest_empty_binary_directory (${CTEST_BINARY_DIRECTORY})
 
 ctest_configure (OPTIONS LEMONS_BUILD_TESTS=ON)
 
