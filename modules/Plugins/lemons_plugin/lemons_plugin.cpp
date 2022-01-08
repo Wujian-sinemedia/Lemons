@@ -46,6 +46,6 @@
 #include "hosting/PluginScanning.cpp"
 
 #if LEMONS_UNIT_TESTING
-#include "parameters/parameter_tests.cpp"
-#include "processors/ProcessorBase_tests.cpp"
+// #include "parameters/parameter_tests.cpp"
+// #include "processors/ProcessorBase_tests.cpp"
 #endif
