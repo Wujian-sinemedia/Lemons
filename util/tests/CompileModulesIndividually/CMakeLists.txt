@@ -1,5 +1,9 @@
 include_guard (GLOBAL)
 
+cmake_minimum_required (VERSION 3.21 FATAL_ERROR)
+
+project (CompileLemonsModulesIndividually VERSION 0.1.0 LANGUAGES CXX)
+
 if (NOT LEMONS_BUILD_TESTS)
 	message (AUTHOR_WARNING "Cmake configuration is incorrect!")
 endif()
@@ -7,7 +11,7 @@ endif()
 
 # For each juce module, create a dummy executable linked only to that module, to test that each module can be built individually
 
-add_custom_target (LemonsModuleIndividualTests
+add_custom_target (${PROJECT_NAME}
 				   COMMENT "Building juce module independancy tests...")
 
 include (AllLemonsModules)
@@ -61,12 +65,12 @@ foreach (module_category ${lemons_module_categories})
 
 		target_link_libraries (${moduleTestName} PRIVATE Lemons::${moduleName})
 
-		add_dependencies (LemonsModuleIndividualTests ${moduleTestName})
+		add_dependencies (${PROJECT_NAME} ${moduleTestName})
 
 	endforeach()
 
 endforeach()
 
 
-add_dependencies (LemonsTests LemonsModuleIndividualTests)
+add_dependencies (LemonsTests ${PROJECT_NAME})
 

@@ -21,5 +21,4 @@ add_custom_target (${PROJECT_NAME} COMMENT "Building all Lemons tests...")
 
 
 add_subdirectory (UnitTestRunner)
-
-include (BuildAllModulesIndividually.cmake)
+add_subdirectory (CompileModulesIndividually)
