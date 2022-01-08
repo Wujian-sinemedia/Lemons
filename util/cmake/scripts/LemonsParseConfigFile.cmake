@@ -62,7 +62,13 @@ function (lemons_parse_config_file)
 
 	set (AllCategoryNames "")
 
-	foreach (stripped_line ${SectionLines})
+	foreach (line ${SectionLines})
+
+		string (STRIP ${line} stripped_line)
+
+		if (NOT stripped_line)
+			continue()
+		endif()
 
 		string (SUBSTRING ${stripped_line} 0 1 first_char)
 
