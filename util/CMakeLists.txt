@@ -34,6 +34,5 @@ endif()
 
 if (LEMONS_BUILD_TESTS)
 	enable_testing()
-    add_subdirectory (UnitTestRunner)
-    add_subdirectory (cmake/tests)
+    add_subdirectory (tests)
 endif()

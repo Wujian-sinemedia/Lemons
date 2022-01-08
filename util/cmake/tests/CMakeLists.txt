@@ -7,5 +7,4 @@ endif()
 enable_testing()
 
 #include ("${CMAKE_CURRENT_LIST_DIR}/RunAllBuilds.cmake")
-include ("${CMAKE_CURRENT_LIST_DIR}/BuildAllModulesIndividually.cmake")
 include ("${CMAKE_CURRENT_LIST_DIR}/ConfigCmakeUnitTests.cmake")

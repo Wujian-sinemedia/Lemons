@@ -91,7 +91,7 @@
       "description": "Builds the Lemons unit tests",
       "configurePreset": "tests",
       "configuration": "Debug",
-      "targets": ["UnitTestRunner"]
+      "targets": [ "LemonsTests" ]
     },
     {
       "name": "editor",
@@ -103,21 +103,21 @@
       "name": "utils",
       "displayName": "Build the command line utilities",
       "configurePreset": "utils",
-      "targets": ["CommandLineUtils"]
+      "targets": [ "CommandLineUtils" ]
     },
     {
       "name": "templates",
       "displayName": "Build templates",
       "description": "Builds both Lemons project templates",
       "configurePreset": "templates",
-      "targets": ["LemonsTemplates"]
+      "targets": [ "LemonsTemplates" ]
     },
     {
       "name": "lab",
       "displayName": "Build TestLab",
       "description": "Builds TestLab",
       "configurePreset": "lab",
-      "targets": ["TestLab"]
+      "targets": [ "TestLab" ]
     }
   ],
   "testPresets": [
