@@ -1452,11 +1452,6 @@
     <filename>_lemons_set_default_cpack_generator_8md.html</filename>
   </compound>
   <compound kind="file">
-    <name>LemonsTranslationFileGeneration.md</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/CMake/</path>
-    <filename>_lemons_translation_file_generation_8md.html</filename>
-  </compound>
-  <compound kind="file">
     <name>LFO.h</name>
     <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Plugins/lemons_plugin/parameters/ModulationManager/</path>
     <filename>_l_f_o_8h.html</filename>
@@ -36518,12 +36513,6 @@
     <name>LemonsSetDefaultCpackGenerator</name>
     <title>LemonsSetDefaultCpackGenerator</title>
     <filename>_lemons_set_default_cpack_generator</filename>
-  </compound>
-  <compound kind="page">
-    <name>LemonsTranslationFileGeneration</name>
-    <title>LemonsTranslationFileGeneration</title>
-    <filename>_lemons_translation_file_generation</filename>
-    <docanchor file="_lemons_translation_file_generation.html" title="lemons_generate_translation_files">lemons_generate_translation_files</docanchor>
   </compound>
   <compound kind="page">
     <name>LinuxLSBInfo</name>
