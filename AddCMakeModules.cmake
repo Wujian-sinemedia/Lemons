@@ -6,9 +6,8 @@ macro (_lemons_add_cmake_module_dir path)
 endmacro()
 
 _lemons_add_cmake_module_dir ("${CMAKE_CURRENT_LIST_DIR}/modules")
-_lemons_add_cmake_module_dir ("${CMAKE_CURRENT_LIST_DIR}/util/cmake/scripts")
 
-foreach (directory "util/cmake/modules" "util/cmake/scripts" "modules")
+foreach (directory "util/cmake/modules" "modules")
 	set (directory "${CMAKE_CURRENT_LIST_DIR}/${directory}")
 	file (GLOB children RELATIVE ${directory} ${directory}/*)
 
