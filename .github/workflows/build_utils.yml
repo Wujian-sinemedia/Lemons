@@ -1,0 +1,43 @@
+name: CommandLineUtils
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0 * * *'
+
+jobs:
+
+  build:
+
+    name: ${{ matrix.os }} build
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 60
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [windows-latest, ubuntu-latest, macos-latest]
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+      with:
+        submodules: recursive
+
+    - name: Set up cache
+      uses: actions/cache@v2
+      with:
+        path: Cache
+        key: ${{ runner.os }}.unit_tests.${{ hashFiles('**/') }}
+        restore-keys: ${{ runner.os }}.unit_tests.
+
+    - name: Install deps
+      shell: bash
+      run: cmake -P '${{ github.workspace }}/scripts/install_deps.cmake'
+
+    - name: Configure CMake
+      shell: bash
+      run: cd '${{ github.workspace }}/util/CommandLineUtils' && cmake -B Builds
+
+    - name: Run build
+      shell: bash
+      run: cd '${{ github.workspace }}/util/CommandLineUtils' && cmake --build Builds
