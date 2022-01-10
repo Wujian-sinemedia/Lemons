@@ -23,7 +23,7 @@ else()
 endif()
 
 
-include (${CTEST_SOURCE_DIRECTORY}/clean.cmake)
+include (${CTEST_SOURCE_DIRECTORY}/scripts/clean.cmake)
 
 
 ctest_start ("CI build")
@@ -33,7 +33,7 @@ ctest_start ("CI build")
 ctest_configure (OPTIONS LEMONS_BUILD_TESTS=ON)
 
 ctest_build (CONFIGURATION Debug
-			 TARGET UnitTestRunner)
+			 TARGET LemonsTests)
 
 ctest_test (INCLUDE "Lemons.")
 

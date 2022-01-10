@@ -22,7 +22,7 @@ jobs:
 
     - name: Install deps
       shell: bash
-      run: cmake -D LEMONS_DOCS=1 -P '${{ github.workspace }}/install_deps.cmake'
+      run: cmake -D LEMONS_DOCS=1 -P '${{ github.workspace }}/scripts/install_deps.cmake'
 
     - name: Run script
       shell: bash
