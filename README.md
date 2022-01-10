@@ -1,6 +1,7 @@
 # Lemons
 
 [![UnitTests](https://github.com/benthevining/Lemons/actions/workflows/run_unit_tests.yml/badge.svg?branch=main)](https://github.com/benthevining/Lemons/actions/workflows/run_unit_tests.yml)
+[![ProjectTemplates](https://github.com/benthevining/Lemons/actions/workflows/build_templates.yml/badge.svg)](https://github.com/benthevining/Lemons/actions/workflows/build_templates.yml)
 [![CommandLineUtils](https://github.com/benthevining/Lemons/actions/workflows/build_utils.yml/badge.svg)](https://github.com/benthevining/Lemons/actions/workflows/build_utils.yml)
 
 <p align="center">
