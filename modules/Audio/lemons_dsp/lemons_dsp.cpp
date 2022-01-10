@@ -19,6 +19,7 @@
 
 #include "unit_tests/dsp_test.cpp"
 #include "unit_tests/dsp_utils.cpp"
+#include "unit_tests/AllOscillatorsTest.cpp"
 
 #include "fifos/CircularBuffer.cpp"
 #include "fifos/AudioFifo.cpp"

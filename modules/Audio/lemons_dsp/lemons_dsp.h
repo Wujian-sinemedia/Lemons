@@ -70,6 +70,8 @@ END_JUCE_MODULE_DECLARATION
 #include "oscillators/OscillatorEngine.h"
 #include "oscillators/choosable.h"
 
+#include "unit_tests/AllOscillatorsTest.h"
+
 #include "filters/Filter.h"
 
 #include "util/AudioFormats.h"

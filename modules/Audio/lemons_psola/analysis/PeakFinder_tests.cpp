@@ -2,28 +2,27 @@
 #  error
 #endif
 
-
 namespace lemons::tests
 {
 
-template <typename SampleType>
-struct PeakFinderTests : public DspTest
+template <typename FloatType>
+class PeakFinderTests final : public AllOscillatorsTest<FloatType>
 {
+public:
 	explicit PeakFinderTests()
-	    : DspTest (getDspTestName<SampleType> ("PSOLA grain detector tests"))
-	{
-	}
+	: AllOscillatorsTest<FloatType>("PSOLA peak finder")
+	{ }
 
 private:
-	void runTest() final
-	{
-		constexpr auto samplerate = 44100.;
+	static constexpr auto samplerate = 44100.;
 
+	void runOscillatorTest (dsp::Oscillator<FloatType>& osc) final
+	{
 		for (const auto freq : { 85., 215., 440., 755., 2036., 3531. })
 		{
 			const auto period = math::periodInSamples (samplerate, freq);
 
-			beginTest ("Period: " + String (period) + " samples");
+			this->beginTest ("Period: " + String (period) + " samples");
 
 			const auto blocksize = period * 4;
 
@@ -31,12 +30,17 @@ private:
 
 			audioStorage.setSize (1, blocksize);
 
-			runOscillatorTest (sine, samplerate, freq, period, "Sine");
-			runOscillatorTest (saw, samplerate, freq, period, "Saw");
-			runOscillatorTest (square, samplerate, freq, period, "Square");
-			runOscillatorTest (triangle, samplerate, freq, period, "Triangle");
-		}
+			osc.setFrequency (static_cast<FloatType> (freq),
+			                  static_cast<FloatType> (samplerate));
 
+			osc.getSamples (audioStorage);
+
+			runBufferTest (period);
+		}
+	}
+
+	void runOtherTests() final
+	{
 		const auto numSamples = audioStorage.getNumSamples();
 
 		//    {
@@ -48,24 +52,12 @@ private:
 		//    }
 
 		{
-			const auto subtest = beginSubtest ("Silence");
+			const auto subtest = this->beginSubtest ("Silence");
 
 			audioStorage.clear();
 
 			runBufferTest (nextRandomPeriod (samplerate, 60, numSamples));
 		}
-	}
-
-	void runOscillatorTest (dsp::osc::Oscillator<SampleType>& osc, double samplerate, double freq, int period, const String& waveName)
-	{
-		const auto oscSubtest = beginSubtest (waveName + " oscillator");
-
-		osc.setFrequency (static_cast<SampleType> (freq),
-		                  static_cast<SampleType> (samplerate));
-
-		osc.getSamples (audioStorage);
-
-		runBufferTest (period);
 	}
 
 	void runBufferTest (int period)
@@ -75,27 +67,28 @@ private:
 		const auto& indices = peakFinder.findPeaks (audioStorage.getReadPointer (0), blocksize, period);
 
 		{
-			const auto subtest = beginSubtest ("Grains identified");
-			expectGreaterOrEqual (indices.size(), (blocksize / period) - 1);
+			const auto subtest = this->beginSubtest ("Grains identified");
+            this->expect (! indices.isEmpty());
+			this->expectGreaterOrEqual (indices.size(), (blocksize / period) - 2);
 		}
 
 		{
-			const auto subtest = beginSubtest ("Indices are always increasing");
+			const auto subtest = this->beginSubtest ("Indices are always increasing");
 
 			for (int i = 0; i < indices.size() - 1; ++i)
-				expectGreaterThan (indices.getUnchecked (i + 1),
-				                   indices.getUnchecked (i));
+				this->expectGreaterThan (indices.getUnchecked (i + 1),
+                                         indices.getUnchecked (i));
 		}
 
 		{
-			const auto subtest = beginSubtest ("Max and min index are within range");
+			const auto subtest = this->beginSubtest ("Max and min index are within range");
 
-			expectGreaterOrEqual (indices.getUnchecked (0), 0);
+			this->expectGreaterOrEqual (indices.getUnchecked (0), 0);
 
-			expectLessOrEqual (indices.getUnchecked (indices.size() - 1), blocksize);
+			this->expectLessOrEqual (indices.getUnchecked (indices.size() - 1), blocksize);
 		}
 
-		const auto subtest = beginSubtest ("Grain spacing");
+		const auto subtest = this->beginSubtest ("Grain spacing");
 
 		/*
 		 Heuristics:
@@ -113,10 +106,10 @@ private:
 			const auto index2 = indices.getUnchecked (i + 1);
 			const auto index3 = indices.getUnchecked (i + 2);
 
-			expectWithinAbsoluteError (index3 - index1, period * 2, halfPeriod);
+			this->expectWithinAbsoluteError (index3 - index1, period * 2, halfPeriod);
 
-			expectWithinAbsoluteError (index2 - index1, period, halfPeriod);
-			expectWithinAbsoluteError (index3 - index2, period, halfPeriod);
+			this->expectWithinAbsoluteError (index2 - index1, period, halfPeriod);
+			this->expectWithinAbsoluteError (index3 - index2, period, halfPeriod);
 		}
 	}
 
@@ -125,23 +118,17 @@ private:
 		const auto maxPeriod = std::min (math::periodInSamples (samplerate, minHz), numSamples / 2);
 		const auto minPeriod = std::min (numSamples / 4, maxPeriod - 1);
 
-		return getRandom().nextInt ({ minPeriod, maxPeriod + 1 });
+		return this->getRandom().nextInt ({ minPeriod, maxPeriod + 1 });
 	}
 
-	dsp::psola::PeakFinder<SampleType> peakFinder;
+	dsp::psola::PeakFinder<FloatType> peakFinder;
 
-	AudioBuffer<SampleType> audioStorage;
-
-	dsp::osc::Sine<SampleType>     sine;
-	dsp::osc::Saw<SampleType>      saw;
-	dsp::osc::Square<SampleType>   square;
-	dsp::osc::Triangle<SampleType> triangle;
+	AudioBuffer<FloatType> audioStorage;
 };
-
 
 template struct PeakFinderTests<float>;
 template struct PeakFinderTests<double>;
 
 LEMONS_CREATE_DSP_TEST (PeakFinderTests)
 
-}  // namespace lemons::tests
+}
