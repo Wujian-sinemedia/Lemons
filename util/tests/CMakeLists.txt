@@ -14,8 +14,6 @@ if (NOT DEFINED ENV{CPM_SOURCE_CACHE})
     set (ENV{CPM_SOURCE_CACHE} "${CPM_Lemons_SOURCE}/Cache")
 endif()
 
-#set (LEMONS_BUILD_TESTS ON CACHE INTERNAL "")
-
 include ("${CPM_Lemons_SOURCE}/scripts/AddLemons.cmake")
 
 

@@ -55,6 +55,8 @@
 			"util/doxygen/build",
 			"util/doxygen/doc",
 			"util/doxygen/Builds",
+			"util/tests/Builds",
+			"util/CommandLineUtils/Builds",
 			"docs",
 			".github/docs"
 		],

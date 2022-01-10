@@ -20,8 +20,6 @@ int main (int argc, char** argv)
     if (! args.checkForRequiredArgs())
         return EXIT_FAILURE;
     
-    lemons::locale::getPhrasesToBeTranslated(args.getFilepathForOption ("--dir|-d"));
-    
     std::cout << "Generating translation files..." << std::endl;
     
     lemons::locale::generateTranslationFiles (args.getFilepathForOption ("--dir|-d"),

@@ -10,8 +10,6 @@ project (Lemons
 
 #
 
-include (CMakeDependentOption)
-
 set (CMAKE_CXX_STANDARD 20 CACHE STRING "C++ standard version")
 
 set (LEMONS_SANITIZERS_TO_ENABLE "" CACHE STRING "List of sanitizers to enable")
@@ -23,15 +21,6 @@ option (LEMONS_CREATE_AGGREGATE_TARGETS "Generate ALL_APPS and ALL_PLUGINS targe
 set (LEMONS_JUCE_BRANCH "develop" CACHE STRING "The branch of the JUCE GitHub repository to use - should be develop or master")
 
 mark_as_advanced (FORCE CMAKE_CXX_STANDARD LEMONS_SANITIZERS_TO_ENABLE LEMONS_CREATE_AGGREGATE_TARGETS LEMONS_JUCE_BRANCH)
-
-
-option (LEMONS_IGNORE_ALL_EXTRAS "Ignore everything except what's needed to make compiling your project work" OFF)
-
-cmake_dependent_option (LEMONS_BUILD_TEMPLATES "Build the Lemons project templates" OFF "NOT LEMONS_IGNORE_ALL_EXTRAS" OFF)
-cmake_dependent_option (LEMONS_BUILD_UTILS "Build the command line utilities" OFF "NOT LEMONS_IGNORE_ALL_EXTRAS" OFF)
-cmake_dependent_option (LEMONS_BUILD_METADATA_EDITOR "Build the plugin metadata GUI editor" OFF "NOT LEMONS_IGNORE_ALL_EXTRAS" OFF)
-
-#cmake_dependent_option (LEMONS_BUILD_TEST_LAB "Build the TestLab application" OFF "NOT LEMONS_IGNORE_ALL_EXTRAS" OFF)
 
 
 if (IOS)
