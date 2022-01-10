@@ -136,8 +136,6 @@ endif()
 
 set_target_properties (AAXSDK PROPERTIES OSX_ARCHITECTURES x86_64)
 
-add_library (Lemons::AAXSDK ALIAS AAXSDK)
-
 
 include (LemonsJuceUtilities)
 juce_set_aax_sdk_path ("${LEMONS_AAX_SDK_PATH}")
@@ -225,13 +223,13 @@ function (lemons_configure_aax_plugin)
         return()
     endif()
 
-    if (NOT TARGET Lemons::AAXSDK)
+    if (NOT TARGET AAXSDK)
         message (FATAL_ERROR "AAX plugin target created, but AAXSDK target doesn't exist!")
     endif()
 
     set_target_properties (${LEMONS_AAX_TARGET} PROPERTIES OSX_ARCHITECTURES x86_64)
 
-    target_link_libraries (${LEMONS_AAX_TARGET} PRIVATE Lemons::AAXSDK)
+    add_dependencies (${LEMONS_AAX_TARGET} AAXSDK)
 
     if (LEMONS_AAX_PAGETABLE_FILE)
 

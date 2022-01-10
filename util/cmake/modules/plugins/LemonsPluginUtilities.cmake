@@ -34,7 +34,7 @@ include (LemonsJuceUtilities)
 include (lemons_internal)
 include (LemonsCmakeDevTools)
 
-if (LEMONS_AAX_SDK_PATH AND NOT IOS AND (APPLE OR WIN32))
+if (LEMONS_AAX_SDK_PATH)
     include (LemonsAAXUtils)
 endif()
 
@@ -55,7 +55,7 @@ if (NOT IOS)
         list (APPEND available_formats AU)
     endif()
 
-    if (TARGET Lemons::AAXSDK)
+    if (TARGET AAXSDK)
         list (APPEND available_formats AAX)
     endif()
 
