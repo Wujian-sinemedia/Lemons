@@ -1,10 +1,14 @@
+set (logsDir @CMAKE_CURRENT_BINARY_DIR@/logs)
 
-set (config_output_file @CMAKE_CURRENT_BINARY_DIR@/logs/moduleBuild_Config.log)
-set (config_error_output @CMAKE_CURRENT_BINARY_DIR@/logs/moduleBuild_ConfigError.log)
-set (build_output_file @CMAKE_CURRENT_BINARY_DIR@/logs/moduleBuild_Build.log)
-set (build_error_output @CMAKE_CURRENT_BINARY_DIR@/logs/moduleBuild_BuildError.log)
+set (config_output_file ${logsDir}/moduleBuild_Config.log)
+set (config_error_output ${logsDir}/moduleBuild_ConfigError.log)
+set (build_output_file ${logsDir}/moduleBuild_Build.log)
+set (build_error_output ${logsDir}/moduleBuild_BuildError.log)
 
-file (MAKE_DIRECTORY @CMAKE_CURRENT_BINARY_DIR@/logs)
+if (NOT IS_DIRECTORY ${logsDir})
+	file (MAKE_DIRECTORY ${logsDir})
+endif()
+
 file (TOUCH ${config_output_file} ${config_error_output} ${build_output_file} ${build_error_output})
 
 
