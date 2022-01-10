@@ -47,8 +47,6 @@ lemons_configure_juce_plugin (TARGET ${PROJECT_NAME})
 
 target_sources (${PROJECT_NAME} PRIVATE ${sourceDir}/Main.cpp)
 
-#target_include_directories (${PROJECT_NAME} PRIVATE ${sourceDir})
-
 target_link_libraries (${PROJECT_NAME} PRIVATE ${PROJECT_NAME}::new_dsp ${PROJECT_NAME}::new_gui)
 
 
