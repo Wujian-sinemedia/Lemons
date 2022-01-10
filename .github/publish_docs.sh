@@ -36,9 +36,9 @@ git config user.email "actions@github.com"
 rm -rf *
 
 # generate the doxygen documentation
-cd "$lemons_root"
-cmake --preset docs
-cmake --build --preset docs
+cd "$lemons_root/util/doxygen"
+cmake -B Builds
+cmake --build Builds
 
 # need to create an empty .nojekyll file
 echo "" > .nojekyll

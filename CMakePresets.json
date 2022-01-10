@@ -23,16 +23,6 @@
       }
     },
     {
-      "name": "docs",
-      "displayName": "Configure for documentation",
-      "description": "Configuration with documentation enabled",
-      "inherits": "base",
-      "cacheVariables": {
-        "LEMONS_BUILD_DOCS": "ON",
-        "LEMONS_ENABLE_INTEGRATIONS": "OFF"
-      }
-    },
-    {
       "name": "tests",
       "displayName": "Configure for testing",
       "description": "Confuguration with testing enabled",
@@ -78,13 +68,6 @@
     }
   ],
   "buildPresets": [
-    {
-      "name": "docs",
-      "displayName": "Build all",
-      "description": "Builds everything",
-      "configurePreset": "docs",
-      "targets": ["Doxygen"]
-    },
     {
       "name": "tests",
       "displayName": "Build tests",

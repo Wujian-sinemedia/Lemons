@@ -10,10 +10,6 @@ if (LEMONS_ENABLE_INTEGRATIONS)
 	include (LemonsAllIntegrations)
 endif()
 
-if (LEMONS_BUILD_DOCS)
-	add_subdirectory (doxygen)
-endif()
-
 # if (LEMONS_BUILD_TEST_LAB)
 # 	add_subdirectory (TestLab)
 # endif()

@@ -1,12 +1,12 @@
 include_guard (GLOBAL)
 
-if (TARGET Doxygen)
-	return()
-endif()
-
 cmake_minimum_required (VERSION 3.21 FATAL_ERROR)
 
-project (LemonsDocs VERSION 0.0.1)
+project (LemonsDocs 
+		 VERSION 0.1.0 
+		 DESCRIPTION "Lemons documentation"
+		 HOMEPAGE_URL "www.github.com/benthevining/Lemons"
+		 LANGUAGES NONE)
 
 
 find_package (Doxygen REQUIRED dot)
@@ -52,7 +52,7 @@ add_custom_command (OUTPUT "${cmake_modules_output}" VERBATIM
 
 #
 
-add_custom_target (Doxygen
+add_custom_target (Doxygen ALL
 				   COMMAND Doxygen::doxygen VERBATIM
 				   DEPENDS ${main_page_output} ${modules_output} ${cmake_modules_output}
 				   BYPRODUCTS "doc/index.html"
