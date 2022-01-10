@@ -6,19 +6,19 @@
 namespace New
 {
 template < typename SampleType >
-class Engine : public dsp::Engine< SampleType >
+class Engine final : public dsp::Engine< SampleType >
 {
 public:
     using AudioBuffer = juce::AudioBuffer< SampleType >;
     using MidiBuffer  = juce::MidiBuffer;
 
-    Engine (State& stateToUse);
+    explicit Engine() = default;
 
 private:
     void renderBlock (const AudioBuffer& input, AudioBuffer& output, MidiBuffer& midiMessages, bool isBypassed) final;
-    void prepared (int blocksize, double samplerate) final;
+    void prepared (int blocksize, double samplerate, int numChannels) final;
 
-    State& state;
+//    State& state;
 };
 
 }  // namespace New

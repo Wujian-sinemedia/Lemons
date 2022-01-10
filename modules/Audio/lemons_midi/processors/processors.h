@@ -9,7 +9,7 @@ struct Processor
 
 	virtual void process (MidiBuffer& block) = 0;
 
-	virtual void prepare (int /*maxBlocksize*/) {};
+	virtual void prepare (int /*maxBlocksize*/) {}
 
 	virtual void release() { }
 

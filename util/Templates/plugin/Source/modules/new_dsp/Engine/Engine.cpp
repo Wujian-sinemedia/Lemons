@@ -1,10 +1,5 @@
 namespace New
 {
-template < typename SampleType >
-Engine< SampleType >::Engine (State& stateToUse)
-    : state (stateToUse)
-{
-}
 
 template < typename SampleType >
 void Engine< SampleType >::renderBlock (const AudioBuffer&, AudioBuffer&, MidiBuffer&, bool)
@@ -12,7 +7,7 @@ void Engine< SampleType >::renderBlock (const AudioBuffer&, AudioBuffer&, MidiBu
 }
 
 template < typename SampleType >
-void Engine< SampleType >::prepared (int, double)
+void Engine< SampleType >::prepared (int, double, int)
 {
 }
 

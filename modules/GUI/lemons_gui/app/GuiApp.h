@@ -16,7 +16,7 @@ public:
 	using WindowType = DefaultWindow<ContentComponentType>;
 
 	/** Creates a default GuiApp. */
-	GuiApp (const String&     appName    = LEMONS_DEFAULT_APP_NAME,
+	explicit GuiApp (const String&     appName    = LEMONS_DEFAULT_APP_NAME,
 	        const String&     appVersion = LEMONS_DEFAULT_APP_VERSION,
 	        const Dimensions& initSize   = Dimensions::getDefault())
 	    : initialSize (initSize)

@@ -14,14 +14,7 @@ if (NOT DEFINED ENV{CPM_SOURCE_CACHE})
     set (ENV{CPM_SOURCE_CACHE} "${CPM_Lemons_SOURCE}/Cache")
 endif()
 
-#
-
-file (REAL_PATH "${CMAKE_CURRENT_LIST_DIR}/../cmake/modules/general" cpm_module_path)
-
-if (NOT "${cpm_module_path}" IN_LIST CMAKE_MODULE_PATH)
-    list (APPEND CMAKE_MODULE_PATH "${cpm_module_path}")
-    set (CMAKE_MODULE_PATH "${CMAKE_MODULE_PATH}" CACHE INTERNAL "")
-endif()
+include ("${CPM_Lemons_SOURCE}/scripts/AddLemons.cmake")
 
 #
 
@@ -30,6 +23,6 @@ add_subdirectory (plugin)
 
 #
 
-add_custom_target (${PROJECT_NAME} COMMENT "Building templates...")
+add_custom_target (${PROJECT_NAME} ALL COMMENT "Building templates...")
 
 add_dependencies (${PROJECT_NAME} NewApp NewPlugin)

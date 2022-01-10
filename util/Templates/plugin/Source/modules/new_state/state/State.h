@@ -4,7 +4,7 @@
 
 namespace New
 {
-struct State : plugin::State< Parameters >
+struct State : plugin::State
 {
     State();
 };

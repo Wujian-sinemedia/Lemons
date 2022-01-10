@@ -7,7 +7,7 @@
  version:            0.0.1
  name:               new_app_gui
  description:        GUI for my new app
- dependencies:       lemons_gui lemons_app_utils
+ dependencies:       lemons_gui
  END_JUCE_MODULE_DECLARATION
  -------------------------------------------------------------------------------------*/
 

@@ -2,14 +2,13 @@ cmake_minimum_required (VERSION 3.19)
 
 project (NewPlugin VERSION 0.0.1 LANGUAGES CXX)
 
-include ("${CPM_Lemons_SOURCE}/AddLemons.cmake")
-
 include (LemonsPluginModules)
 include (BVBrandFlags)
 
 set (sourceDir ${CMAKE_CURRENT_LIST_DIR}/Source)
 
-lemons_add_juce_modules ("${sourceDir}/modules")
+lemons_add_juce_modules (DIR "${sourceDir}/modules"
+                         ALIAS_NAMESPACE ${PROJECT_NAME})
 
 juce_add_plugin (${PROJECT_NAME}
     ${BV_DEFAULT_BRAND_FLAGS}
@@ -44,12 +43,12 @@ juce_add_plugin (${PROJECT_NAME}
     SEND_APPLE_EVENTS_PERMISSION_ENABLED FALSE
     )
 
-lemons_configure_juce_plugin (TARGET ${PROJECT_NAME} ASSET_FOLDER assets)
+lemons_configure_juce_plugin (TARGET ${PROJECT_NAME})
 
 target_sources (${PROJECT_NAME} PRIVATE ${sourceDir}/Main.cpp)
 
-target_include_directories (${PROJECT_NAME} PRIVATE ${sourceDir})
+#target_include_directories (${PROJECT_NAME} PRIVATE ${sourceDir})
 
-target_link_libraries (${PROJECT_NAME} PRIVATE new_dsp new_gui)
+target_link_libraries (${PROJECT_NAME} PRIVATE ${PROJECT_NAME}::new_dsp ${PROJECT_NAME}::new_gui)
 
 
