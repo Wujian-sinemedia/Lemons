@@ -57,6 +57,8 @@
 			"util/doxygen/Builds",
 			"util/tests/Builds",
 			"util/CommandLineUtils/Builds",
+			"util/Templates/Builds",
+			"util/PluginMetadataEditor/Builds",
 			"docs",
 			".github/docs"
 		],
