@@ -4,15 +4,6 @@ cmake_minimum_required (VERSION 3.21 FATAL_ERROR)
 
 project (CompileLemonsModulesIndividually VERSION 0.1.0 LANGUAGES CXX)
 
-if (NOT DEFINED CPM_Lemons_SOURCE)
-    set (CPM_Lemons_SOURCE "${CMAKE_CURRENT_LIST_DIR}/../../.." CACHE INTERNAL "")
-endif()
-
-if (NOT DEFINED ENV{CPM_SOURCE_CACHE})
-    set (ENV{CPM_SOURCE_CACHE} "${CPM_Lemons_SOURCE}/Cache")
-endif()
-
-include ("${CPM_Lemons_SOURCE}/scripts/AddLemons.cmake")
 
 # For each juce module, create a dummy executable linked only to that module, to test that each module can be built individually
 
