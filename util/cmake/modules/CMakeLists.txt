@@ -9,9 +9,9 @@ project (LemonsCmakeModules
 		 LANGUAGES NONE)
 
 
-file (GLOB children RELATIVE ${CMAKE_CURRENT_LIST_DIR} ${CMAKE_CURRENT_LIST_DIR}/*)
+# add subfolders to module path
 
-set (lemonsModulePaths "")
+file (GLOB children RELATIVE ${CMAKE_CURRENT_LIST_DIR} ${CMAKE_CURRENT_LIST_DIR}/*)
 
 foreach (child ${children})
 	set (full_path "${CMAKE_CURRENT_LIST_DIR}/${child}")
@@ -26,3 +26,20 @@ list (APPEND CMAKE_MODULE_PATH "${lemonsModulePaths}")
 list (APPEND LEMONS_CMAKE_MODULE_PATH "${lemonsModulePaths}")
 
 set (LEMONS_CMAKE_MODULE_PATH "${LEMONS_CMAKE_MODULE_PATH}" CACHE INTERNAL "")
+
+
+# install files
+
+include (LemonsFileUtils)
+
+foreach (module_path ${lemonsModulePaths})
+
+	lemons_subdir_list (DIR ${module_path}
+						RESULT dir_files
+						FILES FULL_PATHS RECURSE)
+
+	install (FILES ${dir_files}
+		 	 DESTINATION share/cmake/${PROJECT_NAME}
+		 	 COMPONENT ${PROJECT_NAME})
+endforeach()
+
