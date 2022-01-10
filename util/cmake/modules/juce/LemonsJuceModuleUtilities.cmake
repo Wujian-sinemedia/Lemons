@@ -37,6 +37,7 @@ function (lemons_add_juce_modules)
     cmake_parse_arguments (LEMONS_MOD "" "${oneValueArgs}" "" ${ARGN})
 
     lemons_require_function_arguments (LEMONS_MOD DIR)
+    lemons_check_for_unparsed_args (LEMONS_MOD)
 
     if (LEMONS_MOD_AGGREGATE)
         if (NOT TARGET ${LEMONS_MOD_AGGREGATE})
@@ -87,6 +88,7 @@ function (_lemons_add_module_subcategory)
     cmake_parse_arguments (LEMONS_SUBMOD "" "TARGET" "CATEGORY_DEPS" ${ARGN})
 
     lemons_require_function_arguments (LEMONS_SUBMOD TARGET)
+    lemons_check_for_unparsed_args (LEMONS_SUBMOD)
 
     lemons_add_juce_modules (DIR "${CMAKE_CURRENT_LIST_DIR}"
                              AGGREGATE ${LEMONS_SUBMOD_TARGET}

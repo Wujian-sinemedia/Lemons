@@ -85,6 +85,7 @@ function (lemons_configure_juce_target)
     cmake_parse_arguments (LEMONS_TARGETCONFIG "${options}" "${oneValueArgs}" "" ${ARGN})
 
     lemons_require_function_arguments (LEMONS_TARGETCONFIG TARGET)
+    lemons_check_for_unparsed_args (LEMONS_TARGETCONFIG)
 
     target_compile_definitions (${LEMONS_TARGETCONFIG_TARGET} PRIVATE
             JUCE_VST3_CAN_REPLACE_VST2=0

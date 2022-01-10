@@ -11,6 +11,7 @@ function (lemons_run_clean)
 	cmake_parse_arguments (LEMONS_CLEAN "WIPE" "${oneValueArgs}" "" ${ARGN})
 
 	lemons_require_function_arguments (LEMONS_CLEAN FILE)
+	lemons_check_for_unparsed_args (LEMONS_CLEAN)
 
 	if (NOT LEMONS_CLEAN_DIR)
 		set (LEMONS_CLEAN_DIR ${CMAKE_CURRENT_SOURCE_DIR})

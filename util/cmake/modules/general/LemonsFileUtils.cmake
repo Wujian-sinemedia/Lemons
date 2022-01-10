@@ -35,6 +35,7 @@ function (lemons_subdir_list)
 	cmake_parse_arguments (LEMONS_SUBDIR "${options}" "${oneValueArgs}" "" ${ARGN})
 
 	lemons_require_function_arguments (LEMONS_SUBDIR RESULT DIR)
+	lemons_check_for_unparsed_args (LEMONS_SUBDIR)
 
 	cmake_path (IS_ABSOLUTE LEMONS_SUBDIR_DIR dir_path_is_absolute)
 
@@ -89,6 +90,7 @@ function (lemons_make_path_absolute)
 	cmake_parse_arguments (LEMONS_PATH "" "${oneValueArgs}" "" ${ARGN})
 
 	lemons_require_function_arguments (LEMONS_PATH VAR BASE_DIR) 
+	lemons_check_for_unparsed_args (LEMONS_PATH)
 
 	cmake_path (IS_ABSOLUTE ${LEMONS_PATH_VAR} is_abs_path)
 

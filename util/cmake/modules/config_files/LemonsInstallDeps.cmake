@@ -93,6 +93,7 @@ function (lemons_get_list_of_deps_to_install)
 	cmake_parse_arguments (LEMONS_DEPS "OMIT_DEFAULT" "${oneValueArgs}" "CATEGORIES" ${ARGN})
 
 	lemons_require_function_arguments (LEMONS_DEPS FILE OUTPUT)
+	lemons_check_for_unparsed_args (LEMONS_DEPS)
 
 	lemons_make_path_absolute (VAR LEMONS_DEPS_FILE BASE_DIR ${CMAKE_CURRENT_LIST_DIR})
 

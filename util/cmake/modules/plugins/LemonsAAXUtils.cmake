@@ -153,6 +153,8 @@ function (lemons_set_aax_signing_settings)
 
     cmake_parse_arguments (LEMONS_AAX "" "${oneValueArgs}" "" ${ARGN})
 
+    lemons_check_for_unparsed_args (LEMONS_AAX)
+
     if (LEMONS_AAX_ACCOUNT)
         set (LEMONS_AAX_ACCOUNT "${LEMONS_AAX_ACCOUNT}" CACHE STRING "Account ID for AAX plugin signing")
     endif()
@@ -179,6 +181,7 @@ function (lemons_configure_aax_plugin_signing)
     cmake_parse_arguments (LEMONS_AAX "" "${oneValueArgs}" "" ${ARGN})
 
     lemons_require_function_arguments (LEMONS_AAX TARGET GUID ACCOUNT)
+    lemons_check_for_unparsed_args (LEMONS_AAX)
 
     find_program (WRAPTOOL_PROGRAM wraptool)
 
@@ -215,6 +218,7 @@ function (lemons_configure_aax_plugin)
     cmake_parse_arguments (LEMONS_AAX "SIGN" "${oneValueArgs}" "" ${ARGN})
 
     lemons_require_function_arguments (LEMONS_AAX TARGET)
+    lemons_check_for_unparsed_args (LEMONS_AAX)
 
     if (NOT TARGET ${LEMONS_AAX_TARGET})
         message (AUTHOR_WARNING "AAX target does not exist!")

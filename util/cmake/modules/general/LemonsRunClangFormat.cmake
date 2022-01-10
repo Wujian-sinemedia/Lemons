@@ -17,6 +17,7 @@ function (lemons_run_clang_format)
 	cmake_parse_arguments (LEMONS_CF "" "" "${multiValueArgs}" ${ARGN})
 
 	lemons_require_function_arguments (LEMONS_CF DIRS)
+	lemons_check_for_unparsed_args (LEMONS_CF)
 
 	if (LEMONS_CF_EXCLUDE)
 		foreach (excludeDir ${LEMONS_CF_EXCLUDE})
