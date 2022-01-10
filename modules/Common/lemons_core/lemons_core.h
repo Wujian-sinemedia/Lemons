@@ -79,7 +79,6 @@
 #include "misc/Dimensions.h"
 #include "misc/ConstructedArray.h"
 #include "misc/Timers.h"
-#include "misc/Ranges.h"
 #include "misc/rsa.h"
 
 #include "unit_tests/test.h"
@@ -96,5 +95,6 @@
 #include "localization/languages.h"
 #include "localization/TranslationFiles.h"
 
+#include "math/Ranges.h"
 #include "math/mathHelpers.h"
 #include "misc/ArgParser.h"

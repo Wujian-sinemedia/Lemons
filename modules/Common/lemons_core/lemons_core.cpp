@@ -19,8 +19,9 @@
 #include "misc/Version.cpp"
 #include "misc/Dimensions.cpp"
 #include "misc/ArgParser.cpp"
-#include "misc/Ranges.cpp"
 #include "misc/rsa.cpp"
+
+#include "math/Ranges.cpp"
 
 #include "unit_tests/test.cpp"
 #include "unit_tests/runner.cpp"
@@ -39,6 +40,7 @@
 
 #if LEMONS_UNIT_TESTS
 #  include "math/math_tests.cpp"
+#  include "math/Ranges_tests.cpp"
 #  include "serializing/serializing_tests.cpp"
 #  include "serializing/VariantConversions_tests.cpp"
 #  include "binary_data/BinaryData_tests.cpp"
