@@ -73,7 +73,6 @@ set (CPM_Lemons_SOURCE "${CMAKE_CURRENT_LIST_DIR}" CACHE INTERNAL "")
 
 #
 
-include ("${CMAKE_CURRENT_LIST_DIR}/scripts/AddCMakeModules.cmake")
-
+add_subdirectory (modules)
 add_subdirectory (util)
 
