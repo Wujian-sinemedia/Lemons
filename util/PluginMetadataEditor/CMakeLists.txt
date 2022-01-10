@@ -16,7 +16,7 @@ endif()
 
 #
 
-include ("${CPM_Lemons_SOURCE}/AddLemons.cmake")
+include ("${CPM_Lemons_SOURCE}/scripts/AddLemons.cmake")
 
 include (AllLemonsModules)
 include (BVBrandFlags)

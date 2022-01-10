@@ -5,10 +5,10 @@ macro (_lemons_add_cmake_module_dir path)
 	list (APPEND CMAKE_MODULE_PATH "${_abs_path}")
 endmacro()
 
-_lemons_add_cmake_module_dir ("${CMAKE_CURRENT_LIST_DIR}/modules")
+_lemons_add_cmake_module_dir ("${CMAKE_CURRENT_LIST_DIR}/../modules")
 
 foreach (directory "util/cmake/modules" "modules")
-	set (directory "${CMAKE_CURRENT_LIST_DIR}/${directory}")
+	set (directory "${CMAKE_CURRENT_LIST_DIR}/../${directory}")
 	file (GLOB children RELATIVE ${directory} ${directory}/*)
 
 	foreach (child ${children})

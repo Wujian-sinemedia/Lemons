@@ -14,7 +14,7 @@ endif()
 
 set (LEMONS_BUILD_TESTS ON CACHE INTERNAL "")
 
-include ("${CPM_Lemons_SOURCE}/AddLemons.cmake")
+include ("${CPM_Lemons_SOURCE}/scripts/AddLemons.cmake")
 
 
 add_custom_target (${PROJECT_NAME} COMMENT "Building all Lemons tests...")

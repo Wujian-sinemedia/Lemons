@@ -14,7 +14,7 @@ if (NOT DEFINED ENV{CPM_SOURCE_CACHE})
     set (ENV{CPM_SOURCE_CACHE} "${CPM_Lemons_SOURCE}/Cache")
 endif()
 
-include ("${CPM_Lemons_SOURCE}/AddLemons.cmake")
+include ("${CPM_Lemons_SOURCE}/scripts/AddLemons.cmake")
 
 include (LemonsGUIModules)
 
