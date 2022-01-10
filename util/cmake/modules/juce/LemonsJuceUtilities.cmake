@@ -37,6 +37,7 @@ cmake_minimum_required (VERSION 3.21 FATAL_ERROR)
 include (LemonsGetCPM)
 include (LemonsDefaultPlatformSettings)
 include (LemonsCmakeDevTools)
+include (GNUInstallDirs)
 
 #
 
@@ -79,7 +80,7 @@ endfunction()
 
 function (lemons_configure_juce_target)
 
-    set (options BROWSER PLUGIN_HOST CAMERA MICROPHONE TRANSLATIONS)
+    set (options BROWSER PLUGIN_HOST CAMERA MICROPHONE TRANSLATIONS INSTALL)
     set (oneValueArgs TARGET ASSET_FOLDER)
 
     cmake_parse_arguments (LEMONS_TARGETCONFIG "${options}" "${oneValueArgs}" "" ${ARGN})
@@ -142,5 +143,14 @@ function (lemons_configure_juce_target)
 
     if (LEMONS_TARGETCONFIG_MICROPHONE)
         target_compile_definitions (${LEMONS_TARGETCONFIG_TARGET} PRIVATE JUCE_MICROPHONE_PERMISSION_ENABLED=1)
+    endif()
+
+    if (LEMONS_TARGETCONFIG_INSTALL)
+        install (TARGETS ${LEMONS_APP_TARGET}
+                 COMPONENT ${PROJECT_NAME}
+                 LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+                 ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
+                 RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
+                 INCLUDES DESTINATION include)
     endif()
 endfunction()
