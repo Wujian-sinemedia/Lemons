@@ -6,6 +6,14 @@
     <filename>_all_lemons_modules_8md.html</filename>
   </compound>
   <compound kind="file">
+    <name>AllOscillatorsTest.h</name>
+    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Audio/lemons_dsp/unit_tests/</path>
+    <filename>_all_oscillators_test_8h.html</filename>
+    <class kind="struct">lemons::tests::AllOscillatorsTest</class>
+    <namespace>lemons</namespace>
+    <namespace>lemons::tests</namespace>
+  </compound>
+  <compound kind="file">
     <name>analyzer.h</name>
     <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Audio/lemons_psola/analysis/</path>
     <filename>analyzer_8h.html</filename>
@@ -1221,6 +1229,7 @@
     <includes id="_detunable_8h" name="Detunable.h" local="yes" imported="no">oscillators/Detunable.h</includes>
     <includes id="_oscillator_engine_8h" name="OscillatorEngine.h" local="yes" imported="no">oscillators/OscillatorEngine.h</includes>
     <includes id="choosable_8h" name="choosable.h" local="yes" imported="no">oscillators/choosable.h</includes>
+    <includes id="_all_oscillators_test_8h" name="AllOscillatorsTest.h" local="yes" imported="no">unit_tests/AllOscillatorsTest.h</includes>
     <includes id="lemons__dsp_2filters_2_filter_8h" name="lemons_dsp/filters/Filter.h" local="yes" imported="no">filters/Filter.h</includes>
     <includes id="_audio_formats_8h" name="AudioFormats.h" local="yes" imported="no">util/AudioFormats.h</includes>
     <includes id="_audio_2lemons__dsp_2util_2serializing_8h" name="Audio/lemons_dsp/util/serializing.h" local="yes" imported="no">util/serializing.h</includes>
@@ -3170,6 +3179,124 @@
     <class kind="class">lemons::dsp::WhiteNoiseGenerator</class>
     <namespace>lemons</namespace>
     <namespace>lemons::dsp</namespace>
+  </compound>
+  <compound kind="struct">
+    <name>lemons::tests::AllOscillatorsTest</name>
+    <filename>structlemons_1_1tests_1_1_all_oscillators_test.html</filename>
+    <templarg></templarg>
+    <base>lemons::tests::DspTest</base>
+    <member kind="function">
+      <type></type>
+      <name>DspTest</name>
+      <anchorfile>structlemons_1_1tests_1_1_all_oscillators_test.html</anchorfile>
+      <anchor>a047ba8d4fa52f504feceebef695bf198</anchor>
+      <arglist>(const String &amp;testName)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static Intensity</type>
+      <name>getTestingIntensityLevel</name>
+      <anchorfile>classlemons_1_1tests_1_1_test.html</anchorfile>
+      <anchor>aae5d3a4c8d6beec3749a044fea476030</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static void</type>
+      <name>setGlobalTestingIntensityLevel</name>
+      <anchorfile>classlemons_1_1tests_1_1_test.html</anchorfile>
+      <anchor>ac8e9c2467c498fcce12dfb5b5b8d4d1b</anchor>
+      <arglist>(Intensity intensityLevel)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static bool</type>
+      <name>testingIntensityIsHigh</name>
+      <anchorfile>classlemons_1_1tests_1_1_test.html</anchorfile>
+      <anchor>ac46ac43cc5d55eecdd13c6438005c29a</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static bool</type>
+      <name>testingIntensityIsLow</name>
+      <anchorfile>classlemons_1_1tests_1_1_test.html</anchorfile>
+      <anchor>a6cd4f026f0cdc32c7dbdbdf89a2980c9</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static bool</type>
+      <name>testingIntensityIsMedium</name>
+      <anchorfile>classlemons_1_1tests_1_1_test.html</anchorfile>
+      <anchor>a256c1c9b185e12d9190c8458d42a30a3</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>const Subtest</type>
+      <name>beginSubtest</name>
+      <anchorfile>classlemons_1_1tests_1_1_test.html</anchorfile>
+      <anchor>a557b2274571a75b2cba3c8b59c1eb483</anchor>
+      <arglist>(const String &amp;name)</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>void</type>
+      <name>logImportantMessage</name>
+      <anchorfile>classlemons_1_1tests_1_1_test.html</anchorfile>
+      <anchor>a9c44d91c08ff84c15bbe15f6b37e35a0</anchor>
+      <arglist>(const String &amp;message)</arglist>
+    </member>
+    <member kind="function" protection="protected" static="yes">
+      <type>static String</type>
+      <name>getDspTestName</name>
+      <anchorfile>structlemons_1_1tests_1_1_dsp_test.html</anchorfile>
+      <anchor>a6cc7223cc87a106acea4f44b689df740</anchor>
+      <arglist>(const String &amp;name)</arglist>
+    </member>
+    <member kind="function" protection="protected" static="yes">
+      <type>static int</type>
+      <name>getNumTestingRepetitions</name>
+      <anchorfile>classlemons_1_1tests_1_1_test.html</anchorfile>
+      <anchor>a9143b5bb744ae5a90b4aa47d35fb2484</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" protection="protected" static="yes">
+      <type>static String</type>
+      <name>getPrecisionString</name>
+      <anchorfile>classlemons_1_1tests_1_1_test.html</anchorfile>
+      <anchor>ac6a6dcf3eea1abb47dfc5d6310dbe3f9</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" protection="protected" static="yes">
+      <type>static const std::vector&lt; int &gt;</type>
+      <name>getTestingBlockSizes</name>
+      <anchorfile>classlemons_1_1tests_1_1_test.html</anchorfile>
+      <anchor>ae6366faf16b241a7b6e78715442e094e</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" protection="protected" static="yes">
+      <type>static const std::vector&lt; double &gt;</type>
+      <name>getTestingSamplerates</name>
+      <anchorfile>classlemons_1_1tests_1_1_test.html</anchorfile>
+      <anchor>abc00c8dadae75662cb0e0d892f3f8fdd</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" protection="protected" static="yes">
+      <type>static Type</type>
+      <name>toVarAndBack</name>
+      <anchorfile>classlemons_1_1tests_1_1_test.html</anchorfile>
+      <anchor>aea02e9ed7063d10ab9cebe3abdd281cb</anchor>
+      <arglist>(const Type &amp;orig)</arglist>
+    </member>
+    <member kind="function" protection="private" virtualness="pure">
+      <type>virtual void</type>
+      <name>runOscillatorTest</name>
+      <anchorfile>structlemons_1_1tests_1_1_all_oscillators_test.html</anchorfile>
+      <anchor>aeb91bca998c9fd485eeeb848ef020cde</anchor>
+      <arglist>(dsp::Oscillator&lt; SampleType &gt; &amp;osc)=0</arglist>
+    </member>
+    <member kind="function" protection="private" virtualness="virtual">
+      <type>virtual void</type>
+      <name>runOtherTests</name>
+      <anchorfile>structlemons_1_1tests_1_1_all_oscillators_test.html</anchorfile>
+      <anchor>af1eed085e56634d4bf5228735c17e2c9</anchor>
+      <arglist>()</arglist>
+    </member>
   </compound>
   <compound kind="class">
     <name>lemons::dsp::psola::Analyzer</name>
@@ -9287,133 +9414,6 @@
     </member>
   </compound>
   <compound kind="class">
-    <name>lemons::dsp::osc::Engine</name>
-    <filename>classlemons_1_1dsp_1_1osc_1_1_engine.html</filename>
-    <templarg></templarg>
-    <templarg>OscType</templarg>
-    <templarg></templarg>
-    <base>StreamEngine&lt; SampleType, OscType &gt;</base>
-    <member kind="typedef">
-      <type>SampleType</type>
-      <name>ValueType</name>
-      <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
-      <anchor>a8c824f87e190d825154aaa919925f40f</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>Engine</name>
-      <anchorfile>classlemons_1_1dsp_1_1osc_1_1_engine.html</anchorfile>
-      <anchor>a05a966fb7982dd20d1baa0c53ed4e061</anchor>
-      <arglist>()=default</arglist>
-    </member>
-    <member kind="function">
-      <type>int</type>
-      <name>getBlocksize</name>
-      <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
-      <anchor>ac58db70a45245363b4cde47e068c93f1</anchor>
-      <arglist>() const noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>float</type>
-      <name>getFrequency</name>
-      <anchorfile>classlemons_1_1dsp_1_1osc_1_1_engine.html</anchorfile>
-      <anchor>a6f4d84553e80985399422a0cb5612d8e</anchor>
-      <arglist>() const noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>int</type>
-      <name>getNumChannels</name>
-      <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
-      <anchor>abcbd3bdeebea99be0e756ad1161190dc</anchor>
-      <arglist>() const noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>double</type>
-      <name>getSamplerate</name>
-      <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
-      <anchor>a0c87ce560c5a841ae19764adb67e4dfc</anchor>
-      <arglist>() const noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>isInitialized</name>
-      <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
-      <anchor>a38a2e75c1ccdbe5fd3a7c1b376d4e40a</anchor>
-      <arglist>() const noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>prepare</name>
-      <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
-      <anchor>a92fe69356c54445d91e70586cc9cdf73</anchor>
-      <arglist>(double samplerate, int blocksize, int numChannels=2)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>releaseResources</name>
-      <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
-      <anchor>a144323b4488420dcf49b89cee7837f8c</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual int</type>
-      <name>reportLatency</name>
-      <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
-      <anchor>ab167e1944264df820f50cd637bfefc13</anchor>
-      <arglist>() const noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>reset</name>
-      <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
-      <anchor>ad2441da25a010f76668f5e276b04eb2b</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setFrequency</name>
-      <anchorfile>classlemons_1_1dsp_1_1osc_1_1_engine.html</anchorfile>
-      <anchor>a565c57b50a63fcbfae30f7e8a08199c3</anchor>
-      <arglist>(float freqHz)</arglist>
-    </member>
-    <member kind="variable" protection="protected">
-      <type>ConstructedArray&lt; OscType&lt; SampleType &gt; &gt;</type>
-      <name>streams</name>
-      <anchorfile>classlemons_1_1dsp_1_1_stream_engine.html</anchorfile>
-      <anchor>a7151e67a87261c100d9f2d4bf8370a7b</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>process</name>
-      <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
-      <anchor>a48b37b72835d34fc060a1010a1fe2499</anchor>
-      <arglist>(AudioBuffer&lt; SampleType &gt; &amp;inplaceInAndOut, MidiBuffer &amp;midiMessages, bool isBypassed=false)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>process</name>
-      <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
-      <anchor>aa3668be93e3cc7b9a4340c5872be9b45</anchor>
-      <arglist>(const AudioBuffer&lt; SampleType &gt; &amp;input, AudioBuffer&lt; SampleType &gt; &amp;output, MidiBuffer &amp;midiMessages, bool isBypassed=false)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>process</name>
-      <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
-      <anchor>a3f813b9e44ed7518183da4afe405f44e</anchor>
-      <arglist>(AudioBuffer&lt; SampleType &gt; &amp;inplaceInAndOut, bool isBypassed=false)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>process</name>
-      <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
-      <anchor>adfb2f088baaa0e07efa7bf794918d831</anchor>
-      <arglist>(const AudioBuffer&lt; SampleType &gt; &amp;input, AudioBuffer&lt; SampleType &gt; &amp;output, bool isBypassed=false)</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
     <name>lemons::dsp::Engine</name>
     <filename>classlemons_1_1dsp_1_1_engine.html</filename>
     <templarg></templarg>
@@ -9521,6 +9521,133 @@
       <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
       <anchor>a20e2f81d84b335b507e34eb129e87820</anchor>
       <arglist>(const AudioBuffer&lt; SampleType &gt; &amp;input, AudioBuffer&lt; SampleType &gt; &amp;output, MidiBuffer &amp;midiMessages, bool isBypassed)=0</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>process</name>
+      <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
+      <anchor>a48b37b72835d34fc060a1010a1fe2499</anchor>
+      <arglist>(AudioBuffer&lt; SampleType &gt; &amp;inplaceInAndOut, MidiBuffer &amp;midiMessages, bool isBypassed=false)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>process</name>
+      <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
+      <anchor>aa3668be93e3cc7b9a4340c5872be9b45</anchor>
+      <arglist>(const AudioBuffer&lt; SampleType &gt; &amp;input, AudioBuffer&lt; SampleType &gt; &amp;output, MidiBuffer &amp;midiMessages, bool isBypassed=false)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>process</name>
+      <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
+      <anchor>a3f813b9e44ed7518183da4afe405f44e</anchor>
+      <arglist>(AudioBuffer&lt; SampleType &gt; &amp;inplaceInAndOut, bool isBypassed=false)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>process</name>
+      <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
+      <anchor>adfb2f088baaa0e07efa7bf794918d831</anchor>
+      <arglist>(const AudioBuffer&lt; SampleType &gt; &amp;input, AudioBuffer&lt; SampleType &gt; &amp;output, bool isBypassed=false)</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>lemons::dsp::osc::Engine</name>
+    <filename>classlemons_1_1dsp_1_1osc_1_1_engine.html</filename>
+    <templarg></templarg>
+    <templarg>OscType</templarg>
+    <templarg></templarg>
+    <base>StreamEngine&lt; SampleType, OscType &gt;</base>
+    <member kind="typedef">
+      <type>SampleType</type>
+      <name>ValueType</name>
+      <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
+      <anchor>a8c824f87e190d825154aaa919925f40f</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>Engine</name>
+      <anchorfile>classlemons_1_1dsp_1_1osc_1_1_engine.html</anchorfile>
+      <anchor>a05a966fb7982dd20d1baa0c53ed4e061</anchor>
+      <arglist>()=default</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>getBlocksize</name>
+      <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
+      <anchor>ac58db70a45245363b4cde47e068c93f1</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>float</type>
+      <name>getFrequency</name>
+      <anchorfile>classlemons_1_1dsp_1_1osc_1_1_engine.html</anchorfile>
+      <anchor>a6f4d84553e80985399422a0cb5612d8e</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>getNumChannels</name>
+      <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
+      <anchor>abcbd3bdeebea99be0e756ad1161190dc</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>getSamplerate</name>
+      <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
+      <anchor>a0c87ce560c5a841ae19764adb67e4dfc</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isInitialized</name>
+      <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
+      <anchor>a38a2e75c1ccdbe5fd3a7c1b376d4e40a</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>prepare</name>
+      <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
+      <anchor>a92fe69356c54445d91e70586cc9cdf73</anchor>
+      <arglist>(double samplerate, int blocksize, int numChannels=2)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>releaseResources</name>
+      <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
+      <anchor>a144323b4488420dcf49b89cee7837f8c</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual int</type>
+      <name>reportLatency</name>
+      <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
+      <anchor>ab167e1944264df820f50cd637bfefc13</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>reset</name>
+      <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
+      <anchor>ad2441da25a010f76668f5e276b04eb2b</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setFrequency</name>
+      <anchorfile>classlemons_1_1dsp_1_1osc_1_1_engine.html</anchorfile>
+      <anchor>a565c57b50a63fcbfae30f7e8a08199c3</anchor>
+      <arglist>(float freqHz)</arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>ConstructedArray&lt; OscType&lt; SampleType &gt; &gt;</type>
+      <name>streams</name>
+      <anchorfile>classlemons_1_1dsp_1_1_stream_engine.html</anchorfile>
+      <anchor>a7151e67a87261c100d9f2d4bf8370a7b</anchor>
+      <arglist></arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -12387,9 +12514,9 @@
   <compound kind="struct">
     <name>lemons::plugin::FrequencyParameter</name>
     <filename>structlemons_1_1plugin_1_1_frequency_parameter.html</filename>
-    <base>lemons::plugin::TypedParameter</base>
+    <base>TypedParameter&lt; float &gt;</base>
     <member kind="typedef">
-      <type>ValueType</type>
+      <type>float</type>
       <name>ParameterValueType</name>
       <anchorfile>classlemons_1_1plugin_1_1_typed_parameter.html</anchorfile>
       <anchor>a6f8016538f76d7bc5ca09f56604152f0</anchor>
@@ -12403,14 +12530,14 @@
       <arglist>(const String &amp;paramName, float defaultVal)</arglist>
     </member>
     <member kind="function">
-      <type>ValueType</type>
+      <type>float</type>
       <name>get</name>
       <anchorfile>classlemons_1_1plugin_1_1_typed_parameter.html</anchorfile>
       <anchor>aac2600420bfa3b388674c19d3fb47fdf</anchor>
       <arglist>() const noexcept</arglist>
     </member>
     <member kind="function">
-      <type>ValueType</type>
+      <type>float</type>
       <name>getDefault</name>
       <anchorfile>classlemons_1_1plugin_1_1_typed_parameter.html</anchorfile>
       <anchor>adaf54a9afaf18ec3f02dc3bb568c3d68</anchor>
@@ -12424,14 +12551,14 @@
       <arglist>() const noexcept</arglist>
     </member>
     <member kind="function">
-      <type>ValueType</type>
+      <type>float</type>
       <name>getMaximum</name>
       <anchorfile>classlemons_1_1plugin_1_1_typed_parameter.html</anchorfile>
       <anchor>aa6e3f06f8c429fdc2b9dd8b6a6b8a442</anchor>
       <arglist>() const noexcept</arglist>
     </member>
     <member kind="function">
-      <type>ValueType</type>
+      <type>float</type>
       <name>getMinimum</name>
       <anchorfile>classlemons_1_1plugin_1_1_typed_parameter.html</anchorfile>
       <anchor>a65d1ef5ca52f5dcbeb4f754970dad0dc</anchor>
@@ -12470,10 +12597,10 @@
       <name>getStringForValue</name>
       <anchorfile>classlemons_1_1plugin_1_1_typed_parameter.html</anchorfile>
       <anchor>adaa546ec98412109e257ea946b1b5d22</anchor>
-      <arglist>(ValueType value, int maxLength=50) const</arglist>
+      <arglist>(float value, int maxLength=50) const</arglist>
     </member>
     <member kind="function">
-      <type>ValueType</type>
+      <type>float</type>
       <name>getValueForString</name>
       <anchorfile>classlemons_1_1plugin_1_1_typed_parameter.html</anchorfile>
       <anchor>ab115e4682d29dba03b949c7aace71f7d</anchor>
@@ -12512,14 +12639,14 @@
       <name>set</name>
       <anchorfile>classlemons_1_1plugin_1_1_typed_parameter.html</anchorfile>
       <anchor>acd7c04563172272764edc67aba4e5631</anchor>
-      <arglist>(ValueType newValue)</arglist>
+      <arglist>(float newValue)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>setDefault</name>
       <anchorfile>classlemons_1_1plugin_1_1_typed_parameter.html</anchorfile>
       <anchor>a7d50e7bd69be6af249c972d424c7d5bc</anchor>
-      <arglist>(ValueType newDefault)</arglist>
+      <arglist>(float newDefault)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -12583,6 +12710,20 @@
       <anchorfile>classlemons_1_1plugin_1_1_parameter.html</anchorfile>
       <anchor>a596074b9fb98e7cf1c4701a2644c2396</anchor>
       <arglist></arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual ValueTree</type>
+      <name>saveToValueTree</name>
+      <anchorfile>classlemons_1_1plugin_1_1_parameter.html</anchorfile>
+      <anchor>a421551f74a17bc31fa3488aae8407a4c</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual ParameterTraits</type>
+      <name>getParameterTraits</name>
+      <anchorfile>classlemons_1_1plugin_1_1_parameter.html</anchorfile>
+      <anchor>a6707d107c3f255f06510597c5b36431e</anchor>
+      <arglist>() const</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -27977,6 +28118,20 @@
       <anchor>aebe3716f130dedf9f217a8b19cb84d1b</anchor>
       <arglist>() const</arglist>
     </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual ValueTree</type>
+      <name>saveToValueTree</name>
+      <anchorfile>classlemons_1_1plugin_1_1_parameter.html</anchorfile>
+      <anchor>a421551f74a17bc31fa3488aae8407a4c</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual ParameterTraits</type>
+      <name>getParameterTraits</name>
+      <anchorfile>classlemons_1_1plugin_1_1_parameter.html</anchorfile>
+      <anchor>a6707d107c3f255f06510597c5b36431e</anchor>
+      <arglist>() const</arglist>
+    </member>
     <member kind="function">
       <type>void</type>
       <name>beginGesture</name>
@@ -35230,6 +35385,7 @@
   <compound kind="namespace">
     <name>lemons::tests</name>
     <filename>namespacelemons_1_1tests.html</filename>
+    <class kind="struct">lemons::tests::AllOscillatorsTest</class>
     <class kind="struct">lemons::tests::AudioProcessorTest</class>
     <class kind="struct">lemons::tests::AudioProcessorTestBase</class>
     <class kind="struct">lemons::tests::CoreTest</class>
