@@ -92,8 +92,6 @@ const Array<int>& PeakFinder<SampleType>::findPeaks (const SampleType* inputSamp
 
 		jassert (frameStart >= 0 && frameEnd <= numSamples && frameEnd > frameStart);
 
-		//        jassert (analysisIndex <= frameEnd);
-
 		peakIndices.add (findNextPeak (frameStart, frameEnd, std::min (analysisIndex, frameEnd),
 		                               inputSamples, intPeriod, grainSize));
 
@@ -138,7 +136,7 @@ int PeakFinder<SampleType>::findNextPeak (int frameStart, int frameEnd, int pred
 	{
 		const auto nextPeak = getPeakCandidateInRange (inputSamples, frameStart, frameEnd, predictedPeak);
 
-		if (nextPeak == -1)
+		[[unlikely]] if (nextPeak == -1)
 			break;
 
 		peakCandidates.add (nextPeak);
@@ -148,11 +146,11 @@ int PeakFinder<SampleType>::findNextPeak (int frameStart, int frameEnd, int pred
 
 	switch (peakCandidates.size())
 	{
-		case 1 : return peakCandidates.getUnchecked (0);
+		[[unlikely]] case 1 : return peakCandidates.getUnchecked (0);
 
 		case 2 : return choosePeakWithGreatestPower (inputSamples);
 
-		default :
+		[[likely]] default :
 		{
 			if (peakIndices.size() <= 1)
 				return choosePeakWithGreatestPower (inputSamples);
@@ -187,7 +185,7 @@ int PeakFinder<SampleType>::getPeakCandidateInRange (const SampleType* inputSamp
 
 	const auto numSamples = endSample - startSample;
 
-	const auto get_weighted_sample = [&] (int index) -> SampleType
+	auto get_weighted_sample = [&] (int index) -> SampleType
 	{
 		const auto distance = static_cast<double> (std::abs (predictedPeak - index));
 		const auto weight   = 1. - (distance / static_cast<double> (numSamples));
@@ -290,7 +288,7 @@ int PeakFinder<SampleType>::chooseIdealPeakCandidate (const SampleType* inputSam
 	if (deltaRange < 0.05f)  // prevent dividing by 0 in the next step...
 		return finalHandful.getUnchecked (0);
 
-	const auto get_weighted_sample = [&] (int sampleIndex, int finalHandfulIdx) -> SampleType
+	auto get_weighted_sample = [&] (int sampleIndex, int finalHandfulIdx) -> SampleType
 	{
 		const auto delta = finalHandfulDeltas.getUnchecked (finalHandfulIdx);
 

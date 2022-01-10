@@ -78,13 +78,14 @@ void Analyzer<SampleType>::analyzeInput (const SampleType* inputAudio, int numSa
 
 	const auto currentPeriod = [&]() -> float
 	{
-		const auto detectedPeriod = pitchDetector.detectPeriod (inputAudio, numSamples);
-
-		if (detectedPeriod > 0.f)
+        if (const auto detectedPeriod = pitchDetector.detectPeriod (inputAudio, numSamples);
+            detectedPeriod > 0.f)
 			return detectedPeriod;
 
 		const auto maxPeriod = std::min (math::periodInSamples (samplerate, pitchDetector.getMinHz()), numSamples / 2);
 		const auto minPeriod = std::min (numSamples / 4, maxPeriod - 1);
+        
+        jassert (maxPeriod > minPeriod);
 
 		return static_cast<float> (random.nextInt ({ minPeriod, maxPeriod + 1 }));
 	}();
@@ -97,8 +98,10 @@ void Analyzer<SampleType>::analyzeInput (const SampleType* inputAudio, int numSa
 
 	const auto* windowSamples    = window.getRawDataPointer();
 	const auto* prevFrameSamples = prevFrame.getReadPointer (0);
+    
+    const auto& peakIndices = peakFinder.findPeaks (inputAudio, numSamples, currentPeriod);
 
-	for (const auto peak : peakFinder.findPeaks (inputAudio, numSamples, currentPeriod))
+	for (const auto peak : peakIndices)
 	{
 		const auto start = juce::roundToInt (static_cast<float> (peak) - currentPeriod);
 
@@ -106,6 +109,7 @@ void Analyzer<SampleType>::analyzeInput (const SampleType* inputAudio, int numSa
 		{
 			if (lastBlocksize == 0)
 			{
+                // ???
 				getGrainToStoreIn().storeNewGrain (inputAudio, 0, windowSamples, grainSize);
 
 				continue;
@@ -219,13 +223,12 @@ typename Analyzer<SampleType>::Grain& Analyzer<SampleType>::getClosestGrain (int
 			after.test (grain, currentDist);
 	}
 
-	jassert (! (before.grain == nullptr && after.grain == nullptr));
-
 	if (before.grain != nullptr)
 	{
 		if (after.grain == nullptr)
 			return *before.grain;
 
+        // ???
 		if (after.distance < lastFrameGrainSize && after.distance < before.distance)
 			return *after.grain;
 
@@ -373,7 +376,9 @@ template <typename SampleType>
 void Analyzer<SampleType>::Grain::newBlockStarting (int last_blocksize) noexcept
 {
 	if (getReferenceCount() > 0)
+    {
 		origStartIndex -= last_blocksize;
+    }
 	else
 	{
 		grainSize      = 0;

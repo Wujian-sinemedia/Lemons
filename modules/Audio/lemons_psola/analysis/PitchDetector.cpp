@@ -58,13 +58,13 @@ template <typename SampleType>
 	const auto halfNumSamples = juce::roundToInt (std::floor (numSamples * 0.5f));
 
 	jassert (yinBuffer.getNumSamples() >= halfNumSamples);
-
+    
 	auto* yinData = yinBuffer.getWritePointer (0);
 
-	juce::FloatVectorOperations::fill (yinData, SampleType (1), halfNumSamples);
+	juce::FloatVectorOperations::fill (yinData, SampleType (1), yinBuffer.getNumSamples());
 
 	// difference function
-	for (auto tau = 0; tau < halfNumSamples; ++tau)
+	for (auto tau = 1; tau < halfNumSamples; ++tau)
 	{
 		for (auto i = 0; i < halfNumSamples; ++i)
 		{
@@ -73,32 +73,25 @@ template <typename SampleType>
 		}
 	}
 
-	yinData[0] = SampleType (1);
-
-	cumulativeMeanNormalizedDifference (halfNumSamples);
+    // cumulative mean normalized difference
+    {
+        yinData[0] = SampleType (1);
+        
+        SampleType runningSum = 0;
+        
+        for (auto tau = 1; tau < halfNumSamples; ++tau)
+        {
+            runningSum += yinData[tau];
+            yinData[tau] *= (static_cast<SampleType> (tau) / runningSum);
+        }
+    }
 
 	const auto periodEstimate = absoluteThreshold (halfNumSamples);
 
 	if (periodEstimate <= 0)
-		return 0.f;
-
-	return parabolicInterpolation (periodEstimate, halfNumSamples);
-}
-
-template <typename SampleType>
-inline void PitchDetector<SampleType>::cumulativeMeanNormalizedDifference (int halfNumSamples)
-{
-	jassert (halfNumSamples > 0);
-
-	auto* yinData = yinBuffer.getWritePointer (0);
-
-	SampleType runningSum = 0;
-
-	for (auto tau = 1; tau < halfNumSamples; ++tau)
-	{
-		runningSum += yinData[tau];
-		yinData[tau] *= (static_cast<SampleType> (tau) / runningSum);
-	}
+        return 0.f;
+    
+    return parabolicInterpolation (periodEstimate, halfNumSamples);
 }
 
 template <typename SampleType>
@@ -112,17 +105,18 @@ inline int PitchDetector<SampleType>::absoluteThreshold (int halfNumSamples) con
 
 	while (tau < halfNumSamples)
 	{
-		if (yinData[tau] < confidenceThresh)
-		{
-			while (tau + 1 < halfNumSamples && yinData[tau + 1] < yinData[tau])
-			{
-				++tau;
-			}
-
-			break;
-		}
-
-		++tau;
+        if (yinData[tau] >= confidenceThresh)
+        {
+            ++tau;
+            continue;
+        }
+        
+        while (tau + 1 < halfNumSamples && yinData[tau + 1] < yinData[tau])
+        {
+            ++tau;
+        }
+        
+        break;
 	}
 
 	if (tau == halfNumSamples || yinData[tau] >= confidenceThresh)
@@ -135,9 +129,22 @@ template <typename SampleType>
 inline float PitchDetector<SampleType>::parabolicInterpolation (int periodEstimate, int halfNumSamples) const
 {
 	jassert (periodEstimate > 0 && halfNumSamples > 0);
-
-	const auto x0 = periodEstimate < 1 ? periodEstimate : periodEstimate - 1;
-	const auto x2 = periodEstimate + 1 < halfNumSamples ? periodEstimate + 1 : periodEstimate;
+    
+    const auto x0 = [&]() -> int
+    {
+        if (periodEstimate < 1)
+            return periodEstimate;
+        
+        return periodEstimate - 1;
+    }();
+    
+    const auto x2 = [&]() -> int
+    {
+        if (periodEstimate + 1 < halfNumSamples)
+            return periodEstimate + 1;
+        
+        return periodEstimate;
+    }();
 
 	const auto* yinData = yinBuffer.getReadPointer (0);
 
