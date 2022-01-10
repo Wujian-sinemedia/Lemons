@@ -46,6 +46,7 @@ template <typename SampleType>
 void Protector<SampleType>::released()
 {
 	mute = false;
+    internalEngine.releaseResources();
 }
 
 template <typename SampleType>
@@ -93,6 +94,12 @@ void Protector<SampleType>::renderBlock (const AudioBuffer<SampleType>& input,
 			muteCallback (input);
 
 	internalEngine.process (input, output, midi, mute);
+}
+
+template <typename SampleType>
+void Protector<SampleType>::prepared (int blocksize, double samplerate, int numChannels)
+{
+    internalEngine.prepare (samplerate, blocksize, numChannels);
 }
 
 

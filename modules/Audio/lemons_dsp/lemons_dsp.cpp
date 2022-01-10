@@ -57,6 +57,7 @@
 #  include "fifos/AudioAndMidiFIFO_tests.cpp"
 #  include "engines/AudioEngine_tests.cpp"
 #  include "engines/LatencyEngine_tests.cpp"
+#  include "engines/DspProtection_tests.cpp"
 #  include "oscillators/oscillator_tests.cpp"
 #  include "util/BufferUtils_tests.cpp"
 #  include "util/MonoStereoConverter_tests.cpp"
