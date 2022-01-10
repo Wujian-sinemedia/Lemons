@@ -1,6 +1,9 @@
-set (CTEST_SOURCE_DIRECTORY ${CTEST_SCRIPT_DIRECTORY}/..)
+set (lemonsRoot ${CTEST_SCRIPT_DIRECTORY}/..)
+set (lemonsTestsDir ${lemonsRoot}/util/tests)
 
-set (CTEST_BINARY_DIRECTORY ${CTEST_SCRIPT_DIRECTORY}/../Builds/tests)
+set (CTEST_SOURCE_DIRECTORY ${lemonsTestsDir})
+
+set (CTEST_BINARY_DIRECTORY ${lemonsTestsDir}/Builds)
 
 set (CTEST_CONFIGURATION_TYPE Debug)
 
@@ -28,9 +31,9 @@ include (${CTEST_SOURCE_DIRECTORY}/scripts/clean.cmake)
 
 ctest_start ("CI build")
 
-#ctest_update (SOURCE ${CTEST_SOURCE_DIRECTORY})
+#ctest_update (SOURCE ${lemonsRoot})
 
-ctest_configure (OPTIONS LEMONS_BUILD_TESTS=ON)
+ctest_configure()
 
 ctest_build (CONFIGURATION Debug
 			 TARGET LemonsTests)

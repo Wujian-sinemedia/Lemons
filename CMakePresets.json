@@ -23,16 +23,6 @@
       }
     },
     {
-      "name": "tests",
-      "displayName": "Configure for testing",
-      "description": "Confuguration with testing enabled",
-      "inherits": "base",
-      "cacheVariables": {
-        "CMAKE_BUILD_TYPE": "Debug",
-        "LEMONS_BUILD_TESTS": "ON"
-      }
-    },
-    {
       "name": "editor",
       "displayName": "Configure the metadata editor",
       "inherits": "base",
@@ -68,14 +58,6 @@
     }
   ],
   "buildPresets": [
-    {
-      "name": "tests",
-      "displayName": "Build tests",
-      "description": "Builds the Lemons unit tests",
-      "configurePreset": "tests",
-      "configuration": "Debug",
-      "targets": [ "LemonsTests" ]
-    },
     {
       "name": "editor",
       "displayName": "Build the plugin metadata GUI editor",

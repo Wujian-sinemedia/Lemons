@@ -25,8 +25,3 @@ endif()
 if (LEMONS_BUILD_METADATA_EDITOR)
 	add_subdirectory (PluginMetadataEditor)
 endif()
-
-if (LEMONS_BUILD_TESTS)
-	enable_testing()
-    add_subdirectory (tests)
-endif()

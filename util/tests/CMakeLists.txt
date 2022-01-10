@@ -1,3 +1,5 @@
+include_guard (GLOBAL)
+
 cmake_minimum_required (VERSION 3.21 FATAL_ERROR)
 
 project (LemonsTests VERSION 0.1.0 LANGUAGES CXX C)
@@ -12,7 +14,7 @@ if (NOT DEFINED ENV{CPM_SOURCE_CACHE})
     set (ENV{CPM_SOURCE_CACHE} "${CPM_Lemons_SOURCE}/Cache")
 endif()
 
-set (LEMONS_BUILD_TESTS ON CACHE INTERNAL "")
+#set (LEMONS_BUILD_TESTS ON CACHE INTERNAL "")
 
 include ("${CPM_Lemons_SOURCE}/scripts/AddLemons.cmake")
 
@@ -22,3 +24,6 @@ add_custom_target (${PROJECT_NAME} COMMENT "Building all Lemons tests...")
 
 add_subdirectory (UnitTestRunner)
 add_subdirectory (CompileModulesIndividually)
+
+add_dependencies (LemonsTests CompileLemonsModulesIndividually)
+add_dependencies (LemonsTests UnitTestRunner)

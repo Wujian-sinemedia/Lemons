@@ -27,19 +27,12 @@ mark_as_advanced (FORCE CMAKE_CXX_STANDARD LEMONS_SANITIZERS_TO_ENABLE LEMONS_CR
 
 option (LEMONS_IGNORE_ALL_EXTRAS "Ignore everything except what's needed to make compiling your project work" OFF)
 
-cmake_dependent_option (LEMONS_BUILD_TESTS "Build the Lemons unit tests" OFF "NOT LEMONS_IGNORE_ALL_EXTRAS" OFF)
 cmake_dependent_option (LEMONS_BUILD_TEMPLATES "Build the Lemons project templates" OFF "NOT LEMONS_IGNORE_ALL_EXTRAS" OFF)
 cmake_dependent_option (LEMONS_BUILD_UTILS "Build the command line utilities" OFF "NOT LEMONS_IGNORE_ALL_EXTRAS" OFF)
 cmake_dependent_option (LEMONS_BUILD_METADATA_EDITOR "Build the plugin metadata GUI editor" OFF "NOT LEMONS_IGNORE_ALL_EXTRAS" OFF)
 
 #cmake_dependent_option (LEMONS_BUILD_TEST_LAB "Build the TestLab application" OFF "NOT LEMONS_IGNORE_ALL_EXTRAS" OFF)
 
-
-if (LEMONS_BUILD_TESTS)
-	set (LEMONS_PLUGINVAL_LEVEL "10" CACHE STRING "Pluginval testing level")
-	mark_as_advanced (FORCE LEMONS_PLUGINVAL_LEVEL)
-	enable_testing()
-endif()
 
 if (IOS)
 	option (LEMONS_IOS_SIMULATOR "Build for an iOS simulator, rather than a real device" ON)

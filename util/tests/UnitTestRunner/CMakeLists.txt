@@ -9,10 +9,6 @@ include (LemonsAssetsHelpers)
 
 #
 
-if (NOT LEMONS_BUILD_TESTS)
-    message (AUTHOR_WARNING "Cmake configuration is incorrect!")
-endif()
-
 juce_add_console_app (${PROJECT_NAME})
 
 target_sources (${PROJECT_NAME} PRIVATE "${CMAKE_CURRENT_LIST_DIR}/Main.cpp")
@@ -26,8 +22,6 @@ target_compile_definitions (${PROJECT_NAME} PRIVATE
 target_link_libraries (${PROJECT_NAME} PRIVATE Lemons::AllLemonsModules)
 
 lemons_add_resources_folder (TARGET ${PROJECT_NAME} ASSET_FOLDER "${CPM_Lemons_SOURCE}/util/assets")
-
-add_dependencies (LemonsTests ${PROJECT_NAME})
 
 #
 

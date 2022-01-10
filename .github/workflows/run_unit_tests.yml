@@ -35,21 +35,20 @@ jobs:
       run: cmake -P '${{ github.workspace }}/scripts/install_deps.cmake'
 
     - name: Configure CMake
-      uses: benthevining/CMakeAction@v0.0.1
-      with:
-        configure_preset: tests
+      shell: bash
+      run: cd '${{ github.workspace }}/util/tests' && cmake -B Builds
 
     - name: Run build
       shell: bash
-      run: cmake --build --preset tests
+      run: cd '${{ github.workspace }}/util/tests' && cmake --build Builds --config Debug
 
     - name: Run tests
       shell: bash
-      run: ctest --preset all
+      run: cd '${{ github.workspace }}/util/tests/Builds' && ctest -C Debug
 
     - name: Upload log
       if: always()
       uses: actions/upload-artifact@v2
       with:
         name: UnitTestLog_${{ runner.os }}
-        path: Builds/tests/Testing/Temporary/LastTest.log
+        path: '${{ github.workspace }}/util/tests/Builds/Testing/Temporary/LastTest.log'
