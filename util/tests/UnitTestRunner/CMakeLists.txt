@@ -27,6 +27,12 @@ lemons_add_resources_folder (TARGET ${PROJECT_NAME} ASSET_FOLDER "${CPM_Lemons_S
 
 enable_testing()
 
+set (logFile "${CPM_Lemons_SOURCE}/logs/unit_tests.log")
+
 add_test (NAME Lemons.UnitTests 
-          COMMAND ${PROJECT_NAME} -f "logs/unit_tests.log" -i High
-          WORKING_DIRECTORY "${Lemons_SOURCE_DIR}")
+          COMMAND ${PROJECT_NAME} -f "${logFile}" -i High
+          CONFIGURATIONS Debug)
+
+set_tests_properties (Lemons.UnitTests PROPERTIES 
+                        ATTACHED_FILES "${logFile};${CMAKE_CURRENT_BINARY_DIR}/Testing/Temporary/LastTest.log"
+                        LABELS "Lemons;UnitTests")

@@ -56,6 +56,7 @@
 			"util/doxygen/doc",
 			"util/doxygen/Builds",
 			"util/tests/Builds",
+			"util/tests/CompileModulesIndividually/Builds",
 			"util/CommandLineUtils/Builds",
 			"util/Templates/Builds",
 			"util/PluginMetadataEditor/Builds",
