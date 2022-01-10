@@ -30,3 +30,13 @@ target_compile_definitions (${PROJECT_NAME} PRIVATE
     JUCE_DISPLAY_SPLASH_SCREEN=0)
 
 target_link_libraries (${PROJECT_NAME} PRIVATE Lemons::lemons_core)
+
+
+include (GNUInstallDirs)
+
+install (TARGETS ${PROJECT_NAME}
+         COMPONENT ${PROJECT_NAME}
+         LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+         ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
+         RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
+         INCLUDES DESTINATION include)
