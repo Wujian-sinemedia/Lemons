@@ -16,7 +16,7 @@ endif()
 
 include ("${CPM_Lemons_SOURCE}/scripts/AddLemons.cmake")
 
-#include (LemonsAddPrivateSDKs)
+include (LemonsAddPrivateSDKs)
 
 #
 
