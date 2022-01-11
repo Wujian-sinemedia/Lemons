@@ -23,20 +23,18 @@ endif
 
 CMAKE_CONFIGURE_COMMAND := cmake -B Builds -G $(CMAKE_GENERATOR)
 
+ifeq ($(origin PRIVATE_SDKS),undefined)
+else
+    CMAKE_CONFIGURE_COMMAND += -D CPM_PrivateSDKs_SOURCE=$(PRIVATE_SDKS)
+endif
+
 ifeq ($(UNAME), Linux)
     NUMPROC := $(shell grep -c ^processor /proc/cpuinfo)
 else ifeq ($(UNAME), Darwin)
     NUMPROC := $(shell sysctl hw.ncpu | awk '{print $$2}')
 else 
-	NUMPROC := 8
+	NUMPROC := 4
 endif
-
-# Only take half as many processors as available
-NUMPROC := $(shell echo "$(NUMPROC)/2"|bc)
-
-ifeq ($(NUMPROC), 0)
-    NUMPROC = 4
-endif 
 
 CMAKE_BUILD_COMMAND := cmake --build Builds -j $(NUMPROC)
 

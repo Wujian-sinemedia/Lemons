@@ -34,6 +34,14 @@ jobs:
       shell: bash
       run: cmake -P '${{ github.workspace }}/scripts/install_deps.cmake'
 
+    - uses: actions/checkout@v2
+      with: 
+        repository: benthevining/PrivateSDKs
+        ref: main
+        token: ${{ secrets.ACCESS_TOKEN }}
+        path: PrivateSDKs
+        submodules: recursive
+
     - name: Run clean
       shell: bash
       run: make clean
@@ -48,7 +56,7 @@ jobs:
 
     - name: Build project templates
       shell: bash
-      run: make templates
+      run: export PRIVATE_SDKS='${{ github.workspace }}/PrivateSDKs' && make templates
 
     - name: Build plugin metadata editor
       shell: bash
