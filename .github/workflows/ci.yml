@@ -64,9 +64,9 @@ jobs:
       shell: bash
       run: make utils
 
-    - name: Upload log
+    - name: Upload logs
       if: always()
       uses: actions/upload-artifact@v2
       with:
-        name: UnitTestLog_${{ runner.os }}
-        path: '${{ github.workspace }}/util/tests/Builds/Testing/Temporary/LastTest.log'
+        name: ${{ runner.os }}_logs
+        path: '${{ github.workspace }}/logs'
