@@ -81,7 +81,7 @@ foreach (configuration Debug Release)
 	file (TOUCH ${buildLog})
 	file (TOUCH ${buildErrorLog})
 
-	execute_process (COMMAND "${CMAKE_COMMAND}" --build ${thisConfigsBuildsDir} -j "${num_of_cores}" --config ${configuration}
+	execute_process (COMMAND "${CMAKE_COMMAND}" --build ${thisConfigsBuildsDir} -j ${num_of_cores} --config ${configuration}
 					 WORKING_DIRECTORY "${run_dir}"
 					 OUTPUT_FILE "${buildLog}"
 					 ERROR_FILE "${buildErrorLog}"
