@@ -8,4 +8,6 @@ option (LEMONS_ENABLE_INTEGRATIONS "Enable all available integrations by default
 
 if (LEMONS_ENABLE_INTEGRATIONS)
 	include (LemonsAllIntegrations)
+elseif (LEMONS_SANITIZERS_TO_ENABLE)
+	include (LemonsSanitizers)
 endif()

@@ -27,33 +27,19 @@ function (_lemons_enable_sanitizer_flags sanitize_option)
 
     macro (_lemons_check_compiler_version)
 
-        macro (_lemons_compiler_version_failed)
-            message (WARNING "${sanitizer} could not be enabled, because your compiler (${CMAKE_CXX_COMPILER_ID} version ${CMAKE_CXX_COMPILER_VERSION}) does not support it!")
-            return()
-        endmacro()
-
         set (oneValueArgs GCC CLANG MSVC)
         cmake_parse_arguments (LEMONS_SAN "" "${oneValueArgs}" "" ${ARGN})
 
-        if (CMAKE_CXX_COMPILER_ID MATCHES "GNU")
-            if (LEMONS_SAN_GCC)
-                if (CMAKE_CXX_COMPILER_VERSION VERSION_LESS ${LEMONS_SAN_GCC})
-                    _lemons_compiler_version_failed()
+        foreach (compiler ${oneValueArgs})
+            if (CMAKE_CXX_COMPILER_ID MATCHES ${compiler})
+                if (LEMONS_SAN_${compiler})
+                    if (CMAKE_CXX_COMPILER_VERSION VERSION_LESS ${LEMONS_SAN_${compiler}})
+                        message (WARNING "${sanitizer} could not be enabled, because your compiler (${CMAKE_CXX_COMPILER_ID} version ${CMAKE_CXX_COMPILER_VERSION}) does not support it!")
+                        return()
+                    endif()
                 endif()
             endif()
-        elseif (CMAKE_CXX_COMPILER_ID MATCHES "Clang")
-            if (LEMONS_SAN_CLANG)
-                if (CMAKE_CXX_COMPILER_VERSION VERSION_LESS ${LEMONS_SAN_CLANG})
-                    _lemons_compiler_version_failed()
-                endif()
-            endif()
-        elseif (CMAKE_CXX_COMPILER_ID MATCHES "MSVC")
-            if (LEMONS_SAN_MSVC)
-                if (CMAKE_CXX_COMPILER_VERSION VERSION_LESS ${LEMONS_SAN_MSVC})
-                    _lemons_compiler_version_failed()
-                endif()
-            endif()
-        endif()
+        endforeach()
     endmacro()
 
     #
@@ -119,6 +105,8 @@ endfunction()
 
 #############################################################################################
 
+
+set (LEMONS_SANITIZERS_TO_ENABLE "" CACHE STRING "List of sanitizers to enable")
 
 if (NOT LEMONS_SANITIZERS_TO_ENABLE)
     return()
