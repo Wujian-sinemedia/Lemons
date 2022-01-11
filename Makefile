@@ -7,14 +7,16 @@ SHELL := /bin/sh
 
 #
 
+CMAKE = cmake
+CTEST = ctest
+
+#
+
 .PHONY: help # Print this message
 help:
 	@grep '^.PHONY: .* #' Makefile | sed 's/\.PHONY: \(.*\) # \(.*\)/\1	\2/' | expand -t20 | sort
 
 #
-
-CMAKE = cmake
-CTEST = ctest
 
 .PHONY: clean # Cleans the Lemons source tree
 clean:
@@ -31,9 +33,12 @@ format:
 #
 
 logs: 
-	mkdir logs
+	@mkdir logs
+	@mkdir logs/util
 
-run_cmake = $(CMAKE) -D LEMONS_DIR=$(1) -P scripts/run_cmake_in_dir.cmake
+run_cmake = $(shell mkdir logs/$(1)) \
+			$(shell touch logs/$(1)/cmake_run.log) \
+			$(CMAKE) -D LEMONS_DIR=$(1) -D LEMONS_PRIVATE_SDKS=$(LEMONS_PRIVATE_SDKS) -P scripts/run_cmake_in_dir.cmake | tee logs/$(1)/cmake_run.log
 
 .PHONY: tests # Builds the tests
 tests: | logs
@@ -41,7 +46,7 @@ tests: | logs
 	$(call run_cmake,util/tests)
 
 run_ctest = cd util/tests/Builds/$(1) && $(CTEST) -C $(1) \
-		 $$ mv util/tests/Builds/$(1)/Testing/Temporary/LastTest.log logs/UnitTests_$(1).log
+		    mv util/tests/Builds/$(1)/Testing/Temporary/LastTest.log logs/UnitTests_$(1).log
 
 .PHONY: run_tests # Runs all tests
 run_tests: tests

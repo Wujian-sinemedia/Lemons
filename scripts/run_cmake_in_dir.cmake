@@ -38,6 +38,8 @@ cmake_host_system_information (RESULT num_of_cores QUERY NUMBER_OF_LOGICAL_CORES
 
 foreach (configuration Debug Release)
 
+	message (STATUS "Running configuration: ${configuration}...")
+
 	set (thisConfigsLogsDir ${thisRunLogsDir}/${configuration})
 
 	if (NOT IS_DIRECTORY ${thisConfigsLogsDir})
@@ -54,8 +56,9 @@ foreach (configuration Debug Release)
 
 	set (configureCommand "-B ${thisConfigsBuildsDir} -G '${lemons_cmake_generator}'")
 
-	if (ENV{LEMONS_PRIVATE_SDKS})
-		set (configureCommand "-D CPM_PrivateSDKs_SOURCE=$ENV{LEMONS_PRIVATE_SDKS}" "${configureCommand}")
+	if (LEMONS_PRIVATE_SDKS)
+		message (DEBUG "Enabling PrivateSDKs...")
+		set (configureCommand "-D CPM_PrivateSDKs_SOURCE=${LEMONS_PRIVATE_SDKS} ${configureCommand}")
 	endif()
 
 	separate_arguments (configureCommand UNIX_COMMAND "${configureCommand}")
