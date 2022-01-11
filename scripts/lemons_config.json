@@ -60,6 +60,7 @@
 			"util/CommandLineUtils/Builds",
 			"util/Templates/Builds",
 			"util/PluginMetadataEditor/Builds",
+			"util/cmake/modules/Builds",
 			"docs",
 			".github/docs"
 		],
