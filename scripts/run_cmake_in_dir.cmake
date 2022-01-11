@@ -43,9 +43,22 @@ execute_process (COMMAND "${CMAKE_COMMAND}" -B Builds -G "${lemons_cmake_generat
 				 WORKING_DIRECTORY "${run_dir}"
 				 OUTPUT_FILE "${configLog}"
 				 ERROR_FILE "${configErrorLog}"
+				 ERROR_VARIABLE configErrors
+				 RESULT_VARIABLE res
 				 COMMAND_ECHO STDOUT
 				 COMMAND_ERROR_IS_FATAL ANY
 				 ECHO_OUTPUT_VARIABLE ECHO_ERROR_VARIABLE)
+
+if (configErrors)
+	message (WARNING "Errors in configuration!")
+	message (STATUS ${configErrors})
+endif()
+
+if (res)
+	message (FATAL_ERROR "Configuration failed with exit code ${res}")
+else()
+	message (STATUS "Configuration succeeded with exit code ${res}")
+endif()
 
 #
 
@@ -61,6 +74,19 @@ execute_process (COMMAND "${CMAKE_COMMAND}" --build Builds -j "${num_of_cores}"
 				 WORKING_DIRECTORY "${run_dir}"
 				 OUTPUT_FILE "${buildLog}"
 				 ERROR_FILE "${buildErrorLog}"
+				 ERROR_VARIABLE buildErrors
+				 RESULT_VARIABLE errno
 				 COMMAND_ECHO STDOUT
 				 COMMAND_ERROR_IS_FATAL ANY
 				 ECHO_OUTPUT_VARIABLE ECHO_ERROR_VARIABLE)
+
+if (buildErrors)
+	message (WARNING "Errors in build!")
+	message (STATUS ${buildErrors})
+endif()
+
+if (errno)
+	message (FATAL_ERROR "Build failed with exit code ${errno}")
+else()
+	message (STATUS "Build succeeded with exit code ${errno}")
+endif()

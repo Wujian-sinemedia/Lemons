@@ -17,10 +17,14 @@ include (${CMAKE_CURRENT_LIST_DIR}/LemonsCmakeModulesConfig.cmake)
 include (LemonsFileUtils)
 include (GNUInstallDirs)
 
-foreach (module_path ${lemonsModulePaths})
+set (installDest ${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME})
 
+foreach (module_path ${lemonsModulePaths})
 	install (DIRECTORY ${module_path}
-		 	 DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME}
+		 	 DESTINATION ${installDest}
 		 	 COMPONENT ${PROJECT_NAME})
 endforeach()
 
+install (FILES LemonsCmakeModulesConfig.cmake 
+		 DESTINATION ${installDest}
+		 COMPONENT ${PROJECT_NAME})
