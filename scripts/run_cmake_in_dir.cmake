@@ -39,10 +39,10 @@ else()
 	set (lemons_cmake_generator Ninja)
 endif()
 
-execute_process (COMMAND ${CMAKE_COMMAND} -B Builds -G "${lemons_cmake_generator}"
-				 WORKING_DIRECTORY ${run_dir}
-				 OUTPUT_FILE ${configLog}
-				 ERROR_FILE ${configErrorLog}
+execute_process (COMMAND "${CMAKE_COMMAND}" -B Builds -G "${lemons_cmake_generator}"
+				 WORKING_DIRECTORY "${run_dir}"
+				 OUTPUT_FILE "${configLog}"
+				 ERROR_FILE "${configErrorLog}"
 				 COMMAND_ECHO STDOUT
 				 COMMAND_ERROR_IS_FATAL ANY
 				 ECHO_OUTPUT_VARIABLE ECHO_ERROR_VARIABLE)
@@ -57,10 +57,10 @@ file (TOUCH ${buildErrorLog})
 
 cmake_host_system_information (RESULT num_of_cores QUERY NUMBER_OF_LOGICAL_CORES)
 
-execute_process (COMMAND ${CMAKE_COMMAND} --build Builds -j ${num_of_cores}
-				 WORKING_DIRECTORY ${run_dir}
-				 OUTPUT_FILE ${buildLog}
-				 ERROR_FILE ${buildErrorLog}
+execute_process (COMMAND "${CMAKE_COMMAND}" --build Builds -j "${num_of_cores}"
+				 WORKING_DIRECTORY "${run_dir}"
+				 OUTPUT_FILE "${buildLog}"
+				 ERROR_FILE "${buildErrorLog}"
 				 COMMAND_ECHO STDOUT
 				 COMMAND_ERROR_IS_FATAL ANY
 				 ECHO_OUTPUT_VARIABLE ECHO_ERROR_VARIABLE)
