@@ -1,4 +1,4 @@
-name: CommandLineUtils
+name: CI
 
 on:
   workflow_dispatch:
@@ -7,9 +7,9 @@ on:
 
 jobs:
 
-  build:
+  CI:
 
-    name: ${{ matrix.os }} build
+    name: ${{ matrix.os }} CI
     runs-on: ${{ matrix.os }}
     timeout-minutes: 60
     strategy:
@@ -34,10 +34,33 @@ jobs:
       shell: bash
       run: cmake -P '${{ github.workspace }}/scripts/install_deps.cmake'
 
-    - name: Configure CMake
+    - name: Run clean
       shell: bash
-      run: make util/CommandLineUtils/Builds
+      run: make clean
 
-    - name: Run build
+    - name: Build tests
+      shell: bash
+      run: make tests
+
+    - name: Run tests
+      shell: bash
+      run: make run_tests
+
+    - name: Build project templates
+      shell: bash
+      run: make templates
+
+    - name: Build plugin metadata editor
+      shell: bash
+      run: make editor
+
+    - name: Build command line utils
       shell: bash
       run: make utils
+
+    - name: Upload log
+      if: always()
+      uses: actions/upload-artifact@v2
+      with:
+        name: UnitTestLog_${{ runner.os }}
+        path: '${{ github.workspace }}/util/tests/Builds/Testing/Temporary/LastTest.log'
