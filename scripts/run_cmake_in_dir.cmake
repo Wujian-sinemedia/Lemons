@@ -52,7 +52,7 @@ foreach (configuration Debug Release)
 
 	set (thisConfigsBuildsDir Builds/${configuration})
 
-	execute_process (COMMAND "${CMAKE_COMMAND}" -B ${thisConfigsBuildsDir} -G "${lemons_cmake_generator}" -D CMAKE_BUILD_TYPE=${configuration}
+	execute_process (COMMAND "${CMAKE_COMMAND}" -B ${thisConfigsBuildsDir} -G "${lemons_cmake_generator}"
 					 WORKING_DIRECTORY "${run_dir}"
 					 OUTPUT_FILE "${configLog}"
 					 ERROR_FILE "${configErrorLog}"
