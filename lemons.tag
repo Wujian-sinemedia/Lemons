@@ -1171,7 +1171,6 @@
     <includes id="_dimensions_8h" name="Dimensions.h" local="yes" imported="no">misc/Dimensions.h</includes>
     <includes id="_constructed_array_8h" name="ConstructedArray.h" local="yes" imported="no">misc/ConstructedArray.h</includes>
     <includes id="_timers_8h" name="Timers.h" local="yes" imported="no">misc/Timers.h</includes>
-    <includes id="_ranges_8h" name="Ranges.h" local="yes" imported="no">misc/Ranges.h</includes>
     <includes id="rsa_8h" name="rsa.h" local="yes" imported="no">misc/rsa.h</includes>
     <includes id="test_8h" name="test.h" local="yes" imported="no">unit_tests/test.h</includes>
     <includes id="runner_8h" name="runner.h" local="yes" imported="no">unit_tests/runner.h</includes>
@@ -1182,6 +1181,7 @@
     <includes id="_variant_conversions_8h" name="VariantConversions.h" local="yes" imported="no">serializing/VariantConversions.h</includes>
     <includes id="languages_8h" name="languages.h" local="yes" imported="no">localization/languages.h</includes>
     <includes id="_translation_files_8h" name="TranslationFiles.h" local="yes" imported="no">localization/TranslationFiles.h</includes>
+    <includes id="_ranges_8h" name="Ranges.h" local="yes" imported="no">math/Ranges.h</includes>
     <includes id="math_helpers_8h" name="mathHelpers.h" local="yes" imported="no">math/mathHelpers.h</includes>
     <includes id="_arg_parser_8h" name="ArgParser.h" local="yes" imported="no">misc/ArgParser.h</includes>
     <member kind="define">
@@ -2225,7 +2225,7 @@
   </compound>
   <compound kind="file">
     <name>Ranges.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Common/lemons_core/misc/</path>
+    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Common/lemons_core/math/</path>
     <filename>_ranges_8h.html</filename>
     <namespace>lemons</namespace>
     <namespace>lemons::ranges</namespace>
