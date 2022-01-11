@@ -1,4 +1,4 @@
 <map id="lemons::is_specialization&lt; Template&lt; Args... &gt;, Template &gt;" name="lemons::is_specialization&lt; Template&lt; Args... &gt;, Template &gt;">
-<area shape="rect" id="node1" title=" " alt="" coords="5,80,192,136"/>
-<area shape="rect" id="node2" title=" " alt="" coords="43,5,155,32"/>
+<area shape="rect" id="node1" title="Utility struct that evaluates to std::true_type if the given class specializes the given template,..." alt="" coords="5,80,173,136"/>
+<area shape="rect" id="node2" title=" " alt="" coords="38,5,141,32"/>
 </map>

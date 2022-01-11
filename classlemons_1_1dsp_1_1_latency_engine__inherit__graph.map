@@ -1,7 +1,7 @@
 <map id="lemons::dsp::LatencyEngine&lt; SampleType &gt;" name="lemons::dsp::LatencyEngine&lt; SampleType &gt;">
-<area shape="rect" id="node1" title=" " alt="" coords="121,95,325,136"/>
-<area shape="rect" id="node3" href="$classlemons_1_1dsp_1_1_audio_file_player.html" title=" " alt="" coords="5,184,216,225"/>
-<area shape="rect" id="node4" href="$classlemons_1_1dsp_1_1_engine_chain.html" title=" " alt="" coords="241,184,431,225"/>
-<area shape="rect" id="node2" href="$classlemons_1_1dsp_1_1_engine.html" title=" " alt="" coords="146,5,299,47"/>
-<area shape="rect" id="node5" href="$classlemons_1_1dsp_1_1_built_engine_chain.html" title=" " alt="" coords="245,273,427,315"/>
+<area shape="rect" id="node1" title="Base class for audio engines that require latency (ie, a consistent block size) for their processing." alt="" coords="112,95,299,136"/>
+<area shape="rect" id="node3" href="$classlemons_1_1dsp_1_1_audio_file_player.html" title="A kind of AudioEngine that plays audio from an AudioFile object." alt="" coords="5,184,197,225"/>
+<area shape="rect" id="node4" href="$classlemons_1_1dsp_1_1_engine_chain.html" title="A kind of engine that contains a chain of other Engine objects." alt="" coords="222,184,397,225"/>
+<area shape="rect" id="node2" href="$classlemons_1_1dsp_1_1_engine.html" title="Base class for an audio engine." alt="" coords="135,5,276,47"/>
+<area shape="rect" id="node5" href="$classlemons_1_1dsp_1_1_built_engine_chain.html" title="An EngineChain that you can pass templated Engine types to and it will instantiate them all and add t..." alt="" coords="192,273,427,315"/>
 </map>

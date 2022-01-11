@@ -1,5 +1,0 @@
-<map id="lemons::dsp::filters::MultiFilter&lt; SampleType, numChannels &gt;" name="lemons::dsp::filters::MultiFilter&lt; SampleType, numChannels &gt;">
-<area shape="rect" id="node1" title="A class that holds an array of filters and keeps their coefficients in sync, for processing multichan..." alt="" coords="5,31,200,87"/>
-<area shape="rect" id="node2" href="$structlemons_1_1dsp_1_1filters_1_1_multi_filter.html" title=" " alt="" coords="377,5,599,47"/>
-<area shape="rect" id="node3" href="$structlemons_1_1dsp_1_1filters_1_1_multi_filter.html" title=" " alt="" coords="411,71,565,112"/>
-</map>

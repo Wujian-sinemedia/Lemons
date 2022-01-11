@@ -1,4 +1,4 @@
 <map id="lemons::ValueSmoother&lt; SampleType &gt;" name="lemons::ValueSmoother&lt; SampleType &gt;">
-<area shape="rect" id="node1" title=" " alt="" coords="5,124,183,165"/>
-<area shape="rect" id="node2" title=" " alt="" coords="7,5,181,76"/>
+<area shape="rect" id="node1" title="A simple wrapper around juce::SmoothedValue with some less wordy template syntax, and a couple conven..." alt="" coords="5,124,165,165"/>
+<area shape="rect" id="node2" title=" " alt="" coords="6,5,165,76"/>
 </map>

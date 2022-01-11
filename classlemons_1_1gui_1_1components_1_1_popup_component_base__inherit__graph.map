@@ -1,7 +1,7 @@
 <map id="lemons::gui::components::PopupComponentBase" name="lemons::gui::components::PopupComponentBase">
-<area shape="rect" id="node1" title="Base class for a kind of component that can be displayed as a popup." alt="" coords="151,86,337,127"/>
-<area shape="rect" id="node3" href="$classlemons_1_1gui_1_1components_1_1_popup_component.html" title="A kind of PopupComponentBase that owns and displays a kind of Component." alt="" coords="385,5,641,61"/>
-<area shape="rect" id="node4" href="$classlemons_1_1gui_1_1components_1_1_save_to_file_prompt.html" title=" " alt="" coords="420,86,607,127"/>
-<area shape="rect" id="node5" href="$classlemons_1_1gui_1_1components_1_1_version_bump_prompt.html" title=" " alt="" coords="420,151,607,193"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,93,103,120"/>
+<area shape="rect" id="node1" title="Base class for a kind of component that can be displayed as a popup." alt="" coords="143,86,311,127"/>
+<area shape="rect" id="node3" href="$classlemons_1_1gui_1_1components_1_1_popup_component.html" title="A kind of PopupComponentBase that owns and displays a kind of Component." alt="" coords="359,5,592,61"/>
+<area shape="rect" id="node4" href="$classlemons_1_1gui_1_1components_1_1_save_to_file_prompt.html" title=" " alt="" coords="391,86,559,127"/>
+<area shape="rect" id="node5" href="$classlemons_1_1gui_1_1components_1_1_version_bump_prompt.html" title=" " alt="" coords="391,151,559,193"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,93,95,120"/>
 </map>
