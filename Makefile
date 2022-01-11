@@ -1,7 +1,5 @@
 SHELL := /usr/bin/env bash
 
-.PHONY: clean wipe format tests run_tests templates editor docs utils cmake_modules all
-
 #
 
 ifeq '$(findstring ;,$(PATH))' ';'
@@ -40,12 +38,15 @@ CMAKE_BUILD_COMMAND := cmake --build Builds -j $(NUMPROC)
 
 #
 
+.PHONY: clean # Cleans the Lemons source tree
 clean:
 	cmake -P scripts/clean.cmake
 
+.PHONY: wipe # Wipes the persistent cache of fetched dependencies and ccache artifacts
 wipe:
 	cmake -D LEMONS_WIPE_CLEAN=1 -P scripts/clean.cmake
 
+.PHONY: format # Runs clang-format over the entire source tree
 format:
 	cmake -P scripts/format.cmake
 
@@ -54,9 +55,11 @@ format:
 util/tests/Builds:
 	cd util/tests && $(CMAKE_CONFIGURE_COMMAND)
 
+.PHONY: tests # Builds the tests
 tests: util/tests/Builds
 	cd util/tests && $(CMAKE_BUILD_COMMAND)
 
+.PHONY: run_tests # Runs all tests
 run_tests: tests
 	cd util/tests/Builds && ctest -C Debug
 
@@ -65,6 +68,7 @@ run_tests: tests
 util/Templates/Builds:
 	cd util/Templates && $(CMAKE_CONFIGURE_COMMAND)
 
+.PHONY: templates # Builds the project templates
 templates: util/Templates/Builds
 	cd util/Templates && $(CMAKE_BUILD_COMMAND)
 
@@ -73,6 +77,7 @@ templates: util/Templates/Builds
 util/PluginMetadataEditor/Builds:
 	cd util/PluginMetadataEditor && $(CMAKE_CONFIGURE_COMMAND)
 
+.PHONY: editor # Builds the plugin metadata editor
 editor: util/PluginMetadataEditor/Builds
 	cd util/PluginMetadataEditor && $(CMAKE_BUILD_COMMAND)
 
@@ -81,6 +86,7 @@ editor: util/PluginMetadataEditor/Builds
 util/doxygen/Builds:
 	cd util/doxygen && $(CMAKE_CONFIGURE_COMMAND)
 
+.PHONY: docs # Builds the documentation
 docs: util/doxygen/Builds
 	cd util/doxygen && $(CMAKE_BUILD_COMMAND)
 
@@ -89,6 +95,7 @@ docs: util/doxygen/Builds
 util/CommandLineUtils/Builds:
 	cd util/CommandLineUtils && $(CMAKE_CONFIGURE_COMMAND)
 
+.PHONY: utils # Builds the command line utilities
 utils: util/CommandLineUtils/Builds
 	cd util/CommandLineUtils && $(CMAKE_BUILD_COMMAND)
 
@@ -97,9 +104,21 @@ utils: util/CommandLineUtils/Builds
 util/cmake/modules/Builds:
 	cd util/cmake/modules && $(CMAKE_CONFIGURE_COMMAND)
 
+.PHONY: cmake_modules # Builds the cmake modules
 cmake_modules: util/cmake/modules/Builds
 	cd util/cmake/modules && $(CMAKE_BUILD_COMMAND)
 
+.PHONY: install_cmake_modules # Builds and installs the cmake modules
+install_cmake_modules: cmake_modules
+	cd util/cmake/modules && sudo cmake --install Builds
+
 #
 
-all: run_tests templates editor docs utils cmake_modules
+.PHONY: all # Builds and runs all CI
+all: run_tests templates editor docs utils install_cmake_modules
+
+#
+
+.PHONY: help # Print this message
+help:
+	@grep '^.PHONY: .* #' Makefile | sed 's/\.PHONY: \(.*\) # \(.*\)/\1	\2/' | expand -t20 | sort
