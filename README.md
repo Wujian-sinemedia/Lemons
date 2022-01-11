@@ -1,8 +1,6 @@
 # Lemons
 
-[![UnitTests](https://github.com/benthevining/Lemons/actions/workflows/run_unit_tests.yml/badge.svg?branch=main)](https://github.com/benthevining/Lemons/actions/workflows/run_unit_tests.yml)
-[![ProjectTemplates](https://github.com/benthevining/Lemons/actions/workflows/build_templates.yml/badge.svg)](https://github.com/benthevining/Lemons/actions/workflows/build_templates.yml)
-[![CommandLineUtils](https://github.com/benthevining/Lemons/actions/workflows/build_utils.yml/badge.svg)](https://github.com/benthevining/Lemons/actions/workflows/build_utils.yml)
+[![CI](https://github.com/benthevining/Lemons/actions/workflows/ci.yml/badge.svg)](https://github.com/benthevining/Lemons/actions/workflows/ci.yml)
 
 <p align="center">
   <img src="https://github.com/benthevining/Lemons/blob/main/util/assets/lemons.jpg" alt="Watercolor painting of some lemons" width="1191" height="585"/>
