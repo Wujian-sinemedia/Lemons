@@ -47,13 +47,13 @@ docs:
 #
 
 .PHONY: utils # Builds the command line utilities
-utils: util/CommandLineUtils/Builds
+utils:
 	cmake -D LEMONS_DIR=util/CommandLineUtils -P $(RUN_SCRIPT)
 
 #
 
 .PHONY: cmake_modules # Builds the cmake modules
-cmake_modules: util/cmake/modules/Builds
+cmake_modules:
 	cmake -D LEMONS_DIR=util/cmake/modules -P $(RUN_SCRIPT)
 
 .PHONY: install_cmake_modules # Builds and installs the cmake modules
