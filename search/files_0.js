@@ -15,6 +15,6 @@ var searchData=
   ['audioformats_2eh_12',['AudioFormats.h',['../_audio_formats_8h.html',1,'']]],
   ['autolock_2eh_13',['AutoLock.h',['../_auto_lock_8h.html',1,'']]],
   ['automatedharmonyvoice_2eh_14',['AutomatedHarmonyVoice.h',['../_automated_harmony_voice_8h.html',1,'']]],
-  ['processors_2eh_15',['processors.h',['../_audio_2lemons__midi_2processors_2_processors_8h.html',1,'']]],
+  ['processors_2eh_15',['processors.h',['../_audio_2lemons__midi_2processors_2processors_8h.html',1,'']]],
   ['serializing_2eh_16',['serializing.h',['../_audio_2lemons__dsp_2util_2serializing_8h.html',1,'(Global Namespace)'],['../_audio_2lemons__midi_2utilities_2serializing_8h.html',1,'(Global Namespace)']]]
 ];

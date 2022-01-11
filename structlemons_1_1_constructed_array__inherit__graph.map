@@ -1,0 +1,20 @@
+<map id="lemons::ConstructedArray&lt; ObjectType &gt;" name="lemons::ConstructedArray&lt; ObjectType &gt;">
+<area shape="rect" id="node1" title="A wrapper around juce::OwnedArray that automatically deletes or creates objects when you resize it." alt="" coords="5,609,179,650"/>
+<area shape="rect" id="node2" href="$structlemons_1_1_constructed_array.html" title=" " alt="" coords="435,18,630,59"/>
+<area shape="rect" id="node3" href="$structlemons_1_1_constructed_array.html" title=" " alt="" coords="437,84,628,140"/>
+<area shape="rect" id="node4" href="$structlemons_1_1_constructed_array.html" title=" " alt="" coords="446,165,619,206"/>
+<area shape="rect" id="node5" href="$structlemons_1_1_constructed_array.html" title=" " alt="" coords="427,230,639,271"/>
+<area shape="rect" id="node6" href="$structlemons_1_1_constructed_array.html" title=" " alt="" coords="421,295,644,337"/>
+<area shape="rect" id="node7" href="$structlemons_1_1_constructed_array.html" title=" " alt="" coords="446,361,619,417"/>
+<area shape="rect" id="node8" href="$structlemons_1_1_constructed_array.html" title=" " alt="" coords="446,441,619,497"/>
+<area shape="rect" id="node9" href="$structlemons_1_1_constructed_array.html" title=" " alt="" coords="441,521,624,577"/>
+<area shape="rect" id="node10" href="$structlemons_1_1_constructed_array.html" title=" " alt="" coords="439,601,626,657"/>
+<area shape="rect" id="node11" href="$structlemons_1_1_constructed_array.html" title=" " alt="" coords="433,681,633,737"/>
+<area shape="rect" id="node12" href="$structlemons_1_1_constructed_array.html" title=" " alt="" coords="446,761,619,817"/>
+<area shape="rect" id="node13" href="$structlemons_1_1_constructed_array.html" title=" " alt="" coords="446,841,619,897"/>
+<area shape="rect" id="node14" href="$structlemons_1_1_constructed_array.html" title=" " alt="" coords="446,921,619,977"/>
+<area shape="rect" id="node15" href="$structlemons_1_1_constructed_array.html" title=" " alt="" coords="441,1001,624,1057"/>
+<area shape="rect" id="node16" href="$structlemons_1_1_constructed_array.html" title=" " alt="" coords="439,1081,626,1137"/>
+<area shape="rect" id="node17" href="$structlemons_1_1_constructed_array.html" title=" " alt="" coords="433,1161,633,1217"/>
+<area shape="rect" id="node18" href="$structlemons_1_1_constructed_array.html" title=" " alt="" coords="446,1242,619,1283"/>
+</map>

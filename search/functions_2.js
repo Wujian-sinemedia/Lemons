@@ -43,7 +43,7 @@ var searchData=
   ['createdefaulttexttovaluefunction_40',['createDefaultTextToValueFunction',['../namespacelemons_1_1plugin_1_1detail.html#a5d3222389093aa747e9fbaeaf0e29488',1,'lemons::plugin::detail']]],
   ['createdefaultvaluefromstringfunc_41',['createDefaultValueFromStringFunc',['../namespacelemons_1_1plugin_1_1detail.html#adfc72dd0a3c1f4cb056cff60af6248c9',1,'lemons::plugin::detail']]],
   ['createdefaultvaluetotextfunction_42',['createDefaultValueToTextFunction',['../namespacelemons_1_1plugin_1_1detail.html#a498baae88bfda3abca7ca937679ca3d5',1,'lemons::plugin::detail']]],
-  ['createeditor_43',['createEditor',['../structlemons_1_1plugin_1_1_processor_with_generic_editor.html#a29a9da328a354c3994eae25f3fb5d087',1,'lemons::plugin::ProcessorWithGenericEditor::createEditor()'],['../structlemons_1_1plugin_1_1_processor_with_editor.html#a01e11719059e6f06dc190a1cc318758b',1,'lemons::plugin::ProcessorWithEditor::createEditor()']]],
+  ['createeditor_43',['createEditor',['../structlemons_1_1plugin_1_1_processor_with_editor.html#a01e11719059e6f06dc190a1cc318758b',1,'lemons::plugin::ProcessorWithEditor::createEditor()'],['../structlemons_1_1plugin_1_1_processor_with_generic_editor.html#a29a9da328a354c3994eae25f3fb5d087',1,'lemons::plugin::ProcessorWithGenericEditor::createEditor()']]],
   ['createengine_44',['createEngine',['../namespacelemons_1_1dsp_1_1factory.html#a673d713149bad1b3eadb9123d510912f',1,'lemons::dsp::factory']]],
   ['createengineforprocessor_45',['createEngineForProcessor',['../namespacelemons_1_1plugin.html#a1747fd09b1942416372dd55c392e5254',1,'lemons::plugin']]],
   ['createholderforprocessor_46',['createHolderForProcessor',['../namespacelemons_1_1plugin.html#adb5640044ad8addaf5d894d6dbbd3d34',1,'lemons::plugin']]],

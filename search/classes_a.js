@@ -16,5 +16,7 @@ var searchData=
   ['monostereoconverter_13',['MonoStereoConverter',['../classlemons_1_1dsp_1_1_mono_stereo_converter.html',1,'lemons::dsp']]],
   ['monotostereopanner_14',['MonoToStereoPanner',['../classlemons_1_1dsp_1_1_f_x_1_1_mono_to_stereo_panner.html',1,'lemons::dsp::FX']]],
   ['mtsclient_15',['MtsClient',['../classlemons_1_1midi_1_1_mts_client.html',1,'lemons::midi']]],
-  ['multifilter_16',['MultiFilter',['../structlemons_1_1dsp_1_1filters_1_1_multi_filter.html',1,'lemons::dsp::filters']]]
+  ['multifilter_16',['MultiFilter',['../structlemons_1_1dsp_1_1filters_1_1_multi_filter.html',1,'lemons::dsp::filters']]],
+  ['multifilter_3c_20float_20_3e_17',['MultiFilter&lt; float &gt;',['../structlemons_1_1dsp_1_1filters_1_1_multi_filter.html',1,'lemons::dsp::filters']]],
+  ['multifilter_3c_20sampletype_2c_202_20_3e_18',['MultiFilter&lt; SampleType, 2 &gt;',['../structlemons_1_1dsp_1_1filters_1_1_multi_filter.html',1,'lemons::dsp::filters']]]
 ];

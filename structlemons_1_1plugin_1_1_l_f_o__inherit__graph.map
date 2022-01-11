@@ -1,11 +1,11 @@
 <map id="lemons::plugin::LFO" name="lemons::plugin::LFO">
-<area shape="rect" id="node1" title="An LFO, to be used by a ModulationManager object." alt="" coords="1368,61,1507,88"/>
-<area shape="rect" id="node2" href="$classlemons_1_1plugin_1_1_meta_parameter.html" title=" " alt="" coords="1116,54,1319,95"/>
-<area shape="rect" id="node3" href="$classlemons_1_1plugin_1_1_typed_parameter.html" title=" " alt="" coords="805,119,1015,161"/>
-<area shape="rect" id="node4" href="$classlemons_1_1plugin_1_1_parameter.html" title="A plugin parameter class." alt="" coords="247,127,421,153"/>
-<area shape="rect" id="node6" href="$classlemons_1_1plugin_1_1_typed_parameter.html" title="A parameter that can be stored as a type other than a float, but still inherits from my Parameter bas..." alt="" coords="483,178,692,219"/>
-<area shape="rect" id="node9" href="$classlemons_1_1plugin_1_1_typed_parameter.html" title="A parameter that can be stored as a type other than a float, but still inherits from my Parameter bas..." alt="" coords="483,61,692,102"/>
-<area shape="rect" id="node5" title=" " alt="" coords="5,127,197,153"/>
-<area shape="rect" id="node7" href="$structlemons_1_1plugin_1_1_meta_parameter_base.html" title="A type&#45;erased interface for a parameter that can be connected to other parameters and control their v..." alt="" coords="471,5,704,32"/>
-<area shape="rect" id="node8" href="$classlemons_1_1plugin_1_1_meta_parameter.html" title="A meta parameter class that implements the MetaParameterBase interface." alt="" coords="809,54,1011,95"/>
+<area shape="rect" id="node1" title="An LFO, to be used by a ModulationManager object." alt="" coords="1367,61,1505,88"/>
+<area shape="rect" id="node2" href="$classlemons_1_1plugin_1_1_meta_parameter.html" title=" " alt="" coords="1115,54,1317,95"/>
+<area shape="rect" id="node3" href="$classlemons_1_1plugin_1_1_typed_parameter.html" title=" " alt="" coords="804,119,1013,161"/>
+<area shape="rect" id="node4" href="$classlemons_1_1plugin_1_1_parameter.html" title="A plugin parameter class." alt="" coords="245,127,420,153"/>
+<area shape="rect" id="node6" href="$classlemons_1_1plugin_1_1_typed_parameter.html" title="A parameter that can be stored as a type other than a float, but still inherits from my Parameter bas..." alt="" coords="481,178,691,219"/>
+<area shape="rect" id="node9" href="$classlemons_1_1plugin_1_1_typed_parameter.html" title="A parameter that can be stored as a type other than a float, but still inherits from my Parameter bas..." alt="" coords="481,61,691,102"/>
+<area shape="rect" id="node5" title=" " alt="" coords="5,127,196,153"/>
+<area shape="rect" id="node7" href="$structlemons_1_1plugin_1_1_meta_parameter_base.html" title="A type&#45;erased interface for a parameter that can be connected to other parameters and control their v..." alt="" coords="469,5,703,32"/>
+<area shape="rect" id="node8" href="$classlemons_1_1plugin_1_1_meta_parameter.html" title="A meta parameter class that implements the MetaParameterBase interface." alt="" coords="807,54,1010,95"/>
 </map>

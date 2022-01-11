@@ -25,7 +25,7 @@ var searchData=
   ['processorbase_2eh_22',['ProcessorBase.h',['../_processor_base_8h.html',1,'']]],
   ['processorengine_2eh_23',['ProcessorEngine.h',['../_processor_engine_8h.html',1,'']]],
   ['processorholder_2eh_24',['ProcessorHolder.h',['../_processor_holder_8h.html',1,'']]],
-  ['processors_2eh_25',['Processors.h',['../_plugins_2lemons__plugin_2processors_2_processors_8h.html',1,'']]],
+  ['processors_2eh_25',['Processors.h',['../_plugins_2lemons__plugin_2processors_2processors_8h.html',1,'']]],
   ['programmanager_2eh_26',['ProgramManager.h',['../_program_manager_8h.html',1,'']]],
-  ['sliders_2eh_27',['Sliders.h',['../_plugins_2lemons__plugin__gui_2sliders_2_sliders_8h.html',1,'']]]
+  ['sliders_2eh_27',['Sliders.h',['../_plugins_2lemons__plugin__gui_2sliders_2sliders_8h.html',1,'']]]
 ];

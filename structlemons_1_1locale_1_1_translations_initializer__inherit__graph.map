@@ -1,5 +1,5 @@
 <map id="lemons::locale::TranslationsInitializer" name="lemons::locale::TranslationsInitializer">
-<area shape="rect" id="node1" title="A struct whose constructor simply calls initializeDefaultTranslations()." alt="" coords="5,39,191,80"/>
-<area shape="rect" id="node2" href="$classlemons_1_1_gui_app.html" title="Represents the base for a generic GUI app." alt="" coords="239,5,479,47"/>
-<area shape="rect" id="node3" href="$classlemons_1_1plugin_1_1_processor.html" title="A processor class that can simply be told the templated engine type and the state type,..." alt="" coords="264,71,453,112"/>
+<area shape="rect" id="node1" title="A struct whose constructor simply calls initializeDefaultTranslations()." alt="" coords="5,39,189,80"/>
+<area shape="rect" id="node2" href="$classlemons_1_1_gui_app.html" title="Represents the base for a generic GUI app." alt="" coords="237,5,476,47"/>
+<area shape="rect" id="node3" href="$classlemons_1_1plugin_1_1_processor.html" title="A processor class that can simply be told the templated engine type and the state type,..." alt="" coords="262,71,451,112"/>
 </map>

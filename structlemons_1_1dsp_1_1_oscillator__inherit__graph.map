@@ -1,10 +1,10 @@
 <map id="lemons::dsp::Oscillator&lt; SampleType &gt;" name="lemons::dsp::Oscillator&lt; SampleType &gt;">
 <area shape="rect" id="node1" title="Base class for any kind of oscillator." alt="" coords="240,136,396,177"/>
-<area shape="rect" id="node3" href="$classlemons_1_1dsp_1_1osc_1_1_detunable_base.html" title=" " alt="" coords="444,5,633,47"/>
-<area shape="rect" id="node5" href="$structlemons_1_1dsp_1_1osc_1_1_saw.html" title="A basic sawtooth wave oscillator." alt="" coords="461,71,617,112"/>
-<area shape="rect" id="node6" href="$structlemons_1_1dsp_1_1osc_1_1_sine.html" title="A basic sine wave oscillator." alt="" coords="461,136,617,177"/>
-<area shape="rect" id="node7" href="$structlemons_1_1dsp_1_1osc_1_1_square.html" title="A basic square wave oscillator." alt="" coords="453,201,624,243"/>
-<area shape="rect" id="node8" href="$structlemons_1_1dsp_1_1osc_1_1_triangle.html" title="A basic triangle wave oscillator." alt="" coords="451,267,627,308"/>
+<area shape="rect" id="node3" href="$classlemons_1_1dsp_1_1osc_1_1_detunable_base.html" title=" " alt="" coords="444,5,632,47"/>
+<area shape="rect" id="node5" href="$structlemons_1_1dsp_1_1osc_1_1_saw.html" title="A basic sawtooth wave oscillator." alt="" coords="461,71,615,112"/>
+<area shape="rect" id="node6" href="$structlemons_1_1dsp_1_1osc_1_1_sine.html" title="A basic sine wave oscillator." alt="" coords="460,136,616,177"/>
+<area shape="rect" id="node7" href="$structlemons_1_1dsp_1_1osc_1_1_square.html" title="A basic square wave oscillator." alt="" coords="453,201,623,243"/>
+<area shape="rect" id="node8" href="$structlemons_1_1dsp_1_1osc_1_1_triangle.html" title="A basic triangle wave oscillator." alt="" coords="451,267,625,308"/>
 <area shape="rect" id="node2" href="$structlemons_1_1dsp_1_1_sample_stream.html" title="Base class for any object that can output a stream of audio samples, with no audio or MIDI input." alt="" coords="5,136,192,177"/>
-<area shape="rect" id="node4" href="$classlemons_1_1dsp_1_1osc_1_1_detunable.html" title=" " alt="" coords="681,5,895,47"/>
+<area shape="rect" id="node4" href="$classlemons_1_1dsp_1_1osc_1_1_detunable.html" title=" " alt="" coords="680,5,893,47"/>
 </map>
