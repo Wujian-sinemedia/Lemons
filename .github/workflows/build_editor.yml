@@ -36,8 +36,8 @@ jobs:
 
     - name: Configure CMake
       shell: bash
-      run: cd '${{ github.workspace }}/util/PluginMetadataEditor' && cmake -B Builds
+      run: make util/PluginMetadataEditor/Builds
 
     - name: Run build
       shell: bash
-      run: cd '${{ github.workspace }}/util/PluginMetadataEditor' && cmake --build Builds
+      run: make editor

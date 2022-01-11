@@ -2,9 +2,43 @@ SHELL := /usr/bin/env bash
 
 .PHONY: clean wipe format tests run_tests templates editor docs utils cmake_modules all
 
-CMAKE_CONFIGURE_COMMAND := cmake -B Builds -G Xcode
+#
 
-CMAKE_BUILD_COMMAND := cmake --build Builds -j 4
+ifeq '$(findstring ;,$(PATH))' ';'
+    UNAME := Windows
+else
+    UNAME := $(shell uname 2>/dev/null || echo Unknown)
+    UNAME := $(patsubst CYGWIN%,Cygwin,$(UNAME))
+    UNAME := $(patsubst MSYS%,MSYS,$(UNAME))
+    UNAME := $(patsubst MINGW%,MSYS,$(UNAME))
+endif
+
+ifeq ($(UNAME), Windows)
+	CMAKE_GENERATOR := "Visual Studio 16 2019"
+else ifeq ($(UNAME), Darwin)
+	CMAKE_GENERATOR := Xcode
+else
+	CMAKE_GENERATOR := Ninja
+endif
+
+CMAKE_CONFIGURE_COMMAND := cmake -B Builds -G $(CMAKE_GENERATOR)
+
+ifeq ($(UNAME), Linux)
+    NUMPROC := $(shell grep -c ^processor /proc/cpuinfo)
+else ifeq ($(UNAME), Darwin)
+    NUMPROC := $(shell sysctl hw.ncpu | awk '{print $$2}')
+else 
+	NUMPROC := 8
+endif
+
+# Only take half as many processors as available
+NUMPROC := $(shell echo "$(NUMPROC)/2"|bc)
+
+ifeq ($(NUMPROC), 0)
+    NUMPROC = 4
+endif 
+
+CMAKE_BUILD_COMMAND := cmake --build Builds -j $(NUMPROC)
 
 #
 

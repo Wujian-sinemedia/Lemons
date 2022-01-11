@@ -36,15 +36,15 @@ jobs:
 
     - name: Configure CMake
       shell: bash
-      run: cd '${{ github.workspace }}/util/tests' && cmake -B Builds
+      run: make util/tests/Builds
 
     - name: Run build
       shell: bash
-      run: cd '${{ github.workspace }}/util/tests' && cmake --build Builds --config Debug
+      run: make tests
 
     - name: Run tests
       shell: bash
-      run: cd '${{ github.workspace }}/util/tests/Builds' && ctest -C Debug
+      run: make run_tests
 
     - name: Upload log
       if: always()

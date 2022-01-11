@@ -36,8 +36,8 @@ jobs:
 
     - name: Configure CMake
       shell: bash
-      run: cd '${{ github.workspace }}/util/CommandLineUtils' && cmake -B Builds
+      run: make util/CommandLineUtils/Builds
 
     - name: Run build
       shell: bash
-      run: cd '${{ github.workspace }}/util/CommandLineUtils' && cmake --build Builds
+      run: make utils
