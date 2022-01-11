@@ -45,6 +45,9 @@ function (lemons_add_resources_folder)
         set (resourcesTarget "${PROJECT_NAME}-Assets")
     endif()
 
+    message (DEBUG "Assets target name: ${resourcesTarget}")
+    message (DEBUG "Assets target source folder: ${LEMONS_RSRC_FLDR_ASSET_FOLDER}")
+
     if (NOT TARGET ${resourcesTarget})
         if (TARGET ${LEMONS_RSRC_FLDR_TARGET}::${resourcesTarget})
             message (AUTHOR_WARNING "Target ${LEMONS_RSRC_FLDR_TARGET}::${resourcesTarget} exists, but target ${resourcesTarget} not found!")
@@ -63,7 +66,7 @@ function (lemons_add_resources_folder)
         target_compile_definitions (${resourcesTarget} INTERFACE LEMONS_HAS_BINARY_DATA=1)
 
         if (NOT TARGET ${resourcesTarget})
-            message (AUTHOR_WARNING "Error creating resources target.")
+            message (WARNING "Error creating resources target.")
             return()
         endif()
 

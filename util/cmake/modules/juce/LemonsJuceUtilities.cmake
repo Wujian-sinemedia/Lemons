@@ -146,7 +146,9 @@ function (lemons_configure_juce_target)
     endif()
 
     if (LEMONS_TARGETCONFIG_INSTALL)
-        install (TARGETS ${LEMONS_APP_TARGET}
+        message (DEBUG "Configuring target install: ${LEMONS_TARGETCONFIG_TARGET}...")
+
+        install (TARGETS ${LEMONS_TARGETCONFIG_TARGET}
                  COMPONENT ${PROJECT_NAME}
                  LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
                  ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}

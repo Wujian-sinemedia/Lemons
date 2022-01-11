@@ -100,6 +100,8 @@ function (lemons_configure_juce_plugin)
 
     set (aax_target "${LEMONS_PLUGIN_TARGET}_AAX")
     if (TARGET ${aax_target})
+        message (DEBUG "Configuring AAX plugin target...")
+
         lemons_configure_aax_plugin (TARGET ${aax_target} 
                                      PAGETABLE_FILE "${LEMONS_PLUGIN_AAX_PAGETABLE_FILE}"
                                      GUID "${LEMONS_PLUGIN_AAX_GUID}")
@@ -112,6 +114,7 @@ function (lemons_configure_juce_plugin)
     _lemons_add_to_all_plugins_target (${LEMONS_PLUGIN_TARGET})
 
 
+    # This dependency is needed to build Standalone and AUv3 targets, but isn't needed directly by my lemons_plugin module, so add it to those targets here...
     function (_lemons_add_extra_pluginformat_modules formatTarget)
         if (TARGET ${formatTarget})
             target_link_libraries (${formatTarget} PRIVATE juce_audio_devices)
@@ -120,10 +123,6 @@ function (lemons_configure_juce_plugin)
 
     _lemons_add_extra_pluginformat_modules (${LEMONS_PLUGIN_TARGET}_Standalone)
     _lemons_add_extra_pluginformat_modules (${LEMONS_PLUGIN_TARGET}_AUv3)
-
-    # if (TARGET ${LEMONS_PLUGIN_TARGET}_Standalone OR TARGET ${LEMONS_PLUGIN_TARGET}_AUv3)
-    #     target_link_libraries (${LEMONS_PLUGIN_TARGET} PRIVATE juce_audio_devices)
-    # endif()
 
 endfunction()
 

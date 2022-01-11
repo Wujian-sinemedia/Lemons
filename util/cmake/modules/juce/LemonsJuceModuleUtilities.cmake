@@ -41,6 +41,7 @@ function (lemons_add_juce_modules)
 
     if (LEMONS_MOD_AGGREGATE)
         if (NOT TARGET ${LEMONS_MOD_AGGREGATE})
+            message (DEBUG "Adding Juce module aggregate target ${LEMONS_MOD_AGGREGATE}")
             add_library (${LEMONS_MOD_AGGREGATE} INTERFACE)
         endif()
     endif()
@@ -103,6 +104,7 @@ function (_lemons_add_module_subcategory)
     lemons_append_to_target_property_list (TARGET AllLemonsModules PROPERTY ModuleCategoryNames ADD ${LEMONS_SUBMOD_TARGET})
 
     foreach (categoryDependancy ${LEMONS_SUBMOD_CATEGORY_DEPS})
+        
         include (${categoryDependancy})
 
         target_link_libraries (${LEMONS_SUBMOD_TARGET} INTERFACE Lemons::${categoryDependancy})

@@ -58,18 +58,12 @@ include_guard (GLOBAL)
 
 include (${CMAKE_CURRENT_LIST_DIR}/scripts/create_aaxsdk_target.cmake)
 
-#
-
-if (NOT TARGET AAXSDK)
-    message (AUTHOR_WARNING "Error configuring the AAXSDK target!")
-    return()
-endif()
-
 include (LemonsFileUtils)
 include (LemonsJuceUtilities)
 
-juce_set_aax_sdk_path ("${LEMONS_AAX_SDK_PATH}")
-
+if (TARGET AAXSDK)
+    juce_set_aax_sdk_path ("${LEMONS_AAX_SDK_PATH}")
+endif()
 
 #
 
@@ -84,7 +78,7 @@ function (lemons_configure_aax_plugin)
     lemons_check_for_unparsed_args (LEMONS_AAX)
 
     if (NOT TARGET ${LEMONS_AAX_TARGET})
-        message (AUTHOR_WARNING "AAX target does not exist!")
+        message (WARNING "AAX target does not exist!")
         return()
     endif()
 
@@ -97,6 +91,8 @@ function (lemons_configure_aax_plugin)
     add_dependencies (${LEMONS_AAX_TARGET} AAXSDK)
 
     if (LEMONS_AAX_PAGETABLE_FILE)
+
+        message (DEBUG "Configuring AAX pagetable file...")
 
         lemons_make_path_absolute (VAR LEMONS_AAX_PAGETABLE_FILE 
                                    BASE_DIR ${PROJECT_SOURCE_DIR})

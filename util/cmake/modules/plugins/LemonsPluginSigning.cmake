@@ -39,7 +39,7 @@ function (lemons_configure_aax_plugin_signing)
     find_program (WRAPTOOL_PROGRAM wraptool)
 
     if (NOT WRAPTOOL_PROGRAM)
-        message (AUTHOR_WARNING "wraptool cannot be found, AAX signing disabled!")
+        message (WARNING "wraptool cannot be found, AAX signing disabled!")
         return()
     endif()
 
@@ -58,6 +58,8 @@ function (lemons_configure_aax_plugin_signing)
                             ARGS sign --verbose --dsig1-compat off --account "${LEMONS_AAX_ACCOUNT}" --keyfile "${LEMONS_AAX_KEYFILE}" --keypassword "${LEMONS_AAX_KEYPASSWORD}" --wcguid "${LEMONS_AAX_GUID}" --in "$<TARGET_PROPERTY:${aaxTarget},JUCE_PLUGIN_ARTEFACT_FILE>" --out "$<TARGET_PROPERTY:${aaxTarget},JUCE_PLUGIN_ARTEFACT_FILE>"
                             COMMENT "Signing ${LEMONS_AAX_TARGET}...")
     endif()
+
+    message (DEBUG "Configured AAX plugin signing!")
 endfunction()
 
 #
@@ -90,12 +92,15 @@ function (lemons_configure_plugin_signing)
 
 
     function (_lemons_config_plugin_format_signing formatTarget)
+
+        message (DEBUG "Configuring signing for plugin target ${formatTarget}...")
+
     	if (APPLE)
 
     		find_program (CODESIGN codesign)
 
 	        if (NOT CODESIGN)
-	            message (AUTHOR_WARNING "Codesign cannot be found, plugin signing cannot be configured!")
+	            message (WARNING "Codesign cannot be found, plugin signing cannot be configured!")
 	            return()
 	        endif()
 

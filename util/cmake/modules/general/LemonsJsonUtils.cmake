@@ -48,7 +48,7 @@ function (lemons_json_array_to_list)
 	string (JSON array_size ERROR_VARIABLE errno LENGTH ${LEMONS_JSON_TEXT} "${LEMONS_JSON_ARRAY}")
 
 	if (errno)
-		message (AUTHOR_WARNING "Error parsing JSON string: '${LEMONS_JSON_TEXT}'")
+		message (WARNING "Error parsing JSON string for array '${LEMONS_JSON_ARRAY}': ${LEMONS_JSON_TEXT}")
 		return()
 	endif()
 

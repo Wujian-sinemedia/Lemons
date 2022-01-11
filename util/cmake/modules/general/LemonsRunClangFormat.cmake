@@ -8,7 +8,7 @@ find_program (CLANG_FORMAT clang-format)
 function (lemons_run_clang_format)
 
 	if (NOT CLANG_FORMAT)
-		message (AUTHOR_WARNING "clang-format cannot be found!")
+		message (WARNING "clang-format cannot be found!")
 		return()
 	endif()
 

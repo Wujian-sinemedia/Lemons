@@ -18,7 +18,7 @@ if (NOT LEMONS_AAX_SDK_PATH)
 endif()
 
 if (NOT IS_DIRECTORY "${LEMONS_AAX_SDK_PATH}")
-    message (AUTHOR_WARNING "LEMONS_AAX_SDK_PATH has been specified, but the directory does not exist!")
+    message (WARNING "LEMONS_AAX_SDK_PATH has been specified, but the directory does not exist!")
 	return()
 endif()
 
@@ -28,14 +28,14 @@ endif()
 if (APPLE)
 
     if (NOT "x86_64" IN_LIST CMAKE_OSX_ARCHITECTURES)
-    	message (AUTHOR_WARNING "You're not building for x86_64, which will cause linker errors with AAX targets! Enable universal binaries to build for AAX.")
+    	message (WARNING "You're not building for x86_64, which will cause linker errors with AAX targets! Enable universal binaries to build for AAX.")
     	return()
     endif()
 
     find_program (XCODE_BUILD xcodebuild)
 
     if (NOT XCODE_BUILD)
-        message (AUTHOR_WARNING "xcodebuild is required to build the AAXSDK, but could not be found!")
+        message (WARNING "xcodebuild is required to build the AAXSDK, but could not be found!")
     	return()
     endif()
 
@@ -64,7 +64,7 @@ elseif (WIN32)
     find_program (MS_BUILD msbuild)
 
     if (NOT MS_BUILD)
-        message (AUTHOR_WARNING "msbuild is required to build the AAXSDK, but could not be found!")
+        message (WARNING "msbuild is required to build the AAXSDK, but could not be found!")
     	return()
     endif()
 
@@ -84,7 +84,7 @@ endif()
 
 
 if (TARGET AAXSDK)
-	message (VERBOSE "Configured AAXSDK target!")
+	message (DEBUG "Configured AAXSDK target!")
 else()
-	message (AUTHOR_WARNING "Error configuring the AAXSDK target!")
+	message (WARNING "Error configuring the AAXSDK target!")
 endif()
