@@ -57,7 +57,8 @@ jobs:
 
     - name: Build project templates
       shell: bash
-      run: export PRIVATE_SDKS='${{ github.workspace }}/PrivateSDKs' && make templates
+      run: | # export PRIVATE_SDKS='${{ github.workspace }}/PrivateSDKs' && 
+          make templates
 
     - name: Build plugin metadata editor
       shell: bash
