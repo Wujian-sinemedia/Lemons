@@ -92,7 +92,16 @@ function (lemons_get_list_of_deps_to_install)
 
 	cmake_parse_arguments (LEMONS_DEPS "OMIT_DEFAULT" "${oneValueArgs}" "CATEGORIES" ${ARGN})
 
-	lemons_require_function_arguments (LEMONS_DEPS FILE OUTPUT)
+	if (NOT LEMONS_DEPS_FILE)
+		# from global config func...
+		if (${PROJECT_NAME}_CONFIG_FILE)
+			set (LEMONS_DEPS_FILE ${${PROJECT_NAME}_CONFIG_FILE})
+		else()
+			message (AUTHOR_WARNING "FILE not specified in call to ${CMAKE_CURRENT_FUNCTION}, either provide it in this call or call lemons_parse_project_configuration_file in this project first.")
+		endif()
+	endif()
+
+	lemons_require_function_arguments (LEMONS_DEPS OUTPUT)
 	lemons_check_for_unparsed_args (LEMONS_DEPS)
 
 	lemons_make_path_absolute (VAR LEMONS_DEPS_FILE BASE_DIR ${CMAKE_CURRENT_LIST_DIR})

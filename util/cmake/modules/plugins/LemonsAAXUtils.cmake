@@ -56,8 +56,7 @@ I recommend you create a `YourBrand.cmake` module in some shared location that e
 
 include_guard (GLOBAL)
 
-include (${CMAKE_CURRENT_LIST_DIR}/scripts/create_aaxsdk_target.cmake)
-
+include (LemonsCreateAAXSDKTarget)
 include (LemonsFileUtils)
 include (LemonsJuceUtilities)
 

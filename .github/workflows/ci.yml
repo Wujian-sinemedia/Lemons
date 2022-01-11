@@ -43,13 +43,13 @@ jobs:
         path: PrivateSDKs
         submodules: recursive
 
-    # - name: Build tests
-    #   shell: bash
-    #   run: make tests
+    - name: Build tests
+      shell: bash
+      run: make tests
 
-    # - name: Run tests
-    #   shell: bash
-    #   run: make run_tests
+    - name: Run tests
+      shell: bash
+      run: make run_tests
 
     - name: Build project templates
       shell: bash

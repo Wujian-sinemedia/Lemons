@@ -11,3 +11,7 @@ if (LEMONS_ENABLE_INTEGRATIONS)
 elseif (LEMONS_SANITIZERS_TO_ENABLE)
 	include (LemonsSanitizers)
 endif()
+
+include (LemonsParseProjectConfigFile)
+
+lemons_parse_project_configuration_file (FORCE FILE "${Lemons_SOURCE_DIR}/scripts/lemons_config.json")

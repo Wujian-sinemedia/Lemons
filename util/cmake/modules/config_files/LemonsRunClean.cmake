@@ -10,7 +10,19 @@ function (lemons_run_clean)
 
 	cmake_parse_arguments (LEMONS_CLEAN "WIPE" "${oneValueArgs}" "" ${ARGN})
 
-	lemons_require_function_arguments (LEMONS_CLEAN FILE)
+	if (NOT LEMONS_CLEAN_FILE)
+		# from global config func...
+		if (${PROJECT_NAME}_CONFIG_FILE)
+			set (LEMONS_CLEAN_FILE ${${PROJECT_NAME}_CONFIG_FILE})
+
+			if (NOT LEMONS_CLEAN_DIR)
+				set (LEMONS_CLEAN_DIR ${PROJECT_SOURCE_DIR})
+			endif()
+		else()
+			message (AUTHOR_WARNING "FILE not specified in call to ${CMAKE_CURRENT_FUNCTION}, either provide it in this call or call lemons_parse_project_configuration_file in this project first.")
+		endif()
+	endif()
+
 	lemons_check_for_unparsed_args (LEMONS_CLEAN)
 
 	if (NOT LEMONS_CLEAN_DIR)
