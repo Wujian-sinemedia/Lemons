@@ -7,6 +7,12 @@ SHELL := /bin/sh
 
 #
 
+.PHONY: help # Print this message
+help:
+	@grep '^.PHONY: .* #' Makefile | sed 's/\.PHONY: \(.*\) # \(.*\)/\1	\2/' | expand -t20 | sort
+
+#
+
 CMAKE = cmake
 CTEST = ctest
 
@@ -88,8 +94,3 @@ install_cmake_modules: cmake_modules
 .PHONY: all # Builds and runs all CI
 all: run_tests templates editor docs utils install_cmake_modules
 
-#
-
-.PHONY: help # Print this message
-help:
-	@grep '^.PHONY: .* #' Makefile | sed 's/\.PHONY: \(.*\) # \(.*\)/\1	\2/' | expand -t20 | sort
