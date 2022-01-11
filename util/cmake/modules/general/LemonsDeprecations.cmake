@@ -1,5 +1,7 @@
 include_guard (GLOBAL)
 
+cmake_minimum_required (VERSION 3.21 FATAL_ERROR)
+
 
 function (_lemons_deprecated_variable_watch variableName access)
 	if (access STREQUAL "READ_ACCESS")
@@ -22,4 +24,13 @@ macro (lemons_deprecate_function functionName)
 		message (DEPRECATION "Deprecated function ${functionName} called!")
 		cmake_language (CALL "_${functionName}" ${ARGN})
 	endfunction()
+endmacro()
+
+
+macro (lemons_deprecate_function_args prefix)
+	foreach (argument ${ARGN})
+		if (${prefix}_${argument})
+			message (DEPRECATION "Deprecated function argument ${argument} used in call to ${CMAKE_CURRENT_FUNCTION}!")
+		endif()
+	endforeach()
 endmacro()

@@ -31,8 +31,14 @@ If the `LEMONS_BUILD_TESTS` option is set to ON, then [lemons_configure_pluginva
 include_guard (GLOBAL)
 
 include (LemonsJuceUtilities)
-include (lemons_internal)
+include (lemons_AggregateTargets)
 include (LemonsCmakeDevTools)
+
+option (LEMONS_INCLUDE_PRIVATE_SDKS "Add the PrivateSDKs repo via CPM.cmake" OFF)
+
+if (LEMONS_INCLUDE_PRIVATE_SDKS OR CPM_PrivateSDKs_SOURCE)
+    include (LemonsAddPrivateSDKs)
+endif()
 
 if (LEMONS_AAX_SDK_PATH)
     include (LemonsAAXUtils)
@@ -42,36 +48,41 @@ lemons_warn_if_not_processing_project()
 
 #
 
-set (available_formats Standalone)
+if (NOT LEMONS_PLUGIN_FORMATS)
 
-if (APPLE)
-    list (APPEND available_formats AUv3)
-endif()
-
-if (NOT IOS)
-    list (APPEND available_formats Unity VST3)
+    set (available_formats Standalone)
 
     if (APPLE)
-        list (APPEND available_formats AU)
+        list (APPEND available_formats AUv3)
     endif()
 
-    if (TARGET AAXSDK)
-        list (APPEND available_formats AAX)
-    endif()
+    if (NOT IOS)
+        list (APPEND available_formats Unity VST3)
 
-    if (LEMONS_VST2_SDK_PATH)
-        if (IS_DIRECTORY "${LEMONS_VST2_SDK_PATH}")
-            juce_set_vst2_sdk_path ("${LEMONS_VST2_SDK_PATH}")
-            list (APPEND available_formats VST)
-        else()
-            message (AUTHOR_WARNING "LEMONS_VST2_SDK_PATH specified, but the directory does not exist!")
+        if (APPLE)
+            list (APPEND available_formats AU)
+        endif()
+
+        if (TARGET AAXSDK)
+            list (APPEND available_formats AAX)
+        endif()
+
+        if (LEMONS_VST2_SDK_PATH)
+            if (IS_DIRECTORY "${LEMONS_VST2_SDK_PATH}")
+                juce_set_vst2_sdk_path ("${LEMONS_VST2_SDK_PATH}")
+                list (APPEND available_formats VST)
+            else()
+                message (AUTHOR_WARNING "LEMONS_VST2_SDK_PATH specified, but the directory does not exist!")
+            endif()
         endif()
     endif()
+
+    set (LEMONS_PLUGIN_FORMATS ${available_formats} CACHE STRING "Available plugin formats")
+
 endif()
 
-set (LEMONS_PLUGIN_FORMATS ${available_formats} CACHE INTERNAL "Available plugin formats")
 
-list (JOIN available_formats " " formats_output)
+list (JOIN LEMONS_PLUGIN_FORMATS " " formats_output)
 message (STATUS "  -- Available plugin formats: ${formats_output}")
 
 #
@@ -95,6 +106,20 @@ function (lemons_configure_juce_plugin)
     target_compile_definitions (${LEMONS_PLUGIN_TARGET} PRIVATE JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=0)
 
     _lemons_add_to_all_plugins_target (${LEMONS_PLUGIN_TARGET})
+
+
+    function (_lemons_add_extra_pluginformat_modules formatTarget)
+        if (TARGET ${formatTarget})
+            target_link_libraries (${formatTarget} PRIVATE juce_audio_devices)
+        endif()
+    endfunction()
+
+    _lemons_add_extra_pluginformat_modules (${LEMONS_PLUGIN_TARGET}_Standalone)
+    _lemons_add_extra_pluginformat_modules (${LEMONS_PLUGIN_TARGET}_AUv3)
+
+    # if (TARGET ${LEMONS_PLUGIN_TARGET}_Standalone OR TARGET ${LEMONS_PLUGIN_TARGET}_AUv3)
+    #     target_link_libraries (${LEMONS_PLUGIN_TARGET} PRIVATE juce_audio_devices)
+    # endif()
 
 endfunction()
 
