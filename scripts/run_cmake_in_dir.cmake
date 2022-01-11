@@ -52,7 +52,15 @@ foreach (configuration Debug Release)
 
 	set (thisConfigsBuildsDir Builds/${configuration})
 
-	execute_process (COMMAND "${CMAKE_COMMAND}" -B ${thisConfigsBuildsDir} -G "${lemons_cmake_generator}"
+	set (configureCommand "-B ${thisConfigsBuildsDir} -G ${lemons_cmake_generator}")
+
+	if (ENV{LEMONS_PRIVATE_SDKS})
+		set (configureCommand "-D CPM_PrivateSDKs_SOURCE=$ENV{LEMONS_PRIVATE_SDKS}" "${configureCommand}")
+	endif()
+
+	separate_arguments (configureCommand UNIX_COMMAND "${configureCommand}")
+
+	execute_process (COMMAND "${CMAKE_COMMAND}" ${configureCommand}
 					 WORKING_DIRECTORY "${run_dir}"
 					 OUTPUT_FILE "${configLog}"
 					 ERROR_FILE "${configErrorLog}"
