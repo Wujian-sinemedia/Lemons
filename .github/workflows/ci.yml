@@ -43,10 +43,6 @@ jobs:
         path: PrivateSDKs
         submodules: recursive
 
-    - name: Set up msbuild
-      if: matrix.os == 'windows-latest'
-      uses: microsoft/setup-msbuild@v1.1
-
     - name: Build tests
       shell: bash
       run: make tests
