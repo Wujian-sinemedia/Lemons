@@ -32,7 +32,8 @@
 			"name": "Docs",
 			"packages": [ "graphviz" ],
 			"LinuxPackages": [ "doxygen" ],
-			"MacPackages": [ "doxygen" ]
+			"MacPackages": [ "doxygen" ],
+			"WindowsPackages": [ "doxygen.portable" ]
 		},
 		{
 			"name": "Docker",
