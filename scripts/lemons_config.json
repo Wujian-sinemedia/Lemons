@@ -33,7 +33,7 @@
 			"packages": [ "graphviz" ],
 			"LinuxPackages": [ "doxygen" ],
 			"MacPackages": [ "doxygen" ],
-			"WindowsPackages": [ "doxygen.portable" ]
+			"WindowsPackages": [ "doxygen.install" ]
 		},
 		{
 			"name": "Docker",
