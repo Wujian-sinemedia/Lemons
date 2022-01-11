@@ -39,7 +39,7 @@ else()
 	set (lemons_cmake_generator Ninja)
 endif()
 
-execute_process (COMMAND ${CMAKE_COMMAND} -B Builds -G ${lemons_cmake_generator}
+execute_process (COMMAND ${CMAKE_COMMAND} -B Builds -G "${lemons_cmake_generator}"
 				 WORKING_DIRECTORY ${run_dir}
 				 OUTPUT_FILE ${configLog}
 				 ERROR_FILE ${configErrorLog}
