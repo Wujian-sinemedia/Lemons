@@ -2,42 +2,6 @@ SHELL := /usr/bin/env bash
 
 #
 
-ifeq '$(findstring ;,$(PATH))' ';'
-    UNAME := Windows
-else
-    UNAME := $(shell uname 2>/dev/null || echo Unknown)
-    UNAME := $(patsubst CYGWIN%,Cygwin,$(UNAME))
-    UNAME := $(patsubst MSYS%,MSYS,$(UNAME))
-    UNAME := $(patsubst MINGW%,MSYS,$(UNAME))
-endif
-
-ifeq ($(UNAME), Windows)
-	CMAKE_GENERATOR := "Visual Studio 16 2019"
-else ifeq ($(UNAME), Darwin)
-	CMAKE_GENERATOR := Xcode
-else
-	CMAKE_GENERATOR := Ninja
-endif
-
-CMAKE_CONFIGURE_COMMAND := cmake -B Builds -G $(CMAKE_GENERATOR)
-
-ifeq ($(origin PRIVATE_SDKS),undefined)
-else
-    CMAKE_CONFIGURE_COMMAND += -D CPM_PrivateSDKs_SOURCE="$(PRIVATE_SDKS)"
-endif
-
-ifeq ($(UNAME), Linux)
-    NUMPROC := $(shell grep -c ^processor /proc/cpuinfo)
-else ifeq ($(UNAME), Darwin)
-    NUMPROC := $(shell sysctl hw.ncpu | awk '{print $$2}')
-else 
-	NUMPROC := 4
-endif
-
-CMAKE_BUILD_COMMAND := cmake --build Builds -j $(NUMPROC)
-
-#
-
 .PHONY: clean # Cleans the Lemons source tree
 clean:
 	cmake -P scripts/clean.cmake
@@ -52,12 +16,11 @@ format:
 
 #
 
-util/tests/Builds:
-	cd util/tests && $(CMAKE_CONFIGURE_COMMAND)
+RUN_SCRIPT := scripts/run_cmake_in_dir.cmake
 
 .PHONY: tests # Builds the tests
-tests: util/tests/Builds
-	cd util/tests && $(CMAKE_BUILD_COMMAND)
+tests:
+	cmake -D LEMONS_DIR=util/tests -P $(RUN_SCRIPT)
 
 .PHONY: run_tests # Runs all tests
 run_tests: tests
@@ -65,48 +28,33 @@ run_tests: tests
 
 #
 
-util/Templates/Builds:
-	cd util/Templates && $(CMAKE_CONFIGURE_COMMAND)
-
 .PHONY: templates # Builds the project templates
-templates: util/Templates/Builds
-	cd util/Templates && $(CMAKE_BUILD_COMMAND)
+templates: 
+	cmake -D LEMONS_DIR=util/Templates -P $(RUN_SCRIPT)
 
 #
-
-util/PluginMetadataEditor/Builds:
-	cd util/PluginMetadataEditor && $(CMAKE_CONFIGURE_COMMAND)
 
 .PHONY: editor # Builds the plugin metadata editor
-editor: util/PluginMetadataEditor/Builds
-	cd util/PluginMetadataEditor && $(CMAKE_BUILD_COMMAND)
+editor: 
+	cmake -D LEMONS_DIR=util/PluginMetadataEditor -P $(RUN_SCRIPT)
 
 #
-
-util/doxygen/Builds:
-	cd util/doxygen && $(CMAKE_CONFIGURE_COMMAND)
 
 .PHONY: docs # Builds the documentation
-docs: util/doxygen/Builds
-	cd util/doxygen && $(CMAKE_BUILD_COMMAND)
+docs: 
+	cmake -D LEMONS_DIR=util/doxygen -P $(RUN_SCRIPT)
 
 #
-
-util/CommandLineUtils/Builds:
-	cd util/CommandLineUtils && $(CMAKE_CONFIGURE_COMMAND)
 
 .PHONY: utils # Builds the command line utilities
 utils: util/CommandLineUtils/Builds
-	cd util/CommandLineUtils && $(CMAKE_BUILD_COMMAND)
+	cmake -D LEMONS_DIR=util/CommandLineUtils -P $(RUN_SCRIPT)
 
 #
 
-util/cmake/modules/Builds:
-	cd util/cmake/modules && $(CMAKE_CONFIGURE_COMMAND)
-
 .PHONY: cmake_modules # Builds the cmake modules
 cmake_modules: util/cmake/modules/Builds
-	cd util/cmake/modules && $(CMAKE_BUILD_COMMAND)
+	cmake -D LEMONS_DIR=util/cmake/modules -P $(RUN_SCRIPT)
 
 .PHONY: install_cmake_modules # Builds and installs the cmake modules
 install_cmake_modules: cmake_modules
