@@ -25,12 +25,6 @@ endif()
 
 #
 
-set (configLog ${thisRunLogsDir}/config.log)
-set (configErrorLog ${thisRunLogsDir}/config_Errors.log)
-
-file (TOUCH ${configLog})
-file (TOUCH ${configErrorLog})
-
 if (APPLE)
 	set (lemons_cmake_generator Xcode)
 elseif (WIN32)
@@ -39,54 +33,74 @@ else()
 	set (lemons_cmake_generator Ninja)
 endif()
 
-execute_process (COMMAND "${CMAKE_COMMAND}" -B Builds -G "${lemons_cmake_generator}"
-				 WORKING_DIRECTORY "${run_dir}"
-				 OUTPUT_FILE "${configLog}"
-				 ERROR_FILE "${configErrorLog}"
-				 ERROR_VARIABLE configErrors
-				 RESULT_VARIABLE res
-				 COMMAND_ECHO STDOUT
-				 COMMAND_ERROR_IS_FATAL ANY
-				 ECHO_OUTPUT_VARIABLE ECHO_ERROR_VARIABLE)
-
-if (configErrors)
-	message (WARNING "Errors in configuration!")
-	message (STATUS ${configErrors})
-endif()
-
-if (res)
-	message (FATAL_ERROR "Configuration failed with exit code ${res}")
-else()
-	message (STATUS "Configuration succeeded with exit code ${res}")
-endif()
-
-#
-
-set (buildLog ${thisRunLogsDir}/build.log)
-set (buildErrorLog ${thisRunLogsDir}/build_Errors.log)
-
-file (TOUCH ${buildLog})
-file (TOUCH ${buildErrorLog})
-
 cmake_host_system_information (RESULT num_of_cores QUERY NUMBER_OF_LOGICAL_CORES)
 
-execute_process (COMMAND "${CMAKE_COMMAND}" --build Builds -j "${num_of_cores}"
-				 WORKING_DIRECTORY "${run_dir}"
-				 OUTPUT_FILE "${buildLog}"
-				 ERROR_FILE "${buildErrorLog}"
-				 ERROR_VARIABLE buildErrors
-				 RESULT_VARIABLE errno
-				 COMMAND_ECHO STDOUT
-				 COMMAND_ERROR_IS_FATAL ANY
-				 ECHO_OUTPUT_VARIABLE ECHO_ERROR_VARIABLE)
 
-if (buildErrors)
-	message (WARNING "Errors in build!")
-	message (STATUS ${buildErrors})
-endif()
+foreach (configuration Debug Release)
 
-if (errno)
-	message (FATAL_ERROR "Build failed with exit code ${errno}")
-else()
-	message (STATUS "Build succeeded with exit code ${errno}")
-endif()
+	set (thisConfigsLogsDir ${thisRunLogsDir}/${configuration})
+
+	if (NOT IS_DIRECTORY ${thisConfigsLogsDir})
+		file (MAKE_DIRECTORY ${thisConfigsLogsDir})
+	endif()
+
+	set (configLog ${thisConfigsLogsDir}/config.log)
+	set (configErrorLog ${thisConfigsLogsDir}/config_Errors.log)
+
+	file (TOUCH ${configLog})
+	file (TOUCH ${configErrorLog})
+
+	set (thisConfigsBuildsDir Builds/${configuration})
+
+	execute_process (COMMAND "${CMAKE_COMMAND}" -B ${thisConfigsBuildsDir} -G "${lemons_cmake_generator}" -D CMAKE_BUILD_TYPE=${configuration}
+					 WORKING_DIRECTORY "${run_dir}"
+					 OUTPUT_FILE "${configLog}"
+					 ERROR_FILE "${configErrorLog}"
+					 ERROR_VARIABLE configErrors
+					 RESULT_VARIABLE res
+					 COMMAND_ECHO STDOUT
+					 COMMAND_ERROR_IS_FATAL ANY
+					 ECHO_OUTPUT_VARIABLE ECHO_ERROR_VARIABLE)
+
+	if (configErrors)
+		message (WARNING "Errors in configuration!")
+		message (STATUS ${configErrors})
+	endif()
+
+	if (res)
+		message (FATAL_ERROR "Configuration failed with exit code ${res}")
+	else()
+		message (STATUS "Configuration succeeded with exit code ${res}")
+	endif()
+
+	#
+
+	set (buildLog ${thisConfigsLogsDir}/build.log)
+	set (buildErrorLog ${thisConfigsLogsDir}/build_Errors.log)
+
+	file (TOUCH ${buildLog})
+	file (TOUCH ${buildErrorLog})
+
+	execute_process (COMMAND "${CMAKE_COMMAND}" --build ${thisConfigsBuildsDir} -j "${num_of_cores}" --config ${configuration}
+					 WORKING_DIRECTORY "${run_dir}"
+					 OUTPUT_FILE "${buildLog}"
+					 ERROR_FILE "${buildErrorLog}"
+					 ERROR_VARIABLE buildErrors
+					 RESULT_VARIABLE errno
+					 COMMAND_ECHO STDOUT
+					 COMMAND_ERROR_IS_FATAL ANY
+					 ECHO_OUTPUT_VARIABLE ECHO_ERROR_VARIABLE)
+
+	if (buildErrors)
+		message (WARNING "Errors in build!")
+		message (STATUS ${buildErrors})
+	endif()
+
+	if (errno)
+		message (FATAL_ERROR "Build failed with exit code ${errno}")
+	else()
+		message (STATUS "Build succeeded with exit code ${errno}")
+	endif()
+	
+endforeach()
+
