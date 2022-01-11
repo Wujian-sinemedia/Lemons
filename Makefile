@@ -25,7 +25,7 @@ CMAKE_CONFIGURE_COMMAND := cmake -B Builds -G $(CMAKE_GENERATOR)
 
 ifeq ($(origin PRIVATE_SDKS),undefined)
 else
-    CMAKE_CONFIGURE_COMMAND += -D CPM_PrivateSDKs_SOURCE=$(PRIVATE_SDKS)
+    CMAKE_CONFIGURE_COMMAND += -D CPM_PrivateSDKs_SOURCE="$(PRIVATE_SDKS)"
 endif
 
 ifeq ($(UNAME), Linux)

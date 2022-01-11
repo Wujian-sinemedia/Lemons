@@ -34,17 +34,14 @@ jobs:
       shell: bash
       run: cmake -P '${{ github.workspace }}/scripts/install_deps.cmake'
 
-    - uses: actions/checkout@v2
+    - name: Clone private SDKs
+      uses: actions/checkout@v2
       with: 
         repository: benthevining/PrivateSDKs
         ref: main
         token: ${{ secrets.ACCESS_TOKEN }}
         path: PrivateSDKs
         submodules: recursive
-
-    - name: Run clean
-      shell: bash
-      run: make clean
 
     - name: Build tests
       shell: bash
