@@ -13,7 +13,10 @@ if (NOT CHOCO)
 
 	message (STATUS "Installing Chocolatey...")
 
-	execute_process (COMMAND "${POWERSHELL}" "${CMAKE_CURRENT_LIST_DIR}/install_chocolatey.ps1"
+	execute_process (COMMAND ${POWERSHELL} Set-ExecutionPolicy Bypass
+					 COMMAND_ECHO STDOUT)
+
+	execute_process (COMMAND ${POWERSHELL} iex "((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))"
 					 COMMAND_ECHO STDOUT
 					 COMMAND_ERROR_IS_FATAL ANY)
 
@@ -37,7 +40,7 @@ endfunction()
 
 function (_lemons_deps_os_install_func deps)
 
-	execute_process (COMMAND "${CHOCO}" install ${deps}
+	execute_process (COMMAND "${CHOCO}" install ${deps} -y
 		             COMMAND_ECHO STDOUT
 		             COMMAND_ERROR_IS_FATAL ANY)
 

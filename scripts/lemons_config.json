@@ -25,11 +25,14 @@
 				"mesa-common-dev",
 				"openssh-client",
 				"ninja-build"
-			]
+			],
+			"WindowsPackages": [ "microsoft-build-tools" ]
 		},
 		{
 			"name": "Docs",
-			"packages": [ "doxygen", "graphviz" ]
+			"packages": [ "graphviz" ],
+			"LinuxPackages": [ "doxygen" ],
+			"MacPackages": [ "doxygen" ]
 		},
 		{
 			"name": "Docker",
