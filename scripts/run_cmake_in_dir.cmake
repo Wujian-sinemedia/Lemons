@@ -10,6 +10,8 @@ if (NOT IS_DIRECTORY ${run_dir})
 	message (FATAL_ERROR "Directory '${run_dir}' deduced from argument '${LEMONS_DIR}' does not exist!")
 endif()
 
+message (STATUS "Run directory: ${run_dir}")
+
 
 set (logsDir ${lemons_root}/logs)
 
@@ -17,13 +19,18 @@ if (NOT IS_DIRECTORY ${logsDir})
 	file (MAKE_DIRECTORY ${logsDir})
 endif()
 
+
 set (thisRunLogsDir ${logsDir}/${LEMONS_DIR})
 
 if (NOT IS_DIRECTORY ${thisRunLogsDir})
 	file (MAKE_DIRECTORY ${thisRunLogsDir})
 endif()
 
+message (DEBUG "Log directory for this run: ${thisRunLogsDir}")
+
+
 #
+
 
 if (APPLE)
 	set (lemons_cmake_generator Xcode)
@@ -33,7 +40,17 @@ else()
 	set (lemons_cmake_generator Ninja)
 endif()
 
+
 cmake_host_system_information (RESULT num_of_cores QUERY NUMBER_OF_LOGICAL_CORES)
+
+string (COMPARE LESS ${num_of_cores} "2" lessThanTwo)
+
+if (lessThanTwo)
+	set (num_of_cores 2)
+endif()
+
+
+#
 
 
 foreach (configuration Debug Release)
@@ -46,72 +63,65 @@ foreach (configuration Debug Release)
 		file (MAKE_DIRECTORY ${thisConfigsLogsDir})
 	endif()
 
-	set (configLog ${thisConfigsLogsDir}/config.log)
-	set (configErrorLog ${thisConfigsLogsDir}/config_Errors.log)
-
-	file (TOUCH ${configLog})
-	file (TOUCH ${configErrorLog})
-
-	set (thisConfigsBuildsDir Builds/${configuration})
-
-	set (configureCommand "-B ${thisConfigsBuildsDir} -G '${lemons_cmake_generator}'")
-
-	if (LEMONS_PRIVATE_SDKS)
-		message (DEBUG "Enabling PrivateSDKs...")
-		set (configureCommand "-D CPM_PrivateSDKs_SOURCE=${LEMONS_PRIVATE_SDKS} ${configureCommand}")
-	endif()
-
-	separate_arguments (configureCommand UNIX_COMMAND "${configureCommand}")
-
-	execute_process (COMMAND "${CMAKE_COMMAND}" ${configureCommand}
-					 WORKING_DIRECTORY "${run_dir}"
-					 OUTPUT_FILE "${configLog}"
-					 ERROR_FILE "${configErrorLog}"
-					 ERROR_VARIABLE configErrors
-					 RESULT_VARIABLE res
-					 COMMAND_ECHO STDOUT
-					 COMMAND_ERROR_IS_FATAL ANY
-					 ECHO_OUTPUT_VARIABLE ECHO_ERROR_VARIABLE)
-
-	if (configErrors)
-		message (WARNING "Errors in configuration!")
-		message (STATUS ${configErrors})
-	endif()
-
-	if (res)
-		message (FATAL_ERROR "Configuration failed with exit code ${res}")
-	else()
-		message (STATUS "Configuration succeeded with exit code ${res}")
-	endif()
+	message (DEBUG "Log directory for configuration - ${configuration}: ${thisConfigsLogsDir}")
 
 	#
 
-	set (buildLog ${thisConfigsLogsDir}/build.log)
-	set (buildErrorLog ${thisConfigsLogsDir}/build_Errors.log)
+	function (_lemons_run_cmake_config_in_dir stepName)
 
-	file (TOUCH ${buildLog})
-	file (TOUCH ${buildErrorLog})
+		set (logFile ${thisConfigsLogsDir}/${stepName}.log)
+		set (errorFile ${thisConfigsLogsDir}/${stepName}_Errors.log)
 
-	execute_process (COMMAND "${CMAKE_COMMAND}" --build ${thisConfigsBuildsDir} -j ${num_of_cores} --config ${configuration}
-					 WORKING_DIRECTORY "${run_dir}"
-					 OUTPUT_FILE "${buildLog}"
-					 ERROR_FILE "${buildErrorLog}"
-					 ERROR_VARIABLE buildErrors
-					 RESULT_VARIABLE errno
-					 COMMAND_ECHO STDOUT
-					 COMMAND_ERROR_IS_FATAL ANY
-					 ECHO_OUTPUT_VARIABLE ECHO_ERROR_VARIABLE)
+		file (TOUCH ${logFile})
+		file (TOUCH ${errorFile})
 
-	if (buildErrors)
-		message (WARNING "Errors in build!")
-		message (STATUS ${buildErrors})
+		message (DEBUG "Step name: ${stepName}")
+		message (TRACE "Configuration: ${configuration}")
+		message (DEBUG "Command: ${ARGN}")
+
+		execute_process (COMMAND "${CMAKE_COMMAND}" ${ARGN}
+						 WORKING_DIRECTORY "${run_dir}"
+						 OUTPUT_FILE "${logFile}"
+						 ERROR_FILE "${errorFile}"
+						 OUTPUT_VARIABLE std_out OUTPUT_STRIP_TRAILING_WHITESPACE ECHO_OUTPUT_VARIABLE
+						 ERROR_VARIABLE std_err ERROR_STRIP_TRAILING_WHITESPACE ECHO_ERROR_VARIABLE
+						 RESULT_VARIABLE res_var
+						 COMMAND_ECHO STDOUT
+						 COMMAND_ERROR_IS_FATAL ANY)
+
+		if (std_out)
+			message (STATUS "${stepName} output - ${configuration}:")
+			message (STATUS ${std_out})
+		endif()
+
+		if (std_err)
+			message (WARNING "Errors in ${stepName} - ${configuration}!")
+			message (STATUS ${std_err})
+		endif()
+
+		if (res_var)
+			message (FATAL_ERROR "${stepName} - ${configuration} failed with exit code ${res_var}")
+		else()
+			message (STATUS "${stepName} - ${configuration} succeeded with exit code ${res_var}")
+		endif()
+
+	endfunction()
+
+	#
+
+	set (thisConfigsBuildsDir Builds/${configuration})
+	set (thisConfigBuildDirAbsPath "${run_dir}/${thisConfigsBuildsDir}")
+
+	message (DEBUG "Build dir for configuration - ${configuration}: ${thisConfigBuildDirAbsPath}")
+
+	if (EXISTS "${thisConfigBuildDirAbsPath}")
+		message (DEBUG "Removing old build directory...")
+		file (REMOVE_RECURSE "${thisConfigBuildDirAbsPath}")
 	endif()
 
-	if (errno)
-		message (FATAL_ERROR "Build failed with exit code ${errno}")
-	else()
-		message (STATUS "Build succeeded with exit code ${errno}")
-	endif()
+	_lemons_run_cmake_config_in_dir (Configuration -B "${thisConfigsBuildsDir}" -G "${lemons_cmake_generator}")
+
+	_lemons_run_cmake_config_in_dir (Build --build "${thisConfigsBuildsDir}" -j "${num_of_cores}" --config "${configuration}")
 	
 endforeach()
 

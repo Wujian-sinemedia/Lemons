@@ -63,6 +63,9 @@ include (LemonsJuceUtilities)
 
 if (TARGET AAXSDK)
     juce_set_aax_sdk_path ("${LEMONS_AAX_SDK_PATH}")
+    message (DEBUG "AAXSDK target created successfully!")
+else()
+    message (DEBUG "AAXSDK target not created, see log for errors...")
 endif()
 
 #

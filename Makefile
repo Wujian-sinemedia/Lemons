@@ -38,7 +38,7 @@ logs:
 
 run_cmake = $(shell mkdir logs/$(1)) \
 			$(shell touch logs/$(1)/cmake_run.log) \
-			$(CMAKE) -D LEMONS_DIR=$(1) -D LEMONS_PRIVATE_SDKS=$(LEMONS_PRIVATE_SDKS) -P scripts/run_cmake_in_dir.cmake | tee logs/$(1)/cmake_run.log
+			$(CMAKE) -D LEMONS_DIR=$(1) -P scripts/run_cmake_in_dir.cmake | tee logs/$(1)/cmake_run.log
 
 .PHONY: tests # Builds the tests
 tests: | logs
@@ -97,5 +97,5 @@ install_cmake_modules: cmake_modules
 #
 
 .PHONY: all # Builds and runs all CI
-all: run_tests templates editor docs utils install_cmake_modules
+all: run_tests templates editor docs utils
 
