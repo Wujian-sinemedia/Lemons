@@ -25,9 +25,9 @@ tests:
 .PHONY: run_tests # Runs all tests
 run_tests: tests
 	cd util/tests/Builds/Debug && ctest -C Debug
-	mv util/tests/Builds/Testing/Temporary/LastTest.log logs/UnitTests_Debug.log
+	mv util/tests/Builds/Debug/Testing/Temporary/LastTest.log logs/UnitTests_Debug.log
 	cd util/tests/Builds/Release && ctest -C Release
-	mv util/tests/Builds/Testing/Temporary/LastTest.log logs/UnitTests_Release.log
+	mv util/tests/Builds/Release/Testing/Temporary/LastTest.log logs/UnitTests_Release.log
 
 #
 
