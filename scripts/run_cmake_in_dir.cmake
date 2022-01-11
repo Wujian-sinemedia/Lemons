@@ -52,7 +52,7 @@ foreach (configuration Debug Release)
 
 	set (thisConfigsBuildsDir Builds/${configuration})
 
-	set (configureCommand "-B ${thisConfigsBuildsDir} -G ${lemons_cmake_generator}")
+	set (configureCommand "-B ${thisConfigsBuildsDir} -G '${lemons_cmake_generator}'")
 
 	if (ENV{LEMONS_PRIVATE_SDKS})
 		set (configureCommand "-D CPM_PrivateSDKs_SOURCE=$ENV{LEMONS_PRIVATE_SDKS}" "${configureCommand}")
