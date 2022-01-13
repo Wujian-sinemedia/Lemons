@@ -1,4 +1,4 @@
 <map id="lemons::plugin::ProcessorWithGenericEditor&lt; ProcessorType, &gt;" name="lemons::plugin::ProcessorWithGenericEditor&lt; ProcessorType, &gt;">
-<area shape="rect" id="node1" title=" " alt="" coords="5,80,272,121"/>
-<area shape="rect" id="node2" title=" " alt="" coords="81,5,196,32"/>
+<area shape="rect" id="node1" title="Handy struct that is similar to ProcessorWithEditor, but instead of providing your own component,..." alt="" coords="5,80,248,121"/>
+<area shape="rect" id="node2" title=" " alt="" coords="72,5,181,32"/>
 </map>

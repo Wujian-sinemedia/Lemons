@@ -1,6 +1,6 @@
 <map id="lemons::plugin::PercentParameter" name="lemons::plugin::PercentParameter">
-<area shape="rect" id="node1" title=" " alt="" coords="5,229,248,256"/>
-<area shape="rect" id="node2" href="$classlemons_1_1plugin_1_1_typed_parameter.html" title=" " alt="" coords="73,155,180,181"/>
-<area shape="rect" id="node3" href="$classlemons_1_1plugin_1_1_parameter.html" title=" " alt="" coords="30,80,223,107"/>
-<area shape="rect" id="node4" title=" " alt="" coords="21,5,232,32"/>
+<area shape="rect" id="node1" title="A parameter that represents an integer value in the range 0&#45;100." alt="" coords="5,229,224,256"/>
+<area shape="rect" id="node2" href="$classlemons_1_1plugin_1_1_typed_parameter.html" title="A parameter that can be stored as a type other than a float, but still inherits from my Parameter bas..." alt="" coords="66,155,163,181"/>
+<area shape="rect" id="node3" href="$classlemons_1_1plugin_1_1_parameter.html" title="A plugin parameter class." alt="" coords="27,80,202,107"/>
+<area shape="rect" id="node4" title=" " alt="" coords="19,5,211,32"/>
 </map>

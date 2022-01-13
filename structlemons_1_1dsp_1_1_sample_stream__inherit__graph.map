@@ -1,10 +1,15 @@
 <map id="lemons::dsp::SampleStream&lt; SampleType &gt;" name="lemons::dsp::SampleStream&lt; SampleType &gt;">
-<area shape="rect" id="node1" title="Base class for any object that can output a stream of audio samples, with no audio or MIDI input." alt="" coords="5,137,211,179"/>
-<area shape="rect" id="node2" href="$structlemons_1_1dsp_1_1_oscillator.html" title="Base class for any kind of oscillator." alt="" coords="298,104,469,145"/>
-<area shape="rect" id="node8" href="$classlemons_1_1dsp_1_1_white_noise_generator.html" title=" " alt="" coords="259,169,508,211"/>
-<area shape="rect" id="node3" href="$classlemons_1_1dsp_1_1osc_1_1_detunable_base.html" title=" " alt="" coords="556,5,763,47"/>
-<area shape="rect" id="node5" href="$structlemons_1_1dsp_1_1osc_1_1_saw.html" title=" " alt="" coords="576,71,743,112"/>
-<area shape="rect" id="node6" href="$structlemons_1_1dsp_1_1osc_1_1_sine.html" title=" " alt="" coords="576,136,743,177"/>
-<area shape="rect" id="node7" href="$structlemons_1_1dsp_1_1osc_1_1_square.html" title=" " alt="" coords="567,201,751,243"/>
-<area shape="rect" id="node4" href="$classlemons_1_1dsp_1_1osc_1_1_detunable.html" title=" " alt="" coords="811,5,1017,47"/>
+<area shape="rect" id="node1" title="Base class for any object that can output a stream of audio samples, with no audio or MIDI input." alt="" coords="5,259,192,300"/>
+<area shape="rect" id="node2" href="$structlemons_1_1dsp_1_1_oscillator.html" title="Base class for any kind of oscillator." alt="" coords="275,177,431,219"/>
+<area shape="rect" id="node9" href="$classlemons_1_1dsp_1_1_white_noise_generator.html" title="A simple processor that generates random noise." alt="" coords="240,259,467,300"/>
+<area shape="rect" id="node10" href="$classlemons_1_1dsp_1_1psola_1_1_shifter.html" title="A class that repitches a stream of monophonic audio using PSOLA&#45;like techniques." alt="" coords="271,356,435,397"/>
+<area shape="rect" id="node3" href="$classlemons_1_1dsp_1_1osc_1_1_detunable_base.html" title=" " alt="" coords="523,5,713,47"/>
+<area shape="rect" id="node5" href="$structlemons_1_1dsp_1_1osc_1_1_saw.html" title="A basic sawtooth wave oscillator." alt="" coords="540,71,696,112"/>
+<area shape="rect" id="node6" href="$structlemons_1_1dsp_1_1osc_1_1_sine.html" title="A basic sine wave oscillator." alt="" coords="540,136,696,177"/>
+<area shape="rect" id="node7" href="$structlemons_1_1dsp_1_1osc_1_1_square.html" title="A basic square wave oscillator." alt="" coords="533,201,703,243"/>
+<area shape="rect" id="node8" href="$structlemons_1_1dsp_1_1osc_1_1_triangle.html" title="A basic triangle wave oscillator." alt="" coords="530,267,706,308"/>
+<area shape="rect" id="node4" href="$classlemons_1_1dsp_1_1osc_1_1_detunable.html" title=" " alt="" coords="769,5,983,47"/>
+<area shape="rect" id="node11" href="$classlemons_1_1dsp_1_1psola_1_1_interval_shifter.html" title=" " alt="" coords="515,332,721,373"/>
+<area shape="rect" id="node12" href="$classlemons_1_1dsp_1_1psola_1_1_midi_shifter.html" title=" " alt="" coords="524,397,712,439"/>
+<area shape="rect" id="node13" href="$classlemons_1_1dsp_1_1psola_1_1_ratio_shifter.html" title=" " alt="" coords="521,463,715,504"/>
 </map>

@@ -1,5 +1,5 @@
 <map id="lemons::midi::Processor" name="lemons::midi::Processor">
-<area shape="rect" id="node1" title=" " alt="" coords="30,5,209,32"/>
-<area shape="rect" id="node2" href="$classlemons_1_1midi_1_1_routing_processor.html" title=" " alt="" coords="5,80,233,107"/>
-<area shape="rect" id="node3" href="$structlemons_1_1midi_1_1_stateful_routing_processor.html" title=" " alt="" coords="11,155,227,196"/>
+<area shape="rect" id="node1" title=" " alt="" coords="28,5,191,32"/>
+<area shape="rect" id="node2" href="$classlemons_1_1midi_1_1_routing_processor.html" title=" " alt="" coords="5,80,213,107"/>
+<area shape="rect" id="node3" href="$structlemons_1_1midi_1_1_stateful_routing_processor.html" title=" " alt="" coords="12,155,207,196"/>
 </map>

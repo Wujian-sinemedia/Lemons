@@ -1,5 +1,5 @@
 <map id="lemons::gui::components::PopupComponent&lt; OwnedContentType, &gt;" name="lemons::gui::components::PopupComponent&lt; OwnedContentType, &gt;">
-<area shape="rect" id="node1" title="A kind of PopupComponentBase that owns and displays a kind of Component." alt="" coords="5,169,261,225"/>
-<area shape="rect" id="node2" href="$classlemons_1_1gui_1_1components_1_1_popup_component_base.html" title="Base class for a kind of component that can be displayed as a popup." alt="" coords="40,80,227,121"/>
-<area shape="rect" id="node3" title=" " alt="" coords="85,5,182,32"/>
+<area shape="rect" id="node1" title="A kind of PopupComponentBase that owns and displays a kind of Component." alt="" coords="5,169,239,225"/>
+<area shape="rect" id="node2" href="$classlemons_1_1gui_1_1components_1_1_popup_component_base.html" title="Base class for a kind of component that can be displayed as a popup." alt="" coords="38,80,206,121"/>
+<area shape="rect" id="node3" title=" " alt="" coords="77,5,167,32"/>
 </map>

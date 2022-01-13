@@ -1,4 +1,5 @@
 <map id="lemons::dsp::psola::IntervalShifter&lt; SampleType &gt;" name="lemons::dsp::psola::IntervalShifter&lt; SampleType &gt;">
-<area shape="rect" id="node1" title=" " alt="" coords="5,95,236,136"/>
-<area shape="rect" id="node2" href="$classlemons_1_1dsp_1_1psola_1_1_shifter.html" title=" " alt="" coords="30,5,211,47"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,184,212,225"/>
+<area shape="rect" id="node2" href="$classlemons_1_1dsp_1_1psola_1_1_shifter.html" title="A class that repitches a stream of monophonic audio using PSOLA&#45;like techniques." alt="" coords="27,95,191,136"/>
+<area shape="rect" id="node3" href="$structlemons_1_1dsp_1_1_sample_stream.html" title="Base class for any object that can output a stream of audio samples, with no audio or MIDI input." alt="" coords="15,5,202,47"/>
 </map>

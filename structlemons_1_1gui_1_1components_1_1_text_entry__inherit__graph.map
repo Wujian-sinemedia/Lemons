@@ -1,5 +1,5 @@
 <map id="lemons::gui::components::TextEntry" name="lemons::gui::components::TextEntry">
-<area shape="rect" id="node1" title=" " alt="" coords="5,169,192,211"/>
-<area shape="rect" id="node2" href="$structlemons_1_1gui_1_1components_1_1_label.html" title=" " alt="" coords="5,80,192,121"/>
-<area shape="rect" id="node3" title=" " alt="" coords="53,5,145,32"/>
+<area shape="rect" id="node1" title="A simple text entry field, with a callback fired when the user changes the text." alt="" coords="5,169,173,211"/>
+<area shape="rect" id="node2" href="$structlemons_1_1gui_1_1components_1_1_label.html" title="A simple wrapper around juce::Label that simplifies its API a bit." alt="" coords="5,80,173,121"/>
+<area shape="rect" id="node3" title=" " alt="" coords="47,5,132,32"/>
 </map>

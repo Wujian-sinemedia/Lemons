@@ -1,5 +1,5 @@
 <map id="lemons::GuiApp&lt; ContentComponentType, &gt;" name="lemons::GuiApp&lt; ContentComponentType, &gt;">
-<area shape="rect" id="node1" title=" " alt="" coords="55,95,322,136"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,13,167,39"/>
-<area shape="rect" id="node3" href="$structlemons_1_1locale_1_1_translations_initializer.html" title=" " alt="" coords="191,5,394,47"/>
+<area shape="rect" id="node1" title="Represents the base for a generic GUI app." alt="" coords="60,95,300,136"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,13,160,39"/>
+<area shape="rect" id="node3" href="$structlemons_1_1locale_1_1_translations_initializer.html" title="A struct whose constructor simply calls initializeDefaultTranslations()." alt="" coords="185,5,370,47"/>
 </map>
