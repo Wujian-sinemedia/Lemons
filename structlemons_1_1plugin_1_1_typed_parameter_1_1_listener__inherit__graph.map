@@ -1,6 +1,6 @@
 <map id="lemons::plugin::TypedParameter&lt; ValueType &gt;::Listener" name="lemons::plugin::TypedParameter&lt; ValueType &gt;::Listener">
-<area shape="rect" id="node1" title="A class that will recieve updates when aspects of a TypedParameter change." alt="" coords="228,39,437,80"/>
-<area shape="rect" id="node3" href="$classlemons_1_1gui_1_1components_1_1_int_slider.html" title="Plugin slider that attaches to an integer parameter." alt="" coords="506,5,674,47"/>
-<area shape="rect" id="node4" href="$structlemons_1_1plugin_1_1_typed_parameter_1_1_lambda_listener.html" title="A listener that fires lambdas for each callback." alt="" coords="485,71,695,112"/>
-<area shape="rect" id="node2" href="$structlemons_1_1plugin_1_1_parameter_1_1_listener.html" title="A Listener class that will be notified when aspects of a Parameter change." alt="" coords="5,39,180,80"/>
+<area shape="rect" id="node1" title="A class that will recieve updates when aspects of a TypedParameter change." alt="" coords="247,39,477,80"/>
+<area shape="rect" id="node3" href="$classlemons_1_1gui_1_1components_1_1_int_slider.html" title="Plugin slider that attaches to an integer parameter." alt="" coords="547,5,734,47"/>
+<area shape="rect" id="node4" href="$structlemons_1_1plugin_1_1_typed_parameter_1_1_lambda_listener.html" title="A listener that fires lambdas for each callback." alt="" coords="525,71,756,112"/>
+<area shape="rect" id="node2" href="$structlemons_1_1plugin_1_1_parameter_1_1_listener.html" title="A Listener class that will be notified when aspects of a Parameter change." alt="" coords="5,39,199,80"/>
 </map>

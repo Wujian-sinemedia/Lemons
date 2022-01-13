@@ -1,10 +1,10 @@
 <map id="lemons::tests::Test" name="lemons::tests::Test">
-<area shape="rect" id="node1" title=" " alt="" coords="156,97,291,123"/>
-<area shape="rect" id="node3" href="$structlemons_1_1tests_1_1_audio_processor_test_base.html" title=" " alt="" coords="339,5,540,47"/>
-<area shape="rect" id="node5" href="$structlemons_1_1tests_1_1_core_test.html" title=" " alt="" coords="359,71,520,98"/>
-<area shape="rect" id="node6" href="$structlemons_1_1tests_1_1_dsp_test.html" title=" " alt="" coords="361,122,518,149"/>
-<area shape="rect" id="node8" href="$structlemons_1_1tests_1_1_midi_test.html" title=" " alt="" coords="360,173,519,199"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,97,108,123"/>
-<area shape="rect" id="node4" href="$structlemons_1_1tests_1_1_audio_processor_test.html" title=" " alt="" coords="588,5,789,47"/>
-<area shape="rect" id="node7" href="$structlemons_1_1tests_1_1_all_oscillators_test.html" title=" " alt="" coords="595,115,782,156"/>
+<area shape="rect" id="node1" title=" " alt="" coords="164,97,308,123"/>
+<area shape="rect" id="node3" href="$structlemons_1_1tests_1_1_audio_processor_test_base.html" title=" " alt="" coords="356,5,575,47"/>
+<area shape="rect" id="node5" href="$structlemons_1_1tests_1_1_core_test.html" title=" " alt="" coords="378,71,553,98"/>
+<area shape="rect" id="node6" href="$structlemons_1_1tests_1_1_dsp_test.html" title=" " alt="" coords="381,122,550,149"/>
+<area shape="rect" id="node8" href="$structlemons_1_1tests_1_1_midi_test.html" title=" " alt="" coords="379,173,551,199"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,97,116,123"/>
+<area shape="rect" id="node4" href="$structlemons_1_1tests_1_1_audio_processor_test.html" title=" " alt="" coords="623,5,841,47"/>
+<area shape="rect" id="node7" href="$structlemons_1_1tests_1_1_all_oscillators_test.html" title=" " alt="" coords="630,115,834,156"/>
 </map>

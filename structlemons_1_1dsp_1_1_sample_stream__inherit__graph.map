@@ -1,11 +1,10 @@
 <map id="lemons::dsp::SampleStream&lt; SampleType &gt;" name="lemons::dsp::SampleStream&lt; SampleType &gt;">
-<area shape="rect" id="node1" title="Base class for any object that can output a stream of audio samples, with no audio or MIDI input." alt="" coords="5,169,192,211"/>
-<area shape="rect" id="node2" href="$structlemons_1_1dsp_1_1_oscillator.html" title="Base class for any kind of oscillator." alt="" coords="275,136,431,177"/>
-<area shape="rect" id="node9" href="$classlemons_1_1dsp_1_1_white_noise_generator.html" title="A simple processor that generates random noise." alt="" coords="240,201,465,243"/>
-<area shape="rect" id="node3" href="$classlemons_1_1dsp_1_1osc_1_1_detunable_base.html" title=" " alt="" coords="513,5,701,47"/>
-<area shape="rect" id="node5" href="$structlemons_1_1dsp_1_1osc_1_1_saw.html" title="A basic sawtooth wave oscillator." alt="" coords="530,71,685,112"/>
-<area shape="rect" id="node6" href="$structlemons_1_1dsp_1_1osc_1_1_sine.html" title="A basic sine wave oscillator." alt="" coords="529,136,685,177"/>
-<area shape="rect" id="node7" href="$structlemons_1_1dsp_1_1osc_1_1_square.html" title="A basic square wave oscillator." alt="" coords="522,201,693,243"/>
-<area shape="rect" id="node8" href="$structlemons_1_1dsp_1_1osc_1_1_triangle.html" title="A basic triangle wave oscillator." alt="" coords="520,267,695,308"/>
-<area shape="rect" id="node4" href="$classlemons_1_1dsp_1_1osc_1_1_detunable.html" title=" " alt="" coords="749,5,963,47"/>
+<area shape="rect" id="node1" title="Base class for any object that can output a stream of audio samples, with no audio or MIDI input." alt="" coords="5,137,211,179"/>
+<area shape="rect" id="node2" href="$structlemons_1_1dsp_1_1_oscillator.html" title="Base class for any kind of oscillator." alt="" coords="298,104,469,145"/>
+<area shape="rect" id="node8" href="$classlemons_1_1dsp_1_1_white_noise_generator.html" title=" " alt="" coords="259,169,508,211"/>
+<area shape="rect" id="node3" href="$classlemons_1_1dsp_1_1osc_1_1_detunable_base.html" title=" " alt="" coords="556,5,763,47"/>
+<area shape="rect" id="node5" href="$structlemons_1_1dsp_1_1osc_1_1_saw.html" title=" " alt="" coords="576,71,743,112"/>
+<area shape="rect" id="node6" href="$structlemons_1_1dsp_1_1osc_1_1_sine.html" title=" " alt="" coords="576,136,743,177"/>
+<area shape="rect" id="node7" href="$structlemons_1_1dsp_1_1osc_1_1_square.html" title=" " alt="" coords="567,201,751,243"/>
+<area shape="rect" id="node4" href="$classlemons_1_1dsp_1_1osc_1_1_detunable.html" title=" " alt="" coords="811,5,1017,47"/>
 </map>

@@ -1,8 +1,8 @@
 <map id="lemons::plugin::MeterParameter&lt; ValueType &gt;" name="lemons::plugin::MeterParameter&lt; ValueType &gt;">
-<area shape="rect" id="node1" title="A parameter that represents a general kind of meter, used for reporting things like level or gain red..." alt="" coords="7,248,213,289"/>
-<area shape="rect" id="node5" href="$structlemons_1_1plugin_1_1_meter_parameter.html" title=" " alt="" coords="7,352,213,393"/>
-<area shape="rect" id="node2" href="$classlemons_1_1plugin_1_1_typed_parameter.html" title="A parameter that can be stored as a type other than a float, but still inherits from my Parameter bas..." alt="" coords="5,157,215,199"/>
-<area shape="rect" id="node3" href="$classlemons_1_1plugin_1_1_parameter.html" title="A plugin parameter class." alt="" coords="23,81,197,108"/>
-<area shape="rect" id="node4" title=" " alt="" coords="15,5,205,32"/>
-<area shape="rect" id="node6" href="$structlemons_1_1plugin_1_1_gain_meter_parameter.html" title="A parameter that represents a meter displaying values in decibels." alt="" coords="23,443,197,484"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,248,236,289"/>
+<area shape="rect" id="node5" href="$structlemons_1_1plugin_1_1_meter_parameter.html" title=" " alt="" coords="5,352,236,393"/>
+<area shape="rect" id="node2" href="$classlemons_1_1plugin_1_1_typed_parameter.html" title=" " alt="" coords="5,157,236,199"/>
+<area shape="rect" id="node3" href="$classlemons_1_1plugin_1_1_parameter.html" title=" " alt="" coords="24,81,217,108"/>
+<area shape="rect" id="node4" title=" " alt="" coords="15,5,226,32"/>
+<area shape="rect" id="node6" href="$structlemons_1_1plugin_1_1_gain_meter_parameter.html" title=" " alt="" coords="23,443,218,484"/>
 </map>

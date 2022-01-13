@@ -1,6 +1,6 @@
 <map id="lemons::dsp::FX::SmoothedGain&lt; SampleType, channels &gt;" name="lemons::dsp::FX::SmoothedGain&lt; SampleType, channels &gt;">
-<area shape="rect" id="node1" title="A handy effect class that allows you to change the gain of a stream of audio, and will smooth the cha..." alt="" coords="245,39,451,80"/>
-<area shape="rect" id="node3" href="$classlemons_1_1dsp_1_1_f_x_1_1_smoothed_gain.html" title=" " alt="" coords="615,5,797,47"/>
-<area shape="rect" id="node4" href="$classlemons_1_1dsp_1_1_f_x_1_1_smoothed_gain.html" title=" " alt="" coords="615,71,797,112"/>
-<area shape="rect" id="node2" href="$structlemons_1_1dsp_1_1_f_x_1_1_audio_effect.html" title="Base class for any kind of audio effect." alt="" coords="5,39,196,80"/>
+<area shape="rect" id="node1" title="A handy effect class that allows you to change the gain of a stream of audio, and will smooth the cha..." alt="" coords="263,39,489,80"/>
+<area shape="rect" id="node3" href="$classlemons_1_1dsp_1_1_f_x_1_1_smoothed_gain.html" title=" " alt="" coords="667,5,867,47"/>
+<area shape="rect" id="node4" href="$classlemons_1_1dsp_1_1_f_x_1_1_smoothed_gain.html" title=" " alt="" coords="667,71,867,112"/>
+<area shape="rect" id="node2" href="$structlemons_1_1dsp_1_1_f_x_1_1_audio_effect.html" title="Base class for any kind of audio effect." alt="" coords="5,39,213,80"/>
 </map>

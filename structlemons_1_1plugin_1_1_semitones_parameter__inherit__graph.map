@@ -1,6 +1,6 @@
 <map id="lemons::plugin::SemitonesParameter" name="lemons::plugin::SemitonesParameter">
-<area shape="rect" id="node1" title="A parameter that represents a number of semitones, as an integer." alt="" coords="13,229,189,271"/>
-<area shape="rect" id="node2" href="$classlemons_1_1plugin_1_1_typed_parameter.html" title="A parameter that can be stored as a type other than a float, but still inherits from my Parameter bas..." alt="" coords="53,155,149,181"/>
-<area shape="rect" id="node3" href="$classlemons_1_1plugin_1_1_parameter.html" title="A plugin parameter class." alt="" coords="13,80,188,107"/>
-<area shape="rect" id="node4" title=" " alt="" coords="5,5,196,32"/>
+<area shape="rect" id="node1" title=" " alt="" coords="13,229,208,271"/>
+<area shape="rect" id="node2" href="$classlemons_1_1plugin_1_1_typed_parameter.html" title=" " alt="" coords="57,155,164,181"/>
+<area shape="rect" id="node3" href="$classlemons_1_1plugin_1_1_parameter.html" title=" " alt="" coords="14,80,207,107"/>
+<area shape="rect" id="node4" title=" " alt="" coords="5,5,216,32"/>
 </map>

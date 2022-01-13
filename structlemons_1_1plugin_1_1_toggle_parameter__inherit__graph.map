@@ -1,8 +1,8 @@
 <map id="lemons::plugin::ToggleParameter" name="lemons::plugin::ToggleParameter">
-<area shape="rect" id="node1" title="A parameter that represents a boolean on/off toggle." alt="" coords="5,428,217,455"/>
-<area shape="rect" id="node2" href="$structlemons_1_1plugin_1_1_bool_parameter.html" title="Helper struct that simplifies the constructor for boolean parameters." alt="" coords="11,352,211,379"/>
-<area shape="rect" id="node3" href="$classlemons_1_1plugin_1_1_typed_parameter.html" title=" " alt="" coords="7,261,216,303"/>
-<area shape="rect" id="node4" href="$classlemons_1_1plugin_1_1_parameter.html" title="A plugin parameter class." alt="" coords="19,81,193,108"/>
-<area shape="rect" id="node6" href="$classlemons_1_1plugin_1_1_typed_parameter.html" title="A parameter that can be stored as a type other than a float, but still inherits from my Parameter bas..." alt="" coords="128,157,337,199"/>
-<area shape="rect" id="node5" title=" " alt="" coords="11,5,201,32"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,428,240,455"/>
+<area shape="rect" id="node2" href="$structlemons_1_1plugin_1_1_bool_parameter.html" title=" " alt="" coords="11,352,234,379"/>
+<area shape="rect" id="node3" href="$classlemons_1_1plugin_1_1_typed_parameter.html" title=" " alt="" coords="7,261,238,303"/>
+<area shape="rect" id="node4" href="$classlemons_1_1plugin_1_1_parameter.html" title=" " alt="" coords="21,81,214,108"/>
+<area shape="rect" id="node6" href="$classlemons_1_1plugin_1_1_typed_parameter.html" title=" " alt="" coords="139,157,370,199"/>
+<area shape="rect" id="node5" title=" " alt="" coords="12,5,223,32"/>
 </map>

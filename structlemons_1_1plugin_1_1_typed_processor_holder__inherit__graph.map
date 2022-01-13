@@ -1,4 +1,4 @@
 <map id="lemons::plugin::TypedProcessorHolder&lt; ProcessorType, &gt;" name="lemons::plugin::TypedProcessorHolder&lt; ProcessorType, &gt;">
-<area shape="rect" id="node1" title="A ProcessorHolder that instantiates a custom subclass of AudioProcessor and automatically creates a P..." alt="" coords="5,95,213,136"/>
-<area shape="rect" id="node2" href="$structlemons_1_1plugin_1_1_processor_holder.html" title="This class holds a reference to a juce::AudioProcessor, and acts as a wrapper around it,..." alt="" coords="23,5,196,47"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,95,232,136"/>
+<area shape="rect" id="node2" href="$structlemons_1_1plugin_1_1_processor_holder.html" title=" " alt="" coords="24,5,213,47"/>
 </map>

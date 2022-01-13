@@ -1,8 +1,8 @@
 <map id="lemons::plugin::Parameter::Listener" name="lemons::plugin::Parameter::Listener">
-<area shape="rect" id="node1" title="A Listener class that will be notified when aspects of a Parameter change." alt="" coords="5,71,180,112"/>
-<area shape="rect" id="node2" href="$classlemons_1_1gui_1_1components_1_1_float_slider.html" title="Plugin slider that attaches to a float parameter." alt="" coords="249,5,417,47"/>
-<area shape="rect" id="node3" href="$structlemons_1_1plugin_1_1_parameter_1_1_lambda_listener.html" title="A listener class that fires lambdas for each callback." alt="" coords="245,71,420,112"/>
-<area shape="rect" id="node4" href="$structlemons_1_1plugin_1_1_typed_parameter_1_1_listener.html" title="A class that will recieve updates when aspects of a TypedParameter change." alt="" coords="228,136,437,177"/>
-<area shape="rect" id="node5" href="$classlemons_1_1gui_1_1components_1_1_int_slider.html" title="Plugin slider that attaches to an integer parameter." alt="" coords="506,103,674,144"/>
-<area shape="rect" id="node6" href="$structlemons_1_1plugin_1_1_typed_parameter_1_1_lambda_listener.html" title="A listener that fires lambdas for each callback." alt="" coords="485,168,695,209"/>
+<area shape="rect" id="node1" title="A Listener class that will be notified when aspects of a Parameter change." alt="" coords="5,71,199,112"/>
+<area shape="rect" id="node2" href="$classlemons_1_1gui_1_1components_1_1_float_slider.html" title="Plugin slider that attaches to a float parameter." alt="" coords="269,5,455,47"/>
+<area shape="rect" id="node3" href="$structlemons_1_1plugin_1_1_parameter_1_1_lambda_listener.html" title="A listener class that fires lambdas for each callback." alt="" coords="265,71,459,112"/>
+<area shape="rect" id="node4" href="$structlemons_1_1plugin_1_1_typed_parameter_1_1_listener.html" title="A class that will recieve updates when aspects of a TypedParameter change." alt="" coords="247,136,477,177"/>
+<area shape="rect" id="node5" href="$classlemons_1_1gui_1_1components_1_1_int_slider.html" title="Plugin slider that attaches to an integer parameter." alt="" coords="547,103,734,144"/>
+<area shape="rect" id="node6" href="$structlemons_1_1plugin_1_1_typed_parameter_1_1_lambda_listener.html" title="A listener that fires lambdas for each callback." alt="" coords="525,168,756,209"/>
 </map>

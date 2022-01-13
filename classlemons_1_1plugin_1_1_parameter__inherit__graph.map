@@ -1,23 +1,23 @@
 <map id="lemons::plugin::Parameter" name="lemons::plugin::Parameter">
-<area shape="rect" id="node1" title="A plugin parameter class." alt="" coords="245,219,420,246"/>
-<area shape="rect" id="node3" href="$classlemons_1_1plugin_1_1_typed_parameter.html" title=" " alt="" coords="786,5,995,47"/>
-<area shape="rect" id="node6" href="$classlemons_1_1plugin_1_1_typed_parameter.html" title=" " alt="" coords="786,436,995,477"/>
-<area shape="rect" id="node15" href="$classlemons_1_1plugin_1_1_typed_parameter.html" title="A parameter that can be stored as a type other than a float, but still inherits from my Parameter bas..." alt="" coords="469,212,679,253"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,219,196,246"/>
-<area shape="rect" id="node4" href="$structlemons_1_1plugin_1_1_bool_parameter.html" title="Helper struct that simplifies the constructor for boolean parameters." alt="" coords="1115,13,1315,39"/>
-<area shape="rect" id="node5" href="$structlemons_1_1plugin_1_1_toggle_parameter.html" title="A parameter that represents a boolean on/off toggle." alt="" coords="1377,13,1589,39"/>
-<area shape="rect" id="node7" href="$classlemons_1_1plugin_1_1_meta_parameter.html" title=" " alt="" coords="1114,279,1317,320"/>
-<area shape="rect" id="node9" href="$structlemons_1_1plugin_1_1_meter_parameter.html" title=" " alt="" coords="1112,187,1319,228"/>
-<area shape="rect" id="node11" href="$structlemons_1_1plugin_1_1_float_amount_parameter.html" title="A parameter that represents a value in a normalized 0&#45;1 range." alt="" coords="1121,369,1309,411"/>
-<area shape="rect" id="node12" href="$structlemons_1_1plugin_1_1_frequency_parameter.html" title="A parameter that represents a frequency in Hz." alt="" coords="1128,435,1303,476"/>
-<area shape="rect" id="node13" href="$structlemons_1_1plugin_1_1_gain_parameter.html" title="A parameter that represents a gain value in decibels." alt="" coords="1115,501,1316,527"/>
-<area shape="rect" id="node14" href="$structlemons_1_1plugin_1_1_seconds_parameter.html" title="A parameter that represents a time value in seconds, expressed as a float." alt="" coords="1103,551,1328,578"/>
-<area shape="rect" id="node8" href="$structlemons_1_1plugin_1_1_l_f_o.html" title="An LFO, to be used by a ModulationManager object." alt="" coords="1414,286,1553,313"/>
-<area shape="rect" id="node10" href="$structlemons_1_1plugin_1_1_gain_meter_parameter.html" title="A parameter that represents a meter displaying values in decibels." alt="" coords="1396,187,1571,228"/>
-<area shape="rect" id="node16" href="$classlemons_1_1plugin_1_1_meta_parameter.html" title="A meta parameter class that implements the MetaParameterBase interface." alt="" coords="789,253,992,295"/>
-<area shape="rect" id="node17" href="$structlemons_1_1plugin_1_1_meter_parameter.html" title="A parameter that represents a general kind of meter, used for reporting things like level or gain red..." alt="" coords="787,136,994,177"/>
-<area shape="rect" id="node18" href="$structlemons_1_1plugin_1_1_midi_pan_parameter.html" title="A parameter that represents a MIDI panning value in the range 0 to 127." alt="" coords="780,202,1001,229"/>
-<area shape="rect" id="node19" href="$structlemons_1_1plugin_1_1_midi_pitch_parameter.html" title="A parameter that represents a MIDI pitch." alt="" coords="807,319,975,360"/>
-<area shape="rect" id="node20" href="$structlemons_1_1plugin_1_1_percent_parameter.html" title="A parameter that represents an integer value in the range 0&#45;100." alt="" coords="781,385,1000,411"/>
-<area shape="rect" id="node21" href="$structlemons_1_1plugin_1_1_semitones_parameter.html" title="A parameter that represents a number of semitones, as an integer." alt="" coords="803,71,979,112"/>
+<area shape="rect" id="node1" title=" " alt="" coords="265,342,459,369"/>
+<area shape="rect" id="node3" href="$classlemons_1_1plugin_1_1_typed_parameter.html" title=" " alt="" coords="508,335,739,376"/>
+<area shape="rect" id="node15" href="$classlemons_1_1plugin_1_1_typed_parameter.html" title=" " alt="" coords="859,87,1089,128"/>
+<area shape="rect" id="node19" href="$classlemons_1_1plugin_1_1_typed_parameter.html" title=" " alt="" coords="859,596,1089,637"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,342,216,369"/>
+<area shape="rect" id="node4" href="$classlemons_1_1plugin_1_1_meta_parameter.html" title=" " alt="" coords="861,217,1087,259"/>
+<area shape="rect" id="node7" href="$structlemons_1_1plugin_1_1_meter_parameter.html" title=" " alt="" coords="859,400,1089,441"/>
+<area shape="rect" id="node10" href="$structlemons_1_1plugin_1_1_midi_pan_parameter.html" title=" " alt="" coords="852,465,1096,507"/>
+<area shape="rect" id="node11" href="$structlemons_1_1plugin_1_1_midi_pitch_parameter.html" title=" " alt="" coords="881,531,1067,572"/>
+<area shape="rect" id="node12" href="$structlemons_1_1plugin_1_1_percent_parameter.html" title=" " alt="" coords="853,152,1095,193"/>
+<area shape="rect" id="node13" href="$structlemons_1_1plugin_1_1_seconds_parameter.html" title=" " alt="" coords="851,283,1097,310"/>
+<area shape="rect" id="node14" href="$structlemons_1_1plugin_1_1_semitones_parameter.html" title=" " alt="" coords="877,335,1071,376"/>
+<area shape="rect" id="node5" href="$classlemons_1_1plugin_1_1_meta_parameter.html" title=" " alt="" coords="1211,209,1438,251"/>
+<area shape="rect" id="node6" href="$structlemons_1_1plugin_1_1_l_f_o.html" title=" " alt="" coords="1531,217,1682,243"/>
+<area shape="rect" id="node8" href="$structlemons_1_1plugin_1_1_meter_parameter.html" title=" " alt="" coords="1209,307,1440,348"/>
+<area shape="rect" id="node9" href="$structlemons_1_1plugin_1_1_gain_meter_parameter.html" title=" " alt="" coords="1509,307,1704,348"/>
+<area shape="rect" id="node16" href="$structlemons_1_1plugin_1_1_float_amount_parameter.html" title=" " alt="" coords="1219,5,1430,47"/>
+<area shape="rect" id="node17" href="$structlemons_1_1plugin_1_1_frequency_parameter.html" title=" " alt="" coords="1228,71,1421,112"/>
+<area shape="rect" id="node18" href="$structlemons_1_1plugin_1_1_gain_parameter.html" title=" " alt="" coords="1213,137,1436,163"/>
+<area shape="rect" id="node20" href="$structlemons_1_1plugin_1_1_bool_parameter.html" title=" " alt="" coords="1213,603,1436,630"/>
+<area shape="rect" id="node21" href="$structlemons_1_1plugin_1_1_toggle_parameter.html" title=" " alt="" coords="1489,603,1724,630"/>
 </map>

@@ -1,9 +1,9 @@
 <map id="lemons::plugin::MetaParameter&lt; ValueType &gt;" name="lemons::plugin::MetaParameter&lt; ValueType &gt;">
-<area shape="rect" id="node1" title="A meta parameter class that implements the MetaParameterBase interface." alt="" coords="193,248,395,289"/>
-<area shape="rect" id="node6" href="$classlemons_1_1plugin_1_1_meta_parameter.html" title=" " alt="" coords="193,352,395,393"/>
-<area shape="rect" id="node2" href="$classlemons_1_1plugin_1_1_typed_parameter.html" title="A parameter that can be stored as a type other than a float, but still inherits from my Parameter bas..." alt="" coords="5,157,215,199"/>
-<area shape="rect" id="node3" href="$classlemons_1_1plugin_1_1_parameter.html" title="A plugin parameter class." alt="" coords="23,81,197,108"/>
-<area shape="rect" id="node4" title=" " alt="" coords="15,5,205,32"/>
-<area shape="rect" id="node5" href="$structlemons_1_1plugin_1_1_meta_parameter_base.html" title="A type&#45;erased interface for a parameter that can be connected to other parameters and control their v..." alt="" coords="239,165,472,191"/>
-<area shape="rect" id="node7" href="$structlemons_1_1plugin_1_1_l_f_o.html" title="An LFO, to be used by a ModulationManager object." alt="" coords="225,443,363,469"/>
+<area shape="rect" id="node1" title=" " alt="" coords="142,248,369,289"/>
+<area shape="rect" id="node6" href="$classlemons_1_1plugin_1_1_meta_parameter.html" title=" " alt="" coords="142,352,369,393"/>
+<area shape="rect" id="node2" href="$classlemons_1_1plugin_1_1_typed_parameter.html" title=" " alt="" coords="5,157,236,199"/>
+<area shape="rect" id="node3" href="$classlemons_1_1plugin_1_1_parameter.html" title=" " alt="" coords="24,81,217,108"/>
+<area shape="rect" id="node4" title=" " alt="" coords="15,5,226,32"/>
+<area shape="rect" id="node5" href="$structlemons_1_1plugin_1_1_meta_parameter_base.html" title=" " alt="" coords="261,165,519,191"/>
+<area shape="rect" id="node7" href="$structlemons_1_1plugin_1_1_l_f_o.html" title=" " alt="" coords="180,443,331,469"/>
 </map>

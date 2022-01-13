@@ -1,4 +1,4 @@
 <map id="lemons::gui::components::ImageButton" name="lemons::gui::components::ImageButton">
-<area shape="rect" id="node1" title="A simple wrapper around juce::ImageButton that allows you to specify a lambda that will be called whe..." alt="" coords="5,80,173,121"/>
-<area shape="rect" id="node2" title=" " alt="" coords="26,5,153,32"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,80,192,121"/>
+<area shape="rect" id="node2" title=" " alt="" coords="28,5,169,32"/>
 </map>

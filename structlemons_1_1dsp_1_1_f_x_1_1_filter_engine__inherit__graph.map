@@ -1,6 +1,6 @@
 <map id="lemons::dsp::FX::FilterEngine&lt; SampleType &gt;" name="lemons::dsp::FX::FilterEngine&lt; SampleType &gt;">
-<area shape="rect" id="node1" title="A class that represents an audio engine holding a filter effect." alt="" coords="825,5,1019,47"/>
-<area shape="rect" id="node2" href="$classlemons_1_1dsp_1_1_f_x_1_1_effect_engine.html" title=" " alt="" coords="579,5,776,47"/>
-<area shape="rect" id="node3" href="$classlemons_1_1dsp_1_1_engine.html" title="Base class for an audio engine." alt="" coords="5,11,147,52"/>
-<area shape="rect" id="node4" href="$classlemons_1_1dsp_1_1_f_x_1_1_effect_engine.html" title="A class that wraps an AudioEffect into a dsp::Engine." alt="" coords="196,40,393,81"/>
+<area shape="rect" id="node1" title="A class that represents an audio engine holding a filter effect." alt="" coords="889,5,1100,47"/>
+<area shape="rect" id="node2" href="$classlemons_1_1dsp_1_1_f_x_1_1_effect_engine.html" title=" " alt="" coords="625,5,840,47"/>
+<area shape="rect" id="node3" href="$classlemons_1_1dsp_1_1_engine.html" title=" " alt="" coords="5,11,159,52"/>
+<area shape="rect" id="node4" href="$classlemons_1_1dsp_1_1_f_x_1_1_effect_engine.html" title="A class that wraps an AudioEffect into a dsp::Engine." alt="" coords="208,40,423,81"/>
 </map>

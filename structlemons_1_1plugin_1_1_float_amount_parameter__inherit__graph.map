@@ -1,7 +1,7 @@
 <map id="lemons::plugin::FloatAmountParameter" name="lemons::plugin::FloatAmountParameter">
-<area shape="rect" id="node1" title="A parameter that represents a value in a normalized 0&#45;1 range." alt="" coords="12,337,200,379"/>
-<area shape="rect" id="node2" href="$classlemons_1_1plugin_1_1_typed_parameter.html" title=" " alt="" coords="51,261,161,288"/>
-<area shape="rect" id="node3" href="$classlemons_1_1plugin_1_1_parameter.html" title="A plugin parameter class." alt="" coords="13,81,188,108"/>
-<area shape="rect" id="node5" href="$classlemons_1_1plugin_1_1_typed_parameter.html" title="A parameter that can be stored as a type other than a float, but still inherits from my Parameter bas..." alt="" coords="123,157,332,199"/>
-<area shape="rect" id="node4" title=" " alt="" coords="5,5,196,32"/>
+<area shape="rect" id="node1" title=" " alt="" coords="11,337,221,379"/>
+<area shape="rect" id="node2" href="$classlemons_1_1plugin_1_1_typed_parameter.html" title=" " alt="" coords="55,261,177,288"/>
+<area shape="rect" id="node3" href="$classlemons_1_1plugin_1_1_parameter.html" title=" " alt="" coords="14,81,207,108"/>
+<area shape="rect" id="node5" href="$classlemons_1_1plugin_1_1_typed_parameter.html" title=" " alt="" coords="133,157,363,199"/>
+<area shape="rect" id="node4" title=" " alt="" coords="5,5,216,32"/>
 </map>
