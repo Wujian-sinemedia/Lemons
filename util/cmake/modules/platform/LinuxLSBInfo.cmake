@@ -19,6 +19,7 @@ find_program (LSB_RELEASE_EXECUTABLE lsb_release)
 
 if (NOT LSB_RELEASE_EXECUTABLE)
     message (AUTHOR_WARNING "Unable to detect LSB info for your Linux distro")
+    return()
 endif()
 
 execute_process (COMMAND ${LSB_RELEASE_EXECUTABLE} -sc

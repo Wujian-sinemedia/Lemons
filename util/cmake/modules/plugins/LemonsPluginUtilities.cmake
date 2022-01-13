@@ -30,14 +30,15 @@ If the `LEMONS_BUILD_TESTS` option is set to ON, then [lemons_configure_pluginva
 
 include_guard (GLOBAL)
 
+cmake_minimum_required (VERSION 3.21 FATAL_ERROR)
+
 include (LemonsJuceUtilities)
 include (LemonsCmakeDevTools)
 include (lemons_AggregateTargets)
 
-set (LEMONS_AAX_SDK_PATH ""  CACHE PATH "Path to the AAX SDK")
-set (LEMONS_VST2_SDK_PATH "" CACHE PATH "Path to the VST2 SDK")
-
 option (LEMONS_INCLUDE_PRIVATE_SDKS "Add the PrivateSDKs repo via CPM.cmake" OFF)
+
+mark_as_advanced (LEMONS_INCLUDE_PRIVATE_SDKS)
 
 if (LEMONS_INCLUDE_PRIVATE_SDKS OR CPM_PrivateSDKs_SOURCE OR DEFINED ENV{LEMONS_PRIVATE_SDKS})
     include (LemonsAddPrivateSDKs)
@@ -81,6 +82,8 @@ if (NOT LEMONS_PLUGIN_FORMATS)
     endif()
 
     set (LEMONS_PLUGIN_FORMATS ${available_formats} CACHE STRING "Available plugin formats")
+
+    mark_as_advanced (LEMONS_PLUGIN_FORMATS)
 
 endif()
 

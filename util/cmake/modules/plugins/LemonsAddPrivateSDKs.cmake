@@ -1,10 +1,10 @@
 include_guard (GLOBAL)
 
+cmake_minimum_required (VERSION 3.21 FATAL_ERROR)
+
 include (LemonsGetCPM)
 
-if (CPM_PrivateSDKs_SOURCE)
-        file (REAL_PATH ${CPM_PrivateSDKs_SOURCE} CPM_PrivateSDKs_SOURCE EXPAND_TILDE)
-elseif (DEFINED ENV{LEMONS_PRIVATE_SDKS})
+if (DEFINED ENV{LEMONS_PRIVATE_SDKS})
         file (REAL_PATH $ENV{LEMONS_PRIVATE_SDKS} CPM_PrivateSDKs_SOURCE EXPAND_TILDE)
 endif()
 
@@ -13,4 +13,4 @@ CPMAddPackage (
         GITHUB_REPOSITORY benthevining/PrivateSDKs
         GIT_TAG origin/main)
 
-mark_as_advanced (FORCE LEMONS_AAX_SDK_PATH LEMONS_VST2_SDK_PATH)
+mark_as_advanced (LEMONS_AAX_SDK_PATH LEMONS_VST2_SDK_PATH)

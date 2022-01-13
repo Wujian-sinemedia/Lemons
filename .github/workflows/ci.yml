@@ -53,7 +53,7 @@ jobs:
 
     - name: Build project templates
       shell: bash
-      run: export LEMONS_PRIVATE_SDKS='${{ github.workspace }}/PrivateSDKs' && make templates
+      run: make templates
 
     - name: Build plugin metadata editor
       shell: bash

@@ -1,5 +1,7 @@
 include_guard (GLOBAL)
 
+cmake_minimum_required (VERSION 3.21 FATAL_ERROR)
+
 include (LemonsCmakeDevTools)
 
 #[[ Populate a list variable in the calling scope with all the values from a an array of a JSON object.

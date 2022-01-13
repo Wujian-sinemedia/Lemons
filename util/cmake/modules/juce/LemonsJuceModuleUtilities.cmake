@@ -62,7 +62,9 @@ function (lemons_add_juce_modules)
                 target_link_libraries (${LEMONS_MOD_AGGREGATE} INTERFACE ${folder})
             endif()
 
-            lemons_append_to_target_property_list (TARGET ${LEMONS_MOD_AGGREGATE} PROPERTY OriginalModuleNames ADD ${folder})
+            set_property (TARGET ${LEMONS_MOD_AGGREGATE}
+                          APPEND
+                          PROPERTY OriginalModuleNames ${folder})
         endif()
     endforeach()
 
@@ -101,7 +103,9 @@ function (_lemons_add_module_subcategory)
 
     target_link_libraries (AllLemonsModules INTERFACE Lemons::${LEMONS_SUBMOD_TARGET})
 
-    lemons_append_to_target_property_list (TARGET AllLemonsModules PROPERTY ModuleCategoryNames ADD ${LEMONS_SUBMOD_TARGET})
+    set_property (TARGET AllLemonsModules
+                  APPEND 
+                  PROPERTY ModuleCategoryNames ${LEMONS_SUBMOD_TARGET})
 
     foreach (categoryDependancy ${LEMONS_SUBMOD_CATEGORY_DEPS})
         

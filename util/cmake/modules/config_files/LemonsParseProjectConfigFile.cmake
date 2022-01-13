@@ -1,7 +1,11 @@
 include_guard (GLOBAL)
 
+cmake_minimum_required (VERSION 3.21 FATAL_ERROR)
+
 include (LemonsCmakeDevTools)
 include (LemonsAAXSigning)
+include (LemonsInstallDeps)
+include (LemonsRunClean)
 
 
 function (lemons_parse_project_configuration_file)
@@ -34,7 +38,7 @@ function (lemons_parse_project_configuration_file)
 		endif()
 	endif()
 
-	mark_as_advanced (FORCE ${PROJECT_NAME}_CONFIG_FILE CMAKE_XCODE_ATTRIBUTE_DEVELOPMENT_TEAM)
+	mark_as_advanced (${PROJECT_NAME}_CONFIG_FILE CMAKE_XCODE_ATTRIBUTE_DEVELOPMENT_TEAM)
 
 
 	string (JSON aaxSignJsonObj ERROR_VARIABLE errno GET ${configFileContents} "AAX_signing")
@@ -70,5 +74,9 @@ function (lemons_parse_project_configuration_file)
 			lemons_set_aax_signing_settings (${aaxSettings})
 		endif()
 	endif()
+
+	set_property (DIRECTORY "${PROJECT_SOURCE_DIR}"
+				  APPEND 
+				  PROPERTY CMAKE_CONFIGURE_DEPENDS "${LEMONS_CONFIG_FILE}")
 
 endfunction()

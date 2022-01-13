@@ -41,12 +41,9 @@ include (GNUInstallDirs)
 
 #
 
-set (LEMONS_JUCE_BRANCH "develop" CACHE STRING "The branch of the JUCE GitHub repository to use. Should be develop or master.")
-mark_as_advanced (FORCE LEMONS_JUCE_BRANCH)
-
-if (NOT DEFINED ENV{CPM_SOURCE_CACHE})
-    set (ENV{CPM_SOURCE_CACHE} "${CPM_Lemons_SOURCE}/Cache")
-endif()
+set (LEMONS_JUCE_BRANCH "develop" CACHE STRING "The branch of the JUCE GitHub repository to use")
+set_property (CACHE LEMONS_JUCE_BRANCH PROPERTY STRINGS "develop;master")
+mark_as_advanced (LEMONS_JUCE_BRANCH)
 
 CPMAddPackage (
         NAME JUCE

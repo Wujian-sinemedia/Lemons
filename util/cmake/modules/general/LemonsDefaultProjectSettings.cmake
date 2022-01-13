@@ -1,0 +1,27 @@
+include_guard (GLOBAL)
+
+cmake_minimum_required (VERSION 3.21 FATAL_ERROR)
+
+include (LemonsDefaultPlatformSettings)
+
+option (LEMONS_ENABLE_INTEGRATIONS "Enable all available integrations by default" ON)
+
+if (LEMONS_ENABLE_INTEGRATIONS)
+	include (LemonsAllIntegrations)
+elseif (LEMONS_SANITIZERS_TO_ENABLE)
+	include (LemonsSanitizers)
+endif()
+
+set_property (GLOBAL PROPERTY REPORT_UNDEFINED_PROPERTIES "${PROJECT_SOURCE_DIR}/logs/undefined_properties.log")
+
+set (CMAKE_CXX_STANDARD 20 CACHE STRING "C++ standard version")
+set (CMAKE_CXX_STANDARD_REQUIRED ON CACHE INTERNAL "")
+
+set (CMAKE_CXX_VISIBILITY_PRESET hidden CACHE INTERNAL "")
+set (CMAKE_VISIBILITY_INLINES_HIDDEN YES CACHE INTERNAL "")
+
+set_property (GLOBAL PROPERTY USE_FOLDERS YES)
+set_property (GLOBAL PROPERTY PREDEFINED_TARGETS_FOLDER "Targets")
+
+set (CMAKE_SUPPRESS_REGENERATION   TRUE CACHE INTERNAL "")
+set (CMAKE_EXPORT_COMPILE_COMMANDS TRUE CACHE INTERNAL "")

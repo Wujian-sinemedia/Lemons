@@ -1,8 +1,10 @@
 include_guard (GLOBAL)
 
+cmake_minimum_required (VERSION 3.21 FATAL_ERROR)
+
 
 option (LEMONS_CREATE_AGGREGATE_TARGETS "Generate ALL_APPS and ALL_PLUGINS targets, populated accordingly" ON)
-mark_as_advanced (FORCE LEMONS_CREATE_AGGREGATE_TARGETS)
+mark_as_advanced (LEMONS_CREATE_AGGREGATE_TARGETS)
 
 #
 

@@ -2,6 +2,7 @@ include_guard (GLOBAL)
 
 cmake_minimum_required (VERSION 3.21 FATAL_ERROR)
 
+#
 
 function (_lemons_const_variable_watch variableName access)
 	if (access STREQUAL "WRITE_ACCESS")
@@ -39,30 +40,3 @@ macro (lemons_warn_if_not_processing_project)
 	# endif()
 endmacro()
 
-
-#
-
-
-function (lemons_append_to_target_property_list)
-
-	set (oneValueArgs TARGET PROPERTY)
-
-	cmake_parse_arguments (PROP_APPEND "" "${oneValueArgs}" "ADD" ${ARGN})
-
-	lemons_require_function_arguments (PROP_APPEND TARGET PROPERTY ADD)
-
-	get_target_property (orig_value ${PROP_APPEND_TARGET} ${PROP_APPEND_PROPERTY})
-
-	if (NOT orig_value)
-		set (orig_value "")
-	endif()
-
-	foreach (new_value ${PROP_APPEND_ADD})
-		list (APPEND orig_value ${new_value})
-	endforeach()
-
-	list (REMOVE_DUPLICATES orig_value)
-
-	set_target_properties (${PROP_APPEND_TARGET} PROPERTIES ${PROP_APPEND_PROPERTY} "${orig_value}")
-
-endfunction()

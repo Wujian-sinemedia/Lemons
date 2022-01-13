@@ -23,6 +23,7 @@ This module is included by Lemons by default, when Lemons is added as a subdirec
 
 include_guard (GLOBAL)
 
+cmake_minimum_required (VERSION 3.21 FATAL_ERROR)
 
 if (IOS)
     option (LEMONS_IOS_SIMULATOR "Build for an iOS simulator, rather than a real device" ON)

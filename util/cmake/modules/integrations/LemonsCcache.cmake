@@ -13,6 +13,9 @@ If the `LEMONS_ENABLE_INTEGRATIONS` option is ON, then this module will be inclu
 
 include_guard (GLOBAL)
 
+cmake_minimum_required (VERSION 3.21 FATAL_ERROR)
+
+
 find_program (CCACHE_PROGRAM ccache)
 
 if (NOT CCACHE_PROGRAM)
@@ -20,12 +23,16 @@ if (NOT CCACHE_PROGRAM)
     return()
 endif()
 
-set (ccache_options "CCACHE_BASEDIR=${CMAKE_SOURCE_DIR}")
+if (Lemons_SOURCE_DIR)
+    set (ccache_options "CCACHE_BASEDIR=${Lemons_SOURCE_DIR}")
+else()
+    set (ccache_options "CCACHE_BASEDIR=${CMAKE_SOURCE_DIR}")
+endif()
 
 if (DEFINED ENV{CPM_SOURCE_CACHE})
     list (APPEND ccache_options "CCACHE_DIR=$ENV{CPM_SOURCE_CACHE}/ccache/cache")
 else()
-    list (APPEND ccache_options "CCACHE_DIR=${CMAKE_SOURCE_DIR}/Cache/ccache/cache")
+    list (APPEND ccache_options "CCACHE_DIR=${CCACHE_BASEDIR}/Cache/ccache/cache")
 endif()
 
 list (APPEND ccache_options "CCACHE_COMPRESS=true" "CCACHE_COMPRESSLEVEL=6" "CCACHE_MAXSIZE=800M")

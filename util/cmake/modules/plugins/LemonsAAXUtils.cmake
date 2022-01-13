@@ -56,6 +56,8 @@ I recommend you create a `YourBrand.cmake` module in some shared location that e
 
 include_guard (GLOBAL)
 
+cmake_minimum_required (VERSION 3.21 FATAL_ERROR)
+
 include (LemonsCreateAAXSDKTarget)
 include (LemonsFileUtils)
 include (LemonsJuceUtilities)

@@ -1,5 +1,7 @@
 include_guard (GLOBAL)
 
+cmake_minimum_required (VERSION 3.21 FATAL_ERROR)
+
 include (LemonsCmakeDevTools)
 
 lemons_warn_if_not_processing_project()
