@@ -1,5 +1,7 @@
 include_guard (GLOBAL)
 
+include (LemonsCmakeDevTools)
+
 
 function (lemons_set_aax_signing_settings)
 

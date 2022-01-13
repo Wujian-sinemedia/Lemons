@@ -84,6 +84,8 @@ if (NOT LEMONS_PLUGIN_FORMATS)
 
 endif()
 
+lemons_make_variable_const (LEMONS_PLUGIN_FORMATS)
+
 
 list (JOIN LEMONS_PLUGIN_FORMATS " " formats_output)
 message (STATUS "  -- Available plugin formats: ${formats_output}")

@@ -45,6 +45,8 @@ function (lemons_subdir_list)
 		set (dir "${CMAKE_CURRENT_LIST_DIR}/${LEMONS_SUBDIR_DIR}")
 	endif()
 
+	lemons_make_variable_const (dir)
+
 	if (LEMONS_SUBDIR_RECURSE)
 		file (GLOB_RECURSE children RELATIVE ${dir} ${dir}/*)
 	else()
@@ -94,11 +96,9 @@ function (lemons_make_path_absolute)
 
 	cmake_path (IS_ABSOLUTE ${LEMONS_PATH_VAR} is_abs_path)
 
-	if (is_abs_path)
-		return()
+	if (NOT is_abs_path)
+		set (${LEMONS_PATH_VAR} "${LEMONS_PATH_BASE_DIR}/${${LEMONS_PATH_VAR}}" PARENT_SCOPE)
 	endif()
-
-	set (${LEMONS_PATH_VAR} "${LEMONS_PATH_BASE_DIR}/${${LEMONS_PATH_VAR}}" PARENT_SCOPE)
 
 endfunction()
 

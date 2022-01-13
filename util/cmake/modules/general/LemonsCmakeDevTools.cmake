@@ -3,6 +3,18 @@ include_guard (GLOBAL)
 cmake_minimum_required (VERSION 3.21 FATAL_ERROR)
 
 
+function (_lemons_const_variable_watch variableName access)
+	if (access STREQUAL "WRITE_ACCESS")
+		message (AUTHOR_WARNING "Writing to const variable ${variableName}!")
+	endif()
+endfunction()
+
+macro (lemons_make_variable_const variable)
+	variable_watch (${variableName} _lemons_const_variable_watch)
+endmacro()
+
+#
+
 macro (lemons_require_function_arguments prefix)
 	foreach (requiredArgument ${ARGN})
 		if (NOT ${prefix}_${requiredArgument})

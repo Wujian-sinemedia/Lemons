@@ -23,6 +23,7 @@ cmake_minimum_required (VERSION 3.21 FATAL_ERROR)
 
 include (LemonsJuceUtilities)
 include (LemonsFileUtils)
+include (LemonsCmakeDevTools)
 
 lemons_warn_if_not_processing_project()
 
@@ -44,6 +45,8 @@ function (lemons_add_resources_folder)
     else()
         set (resourcesTarget "${PROJECT_NAME}-Assets")
     endif()
+
+    lemons_make_variable_const (resourcesTarget)
 
     message (DEBUG "Assets target name: ${resourcesTarget}")
     message (DEBUG "Assets target source folder: ${LEMONS_RSRC_FLDR_ASSET_FOLDER}")

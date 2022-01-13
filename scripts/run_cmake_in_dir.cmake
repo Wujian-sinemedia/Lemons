@@ -89,6 +89,8 @@ foreach (configuration ${LEMONS_CONFIGS})
 
 	function (_lemons_run_cmake_config_in_dir stepName)
 
+		message (STATUS "")
+
 		set (logFile ${thisConfigsLogsDir}/${stepName}.log)
 		set (errorFile ${thisConfigsLogsDir}/${stepName}_Errors.log)
 
@@ -109,30 +111,36 @@ foreach (configuration ${LEMONS_CONFIGS})
 						 COMMAND_ECHO STDOUT
 						 COMMAND_ERROR_IS_FATAL ANY)
 
-		if (std_out)
+		function (_lemons_run_cmake_print_std_out stdOutput)
 			message (STATUS "${stepName} output - ${configuration}:")
-			message (STATUS ${std_out})
+			message (STATUS ${stdOutput})
+		endfunction()
+
+		if (std_out)
+			_lemons_run_cmake_print_std_out (${std_out})
 		else()
 			if (EXISTS ${logFile})
 				file (READ "${logFile}" logFileContents)
 
 				if (logFileContents)
-					message (STATUS "${stepName} output - ${configuration}:")
-					message (STATUS ${logFileContents})
+					_lemons_run_cmake_print_std_out (${logFileContents})
 				endif()
 			endif()
 		endif()
 
+		function (_lemons_run_cmake_print_std_err errOutput)
+			message (WARNING "Warnings or errors in ${stepName} - ${configuration}!")
+			message (STATUS ${errOutput})
+		endfunction()
+
 		if (std_err)
-			message (WARNING "Errors in ${stepName} - ${configuration}!")
-			message (STATUS ${std_err})
+			_lemons_run_cmake_print_std_err (${std_err})
 		else()
 			if (EXISTS ${errorFile})
 				file (READ "${errorFile}" errorFileContents)
 
 				if (errorFileContents)
-					message (WARNING "Errors in ${stepName} - ${configuration}!")
-					message (STATUS ${errorFileContents})
+					_lemons_run_cmake_print_std_err (${errorFileContents})
 				endif()
 			endif()
 		endif()
@@ -142,6 +150,8 @@ foreach (configuration ${LEMONS_CONFIGS})
 		else()
 			message (STATUS "${stepName} - ${configuration} succeeded with exit code ${res_var}")
 		endif()
+
+		message (STATUS "")
 
 	endfunction()
 

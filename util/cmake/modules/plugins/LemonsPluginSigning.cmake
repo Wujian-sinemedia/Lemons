@@ -1,6 +1,7 @@
 include_guard (GLOBAL)
 
 include (LemonsAAXSigning)
+include (LemonsCmakeDevTools)
 
 
 function (lemons_configure_plugin_signing)
