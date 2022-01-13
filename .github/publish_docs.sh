@@ -17,7 +17,7 @@ readonly lemons_root="$script_dir/.."
 
 cd "$script_dir"
 
-if [ -d "$temp_dir" ]
+if [ -d "$temp_dir" ]; then
 	rm -rf "$temp_dir"
 fi
 
