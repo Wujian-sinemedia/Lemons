@@ -10,6 +10,8 @@ project (LemonsJuceModules
 
 #
 
+list (APPEND CMAKE_PREFIX_PATH "${CPM_Lemons_SOURCE}/util/cmake/modules")
+
 include ("${CMAKE_CURRENT_LIST_DIR}/${PROJECT_NAME}Config.cmake")
 
 #
