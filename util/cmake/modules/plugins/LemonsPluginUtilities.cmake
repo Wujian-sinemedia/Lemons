@@ -106,7 +106,11 @@ function (lemons_configure_juce_plugin)
                                      GUID "${LEMONS_PLUGIN_AAX_GUID}")
     endif()
     
-    target_link_libraries (${LEMONS_PLUGIN_TARGET} PRIVATE Lemons::LemonsPluginModules)
+    if (TARGET Lemons::LemonsPluginModules)
+        target_link_libraries (${LEMONS_PLUGIN_TARGET} PRIVATE Lemons::LemonsPluginModules)
+    else()
+        message (DEBUG "No target Lemons::LemonsPluginModules in call to ${CMAKE_CURRENT_FUNCTION}...")
+    endif()
 
     target_compile_definitions (${LEMONS_PLUGIN_TARGET} PRIVATE JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=0)
 

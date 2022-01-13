@@ -102,10 +102,15 @@ function (lemons_configure_juce_target)
             _CRT_SECURE_NO_WARNINGS=1)
 
     target_link_libraries (${LEMONS_TARGETCONFIG_TARGET} PRIVATE
-        Lemons::LemonsCommonModules
         juce::juce_recommended_config_flags
         juce::juce_recommended_lto_flags
         juce::juce_recommended_warning_flags)
+
+    if (TARGET Lemons::LemonsCommonModules)
+        target_link_libraries (${LEMONS_TARGETCONFIG_TARGET} PRIVATE Lemons::LemonsCommonModules)
+    else()
+        message (DEBUG "No target Lemons::LemonsCommonModules in call to ${CMAKE_CURRENT_FUNCTION}...")
+    endif()
 
     target_compile_features (${LEMONS_TARGETCONFIG_TARGET} PRIVATE cxx_std_${CMAKE_CXX_STANDARD})
 
