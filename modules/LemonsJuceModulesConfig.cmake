@@ -2,6 +2,15 @@ include_guard (GLOBAL)
 
 cmake_minimum_required (VERSION 3.21 FATAL_ERROR)
 
+#
+
+find_package (LemonsCmakeModules REQUIRED PATHS "${CPM_Lemons_SOURCE}/util/cmake/modules")
+
+list (APPEND CMAKE_MODULE_PATH "${LEMONS_CMAKE_MODULE_PATH}")
+
+include (LemonsDefaultPlatformSettings)
+
+#
 
 file (GLOB children RELATIVE ${CMAKE_CURRENT_LIST_DIR} ${CMAKE_CURRENT_LIST_DIR}/*)
 

@@ -8,12 +8,6 @@ project (LemonsJuceModules
 		 HOMEPAGE_URL "www.github.com/benthevining/Lemons"
 		 LANGUAGES CXX C)
 
-find_package (LemonsCmakeModules REQUIRED PATHS "${CPM_Lemons_SOURCE}/util/cmake/modules")
-
-list (APPEND CMAKE_MODULE_PATH "${LEMONS_CMAKE_MODULE_PATH}")
-
-include (LemonsDefaultPlatformSettings)
-
 #
 
 include ("${CMAKE_CURRENT_LIST_DIR}/${PROJECT_NAME}Config.cmake")
