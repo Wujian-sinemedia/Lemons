@@ -25,20 +25,6 @@ include_guard (GLOBAL)
 
 cmake_minimum_required (VERSION 3.21 FATAL_ERROR)
 
-if (IOS)
-    option (LEMONS_IOS_SIMULATOR "Build for an iOS simulator, rather than a real device" ON)
-
-    if (NOT LEMONS_IOS_SIMULATOR)
-        set (CMAKE_XCODE_ATTRIBUTE_DEVELOPMENT_TEAM "" CACHE STRING "10-character ID for your Apple developer account")
-    endif()
-elseif (APPLE)
-    set (LEMONS_MAC_SDK_VERSION "10.13" CACHE STRING "Version of the MacOS SDK to use")
-    mark_as_advanced (FORCE LEMONS_MAC_SDK_VERSION)
-
-    option (LEMONS_MAC_UNIVERSAL_BINARY "Builds for x86_64 and arm64" ON)
-endif()
-
-
 if (APPLE)
     if (IOS)
         include ("${CMAKE_CURRENT_LIST_DIR}/scripts/lemons_ios_settings.cmake")
