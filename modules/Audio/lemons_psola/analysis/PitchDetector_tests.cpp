@@ -82,12 +82,12 @@ private:
 			}
 		}
 
-		const auto subtest = this->beginSubtest ("Detect silence as unpitched");
-
-		storage.clear();
-
-		for (int r = 0; r < this->getNumTestingRepetitions(); ++r)
-			this->expectEquals (detector.detectPitch (storage), 0.f);
+//		const auto subtest = this->beginSubtest ("Detect silence as unpitched");
+//
+//		storage.clear();
+//
+//		for (int r = 0; r < this->getNumTestingRepetitions(); ++r)
+//			this->expectEquals (detector.detectPitch (storage), 0.f);
 	}
 
 	static constexpr auto minDetectableFreq = 30.f;
