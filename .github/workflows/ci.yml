@@ -35,7 +35,7 @@ jobs:
       run: cmake -P '${{ github.workspace }}/scripts/install_deps.cmake'
 
     - name: Set up msbuild
-      if: ${{ runner.os }} == 'Windows'
+      if: ${{ runner.os }} == 'windows-latest'
       uses: microsoft/setup-msbuild@v1.1
 
     - name: Clone private SDKs
