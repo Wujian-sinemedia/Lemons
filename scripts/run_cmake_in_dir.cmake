@@ -1,5 +1,13 @@
 #!/usr/bin/env cmake -P
 
+#[[
+
+inputs:
+- LEMONS_DIR
+- LEMONS_CONFIGS (can be read from env var)
+
+]]
+
 
 file (REAL_PATH "${CMAKE_CURRENT_LIST_DIR}/.." lemons_root EXPAND_TILDE)
 
@@ -52,8 +60,20 @@ endif()
 
 #
 
+if (DEFINED ENV{LEMONS_CONFIGS})
+	set (LEMONS_CONFIGS $ENV{LEMONS_CONFIGS})
+endif()
 
-foreach (configuration Debug Release)
+if (NOT LEMONS_CONFIGS)
+	set (LEMONS_CONFIGS Debug Release)
+endif()
+
+list (JOIN LEMONS_CONFIGS " " configList)
+
+message (STATUS "Configuration list: ${configList}")
+
+
+foreach (configuration ${LEMONS_CONFIGS})
 
 	message (STATUS "Running configuration: ${configuration}...")
 

@@ -17,6 +17,10 @@ readonly lemons_root="$script_dir/.."
 
 cd "$script_dir"
 
+if [ -d "$temp_dir" ]
+	rm -rf "$temp_dir"
+fi
+
 mkdir "$temp_dir"
 cd "$temp_dir"
 
@@ -25,16 +29,6 @@ git clone -b docs --recurse-submodules "https://git@$GH_REPO_REF"
 
 readonly docs_git_tree="$script_dir/$temp_dir/Lemons"
 
-cd "$docs_git_tree"
-
-# configure git
-git config --global push.default simple
-git config user.name "Github Actions"
-git config user.email "actions@github.com"
-
-# remove everything currently in the docs branch
-rm -rf *
-
 # generate the doxygen documentation
 cd "$lemons_root"
 make docs
@@ -42,10 +36,18 @@ make docs
 # need to create an empty .nojekyll file
 echo "" > .nojekyll
 
+cd "$docs_git_tree"
+
+# remove everything currently in the docs branch
+rm -rf *
+
 # copy generated docs to cloned copy of docs git tree
 mv $lemons_root/util/doxygen/doc/* "$docs_git_tree"
 
-cd "$docs_git_tree"
+# configure git
+git config push.default simple
+git config user.name "Github Actions"
+git config user.email "actions@github.com"
 
 git add --all
 
