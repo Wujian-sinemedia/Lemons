@@ -65,6 +65,7 @@
 			"util/Templates/Builds",
 			"util/PluginMetadataEditor/Builds",
 			"util/cmake/modules/Builds",
+			"modules/Builds",
 			"docs",
 			".github/docs"
 		],
