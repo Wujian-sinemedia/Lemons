@@ -53,15 +53,15 @@ void Analyzer<SampleType>::analyzeInput (const SampleType* inputAudio, int numSa
 
 	for (auto* shifter : shifters)
 		shifter->newBlockStarting();
+    
+    const auto* prevFrameSamples = prevFrame.getReadPointer (0);
+    const auto* windowSamples    = window.getRawDataPointer();
 
 	if (! incompleteGrainsFromLastFrame.isEmpty())
 	{
 		jassert (lastFrameGrainSize > 0 && lastBlocksize > 0);
 
 		makeWindow (lastFrameGrainSize);
-
-		const auto* prevFrameSamples = prevFrame.getReadPointer (0);
-		const auto* windowSamples    = window.getRawDataPointer();
 
 		for (const auto grainStartInLastFrame : incompleteGrainsFromLastFrame)
 		{
@@ -96,9 +96,6 @@ void Analyzer<SampleType>::analyzeInput (const SampleType* inputAudio, int numSa
 
 	makeWindow (grainSize);
 
-	const auto* windowSamples    = window.getRawDataPointer();
-	const auto* prevFrameSamples = prevFrame.getReadPointer (0);
-    
     const auto& peakIndices = peakFinder.findPeaks (inputAudio, numSamples, currentPeriod);
 
 	for (const auto peak : peakIndices)
@@ -110,7 +107,7 @@ void Analyzer<SampleType>::analyzeInput (const SampleType* inputAudio, int numSa
 			if (lastBlocksize == 0)
 			{
                 // ???
-				getGrainToStoreIn().storeNewGrain (inputAudio, 0, windowSamples, grainSize);
+//				getGrainToStoreIn().storeNewGrain (inputAudio, 0, windowSamples, grainSize);
 
 				continue;
 			}
@@ -128,15 +125,15 @@ void Analyzer<SampleType>::analyzeInput (const SampleType* inputAudio, int numSa
 		}
 
 		const auto end = juce::roundToInt (static_cast<float> (peak) + currentPeriod);
+        
+        jassert (end - start == grainSize);
 
 		if (end >= numSamples)
 		{
 			incompleteGrainsFromLastFrame.add (start);
 			continue;
 		}
-
-		jassert (end - start == grainSize);
-
+        
 		getGrainToStoreIn().storeNewGrain (inputAudio, start, windowSamples, grainSize);
 	}
 
@@ -229,8 +226,9 @@ typename Analyzer<SampleType>::Grain& Analyzer<SampleType>::getClosestGrain (int
 			return *before.grain;
 
         // ???
-		if (after.distance < lastFrameGrainSize && after.distance < before.distance)
-			return *after.grain;
+        if (lastFrameGrainSize > 0)
+            if (after.distance < before.distance && before.distance > (lastFrameGrainSize / 2))
+                return *after.grain;
 
 		return *before.grain;
 	}

@@ -42,6 +42,8 @@ template <typename SampleType>
 class PeakFinder final
 {
 public:
+    
+    explicit PeakFinder() = default;
 
 	/** Analyzes a stream of audio and identifies the best set of pitch peaks to use for PSOLA pitch shifting.
 	    The heuristics are that the grains should be approximately 2 periods long, with approximately 50% overlap, approximately centered on pitch peaks. This algorithm attempts to maximize all three criteria in the stream of selected peaks. To obtain the actual grains' start and end indices from the list of peak indices, you should do @code peak - period @endcode and @code peak + period @endcode, respectively, because the grains are 2 periods long and centered on the peaks.
@@ -69,14 +71,19 @@ private:
 
 	[[nodiscard]] int chooseIdealPeakCandidate (const SampleType* inputSamples, int deltaTarget1, int deltaTarget2);
 
-	void findMinDelta (float& minDelta, int& index) const;
+    void clearAllArrays (bool free = false);
 
 	Array<int>   peakIndices, peakSearchingOrder, peakCandidates, finalHandful;
 	Array<float> candidateDeltas, finalHandfulDeltas;
+    
+    const std::array<Array<int>*, 4>   int_arrays { &peakIndices, &peakSearchingOrder, &peakCandidates, &finalHandful };
+    const std::array<Array<float>*, 2> float_arrays { &candidateDeltas, &finalHandfulDeltas };
 
 	int analysisFrameStart { 0 };
 
 	static constexpr auto numPeaksToTest = 5, defaultFinalHandfulSize = 3;
+    
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (PeakFinder)
 };
 
 }  // namespace lemons::dsp::psola

@@ -18,6 +18,50 @@
 namespace lemons::dsp::psola
 {
 
+template<typename T>
+inline void findMinAndMinIndex (int& idxOut, T& minOut,
+                                const T* const data, int dataSize)
+{
+    minOut = data[0];
+    idxOut = 0;
+    
+    for (int i = 1; i < dataSize; ++i)
+    {
+        const auto current = data[i];
+        
+        if (current < minOut)
+        {
+            minOut = current;
+            idxOut    = i;
+        }
+    }
+}
+
+
+/*--------------------------------------------------------------------------------------------------------------------------*/
+
+
+template <typename SampleType>
+void PeakFinder<SampleType>::clearAllArrays (bool free)
+{
+    if (free)
+    {
+        for (auto* array : int_arrays)
+            array->clear();
+        
+        for (auto* array : float_arrays)
+            array->clear();
+        
+        return;
+    }
+    
+    for (auto* array : int_arrays)
+        array->clearQuick();
+    
+    for (auto* array : float_arrays)
+        array->clearQuick();
+}
+
 template <typename SampleType>
 void PeakFinder<SampleType>::prepare (int maxBlocksize)
 {
@@ -29,24 +73,14 @@ void PeakFinder<SampleType>::prepare (int maxBlocksize)
 	candidateDeltas.ensureStorageAllocated (numPeaksToTest);
 	finalHandful.ensureStorageAllocated (defaultFinalHandfulSize);
 	finalHandfulDeltas.ensureStorageAllocated (defaultFinalHandfulSize);
-
-	peakIndices.clearQuick();
-	peakSearchingOrder.clearQuick();
-	peakCandidates.clearQuick();
-	candidateDeltas.clearQuick();
-	finalHandful.clearQuick();
-	finalHandfulDeltas.clearQuick();
+    
+    clearAllArrays (false);
 }
 
 template <typename SampleType>
 void PeakFinder<SampleType>::reset()
 {
-	peakIndices.clearQuick();
-	peakSearchingOrder.clearQuick();
-	peakCandidates.clearQuick();
-	candidateDeltas.clearQuick();
-	finalHandful.clearQuick();
-	finalHandfulDeltas.clearQuick();
+    clearAllArrays (false);
 
 	analysisFrameStart = 0;
 }
@@ -54,12 +88,7 @@ void PeakFinder<SampleType>::reset()
 template <typename SampleType>
 void PeakFinder<SampleType>::releaseResources()
 {
-	peakIndices.clear();
-	peakSearchingOrder.clear();
-	peakCandidates.clear();
-	finalHandful.clear();
-	candidateDeltas.clear();
-	finalHandfulDeltas.clear();
+    clearAllArrays (true);
 
 	analysisFrameStart = 0;
 }
@@ -78,7 +107,7 @@ const Array<int>& PeakFinder<SampleType>::findPeaks (const SampleType* inputSamp
 	jassert (numSamples >= grainSize);
 
 	// marks the center of the analysis windows, which are 1 period long
-	auto analysisIndex = analysisFrameStart + halfPeriod;
+    auto analysisIndex = analysisFrameStart + halfPeriod;
 
 	int lastFrameRealEnd { 0 };
 
@@ -178,7 +207,7 @@ int PeakFinder<SampleType>::getPeakCandidateInRange (const SampleType* inputSamp
 		return -1;
 	}();
 
-	if (starting == -1)
+	[[unlikely]] if (starting == -1)
 		return -1;
 
 	jassert (starting >= startSample && starting <= endSample);
@@ -241,7 +270,7 @@ int PeakFinder<SampleType>::choosePeakWithGreatestPower (const SampleType* input
 			strongestPeakIndex = candidate;
 		}
 	}
-
+    
 	return strongestPeakIndex;
 }
 
@@ -268,7 +297,10 @@ int PeakFinder<SampleType>::chooseIdealPeakCandidate (const SampleType* inputSam
 
 	for (int i = 0; i < finalHandfulSize; ++i)
 	{
-		findMinDelta (minimum, minimumIndex);
+        // find minimum delta & its index in the array
+        findMinAndMinIndex (minimumIndex, minimum,
+                            candidateDeltas.getRawDataPointer(),
+                            candidateDeltas.size());
 
 		finalHandfulDeltas.add (minimum);
 		finalHandful.add (peakCandidates.getUnchecked (minimumIndex));
@@ -316,23 +348,6 @@ int PeakFinder<SampleType>::chooseIdealPeakCandidate (const SampleType* inputSam
 	}
 
 	return chosenPeak;
-}
-
-template <typename SampleType>
-void PeakFinder<SampleType>::findMinDelta (float& minDelta, int& index) const
-{
-	minDelta = candidateDeltas.getUnchecked (0);
-
-	for (int i = 0; i < candidateDeltas.size(); ++i)
-	{
-		const auto current = candidateDeltas.getUnchecked (i);
-
-		if (current < minDelta)
-		{
-			minDelta = current;
-			index    = i;
-		}
-	}
 }
 
 template <typename SampleType>

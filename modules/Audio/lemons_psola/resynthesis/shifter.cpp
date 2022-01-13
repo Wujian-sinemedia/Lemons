@@ -32,13 +32,25 @@ Shifter<SampleType>::~Shifter()
 template <typename SampleType>
 void Shifter<SampleType>::setPitch (int pitchHz) noexcept
 {
-	const auto samplerate = analyzer.samplerate;
-
 	// Did you call Analyzer::setSamplerate() first?
-	jassert (samplerate > 0 && pitchHz > 0);
+	jassert (analyzer.samplerate > 0 && pitchHz > 0);
 
-	targetPeriod  = math::periodInSamples (samplerate, static_cast<decltype (targetPeriod)> (pitchHz));
+	targetPeriod  = math::periodInSamples (analyzer.samplerate, static_cast<decltype (targetPeriod)> (pitchHz));
 	targetPitchHz = pitchHz;
+    
+    if (samplesToNextGrain > juce::roundToInt (targetPeriod))
+    {
+        samplesToNextGrain = 0;
+    }
+}
+
+template <typename SampleType>
+float Shifter<SampleType>::getPitch() const noexcept
+{
+    // Did you call Analyzer::setSamplerate() first?
+    jassert (analyzer.samplerate > 0);
+    
+    return math::freqFromPeriod (analyzer.samplerate, static_cast<float> (targetPeriod));
 }
 
 template <typename SampleType>

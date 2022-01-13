@@ -62,6 +62,10 @@ function (lemons_parse_project_configuration_file)
 		endif()
 
 		if (aaxSettings)
+			if (LEMONS_CONFIG_FORCE)
+				list (APPEND aaxSettings FORCE)
+			endif()
+
 			lemons_set_aax_signing_settings (${aaxSettings})
 		endif()
 	endif()

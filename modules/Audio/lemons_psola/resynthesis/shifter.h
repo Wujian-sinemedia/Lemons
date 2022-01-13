@@ -28,7 +28,7 @@ namespace lemons::dsp::psola
     This class is essentially a "client" of an Analyzer object, which allows multiple Shifters to be used simultaneously without requiring the expensive analysis process to be repeated.
  */
 template <typename SampleType>
-class Shifter final
+class Shifter
 {
 public:
 
@@ -37,13 +37,14 @@ public:
 	explicit Shifter (Analyzer<SampleType>& analyzerToUse);
 
 	/** Destructor. */
-	~Shifter();
+	virtual ~Shifter();
 
 	/** Sets the pitch, in Hz, of the shifter's output.
 	    Note that before calling this, you must set the samplerate of the algorithm using Analyzer::setSamplerate()!
 	 */
 	void setPitch (int pitchHz) noexcept;
 
+    [[nodiscard]] float getPitch() const noexcept;
 
 	/** @name Processing */
 	///@{
