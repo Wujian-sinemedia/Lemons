@@ -108,8 +108,7 @@ foreach (configuration ${LEMONS_CONFIGS})
 						 OUTPUT_VARIABLE std_out OUTPUT_STRIP_TRAILING_WHITESPACE ECHO_OUTPUT_VARIABLE
 						 ERROR_VARIABLE std_err ERROR_STRIP_TRAILING_WHITESPACE ECHO_ERROR_VARIABLE
 						 RESULT_VARIABLE res_var
-						 COMMAND_ECHO STDOUT
-						 COMMAND_ERROR_IS_FATAL ANY)
+						 COMMAND_ECHO STDOUT)
 
 		function (_lemons_run_cmake_print_std_out stdOutput)
 			message (STATUS "${stepName} output - ${configuration}:")

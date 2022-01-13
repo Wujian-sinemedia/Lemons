@@ -74,12 +74,8 @@ elseif (WIN32)
         return()
     endif()
 
-    add_custom_target (AAXSDK
-                       COMMAND "${MS_BUILD}" AAX_SDK.sln "-p:Configuration=$<COMMAND_CONFIG:$<CONFIG>>"
-                       COMMAND_EXPAND_LISTS VERBATIM
-                       WORKING_DIRECTORY "${LEMONS_AAX_SDK_PATH}/msvc"
-                       COMMENT "Building AAX SDK..."
-                       COMMAND_ECHO STDOUT)
+    include_external_msproject (AAXSDK "${LEMONS_AAX_SDK_PATH}/msvc/AAX_SDK.sln")
+
 endif()
 
 
