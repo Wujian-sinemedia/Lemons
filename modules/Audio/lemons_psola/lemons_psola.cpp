@@ -7,6 +7,7 @@
 
 #include "resynthesis/shifter.cpp"
 #include "resynthesis/RatioShifter.cpp"
+#include "resynthesis/IntervalShifter.cpp"
 
 #if LEMONS_UNIT_TESTS
 #  include "analysis/PeakFinder_tests.cpp"
