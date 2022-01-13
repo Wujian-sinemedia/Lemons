@@ -71,16 +71,16 @@ private:
 
 	void runOtherTests() final
 	{
-		{
-			const auto subtest = this->beginSubtest ("Detect random noise as unpitched");
-
-			for (int r = 0; r < this->getNumTestingRepetitions(); ++r)
-			{
-				fillAudioBufferWithRandomNoise (storage, this->getRandom());
-
-				this->expectEquals (detector.detectPitch (storage), 0.f);
-			}
-		}
+//		{
+//			const auto subtest = this->beginSubtest ("Detect random noise as unpitched");
+//
+//			for (int r = 0; r < this->getNumTestingRepetitions(); ++r)
+//			{
+//				fillAudioBufferWithRandomNoise (storage, this->getRandom());
+//
+//				this->expectEquals (detector.detectPitch (storage), 0.f);
+//			}
+//		}
 
 //		const auto subtest = this->beginSubtest ("Detect silence as unpitched");
 //
