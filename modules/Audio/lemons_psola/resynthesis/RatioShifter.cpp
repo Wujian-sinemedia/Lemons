@@ -28,7 +28,18 @@ void RatioShifter<SampleType>::setPitchFromLatestAndShiftingRatio()
 {
 	jassert (shiftingRatio > 0.f);
 
-	this->setPitch (this->analyzer.getLastInputPitch() * shiftingRatio);
+	this->setPitchHz (this->analyzer.getLastInputPitch() * shiftingRatio);
+}
+
+template <typename SampleType>
+void RatioShifter<SampleType>::pitchHzChanged (int newPitchHz)
+{
+	const auto inputPitch = this->analyzer.getLastInputPitch();
+
+	if (inputPitch == 0)
+		return;
+
+	shiftingRatio = this->getPitchHz() / inputPitch;
 }
 
 template class RatioShifter<float>;

@@ -16,6 +16,8 @@ public:
 private:
 	void onNewBlock() final;
 
+	void pitchHzChanged (int newPitchHz) final;
+
 	void setPitchFromLatestAndInterval();
 
 	int intervalSt { 0 };

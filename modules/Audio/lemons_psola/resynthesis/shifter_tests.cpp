@@ -36,6 +36,21 @@ private:
 
 			osc.setFrequency (origFreq, static_cast<SampleType> (samplerate));
 
+			auto test_pitch = [&] (SampleType targetPitch)
+			{
+				osc.getSamples (origAudio);
+
+				analyzer.analyzeInput (origAudio);
+
+				shifter.setPitchHz (juce::roundToInt (targetPitch));
+
+				shifter.getSamples (shiftedAudio);
+
+				this->expectWithinAbsoluteError (detector.detectPitch (shiftedAudio),
+				                                 static_cast<float> (targetPitch),
+				                                 20.f);
+			};
+
 			{
 				const auto st = this->beginSubtest ("Shifting down");
 
@@ -45,34 +60,14 @@ private:
 
 					const auto targetPitch = origFreq * static_cast<SampleType> (ratio);
 
-					osc.getSamples (origAudio);
-
-					analyzer.analyzeInput (origAudio);
-
-					shifter.setPitch (juce::roundToInt (targetPitch));
-
-					shifter.getSamples (shiftedAudio);
-
-					this->expectWithinAbsoluteError (detector.detectPitch (shiftedAudio),
-					                                 static_cast<float> (targetPitch),
-					                                 7.f);
+					test_pitch (targetPitch);
 				}
 			}
 
 			{
 				const auto st = this->beginSubtest ("No shifting");
 
-				osc.getSamples (origAudio);
-
-				analyzer.analyzeInput (origAudio);
-
-				shifter.setPitch (juce::roundToInt (origFreq));
-
-				shifter.getSamples (shiftedAudio);
-
-				this->expectWithinAbsoluteError (detector.detectPitch (shiftedAudio),
-				                                 static_cast<float> (origFreq),
-				                                 7.f);
+				test_pitch (origFreq);
 			}
 
 			{
@@ -84,17 +79,7 @@ private:
 
 					const auto targetPitch = origFreq * static_cast<SampleType> (ratio);
 
-					osc.getSamples (origAudio);
-
-					analyzer.analyzeInput (origAudio);
-
-					shifter.setPitch (juce::roundToInt (targetPitch));
-
-					shifter.getSamples (shiftedAudio);
-
-					this->expectWithinAbsoluteError (detector.detectPitch (shiftedAudio),
-					                                 static_cast<float> (targetPitch),
-					                                 20.f);
+					test_pitch (targetPitch);
 				}
 			}
 		}

@@ -32,7 +32,7 @@ Shifter<SampleType>::~Shifter()
 }
 
 template <typename SampleType>
-void Shifter<SampleType>::setPitch (int pitchHz) noexcept
+void Shifter<SampleType>::setPitchHz (int pitchHz) noexcept
 {
 	// Did you call Analyzer::setSamplerate() first?
 	jassert (analyzer.samplerate > 0 && pitchHz > 0);
@@ -45,10 +45,12 @@ void Shifter<SampleType>::setPitch (int pitchHz) noexcept
 		// ???
 		samplesToNextGrain = 0;
 	}
+
+	pitchHzChanged (pitchHz);
 }
 
 template <typename SampleType>
-float Shifter<SampleType>::getPitch() const noexcept
+float Shifter<SampleType>::getPitchHz() const noexcept
 {
 	// Did you call Analyzer::setSamplerate() first?
 	jassert (analyzer.samplerate > 0);
@@ -103,7 +105,7 @@ template <typename SampleType>
 void Shifter<SampleType>::samplerateChanged() noexcept
 {
 	if (targetPitchHz > 0)
-		setPitch (targetPitchHz);
+		setPitchHz (targetPitchHz);
 }
 
 template <typename SampleType>

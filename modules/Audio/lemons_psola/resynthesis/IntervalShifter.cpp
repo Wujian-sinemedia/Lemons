@@ -23,9 +23,28 @@ void IntervalShifter<SampleType>::onNewBlock()
 template <typename SampleType>
 void IntervalShifter<SampleType>::setPitchFromLatestAndInterval()
 {
-	const auto inputMidi = math::freqToMidi (this->analyzer.getLastInputPitch());
+	const auto inputPitch = this->analyzer.getLastInputPitch();
 
-	this->setPitch (math::midiToFreq (inputMidi + intervalSt));
+	if (inputPitch == 0)
+		return;
+
+	const auto inputMidi = math::freqToMidi (inputPitch);
+
+	this->setPitchHz (math::midiToFreq (inputMidi + intervalSt));
+}
+
+template <typename SampleType>
+void IntervalShifter<SampleType>::pitchHzChanged (int newPitchHz)
+{
+	const auto inputPitch = this->analyzer.getLastInputPitch();
+
+	if (inputPitch == 0)
+		return;
+
+	const auto inputMidi = math::freqToMidi (inputPitch);
+	const auto thisMidi  = math::freqToMidi (this->getPitchHz());
+
+	intervalSt = thisMidi - inputMidi;
 }
 
 template class IntervalShifter<float>;

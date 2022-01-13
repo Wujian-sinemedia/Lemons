@@ -42,9 +42,9 @@ public:
 	/** Sets the pitch, in Hz, of the shifter's output.
 	    Note that before calling this, you must set the samplerate of the algorithm using Analyzer::setSamplerate()!
 	 */
-	void setPitch (int pitchHz) noexcept;
+	void setPitchHz (int pitchHz) noexcept;
 
-	[[nodiscard]] float getPitch() const noexcept;
+	[[nodiscard]] float getPitchHz() const noexcept;
 
 	/** Resets the shifter to its initial state, without releasing any resources. Note that this is called for you if you call Analyzer::reset(). */
 	void reset() noexcept;
@@ -67,6 +67,7 @@ private:
 	void latencyChanged (int newLatency);
 
 	virtual void onNewBlock() { }
+	virtual void pitchHzChanged (int /*pitchHz*/) { }
 
 	/*-----------------------------------------------------------------------------------*/
 

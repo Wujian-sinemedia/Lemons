@@ -26,3 +26,4 @@ END_JUCE_MODULE_DECLARATION
 #include "resynthesis/shifter.h"
 #include "resynthesis/RatioShifter.h"
 #include "resynthesis/IntervalShifter.h"
+#include "resynthesis/MidiShifter.h"

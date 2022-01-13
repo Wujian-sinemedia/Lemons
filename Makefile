@@ -73,7 +73,7 @@ editor: | logs
 #
 
 .PHONY: docs # Builds the documentation
-docs: | logs
+docs: 
 	@echo " * make $@... * "
 	cd $(LEMONS_ROOT)/util/doxygen && $(CMAKE) -B Builds
 	cd $(LEMONS_ROOT)/util/doxygen && $(CMAKE) --build Builds

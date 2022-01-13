@@ -4,23 +4,23 @@ namespace lemons::dsp::psola
 {
 
 template <typename SampleType>
-class RatioShifter final : public Shifter<SampleType>
+class MidiShifter final : public Shifter<SampleType>
 {
 public:
 	using Shifter<SampleType>::Shifter;
 
-	void setShiftingRatio (float newRatio);
+	void setMidiPitch (float newMidiPitch);
 
-	[[nodiscard]] float getShiftingRatio() const noexcept;
+	[[nodiscard]] float getMidiPitch() const noexcept;
 
 private:
 	void onNewBlock() final;
 
 	void pitchHzChanged (int newPitchHz) final;
 
-	void setPitchFromLatestAndShiftingRatio();
+	void setPitchFromMidiPitch();
 
-	float shiftingRatio { 1.f };
+	float midiPitch { 69.f };
 };
 
 }  // namespace lemons::dsp::psola
