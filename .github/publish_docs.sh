@@ -11,11 +11,7 @@ readonly GH_REPO_REF="github.com/benthevining/Lemons.git"
 
 readonly script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 
-readonly temp_dir="docs"
-
-readonly lemons_root="$script_dir/.."
-
-cd "$script_dir"
+readonly temp_dir="$script_dir/docs"
 
 if [ -d "$temp_dir" ]; then
 	rm -rf "$temp_dir"
@@ -27,7 +23,9 @@ cd "$temp_dir"
 # clone the docs branch
 git clone -b docs --recurse-submodules "https://git@$GH_REPO_REF"
 
-readonly docs_git_tree="$script_dir/$temp_dir/Lemons"
+readonly docs_git_tree="$temp_dir/Lemons"
+
+readonly lemons_root="$script_dir/.."
 
 # generate the doxygen documentation
 cd "$lemons_root"
