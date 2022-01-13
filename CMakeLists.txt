@@ -1,9 +1,9 @@
 include_guard (GLOBAL)
 
-cmake_minimum_required (VERSION 3.21 FATAL_ERROR)
+cmake_minimum_required (VERSION 3.22 FATAL_ERROR)
 
 
-project (Lemons 
+project (Lemons
 		 VERSION 0.1.0 
 		 DESCRIPTION "Building blocks and utilities for Juce-based apps and plugins"
 		 HOMEPAGE_URL "www.github.com/benthevining/Lemons"
