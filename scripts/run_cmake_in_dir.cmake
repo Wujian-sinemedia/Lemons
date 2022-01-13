@@ -119,7 +119,7 @@ foreach (configuration Debug Release)
 		file (REMOVE_RECURSE "${thisConfigBuildDirAbsPath}")
 	endif()
 
-	_lemons_run_cmake_config_in_dir (Configuration -B "${thisConfigsBuildsDir}" -G "${lemons_cmake_generator}")
+	_lemons_run_cmake_config_in_dir (Configuration -B "${thisConfigsBuildsDir}" -G "${lemons_cmake_generator}" --log-level=DEBUG)
 
 	_lemons_run_cmake_config_in_dir (Build --build "${thisConfigsBuildsDir}" -j "${num_of_cores}" --config "${configuration}")
 	
