@@ -28,7 +28,7 @@ namespace lemons::dsp::psola
     This class is essentially a "client" of an Analyzer object, which allows multiple Shifters to be used simultaneously without requiring the expensive analysis process to be repeated.
  */
 template <typename SampleType>
-class Shifter
+class Shifter : public SampleStream<SampleType>
 {
 public:
 
@@ -44,24 +44,7 @@ public:
 	 */
 	void setPitch (int pitchHz) noexcept;
 
-    [[nodiscard]] float getPitch() const noexcept;
-
-	/** @name Processing */
-	///@{
-
-	/** Returns the next block of repitched samples from the shifter. */
-	void getSamples (AudioBuffer<SampleType>& output);
-
-	/** Returns the next block of repitched samples from the shifter. */
-	void getSamples (SampleType* output, int numSamples);
-
-	/** Returns the next repitched sample from the shifter. */
-	[[nodiscard]] SampleType getNextSample();
-
-	/** Skips a number of samples in the shifter's output (ie, for when it is bypassed). */
-	void skipSamples (int numSamples);
-
-	///@}
+	[[nodiscard]] float getPitch() const noexcept;
 
 	/** Resets the shifter to its initial state, without releasing any resources. Note that this is called for you if you call Analyzer::reset(). */
 	void reset() noexcept;
@@ -69,14 +52,21 @@ public:
 	/** Releases all the resources used by the Shifter. Note that this is called for you if you call Analyzer::releaseResources(). */
 	void releaseResources();
 
+protected:
+	Analyzer<SampleType>& analyzer;
+
 private:
 	friend class Analyzer<SampleType>;
+
+	[[nodiscard]] SampleType getNextSample();
 
 	void newBlockStarting() noexcept;
 
 	void samplerateChanged() noexcept;
 
 	void latencyChanged (int newLatency);
+
+	virtual void onNewBlock() { }
 
 	/*-----------------------------------------------------------------------------------*/
 
@@ -103,8 +93,6 @@ private:
 	[[nodiscard]] Grain& getGrainToStart();
 
 	/*-----------------------------------------------------------------------------------*/
-
-	Analyzer<SampleType>& analyzer;
 
 	float targetPeriod { 0.f };
 

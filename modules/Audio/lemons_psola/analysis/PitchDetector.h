@@ -97,12 +97,12 @@ public:
 private:
 	[[nodiscard]] inline int absoluteThreshold (int halfNumSamples) const;
 
-    [[nodiscard]] inline float parabolicInterpolation (int periodEstimate, int halfNumSamples) const;
+	[[nodiscard]] inline float parabolicInterpolation (int periodEstimate, int halfNumSamples) const;
 
 	int minHz { 60 };
 
 	double samplerate { 0.0 };
-    
+
 	SampleType confidenceThresh { 0.15 };
 
 	AudioBuffer<SampleType> yinBuffer { 1, 512 };

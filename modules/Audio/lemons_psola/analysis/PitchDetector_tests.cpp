@@ -1,15 +1,15 @@
 /*
  ======================================================================================
- 
+
  ██╗     ███████╗███╗   ███╗ ██████╗ ███╗   ██╗███████╗
  ██║     ██╔════╝████╗ ████║██╔═══██╗████╗  ██║██╔════╝
  ██║     █████╗  ██╔████╔██║██║   ██║██╔██╗ ██║███████╗
  ██║     ██╔══╝  ██║╚██╔╝██║██║   ██║██║╚██╗██║╚════██║
  ███████╗███████╗██║ ╚═╝ ██║╚██████╔╝██║ ╚████║███████║
  ╚══════╝╚══════╝╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝
- 
+
  This file is part of the Lemons open source library and is licensed under the terms of the GNU Public License.
- 
+
  ======================================================================================
  */
 
@@ -26,7 +26,7 @@ class PitchDetectorTests final : public AllOscillatorsTest<FloatType>
 public:
 
 	explicit PitchDetectorTests()
-	: AllOscillatorsTest<FloatType>("Pitch detector tests")
+	    : AllOscillatorsTest<FloatType> ("Pitch detector tests")
 	{
 		detector.setConfidenceThresh (0.15);
 	}
@@ -54,8 +54,8 @@ private:
 				this->expectWithinAbsoluteError (estFreq, correctFreq, 20.f);
 
 				this->expectWithinAbsoluteError (math::freqToMidi (estFreq),
-				                           math::freqToMidi (correctFreq),
-				                           0.2f);
+				                                 math::freqToMidi (correctFreq),
+				                                 0.2f);
 			};
 
 			testFreq (440.f);
@@ -103,4 +103,4 @@ template struct PitchDetectorTests<double>;
 
 LEMONS_CREATE_DSP_TEST (PitchDetectorTests)
 
-}
+}  // namespace lemons::tests

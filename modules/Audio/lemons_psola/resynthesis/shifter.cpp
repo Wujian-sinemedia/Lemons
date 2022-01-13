@@ -18,7 +18,9 @@ namespace lemons::dsp::psola
 
 template <typename SampleType>
 Shifter<SampleType>::Shifter (Analyzer<SampleType>& analyzerToUse)
-    : analyzer (analyzerToUse)
+    : SampleStream<SampleType> ([&]()
+                                { return this->getNextSample(); })
+    , analyzer (analyzerToUse)
 {
 	analyzer.registerShifter (*this);
 }
@@ -37,46 +39,28 @@ void Shifter<SampleType>::setPitch (int pitchHz) noexcept
 
 	targetPeriod  = math::periodInSamples (analyzer.samplerate, static_cast<decltype (targetPeriod)> (pitchHz));
 	targetPitchHz = pitchHz;
-    
-    if (samplesToNextGrain > juce::roundToInt (targetPeriod))
-    {
-        samplesToNextGrain = 0;
-    }
+
+	if (samplesToNextGrain > juce::roundToInt (targetPeriod))
+	{
+		// ???
+		samplesToNextGrain = 0;
+	}
 }
 
 template <typename SampleType>
 float Shifter<SampleType>::getPitch() const noexcept
 {
-    // Did you call Analyzer::setSamplerate() first?
-    jassert (analyzer.samplerate > 0);
-    
-    return math::freqFromPeriod (analyzer.samplerate, static_cast<float> (targetPeriod));
+	// Did you call Analyzer::setSamplerate() first?
+	jassert (analyzer.samplerate > 0);
+
+	return math::freqFromPeriod (analyzer.samplerate, static_cast<float> (targetPeriod));
 }
 
 template <typename SampleType>
 void Shifter<SampleType>::newBlockStarting() noexcept
 {
 	placeInBlock = 0;
-}
-
-template <typename SampleType>
-void Shifter<SampleType>::getSamples (AudioBuffer<SampleType>& output)
-{
-	getSamples (output.getWritePointer (0), output.getNumSamples());
-}
-
-template <typename SampleType>
-void Shifter<SampleType>::getSamples (SampleType* output, int numSamples)
-{
-	for (int i = 0; i < numSamples; ++i)
-		output[i] = getNextSample();
-}
-
-template <typename SampleType>
-void Shifter<SampleType>::skipSamples (int numSamples)
-{
-	for (int i = 0; i < numSamples; ++i)
-		[[maybe_unused]] const auto sample = getNextSample();
+	onNewBlock();
 }
 
 template <typename SampleType>
@@ -206,4 +190,3 @@ template class Shifter<float>;
 template class Shifter<double>;
 
 }  // namespace lemons::dsp::psola
-

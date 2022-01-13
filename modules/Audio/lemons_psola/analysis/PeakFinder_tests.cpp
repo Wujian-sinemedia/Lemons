@@ -10,8 +10,9 @@ class PeakFinderTests final : public AllOscillatorsTest<FloatType>
 {
 public:
 	explicit PeakFinderTests()
-	: AllOscillatorsTest<FloatType>("PSOLA peak finder")
-	{ }
+	    : AllOscillatorsTest<FloatType> ("PSOLA peak finder")
+	{
+	}
 
 private:
 	static constexpr auto samplerate = 44100.;
@@ -68,7 +69,7 @@ private:
 
 		{
 			const auto subtest = this->beginSubtest ("Grains identified");
-            this->expect (! indices.isEmpty());
+			this->expect (! indices.isEmpty());
 			this->expectGreaterOrEqual (indices.size(), (blocksize / period) - 2);
 		}
 
@@ -77,7 +78,7 @@ private:
 
 			for (int i = 0; i < indices.size() - 1; ++i)
 				this->expectGreaterThan (indices.getUnchecked (i + 1),
-                                         indices.getUnchecked (i));
+				                         indices.getUnchecked (i));
 		}
 
 		{
@@ -131,4 +132,4 @@ template struct PeakFinderTests<double>;
 
 LEMONS_CREATE_DSP_TEST (PeakFinderTests)
 
-}
+}  // namespace lemons::tests

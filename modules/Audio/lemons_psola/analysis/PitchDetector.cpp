@@ -58,7 +58,7 @@ float PitchDetector<SampleType>::detectPeriod (const SampleType* inputAudio, int
 	const auto halfNumSamples = juce::roundToInt (std::floor (numSamples * 0.5f));
 
 	jassert (yinBuffer.getNumSamples() >= halfNumSamples);
-    
+
 	auto* yinData = yinBuffer.getWritePointer (0);
 
 	juce::FloatVectorOperations::fill (yinData, SampleType (1), yinBuffer.getNumSamples());
@@ -72,25 +72,25 @@ float PitchDetector<SampleType>::detectPeriod (const SampleType* inputAudio, int
 			yinData[tau] += (delta * delta);
 		}
 	}
-    
-    yinData[0] = SampleType (1);
 
-    // cumulative mean normalized difference
-    {
-        SampleType runningSum = 0;
-        
-        for (auto tau = 1; tau < halfNumSamples; ++tau)
-        {
-            runningSum += yinData[tau];
-            jassert (runningSum > SampleType (0));
-            yinData[tau] *= (static_cast<SampleType> (tau) / runningSum);
-        }
-    }
+	yinData[0] = SampleType (1);
+
+	// cumulative mean normalized difference
+	{
+		SampleType runningSum = 0;
+
+		for (auto tau = 1; tau < halfNumSamples; ++tau)
+		{
+			runningSum += yinData[tau];
+			jassert (runningSum > SampleType (0));
+			yinData[tau] *= (static_cast<SampleType> (tau) / runningSum);
+		}
+	}
 
 	const auto periodEstimate = absoluteThreshold (halfNumSamples);
-    
-    if (periodEstimate > 0)
-        return parabolicInterpolation (periodEstimate, halfNumSamples);
+
+	if (periodEstimate > 0)
+		return parabolicInterpolation (periodEstimate, halfNumSamples);
 
 	return 0.f;
 }
@@ -101,66 +101,66 @@ int PitchDetector<SampleType>::absoluteThreshold (int halfNumSamples) const
 	jassert (halfNumSamples > 0);
 
 	const auto* yinData = yinBuffer.getReadPointer (0);
-    
-    const auto tau = [&]() -> int
-    {
-        for (int tau = 2; tau < halfNumSamples; ++tau)
-        {
-            if (yinData[tau] < confidenceThresh)
-            {
-                while (tau + 1 < halfNumSamples && yinData[tau + 1] < yinData[tau])
-                {
-                    ++tau;
-                }
-                
-                return tau;
-            }
-        }
-    }();
-    
-    if (tau < halfNumSamples && yinData[tau] < confidenceThresh)
-        return tau;
-    
-    return 0;
+
+	const auto tau = [&]() -> int
+	{
+		for (int tau = 2; tau < halfNumSamples; ++tau)
+		{
+			if (yinData[tau] < confidenceThresh)
+			{
+				while (tau + 1 < halfNumSamples && yinData[tau + 1] < yinData[tau])
+				{
+					++tau;
+				}
+
+				return tau;
+			}
+		}
+	}();
+
+	if (tau < halfNumSamples && yinData[tau] < confidenceThresh)
+		return tau;
+
+	return 0;
 }
 
 template <typename SampleType>
 float PitchDetector<SampleType>::parabolicInterpolation (int periodEstimate, int halfNumSamples) const
 {
 	jassert (periodEstimate > 0 && halfNumSamples > 0);
-    
-    const auto x0 = [&]() -> int
-    {
-        if (periodEstimate < 1)
-            return periodEstimate;
-        
-        return periodEstimate - 1;
-    }();
-    
-    const auto x2 = [&]() -> int
-    {
-        if (const auto plusOne = periodEstimate + 1;
-            plusOne < halfNumSamples)
-            return plusOne;
-        
-        return periodEstimate;
-    }();
+
+	const auto x0 = [&]() -> int
+	{
+		if (periodEstimate < 1)
+			return periodEstimate;
+
+		return periodEstimate - 1;
+	}();
+
+	const auto x2 = [&]() -> int
+	{
+		if (const auto plusOne = periodEstimate + 1;
+		    plusOne < halfNumSamples)
+			return plusOne;
+
+		return periodEstimate;
+	}();
 
 	const auto* yinData = yinBuffer.getReadPointer (0);
 
 	if (x0 == periodEstimate)
 	{
-        if (yinData[periodEstimate] > yinData[x2])
-            return static_cast<float> (x2);
-        
+		if (yinData[periodEstimate] > yinData[x2])
+			return static_cast<float> (x2);
+
 		return static_cast<float> (periodEstimate);
 	}
 
 	if (x2 == periodEstimate)
 	{
-        if (yinData[periodEstimate] > yinData[x0])
-            return static_cast<float> (x0);
-        
+		if (yinData[periodEstimate] > yinData[x0])
+			return static_cast<float> (x0);
+
 		return static_cast<float> (periodEstimate);
 	}
 
@@ -217,7 +217,7 @@ int PitchDetector<SampleType>::getLatencySamples() const noexcept
 {
 	if (samplerate == 0)
 		return 512;
-    
+
 	return math::periodInSamples (samplerate, minHz) * 2;
 }
 

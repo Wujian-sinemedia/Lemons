@@ -24,3 +24,4 @@ END_JUCE_MODULE_DECLARATION
 #include "analysis/analyzer.h"
 
 #include "resynthesis/shifter.h"
+#include "resynthesis/RatioShifter.h"

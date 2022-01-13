@@ -37,6 +37,15 @@ void Analyzer<SampleType>::deregisterShifter (Shifter<SampleType>& shifter)
 }
 
 template <typename SampleType>
+int Analyzer<SampleType>::getLastInputPitch() const noexcept
+{
+	jassert (samplerate > 0.);
+	jassert (currentPeriod > 0.f);
+
+	return juce::roundToInt (math::freqFromPeriod (samplerate, currentPeriod));
+}
+
+template <typename SampleType>
 void Analyzer<SampleType>::analyzeInput (const AudioBuffer<SampleType>& inputAudio)
 {
 	analyzeInput (inputAudio.getReadPointer (0), inputAudio.getNumSamples());
@@ -53,9 +62,9 @@ void Analyzer<SampleType>::analyzeInput (const SampleType* inputAudio, int numSa
 
 	for (auto* shifter : shifters)
 		shifter->newBlockStarting();
-    
-    const auto* prevFrameSamples = prevFrame.getReadPointer (0);
-    const auto* windowSamples    = window.getRawDataPointer();
+
+	const auto* prevFrameSamples = prevFrame.getReadPointer (0);
+	const auto* windowSamples    = window.getRawDataPointer();
 
 	if (! incompleteGrainsFromLastFrame.isEmpty())
 	{
@@ -76,16 +85,16 @@ void Analyzer<SampleType>::analyzeInput (const SampleType* inputAudio, int numSa
 		incompleteGrainsFromLastFrame.clearQuick();
 	}
 
-	const auto currentPeriod = [&]() -> float
+	currentPeriod = [&]() -> float
 	{
-        if (const auto detectedPeriod = pitchDetector.detectPeriod (inputAudio, numSamples);
-            detectedPeriod > 0.f)
+		if (const auto detectedPeriod = pitchDetector.detectPeriod (inputAudio, numSamples);
+		    detectedPeriod > 0.f)
 			return detectedPeriod;
 
 		const auto maxPeriod = std::min (math::periodInSamples (samplerate, pitchDetector.getMinHz()), numSamples / 2);
 		const auto minPeriod = std::min (numSamples / 4, maxPeriod - 1);
-        
-        jassert (maxPeriod > minPeriod);
+
+		jassert (maxPeriod > minPeriod);
 
 		return static_cast<float> (random.nextInt ({ minPeriod, maxPeriod + 1 }));
 	}();
@@ -96,7 +105,7 @@ void Analyzer<SampleType>::analyzeInput (const SampleType* inputAudio, int numSa
 
 	makeWindow (grainSize);
 
-    const auto& peakIndices = peakFinder.findPeaks (inputAudio, numSamples, currentPeriod);
+	const auto& peakIndices = peakFinder.findPeaks (inputAudio, numSamples, currentPeriod);
 
 	for (const auto peak : peakIndices)
 	{
@@ -106,8 +115,8 @@ void Analyzer<SampleType>::analyzeInput (const SampleType* inputAudio, int numSa
 		{
 			if (lastBlocksize == 0)
 			{
-                // ???
-//				getGrainToStoreIn().storeNewGrain (inputAudio, 0, windowSamples, grainSize);
+				// ???
+				//				getGrainToStoreIn().storeNewGrain (inputAudio, 0, windowSamples, grainSize);
 
 				continue;
 			}
@@ -125,15 +134,15 @@ void Analyzer<SampleType>::analyzeInput (const SampleType* inputAudio, int numSa
 		}
 
 		const auto end = juce::roundToInt (static_cast<float> (peak) + currentPeriod);
-        
-        jassert (end - start == grainSize);
+
+		jassert (end - start == grainSize);
 
 		if (end >= numSamples)
 		{
 			incompleteGrainsFromLastFrame.add (start);
 			continue;
 		}
-        
+
 		getGrainToStoreIn().storeNewGrain (inputAudio, start, windowSamples, grainSize);
 	}
 
@@ -225,10 +234,10 @@ typename Analyzer<SampleType>::Grain& Analyzer<SampleType>::getClosestGrain (int
 		if (after.grain == nullptr)
 			return *before.grain;
 
-        // ???
-        if (lastFrameGrainSize > 0)
-            if (after.distance < before.distance && before.distance > (lastFrameGrainSize / 2))
-                return *after.grain;
+		// ???
+		if (lastFrameGrainSize > 0)
+			if (after.distance < before.distance && before.distance > (lastFrameGrainSize / 2))
+				return *after.grain;
 
 		return *before.grain;
 	}
@@ -315,6 +324,7 @@ void Analyzer<SampleType>::releaseResources()
 	samplerate         = 0.;
 	lastBlocksize      = 0;
 	lastFrameGrainSize = 0;
+	currentPeriod      = 0.f;
 
 	prevFrame.setSize (0, 0);
 
@@ -374,9 +384,9 @@ template <typename SampleType>
 void Analyzer<SampleType>::Grain::newBlockStarting (int last_blocksize) noexcept
 {
 	if (getReferenceCount() > 0)
-    {
+	{
 		origStartIndex -= last_blocksize;
-    }
+	}
 	else
 	{
 		grainSize      = 0;

@@ -70,6 +70,8 @@ public:
 	/** Releases all resources used by the Analyzer object. This also calls releaseResources() on all Shifter objects using this Analyzer. */
 	void releaseResources();
 
+	[[nodiscard]] int getLastInputPitch() const noexcept;
+
 private:
 	friend class Shifter<SampleType>;
 
@@ -114,6 +116,8 @@ private:
 	[[nodiscard]] Grain& getGrainToStoreIn();
 
 	/*-----------------------------------------------------------------------------------*/
+
+	float currentPeriod { 0.f };
 
 	PitchDetector<SampleType> pitchDetector;
 	PeakFinder<SampleType>    peakFinder;
