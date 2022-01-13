@@ -75,7 +75,8 @@ editor: | logs
 .PHONY: docs # Builds the documentation
 docs: | logs
 	@echo " * make $@... * "
-	$(call run_cmake,util/doxygen)
+	cd $(LEMONS_ROOT)/util/doxygen && $(CMAKE) -B Builds
+	cd $(LEMONS_ROOT)/util/doxygen && $(CMAKE) --build Builds
 
 #
 
