@@ -61,20 +61,14 @@ if (APPLE)
 
 elseif (WIN32)
 
-    find_program (MS_BUILD msbuild)
-
-    if (NOT MS_BUILD)
-        message (WARNING "msbuild is required to build the AAXSDK, but could not be found!")
-    	return()
-    endif()
-
     set (msvc_proj_file "${LEMONS_AAX_SDK_PATH}/msvc/AAX_SDK.sln")
+
     if (NOT EXISTS "${msvc_proj_file}")
         message (AUTHOR_WARNING "${msvc_proj_file} could not be found, AAX SDK cannot be built!")
         return()
     endif()
 
-    include_external_msproject (AAXSDK "${LEMONS_AAX_SDK_PATH}/msvc/AAX_SDK.sln")
+    include_external_msproject (AAXSDK "${msvc_proj_file}")
 
 endif()
 
