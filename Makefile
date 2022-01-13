@@ -10,6 +10,8 @@ SHELL := /bin/sh
 CMAKE = cmake
 CTEST = ctest
 
+LEMONS_ROOT := $(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
+
 #
 
 .PHONY: help # Print this message
@@ -20,33 +22,33 @@ help:
 
 .PHONY: clean # Cleans the Lemons source tree
 clean:
-	$(CMAKE) -P scripts/clean.cmake
+	$(CMAKE) -P $(LEMONS_ROOT)/scripts/clean.cmake
 
 .PHONY: wipe # Wipes the persistent cache of fetched dependencies and ccache artifacts
 wipe:
-	$(CMAKE) -D LEMONS_WIPE_CLEAN=1 -P scripts/clean.cmake
+	$(CMAKE) -D LEMONS_WIPE_CLEAN=1 -P $(LEMONS_ROOT)/scripts/clean.cmake
 
 .PHONY: format # Runs clang-format over the entire source tree
 format:
-	$(CMAKE) -P scripts/format.cmake
+	$(CMAKE) -P $(LEMONS_ROOT)/scripts/format.cmake
 
 #
 
 logs: 
-	@mkdir logs
-	@mkdir logs/util
+	@mkdir $(LEMONS_ROOT)/logs
+	@mkdir $(LEMONS_ROOT)/logs/util
 
-run_cmake = $(shell mkdir logs/$(1)) \
-			$(shell touch logs/$(1)/cmake_run.log) \
-			$(CMAKE) -D LEMONS_DIR=$(1) -P scripts/run_cmake_in_dir.cmake | tee logs/$(1)/cmake_run.log
+run_cmake = $(shell mkdir $(LEMONS_ROOT)/logs/$(1)) \
+			$(shell touch $(LEMONS_ROOT)/logs/$(1)/cmake_run.log) \
+			$(CMAKE) -D LEMONS_DIR=$(1) -P $(LEMONS_ROOT)/scripts/run_cmake_in_dir.cmake | tee $(LEMONS_ROOT)/logs/$(1)/cmake_run.log
 
 .PHONY: tests # Builds the tests
 tests: | logs
 	@echo " * make $@... * "
 	$(call run_cmake,util/tests)
 
-run_ctest = cd util/tests/Builds/$(1) && $(CTEST) -C $(1) \
-		    mv util/tests/Builds/$(1)/Testing/Temporary/LastTest.log logs/UnitTests_$(1).log
+run_ctest = cd $(LEMONS_ROOT)/util/tests/Builds/$(1) && $(CTEST) -C $(1) \
+		 && mv $(LEMONS_ROOT)/util/tests/Builds/$(1)/Testing/Temporary/LastTest.log $(LEMONS_ROOT)/logs/UnitTests_$(1).log
 
 .PHONY: run_tests # Runs all tests
 run_tests: tests
@@ -92,7 +94,7 @@ cmake_modules: | logs
 .PHONY: install_cmake_modules # Builds and installs the cmake modules
 install_cmake_modules: cmake_modules
 	@echo " * make $@... * "
-	cd util/cmake/modules && sudo $(CMAKE) --install Builds
+	cd $(LEMONS_ROOT)/util/cmake/modules && sudo $(CMAKE) --install Builds
 
 #
 
