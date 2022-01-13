@@ -15,6 +15,7 @@ include ("${CMAKE_CURRENT_LIST_DIR}/${PROJECT_NAME}Config.cmake")
 # install files
 
 include (GNUInstallDirs)
+include (CMakePackageConfigHelpers)
 
 set (installDest ${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME})
 
@@ -24,16 +25,10 @@ foreach (module_path ${lemonsModulePaths})
 		 	 COMPONENT ${PROJECT_NAME})
 endforeach()
 
-install (FILES ${PROJECT_NAME}Config.cmake 
-		 DESTINATION ${installDest}
-		 COMPONENT ${PROJECT_NAME})
-
-include (CMakePackageConfigHelpers)
-
 write_basic_package_version_file ("${PROJECT_NAME}ConfigVersion.cmake"
 								  VERSION ${PROJECT_VERSION}
 								  COMPATIBILITY SameMajorVersion)
 
-install (FILES "${PROJECT_NAME}ConfigVersion.cmake"
+install (FILES "${PROJECT_NAME}ConfigVersion.cmake" "${PROJECT_NAME}Config.cmake"
 		 DESTINATION ${installDest}
 		 COMPONENT ${PROJECT_NAME})

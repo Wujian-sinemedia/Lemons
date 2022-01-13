@@ -105,7 +105,7 @@ function (lemons_configure_juce_plugin)
                                      PAGETABLE_FILE "${LEMONS_PLUGIN_AAX_PAGETABLE_FILE}"
                                      GUID "${LEMONS_PLUGIN_AAX_GUID}")
     endif()
-
+    
     target_link_libraries (${LEMONS_PLUGIN_TARGET} PRIVATE Lemons::LemonsPluginModules)
 
     target_compile_definitions (${LEMONS_PLUGIN_TARGET} PRIVATE JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=0)
