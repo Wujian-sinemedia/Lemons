@@ -4,7 +4,7 @@ cmake_minimum_required (VERSION 3.21 FATAL_ERROR)
 
 #
 
-find_package (LemonsCmakeModules REQUIRED)
+find_package (LemonsCmakeModules REQUIRED CONFIG)
 
 list (APPEND CMAKE_MODULE_PATH "${LEMONS_CMAKE_MODULE_PATH}")
 
