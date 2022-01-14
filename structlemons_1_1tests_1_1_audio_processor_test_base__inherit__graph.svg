@@ -53,7 +53,7 @@
 <g id="node3" class="node">
 <title>Node3</title>
 <g id="a_node3"><a xlink:title=" ">
-<polygon fill="none" stroke="#bfbfbf" points="37,-190.5 37,-209.5 114,-209.5 114,-190.5 37,-190.5"/>
+<polygon fill="none" stroke="black" points="37,-190.5 37,-209.5 114,-209.5 114,-190.5 37,-190.5"/>
 <text text-anchor="middle" x="75.5" y="-197.5" font-family="Helvetica,sans-Serif" font-size="10.00">juce::UnitTest</text>
 </a>
 </g>

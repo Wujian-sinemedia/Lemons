@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
-<tagfile doxygen_version="1.9.2">
+<tagfile doxygen_version="1.9.3">
   <compound kind="file">
     <name>AudioEffect.h</name>
     <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/Audio/lemons_audio_effects/AudioEffects/</path>
@@ -25062,24 +25062,24 @@
       <arglist>(const String &amp;string)</arglist>
     </member>
     <member kind="function" static="yes">
-      <type>constexpr static Version</type>
+      <type>static constexpr Version</type>
       <name>juceVersion</name>
       <anchorfile>structlemons_1_1_version.html</anchorfile>
-      <anchor>a523e34513ae29e24ac383c63848fbc08</anchor>
+      <anchor>ad65e079cd3074631486892017468df2d</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function" static="yes">
-      <type>constexpr static Version</type>
+      <type>static constexpr Version</type>
       <name>lemonsVersion</name>
       <anchorfile>structlemons_1_1_version.html</anchorfile>
-      <anchor>aa375bcbb25374d32e716def25e45e4d0</anchor>
+      <anchor>ad1c9d44a4f490167bcceed51bbc4495e</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function" static="yes">
-      <type>constexpr static Version</type>
+      <type>static constexpr Version</type>
       <name>projectVersion</name>
       <anchorfile>structlemons_1_1_version.html</anchorfile>
-      <anchor>ab3d61b52ffbb99ff0ca7190ffbbb6ec8</anchor>
+      <anchor>ace257f4817268a32367e8e64e1dd3136</anchor>
       <arglist>()</arglist>
     </member>
   </compound>

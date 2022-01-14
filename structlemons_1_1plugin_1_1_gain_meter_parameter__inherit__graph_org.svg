@@ -101,7 +101,7 @@
 <g id="node5" class="node">
 <title>Node5</title>
 <g id="a_node5"><a xlink:title=" ">
-<polygon fill="none" stroke="#bfbfbf" points="0,-55 0,-74 144,-74 144,-55 0,-55"/>
+<polygon fill="none" stroke="black" points="0,-55 0,-74 144,-74 144,-55 0,-55"/>
 <text text-anchor="middle" x="72" y="-62" font-family="Helvetica,sans-Serif" font-size="10.00">juce::RangedAudioParameter</text>
 </a>
 </g>

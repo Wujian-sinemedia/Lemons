@@ -1,6 +1,7 @@
 <map id="lemons::dsp::FX::Compressor&lt; SampleType &gt;" name="lemons::dsp::FX::Compressor&lt; SampleType &gt;">
-<area shape="rect" id="node1" title="A simple compressor effect class that allows you to optionally sidechain the signal." alt="" coords="13,273,211,315"/>
-<area shape="rect" id="node2" href="$structlemons_1_1dsp_1_1_f_x_1_1_level_reporting_audio_effect.html" title="Base class for audio effects that can report their level or gain reduction." alt="" coords="5,184,219,225"/>
-<area shape="rect" id="node3" href="$structlemons_1_1dsp_1_1_f_x_1_1_sidechainable_audio_effect.html" title="Base class for audio effects that accept a sidechain signal." alt="" coords="9,95,215,136"/>
+<area shape="rect" id="node1" title="A simple compressor effect class that allows you to optionally sidechain the signal." alt="" coords="13,277,211,319"/>
+<area shape="rect" id="node5" href="$classlemons_1_1dsp_1_1_f_x_1_1_compressor.html" title=" " alt="" coords="13,381,211,423"/>
+<area shape="rect" id="node2" href="$structlemons_1_1dsp_1_1_f_x_1_1_level_reporting_audio_effect.html" title="Base class for audio effects that can report their level or gain reduction." alt="" coords="5,187,219,228"/>
+<area shape="rect" id="node3" href="$structlemons_1_1dsp_1_1_f_x_1_1_sidechainable_audio_effect.html" title="Base class for audio effects that accept a sidechain signal." alt="" coords="9,96,215,137"/>
 <area shape="rect" id="node4" href="$structlemons_1_1dsp_1_1_f_x_1_1_audio_effect.html" title="Base class for any kind of audio effect." alt="" coords="15,5,209,47"/>
 </map>

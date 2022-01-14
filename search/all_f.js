@@ -123,7 +123,7 @@ var searchData=
   ['programmanager_120',['ProgramManager',['../structlemons_1_1plugin_1_1_program_manager.html',1,'lemons::plugin']]],
   ['programmanager_2eh_121',['ProgramManager.h',['../_program_manager_8h.html',1,'']]],
   ['programs_122',['programs',['../classlemons_1_1plugin_1_1_state.html#aba707cf5fd5c67b3c27859c872d60f3a',1,'lemons::plugin::State']]],
-  ['projectversion_123',['projectVersion',['../structlemons_1_1_version.html#ab3d61b52ffbb99ff0ca7190ffbbb6ec8',1,'lemons::Version']]],
+  ['projectversion_123',['projectVersion',['../structlemons_1_1_version.html#ace257f4817268a32367e8e64e1dd3136',1,'lemons::Version']]],
   ['protector_124',['Protector',['../classlemons_1_1dsp_1_1_protector.html',1,'lemons::dsp::Protector&lt; SampleType &gt;'],['../classlemons_1_1dsp_1_1_protector.html#a549e2d85e9527b866b9605fe8a380cbe',1,'lemons::dsp::Protector::Protector()']]],
   ['push_125',['push',['../classlemons_1_1dsp_1_1_audio_and_midi_f_i_f_o.html#a283043170f786b3f477801919d2f0114',1,'lemons::dsp::AudioAndMidiFIFO']]],
   ['pushdrysamples_126',['pushDrySamples',['../classlemons_1_1dsp_1_1_f_x_1_1_dry_wet_mixer.html#a873dfc96c21253d8200597c8b13e5440',1,'lemons::dsp::FX::DryWetMixer']]],

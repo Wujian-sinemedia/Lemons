@@ -52,7 +52,7 @@
 <g id="node4" class="node">
 <title>Node4</title>
 <g id="a_node4"><a xlink:title=" ">
-<polygon fill="none" stroke="#bfbfbf" points="22.5,-190.5 22.5,-209.5 132.5,-209.5 132.5,-190.5 22.5,-190.5"/>
+<polygon fill="none" stroke="black" points="22.5,-190.5 22.5,-209.5 132.5,-209.5 132.5,-190.5 22.5,-190.5"/>
 <text text-anchor="middle" x="77.5" y="-197.5" font-family="Helvetica,sans-Serif" font-size="10.00">juce::AudioProcessor</text>
 </a>
 </g>

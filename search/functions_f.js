@@ -55,7 +55,7 @@ var searchData=
   ['processsoftpedal_52',['processSoftPedal',['../structlemons_1_1midi_1_1_stateful_routing_processor.html#a002c319aad389f84f5f4a101234a12e1',1,'lemons::midi::StatefulRoutingProcessor']]],
   ['processsostenutopedal_53',['processSostenutoPedal',['../structlemons_1_1midi_1_1_stateful_routing_processor.html#a0dcfa0713c687be4a4a37d5cd52e40e1',1,'lemons::midi::StatefulRoutingProcessor']]],
   ['processsustainpedal_54',['processSustainPedal',['../structlemons_1_1midi_1_1_stateful_routing_processor.html#ad6cfb3e50da638c3c2f9a76740f592b8',1,'lemons::midi::StatefulRoutingProcessor']]],
-  ['projectversion_55',['projectVersion',['../structlemons_1_1_version.html#ab3d61b52ffbb99ff0ca7190ffbbb6ec8',1,'lemons::Version']]],
+  ['projectversion_55',['projectVersion',['../structlemons_1_1_version.html#ace257f4817268a32367e8e64e1dd3136',1,'lemons::Version']]],
   ['protector_56',['Protector',['../classlemons_1_1dsp_1_1_protector.html#a549e2d85e9527b866b9605fe8a380cbe',1,'lemons::dsp::Protector']]],
   ['push_57',['push',['../classlemons_1_1dsp_1_1_audio_and_midi_f_i_f_o.html#a283043170f786b3f477801919d2f0114',1,'lemons::dsp::AudioAndMidiFIFO']]],
   ['pushdrysamples_58',['pushDrySamples',['../classlemons_1_1dsp_1_1_f_x_1_1_dry_wet_mixer.html#a873dfc96c21253d8200597c8b13e5440',1,'lemons::dsp::FX::DryWetMixer']]],

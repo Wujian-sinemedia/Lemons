@@ -146,7 +146,7 @@ var sectionId = 'dynsection-0';
 <g id="node5" class="node">
 <title>Node5</title>
 <g id="a_node5"><a xlink:title=" ">
-<polygon fill="none" stroke="#bfbfbf" points="0,-50 0,-69 144,-69 144,-50 0,-50"/>
+<polygon fill="none" stroke="black" points="0,-50 0,-69 144,-69 144,-50 0,-50"/>
 <text text-anchor="middle" x="72" y="-57" font-family="Helvetica,sans-Serif" font-size="10.00">juce::RangedAudioParameter</text>
 </a>
 </g>

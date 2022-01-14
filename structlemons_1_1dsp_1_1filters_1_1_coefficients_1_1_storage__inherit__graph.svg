@@ -23,7 +23,7 @@
 <g id="node2" class="node">
 <title>Node2</title>
 <g id="a_node2"><a xlink:title=" ">
-<polygon fill="none" stroke="#bfbfbf" points="1,-78.5 1,-97.5 141,-97.5 141,-78.5 1,-78.5"/>
+<polygon fill="none" stroke="black" points="1,-78.5 1,-97.5 141,-97.5 141,-78.5 1,-78.5"/>
 <text text-anchor="middle" x="71" y="-85.5" font-family="Helvetica,sans-Serif" font-size="10.00">juce::Array&lt; NumericType &gt;</text>
 </a>
 </g>

@@ -72,5 +72,7 @@ var searchData=
   ['mstosamps_69',['msToSamps',['../group__lemons__math.html#ga0b61a87fdde626a08a8dd466f3327bb9',1,'lemons::math']]],
   ['mts_5fclient_2eh_70',['mts_client.h',['../mts__client_8h.html',1,'']]],
   ['mtsclient_71',['MtsClient',['../classlemons_1_1midi_1_1_mts_client.html',1,'lemons::midi']]],
-  ['multifilter_72',['MultiFilter',['../structlemons_1_1dsp_1_1filters_1_1_multi_filter.html',1,'lemons::dsp::filters::MultiFilter&lt; SampleType, numChannels &gt;'],['../structlemons_1_1dsp_1_1filters_1_1_multi_filter.html#a3744cd8fb6f34f6993f545a61ff9c83f',1,'lemons::dsp::filters::MultiFilter::MultiFilter()']]]
+  ['multifilter_72',['MultiFilter',['../structlemons_1_1dsp_1_1filters_1_1_multi_filter.html',1,'lemons::dsp::filters::MultiFilter&lt; SampleType, numChannels &gt;'],['../structlemons_1_1dsp_1_1filters_1_1_multi_filter.html#a3744cd8fb6f34f6993f545a61ff9c83f',1,'lemons::dsp::filters::MultiFilter::MultiFilter()']]],
+  ['multifilter_3c_20float_20_3e_73',['MultiFilter&lt; float &gt;',['../structlemons_1_1dsp_1_1filters_1_1_multi_filter.html',1,'lemons::dsp::filters']]],
+  ['multifilter_3c_20sampletype_2c_202_20_3e_74',['MultiFilter&lt; SampleType, 2 &gt;',['../structlemons_1_1dsp_1_1filters_1_1_multi_filter.html',1,'lemons::dsp::filters']]]
 ];

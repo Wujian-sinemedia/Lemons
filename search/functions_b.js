@@ -6,7 +6,7 @@ var searchData=
   ['languagecodetoname_3',['languageCodeToName',['../group__lemons__iso__language__codes.html#gaad199ffab3ee7c4e5e8027aaa48986af',1,'lemons::locale']]],
   ['languagenametocode_4',['languageNameToCode',['../group__lemons__iso__language__codes.html#ga9377266e261ca703f64e1bf139259520',1,'lemons::locale']]],
   ['latencychanged_5',['latencyChanged',['../classlemons_1_1dsp_1_1_latency_engine.html#a07a85efee273ed1ae804e31a0881bd33',1,'lemons::dsp::LatencyEngine']]],
-  ['lemonsversion_6',['lemonsVersion',['../structlemons_1_1_version.html#aa375bcbb25374d32e716def25e45e4d0',1,'lemons::Version']]],
+  ['lemonsversion_6',['lemonsVersion',['../structlemons_1_1_version.html#ad1c9d44a4f490167bcceed51bbc4495e',1,'lemons::Version']]],
   ['lfo_7',['LFO',['../structlemons_1_1plugin_1_1_l_f_o.html#a8b41822f16d0c8d7d538feb0e03d6499',1,'lemons::plugin::LFO']]],
   ['limiter_8',['Limiter',['../classlemons_1_1dsp_1_1_f_x_1_1_limiter.html#a376d80473d74f6623447e1bb467572e0',1,'lemons::dsp::FX::Limiter::Limiter()'],['../classlemons_1_1dsp_1_1_f_x_1_1_limiter.html#a033338b4de2c2619c7f56bea09d69eab',1,'lemons::dsp::FX::Limiter::Limiter(float threshDB, float releaseMs)']]],
   ['lin_9',['lin',['../namespacelemons_1_1spline_1_1interpolation.html#a9894612d36a56455f83cd21a9f677008',1,'lemons::spline::interpolation']]],

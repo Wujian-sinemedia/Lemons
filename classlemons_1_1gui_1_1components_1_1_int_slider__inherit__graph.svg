@@ -38,7 +38,7 @@
 <g id="node3" class="node">
 <title>Node3</title>
 <g id="a_node3"><a xlink:title=" ">
-<polygon fill="none" stroke="#bfbfbf" points="33,-55 33,-74 98,-74 98,-55 33,-55"/>
+<polygon fill="none" stroke="black" points="33,-55 33,-74 98,-74 98,-55 33,-55"/>
 <text text-anchor="middle" x="65.5" y="-62" font-family="Helvetica,sans-Serif" font-size="10.00">juce::Slider</text>
 </a>
 </g>

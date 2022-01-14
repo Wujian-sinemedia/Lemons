@@ -71,7 +71,7 @@
 <g id="node2" class="node">
 <title>Node2</title>
 <g id="a_node2"><a xlink:title=" ">
-<polygon fill="none" stroke="#bfbfbf" points="0,-55 0,-74 67,-74 67,-55 0,-55"/>
+<polygon fill="none" stroke="black" points="0,-55 0,-74 67,-74 67,-55 0,-55"/>
 <text text-anchor="middle" x="33.5" y="-62" font-family="Helvetica,sans-Serif" font-size="10.00">Component</text>
 </a>
 </g>
