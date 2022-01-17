@@ -87,16 +87,12 @@ void Analyzer<SampleType>::analyzeInput (const SampleType* inputAudio, int numSa
 
 	currentPeriod = [&]() -> float
 	{
-		if (const auto detectedPeriod = pitchDetector.detectPeriod (inputAudio, numSamples);
-		    detectedPeriod > 0.f)
+		const auto detectedPeriod = pitchDetector.detectPeriod (inputAudio, numSamples);
+
+		if (detectedPeriod > 0.f)
 			return detectedPeriod;
 
-		const auto maxPeriod = std::min (math::periodInSamples (samplerate, pitchDetector.getMinHz()), numSamples / 2);
-		const auto minPeriod = std::min (numSamples / 4, maxPeriod - 1);
-
-		jassert (maxPeriod > minPeriod);
-
-		return static_cast<float> (random.nextInt ({ minPeriod, maxPeriod + 1 }));
+		return static_cast<float> (random.nextInt (pitchDetector.getCurrentLegalPeriodRange()));
 	}();
 
 	jassert (currentPeriod > 0.f && currentPeriod <= numSamples / 2);

@@ -13,33 +13,8 @@
  ======================================================================================
  */
 
-#include <lemons_core/lemons_core.h>
-
 namespace lemons::dsp::psola
 {
-
-template <typename T>
-inline void findMinAndMinIndex (int& idxOut, T& minOut,
-                                const T* const data, int dataSize)
-{
-	minOut = data[0];
-	idxOut = 0;
-
-	for (int i = 1; i < dataSize; ++i)
-	{
-		const auto current = data[i];
-
-		if (current < minOut)
-		{
-			minOut = current;
-			idxOut = i;
-		}
-	}
-}
-
-
-/*--------------------------------------------------------------------------------------------------------------------------*/
-
 
 template <typename SampleType>
 void PeakFinder<SampleType>::clearAllArrays (bool free)
@@ -51,15 +26,15 @@ void PeakFinder<SampleType>::clearAllArrays (bool free)
 
 		for (auto* array : float_arrays)
 			array->clear();
-
-		return;
 	}
+	else
+	{
+		for (auto* array : int_arrays)
+			array->clearQuick();
 
-	for (auto* array : int_arrays)
-		array->clearQuick();
-
-	for (auto* array : float_arrays)
-		array->clearQuick();
+		for (auto* array : float_arrays)
+			array->clearQuick();
+	}
 }
 
 template <typename SampleType>
@@ -152,12 +127,9 @@ template <typename SampleType>
 int PeakFinder<SampleType>::findNextPeak (int frameStart, int frameEnd, int predictedPeak,
                                           const SampleType* inputSamples, int period, int grainSize)
 {
-	jassert (frameEnd > frameStart);
 	jassert (predictedPeak >= frameStart && predictedPeak <= frameEnd);
 
 	sortSampleIndicesForPeakSearching (frameStart, frameEnd, predictedPeak);
-
-	jassert (peakSearchingOrder.size() == frameEnd - frameStart);
 
 	peakCandidates.clearQuick();
 
@@ -176,18 +148,17 @@ int PeakFinder<SampleType>::findNextPeak (int frameStart, int frameEnd, int pred
 	{
 		[[unlikely]] case 1 : return peakCandidates.getUnchecked (0);
 
-		case 2 :
-			return choosePeakWithGreatestPower (inputSamples);
+		[[unlikely]] case 2 : return choosePeakWithGreatestPower (inputSamples);
 
-			[[likely]] default:
-			{
-				if (peakIndices.size() <= 1)
-					return choosePeakWithGreatestPower (inputSamples);
+		default :
+		{
+			if (peakIndices.size() <= 1)
+				return choosePeakWithGreatestPower (inputSamples);
 
-				return chooseIdealPeakCandidate (inputSamples,
-				                                 peakIndices.getLast() + period,
-				                                 peakIndices.getUnchecked (peakIndices.size() - 2) + grainSize);
-			}
+			return chooseIdealPeakCandidate (inputSamples,
+			                                 peakIndices.getLast() + period,
+			                                 peakIndices.getUnchecked (peakIndices.size() - 2) + grainSize);
+		}
 	}
 }
 
@@ -196,8 +167,6 @@ template <typename SampleType>
 int PeakFinder<SampleType>::getPeakCandidateInRange (const SampleType* inputSamples,
                                                      int startSample, int endSample, int predictedPeak) const
 {
-	jassert (! peakSearchingOrder.isEmpty());
-
 	const auto starting = [&]() -> int
 	{
 		for (const auto p : peakSearchingOrder)
@@ -215,16 +184,14 @@ int PeakFinder<SampleType>::getPeakCandidateInRange (const SampleType* inputSamp
 
 	auto get_weighted_sample = [&] (int index) -> SampleType
 	{
-		const auto distance = static_cast<double> (std::abs (predictedPeak - index));
-		const auto weight   = 1. - (distance / static_cast<double> (numSamples));
+		const auto distance = static_cast<SampleType> (std::abs (predictedPeak - index));
+		const auto weight   = SampleType (1) - (distance / static_cast<SampleType> (numSamples));
 
-		return inputSamples[index] * static_cast<SampleType> (weight);
+		return std::abs (inputSamples[index]) * weight;
 	};
 
-	auto localMin        = get_weighted_sample (starting);
-	auto localMax        = localMin;
-	auto indexOfLocalMin = starting;
-	auto indexOfLocalMax = starting;
+	auto strongest    = get_weighted_sample (starting);
+	auto strongestIdx = starting;
 
 	for (const auto index : peakSearchingOrder)
 	{
@@ -234,23 +201,14 @@ int PeakFinder<SampleType>::getPeakCandidateInRange (const SampleType* inputSamp
 
 		const auto currentSample = get_weighted_sample (index);
 
-		if (currentSample < localMin)
+		if (currentSample > strongest)
 		{
-			localMin        = currentSample;
-			indexOfLocalMin = index;
-		}
-
-		if (currentSample > localMax)
-		{
-			localMax        = currentSample;
-			indexOfLocalMax = index;
+			strongest    = currentSample;
+			strongestIdx = index;
 		}
 	}
 
-	if (std::abs (localMin) > std::abs (localMax))
-		return indexOfLocalMin;
-
-	return indexOfLocalMax;
+	return strongestIdx;
 }
 
 template <typename SampleType>
@@ -297,9 +255,7 @@ int PeakFinder<SampleType>::chooseIdealPeakCandidate (const SampleType* inputSam
 	for (int i = 0; i < finalHandfulSize; ++i)
 	{
 		// find minimum delta & its index in the array
-		findMinAndMinIndex (minimumIndex, minimum,
-		                    candidateDeltas.getRawDataPointer(),
-		                    candidateDeltas.size());
+		findMinDelta (minimumIndex, minimum);
 
 		finalHandfulDeltas.add (minimum);
 		finalHandful.add (peakCandidates.getUnchecked (minimumIndex));
@@ -321,11 +277,11 @@ int PeakFinder<SampleType>::chooseIdealPeakCandidate (const SampleType* inputSam
 
 	auto get_weighted_sample = [&] (int sampleIndex, int finalHandfulIdx) -> SampleType
 	{
-		const auto delta = finalHandfulDeltas.getUnchecked (finalHandfulIdx);
+		const auto delta = static_cast<SampleType> (finalHandfulDeltas.getUnchecked (finalHandfulIdx));
 
-		const auto deltaWeight = 1.f - (delta / static_cast<float> (deltaRange));
+		const auto deltaWeight = SampleType (1) - (delta / static_cast<SampleType> (deltaRange));
 
-		return std::abs (inputSamples[sampleIndex]) * static_cast<SampleType> (deltaWeight);
+		return std::abs (inputSamples[sampleIndex]) * deltaWeight;
 	};
 
 	auto chosenPeak    = finalHandful.getUnchecked (0);
@@ -350,17 +306,36 @@ int PeakFinder<SampleType>::chooseIdealPeakCandidate (const SampleType* inputSam
 }
 
 template <typename SampleType>
+void PeakFinder<SampleType>::findMinDelta (int& idxOut, float& minOut) const
+{
+	minOut = candidateDeltas.getUnchecked (0);
+	idxOut = 0;
+
+	for (int i = 1; i < candidateDeltas.size(); ++i)
+	{
+		const auto current = candidateDeltas.getUnchecked (i);
+
+		if (current < minOut)
+		{
+			minOut = current;
+			idxOut = i;
+		}
+	}
+}
+
+template <typename SampleType>
 void PeakFinder<SampleType>::sortSampleIndicesForPeakSearching (int startSample, int endSample, int predictedPeak)
 {
-	peakSearchingOrder.clearQuick();
-
 	jassert (predictedPeak >= startSample && predictedPeak <= endSample);
+	jassert (endSample > startSample);
+
+	peakSearchingOrder.clearQuick();
 
 	peakSearchingOrder.set (0, predictedPeak);
 
-	for (int p = 1, m = -1, n = 1;
-	     n < (endSample - startSample);
-	     ++n)
+	const auto searchingSize = endSample - startSample;
+
+	for (int p = 1, m = -1, n = 1; n < searchingSize; ++n)
 	{
 		const auto pos = predictedPeak + p;
 		const auto neg = predictedPeak + m;
@@ -394,6 +369,8 @@ void PeakFinder<SampleType>::sortSampleIndicesForPeakSearching (int startSample,
 			}
 		}
 	}
+
+	jassert (peakSearchingOrder.size() == searchingSize);
 }
 
 template class PeakFinder<float>;

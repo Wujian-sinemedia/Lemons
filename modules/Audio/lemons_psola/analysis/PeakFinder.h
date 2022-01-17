@@ -71,6 +71,8 @@ private:
 
 	[[nodiscard]] int chooseIdealPeakCandidate (const SampleType* inputSamples, int deltaTarget1, int deltaTarget2);
 
+	inline void findMinDelta (int& idxOut, float& minOut) const;
+
 	void clearAllArrays (bool free = false);
 
 	Array<int>   peakIndices, peakSearchingOrder, peakCandidates, finalHandful;

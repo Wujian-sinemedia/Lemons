@@ -44,13 +44,13 @@ private:
 	{
 		const auto numSamples = audioStorage.getNumSamples();
 
-		//    {
-		//        const auto subtest = beginSubtest ("Random noise");
-		//
-		//        fillAudioBufferWithRandomNoise (audioStorage, getRandom());
-		//
-		//        runBufferTest (nextRandomPeriod (samplerate, 60, numSamples));
-		//    }
+		{
+			const auto subtest = this->beginSubtest ("Random noise");
+
+			fillAudioBufferWithRandomNoise (audioStorage, this->getRandom());
+
+			runBufferTest (nextRandomPeriod (samplerate, 60, numSamples));
+		}
 
 		{
 			const auto subtest = this->beginSubtest ("Silence");
