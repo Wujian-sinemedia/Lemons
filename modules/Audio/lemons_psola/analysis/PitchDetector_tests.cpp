@@ -42,8 +42,11 @@ private:
 
 			storage.setSize (1, latency, true, true, true);
 
-			const auto testFreq = [&] (const float correctFreq)
+			const auto testFreq = [&] (const float correctFreq, bool reset)
 			{
+				if (reset)
+					detector.reset();
+
 				osc.setFrequency (static_cast<FloatType> (correctFreq),
 				                  static_cast<FloatType> (samplerate));
 
@@ -58,36 +61,49 @@ private:
 				                                 0.2f);
 			};
 
-			testFreq (440.f);
-			testFreq (minDetectableFreq);
-			testFreq (maxDetectableFreq);
+			testFreq (440.f, true);
+			testFreq (minDetectableFreq, true);
+			testFreq (maxDetectableFreq, true);
 
 			auto rand = this->getRandom();
 
 			for (int i = 0; i < this->getNumTestingRepetitions(); ++i)
-				testFreq (juce::jmap (rand.nextFloat(), minDetectableFreq, maxDetectableFreq));
+				testFreq (juce::jmap (rand.nextFloat(), minDetectableFreq, maxDetectableFreq), true);
+
+			detector.reset();
+
+			for (int i = 0; i < this->getNumTestingRepetitions(); ++i)
+			{
+				testFreq (440.f + i, false);
+				testFreq (440.f - i, false);
+			}
 		}
 	}
 
 	void runOtherTests() final
 	{
-//		{
-//			const auto subtest = this->beginSubtest ("Detect random noise as unpitched");
-//
-//			for (int r = 0; r < this->getNumTestingRepetitions(); ++r)
-//			{
-//				fillAudioBufferWithRandomNoise (storage, this->getRandom());
-//
-//				this->expectEquals (detector.detectPitch (storage), 0.f);
-//			}
-//		}
+		{
+			const auto subtest = this->beginSubtest ("Detect random noise as unpitched");
 
-//		const auto subtest = this->beginSubtest ("Detect silence as unpitched");
-//
-//		storage.clear();
-//
-//		for (int r = 0; r < this->getNumTestingRepetitions(); ++r)
-//			this->expectEquals (detector.detectPitch (storage), 0.f);
+			for (int r = 0; r < this->getNumTestingRepetitions(); ++r)
+			{
+				fillAudioBufferWithRandomNoise (storage, this->getRandom());
+
+				detector.reset();
+
+				this->expectEquals (detector.detectPitch (storage), 0.f);
+			}
+		}
+
+		const auto subtest = this->beginSubtest ("Detect silence as unpitched");
+
+		storage.clear();
+
+		for (int r = 0; r < this->getNumTestingRepetitions(); ++r)
+		{
+			detector.reset();
+			this->expectEquals (detector.detectPitch (storage), 0.f);
+		}
 	}
 
 	static constexpr auto minDetectableFreq = 30.f;

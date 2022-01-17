@@ -39,8 +39,8 @@ void Analyzer<SampleType>::deregisterShifter (Shifter<SampleType>& shifter)
 template <typename SampleType>
 int Analyzer<SampleType>::getLastInputPitch() const noexcept
 {
-    if (! (currentPeriod > 0.f && samplerate > 0.))
-        return 0;
+	if (! (currentPeriod > 0.f && samplerate > 0.))
+		return 0;
 
 	return juce::roundToInt (math::freqFromPeriod (samplerate, currentPeriod));
 }

@@ -53,6 +53,7 @@
 		"clean": [
 			"Builds",
 			"logs",
+			"Testing",
 			"CPM_modules",
 			"cpm-package-lock.cmake",
 			"util/doxygen/build",

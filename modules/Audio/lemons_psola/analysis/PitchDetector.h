@@ -39,6 +39,10 @@ public:
 	 */
 	explicit PitchDetector (int minFreqHz = 60, float confidenceThreshold = 0.15f);
 
+	/** @name Pitch detection
+	 */
+	///@{
+
 	/** Detects the pitch in Hz for a frame of audio.
 	    This can only be used for one channel at a time. If you need to track the pitch of multiple channels of audio, you need one PitchDetector object for each channel.
 	    The caller must ensure that there are at least enough samples in this frame of audio for analysis to be performed; ie, that inputAudio.getNumSamples() is greater than or equal to getLatencySamples().
@@ -64,6 +68,7 @@ public:
 	 */
 	[[nodiscard]] float detectPeriod (const SampleType* inputAudio, int numSamples);
 
+	///@}
 
 	/** Returns the latency in samples of the detection algorithm.
 	    The latency is equal to 2 * the period of the lowest detectable frequency. Therefore, pitch detectors with a higher minimum frequency will have a lower latency.
@@ -86,6 +91,15 @@ public:
 	/** Returns the minimum frequency in Hz that this pitch detector is configured to detect. */
 	[[nodiscard]] int getMinHz() const noexcept;
 
+	/** Sets the maximum detectable frequency for the pitch detector.
+	    This is only used to limit the number of period candidates examined, and does not affect the latency of the algorithm.
+	 */
+	void setMaxHz (int newMaxHz);
+
+	/** Returns the maximum frequency in Hz that this pitch detector is configured to detect.
+	 */
+	[[nodiscard]] int getMaxHz() const noexcept;
+
 	/** Sets the confidence threshold of the pitch detection algorithm.
 	    This value should be between 0 and 1, inclusive, and can be thought of as the amount of aperiodic power tolerable in a signal determined to be pitched.
 	    In other words, the lower this value is, the "stricter" the pitch detector is in choosing its pitch estimates.
@@ -94,12 +108,32 @@ public:
 	 */
 	void setConfidenceThresh (float newThresh) noexcept;
 
+	/** Resets the internal state of the pitch detector without releasing any resources.
+	    The pitch detector assumes that the input pitch will not halve or double between consecutive pitched frames of audio, so if your input audio is expected to make jumps that large in its pitch, you can call reset() before analyzing the next input frame of audio.
+	 */
+	void reset();
+
+	/** Releases all of the pitch detector's internal resources.
+	 */
+	void releaseResources();
+
+	/** Returns the current legal period range for the last analyzed frame of audio. Because the detector assumes that the input pitch should not halve or double between consecutive pitched frames, this can be used to introspect the range of valid periods that the detector has actually considered for the most recent frame.
+	    Note that you must call one of the pitch detection functions before calling this function.
+	 */
+	[[nodiscard]] juce::Range<int> getCurrentLegalPeriodRange() const;
+
 private:
-	[[nodiscard]] inline int absoluteThreshold (int halfNumSamples) const;
+	inline void updatePeriodBounds();
 
-	[[nodiscard]] inline float parabolicInterpolation (int periodEstimate, int halfNumSamples) const;
+	[[nodiscard]] inline int absoluteThreshold() const;
 
-	int minHz { 60 };
+	[[nodiscard]] inline float parabolicInterpolation (int periodEstimate) const;
+
+	int minHz { 60 }, maxHz { 8000 };
+
+	int minPeriod { 0 }, maxPeriod { 0 };
+
+	float periodLastFrame { 0.f };
 
 	double samplerate { 0.0 };
 
