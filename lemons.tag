@@ -17555,6 +17555,90 @@
       <arglist>(int minFreqHz=60, float confidenceThreshold=0.15f)</arglist>
     </member>
     <member kind="function">
+      <type>juce::Range&lt; int &gt;</type>
+      <name>getCurrentLegalPeriodRange</name>
+      <anchorfile>classlemons_1_1dsp_1_1psola_1_1_pitch_detector.html</anchorfile>
+      <anchor>a3e2ac302ec0ed147dd69c8ef51627c06</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>getLatencySamples</name>
+      <anchorfile>classlemons_1_1dsp_1_1psola_1_1_pitch_detector.html</anchorfile>
+      <anchor>ad63226891fbbcc36c41463b60ec2d25f</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>getMaxHz</name>
+      <anchorfile>classlemons_1_1dsp_1_1psola_1_1_pitch_detector.html</anchorfile>
+      <anchor>a8090732011d87c6bcc15149f307ee78c</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>getMinHz</name>
+      <anchorfile>classlemons_1_1dsp_1_1psola_1_1_pitch_detector.html</anchorfile>
+      <anchor>a32da61434cdaa898def22ae676a4501e</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>releaseResources</name>
+      <anchorfile>classlemons_1_1dsp_1_1psola_1_1_pitch_detector.html</anchorfile>
+      <anchor>afc006bad0c95deef6828decad8ffb05f</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>reset</name>
+      <anchorfile>classlemons_1_1dsp_1_1psola_1_1_pitch_detector.html</anchorfile>
+      <anchor>add89e0d2a385d9a5702df9b7d1503c6b</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setConfidenceThresh</name>
+      <anchorfile>classlemons_1_1dsp_1_1psola_1_1_pitch_detector.html</anchorfile>
+      <anchor>aaede0916de2d7792067df1334672a6cb</anchor>
+      <arglist>(float newThresh) noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setMaxHz</name>
+      <anchorfile>classlemons_1_1dsp_1_1psola_1_1_pitch_detector.html</anchorfile>
+      <anchor>aab7a4da475702a945b58d0e980234be1</anchor>
+      <arglist>(int newMaxHz)</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>setMinHz</name>
+      <anchorfile>classlemons_1_1dsp_1_1psola_1_1_pitch_detector.html</anchorfile>
+      <anchor>ae327864a86799fc51293b21b27ee9aa1</anchor>
+      <arglist>(int newMinHz)</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>setSamplerate</name>
+      <anchorfile>classlemons_1_1dsp_1_1psola_1_1_pitch_detector.html</anchorfile>
+      <anchor>a8a8115281d16e00b9b0f0732bfabd2c7</anchor>
+      <arglist>(double newSamplerate)</arglist>
+    </member>
+    <member kind="function">
+      <type>float</type>
+      <name>detectPitch</name>
+      <anchorfile>classlemons_1_1dsp_1_1psola_1_1_pitch_detector.html</anchorfile>
+      <anchor>a7942b5b3fe7bc268d62bab17bc3259f8</anchor>
+      <arglist>(const AudioBuffer&lt; SampleType &gt; &amp;inputAudio)</arglist>
+    </member>
+    <member kind="function">
+      <type>float</type>
+      <name>detectPitch</name>
+      <anchorfile>classlemons_1_1dsp_1_1psola_1_1_pitch_detector.html</anchorfile>
+      <anchor>a320898bbb2e794a79f6d6c404361cf26</anchor>
+      <arglist>(const SampleType *inputAudio, int numSamples)</arglist>
+    </member>
+    <member kind="function">
       <type>float</type>
       <name>detectPeriod</name>
       <anchorfile>classlemons_1_1dsp_1_1psola_1_1_pitch_detector.html</anchorfile>
@@ -17583,39 +17667,18 @@
       <arglist>(const SampleType *inputAudio, int numSamples)</arglist>
     </member>
     <member kind="function">
-      <type>int</type>
-      <name>getLatencySamples</name>
+      <type>float</type>
+      <name>detectPeriod</name>
       <anchorfile>classlemons_1_1dsp_1_1psola_1_1_pitch_detector.html</anchorfile>
-      <anchor>ad63226891fbbcc36c41463b60ec2d25f</anchor>
-      <arglist>() const noexcept</arglist>
+      <anchor>af3a2249a1ed86b9bb23e057ebb674d54</anchor>
+      <arglist>(const AudioBuffer&lt; SampleType &gt; &amp;inputAudio)</arglist>
     </member>
     <member kind="function">
-      <type>int</type>
-      <name>getMinHz</name>
+      <type>float</type>
+      <name>detectPeriod</name>
       <anchorfile>classlemons_1_1dsp_1_1psola_1_1_pitch_detector.html</anchorfile>
-      <anchor>a32da61434cdaa898def22ae676a4501e</anchor>
-      <arglist>() const noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setConfidenceThresh</name>
-      <anchorfile>classlemons_1_1dsp_1_1psola_1_1_pitch_detector.html</anchorfile>
-      <anchor>aaede0916de2d7792067df1334672a6cb</anchor>
-      <arglist>(float newThresh) noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>int</type>
-      <name>setMinHz</name>
-      <anchorfile>classlemons_1_1dsp_1_1psola_1_1_pitch_detector.html</anchorfile>
-      <anchor>ae327864a86799fc51293b21b27ee9aa1</anchor>
-      <arglist>(int newMinHz)</arglist>
-    </member>
-    <member kind="function">
-      <type>int</type>
-      <name>setSamplerate</name>
-      <anchorfile>classlemons_1_1dsp_1_1psola_1_1_pitch_detector.html</anchorfile>
-      <anchor>a8a8115281d16e00b9b0f0732bfabd2c7</anchor>
-      <arglist>(double newSamplerate)</arglist>
+      <anchor>acea2f068bc8c66428655733daaecf981</anchor>
+      <arglist>(const SampleType *inputAudio, int numSamples)</arglist>
     </member>
   </compound>
   <compound kind="struct">

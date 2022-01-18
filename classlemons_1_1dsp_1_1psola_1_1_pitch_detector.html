@@ -83,33 +83,49 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a914919025a1ef9b5fb967b48fb2609ec"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1psola_1_1_pitch_detector.html#a914919025a1ef9b5fb967b48fb2609ec">PitchDetector</a> (int minFreqHz=60, float confidenceThreshold=0.15f)</td></tr>
 <tr class="memdesc:a914919025a1ef9b5fb967b48fb2609ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a pitch detector with an initial minimum detectable frequency and confidence threshold.  <a href="classlemons_1_1dsp_1_1psola_1_1_pitch_detector.html#a914919025a1ef9b5fb967b48fb2609ec">More...</a><br /></td></tr>
 <tr class="separator:a914919025a1ef9b5fb967b48fb2609ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af3a2249a1ed86b9bb23e057ebb674d54"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1psola_1_1_pitch_detector.html#af3a2249a1ed86b9bb23e057ebb674d54">detectPeriod</a> (const <a class="el" href="namespacelemons_1_1dsp_1_1psola.html#a48a7db1db3b14d8c76aa494371dd0287">AudioBuffer</a>&lt; SampleType &gt; &amp;inputAudio)</td></tr>
-<tr class="memdesc:af3a2249a1ed86b9bb23e057ebb674d54"><td class="mdescLeft">&#160;</td><td class="mdescRight">Detects the period, in samples, for a frame of audio.  <a href="classlemons_1_1dsp_1_1psola_1_1_pitch_detector.html#af3a2249a1ed86b9bb23e057ebb674d54">More...</a><br /></td></tr>
-<tr class="separator:af3a2249a1ed86b9bb23e057ebb674d54"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acea2f068bc8c66428655733daaecf981"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1psola_1_1_pitch_detector.html#acea2f068bc8c66428655733daaecf981">detectPeriod</a> (const SampleType *inputAudio, int numSamples)</td></tr>
-<tr class="memdesc:acea2f068bc8c66428655733daaecf981"><td class="mdescLeft">&#160;</td><td class="mdescRight">Detects the period, in samples, for a frame of audio.  <a href="classlemons_1_1dsp_1_1psola_1_1_pitch_detector.html#acea2f068bc8c66428655733daaecf981">More...</a><br /></td></tr>
-<tr class="separator:acea2f068bc8c66428655733daaecf981"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7942b5b3fe7bc268d62bab17bc3259f8"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1psola_1_1_pitch_detector.html#a7942b5b3fe7bc268d62bab17bc3259f8">detectPitch</a> (const <a class="el" href="namespacelemons_1_1dsp_1_1psola.html#a48a7db1db3b14d8c76aa494371dd0287">AudioBuffer</a>&lt; SampleType &gt; &amp;inputAudio)</td></tr>
-<tr class="memdesc:a7942b5b3fe7bc268d62bab17bc3259f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Detects the pitch in Hz for a frame of audio.  <a href="classlemons_1_1dsp_1_1psola_1_1_pitch_detector.html#a7942b5b3fe7bc268d62bab17bc3259f8">More...</a><br /></td></tr>
-<tr class="separator:a7942b5b3fe7bc268d62bab17bc3259f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a320898bbb2e794a79f6d6c404361cf26"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1psola_1_1_pitch_detector.html#a320898bbb2e794a79f6d6c404361cf26">detectPitch</a> (const SampleType *inputAudio, int numSamples)</td></tr>
-<tr class="memdesc:a320898bbb2e794a79f6d6c404361cf26"><td class="mdescLeft">&#160;</td><td class="mdescRight">Detects the pitch in Hz for a frame of audio.  <a href="classlemons_1_1dsp_1_1psola_1_1_pitch_detector.html#a320898bbb2e794a79f6d6c404361cf26">More...</a><br /></td></tr>
-<tr class="separator:a320898bbb2e794a79f6d6c404361cf26"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3e2ac302ec0ed147dd69c8ef51627c06"><td class="memItemLeft" align="right" valign="top">juce::Range&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1psola_1_1_pitch_detector.html#a3e2ac302ec0ed147dd69c8ef51627c06">getCurrentLegalPeriodRange</a> () const</td></tr>
+<tr class="memdesc:a3e2ac302ec0ed147dd69c8ef51627c06"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the current legal period range for the last analyzed frame of audio.  <a href="classlemons_1_1dsp_1_1psola_1_1_pitch_detector.html#a3e2ac302ec0ed147dd69c8ef51627c06">More...</a><br /></td></tr>
+<tr class="separator:a3e2ac302ec0ed147dd69c8ef51627c06"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad63226891fbbcc36c41463b60ec2d25f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1psola_1_1_pitch_detector.html#ad63226891fbbcc36c41463b60ec2d25f">getLatencySamples</a> () const noexcept</td></tr>
 <tr class="memdesc:ad63226891fbbcc36c41463b60ec2d25f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the latency in samples of the detection algorithm.  <a href="classlemons_1_1dsp_1_1psola_1_1_pitch_detector.html#ad63226891fbbcc36c41463b60ec2d25f">More...</a><br /></td></tr>
 <tr class="separator:ad63226891fbbcc36c41463b60ec2d25f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8090732011d87c6bcc15149f307ee78c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1psola_1_1_pitch_detector.html#a8090732011d87c6bcc15149f307ee78c">getMaxHz</a> () const noexcept</td></tr>
+<tr class="memdesc:a8090732011d87c6bcc15149f307ee78c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the maximum frequency in Hz that this pitch detector is configured to detect.  <a href="classlemons_1_1dsp_1_1psola_1_1_pitch_detector.html#a8090732011d87c6bcc15149f307ee78c">More...</a><br /></td></tr>
+<tr class="separator:a8090732011d87c6bcc15149f307ee78c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a32da61434cdaa898def22ae676a4501e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1psola_1_1_pitch_detector.html#a32da61434cdaa898def22ae676a4501e">getMinHz</a> () const noexcept</td></tr>
 <tr class="memdesc:a32da61434cdaa898def22ae676a4501e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the minimum frequency in Hz that this pitch detector is configured to detect.  <a href="classlemons_1_1dsp_1_1psola_1_1_pitch_detector.html#a32da61434cdaa898def22ae676a4501e">More...</a><br /></td></tr>
 <tr class="separator:a32da61434cdaa898def22ae676a4501e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc006bad0c95deef6828decad8ffb05f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1psola_1_1_pitch_detector.html#afc006bad0c95deef6828decad8ffb05f">releaseResources</a> ()</td></tr>
+<tr class="memdesc:afc006bad0c95deef6828decad8ffb05f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Releases all of the pitch detector's internal resources.  <a href="classlemons_1_1dsp_1_1psola_1_1_pitch_detector.html#afc006bad0c95deef6828decad8ffb05f">More...</a><br /></td></tr>
+<tr class="separator:afc006bad0c95deef6828decad8ffb05f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:add89e0d2a385d9a5702df9b7d1503c6b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1psola_1_1_pitch_detector.html#add89e0d2a385d9a5702df9b7d1503c6b">reset</a> ()</td></tr>
+<tr class="memdesc:add89e0d2a385d9a5702df9b7d1503c6b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets the internal state of the pitch detector without releasing any resources.  <a href="classlemons_1_1dsp_1_1psola_1_1_pitch_detector.html#add89e0d2a385d9a5702df9b7d1503c6b">More...</a><br /></td></tr>
+<tr class="separator:add89e0d2a385d9a5702df9b7d1503c6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaede0916de2d7792067df1334672a6cb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1psola_1_1_pitch_detector.html#aaede0916de2d7792067df1334672a6cb">setConfidenceThresh</a> (float newThresh) noexcept</td></tr>
 <tr class="memdesc:aaede0916de2d7792067df1334672a6cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the confidence threshold of the pitch detection algorithm.  <a href="classlemons_1_1dsp_1_1psola_1_1_pitch_detector.html#aaede0916de2d7792067df1334672a6cb">More...</a><br /></td></tr>
 <tr class="separator:aaede0916de2d7792067df1334672a6cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab7a4da475702a945b58d0e980234be1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1psola_1_1_pitch_detector.html#aab7a4da475702a945b58d0e980234be1">setMaxHz</a> (int newMaxHz)</td></tr>
+<tr class="memdesc:aab7a4da475702a945b58d0e980234be1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the maximum detectable frequency for the pitch detector.  <a href="classlemons_1_1dsp_1_1psola_1_1_pitch_detector.html#aab7a4da475702a945b58d0e980234be1">More...</a><br /></td></tr>
+<tr class="separator:aab7a4da475702a945b58d0e980234be1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae327864a86799fc51293b21b27ee9aa1"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1psola_1_1_pitch_detector.html#ae327864a86799fc51293b21b27ee9aa1">setMinHz</a> (int newMinHz)</td></tr>
 <tr class="memdesc:ae327864a86799fc51293b21b27ee9aa1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the minimum detectable frequency for the pitch detector.  <a href="classlemons_1_1dsp_1_1psola_1_1_pitch_detector.html#ae327864a86799fc51293b21b27ee9aa1">More...</a><br /></td></tr>
 <tr class="separator:ae327864a86799fc51293b21b27ee9aa1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8a8115281d16e00b9b0f0732bfabd2c7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1psola_1_1_pitch_detector.html#a8a8115281d16e00b9b0f0732bfabd2c7">setSamplerate</a> (double newSamplerate)</td></tr>
 <tr class="memdesc:a8a8115281d16e00b9b0f0732bfabd2c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the samplerate in Hz of the pitch detector.  <a href="classlemons_1_1dsp_1_1psola_1_1_pitch_detector.html#a8a8115281d16e00b9b0f0732bfabd2c7">More...</a><br /></td></tr>
 <tr class="separator:a8a8115281d16e00b9b0f0732bfabd2c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader">Pitch detection</div></td></tr>
+<tr class="memitem:a7942b5b3fe7bc268d62bab17bc3259f8"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1psola_1_1_pitch_detector.html#a7942b5b3fe7bc268d62bab17bc3259f8">detectPitch</a> (const <a class="el" href="namespacelemons_1_1dsp_1_1psola.html#a48a7db1db3b14d8c76aa494371dd0287">AudioBuffer</a>&lt; SampleType &gt; &amp;inputAudio)</td></tr>
+<tr class="memdesc:a7942b5b3fe7bc268d62bab17bc3259f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Detects the pitch in Hz for a frame of audio.  <a href="classlemons_1_1dsp_1_1psola_1_1_pitch_detector.html#a7942b5b3fe7bc268d62bab17bc3259f8">More...</a><br /></td></tr>
+<tr class="separator:a7942b5b3fe7bc268d62bab17bc3259f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a320898bbb2e794a79f6d6c404361cf26"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1psola_1_1_pitch_detector.html#a320898bbb2e794a79f6d6c404361cf26">detectPitch</a> (const SampleType *inputAudio, int numSamples)</td></tr>
+<tr class="memdesc:a320898bbb2e794a79f6d6c404361cf26"><td class="mdescLeft">&#160;</td><td class="mdescRight">Detects the pitch in Hz for a frame of audio.  <a href="classlemons_1_1dsp_1_1psola_1_1_pitch_detector.html#a320898bbb2e794a79f6d6c404361cf26">More...</a><br /></td></tr>
+<tr class="separator:a320898bbb2e794a79f6d6c404361cf26"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af3a2249a1ed86b9bb23e057ebb674d54"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1psola_1_1_pitch_detector.html#af3a2249a1ed86b9bb23e057ebb674d54">detectPeriod</a> (const <a class="el" href="namespacelemons_1_1dsp_1_1psola.html#a48a7db1db3b14d8c76aa494371dd0287">AudioBuffer</a>&lt; SampleType &gt; &amp;inputAudio)</td></tr>
+<tr class="memdesc:af3a2249a1ed86b9bb23e057ebb674d54"><td class="mdescLeft">&#160;</td><td class="mdescRight">Detects the period, in samples, for a frame of audio.  <a href="classlemons_1_1dsp_1_1psola_1_1_pitch_detector.html#af3a2249a1ed86b9bb23e057ebb674d54">More...</a><br /></td></tr>
+<tr class="separator:af3a2249a1ed86b9bb23e057ebb674d54"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acea2f068bc8c66428655733daaecf981"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1psola_1_1_pitch_detector.html#acea2f068bc8c66428655733daaecf981">detectPeriod</a> (const SampleType *inputAudio, int numSamples)</td></tr>
+<tr class="memdesc:acea2f068bc8c66428655733daaecf981"><td class="mdescLeft">&#160;</td><td class="mdescRight">Detects the period, in samples, for a frame of audio.  <a href="classlemons_1_1dsp_1_1psola_1_1_pitch_detector.html#acea2f068bc8c66428655733daaecf981">More...</a><br /></td></tr>
+<tr class="separator:acea2f068bc8c66428655733daaecf981"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;typename SampleType&gt;<br />
@@ -276,6 +292,28 @@ template&lt;typename SampleType &gt; </div>
 
 </div>
 </div>
+<a id="a3e2ac302ec0ed147dd69c8ef51627c06" name="a3e2ac302ec0ed147dd69c8ef51627c06"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3e2ac302ec0ed147dd69c8ef51627c06">&#9670;&nbsp;</a></span>getCurrentLegalPeriodRange()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename SampleType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">juce::Range&lt; int &gt; <a class="el" href="classlemons_1_1dsp_1_1psola_1_1_pitch_detector.html">lemons::dsp::psola::PitchDetector</a>&lt; SampleType &gt;::getCurrentLegalPeriodRange </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the current legal period range for the last analyzed frame of audio. </p>
+<p >Because the detector assumes that the input pitch should not halve or double between consecutive pitched frames, this can be used to introspect the range of valid periods that the detector has actually considered for the most recent frame. Note that you must call one of the pitch detection functions before calling this function. </p>
+
+</div>
+</div>
 <a id="ad63226891fbbcc36c41463b60ec2d25f" name="ad63226891fbbcc36c41463b60ec2d25f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad63226891fbbcc36c41463b60ec2d25f">&#9670;&nbsp;</a></span>getLatencySamples()</h2>
 
@@ -303,6 +341,35 @@ template&lt;typename SampleType &gt; </div>
 
 <p>Returns the latency in samples of the detection algorithm. </p>
 <p >The latency is equal to 2 * the period of the lowest detectable frequency. Therefore, pitch detectors with a higher minimum frequency will have a lower latency. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="classlemons_1_1dsp_1_1psola_1_1_pitch_detector.html#ae327864a86799fc51293b21b27ee9aa1" title="Sets the minimum detectable frequency for the pitch detector.">setMinHz()</a> </dd></dl>
+
+</div>
+</div>
+<a id="a8090732011d87c6bcc15149f307ee78c" name="a8090732011d87c6bcc15149f307ee78c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8090732011d87c6bcc15149f307ee78c">&#9670;&nbsp;</a></span>getMaxHz()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename SampleType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="classlemons_1_1dsp_1_1psola_1_1_pitch_detector.html">lemons::dsp::psola::PitchDetector</a>&lt; SampleType &gt;::getMaxHz </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the maximum frequency in Hz that this pitch detector is configured to detect. </p>
 
 </div>
 </div>
@@ -335,6 +402,49 @@ template&lt;typename SampleType &gt; </div>
 
 </div>
 </div>
+<a id="afc006bad0c95deef6828decad8ffb05f" name="afc006bad0c95deef6828decad8ffb05f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afc006bad0c95deef6828decad8ffb05f">&#9670;&nbsp;</a></span>releaseResources()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename SampleType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classlemons_1_1dsp_1_1psola_1_1_pitch_detector.html">lemons::dsp::psola::PitchDetector</a>&lt; SampleType &gt;::releaseResources </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Releases all of the pitch detector's internal resources. </p>
+
+</div>
+</div>
+<a id="add89e0d2a385d9a5702df9b7d1503c6b" name="add89e0d2a385d9a5702df9b7d1503c6b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#add89e0d2a385d9a5702df9b7d1503c6b">&#9670;&nbsp;</a></span>reset()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename SampleType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classlemons_1_1dsp_1_1psola_1_1_pitch_detector.html">lemons::dsp::psola::PitchDetector</a>&lt; SampleType &gt;::reset </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Resets the internal state of the pitch detector without releasing any resources. </p>
+<p >The pitch detector assumes that the input pitch will not halve or double between consecutive pitched frames of audio, so if your input audio is expected to make jumps that large in its pitch, you can call <a class="el" href="classlemons_1_1dsp_1_1psola_1_1_pitch_detector.html#add89e0d2a385d9a5702df9b7d1503c6b" title="Resets the internal state of the pitch detector without releasing any resources.">reset()</a> before analyzing the next input frame of audio. </p>
+
+</div>
+</div>
 <a id="aaede0916de2d7792067df1334672a6cb" name="aaede0916de2d7792067df1334672a6cb"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aaede0916de2d7792067df1334672a6cb">&#9670;&nbsp;</a></span>setConfidenceThresh()</h2>
 
@@ -363,6 +473,29 @@ template&lt;typename SampleType &gt; </div>
 
 <p>Sets the confidence threshold of the pitch detection algorithm. </p>
 <p >This value should be between 0 and 1, inclusive, and can be thought of as the amount of aperiodic power tolerable in a signal determined to be pitched. In other words, the lower this value is, the "stricter" the pitch detector is in choosing its pitch estimates. When this value is 1, the pitch detector might output a "pitch" value for a frame of random noise; when this value is 0, the pitch detector might say that even a perfect, pure sine wave is "unpitched". Typical recommended values are between 0.1 and 0.2. </p>
+
+</div>
+</div>
+<a id="aab7a4da475702a945b58d0e980234be1" name="aab7a4da475702a945b58d0e980234be1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aab7a4da475702a945b58d0e980234be1">&#9670;&nbsp;</a></span>setMaxHz()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename SampleType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classlemons_1_1dsp_1_1psola_1_1_pitch_detector.html">lemons::dsp::psola::PitchDetector</a>&lt; SampleType &gt;::setMaxHz </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>newMaxHz</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets the maximum detectable frequency for the pitch detector. </p>
+<p >This is only used to limit the number of period candidates examined, and does not affect the latency of the algorithm. </p>
 
 </div>
 </div>
@@ -419,7 +552,7 @@ template&lt;typename SampleType &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jan 17 2022 00:48:30 for Lemons by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3
+Generated on Tue Jan 18 2022 00:50:02 for Lemons by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3
 </small></address>
 </body>
 </html>
