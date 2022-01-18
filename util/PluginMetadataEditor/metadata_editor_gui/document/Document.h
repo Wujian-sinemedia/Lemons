@@ -10,13 +10,13 @@ using juce::ValueTree;
 
 struct Document final
 {
-    [[nodiscard]] ValueTree toValueTree() const;
-    
-    [[nodiscard]] static Document fromValueTree (const ValueTree& tree);
-    
-    plugin::PluginMetadata metadata;
-    
-    String projectName;
+	[[nodiscard]] ValueTree toValueTree() const;
+
+	[[nodiscard]] static Document fromValueTree (const ValueTree& tree);
+
+	plugin::PluginMetadata metadata;
+
+	String projectName;
 };
 
 
@@ -31,7 +31,7 @@ template <FileType Type = FileType::JSON>
 template <FileType Type = FileType::JSON>
 bool saveDocument (const Document& layout, const File& file);
 
-}
+}  // namespace files
 
 
 namespace binary
@@ -43,6 +43,6 @@ using files::FileType;
 template <FileType Type = FileType::JSON>
 [[nodiscard]] Document getDocument (const String& filename);
 
-}
+}  // namespace binary
 
-}
+}  // namespace lemons::PluginMetadataEditor

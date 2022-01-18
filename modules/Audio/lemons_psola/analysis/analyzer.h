@@ -70,7 +70,7 @@ public:
 	/** Releases all resources used by the Analyzer object. This also calls releaseResources() on all Shifter objects using this Analyzer. */
 	void releaseResources();
 
-    /** Returns the last input pitch, in Hz, that the analyzer detected, or 0 if the last frame was unpitched or no audio has been analyzed yet. */
+	/** Returns the last input pitch, in Hz, that the analyzer detected, or 0 if the last frame was unpitched or no audio has been analyzed yet. */
 	[[nodiscard]] int getLastInputPitch() const noexcept;
 
 private:

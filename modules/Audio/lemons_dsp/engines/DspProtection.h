@@ -48,8 +48,8 @@ private:
 	void renderBlock (const AudioBuffer<SampleType>& input, AudioBuffer<SampleType>& output, MidiBuffer& midi, bool isBypassed) final;
 
 	void released() final;
-    
-    void prepared (int blocksize, double samplerate, int numChannels) final;
+
+	void prepared (int blocksize, double samplerate, int numChannels) final;
 
 	bool mute { false };
 

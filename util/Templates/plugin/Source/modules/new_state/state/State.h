@@ -6,7 +6,7 @@ namespace New
 {
 struct State : plugin::State
 {
-    State();
+	State();
 };
 
 }  // namespace New

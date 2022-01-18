@@ -61,9 +61,10 @@ private:
 template <class ProcessorType, LEMONS_MUST_INHERIT_FROM (ProcessorType, juce::AudioProcessor)>
 struct AudioProcessorTest : public AudioProcessorTestBase
 {
-    template<typename... Args>
+	template <typename... Args>
 	explicit AudioProcessorTest (const String& testName, Args&&... args)
-	    : AudioProcessorTestBase (processor, testName), processor(std::forward<Args>(args)...)
+	    : AudioProcessorTestBase (processor, testName)
+	    , processor (std::forward<Args> (args)...)
 	{
 	}
 

@@ -26,8 +26,8 @@ private:
 		beginTest ("Square tests");
 		runOscillatorTests (square);
 
-//        beginTest ("Triangle tests");
-//        runOscillatorTests (triangle);
+		//        beginTest ("Triangle tests");
+		//        runOscillatorTests (triangle);
 	}
 
 	void runOscillatorTests (dsp::osc::Oscillator<SampleType>& osc)

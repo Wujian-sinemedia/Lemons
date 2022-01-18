@@ -53,10 +53,10 @@ struct ProcessorHolder
 	template <typename SampleType>
 	bool prepareForPlayback (double samplerate, int blocksize, int numChannels = 2);
 
-    
-    /** @name processor_holder_access_params Accessing parameters */
-    ///@{
-    
+
+	/** @name processor_holder_access_params Accessing parameters */
+	///@{
+
 	/** Finds a parameter with a specified name. */
 	[[nodiscard]] juce::AudioProcessorParameter* getNamedParameter (const String& name);
 
@@ -86,9 +86,9 @@ struct ProcessorHolder
 
 		return nullptr;
 	}
-    
-    ///@}
-    
+
+	///@}
+
 
 	/** A simple representation of a parameter's state. */
 	struct ParameterStateData
@@ -133,7 +133,7 @@ struct TypedProcessorHolder final : public ProcessorHolder
 template <typename ProcessorType, typename... Args>
 [[nodiscard]] std::unique_ptr<ProcessorHolder> createHolderForProcessor (Args&&... args)
 {
-    return std::make_unique<TypedProcessorHolder<ProcessorType>> (std::forward<Args>(args)...);
+	return std::make_unique<TypedProcessorHolder<ProcessorType>> (std::forward<Args> (args)...);
 }
 
 }  // namespace lemons::plugin

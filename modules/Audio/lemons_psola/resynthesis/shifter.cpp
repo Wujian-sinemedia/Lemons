@@ -40,8 +40,8 @@ void Shifter<SampleType>::setPitchHz (int pitchHz) noexcept
 	targetPeriod  = math::periodInSamples (analyzer.samplerate, static_cast<decltype (targetPeriod)> (pitchHz));
 	targetPitchHz = pitchHz;
 
-    if (const auto intTargetPeriod = juce::roundToInt (targetPeriod);
-        samplesToNextGrain > intTargetPeriod)
+	if (const auto intTargetPeriod = juce::roundToInt (targetPeriod);
+	    samplesToNextGrain > intTargetPeriod)
 	{
 		// ???
 		samplesToNextGrain = intTargetPeriod;
@@ -96,8 +96,8 @@ typename Shifter<SampleType>::Grain& Shifter<SampleType>::getGrainToStart()
 	for (auto* grain : grains)
 		if (! grain->isActive())
 			return *grain;
-    
-    jassertfalse;
+
+	jassertfalse;
 
 	return *grains.add (new Grain);
 }

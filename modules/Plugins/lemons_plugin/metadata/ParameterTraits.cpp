@@ -99,40 +99,40 @@ ValueTree ParameterTraits::toValueTree() const
 
 ParameterTraits ParameterTraits::fromValueTree (const ValueTree& tree)
 {
-    ParameterTraits traits;
-    
+	ParameterTraits traits;
+
 	if (! tree.hasType (valueTreeType))
-        return traits;
+		return traits;
 
 	using namespace ParameterTraitsVTProperties;
 
 	if (tree.hasProperty (typeProp))
-        traits.valueType = static_cast<ValueType> ((int) tree.getProperty (typeProp));
+		traits.valueType = static_cast<ValueType> ((int) tree.getProperty (typeProp));
 
 	if (tree.hasProperty (nameProp))
-        traits.name = tree.getProperty (nameProp).toString();
+		traits.name = tree.getProperty (nameProp).toString();
 
 	if (tree.hasProperty (labelProp))
-        traits.label = tree.getProperty (labelProp).toString();
+		traits.label = tree.getProperty (labelProp).toString();
 
 	if (tree.hasProperty (defaultProp))
-        traits.defaultValue = (float) tree.getProperty (defaultProp);
+		traits.defaultValue = (float) tree.getProperty (defaultProp);
 
 	if (tree.hasProperty (automatableProp))
-        traits.isAutomatable = (bool) tree.getProperty (automatableProp);
+		traits.isAutomatable = (bool) tree.getProperty (automatableProp);
 
 	if (tree.hasProperty (metaProp))
-        traits.isMetaParameter = (bool) tree.getProperty (metaProp);
+		traits.isMetaParameter = (bool) tree.getProperty (metaProp);
 
 	if (tree.hasProperty (categoryProp))
-        traits.category = static_cast<ParameterCategory> ((int) tree.getProperty (categoryProp));
+		traits.category = static_cast<ParameterCategory> ((int) tree.getProperty (categoryProp));
 
 	const auto rangeTree = tree.getChildWithName (ranges::valueTreeType);
 
 	if (rangeTree.isValid())
-        traits.range = ranges::fromValueTree<float> (rangeTree);
-    
-    return traits;
+		traits.range = ranges::fromValueTree<float> (rangeTree);
+
+	return traits;
 }
 
 

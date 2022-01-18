@@ -41,10 +41,10 @@ public:
 	void addTo (juce::AudioProcessor& processor) const;
 
 	Parameter& add (std::unique_ptr<Parameter> parameter);
-    
-    
-    /** @name parameter_list_access_params Accessing parameters */
-    ///@{
+
+
+	/** @name parameter_list_access_params Accessing parameters */
+	///@{
 
 	[[nodiscard]] ToggleParameter& getBypass() const;
 
@@ -73,37 +73,37 @@ public:
 	[[nodiscard]] juce::Array<MetaParameterBase*> getMetaParameters() const;
 
 	[[nodiscard]] juce::Array<Parameter*> getMeterParameters() const;
-    
-    [[nodiscard]] juce::Array<Parameter*> getAllParameters() const;
-    
-    ///@}
-    
-    
-    /** @name parameter_list_midi_cc MIDI controller messages */
-    ///@{
+
+	[[nodiscard]] juce::Array<Parameter*> getAllParameters() const;
+
+	///@}
+
+
+	/** @name parameter_list_midi_cc MIDI controller messages */
+	///@{
 
 	void processControllerMessage (int number, int value);
 
 	void resetAllControllerMappedParams();
 
 	[[nodiscard]] bool isControllerMapped (int number) const;
-    
-    ///@}
-    
-    
-    /** @name parameter_list_save_load Saving and loading state */
-    ///@{
+
+	///@}
+
+
+	/** @name parameter_list_save_load Saving and loading state */
+	///@{
 
 	[[nodiscard]] ValueTree saveToValueTree() const;
 
 	void loadFromValueTree (const ValueTree& tree);
-    
-    [[nodiscard]] ParameterLayout getParameterLayout() const;
+
+	[[nodiscard]] ParameterLayout getParameterLayout() const;
 
 	static constexpr auto valueTreeType = "Parameters";
 
-    ///@}
-    
+	///@}
+
 
 	struct Listener final
 	{

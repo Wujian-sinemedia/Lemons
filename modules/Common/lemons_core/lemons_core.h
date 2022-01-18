@@ -64,9 +64,9 @@
  */
 #ifndef LEMONS_HAS_BINARY_DATA
 #  if __has_include("BinaryData/BinaryData.h")
-#    define LEMONS_HAS_BINARY_DATA 1
-#  else 
-#    define LEMONS_HAS_BINARY_DATA 0
+#	define LEMONS_HAS_BINARY_DATA 1
+#  else
+#	define LEMONS_HAS_BINARY_DATA 0
 #  endif
 #endif
 

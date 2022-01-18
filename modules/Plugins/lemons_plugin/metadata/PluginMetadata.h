@@ -17,16 +17,16 @@ struct PluginMetadata final
 	[[nodiscard]] ValueTree toValueTree() const;
 
 	[[nodiscard]] static PluginMetadata fromValueTree (const ValueTree& tree);
-    
-    [[nodiscard]] std::unique_ptr<ProcessorBase> createProcessor() const;
+
+	[[nodiscard]] std::unique_ptr<ProcessorBase> createProcessor() const;
 
 	ProcessorAttributes processorAttributes;
 	ParameterLayout     parameterLayout;
 	EditorAttributes    editorAttributes;
 
 	Version version { Version::projectVersion() };
-    
-    static constexpr auto valueTreeType = "PluginMetadata";
+
+	static constexpr auto valueTreeType = "PluginMetadata";
 };
 
 }  // namespace lemons::plugin
@@ -56,4 +56,4 @@ namespace lemons::binary
 template <files::FileType Type = files::FileType::JSON>
 [[nodiscard]] plugin::PluginMetadata getPluginMetadata (const String& filename);
 
-}
+}  // namespace lemons::binary

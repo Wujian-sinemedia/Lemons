@@ -4,9 +4,9 @@ namespace New
 {
 using namespace lemons;
 
-//struct Parameters : plugin::ParameterList
+// struct Parameters : plugin::ParameterList
 //{
-//    Parameters();
-//};
+//     Parameters();
+// };
 
 }  // namespace New

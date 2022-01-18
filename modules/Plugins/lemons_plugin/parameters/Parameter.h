@@ -95,8 +95,8 @@ public:
 
 
 	//==============================================================================
-    /** @name parameter_saving_and_loading Functions for state saving and loading */
-    ///@{
+	/** @name parameter_saving_and_loading Functions for state saving and loading */
+	///@{
 
 	/** Saves the state of this parameter to a ValueTree. */
 	[[nodiscard]] virtual ValueTree saveToValueTree() const;
@@ -109,11 +109,11 @@ public:
 	 */
 	[[nodiscard]] virtual ParameterTraits getParameterTraits() const;
 
-    ///@}
+	///@}
 
 	//==============================================================================
-    /** @name parameter_gesture_state Functions for gesture state */
-    ///@{
+	/** @name parameter_gesture_state Functions for gesture state */
+	///@{
 
 	/** Begins a change gesture for this parameter. */
 	void beginGesture();
@@ -124,11 +124,11 @@ public:
 	/** Returns true if this parameter is currently in the middle of a change gesture. */
 	[[nodiscard]] bool isChanging() const noexcept { return changing.load(); }
 
-    ///@}
+	///@}
 
 	//==============================================================================
-    /** @name parameter_midi_cc_mapping Functions for MIDI controller mapping */
-    ///@{
+	/** @name parameter_midi_cc_mapping Functions for MIDI controller mapping */
+	///@{
 
 	/** Returns the number of the MIDI controller mapped to this parameter, or -1 if this parameter is unmapped. */
 	[[nodiscard]] int getMidiControllerNumber() const noexcept { return midiControllerNumber.load(); }
@@ -147,11 +147,11 @@ public:
 	 */
 	bool processNewControllerMessage (int controllerNumber, int controllerValue);
 
-    ///@}
+	///@}
 
 	//==============================================================================
-    /** @name parameter_default_value Functions related to the default value */
-    ///@{
+	/** @name parameter_default_value Functions related to the default value */
+	///@{
 
 	/** Sets the parameter's current value as the default value. */
 	void refreshDefault() { setNormalizedDefault (getNormalizedDefault()); }
@@ -179,11 +179,11 @@ public:
 	 */
 	void setDenormalizedDefault (float value) { setNormalizedDefault (normalize (value)); }
 
-    ///@}
+	///@}
 
 	//==============================================================================
 	/** @name parameter_to_and_from_text Functions for converting to/from text */
-    ///@{
+	///@{
 
 	/** Returns a textual description of a normalized value in the range 0-1.
 	    @see getTextForDenormalizedValue()
@@ -208,7 +208,7 @@ public:
 	 */
 	[[nodiscard]] String getTextForMin() const { return getTextForDenormalizedValue (range.start); }
 
-    ///@}
+	///@}
 
 	/*---------------------------------------------------------------------------------------------------------------------------*/
 

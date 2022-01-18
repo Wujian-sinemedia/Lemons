@@ -157,12 +157,12 @@ juce::Array<Parameter*> ParameterList::getMeterParameters() const
 
 juce::Array<Parameter*> ParameterList::getAllParameters() const
 {
-    juce::Array<Parameter*> params;
-    
-    for (const auto* param : parameters)
-        params.add (&param->getParameter());
-    
-    return params;
+	juce::Array<Parameter*> params;
+
+	for (const auto* param : parameters)
+		params.add (&param->getParameter());
+
+	return params;
 }
 
 ValueTree ParameterList::saveToValueTree() const

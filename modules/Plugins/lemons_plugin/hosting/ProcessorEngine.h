@@ -28,7 +28,6 @@ using AudioBuffer = juce::AudioBuffer<T>;
 using juce::MidiBuffer;
 
 
-
 /** @ingroup plugin_hosting
     A kind of dsp::Engine that holds a ProcessorHolder.
     @see ProcessorHolder, dsp::Engine
@@ -80,7 +79,7 @@ struct TypedProcessorEngine final : public ProcessorEngine<SampleType>
 template <typename SampleType, typename ProcessorType, typename... Args>
 [[nodiscard]] std::unique_ptr<ProcessorEngine<SampleType>> createEngineForProcessor (Args&&... args)
 {
-    return std::make_unique<TypedProcessorEngine<SampleType, ProcessorType>> (std::forward<Args>(args)...);
+	return std::make_unique<TypedProcessorEngine<SampleType, ProcessorType>> (std::forward<Args> (args)...);
 }
 
 }  // namespace lemons::plugin

@@ -51,18 +51,18 @@ float PitchDetector<SampleType>::detectPeriod (const AudioBuffer<SampleType>& in
 template <typename SampleType>
 float PitchDetector<SampleType>::detectPeriod (const SampleType* inputAudio, int numSamples)
 {
-	jassert (samplerate > 0.);                     // pitch detector hasn't been prepared before calling this function!
-	jassert (numSamples >= getLatencySamples());   // not enough samples in this frame to do analysis
+	jassert (samplerate > 0.);                    // pitch detector hasn't been prepared before calling this function!
+	jassert (numSamples >= getLatencySamples());  // not enough samples in this frame to do analysis
 
 	updatePeriodBounds();
-    
+
 	auto* const yinData = yinBuffer.getWritePointer (0);
 
 	juce::FloatVectorOperations::fill (yinData, SampleType (1), yinBuffer.getNumSamples());
 
 	const auto halfNumSamples = juce::roundToInt (std::floor (numSamples * 0.5f));
-    
-    jassert (maxPeriod <= halfNumSamples);
+
+	jassert (maxPeriod <= halfNumSamples);
 	jassert (yinBuffer.getNumSamples() >= halfNumSamples);
 
 	{
@@ -80,11 +80,11 @@ float PitchDetector<SampleType>::detectPeriod (const SampleType* inputAudio, int
 			}
 
 			// cumulative mean normalized difference
-            
+
 			runningSum += yinData[yinIdx];
-            
+
 			jassert (runningSum > SampleType (0));
-            
+
 			yinData[yinIdx] *= (static_cast<SampleType> (tau) / runningSum);
 		}
 	}

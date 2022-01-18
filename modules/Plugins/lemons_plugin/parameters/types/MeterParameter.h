@@ -75,5 +75,4 @@ struct GainMeterParameter final : public MeterParameter<float>
 };
 
 
-
 }  // namespace lemons::plugin

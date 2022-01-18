@@ -47,7 +47,7 @@ class Editor final : public juce::AudioProcessorEditor
 {
 public:
 	/** Creates a plugin editor. */
-    template<typename StateType, LEMONS_MUST_INHERIT_FROM(StateType, State)>
+	template <typename StateType, LEMONS_MUST_INHERIT_FROM (StateType, State)>
 	explicit Editor (ProcessorBase& p, StateType& state, bool resizable = true, bool useDraggableCorner = true, int msBeforeTooltip = 700, const Dimensions& defaultInitialSize = Dimensions::getDefault())
 	    : AudioProcessorEditor (p)
 	    , content (state)
@@ -87,7 +87,7 @@ public:
 		setSize (width, height);
 	}
 
-    template<typename StateType, LEMONS_MUST_INHERIT_FROM(StateType, State)>
+	template <typename StateType, LEMONS_MUST_INHERIT_FROM (StateType, State)>
 	explicit Editor (ProcessorBase& p, StateType& state, const EditorAttributes& attributes)
 	    : Editor (p, state, attributes.isResizable, attributes.useResizableCorner, attributes.msBeforeTooltip, attributes.initialSize)
 	{

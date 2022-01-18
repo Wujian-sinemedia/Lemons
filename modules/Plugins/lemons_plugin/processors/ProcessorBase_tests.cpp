@@ -1,5 +1,5 @@
 #if ! LEMONS_UNIT_TESTS
-#error
+#  error
 #endif
 
 
@@ -12,19 +12,19 @@ static AudioProcessorTest<plugin::BasicProcessor> basicProcessorTest { "BasicPro
 class ProcessorBaseTest final : public AudioProcessorTestBase
 {
 public:
-    explicit ProcessorBaseTest()
-    : AudioProcessorTestBase (processor, "ProcessorBase")
-    {
-    }
-    
+	explicit ProcessorBaseTest()
+	    : AudioProcessorTestBase (processor, "ProcessorBase")
+	{
+	}
+
 private:
-    
-    plugin::State state;
-    
-    dsp::PassThroughEngine<float>  floatEngine;
-    dsp::PassThroughEngine<double> doubleEngine;
-    
-    plugin::ProcessorBase processor { floatEngine, doubleEngine, state };
+
+	plugin::State state;
+
+	dsp::PassThroughEngine<float>  floatEngine;
+	dsp::PassThroughEngine<double> doubleEngine;
+
+	plugin::ProcessorBase processor { floatEngine, doubleEngine, state };
 };
 
 static ProcessorBaseTest processorBaseTest;

@@ -357,4 +357,3 @@ template class ProcessorBase::InternalProcessor<float>;
 template class ProcessorBase::InternalProcessor<double>;
 
 }  // namespace lemons::plugin
-

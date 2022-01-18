@@ -20,9 +20,9 @@ int main (int argc, char** argv)
 
 	if (args.containsOption ("--list|-l"))
 	{
-        for (const auto& name : juce::Font::findAllTypefaceNames())
-            std::cout << name << std::endl;
-        
+		for (const auto& name : juce::Font::findAllTypefaceNames())
+			std::cout << name << std::endl;
+
 		return EXIT_SUCCESS;
 	}
 
@@ -46,10 +46,10 @@ int main (int argc, char** argv)
 		                    args.getArgumentAsType<float> ("--size|-s"),
 		                    style };
 
-    const auto res = lemons::files::saveFont (font,
-                                              args.getFilepathForOption ("--file|-f"),
-                                              args.getArgumentAsType<int> ("--chars|-c"),
-                                              args.getArgumentAsType<juce::juce_wchar> ("--default|-d"));
+	const auto res = lemons::files::saveFont (font,
+	                                          args.getFilepathForOption ("--file|-f"),
+	                                          args.getArgumentAsType<int> ("--chars|-c"),
+	                                          args.getArgumentAsType<juce::juce_wchar> ("--default|-d"));
 
 	if (res)
 		return EXIT_SUCCESS;

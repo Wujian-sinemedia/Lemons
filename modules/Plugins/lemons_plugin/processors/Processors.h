@@ -98,7 +98,7 @@ using StatelessProcessor = Processor<EngineType, State>;
 template <template <typename SampleType> class EngineType, typename... Args>
 [[nodiscard]] std::unique_ptr<ProcessorBase> createProcessorForEngine (Args&&... args)
 {
-    return std::make_unique<StatelessProcessor<EngineType>> (std::forward<Args>(args)...);
+	return std::make_unique<StatelessProcessor<EngineType>> (std::forward<Args> (args)...);
 }
 
 
@@ -187,5 +187,4 @@ struct ProcessorWithGenericEditor final : ProcessorType
     A macro that creates a definition of createPluginFilter() based on a DSP engine type -- this will return a plugin that wraps the desired engine type.
  */
 #define LEMONS_CREATE_PLUGIN_FROM_ENGINE(EngineType) \
-    LEMONS_DEFINE_PLUGIN_CREATOR (StatelessProcessor<EngineType>)
-
+  LEMONS_DEFINE_PLUGIN_CREATOR (StatelessProcessor<EngineType>)

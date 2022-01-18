@@ -38,8 +38,8 @@ struct ProcessorAttributes final
 	static constexpr auto valueTreeType = "ProcessorAttributes";
 
 	bool acceptsMidi { true }, producesMidi { true }, supportsMPE { false }, isMidiEffect { false };
-    
-    bool hasEditor { true };
+
+	bool hasEditor { true };
 
 	String name;
 
@@ -48,8 +48,8 @@ struct ProcessorAttributes final
 	static constexpr auto defaultBusesLayoutProp = "BusesProperties";
 
 	ValueTree defaultBusesLayout { defaultBusesLayoutProp };
-    
-    String engineType;
+
+	String engineType;
 };
 
 }  // namespace lemons::plugin
@@ -77,4 +77,4 @@ namespace lemons::binary
 template <files::FileType Type = files::FileType::JSON>
 [[nodiscard]] plugin::ProcessorAttributes getProcessorAttributes (const String& filename);
 
-}
+}  // namespace lemons::binary

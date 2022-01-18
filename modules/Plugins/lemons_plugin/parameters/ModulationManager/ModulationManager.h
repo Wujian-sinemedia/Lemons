@@ -15,10 +15,10 @@ public:
 	explicit ModulationManager (const ParameterList& parameterList,
 	                            int                  initialNumLFOs = 0,
 	                            LfoNamingFunc&&      namingFunc     = nullptr);
-    
-    
-    /** @name mod_manager_access_lfos Accessing LFOs */
-    ///@{
+
+
+	/** @name mod_manager_access_lfos Accessing LFOs */
+	///@{
 
 	/** Returns the LFO at the given index in the modulation manager's vector of LFOs.
 	    The returned pointer may be null if an LFO does not exist at the requested index. \n \n
@@ -40,19 +40,19 @@ public:
 	    The returned pointer may be null if no LFOs have the requested connection.
 	 */
 	[[nodiscard]] LFO* getLFOwithConnection (Parameter& param);
-    
-    ///@}
-    
-    
-    /** @name mod_manager_add_lfos Adding LFOs */
-    ///@{
+
+	///@}
+
+
+	/** @name mod_manager_add_lfos Adding LFOs */
+	///@{
 
 	LFO& addLFO();
 
 	LFO& addLFO (std::unique_ptr<LFO> lfo);
-    
-    ///@}
-    
+
+	///@}
+
 
 	void prepareToPlay (int numSamples, double samplerate);
 

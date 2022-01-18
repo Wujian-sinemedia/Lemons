@@ -24,4 +24,4 @@ private:
 
 static RangeTests rangeTest;
 
-}
+}  // namespace lemons::tests

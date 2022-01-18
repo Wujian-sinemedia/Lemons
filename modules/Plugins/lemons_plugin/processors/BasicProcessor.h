@@ -48,14 +48,14 @@ public:
 
 	/** Returns a BusesLayout with stereo in and out buses that are enabled by default. */
 	[[nodiscard]] static BusesProperties getDefaultBusesLayout();
-    
-    [[nodiscard]] juce::AudioProcessorParameter* getParameter (const String& parameterName) const;
+
+	[[nodiscard]] juce::AudioProcessorParameter* getParameter (const String& parameterName) const;
 
 protected:
-    
-    /** @name basic_processor_editor_funcs Interacting with the editor */
-    ///@{
-    
+
+	/** @name basic_processor_editor_funcs Interacting with the editor */
+	///@{
+
 	/** Asynchronously calls a method of the current editor, if there is one, on the message thread.
 	    Internally, this uses the Juce MessageManager's callAsync method. Calling this on the audio thread should be avoided at all costs. I would personally only use this method in setStateInformation().
 	 */
@@ -64,18 +64,18 @@ protected:
 	/** Repaints the editor, if one exists. This is a utility function that uses callEditorMethod() under the hood. Calling this on the audio thread should be avoided at all costs.
 	 */
 	void repaintEditor() const;
-    
-    ///@}
-    
-    
-    /** @name buses_properties_serializing Serializing BusesProperties */
-    ///@{
+
+	///@}
+
+
+	/** @name buses_properties_serializing Serializing BusesProperties */
+	///@{
 
 	[[nodiscard]] static BusesProperties busesPropertiesFromValueTree (const ValueTree& tree);
 
 	[[nodiscard]] static ValueTree busesPropertiesToValueTree (const BusesProperties& properties);
-    
-    ///@}
+
+	///@}
 
 private:
 	void prepareToPlay (double /* samplerate */, int /* blocksize */) override { }

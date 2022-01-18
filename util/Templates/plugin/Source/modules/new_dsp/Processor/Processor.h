@@ -4,10 +4,10 @@
 
 namespace New
 {
-class Processor : public plugin::Processor< Engine, State >
+class Processor : public plugin::Processor<Engine, State>
 {
 public:
-    Processor();
+	Processor();
 };
 
 }  // namespace New

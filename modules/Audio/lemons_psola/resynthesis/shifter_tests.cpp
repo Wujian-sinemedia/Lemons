@@ -41,9 +41,9 @@ private:
 				shifter.setPitchHz (juce::roundToInt (targetPitch));
 
 				shifter.getSamples (shiftedAudio);
-                
-                this->expect (! bufferIsSilent (shiftedAudio));
-                this->expect (! buffersAreEqual (origAudio, shiftedAudio));
+
+				this->expect (! bufferIsSilent (shiftedAudio));
+				this->expect (! buffersAreEqual (origAudio, shiftedAudio));
 			};
 
 			{
@@ -80,7 +80,7 @@ private:
 		}
 	}
 
-    
+
 	dsp::psola::Analyzer<SampleType> analyzer;
 	dsp::psola::Shifter<SampleType>  shifter { analyzer };
 

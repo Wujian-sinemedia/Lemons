@@ -3,7 +3,7 @@
 
 namespace New
 {
-using App = lemons::GuiApp< GUI >;
+using App = lemons::GuiApp<GUI>;
 }
 
 START_JUCE_APPLICATION (New::App)
