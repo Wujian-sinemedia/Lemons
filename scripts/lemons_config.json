@@ -6,7 +6,7 @@
 	"Dependencies": [
 		{
 			"name": "Default",
-			"packages": [ "ccache", "git", "python3" ],
+			"packages": [ "ccache", "git", "python3", "cppcheck" ],
 			"LinuxPackages": [
 				"libasound2-dev",
 				"libjack-jackd2-dev",

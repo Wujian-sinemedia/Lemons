@@ -58,6 +58,13 @@ run_tests: tests
 
 #
 
+.PHONY: cppcheck # Runs cppcheck
+cppcheck: | logs
+	@echo " * make $@... * "
+	cmake -P $(LEMONS_ROOT)/scripts/run_cppcheck.cmake
+
+#
+
 .PHONY: templates # Builds the project templates
 templates: | logs
 	@echo " * make $@... * "
@@ -100,5 +107,5 @@ install_cmake_modules: cmake_modules
 #
 
 .PHONY: all # Builds and runs all CI
-all: run_tests templates editor docs utils
+all: run_tests cppcheck templates editor docs utils
 

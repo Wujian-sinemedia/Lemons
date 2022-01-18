@@ -65,7 +65,7 @@ public:
 	explicit Processor (const PluginMetadata& metadata)
 	    : ProcessorBase (floatEngine, doubleEngine, pluginState, metadata.processorAttributes)
 	    , pluginState (metadata.parameterLayout)
-	    , editorAttributes (editorAttributes)
+	    , editorAttributes (metadata.editorAttributes)
 	{
 	}
 
