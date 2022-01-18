@@ -32,7 +32,7 @@ void MidiShifter<SampleType>::setPitchFromMidiPitch()
 template <typename SampleType>
 void MidiShifter<SampleType>::pitchHzChanged (int newPitchHz)
 {
-	midiPitch = static_cast<float> (math::freqToMidi (newPitchHz));
+	midiPitch = math::freqToMidi (static_cast<float> (newPitchHz));
 }
 
 template class MidiShifter<float>;

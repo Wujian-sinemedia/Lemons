@@ -42,7 +42,7 @@ void IntervalShifter<SampleType>::pitchHzChanged (int newPitchHz)
 		return;
 
 	const auto inputMidi = math::freqToMidi (inputPitch);
-	const auto thisMidi  = math::freqToMidi (this->getPitchHz());
+	const auto thisMidi  = math::freqToMidi (newPitchHz);
 
 	intervalSt = thisMidi - inputMidi;
 }

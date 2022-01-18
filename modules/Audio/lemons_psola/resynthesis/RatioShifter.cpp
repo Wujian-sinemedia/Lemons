@@ -39,7 +39,7 @@ void RatioShifter<SampleType>::pitchHzChanged (int newPitchHz)
 	if (inputPitch == 0)
 		return;
 
-	shiftingRatio = this->getPitchHz() / inputPitch;
+	shiftingRatio = newPitchHz / inputPitch;
 }
 
 template class RatioShifter<float>;

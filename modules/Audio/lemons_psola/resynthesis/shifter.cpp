@@ -40,10 +40,11 @@ void Shifter<SampleType>::setPitchHz (int pitchHz) noexcept
 	targetPeriod  = math::periodInSamples (analyzer.samplerate, static_cast<decltype (targetPeriod)> (pitchHz));
 	targetPitchHz = pitchHz;
 
-	if (samplesToNextGrain > juce::roundToInt (targetPeriod))
+    if (const auto intTargetPeriod = juce::roundToInt (targetPeriod);
+        samplesToNextGrain > intTargetPeriod)
 	{
 		// ???
-		samplesToNextGrain = 0;
+		samplesToNextGrain = intTargetPeriod;
 	}
 
 	pitchHzChanged (pitchHz);
