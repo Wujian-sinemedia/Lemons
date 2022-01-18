@@ -43,7 +43,7 @@ template double blep (double, double) noexcept;
 
 template <typename SampleType>
 Sine<SampleType>::Sine()
-    : Oscillator<SampleType> ([&]
+    : Oscillator<SampleType> ([this]
                               { return std::sin (phase.next (juce::MathConstants<SampleType>::twoPi)); })
 {
 	phase.resetPhase();
@@ -75,7 +75,7 @@ template struct Sine<double>;
 
 template <typename SampleType>
 Saw<SampleType>::Saw()
-    : Oscillator<SampleType> ([&]
+    : Oscillator<SampleType> ([this]
                               {
     const auto p = phase.next (1);
     return SampleType (2) * p - SampleType (1) - blep (p, phase.getIncrement()); })
@@ -109,7 +109,7 @@ template struct Saw<double>;
 
 template <typename SampleType>
 Square<SampleType>::Square()
-    : Oscillator<SampleType> ([&]
+    : Oscillator<SampleType> ([this]
                               {
     const auto inc = phase.getIncrement();
     const auto p   = phase.next (1);
@@ -147,7 +147,7 @@ template struct Square<double>;
 
 template <typename SampleType>
 Triangle<SampleType>::Triangle()
-    : Oscillator<SampleType> ([&]
+    : Oscillator<SampleType> ([this]
                               {
     sum += SampleType (4) * square.phase.getIncrement() * square.getSample();
     return sum; })

@@ -37,7 +37,7 @@ void ChoosableOscillator<SampleType>::renderBlock (const AudioBuffer<SampleType>
 		return;
 	}
 
-	const auto* chosen = [&]() -> dsp::Engine<SampleType>*
+	const auto* chosen = [this]() -> dsp::Engine<SampleType>*
 	{
 		switch (type)
 		{

@@ -61,7 +61,7 @@ void Protector<SampleType>::renderBlock (const AudioBuffer<SampleType>& input,
 
 	const auto numSamples = input.getNumSamples();
 
-	const auto channelIsClipping = [&] (int chan) -> bool
+	const auto channelIsClipping = [input, numSamples, hardClip = isHardClipping] (int chan) -> bool
 	{
 		const auto* samples = input.getReadPointer (chan);
 
@@ -72,7 +72,7 @@ void Protector<SampleType>::renderBlock (const AudioBuffer<SampleType>& input,
 			if (std::isnan (sample) || std::isinf (sample))
 				return true;
 
-			if (isHardClipping)
+			if (hardClip)
 				if (sample > SampleType (1) || sample < SampleType (-1))
 					return true;
 		}

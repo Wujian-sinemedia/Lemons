@@ -55,13 +55,14 @@ float PitchDetector<SampleType>::detectPeriod (const SampleType* inputAudio, int
 	jassert (numSamples >= getLatencySamples());  // not enough samples in this frame to do analysis
 
 	updatePeriodBounds();
-
-	auto* yinData = yinBuffer.getWritePointer (0);
+    
+	auto* const yinData = yinBuffer.getWritePointer (0);
 
 	juce::FloatVectorOperations::fill (yinData, SampleType (1), yinBuffer.getNumSamples());
 
 	const auto halfNumSamples = juce::roundToInt (std::floor (numSamples * 0.5f));
-
+    
+    jassert (maxPeriod <= halfNumSamples);
 	jassert (yinBuffer.getNumSamples() >= halfNumSamples);
 
 	{
@@ -79,8 +80,11 @@ float PitchDetector<SampleType>::detectPeriod (const SampleType* inputAudio, int
 			}
 
 			// cumulative mean normalized difference
+            
 			runningSum += yinData[yinIdx];
+            
 			jassert (runningSum > SampleType (0));
+            
 			yinData[yinIdx] *= (static_cast<SampleType> (tau) / runningSum);
 		}
 	}
@@ -134,13 +138,13 @@ int PitchDetector<SampleType>::absoluteThreshold() const
 {
 	const auto* yinData = yinBuffer.getReadPointer (0);
 
-	const auto tau = [this, yinData]() -> int
+	const auto tau = [yinData, max = maxPeriod, thresh = confidenceThresh]() -> int
 	{
-		for (int tau = 0; tau <= maxPeriod; ++tau)
+		for (int tau = 0; tau <= max; ++tau)
 		{
-			if (yinData[tau] < confidenceThresh)
+			if (yinData[tau] < thresh)
 			{
-				while (tau + 1 < maxPeriod && yinData[tau + 1] < yinData[tau])
+				while (tau + 1 < max && yinData[tau + 1] < yinData[tau])
 				{
 					++tau;
 				}
@@ -169,10 +173,10 @@ float PitchDetector<SampleType>::parabolicInterpolation (int periodEstimate) con
 		return periodEstimate - 1;
 	}();
 
-	const auto x2 = [periodEstimate, this]() -> int
+	const auto x2 = [periodEstimate, max = maxPeriod]() -> int
 	{
 		if (const auto plusOne = periodEstimate + 1;
-		    plusOne < maxPeriod)
+		    plusOne < max)
 			return plusOne;
 
 		return periodEstimate;

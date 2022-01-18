@@ -24,7 +24,7 @@ namespace lemons::binary
 Data::Data (const char* fileToFind)
 {
 #if LEMONS_HAS_BINARY_DATA
-	data = [&]() -> const char*
+	data = [this, fileToFind]() -> const char*
 	{
 		using namespace BinaryData;
 

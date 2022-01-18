@@ -541,7 +541,7 @@ String languageNameToCode (const String& name, bool asISO639_2)
 
 String languageCodeToName (const String& languageCode)
 {
-	const auto data = [&]() -> LanguageData
+	const auto data = [languageCode]() -> LanguageData
 	{
 		if (languageCode.length() == 2)
 			return getLanguages().getDataForISO639_1 (languageCode);
@@ -560,7 +560,7 @@ String languageCodeToName (const String& languageCode)
 
 StringArray getCountryCodesForLanguage (const String& language, bool languageName)
 {
-	const auto language_name = [&]() -> String
+	const auto language_name = [languageName, language]() -> String
 	{
 		if (languageName)
 			return language;

@@ -93,7 +93,7 @@ void Category::addFromPluginTree (const juce::KnownPluginList::PluginTree& tree)
             continue;
         }
         
-        auto subcategory = [&]() -> Category*
+        auto* subcategory = [this, plugin]() -> Category*
         {
             const auto subcategoryName = getSubcategoryName (plugin);
             

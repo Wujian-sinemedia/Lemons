@@ -91,7 +91,7 @@ template <>
 bool saveValueTree<FileType::XML> (const File& file, const ValueTree& tree)
 {
 	return saveValueTreeImpl (file,
-	                          [&] (juce::FileOutputStream& os)
+	                          [tree] (juce::FileOutputStream& os)
 	                          {
 		                          if (auto xml = tree.createXml())
 			                          xml->writeTo (os);
@@ -102,7 +102,7 @@ template <>
 bool saveValueTree<FileType::JSON> (const File& file, const ValueTree& tree)
 {
 	return saveValueTreeImpl (file,
-	                          [&] (juce::FileOutputStream& os)
+	                          [tree] (juce::FileOutputStream& os)
 	                          {
 		                          os.writeString (serializing::valueTreeToJSON (tree));
 	                          });
@@ -112,7 +112,7 @@ template <>
 bool saveValueTree<FileType::Opaque> (const File& file, const ValueTree& tree)
 {
 	return saveValueTreeImpl (file,
-	                          [&] (juce::FileOutputStream& os)
+	                          [tree] (juce::FileOutputStream& os)
 	                          {
 		                          tree.writeToStream (os);
 	                          });

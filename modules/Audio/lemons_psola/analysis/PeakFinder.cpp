@@ -101,7 +101,7 @@ const Array<int>& PeakFinder<SampleType>::findPeaks (const SampleType* inputSamp
 
 		[[maybe_unused]] const auto prevAnalysisIndex = analysisIndex;
 
-		analysisIndex = [&]() -> int
+		analysisIndex = [this, intPeriod, grainSize]() -> int
 		{
 			const auto numPeaksFound = peakIndices.size();
 

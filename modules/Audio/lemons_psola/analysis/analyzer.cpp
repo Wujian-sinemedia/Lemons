@@ -106,10 +106,9 @@ void Analyzer<SampleType>::analyzeInput (const SampleType* inputAudio, int numSa
 		if (start < 0)
 		{
 			const auto samplesFromPrevFrame = grainSize + start;
-			jassert (samplesFromPrevFrame > 0);
-
 			const auto samplesFromThisFrame = grainSize - samplesFromPrevFrame;
-			jassert (samplesFromThisFrame > 0);
+            
+			jassert (samplesFromPrevFrame > 0 && samplesFromThisFrame > 0);
 
 			if (lastBlocksize == 0)  // no samples from prev frame to complete this grain, so fill in the beginning of the grain with zeroes
 			{
@@ -238,10 +237,11 @@ typename Analyzer<SampleType>::Grain& Analyzer<SampleType>::getClosestGrain (int
 	{
 		if (after.grain == nullptr)
 			return *before.grain;
+        
+        jassert (currentPeriod > 0.f);
 
-		if (currentPeriod > 0.f)
-			if (after.distance < before.distance && before.distance > juce::roundToInt (currentPeriod))
-				return *after.grain;
+		if (after.distance < before.distance && before.distance > juce::roundToInt (currentPeriod))
+            return *after.grain;
 
 		return *before.grain;
 	}
@@ -368,7 +368,6 @@ void Analyzer<SampleType>::Grain::storeNewGrain (const SampleType* origSamples1,
 	grainSize      = totalNumSamples;
 
 	jassert (samples.getNumSamples() >= totalNumSamples);
-
 	jassert (blocksize1 > 0);
 	jassert (startIndex1 >= 0);
 
