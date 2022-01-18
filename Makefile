@@ -47,7 +47,7 @@ tests: | logs
 	@echo " * make $@... * "
 	$(call run_cmake,util/tests)
 
-run_ctest = cd $(LEMONS_ROOT)/util/tests/Builds/$(1) && $(CTEST) -C $(1) \
+run_ctest = cd $(LEMONS_ROOT)/util/tests/Builds/$(1) && $(CTEST) -C $(1) --output-on-failure \
 		 && mv $(LEMONS_ROOT)/util/tests/Builds/$(1)/Testing/Temporary/LastTest.log $(LEMONS_ROOT)/logs/UnitTests_$(1).log
 
 .PHONY: run_tests # Runs all tests
