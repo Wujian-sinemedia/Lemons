@@ -8,4 +8,4 @@ endif()
 
 set (CMAKE_CXX_INCLUDE_WHAT_YOU_USE "${iwyu_path}" CACHE INTERNAL "")
 
-message (VERBOSE "Enabled include-what-you-use")
+message (STATUS "Enabled include-what-you-use")

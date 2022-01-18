@@ -71,4 +71,4 @@ else()
     set (CMAKE_CXX_COMPILER_LAUNCHER "${cxx_script}" CACHE INTERNAL "")
 endif()
 
-message (VERBOSE " -- Using ccache! -- ")
+message (STATUS " -- Using ccache! -- ")

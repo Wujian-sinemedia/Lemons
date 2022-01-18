@@ -9,4 +9,4 @@ endif()
 set (CMAKE_CXX_CPPLINT "${cppLintProgram}" CACHE INTERNAL "")
 set (CMAKE_C_CPPLINT "${cppLintProgram}" CACHE INTERNAL "")
 
-message (VERBOSE "Using cpplint")
+message (STATUS "Using cpplint")

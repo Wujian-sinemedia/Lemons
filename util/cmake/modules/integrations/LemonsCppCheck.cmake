@@ -10,4 +10,4 @@ set (CMAKE_CXX_CPPCHECK "${cppCheckProgram}" CACHE INTERNAL "")
 
 set (CMAKE_EXPORT_COMPILE_COMMANDS TRUE CACHE INTERNAL "")
 
-message (VERBOSE "Using cppcheck")
+message (STATUS "Using cppcheck")
