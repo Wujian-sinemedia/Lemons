@@ -47,7 +47,7 @@ if (NOT IS_DIRECTORY "${cppcheck_cache_dir}")
 	file (MAKE_DIRECTORY "${cppcheck_cache_dir}")
 endif()
 
-execute_process (COMMAND "${cppCheckProgram}" "--addon=threadsafety.py" "--project=${build_dir}/compile_commands.json" "--cppcheck-build-dir=${cppcheck_cache_dir}"
+execute_process (COMMAND "${cppCheckProgram}" "--addon=threadsafety.py" "--project=${build_dir}/compile_commands.json" "--cppcheck-build-dir=${cppcheck_cache_dir}" "--bug-hunting"
 				 WORKING_DIRECTORY "${tests_dir}"
 				 COMMAND_ECHO STDOUT
 				 OUTPUT_FILE "${logFile}"
