@@ -70,6 +70,7 @@ public:
 	/** Releases all resources used by the Analyzer object. This also calls releaseResources() on all Shifter objects using this Analyzer. */
 	void releaseResources();
 
+    /** Returns the last input pitch, in Hz, that the analyzer detected, or 0 if the last frame was unpitched or no audio has been analyzed yet. */
 	[[nodiscard]] int getLastInputPitch() const noexcept;
 
 private:
@@ -100,6 +101,10 @@ private:
 		void storeNewGrain (const SampleType* origSamples1, int startIndex1, int blocksize1,
 		                    const SampleType* origSamples2, int blocksize2,
 		                    const SampleType* windowSamples, int totalNumSamples, int grainStartIdx);
+
+		void storeNewGrainWithZeroesAtStart (int               numZeroes,
+		                                     const SampleType* origSamples, int numSamples,
+		                                     const SampleType* windowSamples, int totalNumSamples, int grainStartIdx);
 
 		void reserveSize (int numSamples);
 

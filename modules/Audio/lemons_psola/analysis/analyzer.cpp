@@ -39,10 +39,10 @@ void Analyzer<SampleType>::deregisterShifter (Shifter<SampleType>& shifter)
 template <typename SampleType>
 int Analyzer<SampleType>::getLastInputPitch() const noexcept
 {
-	if (! (currentPeriod > 0.f && samplerate > 0.))
-		return 0;
+	if (currentPeriod > 0.f && samplerate > 0.)
+		return juce::roundToInt (math::freqFromPeriod (samplerate, currentPeriod));
 
-	return juce::roundToInt (math::freqFromPeriod (samplerate, currentPeriod));
+	return 0;
 }
 
 template <typename SampleType>
@@ -63,8 +63,8 @@ void Analyzer<SampleType>::analyzeInput (const SampleType* inputAudio, int numSa
 	for (auto* shifter : shifters)
 		shifter->newBlockStarting();
 
-	const auto* prevFrameSamples = prevFrame.getReadPointer (0);
-	const auto* windowSamples    = window.getRawDataPointer();
+	const auto* const prevFrameSamples = prevFrame.getReadPointer (0);
+	const auto* const windowSamples    = window.getRawDataPointer();
 
 	if (! incompleteGrainsFromLastFrame.isEmpty())
 	{
@@ -85,7 +85,7 @@ void Analyzer<SampleType>::analyzeInput (const SampleType* inputAudio, int numSa
 		incompleteGrainsFromLastFrame.clearQuick();
 	}
 
-	currentPeriod = [&]() -> float
+	currentPeriod = [this, inputAudio, numSamples]() -> float
 	{
 		const auto detectedPeriod = pitchDetector.detectPeriod (inputAudio, numSamples);
 
@@ -99,31 +99,36 @@ void Analyzer<SampleType>::analyzeInput (const SampleType* inputAudio, int numSa
 
 	const auto grainSize = juce::roundToInt (currentPeriod * 2.f);
 
-	makeWindow (grainSize);
-
-	const auto& peakIndices = peakFinder.findPeaks (inputAudio, numSamples, currentPeriod);
-
-	for (const auto peak : peakIndices)
+	for (const auto peak : peakFinder.findPeaks (inputAudio, numSamples, currentPeriod))
 	{
 		const auto start = juce::roundToInt (static_cast<float> (peak) - currentPeriod);
 
 		if (start < 0)
 		{
-			if (lastBlocksize == 0)
+			const auto samplesFromPrevFrame = grainSize + start;
+			jassert (samplesFromPrevFrame > 0);
+
+			const auto samplesFromThisFrame = grainSize - samplesFromPrevFrame;
+			jassert (samplesFromThisFrame > 0);
+
+			if (lastBlocksize == 0)  // no samples from prev frame to complete this grain, so fill in the beginning of the grain with zeroes
 			{
-				// ???
-				//				getGrainToStoreIn().storeNewGrain (inputAudio, 0, windowSamples, grainSize);
+				if (samplesFromThisFrame < 3)  // not enough samples to window...
+					continue;
+
+				makeWindow (samplesFromThisFrame);
+
+				getGrainToStoreIn().storeNewGrainWithZeroesAtStart (samplesFromPrevFrame,
+				                                                    inputAudio, samplesFromThisFrame,
+				                                                    windowSamples, grainSize, start);
 
 				continue;
 			}
 
-			jassert (lastBlocksize > 0 && lastFrameGrainSize > 0);
-
-			const auto samplesFromPrevFrame = grainSize + start;
-			jassert (samplesFromPrevFrame > 0);
+			makeWindow (grainSize);
 
 			getGrainToStoreIn().storeNewGrain (prevFrameSamples, lastBlocksize - samplesFromPrevFrame, samplesFromPrevFrame,
-			                                   inputAudio, grainSize - samplesFromPrevFrame,
+			                                   inputAudio, samplesFromThisFrame,
 			                                   windowSamples, grainSize, start);
 
 			continue;
@@ -138,6 +143,8 @@ void Analyzer<SampleType>::analyzeInput (const SampleType* inputAudio, int numSa
 			incompleteGrainsFromLastFrame.add (start);
 			continue;
 		}
+
+		makeWindow (grainSize);
 
 		getGrainToStoreIn().storeNewGrain (inputAudio, start, windowSamples, grainSize);
 	}
@@ -155,7 +162,7 @@ typename Analyzer<SampleType>::Grain& Analyzer<SampleType>::getGrainToStoreIn()
 		if (grain->getReferenceCount() == 0)
 			return *grain;
 
-	DBG ("Allocating analysis grain!");
+	jassertfalse;
 
 	return *grains.add (new Grain);
 }
@@ -163,7 +170,7 @@ typename Analyzer<SampleType>::Grain& Analyzer<SampleType>::getGrainToStoreIn()
 template <typename SampleType>
 inline void Analyzer<SampleType>::makeWindow (int size)
 {
-	jassert (size > 1);
+	jassert (size > 2);
 
 	if (window.size() == size)
 		return;
@@ -193,6 +200,8 @@ typename Analyzer<SampleType>::Grain& Analyzer<SampleType>::getClosestGrain (int
 	{
 		void test (Grain* newGrain, int newDistance) noexcept
 		{
+            jassert (newGrain != nullptr);
+            
 			if (newDistance < distance)
 			{
 				distance = newDistance;
@@ -230,9 +239,8 @@ typename Analyzer<SampleType>::Grain& Analyzer<SampleType>::getClosestGrain (int
 		if (after.grain == nullptr)
 			return *before.grain;
 
-		// ???
-		if (lastFrameGrainSize > 0)
-			if (after.distance < before.distance && before.distance > (lastFrameGrainSize / 2))
+		if (currentPeriod > 0.f)
+			if (after.distance < before.distance && before.distance > juce::roundToInt (currentPeriod))
 				return *after.grain;
 
 		return *before.grain;
@@ -361,12 +369,12 @@ void Analyzer<SampleType>::Grain::storeNewGrain (const SampleType* origSamples1,
 
 	jassert (samples.getNumSamples() >= totalNumSamples);
 
+	jassert (blocksize1 > 0);
+	jassert (startIndex1 >= 0);
+
 	auto* const destSamples = samples.getWritePointer (0);
 
 	using FVO = juce::FloatVectorOperations;
-
-	jassert (blocksize1 > 0);
-	jassert (startIndex1 >= 0);
 
 	FVO::copy (destSamples, origSamples1 + startIndex1, blocksize1);
 
@@ -374,6 +382,36 @@ void Analyzer<SampleType>::Grain::storeNewGrain (const SampleType* origSamples1,
 		FVO::copy (destSamples + startIndex1, origSamples2, blocksize2);
 
 	FVO::multiply (destSamples, windowSamples, grainSize);
+}
+
+template <typename SampleType>
+void Analyzer<SampleType>::Grain::storeNewGrainWithZeroesAtStart (int               numZeroes,
+                                                                  const SampleType* origSamples, int numSamples,
+                                                                  const SampleType* windowSamples, int totalNumSamples, int grainStartIdx)
+{
+	jassert (getReferenceCount() == 0);
+	jassert (totalNumSamples > 0);
+	jassert (totalNumSamples == numZeroes + numSamples);
+
+	origStartIndex = grainStartIdx;
+	grainSize      = totalNumSamples;
+
+	jassert (samples.getNumSamples() >= totalNumSamples);
+
+	auto* const destSamples = samples.getWritePointer (0);
+
+	jassert (numZeroes > 0);
+
+	for (int i = 0; i < numZeroes; ++i)
+		destSamples[i] = 0;
+
+	jassert (numSamples > 0);
+
+	using FVO = juce::FloatVectorOperations;
+
+	FVO::copy (destSamples, origSamples, numSamples);
+
+	FVO::multiply (destSamples + numZeroes, windowSamples, numSamples);
 }
 
 template <typename SampleType>

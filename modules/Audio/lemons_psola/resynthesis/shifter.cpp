@@ -95,8 +95,8 @@ typename Shifter<SampleType>::Grain& Shifter<SampleType>::getGrainToStart()
 	for (auto* grain : grains)
 		if (! grain->isActive())
 			return *grain;
-
-	DBG ("Allocating synthesis grain!");
+    
+    jassertfalse;
 
 	return *grains.add (new Grain);
 }

@@ -134,7 +134,7 @@ int PitchDetector<SampleType>::absoluteThreshold() const
 {
 	const auto* yinData = yinBuffer.getReadPointer (0);
 
-	const auto tau = [&]() -> int
+	const auto tau = [this, yinData]() -> int
 	{
 		for (int tau = 0; tau <= maxPeriod; ++tau)
 		{
@@ -161,7 +161,7 @@ float PitchDetector<SampleType>::parabolicInterpolation (int periodEstimate) con
 {
 	jassert (periodEstimate > 0);
 
-	const auto x0 = [&]() -> int
+	const auto x0 = [periodEstimate]() -> int
 	{
 		if (periodEstimate < 1)
 			return periodEstimate;
@@ -169,7 +169,7 @@ float PitchDetector<SampleType>::parabolicInterpolation (int periodEstimate) con
 		return periodEstimate - 1;
 	}();
 
-	const auto x2 = [&]() -> int
+	const auto x2 = [periodEstimate, this]() -> int
 	{
 		if (const auto plusOne = periodEstimate + 1;
 		    plusOne < maxPeriod)

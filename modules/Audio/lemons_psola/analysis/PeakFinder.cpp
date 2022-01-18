@@ -167,7 +167,7 @@ template <typename SampleType>
 int PeakFinder<SampleType>::getPeakCandidateInRange (const SampleType* inputSamples,
                                                      int startSample, int endSample, int predictedPeak) const
 {
-	const auto starting = [&]() -> int
+	const auto starting = [this]() -> int
 	{
 		for (const auto p : peakSearchingOrder)
 			if (! peakCandidates.contains (p))
@@ -182,7 +182,7 @@ int PeakFinder<SampleType>::getPeakCandidateInRange (const SampleType* inputSamp
 
 	const auto numSamples = endSample - startSample;
 
-	auto get_weighted_sample = [&] (int index) -> SampleType
+	auto get_weighted_sample = [predictedPeak, numSamples, inputSamples] (int index) -> SampleType
 	{
 		const auto distance = static_cast<SampleType> (std::abs (predictedPeak - index));
 		const auto weight   = SampleType (1) - (distance / static_cast<SampleType> (numSamples));
@@ -275,7 +275,7 @@ int PeakFinder<SampleType>::chooseIdealPeakCandidate (const SampleType* inputSam
 	if (deltaRange < 0.05f)  // prevent dividing by 0 in the next step...
 		return finalHandful.getUnchecked (0);
 
-	auto get_weighted_sample = [&] (int sampleIndex, int finalHandfulIdx) -> SampleType
+	auto get_weighted_sample = [this, deltaRange, inputSamples] (int sampleIndex, int finalHandfulIdx) -> SampleType
 	{
 		const auto delta = static_cast<SampleType> (finalHandfulDeltas.getUnchecked (finalHandfulIdx));
 
