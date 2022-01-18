@@ -3,7 +3,8 @@
 find_program (cppCheckProgram NAMES cppcheck)
 
 if (NOT cppCheckProgram)
-	message (FATAL_ERROR "cppcheck not found!")
+	message (WARNING "cppcheck not found!")
+	return()
 endif()
 
 #

@@ -36,7 +36,7 @@
 		},
 		{
 			"name": "Docker",
-			"packages": [ "clang-11" ],
+			"packages": [ "clang-13" ],
 			"categories": [ "Docs" ]
 		},
 		{

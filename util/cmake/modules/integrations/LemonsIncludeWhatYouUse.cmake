@@ -7,6 +7,5 @@ if (NOT iwyu_path)
 endif()
 
 set (CMAKE_CXX_INCLUDE_WHAT_YOU_USE "${iwyu_path}" CACHE INTERNAL "")
-set (CMAKE_C_INCLUDE_WHAT_YOU_USE "${iwyu_path}" CACHE INTERNAL "")
 
 message (VERBOSE "Enabled include-what-you-use")
