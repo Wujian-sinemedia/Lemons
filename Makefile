@@ -27,7 +27,7 @@ endif
 
 #
 
-cmake_config = cd $(LEMONS_ROOT)/$(1) && $(CMAKE) -B $(BUILDS) -G $(CMAKE_GENERATOR) --log-level=DEBUG
+cmake_config = cd $(LEMONS_ROOT)/$(1) && $(CMAKE) -B $(BUILDS) -G "$(CMAKE_GENERATOR)" --log-level=DEBUG
 
 cmake_build = cd $(LEMONS_ROOT)/$(1) \
 		   && echo "Building debug configuration..." && $(CMAKE) --build $(BUILDS) -j $(NUM_CORES) --config Debug \
