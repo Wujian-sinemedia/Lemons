@@ -27,11 +27,16 @@ endif
 
 #
 
-cmake_config = cd $(LEMONS_ROOT)/$(1) && $(CMAKE) -B $(BUILDS) -G "$(CMAKE_GENERATOR)" --log-level=DEBUG
+cmake_config = cd $(dir $(1)) && $(CMAKE) -B $(1) -G "$(CMAKE_GENERATOR)" --log-level=DEBUG
 
-cmake_build = cd $(LEMONS_ROOT)/$(1) \
-		   && echo "Building debug configuration..." && $(CMAKE) --build $(BUILDS) -j $(NUM_CORES) --config Debug \
-		   && echo "Building release configuration..." && $(CMAKE) --build $(BUILDS) -j $(NUM_CORES) --config Release
+cmake_build_configuration = echo "Building $(2) configuration..." && $(CMAKE) --build $(1) -j $(NUM_CORES) --config $(2)
+
+
+#CONFIGS := Debug Release
+
+#cmake_build = $(foreach config,$(CONFIGS),$(call cmake_build_configuration,$(1),$(config)))
+
+cmake_build = $(call cmake_build_configuration,$(1),Debug) && $(call cmake_build_configuration,$(1),Release)
 
 #
 
@@ -42,11 +47,11 @@ help:
 #
 
 $(LEMONS_ROOT)/util/tests/$(BUILDS):
-	$(call cmake_config,util/tests)
+	$(call cmake_config,$@)
 
 .PHONY: tests # Builds the tests
 tests: $(LEMONS_ROOT)/util/tests/$(BUILDS)
-	@$(call cmake_build,util/tests)
+	@$(call cmake_build,$<)
 
 .PHONY: run_tests # Runs all tests
 run_tests: tests
@@ -57,41 +62,40 @@ run_tests: tests
 
 .PHONY: cppcheck # Runs cppcheck
 cppcheck:
-	@echo " * make $@... * "
 	$(CMAKE) -P $(LEMONS_ROOT)/scripts/run_cppcheck.cmake
 
 #
 
 $(LEMONS_ROOT)/util/Templates/$(BUILDS):
-	$(call cmake_config,util/Templates)
+	$(call cmake_config,$@)
 
 .PHONY: templates # Builds the project templates
 templates: $(LEMONS_ROOT)/util/Templates/$(BUILDS)
-	@$(call cmake_build,util/Templates)
+	@$(call cmake_build,$<)
 
 #
 
 $(LEMONS_ROOT)/util/PluginMetadataEditor/$(BUILDS):
-	$(call cmake_config,util/PluginMetadataEditor)
+	$(call cmake_config,$@)
 
 .PHONY: editor # Builds the plugin metadata editor
 editor: $(LEMONS_ROOT)/util/PluginMetadataEditor/$(BUILDS)
-	@$(call cmake_build,util/PluginMetadataEditor)
+	@$(call cmake_build,$<)
 
 #
 
 $(LEMONS_ROOT)/util/CommandLineUtils/$(BUILDS):
-	$(call cmake_config,util/CommandLineUtils)
+	$(call cmake_config,$@)
 
 .PHONY: utils # Builds the command line utilities
 utils: $(LEMONS_ROOT)/util/CommandLineUtils/$(BUILDS)
-	@$(call cmake_build,util/CommandLineUtils)
+	@$(call cmake_build,$<)
 
 #
 
 .PHONY: docs # Builds the documentation
 docs:
-	$(call cmake_config,util/doxygen)
+	@cd $(LEMONS_ROOT)/util/doxygen && $(CMAKE) -B $(BUILDS)
 	@cd $(LEMONS_ROOT)/util/doxygen && $(CMAKE) --build $(BUILDS) -j $(NUM_CORES)
 
 #
