@@ -39,7 +39,7 @@ override cmake_build_configuration = echo "Building $(2) configuration..."; $(CM
 
 override cmake_build = $(foreach config,$(CONFIGS),$(call cmake_build_configuration,$(1),$(config));)
 
-override ctest_test_config = echo "Testing $(1) configuration..."; cd $(LEMONS_ROOT)/util/tests/$(BUILDS) && $(CTEST) -C $(1) --output-on-failure
+override ctest_test_config = echo "Testing $(1) configuration..."; cd $(call make_build_dir,tests) && $(CTEST) -C $(1) --extra-verbose --repeat until-pass:3
 
 #
 
