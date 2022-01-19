@@ -56,7 +56,7 @@ if (NOT LEMONS_PLUGIN_FORMATS)
 
     set (available_formats Standalone)
 
-    if (APPLE)
+    if (APPLE AND XCODE)
         list (APPEND available_formats AUv3)
     endif()
 
