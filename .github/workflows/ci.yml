@@ -51,10 +51,6 @@ jobs:
       shell: bash
       run: make run_tests
 
-    - name: Run cppcheck
-      shell: bash
-      run: make cppcheck
-
     - name: Build project templates
       shell: bash
       run: export LEMONS_PRIVATE_SDKS='${{ github.workspace }}/PrivateSDKs' && make templates

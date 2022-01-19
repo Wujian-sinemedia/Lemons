@@ -35,6 +35,8 @@ cmake_build_configuration = echo "Building $(2) configuration..." && $(CMAKE) --
 
 cmake_build = $(foreach config,$(CONFIGS),$(call cmake_build_configuration,$(1),$(config));)
 
+ctest_test_config = echo "Testing $(1) configuration..." && cd $(LEMONS_ROOT)/util/tests/$(BUILDS) && $(CTEST) -C $(1) --output-on-failure
+
 #
 
 .PHONY: help # Print this message
@@ -52,14 +54,7 @@ tests: $(LEMONS_ROOT)/util/tests/$(BUILDS)
 
 .PHONY: run_tests # Runs all tests
 run_tests: tests
-	@echo "Testing debug configuration..."
-	@cd $(LEMONS_ROOT)/util/tests/Builds && $(CTEST) -C Debug --output-on-failure
-	@echo "Testing release configuration..."
-	@cd $(LEMONS_ROOT)/util/tests/Builds && $(CTEST) -C Release --output-on-failure
-
-.PHONY: cppcheck # Runs cppcheck
-cppcheck:
-	$(CMAKE) -P $(LEMONS_ROOT)/scripts/run_cppcheck.cmake
+	$(foreach config,$(CONFIGS),$(call ctest_test_config,$(config));)
 
 #
 
