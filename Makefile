@@ -7,6 +7,8 @@ SHELL := /bin/sh
 
 #
 
+CONFIGS = Debug Release
+
 CMAKE = cmake
 CTEST = ctest
 
@@ -31,12 +33,7 @@ cmake_config = cd $(dir $(1)) && $(CMAKE) -B $(1) -G "$(CMAKE_GENERATOR)" --log-
 
 cmake_build_configuration = echo "Building $(2) configuration..." && $(CMAKE) --build $(1) -j $(NUM_CORES) --config $(2)
 
-
-#CONFIGS := Debug Release
-
-#cmake_build = $(foreach config,$(CONFIGS),$(call cmake_build_configuration,$(1),$(config)))
-
-cmake_build = $(call cmake_build_configuration,$(1),Debug) && $(call cmake_build_configuration,$(1),Release)
+cmake_build = $(foreach config,$(CONFIGS),$(call cmake_build_configuration,$(1),$(config));)
 
 #
 
