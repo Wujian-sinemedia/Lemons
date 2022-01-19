@@ -5073,7 +5073,7 @@
       <type>std::function&lt; bool(const juce::PluginDescription &amp;, const Category &amp;)&gt;</type>
       <name>SortingCallback</name>
       <anchorfile>structlemons_1_1plugin_1_1scanning_1_1_category.html</anchorfile>
-      <anchor>a5ac690a97a8b65e0fb4d406f2b2289ee</anchor>
+      <anchor>a2d5cd0be40a7107858cff22f17c9a24e</anchor>
       <arglist></arglist>
     </member>
     <member kind="enumeration">
@@ -5090,7 +5090,7 @@
       <type>std::function&lt; String(const juce::PluginDescription &amp;)&gt;</type>
       <name>SubcategoryNamingCallback</name>
       <anchorfile>structlemons_1_1plugin_1_1scanning_1_1_category.html</anchorfile>
-      <anchor>ad2499130cd098658fbd94160941d14bc</anchor>
+      <anchor>a6440d38261a2f3e4a8bb9d105c419b73</anchor>
       <arglist></arglist>
     </member>
     <member kind="function">
