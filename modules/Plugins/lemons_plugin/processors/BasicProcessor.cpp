@@ -69,7 +69,7 @@ void BasicProcessor::callEditorMethod (std::function<void (juce::AudioProcessorE
 
 void BasicProcessor::repaintEditor() const
 {
-	callEditorMethod ([&] (juce::AudioProcessorEditor& e)
+	callEditorMethod ([] (juce::AudioProcessorEditor& e)
 	                  { e.repaint(); });
 }
 
@@ -133,36 +133,36 @@ static constexpr auto outputBusesProp = "output_buses";
 
 BasicProcessor::BusesProperties BasicProcessor::busesPropertiesFromValueTree (const ValueTree& tree)
 {
-	using PropertyArray = juce::Array<BusProperties>;
-
-	auto busPropsArrayFromVT = [&] (const ValueTree& tree) -> PropertyArray
-	{
-		PropertyArray array;
-
-		for (int i = 0; i < tree.getNumChildren(); ++i)
-		{
-			const auto child = tree.getChild (i);
-
-			if (child.hasType (busPropertiesValueTreeType))
-				array.add (busPropertiesFromValueTree (child));
-		}
-
-		return array;
-	};
-
 	if (! tree.hasType (busesPropertiesValueTreeType))
 		return {};
+
+	using PropertyArray = juce::Array<BusProperties>;
 
 	BusesProperties properties;
 
 	using namespace BusesPropertiesVT;
 
-	auto loadValueTree = [&] (const String& childType, PropertyArray& properties)
+	auto loadValueTree = [tree] (const String& childType, PropertyArray& properties)
 	{
 		const auto childTree = tree.getChildWithName (childType);
 
 		if (childTree.isValid())
-			properties = busPropsArrayFromVT (childTree);
+		{
+			properties = [childTree]
+			{
+				PropertyArray array;
+
+				for (auto i = 0; i < childTree.getNumChildren(); ++i)
+				{
+					const auto child = childTree.getChild (i);
+
+					if (child.hasType (busPropertiesValueTreeType))
+						array.add (busPropertiesFromValueTree (child));
+				}
+
+				return array;
+			}();
+		}
 	};
 
 	loadValueTree (inputBusesProp, properties.inputLayouts);
@@ -182,7 +182,7 @@ ValueTree BasicProcessor::busesPropertiesToValueTree (const BusesProperties& pro
 {
 	ValueTree tree { busesPropertiesValueTreeType };
 
-	auto makeValueTree = [&] (const String& type, const juce::Array<BusProperties>& layouts)
+	auto makeValueTree = [&tree] (const String& type, const juce::Array<BusProperties>& layouts)
 	{
 		ValueTree childTree { type };
 

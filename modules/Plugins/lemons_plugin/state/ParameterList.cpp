@@ -245,25 +245,25 @@ ParameterList::Listener::Listener (const ParameterList& list,
 	{
 		auto* parameter = &param->getParameter();
 
-		const auto change = [=] (float)
+		auto change = [parameter, onParamValueChange] (float)
 		{
 			if (onParamValueChange)
 				onParamValueChange (*parameter);
 		};
 
-		const auto default_ = [=] (float)
+		auto default_ = [parameter, onParamDefaultChange] (float)
 		{
 			if (onParamDefaultChange)
 				onParamDefaultChange (*parameter);
 		};
 
-		const auto gesture = [=] (bool starting)
+		auto gesture = [parameter, onParamGestureGhange] (bool starting)
 		{
 			if (onParamGestureGhange)
 				onParamGestureGhange (*parameter, starting);
 		};
 
-		const auto controller = [=] (int)
+		auto controller = [parameter, onParamControllerChange] (int)
 		{
 			if (onParamControllerChange)
 				onParamControllerChange (*parameter);

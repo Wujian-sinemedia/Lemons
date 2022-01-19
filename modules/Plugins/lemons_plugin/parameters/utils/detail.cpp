@@ -35,7 +35,7 @@ static inline String appendParamLabel (const String& orig, const String& paramLa
 
 BasicValToStringFunc createDefaultValueToTextFunction (const String& paramLabel)
 {
-	return [=] (float value) -> String
+	return [paramLabel] (float value) -> String
 	{
 		return appendParamLabel (String (value), paramLabel);
 	};
@@ -147,7 +147,7 @@ StringToValFunc<bool> createDefaultValueFromStringFunc()
 	offStrings.add (TRANS ("no"));
 	offStrings.add (TRANS ("false"));
 
-	return [=] (const String& text) -> bool
+	return [onStrings, offStrings] (const String& text) -> bool
 	{
 		const auto lowercaseText = text.toLowerCase();
 
@@ -173,7 +173,7 @@ BasicValToStringFunc convertValToStringFuncFromTyped (ValToStringFunc<ValueType>
 	if (origFunc == nullptr)
 		origFunc = createDefaultStringFromValueFunc<ValueType> (rangeInterval, paramLabel);
 
-	return [=] (float value) -> String
+	return [origFunc] (float value) -> String
 	{ return origFunc (static_cast<ValueType> (value), 0); };
 }
 
@@ -189,7 +189,7 @@ BasicStringToValFunc convertStringToValFuncFromTyped (StringToValFunc<ValueType>
 	if (origFunc == nullptr)
 		origFunc = createDefaultValueFromStringFunc<ValueType>();
 
-	return [=] (const String& text) -> float
+	return [origFunc] (const String& text) -> float
 	{ return static_cast<float> (origFunc (text)); };
 }
 
@@ -205,7 +205,7 @@ ValToStringFunc<ValueType> convertValToStringFuncToTyped (BasicValToStringFunc o
 	if (origFunc == nullptr)
 		origFunc = createDefaultValueToTextFunction (paramLabel);
 
-	return [=] (ValueType v, int maxLength)
+	return [origFunc] (ValueType v, int maxLength)
 	{
 		return checkForLength (origFunc (static_cast<float> (v)),
 		                       maxLength);
@@ -224,7 +224,7 @@ StringToValFunc<ValueType> convertStringToValFuncToTyped (BasicStringToValFunc o
 	if (origFunc == nullptr)
 		origFunc = createDefaultTextToValueFunction();
 
-	return [=] (const String& t)
+	return [origFunc] (const String& t)
 	{ return static_cast<ValueType> (origFunc (t)); };
 }
 

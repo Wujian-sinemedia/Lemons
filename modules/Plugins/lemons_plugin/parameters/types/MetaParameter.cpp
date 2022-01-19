@@ -113,7 +113,7 @@ void MetaParameterBase::loadConnectionsFromValueTree (const ValueTree& tree)
 
 	connections.clearQuick (true);
 
-	for (int i = 0; i < tree.getNumChildren(); ++i)
+	for (auto i = 0; i < tree.getNumChildren(); ++i)
 	{
 		const auto child = tree.getChild (i);
 

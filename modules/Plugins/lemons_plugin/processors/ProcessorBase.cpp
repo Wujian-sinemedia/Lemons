@@ -136,7 +136,7 @@ void ProcessorBase::setStateInformation (const void* data, int size)
 {
 	loadState (ValueTree::readFromData (data, static_cast<size_t> (size)));
 
-	callEditorMethod ([&] (juce::AudioProcessorEditor& e)
+	callEditorMethod ([this] (juce::AudioProcessorEditor& e)
 	                  { e.setSize (state.editorSize.getWidth(),
 		                           state.editorSize.getHeight()); });
 }
@@ -333,12 +333,12 @@ void ProcessorBase::InternalProcessor<SampleType>::renderChunk (AudioBuffer<Samp
 
 	const auto findSubBuffer = [&] (bool isInput) -> AudioBuffer<SampleType>
 	{
-		const auto channelSetIndex = [&]() -> int
+		const auto channelSetIndex = [input = isInput, &busLayout]
 		{
-			const auto numBuses = isInput ? busLayout.inputBuses.size() : busLayout.outputBuses.size();
+			const auto numBuses = input ? busLayout.inputBuses.size() : busLayout.outputBuses.size();
 
-			for (int i = 0; i < numBuses; ++i)
-				if (! busLayout.getChannelSet (isInput, i).isDisabled())
+			for (auto i = 0; i < numBuses; ++i)
+				if (! busLayout.getChannelSet (input, i).isDisabled())
 					return i;
 
 			return 0;

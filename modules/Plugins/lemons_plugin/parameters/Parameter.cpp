@@ -71,7 +71,7 @@ void Parameter::setMidiControllerNumber (int newControllerNumber)
 
 	midiControllerNumber.store (newControllerNumber);
 
-	listeners.call ([=] (Listener& l)
+	listeners.call ([newControllerNumber] (Listener& l)
 	                { l.controllerNumberChanged (newControllerNumber); });
 }
 
