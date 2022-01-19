@@ -1,4 +1,4 @@
-SHELL := /bin/sh
+SHELL = /bin/sh
 .ONESHELL:
 .SHELLFLAGS: -euo pipefail
 .DEFAULT_GOAL: help
@@ -12,10 +12,6 @@ CONFIGS = Debug Release
 CMAKE = cmake
 CTEST = ctest
 
-LEMONS_ROOT = $(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
-
-BUILDS = Builds
-
 ifeq ($(OS),Windows_NT)
 	NUM_CORES = $(NUMBER_OF_PROCESSORS)
 	CMAKE_GENERATOR = Visual Studio 16 2019
@@ -27,86 +23,92 @@ else
 	CMAKE_GENERATOR = Ninja
 endif
 
-#
-
-cmake_config = cd $(dir $(1)) && $(CMAKE) -B $(1) -G "$(CMAKE_GENERATOR)" --log-level=DEBUG
-
-cmake_build_configuration = echo "Building $(2) configuration..." && $(CMAKE) --build $(1) -j $(NUM_CORES) --config $(2)
-
-cmake_build = $(foreach config,$(CONFIGS),$(call cmake_build_configuration,$(1),$(config));)
-
-ctest_test_config = echo "Testing $(1) configuration..." && cd $(LEMONS_ROOT)/util/tests/$(BUILDS) && $(CTEST) -C $(1) --output-on-failure
+BUILDS = Builds
 
 #
 
-.PHONY: help # Print this message
-help:
-	@grep '^.PHONY: .* #' $(LEMONS_ROOT)/Makefile | sed 's/\.PHONY: \(.*\) # \(.*\)/\1	\2/' | expand -t20 | sort
+override LEMONS_ROOT := $(patsubst %/,%,$(strip $(dir $(realpath $(firstword $(MAKEFILE_LIST))))))
+
+override THIS_MAKEFILE := $(LEMONS_ROOT)/Makefile
+
+override cmake_config = cd $(dir $(1)) && $(CMAKE) -B $(1) -G "$(CMAKE_GENERATOR)" --log-level=DEBUG
+
+override cmake_build_configuration = echo "Building $(2) configuration..."; $(CMAKE) --build $(1) -j $(NUM_CORES) --config $(2)
+
+override cmake_build = $(foreach config,$(CONFIGS),$(call cmake_build_configuration,$(1),$(config));)
+
+override ctest_test_config = echo "Testing $(1) configuration..."; cd $(LEMONS_ROOT)/util/tests/$(BUILDS) && $(CTEST) -C $(1) --output-on-failure
+
+#
+
+help:  ## Print this message
+	@grep -E '^[a-zA-Z_-]+:.*?\#\# .*$$' $(THIS_MAKEFILE) | sort | awk 'BEGIN {FS = ":.*?\#\# "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
 
 #
 
 $(LEMONS_ROOT)/util/tests/$(BUILDS):
-	$(call cmake_config,$@)
+	@$(call cmake_config,$@)
 
-.PHONY: tests # Builds the tests
-tests: $(LEMONS_ROOT)/util/tests/$(BUILDS)
+tests: $(LEMONS_ROOT)/util/tests/$(BUILDS)  ## Builds the tests
 	@$(call cmake_build,$<)
 
-.PHONY: run_tests # Runs all tests
-run_tests: tests
-	$(foreach config,$(CONFIGS),$(call ctest_test_config,$(config));)
+run_tests: tests  ## Runs all tests
+	@$(foreach config,$(CONFIGS),$(call ctest_test_config,$(config));)
 
 #
 
 $(LEMONS_ROOT)/util/Templates/$(BUILDS):
-	$(call cmake_config,$@)
+	@$(call cmake_config,$@)
 
-.PHONY: templates # Builds the project templates
-templates: $(LEMONS_ROOT)/util/Templates/$(BUILDS)
+templates: $(LEMONS_ROOT)/util/Templates/$(BUILDS)  ## Builds the project templates
 	@$(call cmake_build,$<)
 
 #
 
 $(LEMONS_ROOT)/util/PluginMetadataEditor/$(BUILDS):
-	$(call cmake_config,$@)
+	@$(call cmake_config,$@)
 
-.PHONY: editor # Builds the plugin metadata editor
-editor: $(LEMONS_ROOT)/util/PluginMetadataEditor/$(BUILDS)
+editor: $(LEMONS_ROOT)/util/PluginMetadataEditor/$(BUILDS)  ## Builds the plugin metadata editor
 	@$(call cmake_build,$<)
 
 #
 
 $(LEMONS_ROOT)/util/CommandLineUtils/$(BUILDS):
-	$(call cmake_config,$@)
+	@$(call cmake_config,$@)
 
-.PHONY: utils # Builds the command line utilities
-utils: $(LEMONS_ROOT)/util/CommandLineUtils/$(BUILDS)
+utils: $(LEMONS_ROOT)/util/CommandLineUtils/$(BUILDS)  ## Builds the command line utilities
 	@$(call cmake_build,$<)
 
 #
 
-.PHONY: docs # Builds the documentation
-docs:
-	@cd $(LEMONS_ROOT)/util/doxygen && $(CMAKE) -B $(BUILDS)
-	@cd $(LEMONS_ROOT)/util/doxygen && $(CMAKE) --build $(BUILDS) -j $(NUM_CORES)
+docs:  ## Builds the documentation
+	$(eval DOXYGEN_DIR = $(LEMONS_ROOT)/util/doxygen)
+	@cd $(DOXYGEN_DIR) && $(CMAKE) -B $(BUILDS)
+	@cd $(DOXYGEN_DIR) && $(CMAKE) --build $(BUILDS) -j $(NUM_CORES)
 
 #
 
-.PHONY: all # Builds everything
-all: tests templates editor utils docs
+all: tests templates editor utils docs  ## Builds everything
 
 #
 
-.PHONY: clean # Cleans the Lemons source tree
-clean:
-	$(CMAKE) -P $(LEMONS_ROOT)/scripts/clean.cmake
+SCRIPTS_DIR = $(LEMONS_ROOT)/scripts
+
+clean:  ## Cleans the Lemons source tree
+	$(CMAKE) -P $(SCRIPTS_DIR)/clean.cmake
 
 
-.PHONY: wipe # Wipes the persistent cache of fetched dependencies and ccache artifacts
-wipe:
-	$(CMAKE) -D LEMONS_WIPE_CLEAN=1 -P $(LEMONS_ROOT)/scripts/clean.cmake
+wipe:  ## Wipes the persistent cache of fetched dependencies and ccache artifacts
+	$(CMAKE) -D LEMONS_WIPE_CLEAN=1 -P $(SCRIPTS_DIR)/clean.cmake
 
 
-.PHONY: format # Runs clang-format over the entire source tree
-format:
-	$(CMAKE) -P $(LEMONS_ROOT)/scripts/format.cmake
+format:  ## Runs clang-format over the entire source tree
+	$(CMAKE) -P $(SCRIPTS_DIR)/format.cmake
+
+
+init:  ## Initializes the Lemons workspace and installs all dependencies
+	$(CMAKE) -P $(SCRIPTS_DIR)/install_deps.cmake
+	@chmod +x $(SCRIPTS_DIR)/clean.cmake $(SCRIPTS_DIR)/format.cmake $(SCRIPTS_DIR)/install_deps.cmake
+
+
+.PHONY: $(shell grep -E '^[a-zA-Z_-]+:.*?\#\# .*$$' $(THIS_MAKEFILE) | sed 's/:.*/\ /' | tr '\n' ' ')
