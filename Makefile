@@ -31,6 +31,8 @@ override LEMONS_ROOT := $(patsubst %/,%,$(strip $(dir $(realpath $(firstword $(M
 
 override THIS_MAKEFILE := $(LEMONS_ROOT)/Makefile
 
+override make_build_dir = $(LEMONS_ROOT)/util/$(1)/$(BUILDS)
+
 override cmake_config = cd $(dir $(1)) && $(CMAKE) -B $(1) -G "$(CMAKE_GENERATOR)" --log-level=DEBUG
 
 override cmake_build_configuration = echo "Building $(2) configuration..."; $(CMAKE) --build $(1) -j $(NUM_CORES) --config $(2)
@@ -46,10 +48,10 @@ help:  ## Print this message
 
 #
 
-$(LEMONS_ROOT)/util/tests/$(BUILDS):
+$(call make_build_dir,tests):
 	@$(call cmake_config,$@)
 
-tests: $(LEMONS_ROOT)/util/tests/$(BUILDS)  ## Builds the tests
+tests: $(call make_build_dir,tests)  ## Builds the tests
 	@$(call cmake_build,$<)
 
 run_tests: tests  ## Runs all tests
@@ -57,26 +59,26 @@ run_tests: tests  ## Runs all tests
 
 #
 
-$(LEMONS_ROOT)/util/Templates/$(BUILDS):
+$(call make_build_dir,Templates):
 	@$(call cmake_config,$@)
 
-templates: $(LEMONS_ROOT)/util/Templates/$(BUILDS)  ## Builds the project templates
+templates: $(call make_build_dir,Templates)  ## Builds the project templates
 	@$(call cmake_build,$<)
 
 #
 
-$(LEMONS_ROOT)/util/PluginMetadataEditor/$(BUILDS):
+$(call make_build_dir,PluginMetadataEditor):
 	@$(call cmake_config,$@)
 
-editor: $(LEMONS_ROOT)/util/PluginMetadataEditor/$(BUILDS)  ## Builds the plugin metadata editor
+editor: $(call make_build_dir,PluginMetadataEditor)  ## Builds the plugin metadata editor
 	@$(call cmake_build,$<)
 
 #
 
-$(LEMONS_ROOT)/util/CommandLineUtils/$(BUILDS):
+$(call make_build_dir,CommandLineUtils):
 	@$(call cmake_config,$@)
 
-utils: $(LEMONS_ROOT)/util/CommandLineUtils/$(BUILDS)  ## Builds the command line utilities
+utils: $(call make_build_dir,CommandLineUtils)  ## Builds the command line utilities
 	@$(call cmake_build,$<)
 
 #
