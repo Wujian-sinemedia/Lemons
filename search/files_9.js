@@ -34,9 +34,8 @@ var searchData=
   ['lemonsjuceutilities_2emd_31',['LemonsJuceUtilities.md',['../_lemons_juce_utilities_8md.html',1,'']]],
   ['lemonspluginmodules_2emd_32',['LemonsPluginModules.md',['../_lemons_plugin_modules_8md.html',1,'']]],
   ['lemonspluginutilities_2emd_33',['LemonsPluginUtilities.md',['../_lemons_plugin_utilities_8md.html',1,'']]],
-  ['lemonssanitizers_2emd_34',['LemonsSanitizers.md',['../_lemons_sanitizers_8md.html',1,'']]],
-  ['lemonssetdefaultcpackgenerator_2emd_35',['LemonsSetDefaultCpackGenerator.md',['../_lemons_set_default_cpack_generator_8md.html',1,'']]],
-  ['lfo_2eh_36',['LFO.h',['../_l_f_o_8h.html',1,'']]],
-  ['limiter_2eh_37',['Limiter.h',['../_limiter_8h.html',1,'']]],
-  ['linuxlsbinfo_2emd_38',['LinuxLSBInfo.md',['../_linux_l_s_b_info_8md.html',1,'']]]
+  ['lemonssetdefaultcpackgenerator_2emd_34',['LemonsSetDefaultCpackGenerator.md',['../_lemons_set_default_cpack_generator_8md.html',1,'']]],
+  ['lfo_2eh_35',['LFO.h',['../_l_f_o_8h.html',1,'']]],
+  ['limiter_2eh_36',['Limiter.h',['../_limiter_8h.html',1,'']]],
+  ['linuxlsbinfo_2emd_37',['LinuxLSBInfo.md',['../_linux_l_s_b_info_8md.html',1,'']]]
 ];

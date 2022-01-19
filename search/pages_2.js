@@ -18,7 +18,6 @@ var searchData=
   ['lemonsjuceutilities_15',['LemonsJuceUtilities',['../_lemons_juce_utilities.html',1,'']]],
   ['lemonspluginmodules_16',['LemonsPluginModules',['../_lemons_plugin_modules.html',1,'']]],
   ['lemonspluginutilities_17',['LemonsPluginUtilities',['../_lemons_plugin_utilities.html',1,'']]],
-  ['lemonssanitizers_18',['LemonsSanitizers',['../_lemons_sanitizers.html',1,'']]],
-  ['lemonssetdefaultcpackgenerator_19',['LemonsSetDefaultCpackGenerator',['../_lemons_set_default_cpack_generator.html',1,'']]],
-  ['linuxlsbinfo_20',['LinuxLSBInfo',['../_linux_l_s_b_info.html',1,'']]]
+  ['lemonssetdefaultcpackgenerator_18',['LemonsSetDefaultCpackGenerator',['../_lemons_set_default_cpack_generator.html',1,'']]],
+  ['linuxlsbinfo_19',['LinuxLSBInfo',['../_linux_l_s_b_info.html',1,'']]]
 ];

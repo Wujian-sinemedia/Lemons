@@ -46,7 +46,7 @@ var searchData=
   ['compressor_43',['Compressor',['../classlemons_1_1dsp_1_1_f_x_1_1_compressor.html#a04d8d8563014eeb6c8a990df1a55b22e',1,'lemons::dsp::FX::Compressor::Compressor()'],['../classlemons_1_1dsp_1_1_f_x_1_1_compressor.html#aa4c204cd9aaa6714bfb88614ea91de9e',1,'lemons::dsp::FX::Compressor::Compressor(float thresh, float ratioToUse, float attackMs, float releaseMs)'],['../classlemons_1_1dsp_1_1_f_x_1_1_compressor.html',1,'lemons::dsp::FX::Compressor&lt; SampleType &gt;']]],
   ['compressor_2eh_44',['Compressor.h',['../_compressor_8h.html',1,'']]],
   ['compressor_3c_20float_20_3e_45',['Compressor&lt; float &gt;',['../classlemons_1_1dsp_1_1_f_x_1_1_compressor.html',1,'lemons::dsp::FX']]],
-  ['constructedarray_46',['ConstructedArray',['../structlemons_1_1_constructed_array.html#abedae38bb829dbafebcec48d7a40bd4b',1,'lemons::ConstructedArray::ConstructedArray()'],['../structlemons_1_1_constructed_array.html',1,'lemons::ConstructedArray&lt; ObjectType &gt;']]],
+  ['constructedarray_46',['ConstructedArray',['../structlemons_1_1_constructed_array.html#a4b3c93279f78b009fa31b080be306d7d',1,'lemons::ConstructedArray::ConstructedArray()'],['../structlemons_1_1_constructed_array.html',1,'lemons::ConstructedArray&lt; ObjectType &gt;']]],
   ['constructedarray_2eh_47',['ConstructedArray.h',['../_constructed_array_8h.html',1,'']]],
   ['constructedarray_3c_20interpolatortype_20_3e_48',['ConstructedArray&lt; InterpolatorType &gt;',['../structlemons_1_1_constructed_array.html',1,'lemons']]],
   ['constructedarray_3c_20lemons_3a_3adsp_3a_3acircularbuffer_3c_20sampletype_20_3e_20_3e_49',['ConstructedArray&lt; lemons::dsp::CircularBuffer&lt; SampleType &gt; &gt;',['../structlemons_1_1_constructed_array.html',1,'lemons']]],
