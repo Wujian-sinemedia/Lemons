@@ -10,30 +10,30 @@ jobs:
   Build:
 
     name: ${{ matrix.os }} build
-	runs-on: ${{ matrix.os }}
-	timeout-minutes: 120
-	strategy:
-	  fail-fast: false
-	  matrix:
-		os: [windows-latest, ubuntu-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 120
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [windows-latest, ubuntu-latest, macos-latest]
 
-	steps:
-	- name: Checkout code
-	  uses: actions/checkout@v2
-	  with:
-		submodules: recursive
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+      with:
+        submodules: recursive
 
-	- name: Set up cache
-	  uses: actions/cache@v2
-	  with:
-		path: Cache
-		key: ${{ runner.os }}.utils.${{ hashFiles('**/') }}
-		restore-keys: ${{ runner.os }}.utils.
+    - name: Set up cache
+      uses: actions/cache@v2
+      with:
+        path: Cache
+        key: ${{ runner.os }}.utils.${{ hashFiles('**/') }}
+        restore-keys: ${{ runner.os }}.utils.
 
-	- name: Install deps
-	  shell: bash
-	  run: cmake -P '${{ github.workspace }}/scripts/install_deps.cmake'
+    - name: Install deps
+      shell: bash
+      run: cmake -P '${{ github.workspace }}/scripts/install_deps.cmake'
 
-	- name: Build command line utils
-	  shell: bash
-	  run: make utils
+    - name: Build command line utils
+      shell: bash
+      run: make utils
