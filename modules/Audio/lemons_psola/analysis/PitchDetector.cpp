@@ -152,9 +152,11 @@ int PitchDetector<SampleType>::absoluteThreshold() const
 				return tau;
 			}
 		}
+        
+        return max;
 	}();
 
-	if (tau >= maxPeriod || yinData[tau] >= confidenceThresh)
+	if (tau > maxPeriod || yinData[tau] >= confidenceThresh)
 		return 0;
 
 	return tau;
