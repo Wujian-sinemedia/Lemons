@@ -7,6 +7,12 @@ include (LemonsCmakeDevTools)
 lemons_warn_if_not_processing_project()
 
 
+# currently broken on windows...
+if (WIN32)
+	return()
+endif()
+
+
 if (NOT (APPLE OR WIN32))
 	return()
 endif()

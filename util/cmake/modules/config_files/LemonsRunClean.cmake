@@ -35,6 +35,8 @@ function (lemons_run_clean)
 
 	file (READ ${LEMONS_CLEAN_FILE} file_contents)
 
+	string (STRIP "${file_contents}" file_contents)
+
 	string (JSON cleaningObj GET "${file_contents}" "Cleaning")
 
 	lemons_json_array_to_list (TEXT "${cleaningObj}" ARRAY "clean" OUT cleanItems)

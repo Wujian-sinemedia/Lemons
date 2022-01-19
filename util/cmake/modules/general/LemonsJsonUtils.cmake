@@ -47,10 +47,11 @@ function (lemons_json_array_to_list)
 	lemons_require_function_arguments (LEMONS_JSON TEXT ARRAY OUT)
 	lemons_check_for_unparsed_args (LEMONS_JSON)
 
-	string (JSON array_size ERROR_VARIABLE errno LENGTH ${LEMONS_JSON_TEXT} "${LEMONS_JSON_ARRAY}")
+	string (STRIP "${LEMONS_JSON_TEXT}" LEMONS_JSON_TEXT)
+
+	string (JSON array_size ERROR_VARIABLE errno LENGTH "${LEMONS_JSON_TEXT}" "${LEMONS_JSON_ARRAY}")
 
 	if (errno)
-		message (WARNING "Error parsing JSON string for array '${LEMONS_JSON_ARRAY}': ${LEMONS_JSON_TEXT}")
 		return()
 	endif()
 

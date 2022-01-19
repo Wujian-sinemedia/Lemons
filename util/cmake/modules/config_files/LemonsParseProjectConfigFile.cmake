@@ -16,6 +16,8 @@ function (lemons_parse_project_configuration_file)
 
 	file (READ "${LEMONS_CONFIG_FILE}" configFileContents)
 
+	string (STRIP "${configFileContents}" configFileContents)
+
 	string (JSON jsonProjName GET ${configFileContents} "project" "name")
 
 	if (NOT "${jsonProjName}" STREQUAL "${PROJECT_NAME}")

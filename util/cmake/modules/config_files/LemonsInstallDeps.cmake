@@ -110,6 +110,8 @@ function (lemons_get_list_of_deps_to_install)
 
 	file (READ ${LEMONS_DEPS_FILE} fileContents)
 
+	string (STRIP "${fileContents}" fileContents)
+
 	string (JSON depsJsonObj GET ${fileContents} "Dependencies")
 
 	set (outList "")
