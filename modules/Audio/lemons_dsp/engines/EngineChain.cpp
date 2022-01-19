@@ -91,7 +91,7 @@ template <typename SampleType>
 void EngineChain<SampleType>::renderChunk (const AudioBuffer<SampleType>& input,
                                            AudioBuffer<SampleType>& output, MidiBuffer& midiMessages, bool isBypassed)
 {
-	for (int i = 0; i < getNextNodeIndex(); ++i)
+	for (auto i = 0; i < getNextNodeIndex(); ++i)
 	{
 		if (auto* node = getNode (i))
 		{
@@ -168,7 +168,7 @@ typename EngineChain<SampleType>::Node& EngineChain<SampleType>::addNodeAfter (N
 
 	newNode.index = nodeToInsertAfter.index + 1;
 
-	for (int i = newNode.index; i < getNextNodeIndex(); ++i)
+	for (auto i = newNode.index; i < getNextNodeIndex(); ++i)
 		if (auto* node = getNode (i))
 			node->index += 1;
 
@@ -182,7 +182,7 @@ typename EngineChain<SampleType>::Node& EngineChain<SampleType>::addNodeBefore (
 
 	newNode.index = std::max (0, nodeToInsertBefore.index - 1);
 
-	for (int i = newNode.index; i < getNextNodeIndex(); ++i)
+	for (auto i = newNode.index; i < getNextNodeIndex(); ++i)
 		if (auto* node = getNode (i))
 			node->index += 1;
 

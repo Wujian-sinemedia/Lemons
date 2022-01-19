@@ -37,7 +37,7 @@ void ChoosableOscillator<SampleType>::renderBlock (const AudioBuffer<SampleType>
 		return;
 	}
 
-	const auto* chosen = [this]() -> dsp::Engine<SampleType>*
+	const auto* const chosen = [this]() -> dsp::Engine<SampleType>*
 	{
 		switch (type)
 		{
@@ -46,6 +46,7 @@ void ChoosableOscillator<SampleType>::renderBlock (const AudioBuffer<SampleType>
 			case (OscType::Square) : return &square;
 			case (OscType::Triangle) : return &triangle;
 			case (OscType::SuperSaw) : return &superSaw;
+			default : jassertfalse; return nullptr;
 		}
 	}();
 

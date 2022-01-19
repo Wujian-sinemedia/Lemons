@@ -16,7 +16,7 @@ SampleType SampleStream<SampleType>::getSample() const
 template <typename SampleType>
 void SampleStream<SampleType>::getSamples (SampleType* output, int numSamples) const
 {
-	for (int i = 0; i < numSamples; ++i)
+	for (auto i = 0; i < numSamples; ++i)
 		output[i] = sampleFunc();
 }
 
@@ -29,7 +29,7 @@ void SampleStream<SampleType>::getSamples (AudioBuffer<SampleType>& output, int 
 template <typename SampleType>
 void SampleStream<SampleType>::skipSamples (int numToSkip) const
 {
-	for (int i = 0; i < numToSkip; ++i)
+	for (auto i = 0; i < numToSkip; ++i)
 		sampleFunc();
 }
 

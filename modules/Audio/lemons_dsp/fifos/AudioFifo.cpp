@@ -29,7 +29,7 @@ void AudioFifo<SampleType>::pushSamples (const AudioBuffer<SampleType>& input)
 
 	const auto numSamples = input.getNumSamples();
 
-	for (int chan = 0; chan < input.getNumChannels(); ++chan)
+	for (auto chan = 0; chan < input.getNumChannels(); ++chan)
 	{
 		buffers[chan]->storeSamples (input.getReadPointer (chan), numSamples);
 	}
@@ -42,7 +42,7 @@ void AudioFifo<SampleType>::popSamples (AudioBuffer<SampleType>& output)
 
 	const auto numSamples = output.getNumSamples();
 
-	for (int chan = 0; chan < output.getNumChannels(); ++chan)
+	for (auto chan = 0; chan < output.getNumChannels(); ++chan)
 	{
 		buffers[chan]->getSamples (output.getWritePointer (chan), numSamples);
 	}

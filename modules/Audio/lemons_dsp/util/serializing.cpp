@@ -86,7 +86,7 @@ juce::AudioChannelSet channelSetFromValueTree (const ValueTree& tree)
 	if (! tree.hasType (valueTreeType))
 		return set;
 
-	for (int i = 0; i < tree.getNumChildren(); ++i)
+	for (auto i = 0; i < tree.getNumChildren(); ++i)
 	{
 		const auto child = tree.getChild (i);
 
@@ -103,7 +103,7 @@ ValueTree channelSetToValueTree (const juce::AudioChannelSet& set)
 
 	ValueTree tree { valueTreeType };
 
-	for (int i = 0; i < set.size(); ++i)
+	for (auto i = 0; i < set.size(); ++i)
 	{
 		const auto child = channelTypeToValueTree (set.getTypeOfChannel (i));
 

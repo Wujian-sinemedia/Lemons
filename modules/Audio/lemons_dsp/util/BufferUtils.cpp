@@ -21,9 +21,6 @@ namespace lemons::dsp::buffers
 template <typename SampleType>
 void copy (const AudioBuffer<SampleType>& source, AudioBuffer<SampleType>& dest)
 {
-	if (&source == &dest)
-		return;
-
 	dest.clear();
 
 	const auto numSamples = source.getNumSamples();
@@ -31,7 +28,7 @@ void copy (const AudioBuffer<SampleType>& source, AudioBuffer<SampleType>& dest)
 
 	const auto numChannels = std::min (source.getNumChannels(), dest.getNumChannels());
 
-	for (int chan = 0; chan < numChannels; ++chan)
+	for (auto chan = 0; chan < numChannels; ++chan)
 		juce::FloatVectorOperations::copy (dest.getWritePointer (chan),
 		                                   source.getReadPointer (chan),
 		                                   numSamples);

@@ -56,7 +56,7 @@ void AudioFilePlayer<SampleType>::renderChunk (const AudioBuffer<SampleType>&,
 			return conversionBuffer;
 	}();
 
-	for (int chan = 0;
+	for (auto chan = 0;
 	     chan < std::min (interpolators->size(), output.getNumChannels());
 	     ++chan)
 	{
@@ -94,7 +94,7 @@ void AudioFilePlayer<SampleType>::prepared (int, double samplerate, int)
 template <typename SampleType>
 void AudioFilePlayer<SampleType>::onRelease()
 {
-	for (int i = 0; i < interpolators->size(); ++i)
+	for (auto i = 0; i < interpolators->size(); ++i)
 	{
 		interpolators[i]->reset();
 		readPositions.set (i, 0);

@@ -3,7 +3,7 @@ namespace lemons::dsp::osc
 
 template <typename SampleType>
 DetunableBase<SampleType>::DetunableBase (ConstructedArray<Oscillator<SampleType>>& arrayToUse)
-    : Oscillator<SampleType> ([&]
+    : Oscillator<SampleType> ([this]
                               {
     auto sample = SampleType (0);
     
