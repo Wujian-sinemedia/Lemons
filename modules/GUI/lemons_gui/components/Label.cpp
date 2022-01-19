@@ -17,7 +17,7 @@ TextEntry::TextEntry (const String& initialText, std::function<void (const Strin
 {
 	setEditable (true, true, false);
 
-	this->onTextChange = [=]()
+	this->onTextChange = [this, textChangeFunc]()
 	{ textChangeFunc (getText (true)); };
 }
 

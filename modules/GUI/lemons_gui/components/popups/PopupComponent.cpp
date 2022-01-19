@@ -22,7 +22,7 @@ static inline std::function<void()> makeCloserLambda (std::unique_ptr<PopupCompo
 {
 	jassert (holder.get() == parent);
 
-	return [&]()
+	return [&holder]()
 	{ holder.reset(); };
 }
 
