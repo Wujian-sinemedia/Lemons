@@ -85,7 +85,7 @@ void Analyzer<SampleType>::analyzeInput (const SampleType* inputAudio, int numSa
 		incompleteGrainsFromLastFrame.clearQuick();
 	}
 
-	currentPeriod = [this, inputAudio, numSamples]() -> float
+	currentPeriod = [this, inputAudio, numSamples]
 	{
 		const auto detectedPeriod = pitchDetector.detectPeriod (inputAudio, numSamples);
 
@@ -179,7 +179,7 @@ inline void Analyzer<SampleType>::makeWindow (int size)
 	// Hanning window function
 	const auto denom = static_cast<double> (size - 1);
 
-	for (int i = 0; i < size; ++i)
+	for (auto i = 0; i < size; ++i)
 	{
 		const auto cos2 = std::cos (static_cast<double> (2 * i) * juce::MathConstants<double>::pi / denom);
 
@@ -361,15 +361,13 @@ void Analyzer<SampleType>::Grain::storeNewGrain (const SampleType* origSamples1,
                                                  int grainStartIdx)
 {
 	jassert (getReferenceCount() == 0);
-	jassert (totalNumSamples > 0);
 	jassert (totalNumSamples == blocksize1 + blocksize2);
-
-	origStartIndex = grainStartIdx;
-	grainSize      = totalNumSamples;
-
 	jassert (samples.getNumSamples() >= totalNumSamples);
 	jassert (blocksize1 > 0);
 	jassert (startIndex1 >= 0);
+
+	origStartIndex = grainStartIdx;
+	grainSize      = totalNumSamples;
 
 	auto* const destSamples = samples.getWritePointer (0);
 
@@ -389,28 +387,19 @@ void Analyzer<SampleType>::Grain::storeNewGrainWithZeroesAtStart (int           
                                                                   const SampleType* windowSamples, int totalNumSamples, int grainStartIdx)
 {
 	jassert (getReferenceCount() == 0);
-	jassert (totalNumSamples > 0);
+	jassert (numZeroes > 0 && numSamples > 0);
 	jassert (totalNumSamples == numZeroes + numSamples);
+	jassert (samples.getNumSamples() >= totalNumSamples);
 
 	origStartIndex = grainStartIdx;
 	grainSize      = totalNumSamples;
 
-	jassert (samples.getNumSamples() >= totalNumSamples);
-
 	auto* const destSamples = samples.getWritePointer (0);
 
-	jassert (numZeroes > 0);
+	for (auto i = 0; i < numZeroes; ++i)
+		destSamples[i] = SampleType (0);
 
-	for (int i = 0; i < numZeroes; ++i)
-		destSamples[i] = 0;
-
-	jassert (numSamples > 0);
-
-	using FVO = juce::FloatVectorOperations;
-
-	FVO::copy (destSamples, origSamples, numSamples);
-
-	FVO::multiply (destSamples + numZeroes, windowSamples, numSamples);
+	juce::FloatVectorOperations::multiply (destSamples + numZeroes, origSamples, windowSamples, numSamples);
 }
 
 template <typename SampleType>

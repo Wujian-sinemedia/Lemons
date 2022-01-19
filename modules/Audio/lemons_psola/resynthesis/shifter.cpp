@@ -18,7 +18,7 @@ namespace lemons::dsp::psola
 
 template <typename SampleType>
 Shifter<SampleType>::Shifter (Analyzer<SampleType>& analyzerToUse)
-    : SampleStream<SampleType> ([this]()
+    : SampleStream<SampleType> ([this]
                                 { return getNextSample(); })
     , analyzer (analyzerToUse)
 {

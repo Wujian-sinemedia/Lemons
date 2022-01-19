@@ -136,15 +136,15 @@ void PitchDetector<SampleType>::updatePeriodBounds()
 template <typename SampleType>
 int PitchDetector<SampleType>::absoluteThreshold() const
 {
-	const auto* yinData = yinBuffer.getReadPointer (0);
+	const auto* const yinData = yinBuffer.getReadPointer (0);
 
-	const auto tau = [yinData, max = maxPeriod, thresh = confidenceThresh]() -> int
+	const auto tau = [yinData, max = maxPeriod, thresh = confidenceThresh]
 	{
-		for (int tau = 0; tau <= max; ++tau)
+		for (auto tau = 0; tau <= max; ++tau)
 		{
 			if (yinData[tau] < thresh)
 			{
-				while (tau + 1 < max && yinData[tau + 1] < yinData[tau])
+				while (tau + 1 <= max && yinData[tau + 1] < yinData[tau])
 				{
 					++tau;
 				}
@@ -165,7 +165,7 @@ float PitchDetector<SampleType>::parabolicInterpolation (int periodEstimate) con
 {
 	jassert (periodEstimate > 0);
 
-	const auto x0 = [periodEstimate]() -> int
+	const auto x0 = [periodEstimate]
 	{
 		if (periodEstimate < 1)
 			return periodEstimate;
@@ -173,7 +173,7 @@ float PitchDetector<SampleType>::parabolicInterpolation (int periodEstimate) con
 		return periodEstimate - 1;
 	}();
 
-	const auto x2 = [periodEstimate, max = maxPeriod]() -> int
+	const auto x2 = [periodEstimate, max = maxPeriod]
 	{
 		if (const auto plusOne = periodEstimate + 1;
 		    plusOne < max)
@@ -182,7 +182,7 @@ float PitchDetector<SampleType>::parabolicInterpolation (int periodEstimate) con
 		return periodEstimate;
 	}();
 
-	const auto* yinData = yinBuffer.getReadPointer (0);
+	const auto* const yinData = yinBuffer.getReadPointer (0);
 
 	if (x0 == periodEstimate)
 	{

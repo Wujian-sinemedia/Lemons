@@ -101,7 +101,7 @@ const Array<int>& PeakFinder<SampleType>::findPeaks (const SampleType* inputSamp
 
 		[[maybe_unused]] const auto prevAnalysisIndex = analysisIndex;
 
-		analysisIndex = [this, intPeriod, grainSize]() -> int
+		analysisIndex = [this, intPeriod, grainSize]
 		{
 			const auto numPeaksFound = peakIndices.size();
 
@@ -133,7 +133,7 @@ int PeakFinder<SampleType>::findNextPeak (int frameStart, int frameEnd, int pred
 
 	peakCandidates.clearQuick();
 
-	for (int i = 0; i < numPeaksToTest; ++i)
+	for (auto i = 0; i < numPeaksToTest; ++i)
 	{
 		const auto nextPeak = getPeakCandidateInRange (inputSamples, frameStart, frameEnd, predictedPeak);
 
@@ -167,7 +167,7 @@ template <typename SampleType>
 int PeakFinder<SampleType>::getPeakCandidateInRange (const SampleType* inputSamples,
                                                      int startSample, int endSample, int predictedPeak) const
 {
-	const auto starting = [this]() -> int
+	const auto starting = [this]
 	{
 		for (const auto p : peakSearchingOrder)
 			if (! peakCandidates.contains (p))
@@ -252,7 +252,7 @@ int PeakFinder<SampleType>::chooseIdealPeakCandidate (const SampleType* inputSam
 	float minimum      = 0.f;
 	int   minimumIndex = 0;
 
-	for (int i = 0; i < finalHandfulSize; ++i)
+	for (auto i = 0; i < finalHandfulSize; ++i)
 	{
 		// find minimum delta & its index in the array
 		findMinDelta (minimumIndex, minimum);
@@ -287,7 +287,7 @@ int PeakFinder<SampleType>::chooseIdealPeakCandidate (const SampleType* inputSam
 	auto chosenPeak    = finalHandful.getUnchecked (0);
 	auto strongestPeak = get_weighted_sample (chosenPeak, 0);
 
-	for (int i = 1; i < finalHandfulSize; ++i)
+	for (auto i = 1; i < finalHandfulSize; ++i)
 	{
 		const auto candidate = finalHandful.getUnchecked (i);
 
@@ -311,7 +311,7 @@ void PeakFinder<SampleType>::findMinDelta (int& idxOut, float& minOut) const
 	minOut = candidateDeltas.getUnchecked (0);
 	idxOut = 0;
 
-	for (int i = 1; i < candidateDeltas.size(); ++i)
+	for (auto i = 1; i < candidateDeltas.size(); ++i)
 	{
 		const auto current = candidateDeltas.getUnchecked (i);
 
@@ -335,7 +335,7 @@ void PeakFinder<SampleType>::sortSampleIndicesForPeakSearching (int startSample,
 
 	const auto searchingSize = endSample - startSample;
 
-	for (int p = 1, m = -1, n = 1; n < searchingSize; ++n)
+	for (auto p = 1, m = -1, n = 1; n < searchingSize; ++n)
 	{
 		const auto pos = predictedPeak + p;
 		const auto neg = predictedPeak + m;
