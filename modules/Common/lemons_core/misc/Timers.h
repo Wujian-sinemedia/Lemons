@@ -60,7 +60,9 @@ private:
 		callback();
 	}
 
-	std::function<void()> callback;
+	const std::function<void()> callback;
+
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (TimerCallback)
 };
 
 }  // namespace lemons::events

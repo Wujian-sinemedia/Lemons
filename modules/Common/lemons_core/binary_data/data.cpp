@@ -99,7 +99,7 @@ juce::StringArray getFilenames()
 
 	using namespace BinaryData;
 
-	for (int index = 0; index < namedResourceListSize; ++index)
+	for (auto index = 0; index < namedResourceListSize; ++index)
 	{
 		filenames.add (originalFilenames[index]);
 	}

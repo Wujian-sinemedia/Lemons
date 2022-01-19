@@ -49,7 +49,7 @@ struct ConstructedArray final
 	/** Creates an array with a specified initial number of objects, and an optional lambda function that will be called to create new objects. */
 	explicit ConstructedArray (
 	    int                      initialNumObjects  = 0,
-	    ObjectCreationFunction&& objectCreationFunc = []()
+	    ObjectCreationFunction&& objectCreationFunc = []
 	    { return new ObjectType(); })
 	    : creationFunc (std::move (objectCreationFunc))
 	{
@@ -106,7 +106,7 @@ struct ConstructedArray final
 	juce::OwnedArray<ObjectType> array;
 
 private:
-	ObjectCreationFunction creationFunc;
+	const ObjectCreationFunction creationFunc;
 
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (ConstructedArray)
 };

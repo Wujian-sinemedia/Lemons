@@ -41,11 +41,11 @@ ValueTree VariantConverter<ValueTree>::fromVar (const var& obj)
 				tree.setProperty (name.substring (base64PropLen),
 				                  VariantConverter<MemoryBlock>::toVar (lemons::serializing::memoryBlockFromString (itr.value.toString())),
 				                  nullptr);
-
-				continue;
 			}
-
-			tree.setProperty (name, itr.value, nullptr);
+			else
+			{
+				tree.setProperty (name, itr.value, nullptr);
+			}
 		}
 
 		return tree;
@@ -72,7 +72,7 @@ var VariantConverter<ValueTree>::toVar (const ValueTree& tree)
 	if (! children.isEmpty())
 		obj.setProperty (CHILDREN_PROP, children);
 
-	for (int i = 0; i < tree.getNumProperties(); i++)
+	for (auto i = 0; i < tree.getNumProperties(); i++)
 	{
 		const auto name = tree.getPropertyName (i).toString();
 		const auto val  = tree.getProperty (name, {});

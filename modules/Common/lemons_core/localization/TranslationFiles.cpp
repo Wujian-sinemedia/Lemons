@@ -18,7 +18,7 @@ namespace lemons::locale
 
 String writeTranslationFileHeader (const String& language, bool languageName)
 {
-	const auto language_name = [languageName, language]() -> String
+	const auto language_name = [languageName, language]
 	{
 		if (languageName)
 			return language;
