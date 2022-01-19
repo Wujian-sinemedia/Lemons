@@ -247,8 +247,7 @@ int PeakFinder<SampleType>::chooseIdealPeakCandidate (const SampleType* inputSam
 	{
 		struct MinDeltaData final
 		{
-			int index { 0 };
-			int deltaValue { 0 };
+            int index, deltaValue;
 		};
 
 		const auto minDeltaData = [this]
@@ -276,10 +275,9 @@ int PeakFinder<SampleType>::chooseIdealPeakCandidate (const SampleType* inputSam
 
 	const auto deltaRange = [this]
 	{
-		const auto minDelta = *std::min_element (finalHandfulDeltas.begin(), finalHandfulDeltas.end());
-		const auto maxDelta = *std::max_element (finalHandfulDeltas.begin(), finalHandfulDeltas.end());
+        const auto pair = std::minmax_element (finalHandfulDeltas.begin(), finalHandfulDeltas.end());
 
-		return maxDelta - minDelta;
+        return *pair.second - *pair.first;
 	}();
 
 	jassert (deltaRange >= 0);
