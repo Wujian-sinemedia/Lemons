@@ -21,18 +21,12 @@ void PeakFinder<SampleType>::clearAllArrays (bool free)
 {
 	if (free)
 	{
-		for (auto* array : int_arrays)
-			array->clear();
-
-		for (auto* array : float_arrays)
+		for (auto* array : arrays)
 			array->clear();
 	}
 	else
 	{
-		for (auto* array : int_arrays)
-			array->clearQuick();
-
-		for (auto* array : float_arrays)
+		for (auto* array : arrays)
 			array->clearQuick();
 	}
 }
@@ -249,30 +243,48 @@ int PeakFinder<SampleType>::chooseIdealPeakCandidate (const SampleType* inputSam
 
 	const auto finalHandfulSize = std::min (defaultFinalHandfulSize, candidateDeltas.size());
 
-	float minimum      = 0.f;
-	int   minimumIndex = 0;
-
 	for (auto i = 0; i < finalHandfulSize; ++i)
 	{
-		// find minimum delta & its index in the array
-		findMinDelta (minimumIndex, minimum);
+		struct MinDeltaData final
+		{
+			int index { 0 };
+			int deltaValue { 0 };
+		};
 
-		finalHandfulDeltas.add (minimum);
-		finalHandful.add (peakCandidates.getUnchecked (minimumIndex));
+		const auto minDeltaData = [this]
+		{
+			MinDeltaData data;
+
+			auto* const minIt = std::min_element (candidateDeltas.begin(), candidateDeltas.end());
+
+			data.deltaValue = *minIt;
+			data.index      = std::distance (candidateDeltas.begin(), minIt);
+
+			return data;
+		}();
+
+		finalHandfulDeltas.add (minDeltaData.deltaValue);
+		finalHandful.add (peakCandidates.getUnchecked (minDeltaData.index));
 
 		// make sure this value won't be chosen again, w/o deleting it from the candidateDeltas array
-		candidateDeltas.set (minimumIndex, 10000.f);
+		candidateDeltas.set (minDeltaData.index, 10000);
 	}
 
 	jassert (finalHandful.size() == finalHandfulSize && finalHandfulDeltas.size() == finalHandfulSize);
 
 	// 3. choose the strongest overall peak from these final candidates, with peaks weighted by their delta values
 
-	const auto deltaRange = juce::FloatVectorOperations::findMinAndMax (finalHandfulDeltas.getRawDataPointer(),
-	                                                                    finalHandfulDeltas.size())
-	                            .getLength();
+	const auto deltaRange = [this]
+	{
+		const auto minDelta = *std::min_element (finalHandfulDeltas.begin(), finalHandfulDeltas.end());
+		const auto maxDelta = *std::max_element (finalHandfulDeltas.begin(), finalHandfulDeltas.end());
 
-	if (deltaRange < 0.05f)  // prevent dividing by 0 in the next step...
+		return maxDelta - minDelta;
+	}();
+
+	jassert (deltaRange >= 0);
+
+	if (deltaRange == 0)  // prevent dividing by 0 in the next step...
 		return finalHandful.getUnchecked (0);
 
 	auto get_weighted_sample = [this, deltaRange, inputSamples] (int sampleIndex, int finalHandfulIdx) -> SampleType
@@ -303,24 +315,6 @@ int PeakFinder<SampleType>::chooseIdealPeakCandidate (const SampleType* inputSam
 	}
 
 	return chosenPeak;
-}
-
-template <typename SampleType>
-void PeakFinder<SampleType>::findMinDelta (int& idxOut, float& minOut) const
-{
-	minOut = candidateDeltas.getUnchecked (0);
-	idxOut = 0;
-
-	for (auto i = 1; i < candidateDeltas.size(); ++i)
-	{
-		const auto current = candidateDeltas.getUnchecked (i);
-
-		if (current < minOut)
-		{
-			minOut = current;
-			idxOut = i;
-		}
-	}
 }
 
 template <typename SampleType>

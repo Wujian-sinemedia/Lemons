@@ -71,19 +71,15 @@ private:
 
 	[[nodiscard]] int chooseIdealPeakCandidate (const SampleType* inputSamples, int deltaTarget1, int deltaTarget2);
 
-	inline void findMinDelta (int& idxOut, float& minOut) const;
-
 	void clearAllArrays (bool free = false);
 
-	Array<int>   peakIndices, peakSearchingOrder, peakCandidates, finalHandful;
-	Array<float> candidateDeltas, finalHandfulDeltas;
+	Array<int> peakIndices, peakSearchingOrder, peakCandidates, finalHandful, candidateDeltas, finalHandfulDeltas;
 
-	const std::array<Array<int>*, 4>   int_arrays { &peakIndices, &peakSearchingOrder, &peakCandidates, &finalHandful };
-	const std::array<Array<float>*, 2> float_arrays { &candidateDeltas, &finalHandfulDeltas };
+	const std::array<Array<int>*, 6> arrays { &peakIndices, &peakSearchingOrder, &peakCandidates, &finalHandful, &candidateDeltas, &finalHandfulDeltas };
 
 	int analysisFrameStart { 0 };
 
-	static constexpr auto numPeaksToTest = 5, defaultFinalHandfulSize = 3;
+	static constexpr auto numPeaksToTest = 15, defaultFinalHandfulSize = 5;
 
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (PeakFinder)
 };
