@@ -8,8 +8,6 @@ option (LEMONS_ENABLE_INTEGRATIONS "Enable all available integrations by default
 
 if (LEMONS_ENABLE_INTEGRATIONS)
 	include (LemonsAllIntegrations)
-elseif (LEMONS_SANITIZERS_TO_ENABLE)
-	include (LemonsSanitizers)
 endif()
 
 set_property (GLOBAL PROPERTY REPORT_UNDEFINED_PROPERTIES "${PROJECT_SOURCE_DIR}/logs/undefined_properties.log")

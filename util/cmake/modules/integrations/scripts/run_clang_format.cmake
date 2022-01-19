@@ -1,8 +1,8 @@
 #!/usr/bin/env cmake -P
 
-include (@Lemons_SOURCE_DIR@/scripts/AddCMakeModules.cmake)
+find_package (LemonsCmakeModules REQUIRED CONFIG)
 
-list (APPEND CMAKE_MODULE_PATH ${LEMONS_CMAKE_MODULE_PATH})
+list (APPEND CMAKE_MODULE_PATH "${LEMONS_CMAKE_MODULE_PATH}")
 
 include (LemonsRunClangFormat)
 
