@@ -59,13 +59,11 @@ void Protector<SampleType>::renderBlock (const AudioBuffer<SampleType>& input,
 		return;
 	}
 
-	const auto numSamples = input.getNumSamples();
-
-	const auto channelIsClipping = [input, numSamples, hardClip = isHardClipping] (int chan)
+	auto channelIsClipping = [&input, hardClip = isHardClipping] (int chan)
 	{
 		const auto* samples = input.getReadPointer (chan);
 
-		for (auto s = 0; s < numSamples; ++s)
+        for (auto s = 0; s < input.getNumSamples(); ++s)
 		{
 			const auto sample = samples[s];
 

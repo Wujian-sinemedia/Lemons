@@ -56,7 +56,9 @@ void MonoStereoConverter<SampleType>::convertStereoToMono (const SampleType* lef
 			monoStorage.copyFrom (0, 0, leftIn, numSamples, SampleType (0.5));
 			monoStorage.addFrom (0, 0, rightIn, numSamples, SampleType (0.5));
 			FVO::copy (monoOut, monoStorage.getReadPointer (0), numSamples);
+            return;
 		}
+        default : jassertfalse;
 	}
 }
 

@@ -136,9 +136,8 @@ void ProcessorBase::setStateInformation (const void* data, int size)
 {
 	loadState (ValueTree::readFromData (data, static_cast<size_t> (size)));
 
-	callEditorMethod ([this] (juce::AudioProcessorEditor& e)
-	                  { e.setSize (state.editorSize.getWidth(),
-		                           state.editorSize.getHeight()); });
+	callEditorMethod ([w = state.editorSize.getWidth(), h = state.editorSize.getHeight()] (juce::AudioProcessorEditor& e)
+	                  { e.setSize (w, h); });
 }
 
 void ProcessorBase::setCurrentProgramStateInformation (const void* data, int size)
