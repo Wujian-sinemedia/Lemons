@@ -1,39 +1,39 @@
 name: Tests
 
 on:
-	workflow_dispatch:
-	schedule:
-		- cron: '0 0 * * *'
+  workflow_dispatch:
+  schedule:
+	- cron: '0 0 * * *'
 
 jobs:
 
-	Build and test:
+  Build and test:
 
-		name: ${{ matrix.os }} tests
-		runs-on: ${{ matrix.os }}
-		timeout-minutes: 120
-		strategy:
-			fail-fast: false
-			matrix:
-				os: [windows-latest, ubuntu-latest, macos-latest]
+	name: ${{ matrix.os }} tests
+	runs-on: ${{ matrix.os }}
+	timeout-minutes: 120
+	strategy:
+	  fail-fast: false
+	  matrix:
+		os: [windows-latest, ubuntu-latest, macos-latest]
 
-		steps:
-		- name: Checkout code
-			uses: actions/checkout@v2
-			with:
-				submodules: recursive
+	steps:
+	- name: Checkout code
+	  uses: actions/checkout@v2
+	  with:
+	    submodules: recursive
 
-		- name: Set up cache
-			uses: actions/cache@v2
-			with:
-				path: Cache
-				key: ${{ runner.os }}.tests.${{ hashFiles('**/') }}
-				restore-keys: ${{ runner.os }}.tests.
+	- name: Set up cache
+	  uses: actions/cache@v2
+	  with:
+		path: Cache
+		key: ${{ runner.os }}.tests.${{ hashFiles('**/') }}
+		restore-keys: ${{ runner.os }}.tests.
 
-		- name: Install deps
-			shell: bash
-			run: cmake -P '${{ github.workspace }}/scripts/install_deps.cmake'
+	- name: Install deps
+	  shell: bash
+	  run: cmake -P '${{ github.workspace }}/scripts/install_deps.cmake'
 
-		- name: Build and run tests
-			shell: bash
-			run: make run_tests
+	- name: Build and run tests
+	  shell: bash
+	  run: make run_tests
