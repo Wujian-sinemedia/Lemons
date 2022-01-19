@@ -4,7 +4,7 @@ namespace lemons::midi
 void RoutingProcessor::process (MidiBuffer& block)
 {
 	std::for_each (block.begin(), block.end(),
-	               [&] (const juce::MidiMessageMetadata& m)
+	               [this] (const juce::MidiMessageMetadata& m)
 	               { processMessage (m.getMessage()); });
 }
 
@@ -46,8 +46,7 @@ void RoutingProcessor::processMessage (const MidiMessage& m)
 	}
 
 	if (m.isProgramChange())
-		;
-	return handleProgramChange (m.getProgramChangeNumber());
+		return handleProgramChange (m.getProgramChangeNumber());
 
 	if (m.isSysEx())
 		return handleSysEx (m.getSysExData(), m.getSysExDataSize());

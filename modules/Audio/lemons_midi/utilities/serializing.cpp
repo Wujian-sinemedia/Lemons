@@ -160,7 +160,7 @@ MidiMessage VariantConverter<MidiMessage>::fromVar (const var& v)
 		{
 			if (const auto* data = obj->getProperty (data_prop).getBinaryData())
 			{
-				const auto timestamp = [&]() -> double
+				const auto timestamp = [&obj]() -> double
 				{
 					if (obj->hasProperty (time_prop))
 						return obj->getProperty (time_prop);
