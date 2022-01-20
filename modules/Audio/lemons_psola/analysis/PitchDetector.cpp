@@ -58,9 +58,9 @@ float PitchDetector<SampleType>::detectPeriod (const SampleType* inputAudio, int
 
 	auto* const yinData = yinBuffer.getWritePointer (0);
 
-	juce::FloatVectorOperations::fill (yinData, SampleType (1), yinBuffer.getNumSamples());
+	juce::FloatVectorOperations::fill (yinData, SampleType (0), yinBuffer.getNumSamples());
 
-	const auto halfNumSamples = juce::roundToInt (std::floor (numSamples * 0.5f));
+	[[maybe_unused]] const auto halfNumSamples = juce::roundToInt (numSamples * 0.5f);
 
 	jassert (maxPeriod <= halfNumSamples);
 	jassert (yinBuffer.getNumSamples() >= halfNumSamples);
@@ -73,7 +73,7 @@ float PitchDetector<SampleType>::detectPeriod (const SampleType* inputAudio, int
 			const auto yinIdx = tau - minPeriod;
 
 			// difference function
-			for (auto i = 0; i < halfNumSamples; ++i)
+			for (auto i = 0; i + tau < numSamples; ++i)
 			{
 				const auto delta = inputAudio[i] - inputAudio[i + tau];
 				yinData[yinIdx] += (delta * delta);
@@ -83,23 +83,23 @@ float PitchDetector<SampleType>::detectPeriod (const SampleType* inputAudio, int
 
 			runningSum += yinData[yinIdx];
 
+			if (runningSum == SampleType (0))  // possible with silent input
+				continue;
+
 			jassert (runningSum > SampleType (0));
 
 			yinData[yinIdx] *= (static_cast<SampleType> (tau) / runningSum);
 		}
 	}
 
+	// NB. at this point, periodEstimate is still offset by minPeriod
 	const auto periodEstimate = absoluteThreshold();
+
+	jassert (periodEstimate >= 0 && periodEstimate <= (maxPeriod - minPeriod));
 
 	if (periodEstimate > 0)
 	{
 		periodLastFrame = parabolicInterpolation (periodEstimate) + static_cast<float> (minPeriod);
-
-		jassert (periodLastFrame >= minPeriod && periodLastFrame <= maxPeriod);
-
-		[[maybe_unused]] const auto detectedFreq = math::freqFromPeriod (samplerate, periodLastFrame);
-
-		jassert (detectedFreq >= minHz && detectedFreq <= maxHz);
 
 		return periodLastFrame;
 	}
@@ -111,12 +111,12 @@ float PitchDetector<SampleType>::detectPeriod (const SampleType* inputAudio, int
 template <typename SampleType>
 void PitchDetector<SampleType>::updatePeriodBounds()
 {
-	// Pitch should not halve or double between consecutive pitched frames
+	jassert (minHz > 0);
 
 	const auto periodUpperBound = math::periodInSamples (samplerate, minHz);
-	const auto periodLowerBound = math::periodInSamples (samplerate, maxHz);
+	const auto periodLowerBound = math::periodInSamples (samplerate, 10000);
 
-	if (periodLastFrame > 0.f)
+	if (periodLastFrame > 0.f)  // Pitch should not halve or double between consecutive pitched frames
 	{
 		const auto freqLastFrame = math::freqFromPeriod (samplerate, periodLastFrame);
 
@@ -138,13 +138,15 @@ int PitchDetector<SampleType>::absoluteThreshold() const
 {
 	const auto* const yinData = yinBuffer.getReadPointer (0);
 
-	const auto tau = [yinData, max = maxPeriod, thresh = confidenceThresh]
+	const auto maxYinIdx = maxPeriod - minPeriod;
+
+	const auto tau = [yinData, maxYinIdx, thresh = confidenceThresh]
 	{
-		for (auto tau = 0; tau <= max; ++tau)
+		for (auto tau = 0; tau <= maxYinIdx; ++tau)
 		{
 			if (yinData[tau] < thresh)
 			{
-				while (tau + 1 <= max && yinData[tau + 1] < yinData[tau])
+				while (tau + 1 <= maxYinIdx && yinData[tau + 1] < yinData[tau])
 				{
 					++tau;
 				}
@@ -153,10 +155,10 @@ int PitchDetector<SampleType>::absoluteThreshold() const
 			}
 		}
 
-		return max;
+		return maxYinIdx + 1;
 	}();
 
-	if (tau > maxPeriod || yinData[tau] >= confidenceThresh)
+	if (tau > maxYinIdx || yinData[tau] >= confidenceThresh)
 		return 0;
 
 	return tau;
@@ -235,7 +237,6 @@ template <typename SampleType>
 int PitchDetector<SampleType>::setMinHz (int newMinHz)
 {
 	jassert (newMinHz > 0);
-	jassert (newMinHz < maxHz);
 
 	minHz = newMinHz;
 
@@ -246,23 +247,9 @@ int PitchDetector<SampleType>::setMinHz (int newMinHz)
 }
 
 template <typename SampleType>
-void PitchDetector<SampleType>::setMaxHz (int newMaxHz)
-{
-	jassert (newMaxHz > minHz);
-
-	maxHz = newMaxHz;
-}
-
-template <typename SampleType>
 int PitchDetector<SampleType>::getMinHz() const noexcept
 {
 	return minHz;
-}
-
-template <typename SampleType>
-int PitchDetector<SampleType>::getMaxHz() const noexcept
-{
-	return maxHz;
 }
 
 template <typename SampleType>

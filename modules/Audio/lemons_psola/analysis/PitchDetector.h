@@ -84,21 +84,13 @@ public:
 
 	/** Sets the minimum detectable frequency for the pitch detector.
 	    The latency of the algorithm is determined by 2 * the period of the minimum frequency. Therefore, pitch detectors with a higher minimum frequency will have a lower latency.
+	    Note that the pitch detector may report a frequency slightly lower than this, due to its usage of interpolation to attempt to find the most accurate period.
 	    @return The latency, in samples, of the pitch detection algorithm with the new minimum frequency.
 	 */
 	int setMinHz (int newMinHz);
 
 	/** Returns the minimum frequency in Hz that this pitch detector is configured to detect. */
 	[[nodiscard]] int getMinHz() const noexcept;
-
-	/** Sets the maximum detectable frequency for the pitch detector.
-	    This is only used to limit the number of period candidates examined, and does not affect the latency of the algorithm.
-	 */
-	void setMaxHz (int newMaxHz);
-
-	/** Returns the maximum frequency in Hz that this pitch detector is configured to detect.
-	 */
-	[[nodiscard]] int getMaxHz() const noexcept;
 
 	/** Sets the confidence threshold of the pitch detection algorithm.
 	    This value should be between 0 and 1, inclusive, and can be thought of as the amount of aperiodic power tolerable in a signal determined to be pitched.
@@ -129,7 +121,10 @@ private:
 
 	[[nodiscard]] inline float parabolicInterpolation (int periodEstimate) const;
 
-	int minHz { 60 }, maxHz { 8000 };
+	bool operator== (const PitchDetector& other) const = delete;
+	bool operator!= (const PitchDetector& other) const = delete;
+
+	int minHz { 60 };
 
 	int minPeriod { 0 }, maxPeriod { 0 };
 

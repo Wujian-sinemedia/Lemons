@@ -130,6 +130,6 @@ private:
 template struct PeakFinderTests<float>;
 template struct PeakFinderTests<double>;
 
-LEMONS_CREATE_DSP_TEST (PeakFinderTests)
+// LEMONS_CREATE_DSP_TEST (PeakFinderTests)
 
 }  // namespace lemons::tests
