@@ -88,7 +88,7 @@ private:
 
 			this->expectLessOrEqual (indices.getUnchecked (indices.size() - 1), blocksize);
 		}
-
+        
 		const auto subtest = this->beginSubtest ("Grain spacing");
 
 		/*
@@ -130,6 +130,6 @@ private:
 template struct PeakFinderTests<float>;
 template struct PeakFinderTests<double>;
 
-// LEMONS_CREATE_DSP_TEST (PeakFinderTests)
+LEMONS_CREATE_DSP_TEST (PeakFinderTests)
 
 }  // namespace lemons::tests

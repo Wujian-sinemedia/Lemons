@@ -80,7 +80,6 @@ private:
 		}
 	}
 
-	//#if ! (JUCE_WINDOWS && ! JUCE_DEBUG)
 	void runOtherTests() final
 	{
 		{
@@ -106,7 +105,6 @@ private:
 			this->expectEquals (detector.detectPitch (storage), 0.f);
 		}
 	}
-	//#endif
 
 	static constexpr auto minDetectableFreq = 30.f;
 	static constexpr auto maxDetectableFreq = 3000.f;
