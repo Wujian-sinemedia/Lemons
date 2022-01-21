@@ -17565,13 +17565,6 @@
     </member>
     <member kind="function">
       <type>int</type>
-      <name>getMaxHz</name>
-      <anchorfile>classlemons_1_1dsp_1_1psola_1_1_pitch_detector.html</anchorfile>
-      <anchor>a8090732011d87c6bcc15149f307ee78c</anchor>
-      <arglist>() const noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>int</type>
       <name>getMinHz</name>
       <anchorfile>classlemons_1_1dsp_1_1psola_1_1_pitch_detector.html</anchorfile>
       <anchor>a32da61434cdaa898def22ae676a4501e</anchor>
@@ -17597,13 +17590,6 @@
       <anchorfile>classlemons_1_1dsp_1_1psola_1_1_pitch_detector.html</anchorfile>
       <anchor>aaede0916de2d7792067df1334672a6cb</anchor>
       <arglist>(float newThresh) noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setMaxHz</name>
-      <anchorfile>classlemons_1_1dsp_1_1psola_1_1_pitch_detector.html</anchorfile>
-      <anchor>aab7a4da475702a945b58d0e980234be1</anchor>
-      <arglist>(int newMaxHz)</arglist>
     </member>
     <member kind="function">
       <type>int</type>

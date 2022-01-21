@@ -89,9 +89,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ad63226891fbbcc36c41463b60ec2d25f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1psola_1_1_pitch_detector.html#ad63226891fbbcc36c41463b60ec2d25f">getLatencySamples</a> () const noexcept</td></tr>
 <tr class="memdesc:ad63226891fbbcc36c41463b60ec2d25f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the latency in samples of the detection algorithm.  <a href="classlemons_1_1dsp_1_1psola_1_1_pitch_detector.html#ad63226891fbbcc36c41463b60ec2d25f">More...</a><br /></td></tr>
 <tr class="separator:ad63226891fbbcc36c41463b60ec2d25f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8090732011d87c6bcc15149f307ee78c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1psola_1_1_pitch_detector.html#a8090732011d87c6bcc15149f307ee78c">getMaxHz</a> () const noexcept</td></tr>
-<tr class="memdesc:a8090732011d87c6bcc15149f307ee78c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the maximum frequency in Hz that this pitch detector is configured to detect.  <a href="classlemons_1_1dsp_1_1psola_1_1_pitch_detector.html#a8090732011d87c6bcc15149f307ee78c">More...</a><br /></td></tr>
-<tr class="separator:a8090732011d87c6bcc15149f307ee78c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a32da61434cdaa898def22ae676a4501e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1psola_1_1_pitch_detector.html#a32da61434cdaa898def22ae676a4501e">getMinHz</a> () const noexcept</td></tr>
 <tr class="memdesc:a32da61434cdaa898def22ae676a4501e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the minimum frequency in Hz that this pitch detector is configured to detect.  <a href="classlemons_1_1dsp_1_1psola_1_1_pitch_detector.html#a32da61434cdaa898def22ae676a4501e">More...</a><br /></td></tr>
 <tr class="separator:a32da61434cdaa898def22ae676a4501e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -104,9 +101,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aaede0916de2d7792067df1334672a6cb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1psola_1_1_pitch_detector.html#aaede0916de2d7792067df1334672a6cb">setConfidenceThresh</a> (float newThresh) noexcept</td></tr>
 <tr class="memdesc:aaede0916de2d7792067df1334672a6cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the confidence threshold of the pitch detection algorithm.  <a href="classlemons_1_1dsp_1_1psola_1_1_pitch_detector.html#aaede0916de2d7792067df1334672a6cb">More...</a><br /></td></tr>
 <tr class="separator:aaede0916de2d7792067df1334672a6cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aab7a4da475702a945b58d0e980234be1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1psola_1_1_pitch_detector.html#aab7a4da475702a945b58d0e980234be1">setMaxHz</a> (int newMaxHz)</td></tr>
-<tr class="memdesc:aab7a4da475702a945b58d0e980234be1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the maximum detectable frequency for the pitch detector.  <a href="classlemons_1_1dsp_1_1psola_1_1_pitch_detector.html#aab7a4da475702a945b58d0e980234be1">More...</a><br /></td></tr>
-<tr class="separator:aab7a4da475702a945b58d0e980234be1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae327864a86799fc51293b21b27ee9aa1"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1psola_1_1_pitch_detector.html#ae327864a86799fc51293b21b27ee9aa1">setMinHz</a> (int newMinHz)</td></tr>
 <tr class="memdesc:ae327864a86799fc51293b21b27ee9aa1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the minimum detectable frequency for the pitch detector.  <a href="classlemons_1_1dsp_1_1psola_1_1_pitch_detector.html#ae327864a86799fc51293b21b27ee9aa1">More...</a><br /></td></tr>
 <tr class="separator:ae327864a86799fc51293b21b27ee9aa1"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -344,35 +338,6 @@ template&lt;typename SampleType &gt; </div>
 
 </div>
 </div>
-<a id="a8090732011d87c6bcc15149f307ee78c" name="a8090732011d87c6bcc15149f307ee78c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8090732011d87c6bcc15149f307ee78c">&#9670;&nbsp;</a></span>getMaxHz()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename SampleType &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">int <a class="el" href="classlemons_1_1dsp_1_1psola_1_1_pitch_detector.html">lemons::dsp::psola::PitchDetector</a>&lt; SampleType &gt;::getMaxHz </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns the maximum frequency in Hz that this pitch detector is configured to detect. </p>
-
-</div>
-</div>
 <a id="a32da61434cdaa898def22ae676a4501e" name="a32da61434cdaa898def22ae676a4501e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a32da61434cdaa898def22ae676a4501e">&#9670;&nbsp;</a></span>getMinHz()</h2>
 
@@ -476,29 +441,6 @@ template&lt;typename SampleType &gt; </div>
 
 </div>
 </div>
-<a id="aab7a4da475702a945b58d0e980234be1" name="aab7a4da475702a945b58d0e980234be1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aab7a4da475702a945b58d0e980234be1">&#9670;&nbsp;</a></span>setMaxHz()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename SampleType &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="classlemons_1_1dsp_1_1psola_1_1_pitch_detector.html">lemons::dsp::psola::PitchDetector</a>&lt; SampleType &gt;::setMaxHz </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>newMaxHz</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Sets the maximum detectable frequency for the pitch detector. </p>
-<p >This is only used to limit the number of period candidates examined, and does not affect the latency of the algorithm. </p>
-
-</div>
-</div>
 <a id="ae327864a86799fc51293b21b27ee9aa1" name="ae327864a86799fc51293b21b27ee9aa1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae327864a86799fc51293b21b27ee9aa1">&#9670;&nbsp;</a></span>setMinHz()</h2>
 
@@ -518,7 +460,7 @@ template&lt;typename SampleType &gt; </div>
 </div><div class="memdoc">
 
 <p>Sets the minimum detectable frequency for the pitch detector. </p>
-<p >The latency of the algorithm is determined by 2 * the period of the minimum frequency. Therefore, pitch detectors with a higher minimum frequency will have a lower latency. </p><dl class="section return"><dt>Returns</dt><dd>The latency, in samples, of the pitch detection algorithm with the new minimum frequency. </dd></dl>
+<p >The latency of the algorithm is determined by 2 * the period of the minimum frequency. Therefore, pitch detectors with a higher minimum frequency will have a lower latency. Note that the pitch detector may report a frequency slightly lower than this, due to its usage of interpolation to attempt to find the most accurate period. </p><dl class="section return"><dt>Returns</dt><dd>The latency, in samples, of the pitch detection algorithm with the new minimum frequency. </dd></dl>
 
 </div>
 </div>
@@ -552,7 +494,7 @@ template&lt;typename SampleType &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Jan 20 2022 13:24:48 for Lemons by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3
+Generated on Fri Jan 21 2022 00:44:43 for Lemons by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3
 </small></address>
 </body>
 </html>
