@@ -42,7 +42,7 @@ private:
 
 			storage.setSize (1, latency, true, true, true);
 
-			const auto testFreq = [&] (const float correctFreq, bool reset)
+			auto testFreq = [&] (const float correctFreq, bool reset)
 			{
 				if (reset)
 					detector.reset();
@@ -67,12 +67,12 @@ private:
 
 			auto rand = this->getRandom();
 
-			for (int i = 0; i < this->getNumTestingRepetitions(); ++i)
+			for (auto i = 0; i < this->getNumTestingRepetitions(); ++i)
 				testFreq (juce::jmap (rand.nextFloat(), minDetectableFreq, maxDetectableFreq), true);
 
 			detector.reset();
 
-			for (int i = 0; i < this->getNumTestingRepetitions(); ++i)
+			for (auto i = 0; i < this->getNumTestingRepetitions(); ++i)
 			{
 				testFreq (440.f + i, false);
 				testFreq (440.f - i, false);
@@ -83,9 +83,42 @@ private:
 	void runOtherTests() final
 	{
 		{
+			const auto subtest = this->beginSubtest ("Randomly generated waveform");
+
+			const auto blocksize = storage.getNumSamples();
+
+			auto random = this->getRandom();
+
+			juce::Array<FloatType> randomSamples;
+
+			for (auto r = 0; r < this->getNumTestingRepetitions(); ++r)
+			{
+				const auto realPeriod = random.nextInt ({ 10, blocksize / 2 });
+
+				randomSamples.clearQuick();
+
+				for (auto s = 0; s <= realPeriod; ++s)
+					randomSamples.set (s, static_cast<FloatType> (juce::jmap (random.nextFloat(), -1.f, 1.f)));
+
+				for (auto writeIdx = 0, readIdx = 0; writeIdx < blocksize; ++writeIdx)
+				{
+					storage.setSample (0, writeIdx, randomSamples.getUnchecked (readIdx++));
+
+					if (readIdx > realPeriod)
+						readIdx = 0;
+				}
+
+				detector.reset();
+
+				this->expectWithinAbsoluteError (detector.detectPeriod (storage),
+				                                 static_cast<float> (realPeriod), 2.f);
+			}
+		}
+
+		{
 			const auto subtest = this->beginSubtest ("Detect random noise as unpitched");
 
-			for (int r = 0; r < this->getNumTestingRepetitions(); ++r)
+			for (auto r = 0; r < this->getNumTestingRepetitions(); ++r)
 			{
 				fillAudioBufferWithRandomNoise (storage, this->getRandom());
 
@@ -95,14 +128,16 @@ private:
 			}
 		}
 
-		const auto subtest = this->beginSubtest ("Detect silence as unpitched");
-
-		storage.clear();
-
-		for (int r = 0; r < this->getNumTestingRepetitions(); ++r)
 		{
-			detector.reset();
-			this->expectEquals (detector.detectPitch (storage), 0.f);
+			const auto subtest = this->beginSubtest ("Detect silence as unpitched");
+
+			storage.clear();
+
+			for (auto r = 0; r < this->getNumTestingRepetitions(); ++r)
+			{
+				detector.reset();
+				this->expectEquals (detector.detectPitch (storage), 0.f);
+			}
 		}
 	}
 

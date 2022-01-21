@@ -88,7 +88,7 @@ private:
 
 			this->expectLessOrEqual (indices.getUnchecked (indices.size() - 1), blocksize);
 		}
-        
+
 		const auto subtest = this->beginSubtest ("Grain spacing");
 
 		/*
