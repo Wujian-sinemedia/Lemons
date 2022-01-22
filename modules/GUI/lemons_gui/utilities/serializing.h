@@ -81,6 +81,11 @@ using juce::String;
  */
 [[nodiscard]] juce::Image getImage (const String& imageFileName);
 
+/** @ingroup lemons_binary
+    Returns a list of names of binary resource files that have file extensions matching known image file formats.
+ */
+[[nodiscard]] juce::StringArray getImageFileNames();
+
 /** @ingroup lemons_gui lemons_binary
     Returns a font that has been previously serialized with the serializing::serializeFont() method.
     If the font can't be loaded, an assertion will be thrown.

@@ -121,7 +121,11 @@ String AudioFile::getFormatName() const noexcept
 
 juce::AudioFormat* AudioFile::getAudioFormat() const
 {
-	return formats::getNamedFormat (audioFormat);
+	auto* format = formats::getNamedFormat (audioFormat);
+
+	jassert (format != nullptr);
+
+	return format;
 }
 
 const juce::StringPairArray& AudioFile::getMetadata() const noexcept
@@ -144,6 +148,33 @@ dsp::AudioFile getAudioFile (const String& audioFileName)
 	jassert (audio.isValid());
 
 	return audio;
+}
+
+juce::StringArray getAudioFileNames()
+{
+	const auto validFileExtensions = juce::StringArray::fromTokens (dsp::formats::getDefaultAudioFormatManager().getWildcardForAllFormats(),
+	                                                                ";", "");
+
+	jassert (! validFileExtensions.isEmpty());
+
+	juce::StringArray filenames;
+
+	for (const auto& filename : getFilenames())
+	{
+		const auto isAudio = [&validFileExtensions, &filename]
+		{
+			for (const auto& xtn : validFileExtensions)
+				if (filename.endsWith (xtn))
+					return true;
+
+			return false;
+		}();
+
+		if (isAudio)
+			filenames.add (filename);
+	}
+
+	return filenames;
 }
 
 }  // namespace lemons::binary

@@ -56,16 +56,12 @@ float PitchDetector<SampleType>::detectPeriod (const SampleType* inputAudio, int
 
 	updatePeriodBounds();
 
+	jassert (maxPeriod <= juce::roundToInt (numSamples * 0.5f));
+	jassert (yinBuffer.getNumSamples() >= (maxPeriod - minPeriod + 1));
+
 	auto* const yinData = yinBuffer.getWritePointer (0);
 
 	juce::FloatVectorOperations::fill (yinData, SampleType (0), yinBuffer.getNumSamples());
-
-#if JUCE_DEBUG
-	const auto halfNumSamples = juce::roundToInt (numSamples * 0.5f);
-
-	jassert (maxPeriod <= halfNumSamples);
-	jassert (yinBuffer.getNumSamples() >= halfNumSamples);
-#endif
 
 	{
 		SampleType runningSum = 0;

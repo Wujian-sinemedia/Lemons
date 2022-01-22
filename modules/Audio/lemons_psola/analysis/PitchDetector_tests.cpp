@@ -85,7 +85,15 @@ private:
 		{
 			const auto subtest = this->beginSubtest ("Randomly generated waveform");
 
-			const auto blocksize = storage.getNumSamples();
+			constexpr auto samplerate = 44100.;
+
+			const auto latency = detector.setSamplerate (samplerate);
+
+			storage.setSize (1, latency, true, true, true);
+
+			const auto minPeriod = juce::roundToInt (math::periodInSamples (samplerate, maxDetectableFreq));
+
+			jassert (latency > minPeriod);
 
 			auto random = this->getRandom();
 
@@ -93,14 +101,14 @@ private:
 
 			for (auto r = 0; r < this->getNumTestingRepetitions(); ++r)
 			{
-				const auto realPeriod = random.nextInt ({ 10, blocksize / 2 });
+				const auto realPeriod = random.nextInt ({ minPeriod, latency / 2 });
 
 				randomSamples.clearQuick();
 
 				for (auto s = 0; s <= realPeriod; ++s)
 					randomSamples.set (s, static_cast<FloatType> (juce::jmap (random.nextFloat(), -1.f, 1.f)));
 
-				for (auto writeIdx = 0, readIdx = 0; writeIdx < blocksize; ++writeIdx)
+				for (auto writeIdx = 0, readIdx = 0; writeIdx < storage.getNumSamples(); ++writeIdx)
 				{
 					storage.setSample (0, writeIdx, randomSamples.getUnchecked (readIdx++));
 
@@ -111,9 +119,35 @@ private:
 				detector.reset();
 
 				this->expectWithinAbsoluteError (detector.detectPeriod (storage),
-				                                 static_cast<float> (realPeriod), 1.f);
+				                                 static_cast<float> (realPeriod), 1.5f);
 			}
 		}
+
+		//        {
+		//            const auto subtest = this->beginSubtest ("Audio samples");
+		//
+		//            struct FileData final
+		//            {
+		//                String filename;
+		//                float  pitch;
+		//            };
+		//
+		//            for (const auto& data : { FileData{ "file.wav", 440.f } })
+		//            {
+		//                const auto sampleSubtest = this->beginSubtest ("Sample: " + data.filename);
+		//
+		//                auto file = binary::getAudioFile (data.filename);
+		//
+		//                this->expect (file.isValid());
+		//
+		//                detector.reset();
+		//
+		//                detector.setSamplerate (file.getSamplerate());
+		//
+		//                this->expectWithinAbsoluteError (detector.detectPitch (file.template getData<FloatType>()),
+		//                                                 data.pitch, 20.f);
+		//            }
+		//        }
 
 		{
 			const auto subtest = this->beginSubtest ("Detect random noise as unpitched");
@@ -141,8 +175,7 @@ private:
 		}
 	}
 
-	static constexpr auto minDetectableFreq = 30.f;
-	static constexpr auto maxDetectableFreq = 3000.f;
+	static constexpr auto minDetectableFreq = 30.f, maxDetectableFreq = 3000.f;
 
 	AudioBuffer<FloatType> storage;
 

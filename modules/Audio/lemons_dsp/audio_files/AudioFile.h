@@ -113,4 +113,9 @@ namespace lemons::binary
  */
 [[nodiscard]] dsp::AudioFile getAudioFile (const String& audioFileName);
 
+/** @ingroup lemons_binary
+    Returns a list of names of binary resource files that have file extensions matching known audio file formats.
+ */
+[[nodiscard]] juce::StringArray getAudioFileNames();
+
 }  // namespace lemons::binary

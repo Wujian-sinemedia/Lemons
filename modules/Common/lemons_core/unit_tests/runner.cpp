@@ -39,6 +39,7 @@ juce::StringArray Runner::getFailedTestNames() const
 			names.add (result->unitTestName);
 	}
     
+    names.trim();
     names.removeEmptyStrings();
     names.removeDuplicates (true);
 
@@ -105,9 +106,7 @@ bool executeUnitTests (Intensity intensityLevel, const File& logOutput, juce::in
 
 	Runner runner;
 
-#if LEMONS_GUI_UNIT_TESTS
 	const juce::ScopedJuceInitialiser_GUI guiInit;
-#endif
 
 	if (Test::testingIntensityIsLow())
 		logger.writeToLog ("Testing intensity - LOW");
@@ -116,7 +115,7 @@ bool executeUnitTests (Intensity intensityLevel, const File& logOutput, juce::in
 	else
 		logger.writeToLog ("Testing intensity - HIGH");
 
-	const auto result = [&]
+	const auto result = [&singleTestName, &categoryName, &runner, seed]
 	{
 		if (singleTestName.isNotEmpty())
 			return runner.runTest (singleTestName, seed);
