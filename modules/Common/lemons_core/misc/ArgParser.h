@@ -41,7 +41,7 @@ using juce::juce_wchar;
         if (! args.checkForRequiredArgs())
             return EXIT_FAILURE;
 
-        process_file (args.getFilepathForOption ("--file|-f"), args["--number|-n"]);
+        process_file (args.getFilepathForOption ("--file|-f"), args.getArgumentAsType<int>("--number|-n"));
     }
     @endcode
  */

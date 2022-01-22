@@ -52,6 +52,7 @@
 #include "audio_files/AudioFilePlayer.cpp"
 
 #if LEMONS_UNIT_TESTS
+#  include "audio_files/AudioFile_tests.cpp"
 #  include "fifos/CircularBuffer_tests.cpp"
 #  include "fifos/AudioFifo_tests.cpp"
 #  include "fifos/AudioAndMidiFIFO_tests.cpp"

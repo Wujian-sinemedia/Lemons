@@ -102,7 +102,6 @@ void AudioProcessorTestBase::runTest()
 
 	if (processor->hasEditor())
 	{
-#if LEMONS_GUI_UNIT_TESTS
 		beginTest ("Editor tests");
 
 		auto* editor = processor->createEditor();
@@ -110,7 +109,6 @@ void AudioProcessorTestBase::runTest()
 		expect (editor != nullptr);
 
 		runEditorTests (*editor);
-#endif
 	}
 	else
 	{

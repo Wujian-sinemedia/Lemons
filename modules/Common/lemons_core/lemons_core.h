@@ -28,7 +28,7 @@
  website:            http://benthevining.github.io/Lemons/
  license:            GPL-3.0
  minimumCppStandard: 17
- dependencies:       juce_data_structures juce_core juce_cryptography juce_graphics
+ dependencies:       juce_data_structures juce_cryptography juce_graphics
 
  END_JUCE_MODULE_DECLARATION
 
@@ -43,16 +43,6 @@
  */
 #ifndef LEMONS_UNIT_TESTS
 #  define LEMONS_UNIT_TESTS 0
-#endif
-
-
-//==============================================================================
-/** Config: LEMONS_GUI_UNIT_TESTS
-
- Set this to 1 to include GUI unit tests.
- */
-#ifndef LEMONS_GUI_UNIT_TESTS
-#  define LEMONS_GUI_UNIT_TESTS 0
 #endif
 
 
