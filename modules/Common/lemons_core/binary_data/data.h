@@ -58,10 +58,11 @@ struct Data final
 	/** Creates a Data object referencing a named resource. */
 	explicit Data (const char* fileToFind);
 
+    /** Creates a Data object referencing a named resource. */
 	explicit Data (const String& fileToFind);
 
 	/** Returns true if the requested data has been loaded successfully from the binary data target. */
-	bool isValid() const noexcept;
+	[[nodiscard]] bool isValid() const noexcept;
 
 	/** Returns the data as a UTF-8 formatted string. */
 	[[nodiscard]] String getAsString() const;
