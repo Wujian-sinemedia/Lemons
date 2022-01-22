@@ -120,11 +120,6 @@ bool saveValueTree<FileType::Opaque> (const File& file, const ValueTree& tree)
 
 //==============================================================================
 
-bool isMidiFile (const File& file)
-{
-	return file.hasFileExtension ("mid;rmi;rmid;midi");
-}
-
 
 File getFileOnDesktop (const String& fileName)
 {

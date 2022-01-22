@@ -36,15 +36,6 @@ juce::StringArray getValidFormatNames()
 }
 
 
-bool isValidAudioFile (const File& file)
-{
-	if (! file.existsAsFile())
-		return false;
-
-	return file.hasFileExtension (getDefaultAudioFormatManager().getWildcardForAllFormats());
-}
-
-
 template <>
 bool writeAudioToBlock (MemoryBlock&              outputBlock,
                         const AudioBuffer<float>& buffer, double samplerate,

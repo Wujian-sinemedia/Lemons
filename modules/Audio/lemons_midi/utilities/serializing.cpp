@@ -64,6 +64,8 @@ bool saveMidiToFile (const MidiBuffer& midi, const File& file)
 
 }  // namespace lemons::serializing
 
+/*---------------------------------------------------------------------------------------------------------------------------*/
+
 namespace lemons::files
 {
 
@@ -93,6 +95,23 @@ bool saveMidi (const MidiBuffer& midi, const File& file)
 	return saveBlockToFile (serializing::midiToBinary (midi), file);
 }
 
+
+static const juce::StringArray& getMidiFileExtensions()
+{
+	static const juce::StringArray midiFileExtensions { ".mid", ".rmi", ".rmid", ".midi" };
+
+	return midiFileExtensions;
+}
+
+bool isMidiFile (const File& file)
+{
+	for (const auto& xtn : getMidiFileExtensions())
+		if (file.hasFileExtension (xtn))
+			return true;
+
+	return false;
+}
+
 }  // namespace lemons::files
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
@@ -108,6 +127,29 @@ juce::MidiFile getMidiFile (const String& midiFileName)
 juce::MidiBuffer getMidiBuffer (const String& midiFileName)
 {
 	return serializing::midiBufferFromBinary (getBlob (midiFileName));
+}
+
+
+juce::StringArray getMidiFileNames()
+{
+	juce::StringArray midiFiles;
+
+	for (const auto& filename : getFilenames())
+	{
+		const auto isMidi = [&filename]
+		{
+			for (const auto& xtn : files::getMidiFileExtensions())
+				if (filename.endsWith (xtn))
+					return true;
+
+			return false;
+		}();
+
+		if (isMidi)
+			midiFiles.add (filename);
+	}
+
+	return midiFiles;
 }
 
 }  // namespace lemons::binary

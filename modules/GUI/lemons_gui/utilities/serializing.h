@@ -40,6 +40,7 @@ using juce::MemoryBlock;
 
 }  // namespace lemons::serializing
 
+/*---------------------------------------------------------------------------------------------------------------------------*/
 
 namespace lemons::files
 {
@@ -66,8 +67,14 @@ bool saveFont (const juce::Font& font, const File& file, int maxNumChars = 127, 
  */
 [[nodiscard]] std::unique_ptr<juce::CustomTypeface> loadFont (const File& file);
 
+
+/** Returns true if the file has an extension that matches a known image file format.
+ */
+[[nodiscard]] bool isImageFile (const File& file);
+
 }  // namespace lemons::files
 
+/*---------------------------------------------------------------------------------------------------------------------------*/
 
 namespace lemons::binary
 {

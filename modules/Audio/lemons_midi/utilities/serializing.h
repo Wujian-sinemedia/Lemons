@@ -89,6 +89,11 @@ bool saveMidi (const MidiFile& midi, const File& file);
 bool saveMidi (const MidiBuffer& midi, const File& file);
 
 
+/** Returns true if the file has an extension matching standard MIDI file extensions.
+ */
+[[nodiscard]] bool isMidiFile (const File& file);
+
+
 }  // namespace lemons::files
 
 
@@ -109,6 +114,11 @@ using juce::String;
     @see serializing::loadMidiFromFile(), serializing::saveMidiToFile()
  */
 [[nodiscard]] juce::MidiBuffer getMidiBuffer (const String& midiFileName);
+
+
+/** Returns a list of names of binary resource files that have file extensions matching standard MIDI file extensions.
+ */
+[[nodiscard]] juce::StringArray getMidiFileNames();
 
 }  // namespace lemons::binary
 

@@ -15,10 +15,6 @@ using juce::MemoryBlock;
 
 [[nodiscard]] juce::StringArray getValidFormatNames();
 
-/** Returns true if the file has a file extension matching any of the audio file extensions that the default AudioFormatManager can handle. */
-[[nodiscard]] bool isValidAudioFile (const File& file);
-
-
 template <typename SampleType>
 bool writeAudioToBlock (MemoryBlock&                   outputBlock,
                         const AudioBuffer<SampleType>& buffer, double samplerate,

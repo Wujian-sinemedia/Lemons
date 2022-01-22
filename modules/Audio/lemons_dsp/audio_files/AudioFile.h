@@ -104,6 +104,7 @@ private:
 
 }  // namespace lemons::dsp
 
+/*---------------------------------------------------------------------------------------------------------------------------*/
 
 namespace lemons::binary
 {
@@ -119,3 +120,14 @@ namespace lemons::binary
 [[nodiscard]] juce::StringArray getAudioFileNames();
 
 }  // namespace lemons::binary
+
+/*---------------------------------------------------------------------------------------------------------------------------*/
+
+namespace lemons::files
+{
+
+/** Returns true if the file has an extension matching any of the known audio formats.
+ */
+[[nodiscard]] bool isAudioFile (const File& file);
+
+}  // namespace lemons::files

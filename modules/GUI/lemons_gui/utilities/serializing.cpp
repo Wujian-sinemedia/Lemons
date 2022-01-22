@@ -85,6 +85,24 @@ std::unique_ptr<juce::CustomTypeface> loadFont (const File& file)
 	return serializing::fontFromBinary (loadFileAsBlock (file));
 }
 
+
+static const juce::StringArray& getImageFileExtensions()
+{
+	// retrieving valid image file extensions isn't currently supported in the JUCE API, so hard code them for now.....
+	static const juce::StringArray imageXtns { ".jpg", ".jpeg", ".png", ".gif" };
+
+	return imageXtns;
+}
+
+bool isImageFile (const File& file)
+{
+	for (const auto& xtn : getImageFileExtensions())
+		if (file.hasFileExtension (xtn))
+			return true;
+
+	return false;
+}
+
 }  // namespace lemons::files
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
@@ -103,16 +121,13 @@ juce::Image getImage (const String& imageFileName)
 
 juce::StringArray getImageFileNames()
 {
-	// retrieving valid image file extensions isn't currently supported in the JUCE API, so hard code them for now.....
-	const juce::StringArray imageXtns { ".jpg", ".jpeg", ".png", ".gif" };
-
 	juce::StringArray imageFilenames;
 
 	for (const auto& filename : getFilenames())
 	{
-		const auto isImage = [&imageXtns, &filename]
+		const auto isImage = [&filename]
 		{
-			for (const auto& xtn : imageXtns)
+			for (const auto& xtn : files::getImageFileExtensions())
 				if (filename.endsWith (xtn))
 					return true;
 

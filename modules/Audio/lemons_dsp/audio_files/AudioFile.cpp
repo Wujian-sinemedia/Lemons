@@ -178,3 +178,15 @@ juce::StringArray getAudioFileNames()
 }
 
 }  // namespace lemons::binary
+
+/*---------------------------------------------------------------------------------------------------------------------------------*/
+
+namespace lemons::files
+{
+
+bool isAudioFile (const File& file)
+{
+	return file.hasFileExtension (dsp::formats::getDefaultAudioFormatManager().getWildcardForAllFormats());
+}
+
+}  // namespace lemons::files

@@ -80,10 +80,6 @@ bool saveBlockToFile (const MemoryBlock& block, const File& file);
 
 
 /** @ingroup lemons_files
-    Returns true if the file has a file extension matching any standard MIDI file extensions. */
-[[nodiscard]] bool isMidiFile (const File& file);
-
-/** @ingroup lemons_files
     Returns a file on the desktop with the specified name. */
 [[nodiscard]] File getFileOnDesktop (const String& fileName);
 
