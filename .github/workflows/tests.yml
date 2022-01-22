@@ -37,3 +37,10 @@ jobs:
     - name: Build and run tests
       shell: bash
       run: make run_tests
+
+    - name: Upload logs
+      if: always()
+      uses: actions/upload-artifact@v2
+      with:
+        name: ${{ runner.os }} logs
+        path: '${{ github.workspace }}/logs'
