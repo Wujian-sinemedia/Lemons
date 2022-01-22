@@ -27,6 +27,7 @@
 #include "unit_tests/runner.cpp"
 
 #include "files/FileUtilities.cpp"
+#include "files/FileListener.cpp"
 
 #include "binary_data/data.cpp"
 #include "binary_data/translations.cpp"

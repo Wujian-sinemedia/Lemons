@@ -13,8 +13,8 @@
  license:            GPL-3.0
  minimumCppStandard: 17
  dependencies:       lemons_core juce_gui_extra
- iOSFrameworks:      CoreMotion CoreLocation AppKit
- OSXFrameworks:      CoreLocation AppKit
+ iOSFrameworks:      CoreGraphics CoreLocation AppKit CoreMotion
+ OSXFrameworks:      CoreGraphics CoreLocation AppKit
 
  END_JUCE_MODULE_DECLARATION
 
@@ -39,6 +39,7 @@
 #include "utilities/colors.h"
 #include "utilities/cursor.h"
 #include "utilities/util.h"
+#include "utilities/CapsLock.h"
 
 #include "components/Buttons.h"
 #include "components/SwappableComponent.h"

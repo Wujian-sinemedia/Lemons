@@ -103,27 +103,27 @@ juce::Image getImage (const String& imageFileName)
 
 juce::StringArray getImageFileNames()
 {
-    // retrieving valid image file extensions isn't currently supported in the JUCE API, so hard code them for now.....
-    const juce::StringArray imageXtns { ".jpg", ".jpeg", ".png", ".gif" };
-    
-    juce::StringArray imageFilenames;
-    
-    for (const auto& filename : getFilenames())
-    {
-        const auto isImage = [&imageXtns, &filename]
-        {
-            for (const auto& xtn : imageXtns)
-                if (filename.endsWith (xtn))
-                    return true;
-            
-            return false;
-        }();
-        
-        if (isImage)
-            imageFilenames.add (filename);
-    }
-    
-    return imageFilenames;
+	// retrieving valid image file extensions isn't currently supported in the JUCE API, so hard code them for now.....
+	const juce::StringArray imageXtns { ".jpg", ".jpeg", ".png", ".gif" };
+
+	juce::StringArray imageFilenames;
+
+	for (const auto& filename : getFilenames())
+	{
+		const auto isImage = [&imageXtns, &filename]
+		{
+			for (const auto& xtn : imageXtns)
+				if (filename.endsWith (xtn))
+					return true;
+
+			return false;
+		}();
+
+		if (isImage)
+			imageFilenames.add (filename);
+	}
+
+	return imageFilenames;
 }
 
 std::unique_ptr<juce::CustomTypeface> getFont (const String& fontFileName)

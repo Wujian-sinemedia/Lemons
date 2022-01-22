@@ -5,6 +5,7 @@
 
 #include "utilities/serializing.cpp"
 #include "utilities/cursor.cpp"
+#include "utilities/CapsLock.cpp"
 
 #include "components/SwappableComponent.cpp"
 #include "components/Buttons.cpp"

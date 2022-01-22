@@ -75,6 +75,7 @@
 #include "unit_tests/runner.h"
 
 #include "files/FileUtilities.h"
+#include "files/FileListener.h"
 
 #include "binary_data/data.h"
 #include "binary_data/translations.h"

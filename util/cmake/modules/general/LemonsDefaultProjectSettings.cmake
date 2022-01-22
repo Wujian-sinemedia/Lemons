@@ -29,3 +29,24 @@ set (CMAKE_EXPORT_COMPILE_COMMANDS TRUE CACHE INTERNAL "")
 if (NOT DEFINED ENV{CMAKE_INSTALL_MODE})
 	set (ENV{CMAKE_INSTALL_MODE} ABS_SYMLINK_OR_COPY)
 endif()
+
+
+#
+
+
+function (lemons_enable_coverage_flags target)
+
+	if (NOT CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
+		message (WARNING "Coverage flags are not supported with your current compiler: ${CMAKE_CXX_COMPILER_ID}")
+		return()
+	endif()
+
+	target_compile_options (${target} PUBLIC
+        -O0        # no optimization
+        -g         # generate debug info
+        --coverage # sets all required flags
+    )
+
+    target_link_options (${target} PUBLIC --coverage)
+
+endfunction()
