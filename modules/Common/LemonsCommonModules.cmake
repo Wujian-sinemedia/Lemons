@@ -4,9 +4,6 @@ Common building blocks and utilities
 ## Targets:
 - LemonsCommonModules
 
-## Options:
-- LEMONS_BUILD_TESTS, defaults to OFF
-
 ]]
 
 

@@ -146,4 +146,15 @@ bool saveBlockToFile (const MemoryBlock& block, const File& file)
 	return false;
 }
 
+
+bool isAbsolutePath (const String& path)
+{
+	return File::isAbsolutePath (path)
+	    || path.startsWithChar ('/')
+	    || path.startsWithChar ('$')
+	    || path.startsWithChar ('~')
+	    || (juce::CharacterFunctions::isLetter (path[0]) && path[1] == ':')
+	    || path.startsWithIgnoreCase ("smb:");
+}
+
 }  // namespace lemons::files

@@ -10,6 +10,7 @@ include_guard (GLOBAL)
 
 include (LemonsAppModules)
 include (LemonsPluginModules)
+include (LemonsConnectivityModules)
 
 
 add_library (Lemons::AllLemonsModules ALIAS AllLemonsModules)

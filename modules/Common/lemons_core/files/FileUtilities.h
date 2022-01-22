@@ -83,4 +83,7 @@ bool saveBlockToFile (const MemoryBlock& block, const File& file);
     Returns a file on the desktop with the specified name. */
 [[nodiscard]] File getFileOnDesktop (const String& fileName);
 
+
+[[nodiscard]] bool isAbsolutePath (const String& path);
+
 }  // namespace lemons::files
