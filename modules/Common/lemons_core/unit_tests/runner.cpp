@@ -20,11 +20,26 @@ namespace lemons::tests
 
 bool Runner::hadAnyFailures() const
 {
-	for (int i = 0; i < getNumResults(); ++i)
+	for (auto i = 0; i < getNumResults(); ++i)
 		if (getResult (i)->failures > 0)
 			return true;
 
 	return false;
+}
+
+juce::StringArray Runner::getFailedTestNames() const
+{
+	juce::StringArray names;
+
+	for (auto i = 0; i < getNumResults(); ++i)
+	{
+		const auto* result = getResult (i);
+
+		if (result->failures > 0)
+			names.add (result->unitTestName);
+	}
+
+	return names;
 }
 
 bool Runner::runTest (const String& testName, juce::int64 seed)
@@ -35,14 +50,7 @@ bool Runner::runTest (const String& testName, juce::int64 seed)
 		return false;
 	}
 
-	if (auto* test = [&testName]() -> juce::UnitTest*
-	    {
-		    for (auto* t : juce::UnitTest::getAllTests())
-			    if (t->getName() == testName)
-				    return t;
-
-		    return nullptr;
-	    }())
+	if (auto* test = getUnitTestWithName (testName))
 	{
 		runTests ({ test }, seed);
 		return ! hadAnyFailures();
@@ -58,27 +66,37 @@ void Runner::logMessage (const juce::String& message)
 }
 
 
-struct RAII_FileLogger : public juce::FileLogger
+juce::UnitTest* getUnitTestWithName (const String& name)
 {
-	explicit RAII_FileLogger (File output)
-	    : FileLogger (output, "", 0)
-	{
-		juce::Logger::setCurrentLogger (this);
-	}
+	for (auto* t : juce::UnitTest::getAllTests())
+		if (t->getName() == name)
+			return t;
 
-	~RAII_FileLogger()
-	{
-		juce::Logger::setCurrentLogger (nullptr);
-	}
-};
+	return nullptr;
+}
 
 
 bool executeUnitTests (Intensity intensityLevel, const File& logOutput, juce::int64 seed,
-                       const String& singleTestName, const String& categoryName)
+                       const String& singleTestName, const String& categoryName,
+                       bool rerunFailed)
 {
 	jassert (! (singleTestName.isNotEmpty() && categoryName.isNotEmpty()));
 
 	Test::setGlobalTestingIntensityLevel (intensityLevel);
+
+	struct RAII_FileLogger final : public juce::FileLogger
+	{
+		explicit RAII_FileLogger (const File& output)
+		    : FileLogger (output, "", 0)
+		{
+			juce::Logger::setCurrentLogger (this);
+		}
+
+		~RAII_FileLogger()
+		{
+			juce::Logger::setCurrentLogger (nullptr);
+		}
+	};
 
 	RAII_FileLogger logger { logOutput };
 
@@ -95,17 +113,42 @@ bool executeUnitTests (Intensity intensityLevel, const File& logOutput, juce::in
 	else
 		logger.writeToLog ("Testing intensity - HIGH");
 
-	if (singleTestName.isNotEmpty())
-		return runner.runTest (singleTestName);
-
-	if (! categoryName.isEmpty())
+	const auto result = [&]
 	{
-		runner.runTestsInCategory (categoryName, seed);
-		return ! runner.hadAnyFailures();
-	}
+		if (singleTestName.isNotEmpty())
+			return runner.runTest (singleTestName, seed);
 
-	runner.runAllTests (seed);
-	return ! runner.hadAnyFailures();
+		if (categoryName.isNotEmpty())
+			runner.runTestsInCategory (categoryName, seed);
+		else
+			runner.runAllTests (seed);
+
+		return ! runner.hadAnyFailures();
+	}();
+
+	if (result)
+		return true;
+
+	const auto failedTestNames = runner.getFailedTestNames();
+
+	logger.writeToLog ("The following tests failed: " + failedTestNames.joinIntoString (", "));
+
+	if (! rerunFailed)
+		return false;
+
+	juce::Array<juce::UnitTest*> failedTests;
+
+	for (const auto& name : failedTestNames)
+		failedTests.add (getUnitTestWithName (name));
+
+	runner.runTests (failedTests, seed);
+
+	if (! runner.hadAnyFailures())
+		return true;
+
+	logger.writeToLog ("The following tests failed again: " + runner.getFailedTestNames().joinIntoString (", "));
+
+	return false;
 }
 
 }  // namespace lemons::tests

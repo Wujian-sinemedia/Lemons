@@ -76,7 +76,7 @@ private:
 		{
 			const auto subtest = this->beginSubtest ("Indices are always increasing");
 
-			for (int i = 0; i < indices.size() - 1; ++i)
+			for (auto i = 0; i < indices.size() - 1; ++i)
 				this->expectGreaterThan (indices.getUnchecked (i + 1),
 				                         indices.getUnchecked (i));
 		}
@@ -101,7 +101,7 @@ private:
 
 		const auto halfPeriod = period / 2;
 
-		for (int i = 0; i < indices.size() - 2; ++i)
+		for (auto i = 0; i < indices.size() - 2; ++i)
 		{
 			const auto index1 = indices.getUnchecked (i);
 			const auto index2 = indices.getUnchecked (i + 1);

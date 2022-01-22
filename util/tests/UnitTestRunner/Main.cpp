@@ -33,6 +33,7 @@ int main (int argc, char** argv)
 	args.addArgument ("--category|-c", false, "Run tests in a single category");
 	args.addArgument ("--list|-l", false, "List all test categories");
 	args.addArgument ("--list-all|-a", false, "List all test names");
+	args.addArgument ("--rerun-failed|-r", false, "Rerun failed tests");
 
 	if (args.checkForHelpFlag (false))
 		return EXIT_SUCCESS;
@@ -64,7 +65,7 @@ int main (int argc, char** argv)
 
 	using lemons::tests::Intensity;
 
-	const auto intensity = [&]() -> Intensity
+	const auto intensity = [&args]
 	{
 		if (args["--intensity|-i"] == "Low")
 			return Intensity::Low;
@@ -75,7 +76,7 @@ int main (int argc, char** argv)
 		return Intensity::High;
 	}();
 
-	const auto seed = [&]() -> juce::int64
+	const auto seed = [&args]
 	{
 		if (args.containsOption ("--seed|-s"))
 			return args.getArgumentAsType<juce::int64> ("--seed|-s");
@@ -83,11 +84,20 @@ int main (int argc, char** argv)
 		return juce::Random::getSystemRandom().nextInt64();
 	}();
 
+	const auto rerunFailed = [&args]
+	{
+		if (args.containsOption ("--rerun-failed|-r"))
+			return true;
+
+		return false;
+	}();
+
 	const auto res = lemons::tests::executeUnitTests (intensity,
 	                                                  args.getFilepathForOption ("--file|-f"),
 	                                                  seed,
 	                                                  args["--test|-t"],
-	                                                  args["--category|-c"]);
+	                                                  args["--category|-c"],
+	                                                  rerunFailed);
 
 	if (res)
 		return EXIT_SUCCESS;

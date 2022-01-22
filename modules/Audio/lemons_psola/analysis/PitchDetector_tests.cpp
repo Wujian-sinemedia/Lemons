@@ -42,7 +42,7 @@ private:
 
 			storage.setSize (1, latency, true, true, true);
 
-			auto testFreq = [&] (const float correctFreq, bool reset)
+			auto testFreq = [this, &osc, samplerate] (const float correctFreq, bool reset)
 			{
 				if (reset)
 					detector.reset();
@@ -111,7 +111,7 @@ private:
 				detector.reset();
 
 				this->expectWithinAbsoluteError (detector.detectPeriod (storage),
-				                                 static_cast<float> (realPeriod), 2.f);
+				                                 static_cast<float> (realPeriod), 1.f);
 			}
 		}
 
