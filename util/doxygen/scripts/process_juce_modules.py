@@ -3,14 +3,13 @@
 
 import os
 import shutil
-
 from argparse import ArgumentParser
 
 #
 
 
 def get_category_description_from_cmake_module(dir_path):
-    for dirpath, dirnames, filenames in os.walk(dir_path):
+    for dirpath, dirnames, filenames in os.walk(dir_path):  # pylint: disable=unused-variable
         for file in filenames:
             root, ext = os.path.splitext(file)
             if ext == ".cmake":
@@ -54,11 +53,9 @@ def process_module_category(category_name, orig_cat_dir, dest_cat_dir):
 
     if not os.path.isdir(orig_cat_dir):
         raise Exception("Module category dir does not exist!")
-        return
 
     if not category_name:
         raise Exception("Module category name cannot be empty!")
-        return
 
     if os.path.isdir(dest_cat_dir):
         shutil.rmtree(dest_cat_dir)
@@ -89,13 +86,11 @@ def create_module_heirarchy(source_dir, dest_dir):
 
     if not os.path.isdir(source_dir):
         raise Exception("Juce modules source directory does not exist!")
-        return
 
     orig_module_dir = os.path.join(source_dir, "modules")
 
     if not os.path.isdir(orig_module_dir):
         raise Exception("Juce modules source directory does not exist!")
-        return
 
     category_definitions = []
 

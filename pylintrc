@@ -1,0 +1,27 @@
+[MESSAGES CONTROL]
+
+disable=
+	invalid-name,
+	missing-docstring,
+	unspecified-encoding,
+	consider-using-f-string,
+	line-too-long
+
+
+[BASIC]
+
+good-names=f
+
+function-naming-style=snake_case
+
+
+[DESIGN]
+
+max-args=5
+
+max-branches=10
+
+
+[STRING]
+
+check-quote-consistency=no

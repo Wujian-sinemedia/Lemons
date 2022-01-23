@@ -2,11 +2,10 @@
 # -*- coding: utf-8 -*-
 
 import os
-
 from argparse import ArgumentParser
 
-from process_cmake_module import process_file
 from cmake_api import process_cmake_api
+from process_cmake_module import process_file
 
 #
 
@@ -15,45 +14,45 @@ def get_output_file(dest_dir):
     return os.path.join(dest_dir, "CMakeModules.md")
 
 
-def add_category_to_output_file(dest_file, category):
+def add_category_to_output_file(output_file, category):
 
-    if category == "scripts" or category == "modules":
+    if category in ("scripts", "modules"):
         return
 
     formatted_line = "### {c}".format(c=category.capitalize())
 
-    if not os.path.isfile(dest_file):
-        with open(dest_file, "a") as f:
-            f.write(formatted_line)
+    if not os.path.isfile(output_file):
+        with open(output_file, "a") as out_file:
+            out_file.write(formatted_line)
         return
 
-    with open(dest_file, "r") as f:
-        for line in f:
+    with open(output_file, "r") as file:
+        for line in file:
             if line.startswith(formatted_line):
                 return
 
-    with open(dest_file, "a") as f:
-        f.write("\r\n")
-        f.write(formatted_line)
+    with open(output_file, "a") as out_file:
+        out_file.write("\r\n")
+        out_file.write(formatted_line)
 
 #
 
 
 def process_files_in_subdir(dirpath, dest_dir, category):
 
-    dest_file = get_output_file(dest_dir)
+    destination_file = get_output_file(dest_dir)
 
-    add_category_to_output_file(dest_file, category)
+    add_category_to_output_file(destination_file, category)
 
-    for path, dirnames, filenames in os.walk(dirpath):
+    for path, dirnames, filenames in os.walk(dirpath):  # pylint: disable=unused-variable
         for file in filenames:
             file_path = os.path.join(dirpath, file)
             if os.path.isfile(file_path):
-                process_file(file_path, dest_dir, dest_file, category)
+                process_file(file_path, dest_dir, destination_file, category)
 
-    if os.path.isfile(dest_file):
-        with open(dest_file, "a") as f:
-            f.write("\r\n")
+    if os.path.isfile(destination_file):
+        with open(destination_file, "a") as file:
+            file.write("\r\n")
 
 #
 
@@ -68,7 +67,7 @@ def process_subdir(directory, dest_dir, category):
 
     process_files_in_subdir(directory, dest_dir, category)
 
-    for dirpath, dirnames, filenames in os.walk(directory):
+    for dirpath, dirnames, filenames in os.walk(directory):  # pylint: disable=unused-variable
         for subdir in dirnames:
             subdir_path = os.path.join(dirpath, subdir)
 

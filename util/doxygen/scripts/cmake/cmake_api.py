@@ -14,7 +14,7 @@ def split_args_from_line(inputString):
     temp = []
 
     for word in inputString.split():
-        if word == "\"\"" or word == "\"":
+        if word in ("\"\"", "\""):
             res.append(" ")
             continue
 
@@ -123,7 +123,6 @@ def process_cmake_api(cmake_api_input, lemons_root):
 
     if not os.path.isfile(lemons_cmakelists):
         raise Exception("Lemons CMakeLists.txt cannot be found!")
-        return
 
     with open(lemons_cmakelists, "r") as f:
         cmakelists_text = f.read()
