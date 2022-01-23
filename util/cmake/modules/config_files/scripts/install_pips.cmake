@@ -9,12 +9,12 @@ endif()
 execute_process (COMMAND ${PYTHON} -m ensurepip --upgrade
 				 COMMAND_ECHO STDOUT)
 
-execute_process (COMMAND ${PYTHON} -m pip install --upgrade pip)
+execute_process (COMMAND ${PYTHON} -m pip3 install --upgrade pip3)
 
 #
 
 function (lemons_install_python_pips pips)
 
-	execute_process (COMMAND pip install --upgrade ${pips})
+	execute_process (COMMAND pip3 install --upgrade ${pips})
 
 endfunction()

@@ -25,7 +25,8 @@
 				"mesa-common-dev",
 				"openssh-client",
 				"ninja-build"
-			]
+			],
+			"PythonPackages": [ "pre-commit" ]
 		},
 		{
 			"name": "Docs",
