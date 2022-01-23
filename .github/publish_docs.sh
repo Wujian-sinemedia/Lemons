@@ -41,7 +41,8 @@ cd "$docs_git_tree"
 rm -rf -- *
 
 # copy generated docs to cloned copy of docs git tree
-mv "$lemons_root"/util/doxygen/doc/* "$docs_git_tree"
+# shellcheck disable=SC2086
+mv $lemons_root/util/doxygen/doc/* "$docs_git_tree"
 
 # configure git
 git config push.default simple
