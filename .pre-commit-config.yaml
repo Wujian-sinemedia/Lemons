@@ -25,6 +25,10 @@ repos:
         args: [--fix=lf]
       - id: trailing-whitespace
       - id: fix-encoding-pragma
+  - repo: https://github.com/pre-commit/mirrors-autopep8
+    rev: v1.6.0
+    hooks:
+      - id: autopep8
   - repo: https://github.com/adrienverge/yamllint
     rev: v1.26.3
     hooks:
