@@ -19,8 +19,8 @@ If the AAXSDK target is configured successfully, this module will call juce_set_
 
 ```
 lemons_configure_aax_plugin (TARGET <target>
-                            [PAGETABLE_FILE <file>]
-                            [GUID <guid>])
+							[PAGETABLE_FILE <file>]
+							[GUID <guid>])
 ```
 Configures default settings for the specified AAX plugin target. Note that `<target>` is the *literal* name of this plugin target, not the shared plugin target name!
 
@@ -33,7 +33,7 @@ If `GUID` is present, `${ARGN}` will be forwarded to lemons_configure_aax_plugin
 
 ```
 lemons_configure_aax_plugin_signing (TARGET <target> GUID <guid>
-                                     ACCOUNT <account> SIGNID <signid> KEYFILE <keyfile> KEYPASSWORD <password>)
+									 ACCOUNT <account> SIGNID <signid> KEYFILE <keyfile> KEYPASSWORD <password>)
 ```
 Configures a post-build digital signing step for the specified AAX plugin target. Note that `<target>` is the *literal* name of this plugin target, not the shared plugin target name!
 
@@ -43,16 +43,15 @@ Does nothing if wraptool cannot be located at configure-time.
 ### lemons_set_aax_signing_settings
 ```
 lemons_set_aax_signing_settings ([ACCOUNT <accountID>]
-                                 [SIGNID <signID>]
-                                 [KEYFILE <keyfilePath>]
-                                 [KEYPASSWORD <keyPassword>])
+								 [SIGNID <signID>]
+								 [KEYFILE <keyfilePath>]
+								 [KEYPASSWORD <keyPassword>])
 ```
 Configures some default settings for the lemons_configure_aax_plugin_signing() function, so that these settings don't have to be provided for each target you configure.
 
 I recommend you create a `YourBrand.cmake` module in some shared location that each project can include, and that module can call this function at include-time with your settings.
 
 ]]
-
 
 include_guard (GLOBAL)
 
@@ -63,53 +62,65 @@ include (LemonsFileUtils)
 include (LemonsJuceUtilities)
 
 if (TARGET AAXSDK)
-    juce_set_aax_sdk_path ("${LEMONS_AAX_SDK_PATH}")
-    message (DEBUG "AAXSDK target created successfully!")
-else()
-    message (DEBUG "AAXSDK target not created, see log for errors...")
-endif()
+	juce_set_aax_sdk_path ("${LEMONS_AAX_SDK_PATH}")
+	message (DEBUG "AAXSDK target created successfully!")
+else ()
+	message (DEBUG "AAXSDK target not created, see log for errors...")
+endif ()
 
 #
 
-
 function (lemons_configure_aax_plugin)
 
-    set (oneValueArgs TARGET PAGETABLE_FILE)
+	set (oneValueArgs TARGET PAGETABLE_FILE)
 
-    cmake_parse_arguments (LEMONS_AAX "" "${oneValueArgs}" "" ${ARGN})
+	cmake_parse_arguments (LEMONS_AAX "" "${oneValueArgs}" "" ${ARGN})
 
-    lemons_require_function_arguments (LEMONS_AAX TARGET)
-    lemons_check_for_unparsed_args (LEMONS_AAX)
+	lemons_require_function_arguments (LEMONS_AAX TARGET)
+	lemons_check_for_unparsed_args (LEMONS_AAX)
 
-    if (NOT TARGET ${LEMONS_AAX_TARGET})
-        message (WARNING "AAX target does not exist!")
-        return()
-    endif()
+	if (NOT TARGET ${LEMONS_AAX_TARGET})
+		message (WARNING "AAX target does not exist!")
+		return ()
+	endif ()
 
-    if (NOT TARGET AAXSDK)
-        message (FATAL_ERROR "AAX plugin target created, but AAXSDK target doesn't exist!")
-    endif()
+	if (NOT TARGET AAXSDK)
+		message (
+			FATAL_ERROR
+				"AAX plugin target created, but AAXSDK target doesn't exist!")
+	endif ()
 
-    set_target_properties (${LEMONS_AAX_TARGET} PROPERTIES OSX_ARCHITECTURES x86_64)
+	set_target_properties (${LEMONS_AAX_TARGET} PROPERTIES OSX_ARCHITECTURES
+														   x86_64)
 
-    add_dependencies (${LEMONS_AAX_TARGET} AAXSDK)
+	add_dependencies (${LEMONS_AAX_TARGET} AAXSDK)
 
-    if (LEMONS_AAX_PAGETABLE_FILE)
+	if (LEMONS_AAX_PAGETABLE_FILE)
 
-        message (DEBUG "Configuring AAX pagetable file...")
+		message (DEBUG "Configuring AAX pagetable file...")
 
-        lemons_make_path_absolute (VAR LEMONS_AAX_PAGETABLE_FILE
-                                   BASE_DIR ${PROJECT_SOURCE_DIR})
+		lemons_make_path_absolute (VAR LEMONS_AAX_PAGETABLE_FILE BASE_DIR
+								   ${PROJECT_SOURCE_DIR})
 
-        cmake_path (IS_ABSOLUTE LEMONS_AAX_PAGETABLE_FILE pagetable_path_is_absolute)
+		cmake_path (IS_ABSOLUTE LEMONS_AAX_PAGETABLE_FILE
+					pagetable_path_is_absolute)
 
-        target_compile_definitions (${LEMONS_AAX_TARGET} PRIVATE "JucePlugin_AAXPageTableFile=\"${LEMONS_AAX_PAGETABLE_FILE}\"")
+		target_compile_definitions (
+			${LEMONS_AAX_TARGET}
+			PRIVATE
+				"JucePlugin_AAXPageTableFile=\"${LEMONS_AAX_PAGETABLE_FILE}\"")
 
-        if (WIN32)
-            # On Windows, pagetable files need a special post-build copy step to be included in the binary correctly
-            add_custom_command (TARGET ${LEMONS_AAX_TARGET} POST_BUILD VERBATIM
-                                COMMAND "${CMAKE_COMMAND}" ARGS -E copy "${LEMONS_AAX_PAGETABLE_FILE}" "$<TARGET_PROPERTY:${LEMONS_AAX_TARGET},JUCE_PLUGIN_ARTEFACT_FILE>/Contents/Resources"
-                                COMMENT "Copying AAX pagetable into AAX binary...")
-        endif()
-    endif()
-endfunction()
+		if (WIN32)
+			# On Windows, pagetable files need a special post-build copy step to
+			# be included in the binary correctly
+			add_custom_command (
+				TARGET ${LEMONS_AAX_TARGET}
+				POST_BUILD VERBATIM
+				COMMAND
+					"${CMAKE_COMMAND}" ARGS -E copy
+					"${LEMONS_AAX_PAGETABLE_FILE}"
+					"$<TARGET_PROPERTY:${LEMONS_AAX_TARGET},JUCE_PLUGIN_ARTEFACT_FILE>/Contents/Resources"
+				COMMENT "Copying AAX pagetable into AAX binary...")
+		endif ()
+	endif ()
+endfunction ()

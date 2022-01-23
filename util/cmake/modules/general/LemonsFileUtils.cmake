@@ -19,20 +19,19 @@ If the `FILES` flag is present, the function returns a list of files that are in
 
 ]]
 
-
 include_guard (GLOBAL)
 
 cmake_minimum_required (VERSION 3.21 FATAL_ERROR)
 
 include (LemonsCmakeDevTools)
 
-
 function (lemons_subdir_list)
 
 	set (options RECURSE FILES FULL_PATHS)
 	set (oneValueArgs RESULT DIR)
 
-	cmake_parse_arguments (LEMONS_SUBDIR "${options}" "${oneValueArgs}" "" ${ARGN})
+	cmake_parse_arguments (LEMONS_SUBDIR "${options}" "${oneValueArgs}" ""
+						   ${ARGN})
 
 	lemons_require_function_arguments (LEMONS_SUBDIR RESULT DIR)
 	lemons_check_for_unparsed_args (LEMONS_SUBDIR)
@@ -41,47 +40,58 @@ function (lemons_subdir_list)
 
 	if (dir_path_is_absolute)
 		set (dir "${LEMONS_SUBDIR_DIR}")
-	else()
+	else ()
 		set (dir "${CMAKE_CURRENT_LIST_DIR}/${LEMONS_SUBDIR_DIR}")
-	endif()
+	endif ()
 
 	lemons_make_variable_const (dir)
 
 	if (LEMONS_SUBDIR_RECURSE)
-		file (GLOB_RECURSE children RELATIVE ${dir} ${dir}/*)
-	else()
-		file (GLOB children RELATIVE ${dir} ${dir}/*)
-	endif()
+		file (
+			GLOB_RECURSE children
+			RELATIVE ${dir}
+			${dir}/*)
+	else ()
+		file (
+			GLOB children
+			RELATIVE ${dir}
+			${dir}/*)
+	endif ()
 
-  	set (dirlist "")
+	set (dirlist "")
 
-  	foreach (child ${children})
-  		if (LEMONS_SUBDIR_FILES)
-  			set (filepath "${dir}/${child}")
+	foreach (child ${children})
+		if (LEMONS_SUBDIR_FILES)
+			set (filepath "${dir}/${child}")
 
-			if (EXISTS ${filepath} AND NOT IS_DIRECTORY ${filepath} AND NOT "${child}" STREQUAL ".DS_Store")
+			if (EXISTS ${filepath}
+				AND NOT IS_DIRECTORY ${filepath}
+				AND NOT "${child}" STREQUAL ".DS_Store")
 				if (LEMONS_SUBDIR_FULL_PATHS)
 					list (APPEND dirlist "${filepath}")
-				else()
+				else ()
 					list (APPEND dirlist "${child}")
-				endif()
-			endif()
-  		else()
-  			set (dirpath "${dir}/${child}")
+				endif ()
+			endif ()
+		else ()
+			set (dirpath "${dir}/${child}")
 
 			if (EXISTS ${dirpath} AND IS_DIRECTORY ${dirpath})
 				if (LEMONS_SUBDIR_FULL_PATHS)
 					list (APPEND dirlist "${dirpath}")
-				else()
+				else ()
 					list (APPEND dirlist "${child}")
-				endif()
-    		endif()
-  		endif()
-  	endforeach()
+				endif ()
+			endif ()
+		endif ()
+	endforeach ()
 
-  	set (${LEMONS_SUBDIR_RESULT} ${dirlist} PARENT_SCOPE)
+	set (
+		${LEMONS_SUBDIR_RESULT}
+		${dirlist}
+		PARENT_SCOPE)
 
-endfunction()
+endfunction ()
 
 #
 
@@ -97,7 +107,10 @@ function (lemons_make_path_absolute)
 	cmake_path (IS_ABSOLUTE ${LEMONS_PATH_VAR} is_abs_path)
 
 	if (NOT is_abs_path)
-		set (${LEMONS_PATH_VAR} "${LEMONS_PATH_BASE_DIR}/${${LEMONS_PATH_VAR}}" PARENT_SCOPE)
-	endif()
+		set (
+			${LEMONS_PATH_VAR}
+			"${LEMONS_PATH_BASE_DIR}/${${LEMONS_PATH_VAR}}"
+			PARENT_SCOPE)
+	endif ()
 
-endfunction()
+endfunction ()

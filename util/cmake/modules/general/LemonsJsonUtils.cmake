@@ -49,11 +49,12 @@ function (lemons_json_array_to_list)
 
 	string (STRIP "${LEMONS_JSON_TEXT}" LEMONS_JSON_TEXT)
 
-	string (JSON array_size ERROR_VARIABLE errno LENGTH "${LEMONS_JSON_TEXT}" "${LEMONS_JSON_ARRAY}")
+	string (JSON array_size ERROR_VARIABLE errno LENGTH "${LEMONS_JSON_TEXT}"
+														"${LEMONS_JSON_ARRAY}")
 
 	if (errno)
-		return()
-	endif()
+		return ()
+	endif ()
 
 	math (EXPR array_size "${array_size} - 1" OUTPUT_FORMAT DECIMAL)
 
@@ -65,8 +66,11 @@ function (lemons_json_array_to_list)
 
 		list (APPEND out_list ${item})
 
-	endforeach()
+	endforeach ()
 
-	set (${LEMONS_JSON_OUT} "${out_list}" PARENT_SCOPE)
+	set (
+		${LEMONS_JSON_OUT}
+		"${out_list}"
+		PARENT_SCOPE)
 
-endfunction()
+endfunction ()

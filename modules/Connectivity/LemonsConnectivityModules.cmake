@@ -6,7 +6,6 @@ Modules for connectivity and communication APIs
 
 ]]
 
-
 include_guard (GLOBAL)
 
 #

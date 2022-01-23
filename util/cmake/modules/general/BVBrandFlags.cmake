@@ -6,11 +6,21 @@ For internal usage by my own projects.
 
 ]]
 
-set (BV_DEFAULT_BRAND_FLAGS
-        BUNDLE_ID                   com.BenViningMusicSoftware.${PROJECT_NAME}
-        COMPANY_NAME                Ben Vining Music Software
-        COMPANY_WEBSITE             www.benvining.com
-        COMPANY_EMAIL               ben.the.vining@gmail.com
-        COMPANY_COPYRIGHT           "Copyright 2021 Ben Vining"
-        PLUGIN_MANUFACTURER_CODE    Benv
-        CACHE INTERNAL "Ben Vining Music Software brand flags")
+set (
+	BV_DEFAULT_BRAND_FLAGS
+	BUNDLE_ID
+	com.BenViningMusicSoftware.${PROJECT_NAME}
+	COMPANY_NAME
+	Ben
+	Vining
+	Music
+	Software
+	COMPANY_WEBSITE
+	www.benvining.com
+	COMPANY_EMAIL
+	ben.the.vining@gmail.com
+	COMPANY_COPYRIGHT
+	"Copyright 2021 Ben Vining"
+	PLUGIN_MANUFACTURER_CODE
+	Benv
+	CACHE INTERNAL "Ben Vining Music Software brand flags")

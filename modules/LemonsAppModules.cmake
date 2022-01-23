@@ -6,7 +6,6 @@ Building blocks for JUCE applications
 
 ]]
 
-
 include_guard (GLOBAL)
 
 include (LemonsGUIModules)

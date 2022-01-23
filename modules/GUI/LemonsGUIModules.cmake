@@ -6,9 +6,9 @@ Building blocks for GUIs
 
 ]]
 
-
 include_guard (GLOBAL)
 
 include (LemonsJuceModuleUtilities)
 
-_lemons_add_module_subcategory (TARGET LemonsGUIModules CATEGORY_DEPS LemonsCommonModules)
+_lemons_add_module_subcategory (TARGET LemonsGUIModules CATEGORY_DEPS
+								LemonsCommonModules)

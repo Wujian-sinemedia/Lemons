@@ -18,13 +18,17 @@ repos:
         args: [--autofix, --no-sort-keys]
       - id: check-yaml
         args: [--allow-multiple-documents]
+      - id: check-xml
       - id: check-case-conflict
       - id: check-executables-have-shebangs
+      #- id: check-shebang-scripts-are-executable
       - id: end-of-file-fixer
+        exclude_types: [cmake]
       - id: mixed-line-ending
         args: [--fix=lf]
       - id: trailing-whitespace
       - id: fix-encoding-pragma
+      - id: fix-byte-order-marker
   - repo: https://github.com/pre-commit/mirrors-autopep8
     rev: v1.6.0
     hooks:

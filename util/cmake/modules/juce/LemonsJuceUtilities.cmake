@@ -17,8 +17,8 @@ Enables plugin hosting by the specified target.
 ### lemons_configure_juce_target {#lemons_configure_juce_target}
 ```
 lemons_configure_juce_target (TARGET <target>
-                              [ASSET_FOLDER <folder>] [TRANSLATIONS]
-                              [PLUGIN_HOST] [BROWSER] [CAMERA] [MICROPHONE])
+							  [ASSET_FOLDER <folder>] [TRANSLATIONS]
+							  [PLUGIN_HOST] [BROWSER] [CAMERA] [MICROPHONE])
 ```
 Configures default settings for JUCE targets that are common to apps and plugins. `TARGET` is required and, for plugins, must be the name of the plugin's shared code target (usually your product name).
 The specified target will be linked to `LemonsCommonModules`.
@@ -28,7 +28,6 @@ If `ASSET_FOLDER` is specified, [lemons_add_resources_folder()](@ref lemons_add_
 The `PLUGIN_HOST`, `BROWSER`, `CAMERA`, and `MICROPHONE` options are all optional, and enable additional functionality for this plugin's targets.
 
 ]]
-
 
 include_guard (GLOBAL)
 
@@ -41,120 +40,151 @@ include (GNUInstallDirs)
 
 #
 
-set (LEMONS_JUCE_BRANCH "develop" CACHE STRING "The branch of the JUCE GitHub repository to use")
+set (
+	LEMONS_JUCE_BRANCH
+	"develop"
+	CACHE STRING "The branch of the JUCE GitHub repository to use")
 set_property (CACHE LEMONS_JUCE_BRANCH PROPERTY STRINGS "develop;master")
 mark_as_advanced (LEMONS_JUCE_BRANCH)
 
-CPMAddPackage (
-        NAME JUCE
-        GITHUB_REPOSITORY juce-framework/JUCE
-        GIT_TAG origin/${LEMONS_JUCE_BRANCH}
-        OPTIONS "JUCE_ENABLE_MODULE_SOURCE_GROUPS ON" "JUCE_BUILD_EXAMPLES OFF" "JUCE_BUILD_EXTRAS OFF")
-
+cpmaddpackage (
+	NAME
+	JUCE
+	GITHUB_REPOSITORY
+	juce-framework/JUCE
+	GIT_TAG
+	origin/${LEMONS_JUCE_BRANCH}
+	OPTIONS
+	"JUCE_ENABLE_MODULE_SOURCE_GROUPS ON"
+	"JUCE_BUILD_EXAMPLES OFF"
+	"JUCE_BUILD_EXTRAS OFF")
 
 include (LemonsAssetsHelpers)
-
 
 #
 
 function (lemons_enable_plugin_hosting target)
-    if (IOS)
-        return()
-    endif()
+	if (IOS)
+		return ()
+	endif ()
 
-    target_compile_definitions ("${target}" PRIVATE JUCE_PLUGINHOST_VST3=1 JUCE_PLUGINHOST_LADSPA=1)
+	target_compile_definitions ("${target}" PRIVATE JUCE_PLUGINHOST_VST3=1
+													JUCE_PLUGINHOST_LADSPA=1)
 
-    if (LEMONS_VST2_SDK_PATH)
-        target_compile_definitions ("${target}" PRIVATE  JUCE_PLUGINHOST_VST=1)
-    endif()
+	if (LEMONS_VST2_SDK_PATH)
+		target_compile_definitions ("${target}" PRIVATE JUCE_PLUGINHOST_VST=1)
+	endif ()
 
-    if (APPLE)
-        target_compile_definitions ("${target}" PRIVATE JUCE_PLUGINHOST_AU=1)
-    endif()
-endfunction()
+	if (APPLE)
+		target_compile_definitions ("${target}" PRIVATE JUCE_PLUGINHOST_AU=1)
+	endif ()
+endfunction ()
 
 #
 
 function (lemons_configure_juce_target)
 
-    set (options BROWSER PLUGIN_HOST CAMERA MICROPHONE TRANSLATIONS INSTALL)
-    set (oneValueArgs TARGET ASSET_FOLDER)
+	set (options BROWSER PLUGIN_HOST CAMERA MICROPHONE TRANSLATIONS INSTALL)
+	set (oneValueArgs TARGET ASSET_FOLDER)
 
-    cmake_parse_arguments (LEMONS_TARGETCONFIG "${options}" "${oneValueArgs}" "" ${ARGN})
+	cmake_parse_arguments (LEMONS_TARGETCONFIG "${options}" "${oneValueArgs}"
+						   "" ${ARGN})
 
-    lemons_require_function_arguments (LEMONS_TARGETCONFIG TARGET)
-    lemons_check_for_unparsed_args (LEMONS_TARGETCONFIG)
+	lemons_require_function_arguments (LEMONS_TARGETCONFIG TARGET)
+	lemons_check_for_unparsed_args (LEMONS_TARGETCONFIG)
 
-    target_compile_definitions (${LEMONS_TARGETCONFIG_TARGET} PRIVATE
-            JUCE_VST3_CAN_REPLACE_VST2=0
-            JUCE_APPLICATION_NAME_STRING="$<TARGET_PROPERTY:${LEMONS_TARGETCONFIG_TARGET},JUCE_PRODUCT_NAME>"
-            JUCE_APPLICATION_VERSION_STRING="$<TARGET_PROPERTY:${LEMONS_TARGETCONFIG_TARGET},JUCE_VERSION>"
-            JUCE_COREGRAPHICS_DRAW_ASYNC=1
-            JUCE_STRICT_REFCOUNTEDPTR=1
-            JUCE_MODAL_LOOPS_PERMITTED=0
-            JUCE_JACK=1
-            JUCE_DISABLE_AUDIO_MIXING_WITH_OTHER_APPS=1
-            JUCE_EXECUTE_APP_SUSPEND_ON_BACKGROUND_TASK=1
-            JUCE_DISPLAY_SPLASH_SCREEN=0
-            _CRT_SECURE_NO_WARNINGS=1)
+	target_compile_definitions (
+		${LEMONS_TARGETCONFIG_TARGET}
+		PRIVATE
+			JUCE_VST3_CAN_REPLACE_VST2=0
+			JUCE_APPLICATION_NAME_STRING="$<TARGET_PROPERTY:${LEMONS_TARGETCONFIG_TARGET},JUCE_PRODUCT_NAME>"
+			JUCE_APPLICATION_VERSION_STRING="$<TARGET_PROPERTY:${LEMONS_TARGETCONFIG_TARGET},JUCE_VERSION>"
+			JUCE_COREGRAPHICS_DRAW_ASYNC=1
+			JUCE_STRICT_REFCOUNTEDPTR=1
+			JUCE_MODAL_LOOPS_PERMITTED=0
+			JUCE_JACK=1
+			JUCE_DISABLE_AUDIO_MIXING_WITH_OTHER_APPS=1
+			JUCE_EXECUTE_APP_SUSPEND_ON_BACKGROUND_TASK=1
+			JUCE_DISPLAY_SPLASH_SCREEN=0
+			_CRT_SECURE_NO_WARNINGS=1)
 
-    target_link_libraries (${LEMONS_TARGETCONFIG_TARGET} PRIVATE
-        juce::juce_recommended_config_flags
-        juce::juce_recommended_lto_flags
-        juce::juce_recommended_warning_flags)
+	target_link_libraries (
+		${LEMONS_TARGETCONFIG_TARGET}
+		PRIVATE juce::juce_recommended_config_flags
+				juce::juce_recommended_lto_flags
+				juce::juce_recommended_warning_flags)
 
-    if (TARGET Lemons::LemonsCommonModules)
-        target_link_libraries (${LEMONS_TARGETCONFIG_TARGET} PRIVATE Lemons::LemonsCommonModules)
-    else()
-        message (DEBUG "No target Lemons::LemonsCommonModules in call to ${CMAKE_CURRENT_FUNCTION}...")
-    endif()
+	if (TARGET Lemons::LemonsCommonModules)
+		target_link_libraries (${LEMONS_TARGETCONFIG_TARGET}
+							   PRIVATE Lemons::LemonsCommonModules)
+	else ()
+		message (
+			DEBUG
+			"No target Lemons::LemonsCommonModules in call to ${CMAKE_CURRENT_FUNCTION}..."
+		)
+	endif ()
 
-    target_compile_features (${LEMONS_TARGETCONFIG_TARGET} PRIVATE cxx_std_${CMAKE_CXX_STANDARD})
+	target_compile_features (${LEMONS_TARGETCONFIG_TARGET}
+							 PRIVATE cxx_std_${CMAKE_CXX_STANDARD})
 
-    if (APPLE)
-        lemons_set_default_macos_options (${LEMONS_TARGETCONFIG_TARGET})
-    endif()
+	if (APPLE)
+		lemons_set_default_macos_options (${LEMONS_TARGETCONFIG_TARGET})
+	endif ()
 
-    if (LEMONS_TARGETCONFIG_ASSET_FOLDER)
-        lemons_add_resources_folder (${ARGN})
-    else()
-        if (LEMONS_TARGETCONFIG_TRANSLATIONS)
-            message (AUTHOR_WARNING "Translation file generation requested without enabling a binary resources target!")
-        endif()
-    endif()
+	if (LEMONS_TARGETCONFIG_ASSET_FOLDER)
+		lemons_add_resources_folder (${ARGN})
+	else ()
+		if (LEMONS_TARGETCONFIG_TRANSLATIONS)
+			message (
+				AUTHOR_WARNING
+					"Translation file generation requested without enabling a binary resources target!"
+			)
+		endif ()
+	endif ()
 
-    if (LEMONS_TARGETCONFIG_BROWSER)
-        target_compile_definitions ("${LEMONS_TARGETCONFIG_TARGET}" PRIVATE JUCE_WEB_BROWSER=1 JUCE_USE_CURL=1 JUCE_LOAD_CURL_SYMBOLS_LAZILY=1)
+	if (LEMONS_TARGETCONFIG_BROWSER)
+		target_compile_definitions (
+			"${LEMONS_TARGETCONFIG_TARGET}"
+			PRIVATE JUCE_WEB_BROWSER=1 JUCE_USE_CURL=1
+					JUCE_LOAD_CURL_SYMBOLS_LAZILY=1)
 
-        # Linux
-        if (NOT (APPLE OR WIN32))
-            target_link_libraries ("${LEMONS_TARGETCONFIG_TARGET}" PRIVATE juce::pkgconfig_JUCE_CURL_LINUX_DEPS)
-        endif()
-    else()
-        target_compile_definitions ("${LEMONS_TARGETCONFIG_TARGET}" PRIVATE JUCE_WEB_BROWSER=0 JUCE_USE_CURL=0)
-    endif()
+		# Linux
+		if (NOT (APPLE OR WIN32))
+			target_link_libraries ("${LEMONS_TARGETCONFIG_TARGET}"
+								   PRIVATE juce::pkgconfig_JUCE_CURL_LINUX_DEPS)
+		endif ()
+	else ()
+		target_compile_definitions ("${LEMONS_TARGETCONFIG_TARGET}"
+									PRIVATE JUCE_WEB_BROWSER=0 JUCE_USE_CURL=0)
+	endif ()
 
-    if (LEMONS_TARGETCONFIG_PLUGIN_HOST)
-        lemons_enable_plugin_hosting ("${LEMONS_TARGETCONFIG_TARGET}")
-    endif()
+	if (LEMONS_TARGETCONFIG_PLUGIN_HOST)
+		lemons_enable_plugin_hosting ("${LEMONS_TARGETCONFIG_TARGET}")
+	endif ()
 
-    if (LEMONS_TARGETCONFIG_CAMERA)
-        target_compile_definitions (${LEMONS_TARGETCONFIG_TARGET} PRIVATE JUCE_USE_CAMERA=1)
-        target_link_libraries (${LEMONS_TARGETCONFIG_TARGET} PRIVATE juce_video)
-    endif()
+	if (LEMONS_TARGETCONFIG_CAMERA)
+		target_compile_definitions (${LEMONS_TARGETCONFIG_TARGET}
+									PRIVATE JUCE_USE_CAMERA=1)
+		target_link_libraries (${LEMONS_TARGETCONFIG_TARGET} PRIVATE juce_video)
+	endif ()
 
-    if (LEMONS_TARGETCONFIG_MICROPHONE)
-        target_compile_definitions (${LEMONS_TARGETCONFIG_TARGET} PRIVATE JUCE_MICROPHONE_PERMISSION_ENABLED=1)
-    endif()
+	if (LEMONS_TARGETCONFIG_MICROPHONE)
+		target_compile_definitions (
+			${LEMONS_TARGETCONFIG_TARGET}
+			PRIVATE JUCE_MICROPHONE_PERMISSION_ENABLED=1)
+	endif ()
 
-    if (LEMONS_TARGETCONFIG_INSTALL)
-        message (DEBUG "Configuring target install: ${LEMONS_TARGETCONFIG_TARGET}...")
+	if (LEMONS_TARGETCONFIG_INSTALL)
+		message (DEBUG
+				 "Configuring target install: ${LEMONS_TARGETCONFIG_TARGET}...")
 
-        install (TARGETS ${LEMONS_TARGETCONFIG_TARGET}
-                 COMPONENT ${PROJECT_NAME}
-                 LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
-                 ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
-                 RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
-                 INCLUDES DESTINATION include)
-    endif()
-endfunction()
+		install (
+			TARGETS ${LEMONS_TARGETCONFIG_TARGET}
+			COMPONENT ${PROJECT_NAME}
+			LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+			ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
+			RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
+			INCLUDES
+			DESTINATION include)
+	endif ()
+endfunction ()
