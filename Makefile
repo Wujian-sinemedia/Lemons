@@ -11,6 +11,7 @@ CONFIGS = Debug Release
 
 CMAKE = cmake
 CTEST = ctest
+PRECOMMIT = pre-commit
 
 ifeq ($(OS),Windows_NT)
 	NUM_CORES = $(NUMBER_OF_PROCESSORS)
@@ -102,6 +103,8 @@ clean:  ## Cleans the Lemons source tree
 
 wipe:  ## Wipes the persistent cache of fetched dependencies and ccache artifacts
 	$(CMAKE) -D LEMONS_WIPE_CLEAN=1 -P $(SCRIPTS_DIR)/clean.cmake
+	$(PRECOMMIT) clean
+	$(PRECOMMIT) gc
 
 
 format:  ## Runs clang-format over the entire source tree
@@ -109,8 +112,9 @@ format:  ## Runs clang-format over the entire source tree
 
 
 init:  ## Initializes the Lemons workspace and installs all dependencies
-	$(CMAKE) -P $(SCRIPTS_DIR)/install_deps.cmake
 	@chmod +x $(SCRIPTS_DIR)/clean.cmake $(SCRIPTS_DIR)/format.cmake $(SCRIPTS_DIR)/install_deps.cmake
+	$(CMAKE) -P $(SCRIPTS_DIR)/install_deps.cmake
+	@cd $(LEMONS_ROOT) && $(PRECOMMIT) install --install-hooks --overwrite
 
 
 .PHONY: $(shell grep -E '^[a-zA-Z_-]+:.*?\#\# .*$$' $(THIS_MAKEFILE) | sed 's/:.*/\ /' | tr '\n' ' ')
