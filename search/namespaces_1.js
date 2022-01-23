@@ -19,7 +19,7 @@ var searchData=
   ['math_16',['math',['../namespacelemons_1_1math.html',1,'lemons']]],
   ['midi_17',['midi',['../namespacelemons_1_1midi.html',1,'lemons']]],
   ['music_18',['music',['../namespacelemons_1_1music.html',1,'lemons']]],
-  ['osc_19',['osc',['../namespacelemons_1_1dsp_1_1osc.html',1,'lemons::dsp']]],
+  ['osc_19',['osc',['../namespacelemons_1_1dsp_1_1osc.html',1,'lemons::dsp::osc'],['../namespacelemons_1_1osc.html',1,'lemons::osc']]],
   ['plugin_20',['plugin',['../namespacelemons_1_1plugin.html',1,'lemons']]],
   ['psola_21',['psola',['../namespacelemons_1_1dsp_1_1psola.html',1,'lemons::dsp']]],
   ['ranges_22',['ranges',['../namespacelemons_1_1ranges.html',1,'lemons']]],

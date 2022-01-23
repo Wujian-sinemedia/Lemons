@@ -127,7 +127,7 @@ Public Member Functions</h2></td></tr>
 <div class="line">    <span class="keywordflow">if</span> (! args.checkForRequiredArgs())</div>
 <div class="line">        <span class="keywordflow">return</span> EXIT_FAILURE;</div>
 <div class="line"> </div>
-<div class="line">    process_file (args.getFilepathForOption (<span class="stringliteral">&quot;--file|-f&quot;</span>), args[<span class="stringliteral">&quot;--number|-n&quot;</span>]);</div>
+<div class="line">    process_file (args.getFilepathForOption (<span class="stringliteral">&quot;--file|-f&quot;</span>), args.getArgumentAsType&lt;<span class="keywordtype">int</span>&gt;(<span class="stringliteral">&quot;--number|-n&quot;</span>));</div>
 <div class="line">}</div>
 <div class="ttc" id="aclasslemons_1_1_arg_parser_html"><div class="ttname"><a href="classlemons_1_1_arg_parser.html">lemons::ArgParser</a></div><div class="ttdoc">A command-line argument parser class modeled after Python's ArgParse.</div><div class="ttdef"><b>Definition:</b> ArgParser.h:49</div></div>
 </div><!-- fragment --> </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
@@ -406,7 +406,7 @@ template&lt;typename Type &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Jan 22 2022 00:43:21 for Lemons by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3
+Generated on Sun Jan 23 2022 00:44:11 for Lemons by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3
 </small></address>
 </body>
 </html>

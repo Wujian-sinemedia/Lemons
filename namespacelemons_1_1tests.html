@@ -135,8 +135,8 @@ Functions</h2></td></tr>
 <tr class="memitem:ga7681e5e17b48965aa1416c51ea9c4a61"><td class="memTemplParams" colspan="2">template&lt;typename FloatType &gt; </td></tr>
 <tr class="memitem:ga7681e5e17b48965aa1416c51ea9c4a61"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__lemons__dsp__unit__tests.html#ga7681e5e17b48965aa1416c51ea9c4a61">buffersAreReasonablyEqual</a> (const <a class="el" href="namespacelemons_1_1tests.html#aa422106235194433473c28fa45ff152b">AudioBuffer</a>&lt; FloatType &gt; &amp;buffer1, const <a class="el" href="namespacelemons_1_1tests.html#aa422106235194433473c28fa45ff152b">AudioBuffer</a>&lt; FloatType &gt; &amp;buffer2)</td></tr>
 <tr class="separator:ga7681e5e17b48965aa1416c51ea9c4a61"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga012b4a90230fe31d71ca56d673f078c3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__lemons__unit__testing.html#ga012b4a90230fe31d71ca56d673f078c3">executeUnitTests</a> (<a class="el" href="group__lemons__unit__testing.html#gabe71616eeadecd56537dd9a10376223c">Intensity</a> intensityLevel=<a class="el" href="group__lemons__unit__testing.html#ggabe71616eeadecd56537dd9a10376223ca87f8a6ab85c9ced3702b4ea641ad4bb5">Intensity::Medium</a>, const File &amp;logOutput={}, juce::int64 seed=juce::Random::getSystemRandom().nextInt64(), const String &amp;singleTestName={}, const String &amp;categoryName={})</td></tr>
-<tr class="separator:ga012b4a90230fe31d71ca56d673f078c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab1e68eefc1493b062789e0ccc18695ff"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__lemons__unit__testing.html#gab1e68eefc1493b062789e0ccc18695ff">executeUnitTests</a> (<a class="el" href="group__lemons__unit__testing.html#gabe71616eeadecd56537dd9a10376223c">Intensity</a> intensityLevel=<a class="el" href="group__lemons__unit__testing.html#ggabe71616eeadecd56537dd9a10376223ca87f8a6ab85c9ced3702b4ea641ad4bb5">Intensity::Medium</a>, const File &amp;logOutput={}, juce::int64 seed=juce::Random::getSystemRandom().nextInt64(), const String &amp;singleTestName={}, const String &amp;categoryName={}, bool rerunFailed=false)</td></tr>
+<tr class="separator:gab1e68eefc1493b062789e0ccc18695ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga8ecdb1df151eda76ed75304aea1dd2b7"><td class="memTemplParams" colspan="2">template&lt;typename SampleType &gt; </td></tr>
 <tr class="memitem:ga8ecdb1df151eda76ed75304aea1dd2b7"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__lemons__dsp__unit__tests.html#ga8ecdb1df151eda76ed75304aea1dd2b7">fillAudioBufferWithRandomNoise</a> (<a class="el" href="namespacelemons_1_1tests.html#aa422106235194433473c28fa45ff152b">AudioBuffer</a>&lt; SampleType &gt; &amp;buffer, juce::Random rng)</td></tr>
 <tr class="separator:ga8ecdb1df151eda76ed75304aea1dd2b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -144,6 +144,8 @@ Functions</h2></td></tr>
 <tr class="separator:ga45aa6aca22218a8a1c13b549c17712e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gac8657000a7bf8aaa4cc93c263c8dbc8e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__lemons__midi__unit__tests.html#gac8657000a7bf8aaa4cc93c263c8dbc8e">fillMidiBufferWithRandomEvents</a> (<a class="el" href="namespacelemons_1_1tests.html#a03c16098e5790557328c667001923104">MidiBuffer</a> &amp;buffer, int numEvents, juce::Random rng)</td></tr>
 <tr class="separator:gac8657000a7bf8aaa4cc93c263c8dbc8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9b5e72c73437319b86eac14ffd2fd572"><td class="memItemLeft" align="right" valign="top">juce::UnitTest *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1tests.html#a9b5e72c73437319b86eac14ffd2fd572">getUnitTestWithName</a> (const String &amp;name)</td></tr>
+<tr class="separator:a9b5e72c73437319b86eac14ffd2fd572"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gac207a10fbe432026788c9341794ac68a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__lemons__gui__unit__tests.html#gac207a10fbe432026788c9341794ac68a">imagesAreEqual</a> (const Image &amp;image1, const Image &amp;image2)</td></tr>
 <tr class="separator:gac207a10fbe432026788c9341794ac68a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga65a3191f6a20bc8ae7ebf0e936667223"><td class="memTemplParams" colspan="2">template&lt;typename SampleType &gt; </td></tr>
@@ -188,10 +190,29 @@ template&lt;typename FloatType &gt; </div>
 
 </div>
 </div>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="a9b5e72c73437319b86eac14ffd2fd572" name="a9b5e72c73437319b86eac14ffd2fd572"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9b5e72c73437319b86eac14ffd2fd572">&#9670;&nbsp;</a></span>getUnitTestWithName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">juce::UnitTest * lemons::tests::getUnitTestWithName </td>
+          <td>(</td>
+          <td class="paramtype">const String &amp;&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Jan 22 2022 00:43:22 for Lemons by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3
+Generated on Sun Jan 23 2022 00:44:12 for Lemons by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3
 </small></address>
 </body>
 </html>

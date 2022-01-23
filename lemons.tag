@@ -167,12 +167,27 @@
     <namespace>lemons</namespace>
     <namespace>lemons::binary</namespace>
     <namespace>lemons::dsp</namespace>
+    <namespace>lemons::files</namespace>
     <member kind="function">
       <type>dsp::AudioFile</type>
       <name>getAudioFile</name>
       <anchorfile>group__lemons__binary.html</anchorfile>
       <anchor>ga644730095d0f4474c838bd8e357494e5</anchor>
       <arglist>(const String &amp;audioFileName)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::StringArray</type>
+      <name>getAudioFileNames</name>
+      <anchorfile>group__lemons__binary.html</anchorfile>
+      <anchor>ga25617a1f9d8429b62b866c780c8d1ac8</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isAudioFile</name>
+      <anchorfile>namespacelemons_1_1files.html</anchorfile>
+      <anchor>a8d383edb688ecb64088d1700766df9a6</anchor>
+      <arglist>(const File &amp;file)</arglist>
     </member>
   </compound>
   <compound kind="file">
@@ -653,13 +668,6 @@
       <anchorfile>namespacelemons_1_1dsp_1_1formats.html</anchorfile>
       <anchor>a586f31cf2252db54461d84713afdc281</anchor>
       <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>isValidAudioFile</name>
-      <anchorfile>namespacelemons_1_1dsp_1_1formats.html</anchorfile>
-      <anchor>a9427658886e24546db80811cd31a6a9c</anchor>
-      <arglist>(const File &amp;file)</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
@@ -1165,6 +1173,11 @@
     <filename>_lemons_common_modules_8md.html</filename>
   </compound>
   <compound kind="file">
+    <name>LemonsConnectivityModules.md</name>
+    <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/CMake/</path>
+    <filename>_lemons_connectivity_modules_8md.html</filename>
+  </compound>
+  <compound kind="file">
     <name>LemonsDefaultCpackSettings.md</name>
     <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/CMake/</path>
     <filename>_lemons_default_cpack_settings_8md.html</filename>
@@ -1293,6 +1306,14 @@
     </member>
   </compound>
   <compound kind="file">
+    <name>FileListener.h</name>
+    <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/Common/lemons_core/files/</path>
+    <filename>_file_listener_8h.html</filename>
+    <class kind="class">lemons::files::Listener</class>
+    <namespace>lemons</namespace>
+    <namespace>lemons::files</namespace>
+  </compound>
+  <compound kind="file">
     <name>FileUtilities.h</name>
     <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/Common/lemons_core/files/</path>
     <filename>_file_utilities_8h.html</filename>
@@ -1317,10 +1338,10 @@
     </member>
     <member kind="function">
       <type>bool</type>
-      <name>isMidiFile</name>
-      <anchorfile>group__lemons__files.html</anchorfile>
-      <anchor>ga402868b2eee4e6897a4a2d458c2797e0</anchor>
-      <arglist>(const File &amp;file)</arglist>
+      <name>isAbsolutePath</name>
+      <anchorfile>namespacelemons_1_1files.html</anchorfile>
+      <anchor>a3b2f96a217c18cf98c0b5a8c3351a4c8</anchor>
+      <arglist>(const String &amp;path)</arglist>
     </member>
     <member kind="function">
       <type>MemoryBlock</type>
@@ -1371,6 +1392,7 @@
     <includes id="test_8h" name="test.h" local="yes" imported="no">unit_tests/test.h</includes>
     <includes id="runner_8h" name="runner.h" local="yes" imported="no">unit_tests/runner.h</includes>
     <includes id="_file_utilities_8h" name="FileUtilities.h" local="yes" imported="no">files/FileUtilities.h</includes>
+    <includes id="_file_listener_8h" name="FileListener.h" local="yes" imported="no">files/FileListener.h</includes>
     <includes id="data_8h" name="data.h" local="yes" imported="no">binary_data/data.h</includes>
     <includes id="translations_8h" name="translations.h" local="yes" imported="no">binary_data/translations.h</includes>
     <includes id="_common_2lemons__core_2serializing_2serializing_8h" name="Common/lemons_core/serializing/serializing.h" local="yes" imported="no">serializing/serializing.h</includes>
@@ -1380,13 +1402,6 @@
     <includes id="_ranges_8h" name="Ranges.h" local="yes" imported="no">math/Ranges.h</includes>
     <includes id="math_helpers_8h" name="mathHelpers.h" local="yes" imported="no">math/mathHelpers.h</includes>
     <includes id="_arg_parser_8h" name="ArgParser.h" local="yes" imported="no">misc/ArgParser.h</includes>
-    <member kind="define">
-      <type>#define</type>
-      <name>LEMONS_GUI_UNIT_TESTS</name>
-      <anchorfile>lemons__core_8h.html</anchorfile>
-      <anchor>a02a44dccb4597d1265f4b6ae17b9b83f</anchor>
-      <arglist></arglist>
-    </member>
     <member kind="define">
       <type>#define</type>
       <name>LEMONS_HAS_BINARY_DATA</name>
@@ -1874,6 +1889,20 @@
       <arglist>(const String &amp;midiFileName)</arglist>
     </member>
     <member kind="function">
+      <type>juce::StringArray</type>
+      <name>getMidiFileNames</name>
+      <anchorfile>namespacelemons_1_1binary.html</anchorfile>
+      <anchor>ab942c7ae9b7b467e99c2a91242e726e0</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isMidiFile</name>
+      <anchorfile>namespacelemons_1_1files.html</anchorfile>
+      <anchor>a402868b2eee4e6897a4a2d458c2797e0</anchor>
+      <arglist>(const File &amp;file)</arglist>
+    </member>
+    <member kind="function">
       <type>MidiBuffer</type>
       <name>loadMidiBuffer</name>
       <anchorfile>group__lemons__files.html</anchorfile>
@@ -2007,6 +2036,13 @@
       <arglist>(const String &amp;imageFileName)</arglist>
     </member>
     <member kind="function">
+      <type>juce::StringArray</type>
+      <name>getImageFileNames</name>
+      <anchorfile>group__lemons__binary.html</anchorfile>
+      <anchor>gab1458168573ca77fa17b0c295fe78af6</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
       <type>Image</type>
       <name>imageFromBinary</name>
       <anchorfile>group__lemons__serializing.html</anchorfile>
@@ -2019,6 +2055,13 @@
       <anchorfile>group__lemons__serializing.html</anchorfile>
       <anchor>ga844c15e8011970bd72cddbc16ac54886</anchor>
       <arglist>(const Image &amp;image)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isImageFile</name>
+      <anchorfile>namespacelemons_1_1files.html</anchorfile>
+      <anchor>a6ee11a34665e8a8129db08a96baf5b1a</anchor>
+      <arglist>(const File &amp;file)</arglist>
     </member>
     <member kind="function">
       <type>std::unique_ptr&lt; juce::CustomTypeface &gt;</type>
@@ -2084,8 +2127,15 @@
       <type>bool</type>
       <name>executeUnitTests</name>
       <anchorfile>group__lemons__unit__testing.html</anchorfile>
-      <anchor>ga012b4a90230fe31d71ca56d673f078c3</anchor>
-      <arglist>(Intensity intensityLevel=Intensity::Medium, const File &amp;logOutput={}, juce::int64 seed=juce::Random::getSystemRandom().nextInt64(), const String &amp;singleTestName={}, const String &amp;categoryName={})</arglist>
+      <anchor>gab1e68eefc1493b062789e0ccc18695ff</anchor>
+      <arglist>(Intensity intensityLevel=Intensity::Medium, const File &amp;logOutput={}, juce::int64 seed=juce::Random::getSystemRandom().nextInt64(), const String &amp;singleTestName={}, const String &amp;categoryName={}, bool rerunFailed=false)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::UnitTest *</type>
+      <name>getUnitTestWithName</name>
+      <anchorfile>namespacelemons_1_1tests.html</anchorfile>
+      <anchor>a9b5e72c73437319b86eac14ffd2fd572</anchor>
+      <arglist>(const String &amp;name)</arglist>
     </member>
   </compound>
   <compound kind="file">
@@ -2220,6 +2270,36 @@
       <anchor>a3311159f9fd29afa5a7b238b0e361ce4</anchor>
       <arglist>(const String &amp;pitchClassName) noexcept</arglist>
     </member>
+  </compound>
+  <compound kind="file">
+    <name>lemons_osc.h</name>
+    <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/Connectivity/lemons_osc/</path>
+    <filename>lemons__osc_8h.html</filename>
+    <includes id="_connectivity_2lemons__osc_2util_2util_8h" name="Connectivity/lemons_osc/util/util.h" local="yes" imported="no">util/util.h</includes>
+  </compound>
+  <compound kind="file">
+    <name>Connectivity/lemons_osc/util/util.h</name>
+    <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/Connectivity/lemons_osc/util/</path>
+    <filename>_connectivity_2lemons__osc_2util_2util_8h.html</filename>
+    <namespace>lemons</namespace>
+    <namespace>lemons::osc</namespace>
+    <member kind="function">
+      <type>bool</type>
+      <name>isValidPort</name>
+      <anchorfile>namespacelemons_1_1osc.html</anchorfile>
+      <anchor>a6324b7632f680201d7b15fdef0811fc9</anchor>
+      <arglist>(int port)</arglist>
+    </member>
+  </compound>
+  <compound kind="file">
+    <name>GUI/lemons_gui/utilities/util.h</name>
+    <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/GUI/lemons_gui/utilities/</path>
+    <filename>_g_u_i_2lemons__gui_2utilities_2util_8h.html</filename>
+    <class kind="struct">lemons::gui::components::ComponentArray</class>
+    <namespace>lemons</namespace>
+    <namespace>lemons::gui</namespace>
+    <namespace>lemons::gui::components</namespace>
+    <namespace>lemons::gui::util</namespace>
   </compound>
   <compound kind="file">
     <name>DefaultWindow.h</name>
@@ -2363,7 +2443,8 @@
     <includes id="_g_u_i_2lemons__gui_2utilities_2serializing_8h" name="GUI/lemons_gui/utilities/serializing.h" local="yes" imported="no">utilities/serializing.h</includes>
     <includes id="colors_8h" name="colors.h" local="yes" imported="no">utilities/colors.h</includes>
     <includes id="cursor_8h" name="cursor.h" local="yes" imported="no">utilities/cursor.h</includes>
-    <includes id="util_8h" name="util.h" local="yes" imported="no">utilities/util.h</includes>
+    <includes id="_g_u_i_2lemons__gui_2utilities_2util_8h" name="GUI/lemons_gui/utilities/util.h" local="yes" imported="no">utilities/util.h</includes>
+    <includes id="_caps_lock_8h" name="CapsLock.h" local="yes" imported="no">utilities/CapsLock.h</includes>
     <includes id="_g_u_i_2lemons__gui_2components_2_buttons_8h" name="GUI/lemons_gui/components/Buttons.h" local="yes" imported="no">components/Buttons.h</includes>
     <includes id="_swappable_component_8h" name="SwappableComponent.h" local="yes" imported="no">components/SwappableComponent.h</includes>
     <includes id="_g_u_i_2lemons__gui_2components_2_sliders_8h" name="GUI/lemons_gui/components/Sliders.h" local="yes" imported="no">components/sliders.h</includes>
@@ -2408,6 +2489,21 @@
     </member>
   </compound>
   <compound kind="file">
+    <name>CapsLock.h</name>
+    <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/GUI/lemons_gui/utilities/</path>
+    <filename>_caps_lock_8h.html</filename>
+    <namespace>lemons</namespace>
+    <namespace>lemons::gui</namespace>
+    <namespace>lemons::gui::util</namespace>
+    <member kind="function">
+      <type>bool</type>
+      <name>isCapsLockOn</name>
+      <anchorfile>namespacelemons_1_1gui_1_1util.html</anchorfile>
+      <anchor>a82b519e508af2430229b665c3054e8b2</anchor>
+      <arglist>()</arglist>
+    </member>
+  </compound>
+  <compound kind="file">
     <name>colors.h</name>
     <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/GUI/lemons_gui/utilities/</path>
     <filename>colors_8h.html</filename>
@@ -2423,16 +2519,6 @@
     <class kind="struct">lemons::gui::ScopedWaitCursor</class>
     <namespace>lemons</namespace>
     <namespace>lemons::gui</namespace>
-  </compound>
-  <compound kind="file">
-    <name>util.h</name>
-    <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/GUI/lemons_gui/utilities/</path>
-    <filename>util_8h.html</filename>
-    <class kind="struct">lemons::gui::components::ComponentArray</class>
-    <namespace>lemons</namespace>
-    <namespace>lemons::gui</namespace>
-    <namespace>lemons::gui::components</namespace>
-    <namespace>lemons::gui::util</namespace>
   </compound>
   <compound kind="file">
     <name>Common.h</name>
@@ -12117,6 +12203,17 @@
       <arglist>() override</arglist>
     </member>
   </compound>
+  <compound kind="class">
+    <name>lemons::files::Listener</name>
+    <filename>classlemons_1_1files_1_1_listener.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>Listener</name>
+      <anchorfile>classlemons_1_1files_1_1_listener.html</anchorfile>
+      <anchor>a9c48511655385d8b0f49cba3cb0e7853</anchor>
+      <arglist>(const File &amp;fileToWatch, std::function&lt; void()&gt; &amp;&amp;callback)</arglist>
+    </member>
+  </compound>
   <compound kind="struct">
     <name>lemons::plugin::Parameter::Listener</name>
     <filename>structlemons_1_1plugin_1_1_parameter_1_1_listener.html</filename>
@@ -19372,6 +19469,13 @@
     <name>lemons::tests::Runner</name>
     <filename>classlemons_1_1tests_1_1_runner.html</filename>
     <member kind="function">
+      <type>juce::StringArray</type>
+      <name>getFailedTestNames</name>
+      <anchorfile>classlemons_1_1tests_1_1_runner.html</anchorfile>
+      <anchor>a0299fb944c58eb0731f1df51426aa08c</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
       <type>bool</type>
       <name>hadAnyFailures</name>
       <anchorfile>classlemons_1_1tests_1_1_runner.html</anchorfile>
@@ -25291,6 +25395,7 @@
     <namespace>lemons::math</namespace>
     <namespace>lemons::midi</namespace>
     <namespace>lemons::music</namespace>
+    <namespace>lemons::osc</namespace>
     <namespace>lemons::plugin</namespace>
     <namespace>lemons::ranges</namespace>
     <namespace>lemons::rsa</namespace>
@@ -25344,6 +25449,13 @@
       <arglist>(const String &amp;audioFileName)</arglist>
     </member>
     <member kind="function">
+      <type>juce::StringArray</type>
+      <name>getAudioFileNames</name>
+      <anchorfile>group__lemons__binary.html</anchorfile>
+      <anchor>ga25617a1f9d8429b62b866c780c8d1ac8</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
       <type>MemoryBlock</type>
       <name>getBlob</name>
       <anchorfile>group__lemons__binary.html</anchorfile>
@@ -25372,6 +25484,13 @@
       <arglist>(const String &amp;imageFileName)</arglist>
     </member>
     <member kind="function">
+      <type>juce::StringArray</type>
+      <name>getImageFileNames</name>
+      <anchorfile>group__lemons__binary.html</anchorfile>
+      <anchor>gab1458168573ca77fa17b0c295fe78af6</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
       <type>juce::MidiBuffer</type>
       <name>getMidiBuffer</name>
       <anchorfile>group__lemons__binary.html</anchorfile>
@@ -25384,6 +25503,13 @@
       <anchorfile>group__lemons__binary.html</anchorfile>
       <anchor>ga4b9c208fff93a49410fc4906db3aedd7</anchor>
       <arglist>(const String &amp;midiFileName)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::StringArray</type>
+      <name>getMidiFileNames</name>
+      <anchorfile>namespacelemons_1_1binary.html</anchorfile>
+      <anchor>ab942c7ae9b7b467e99c2a91242e726e0</anchor>
+      <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>plugin::ParameterLayout</type>
@@ -25607,13 +25733,6 @@
     </member>
     <member kind="function">
       <type>bool</type>
-      <name>isValidAudioFile</name>
-      <anchorfile>namespacelemons_1_1dsp_1_1formats.html</anchorfile>
-      <anchor>a9427658886e24546db80811cd31a6a9c</anchor>
-      <arglist>(const File &amp;file)</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
       <name>loadAudioFromFile</name>
       <anchorfile>namespacelemons_1_1dsp_1_1formats.html</anchorfile>
       <anchor>ae4fb0b1a4a35051f0c72ecfef88e6af6</anchor>
@@ -25793,6 +25912,7 @@
   <compound kind="namespace">
     <name>lemons::files</name>
     <filename>namespacelemons_1_1files.html</filename>
+    <class kind="class">lemons::files::Listener</class>
     <member kind="typedef">
       <type>juce::AudioBuffer&lt; SampleType &gt;</type>
       <name>AudioBuffer</name>
@@ -25819,9 +25939,30 @@
     </member>
     <member kind="function">
       <type>bool</type>
+      <name>isAbsolutePath</name>
+      <anchorfile>namespacelemons_1_1files.html</anchorfile>
+      <anchor>a3b2f96a217c18cf98c0b5a8c3351a4c8</anchor>
+      <arglist>(const String &amp;path)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isAudioFile</name>
+      <anchorfile>namespacelemons_1_1files.html</anchorfile>
+      <anchor>a8d383edb688ecb64088d1700766df9a6</anchor>
+      <arglist>(const File &amp;file)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isImageFile</name>
+      <anchorfile>namespacelemons_1_1files.html</anchorfile>
+      <anchor>a6ee11a34665e8a8129db08a96baf5b1a</anchor>
+      <arglist>(const File &amp;file)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
       <name>isMidiFile</name>
-      <anchorfile>group__lemons__files.html</anchorfile>
-      <anchor>ga402868b2eee4e6897a4a2d458c2797e0</anchor>
+      <anchorfile>namespacelemons_1_1files.html</anchorfile>
+      <anchor>a402868b2eee4e6897a4a2d458c2797e0</anchor>
       <arglist>(const File &amp;file)</arglist>
     </member>
     <member kind="function">
@@ -26025,6 +26166,13 @@
   <compound kind="namespace">
     <name>lemons::gui::util</name>
     <filename>namespacelemons_1_1gui_1_1util.html</filename>
+    <member kind="function">
+      <type>bool</type>
+      <name>isCapsLockOn</name>
+      <anchorfile>namespacelemons_1_1gui_1_1util.html</anchorfile>
+      <anchor>a82b519e508af2430229b665c3054e8b2</anchor>
+      <arglist>()</arglist>
+    </member>
   </compound>
   <compound kind="namespace">
     <name>lemons::locale</name>
@@ -26293,6 +26441,17 @@
       <anchorfile>namespacelemons_1_1music.html</anchorfile>
       <anchor>a3311159f9fd29afa5a7b238b0e361ce4</anchor>
       <arglist>(const String &amp;pitchClassName) noexcept</arglist>
+    </member>
+  </compound>
+  <compound kind="namespace">
+    <name>lemons::osc</name>
+    <filename>namespacelemons_1_1osc.html</filename>
+    <member kind="function">
+      <type>bool</type>
+      <name>isValidPort</name>
+      <anchorfile>namespacelemons_1_1osc.html</anchorfile>
+      <anchor>a6324b7632f680201d7b15fdef0811fc9</anchor>
+      <arglist>(int port)</arglist>
     </member>
   </compound>
   <compound kind="namespace">
@@ -26890,8 +27049,8 @@
       <type>bool</type>
       <name>executeUnitTests</name>
       <anchorfile>group__lemons__unit__testing.html</anchorfile>
-      <anchor>ga012b4a90230fe31d71ca56d673f078c3</anchor>
-      <arglist>(Intensity intensityLevel=Intensity::Medium, const File &amp;logOutput={}, juce::int64 seed=juce::Random::getSystemRandom().nextInt64(), const String &amp;singleTestName={}, const String &amp;categoryName={})</arglist>
+      <anchor>gab1e68eefc1493b062789e0ccc18695ff</anchor>
+      <arglist>(Intensity intensityLevel=Intensity::Medium, const File &amp;logOutput={}, juce::int64 seed=juce::Random::getSystemRandom().nextInt64(), const String &amp;singleTestName={}, const String &amp;categoryName={}, bool rerunFailed=false)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -26913,6 +27072,13 @@
       <anchorfile>group__lemons__midi__unit__tests.html</anchorfile>
       <anchor>gac8657000a7bf8aaa4cc93c263c8dbc8e</anchor>
       <arglist>(MidiBuffer &amp;buffer, int numEvents, juce::Random rng)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::UnitTest *</type>
+      <name>getUnitTestWithName</name>
+      <anchorfile>namespacelemons_1_1tests.html</anchorfile>
+      <anchor>a9b5e72c73437319b86eac14ffd2fd572</anchor>
+      <arglist>(const String &amp;name)</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
@@ -27020,6 +27186,13 @@
       <arglist>(const String &amp;audioFileName)</arglist>
     </member>
     <member kind="function">
+      <type>juce::StringArray</type>
+      <name>getAudioFileNames</name>
+      <anchorfile>group__lemons__binary.html</anchorfile>
+      <anchor>ga25617a1f9d8429b62b866c780c8d1ac8</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
       <type>MemoryBlock</type>
       <name>getBlob</name>
       <anchorfile>group__lemons__binary.html</anchorfile>
@@ -27046,6 +27219,13 @@
       <anchorfile>group__lemons__binary.html</anchorfile>
       <anchor>ga0695d683400b6eb86c0198bd13ee8f62</anchor>
       <arglist>(const String &amp;imageFileName)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::StringArray</type>
+      <name>getImageFileNames</name>
+      <anchorfile>group__lemons__binary.html</anchorfile>
+      <anchor>gab1458168573ca77fa17b0c295fe78af6</anchor>
+      <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>juce::MidiBuffer</type>
@@ -27148,6 +27328,11 @@
     <class kind="struct">lemons::gui::components::Label</class>
     <class kind="struct">lemons::gui::components::SwappableComponent</class>
     <class kind="struct">lemons::gui::components::TextEntry</class>
+  </compound>
+  <compound kind="group">
+    <name>Connectivity</name>
+    <title>Connectivity</title>
+    <filename>group___connectivity.html</filename>
   </compound>
   <compound kind="group">
     <name>lemons_dsp_unit_tests</name>
@@ -27302,13 +27487,6 @@
       <anchorfile>group__lemons__files.html</anchorfile>
       <anchor>ga1a09c77fee142fb1da7e1101433b4b75</anchor>
       <arglist>(const String &amp;fileName)</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>isMidiFile</name>
-      <anchorfile>group__lemons__files.html</anchorfile>
-      <anchor>ga402868b2eee4e6897a4a2d458c2797e0</anchor>
-      <arglist>(const File &amp;file)</arglist>
     </member>
     <member kind="function">
       <type>AudioBuffer&lt; SampleType &gt;</type>
@@ -27984,8 +28162,8 @@
       <type>bool</type>
       <name>executeUnitTests</name>
       <anchorfile>group__lemons__unit__testing.html</anchorfile>
-      <anchor>ga012b4a90230fe31d71ca56d673f078c3</anchor>
-      <arglist>(Intensity intensityLevel=Intensity::Medium, const File &amp;logOutput={}, juce::int64 seed=juce::Random::getSystemRandom().nextInt64(), const String &amp;singleTestName={}, const String &amp;categoryName={})</arglist>
+      <anchor>gab1e68eefc1493b062789e0ccc18695ff</anchor>
+      <arglist>(Intensity intensityLevel=Intensity::Medium, const File &amp;logOutput={}, juce::int64 seed=juce::Random::getSystemRandom().nextInt64(), const String &amp;singleTestName={}, const String &amp;categoryName={}, bool rerunFailed=false)</arglist>
     </member>
   </compound>
   <compound kind="group">
@@ -28156,6 +28334,12 @@
     <title>LemonsCommonModules</title>
     <filename>_lemons_common_modules.html</filename>
     <docanchor file="_lemons_common_modules.html">md_build_CMake_LemonsCommonModules</docanchor>
+  </compound>
+  <compound kind="page">
+    <name>LemonsConnectivityModules</name>
+    <title>LemonsConnectivityModules</title>
+    <filename>_lemons_connectivity_modules.html</filename>
+    <docanchor file="_lemons_connectivity_modules.html">md_build_CMake_LemonsConnectivityModules</docanchor>
   </compound>
   <compound kind="page">
     <name>LemonsDefaultCpackSettings</name>

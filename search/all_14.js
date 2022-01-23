@@ -7,6 +7,5 @@ var searchData=
   ['updatepoints_4',['updatePoints',['../structlemons_1_1spline_1_1_spline.html#a7dcdb8a3fbec4fd0e807c0538ff34d1c',1,'lemons::spline::Spline']]],
   ['updatequickreleasems_5',['updateQuickReleaseMs',['../classlemons_1_1dsp_1_1_synth_base.html#a7e249b858ee8cb944bbcafd183e8793d',1,'lemons::dsp::SynthBase']]],
   ['updatestereowidth_6',['updateStereoWidth',['../classlemons_1_1dsp_1_1synth_1_1_panning_manager.html#a0cc8fc92ee05cb5921834de284f37ce0',1,'lemons::dsp::synth::PanningManager']]],
-  ['useresizablecorner_7',['useResizableCorner',['../structlemons_1_1plugin_1_1_editor_attributes.html#abe5e5ea5178e59b5272c44b3c148b308',1,'lemons::plugin::EditorAttributes']]],
-  ['util_2eh_8',['util.h',['../util_8h.html',1,'']]]
+  ['useresizablecorner_7',['useResizableCorner',['../structlemons_1_1plugin_1_1_editor_attributes.html#abe5e5ea5178e59b5272c44b3c148b308',1,'lemons::plugin::EditorAttributes']]]
 ];
