@@ -18,7 +18,7 @@ function (_lemons_add_to_all_apps_target target)
 		message (DEBUG "Creating aggregate target LEMONS_ALL_APPS...")
         add_custom_target (LEMONS_ALL_APPS COMMENT "Building all apps...")
     endif()
-    
+
     add_dependencies (LEMONS_ALL_APPS ${target})
 
 endfunction()
@@ -39,7 +39,7 @@ function (_lemons_add_to_all_plugins_target target)
     add_dependencies (LEMONS_ALL_PLUGINS "${target}_All")
 
     set (stdaln_target "${target}_Standalone")
-    
+
     if (TARGET ${stdaln_target})
     	message (DEBUG "Adding standalone plugin to all apps target...")
         _lemons_add_to_all_apps_target (${stdaln_target})

@@ -28,13 +28,13 @@ function (lemons_parse_project_configuration_file)
 
 	if (LEMONS_CONFIG_FORCE)
 		set (${PROJECT_NAME}_CONFIG_FILE "${LEMONS_CONFIG_FILE}" CACHE PATH "Path to the configuration file for this project" FORCE)
-		
+
 		if (jsonAppleDevID)
 			set (CMAKE_XCODE_ATTRIBUTE_DEVELOPMENT_TEAM "${jsonAppleDevID}" CACHE STRING "10-character ID for your Apple developer account" FORCE)
 		endif()
 	else()
 		set (${PROJECT_NAME}_CONFIG_FILE "${LEMONS_CONFIG_FILE}" CACHE PATH "Path to the configuration file for this project")
-		
+
 		if (jsonAppleDevID)
 			set (CMAKE_XCODE_ATTRIBUTE_DEVELOPMENT_TEAM "${jsonAppleDevID}" CACHE STRING "10-character ID for your Apple developer account")
 		endif()
@@ -78,7 +78,7 @@ function (lemons_parse_project_configuration_file)
 	endif()
 
 	set_property (DIRECTORY "${PROJECT_SOURCE_DIR}"
-				  APPEND 
+				  APPEND
 				  PROPERTY CMAKE_CONFIGURE_DEPENDS "${LEMONS_CONFIG_FILE}")
 
 endfunction()

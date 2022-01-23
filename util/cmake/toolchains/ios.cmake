@@ -24,7 +24,7 @@ set (CMAKE_C_OSX_CURRENT_VERSION_FLAG "-current_version " CACHE INTERNAL "")
 set (CMAKE_CXX_OSX_COMPATIBILITY_VERSION_FLAG "${CMAKE_C_OSX_COMPATIBILITY_VERSION_FLAG}" CACHE INTERNAL "")
 set (CMAKE_CXX_OSX_CURRENT_VERSION_FLAG "${CMAKE_C_OSX_CURRENT_VERSION_FLAG}" CACHE INTERNAL "")
 
-# Hidden visibilty is required for cxx on iOS 
+# Hidden visibilty is required for cxx on iOS
 set (CMAKE_C_FLAGS_INIT "-fembed-bitcode")
 set (CMAKE_CXX_FLAGS_INIT "-fvisibility=hidden -fvisibility-inlines-hidden -fembed-bitcode" CACHE INTERNAL "")
 
@@ -57,7 +57,7 @@ set (CMAKE_FIND_LIBRARY_SUFFIXES ".dylib;.so;.a" CACHE INTERNAL "")
 # Find and use the most recent iOS sdk unless specified manually with CMAKE_IOS_SDK_ROOT
 # if (NOT DEFINED CMAKE_IOS_SDK_ROOT)
 # 	file (GLOB _CMAKE_IOS_SDKS "${CMAKE_IOS_DEVELOPER_ROOT}/SDKs/*")
-# 	if (_CMAKE_IOS_SDKS) 
+# 	if (_CMAKE_IOS_SDKS)
 # 		list (SORT _CMAKE_IOS_SDKS)
 # 		list (REVERSE _CMAKE_IOS_SDKS)
 # 		list (GET _CMAKE_IOS_SDKS 0 CMAKE_IOS_SDK_ROOT)

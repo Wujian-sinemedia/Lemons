@@ -24,7 +24,7 @@ include (LemonsCmakeDevTools)
 
 #
 
-define_property (TARGET 
+define_property (TARGET
                  PROPERTY OriginalModuleNames INHERITED
                  BRIEF_DOCS "Original juce module names"
                  FULL_DOCS "The original names of a juce module category target's individual juce modules, without the Namespace:: prefixes.")
@@ -104,11 +104,11 @@ function (_lemons_add_module_subcategory)
     target_link_libraries (AllLemonsModules INTERFACE Lemons::${LEMONS_SUBMOD_TARGET})
 
     set_property (TARGET AllLemonsModules
-                  APPEND 
+                  APPEND
                   PROPERTY ModuleCategoryNames ${LEMONS_SUBMOD_TARGET})
 
     foreach (categoryDependancy ${LEMONS_SUBMOD_CATEGORY_DEPS})
-        
+
         include (${categoryDependancy})
 
         target_link_libraries (${LEMONS_SUBMOD_TARGET} INTERFACE Lemons::${categoryDependancy})

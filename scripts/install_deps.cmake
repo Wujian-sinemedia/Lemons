@@ -26,4 +26,3 @@ elseif (LEMONS_DOCKER)
 else()
 	lemons_install_deps (FILE lemons_config.json)
 endif()
-

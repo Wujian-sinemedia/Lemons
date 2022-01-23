@@ -2,7 +2,7 @@
 Utilities for AAX plugins.
 
 ## Include-time actions:
-Attempts to configure a target to build the AAX SDK based on the path you've provided to LEMONS_AAX_SDK_PATH. 
+Attempts to configure a target to build the AAX SDK based on the path you've provided to LEMONS_AAX_SDK_PATH.
 This module may return early if the AAXSDK target cannot be configured correctly, in which case the AAXSDK target will not exist and the functions provided by this module may not exist.
 If the AAXSDK target is configured successfully, this module will call juce_set_aax_sdk_path() for you.
 
@@ -32,7 +32,7 @@ If `GUID` is present, `${ARGN}` will be forwarded to lemons_configure_aax_plugin
 ### lemons_configure_aax_plugin_signing
 
 ```
-lemons_configure_aax_plugin_signing (TARGET <target> GUID <guid> 
+lemons_configure_aax_plugin_signing (TARGET <target> GUID <guid>
                                      ACCOUNT <account> SIGNID <signid> KEYFILE <keyfile> KEYPASSWORD <password>)
 ```
 Configures a post-build digital signing step for the specified AAX plugin target. Note that `<target>` is the *literal* name of this plugin target, not the shared plugin target name!
@@ -42,9 +42,9 @@ Does nothing if wraptool cannot be located at configure-time.
 
 ### lemons_set_aax_signing_settings
 ```
-lemons_set_aax_signing_settings ([ACCOUNT <accountID>] 
-                                 [SIGNID <signID>] 
-                                 [KEYFILE <keyfilePath>] 
+lemons_set_aax_signing_settings ([ACCOUNT <accountID>]
+                                 [SIGNID <signID>]
+                                 [KEYFILE <keyfilePath>]
                                  [KEYPASSWORD <keyPassword>])
 ```
 Configures some default settings for the lemons_configure_aax_plugin_signing() function, so that these settings don't have to be provided for each target you configure.
@@ -98,7 +98,7 @@ function (lemons_configure_aax_plugin)
 
         message (DEBUG "Configuring AAX pagetable file...")
 
-        lemons_make_path_absolute (VAR LEMONS_AAX_PAGETABLE_FILE 
+        lemons_make_path_absolute (VAR LEMONS_AAX_PAGETABLE_FILE
                                    BASE_DIR ${PROJECT_SOURCE_DIR})
 
         cmake_path (IS_ABSOLUTE LEMONS_AAX_PAGETABLE_FILE pagetable_path_is_absolute)

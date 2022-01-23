@@ -16,7 +16,7 @@ endif()
 
 #
 
-add_custom_target (${PROJECT_NAME} ALL 
+add_custom_target (${PROJECT_NAME} ALL
                    COMMENT "Building command line utils...")
 
 macro (_lemons_add_cmd_line_util subprojectName)

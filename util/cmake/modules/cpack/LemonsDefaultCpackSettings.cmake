@@ -12,13 +12,13 @@ include_guard (GLOBAL)
 
 include (LemonsSetDefaultCpackGenerator)
 
-set (CPACK_STRIP_FILES TRUE CACHE INTERNAL "") 
+set (CPACK_STRIP_FILES TRUE CACHE INTERNAL "")
 
 if (NOT CPACK_PACKAGE_NAME)
     if (NOT APPLE AND NOT WIN32)
       	set (CPACK_PACKAGE_NAME "${LOWER_PROJECT_NAME}" CACHE INTERNAL "")
     else()
-      	set (CPACK_PACKAGE_NAME "${PROJECT_NAME}" CACHE INTERNAL "") 
+      	set (CPACK_PACKAGE_NAME "${PROJECT_NAME}" CACHE INTERNAL "")
     endif()
 endif()
 
@@ -57,4 +57,3 @@ if (CPACK_GENERATOR MATCHES "DEB")
 elseif (CPACK_GENERATOR MATCHES "RPM")
 	include ("${CMAKE_CURRENT_LIST_DIR}/scripts/rpm/rpm_settings.cmake")
 endif()
-

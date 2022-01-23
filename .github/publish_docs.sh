@@ -49,7 +49,7 @@ git config user.email "actions@github.com"
 
 git add --all
 
-git commit -am "Updating docs" 
+git commit -am "Updating docs"
 
 git push --force "https://${GH_REPO_TOKEN}@${GH_REPO_REF}"
 

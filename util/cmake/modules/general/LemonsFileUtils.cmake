@@ -5,7 +5,7 @@ General filesystem utilities.
 
 ### lemons_subdir_list
 ```
-lemons_subdir_list (DIR <directory> RESULT <out_var> 
+lemons_subdir_list (DIR <directory> RESULT <out_var>
 					[RECURSE] [FILES] [FULL_PATHS])
 ```
 Returns a list of subdirectories within the specified directory.
@@ -91,7 +91,7 @@ function (lemons_make_path_absolute)
 
 	cmake_parse_arguments (LEMONS_PATH "" "${oneValueArgs}" "" ${ARGN})
 
-	lemons_require_function_arguments (LEMONS_PATH VAR BASE_DIR) 
+	lemons_require_function_arguments (LEMONS_PATH VAR BASE_DIR)
 	lemons_check_for_unparsed_args (LEMONS_PATH)
 
 	cmake_path (IS_ABSOLUTE ${LEMONS_PATH_VAR} is_abs_path)
@@ -101,4 +101,3 @@ function (lemons_make_path_absolute)
 	endif()
 
 endfunction()
-

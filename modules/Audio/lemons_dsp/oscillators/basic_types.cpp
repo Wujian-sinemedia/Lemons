@@ -113,9 +113,9 @@ Square<SampleType>::Square()
                               {
     const auto inc = phase.getIncrement();
     const auto p   = phase.next (1);
-    
+
     const auto base = p < SampleType (0.5) ? SampleType (-1) : SampleType (1);
-    
+
     return base - blep (p, inc) + blep (std::fmod (p + SampleType (0.5), SampleType (1)), inc); })
 {
 	phase.resetPhase();

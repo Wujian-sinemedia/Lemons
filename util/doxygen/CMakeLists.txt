@@ -2,8 +2,8 @@ include_guard (GLOBAL)
 
 cmake_minimum_required (VERSION 3.21 FATAL_ERROR)
 
-project (LemonsDocs 
-		 VERSION 0.1.0 
+project (LemonsDocs
+		 VERSION 0.1.0
 		 DESCRIPTION "Lemons documentation"
 		 HOMEPAGE_URL "www.github.com/benthevining/Lemons"
 		 LANGUAGES NONE)
@@ -36,9 +36,9 @@ add_custom_command (OUTPUT "${main_page_output}" VERBATIM
 
 set (modules_output "${out_folder}/lemons_modules.dox")
 
-add_custom_command (OUTPUT "${modules_output}" VERBATIM 
+add_custom_command (OUTPUT "${modules_output}" VERBATIM
 					MAIN_DEPENDENCY "${CMAKE_CURRENT_LIST_DIR}/scripts/process_juce_modules.py"
-				 	COMMAND Python3::Interpreter ARGS "${CMAKE_CURRENT_LIST_DIR}/scripts/process_juce_modules.py" "${Lemons_SOURCE_DIR}" "${out_folder}" 
+				 	COMMAND Python3::Interpreter ARGS "${CMAKE_CURRENT_LIST_DIR}/scripts/process_juce_modules.py" "${Lemons_SOURCE_DIR}" "${out_folder}"
 				 	COMMENT "Preparing Doxygen build tree...")
 
 #
@@ -64,4 +64,3 @@ add_custom_command (TARGET Doxygen PRE_BUILD
 					COMMENT "Doxygen version:")
 
 set_target_properties (Doxygen PROPERTIES ADDITIONAL_CLEAN_FILES "${out_folder};${CMAKE_CURRENT_LIST_DIR}/doc")
-

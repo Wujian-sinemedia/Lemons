@@ -1,4 +1,4 @@
-cmake_minimum_required (VERSION 3.19) 
+cmake_minimum_required (VERSION 3.19)
 
 project (NewPlugin VERSION 0.0.1 LANGUAGES CXX)
 
@@ -48,5 +48,3 @@ lemons_configure_juce_plugin (TARGET ${PROJECT_NAME})
 target_sources (${PROJECT_NAME} PRIVATE ${sourceDir}/Main.cpp)
 
 target_link_libraries (${PROJECT_NAME} PRIVATE ${PROJECT_NAME}::new_dsp ${PROJECT_NAME}::new_gui)
-
-

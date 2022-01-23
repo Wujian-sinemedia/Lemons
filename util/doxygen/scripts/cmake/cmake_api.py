@@ -23,7 +23,7 @@ def split_args_from_line (inputString):
 		if temp and not word.endswith ('"'):
 			temp.append (word)
 			continue
-		
+
 		if word.endswith ('"'):
 			temp.append (word)
 

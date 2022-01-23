@@ -1,7 +1,7 @@
 #[[
 
 ## Include-time actions:
-Sets a default CPACK_GENERATOR for your system, unless one has already been explicitly specified. 
+Sets a default CPACK_GENERATOR for your system, unless one has already been explicitly specified.
 
 Also configures some default settings for the selected generator.
 

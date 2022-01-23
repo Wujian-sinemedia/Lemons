@@ -19,8 +19,8 @@ function (lemons_configure_plugin_signing)
     set (aaxTarget "${LEMONS_SIGN_TARGET}_AAX")
 
     if (TARGET ${aaxTarget} AND LEMONS_SIGN_GUID AND LEMONS_SIGN_ACCOUNT)
-    	lemons_configure_aax_plugin_signing (TARGET ${aaxTarget} GUID ${LEMONS_SIGN_GUID} ACCOUNT ${LEMONS_SIGN_ACCOUNT} 
-    										 SIGNID ${LEMONS_SIGN_SIGNID} 
+    	lemons_configure_aax_plugin_signing (TARGET ${aaxTarget} GUID ${LEMONS_SIGN_GUID} ACCOUNT ${LEMONS_SIGN_ACCOUNT}
+    										 SIGNID ${LEMONS_SIGN_SIGNID}
     										 KEYFILE ${LEMONS_SIGN_KEYFILE} KEYPASSWORD ${LEMONS_SIGN_KEYPASSWORD})
     endif()
 
@@ -55,7 +55,7 @@ function (lemons_configure_plugin_signing)
 	                            COMMAND ${CODESIGN} -verify
 	                            "$<TARGET_BUNDLE_DIR:${formatTarget}>"
 	                            COMMENT "Verifying signing of ${formatTarget}...")
-        	
+
     	elseif (WIN32)
 
     	else()
@@ -74,7 +74,7 @@ function (lemons_configure_plugin_signing)
     	endif()
 
     	_lemons_config_plugin_format_signing (${formatTarget})
-    	
+
     endforeach()
 
 endfunction()

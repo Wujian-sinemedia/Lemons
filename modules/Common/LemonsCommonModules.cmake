@@ -15,7 +15,7 @@ include (LemonsJuceModuleUtilities)
 
 _lemons_add_module_subcategory (TARGET LemonsCommonModules)
 
-target_compile_definitions (lemons_core INTERFACE 
+target_compile_definitions (lemons_core INTERFACE
         LEMONS_VERSION_MAJOR="${Lemons_VERSION_MAJOR}"
         LEMONS_VERSION_MINOR="${Lemons_VERSION_MINOR}"
         LEMONS_VERSION_PATCH="${Lemons_VERSION_PATCH}"

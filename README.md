@@ -9,8 +9,8 @@
   <img src="https://github.com/benthevining/Lemons/blob/main/util/assets/lemons.jpg" alt="Watercolor painting of some lemons" width="1191" height="585"/>
 </p>
 
-I used to work full time in live theatre. Then, COVID happened. 
-I lost my career overnight, and I wasn't really sure what to do. I drifted for a while -- I made some [angsty experimental electronic music](https://soundcloud.com/benvining/american-dream), and then I made some [calmer experimental electronic music](https://soundcloud.com/benvining/sets/introspectralism) -- and eventually, I started dabbling in creating my own electronic instruments in Max MSP. That eventually led me to the JUCE framework, which was my introduction to C++ more generally. 
+I used to work full time in live theatre. Then, COVID happened.
+I lost my career overnight, and I wasn't really sure what to do. I drifted for a while -- I made some [angsty experimental electronic music](https://soundcloud.com/benvining/american-dream), and then I made some [calmer experimental electronic music](https://soundcloud.com/benvining/sets/introspectralism) -- and eventually, I started dabbling in creating my own electronic instruments in Max MSP. That eventually led me to the JUCE framework, which was my introduction to C++ more generally.
 
 I quickly learned to love JUCE, but I also quickly learned that there was quite a lot of overhead involved in just getting a simple project up and running *(reliably)*. I realized I needed to abstract that overhead into a single repo. Here it is.
 
@@ -69,7 +69,7 @@ Note that this is optional, and if you omit the above line, adding the Lemons pa
 
 I noticed myself duplicating several lines of CMake code in every project, so I encapsulated the *adding of Lemons* into [its own little repository](https://github.com/benthevining/GetLemons).
 
-What I usually do in my project repos is make my [GetLemons](https://github.com/benthevining/GetLemons) repo a git submodule, then from the project's main CMakeLists.txt, simply 
+What I usually do in my project repos is make my [GetLemons](https://github.com/benthevining/GetLemons) repo a git submodule, then from the project's main CMakeLists.txt, simply
 ```
 addSubdirectory (GetLemons)
 ```
@@ -103,7 +103,7 @@ If clang-format is found at configure time, my cmake scripts will automatically 
 
 ## Example dev environment
 
-For an example of how you can integrate several project repos of this nature side-by-side in a "super-repo", check out my [dev_workspace repo](https://github.com/benthevining/dev_workspace) -- this is the only repo I have to clone onto a dev machine in order to work on all my projects, and I only have to have one copy of Lemons and JUCE on my machine, which every project repo will reference. 
+For an example of how you can integrate several project repos of this nature side-by-side in a "super-repo", check out my [dev_workspace repo](https://github.com/benthevining/dev_workspace) -- this is the only repo I have to clone onto a dev machine in order to work on all my projects, and I only have to have one copy of Lemons and JUCE on my machine, which every project repo will reference.
 
 ---
 

@@ -16,7 +16,7 @@ Determines the list of all available plugin formats.
 
 ### lemons_configure_juce_plugin
 ```
-lemons_configure_juce_plugin (TARGET <target> 
+lemons_configure_juce_plugin (TARGET <target>
                              [AAX_PAGETABLE_FILE <file>] [AAX_GUID <guid>])
 ```
 Forwards `${ARGN}` to [lemons_configure_juce_target](@ref lemons_configure_juce_target).
@@ -106,11 +106,11 @@ function (lemons_configure_juce_plugin)
     if (TARGET ${aax_target})
         message (DEBUG "Configuring AAX plugin target...")
 
-        lemons_configure_aax_plugin (TARGET ${aax_target} 
+        lemons_configure_aax_plugin (TARGET ${aax_target}
                                      PAGETABLE_FILE "${LEMONS_PLUGIN_AAX_PAGETABLE_FILE}"
                                      GUID "${LEMONS_PLUGIN_AAX_GUID}")
     endif()
-    
+
     if (TARGET Lemons::LemonsPluginModules)
         target_link_libraries (${LEMONS_PLUGIN_TARGET} PRIVATE Lemons::LemonsPluginModules)
     else()
@@ -133,4 +133,3 @@ function (lemons_configure_juce_plugin)
     _lemons_add_extra_pluginformat_modules (${LEMONS_PLUGIN_TARGET}_AUv3)
 
 endfunction()
-

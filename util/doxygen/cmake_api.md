@@ -2,7 +2,7 @@
 
 Lemons is designed to be as modular as possible; its CMake features, integrations, and the JUCE modules themselves (and even JUCE itself) are all included by projects via CMake module includes. For example, a basic plugin's CMakeLists.txt might look something like this:
 ```
-cmake_minimum_required (VERSION 3.19) 
+cmake_minimum_required (VERSION 3.19)
 
 project (NewPlugin VERSION 0.0.1 LANGUAGES CXX)
 

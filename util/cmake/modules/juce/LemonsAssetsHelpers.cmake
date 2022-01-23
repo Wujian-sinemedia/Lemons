@@ -9,7 +9,7 @@ lemons_add_resources_folder (TARGET <target> ASSET_FOLDER <folder>
                             [OUTPUT_TARGET <targetName>])
 ```
 
-Adds a JUCE binary data folder for the specified `<target>`, and populates it with all the files found in `<folder>`. 
+Adds a JUCE binary data folder for the specified `<target>`, and populates it with all the files found in `<folder>`.
 if `<folder>` is a relative path, it will be evaluated relative to your project's root directory (ie, the value of `${PROJECT_SOURCE_DIR}` when this function is called). You may also pass an absolute path.
 
 If `[OUTPUT_TARGET]` is present, `targetName` will be the name of the generated resources target; otherwise, it will default to `${PROJECT_NAME}-Assets`.
@@ -37,7 +37,7 @@ function (lemons_add_resources_folder)
     lemons_require_function_arguments (LEMONS_RSRC_FLDR TARGET ASSET_FOLDER)
     lemons_check_for_unparsed_args (LEMONS_RSRC_FLDR)
 
-    lemons_make_path_absolute (VAR LEMONS_RSRC_FLDR_ASSET_FOLDER 
+    lemons_make_path_absolute (VAR LEMONS_RSRC_FLDR_ASSET_FOLDER
                                BASE_DIR ${PROJECT_SOURCE_DIR})
 
     if (LEMONS_RSRC_FLDR_OUTPUT_TARGET)
@@ -84,5 +84,5 @@ function (lemons_add_resources_folder)
     juce_add_bundle_resources_directory (${LEMONS_RSRC_FLDR_TARGET} ${LEMONS_RSRC_FLDR_ASSET_FOLDER})
 
     target_link_libraries (${LEMONS_RSRC_FLDR_TARGET} PRIVATE ${LEMONS_RSRC_FLDR_TARGET}::${resourcesTarget})
-    
+
 endfunction()

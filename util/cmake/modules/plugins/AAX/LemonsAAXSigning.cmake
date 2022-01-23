@@ -50,16 +50,16 @@ function (lemons_configure_aax_plugin_signing)
 
     if (APPLE)
         lemons_require_function_arguments (LEMONS_AAX SIGNID)
-        
+
         add_custom_command (TARGET ${LEMONS_AAX_TARGET} POST_BUILD VERBATIM COMMAND_EXPAND_LISTS
-                            COMMAND "${WRAPTOOL_PROGRAM}" 
+                            COMMAND "${WRAPTOOL_PROGRAM}"
                             ARGS sign --verbose --dsig1-compat off --account "${LEMONS_AAX_ACCOUNT}" --wcguid "${LEMONS_AAX_GUID}" --signid "${LEMONS_AAX_SIGNID}" --in "$<TARGET_PROPERTY:${aaxTarget},JUCE_PLUGIN_ARTEFACT_FILE>" --out "$<TARGET_PROPERTY:${aaxTarget},JUCE_PLUGIN_ARTEFACT_FILE>"
                             COMMENT "Signing ${LEMONS_AAX_TARGET}...")
     elseif (WIN32)
         lemons_require_function_arguments (LEMONS_AAX KEYFILE KEYPASSWORD)
 
         add_custom_command (TARGET ${LEMONS_AAX_TARGET} POST_BUILD VERBATIM COMMAND_EXPAND_LISTS
-                            COMMAND "${WRAPTOOL_PROGRAM}" 
+                            COMMAND "${WRAPTOOL_PROGRAM}"
                             ARGS sign --verbose --dsig1-compat off --account "${LEMONS_AAX_ACCOUNT}" --keyfile "${LEMONS_AAX_KEYFILE}" --keypassword "${LEMONS_AAX_KEYPASSWORD}" --wcguid "${LEMONS_AAX_GUID}" --in "$<TARGET_PROPERTY:${aaxTarget},JUCE_PLUGIN_ARTEFACT_FILE>" --out "$<TARGET_PROPERTY:${aaxTarget},JUCE_PLUGIN_ARTEFACT_FILE>"
                             COMMENT "Signing ${LEMONS_AAX_TARGET}...")
     endif()

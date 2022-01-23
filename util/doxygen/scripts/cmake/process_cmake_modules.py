@@ -75,7 +75,7 @@ def process_subdir (directory, dest_dir, category):
 				rec_cat = category
 			else:
 				rec_cat = os.path.basename (subdir_path)
-				
+
 			process_files_in_subdir (subdir_path, dest_dir, rec_cat)
 
 #

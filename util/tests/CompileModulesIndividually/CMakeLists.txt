@@ -66,4 +66,3 @@ foreach (module_category ${lemons_module_categories})
 	endforeach()
 
 endforeach()
-

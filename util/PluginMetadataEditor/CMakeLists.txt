@@ -25,7 +25,7 @@ include (BVBrandFlags)
 
 juce_add_module ("${CMAKE_CURRENT_LIST_DIR}/metadata_editor_gui")
 
-juce_add_gui_app (${PROJECT_NAME} 
+juce_add_gui_app (${PROJECT_NAME}
     ${BV_DEFAULT_BRAND_FLAGS}
     PRODUCT_NAME                ${PROJECT_NAME}
     VERSION                     ${PROJECT_VERSION}

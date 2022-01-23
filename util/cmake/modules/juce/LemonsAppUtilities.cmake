@@ -51,7 +51,7 @@ endfunction()
 
 function (lemons_configure_juce_app)
     _lemons_configure_app_internal (${ARGN})
-    
+
     if (TARGET Lemons::LemonsAppModules)
         target_link_libraries (${LEMONS_APP_TARGET} PRIVATE Lemons::LemonsAppModules)
     else()

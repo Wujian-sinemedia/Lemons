@@ -4,29 +4,28 @@ repos:
     hooks:
     -   id: clang-format
         args: [--style=file, -i]
--   repo: https://github.com/cheshirekow/cmake-format-precommit
-    rev: v0.6.13
-    hooks:
-    -   id: cmake-format
-        args: [--in-place]
-    -   id: cmake-lint
+# -   repo: https://github.com/cheshirekow/cmake-format-precommit
+#     rev: v0.6.13
+#     hooks:
+#     -   id: cmake-format
+#         args: [--in-place]
+#     -   id: cmake-lint
 -   repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.1.0
     hooks:
     -   id: check-json
     -   id: pretty-format-json
         args: [--autofix, --no-sort-keys]
-    -   id: check-yaml
+    #-   id: check-yaml
     -   id: check-case-conflict
     -   id: check-executables-have-shebangs
-    -   id: check-shebang-scripts-are-executable
     -   id: end-of-file-fixer
     -   id: mixed-line-ending
         args: [--fix=lf]
     -   id: trailing-whitespace
--   repo: https://github.com/jumanjihouse/pre-commit-hooks
-    rev: 2.1.5
-    hooks:
-    -   id: markdownlint
-    -   id: require-ascii
-    -   id: shellcheck
+# -   repo: https://github.com/jumanjihouse/pre-commit-hooks
+#     rev: 2.1.5
+#     hooks:
+    #-   id: markdownlint
+    #-   id: require-ascii
+    #-   id: shellcheck

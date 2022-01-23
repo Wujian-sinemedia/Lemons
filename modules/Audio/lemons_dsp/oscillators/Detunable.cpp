@@ -6,10 +6,10 @@ DetunableBase<SampleType>::DetunableBase (ConstructedArray<Oscillator<SampleType
     : Oscillator<SampleType> ([this]
                               {
     auto sample = SampleType (0);
-    
+
     for (auto* osc : oscillators)
         sample += osc->getSample();
-    
+
     return sample; })
     , oscillators (arrayToUse)
 {

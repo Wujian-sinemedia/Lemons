@@ -51,7 +51,7 @@ function (lemons_set_default_macos_options target)
     endif()
 
     target_compile_definitions (${target} PRIVATE JUCE_USE_VDSP_FRAMEWORK=1)
-    
+
     set_target_properties (${target} PROPERTIES XCODE_ATTRIBUTE_ENABLE_HARDENED_RUNTIME YES)
 
     if (IOS)

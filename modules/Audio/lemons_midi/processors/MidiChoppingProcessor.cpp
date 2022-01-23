@@ -86,7 +86,7 @@ void ChoppingProcessor<SampleType>::process (AudioBuffer<SampleType>& audio, Mid
 	std::for_each (it, midi.cend(), [this] (const juce::MidiMessageMetadata& meta)
 	               {
         const auto message = meta.getMessage();
-        
+
         if (shouldChopAroundMidiMessage (message))
             handleMidiMessage (message); });
 }

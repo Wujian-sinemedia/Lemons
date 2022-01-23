@@ -12,7 +12,7 @@ lemons_json_array_to_list (TEXT <jsonString>
 						   OUT <outputVar>)
 ```
 
-If the array is not present in the passed JSON string, the output variable will be empty. 
+If the array is not present in the passed JSON string, the output variable will be empty.
 
 Example usage:
 
@@ -64,7 +64,7 @@ function (lemons_json_array_to_list)
 		string (JSON item GET ${LEMONS_JSON_TEXT} "${LEMONS_JSON_ARRAY}" ${idx})
 
 		list (APPEND out_list ${item})
-		
+
 	endforeach()
 
 	set (${LEMONS_JSON_OUT} "${out_list}" PARENT_SCOPE)

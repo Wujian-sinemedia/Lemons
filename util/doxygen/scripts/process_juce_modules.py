@@ -108,7 +108,7 @@ if __name__ == "__main__":
     parser = ArgumentParser()
     parser.add_argument ("lemons_root", help="the absolute path to the Lemons repo root")
     parser.add_argument ("dest_dir", help="the absolute path to the output")
-    
+
     args = parser.parse_args()
 
     create_module_heirarchy (args.lemons_root, args.dest_dir)

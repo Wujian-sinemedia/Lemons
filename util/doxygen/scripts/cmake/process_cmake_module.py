@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-
 import os
 
 #
@@ -57,7 +55,7 @@ def process_module_targets (orig_content, cmake_module_path):
 				wroteTargets = True
 				for module in get_list_of_juce_modules_in_category (cmake_module_path):
 					output_lines.append ("- [{n}](@ref {n})".format(n=module))
-		
+
 		output_lines.append (line)
 
 	if not wroteTargets:
@@ -83,7 +81,7 @@ def process_file (file_path, dest_dir, dest_file, category):
 
 	with open (file_path, "r") as f:
 		content = f.read()
-	
+
 	if not content.startswith ("#[["): return
 
 	add_module_to_output_file (dest_dir, name, dest_file)

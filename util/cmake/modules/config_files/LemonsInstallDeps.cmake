@@ -47,7 +47,7 @@ function (lemons_get_list_of_deps_to_install)
 	endfunction()
 
 	#
-	
+
 	function (_lemons_deps_add_from_category rootJsonObj catJsonObj sysOutVar pyOutVar)
 
 		lemons_json_array_to_list (TEXT "${catJsonObj}" ARRAY "packages" OUT sysPackages)
