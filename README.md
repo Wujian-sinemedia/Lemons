@@ -26,7 +26,6 @@ Here are my lemons, go make lemonade of your own.
 
 ---
 
-
 ## A library of utilities and building blocks for JUCE-based apps and plugins
 
 This library is what I use to build my own projects, so hopefully you'll find it useful as well.
@@ -48,6 +47,7 @@ The full CMake API reference can be found [here](https://benthevining.github.io/
 I recommend that within your CMake, you add Lemons by using [CPM.cmake](https://github.com/cpm-cmake/CPM.cmake), which is a single-script CMake package manager that allows you lots of flexibility in project configuration. One particularly important feature is the ability to specify that a local directory contains the source code for a certain package -- so that not every project repository on your machine has to contain a copy of Lemons as a submodule. This makes your cmake perfectly modular: simply add the Lemons package with CPM.cmake in each project, and then if that project is cloned and built in isolation, CPM will download the Lemons package at configure time, but you also have the ability to tell CPM to reference a local copy of Lemons on your machine, so you can work on all your projects while only having one copy of Lemons on your machine.
 
 Adding Lemons with CPM.cmake looks like this:
+
 ```
 include (CPM.cmake)
 
@@ -60,9 +60,11 @@ CPMAddPackage (
 ### A note about adding JUCE
 
 Internally, Lemons's cmake scripts [add JUCE like this](https://github.com/benthevining/Lemons/blob/main/util/cmake/modules/general/LemonsJuceUtilities.cmake), using CPM.cmake. JUCE will automatically be fetched for you at configure time -- but, if you'd like to reference another local copy of JUCE, you can set this variable before adding the Lemons package:
+
 ```
 set (CPM_JUCE_SOURCE /absolute/path/to/your/copy/of/juce)
 ```
+
 Note that this is optional, and if you omit the above line, adding the Lemons package will automatically also add the latest copy of JUCE for you.
 
 ### What I actually do in my projects' CMake
@@ -70,10 +72,13 @@ Note that this is optional, and if you omit the above line, adding the Lemons pa
 I noticed myself duplicating several lines of CMake code in every project, so I encapsulated the *adding of Lemons* into [its own little repository](https://github.com/benthevining/GetLemons).
 
 What I usually do in my project repos is make my [GetLemons](https://github.com/benthevining/GetLemons) repo a git submodule, then from the project's main CMakeLists.txt, simply
+
 ```
 addSubdirectory (GetLemons)
 ```
+
 What this will do is:
+
 * Either fetch the CPM.cmake script from the github repository and cache it for future use; ***or*** include the previously-cached version if it can be found
 * Include the Lemons repository using CPM.cmake
 
