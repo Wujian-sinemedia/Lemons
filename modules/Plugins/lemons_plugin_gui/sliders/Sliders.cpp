@@ -71,4 +71,4 @@ void IntSlider::valueChanged()
 	param.set (juce::roundToInt (Slider::getValue()));
 }
 
-}  // namespace lemons::gui
+}  // namespace lemons::gui::components

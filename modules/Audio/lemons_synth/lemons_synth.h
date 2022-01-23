@@ -40,11 +40,11 @@ class MidiManager;
 }  // namespace lemons::dsp
 
 
-#include "SynthVoice/SynthVoice.h"
-#include "Synth/Synth.h"
+#  include "SynthVoice/SynthVoice.h"
+#  include "Synth/Synth.h"
 
-#include "BasicSynths/LambdaSynth.h"
-#include "BasicSynths/TemplateSynth.h"
-#include "BasicSynths/OscSynth.h"
+#  include "BasicSynths/LambdaSynth.h"
+#  include "BasicSynths/TemplateSynth.h"
+#  include "BasicSynths/OscSynth.h"
 
 #endif

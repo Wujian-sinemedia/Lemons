@@ -3,7 +3,7 @@
 namespace lemons::dsp::synth
 {
 
-template<typename T>
+template <typename T>
 using Array = juce::Array<T>;
 
 template <typename SampleType>

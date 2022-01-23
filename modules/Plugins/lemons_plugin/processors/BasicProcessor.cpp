@@ -60,8 +60,8 @@ void BasicProcessor::callEditorMethod (std::function<void (juce::AudioProcessorE
 {
 	if (! hasEditor())
 		return;
-    
-    using EditorPtr = juce::Component::SafePointer<juce::AudioProcessorEditor>;
+
+	using EditorPtr = juce::Component::SafePointer<juce::AudioProcessorEditor>;
 
 	juce::MessageManager::callAsync ([editor = EditorPtr (getActiveEditor()), func]
 	                                 {

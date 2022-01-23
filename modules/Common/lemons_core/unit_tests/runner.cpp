@@ -38,10 +38,10 @@ juce::StringArray Runner::getFailedTestNames() const
 		if (result->failures > 0)
 			names.add (result->unitTestName);
 	}
-    
-    names.trim();
-    names.removeEmptyStrings();
-    names.removeDuplicates (true);
+
+	names.trim();
+	names.removeEmptyStrings();
+	names.removeDuplicates (true);
 
 	return names;
 }

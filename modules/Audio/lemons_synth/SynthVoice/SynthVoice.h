@@ -22,38 +22,38 @@ public:
 	void renderBlock (AudioBuffer<SampleType>& output);
 
 	void bypassedBlock (int numSamples);
-    
-    void setTargetOutputFrequency (float newFreq);
-    
-    /** @name synth_voice_attributes Attribute queries */
-    ///@{
 
-    [[nodiscard]] bool isCurrentPedalVoice() const noexcept { return isPedalPitchVoice; }
-    [[nodiscard]] bool isCurrentDescantVoice() const noexcept { return isDescantVoice; }
+	void setTargetOutputFrequency (float newFreq);
 
-    [[nodiscard]] int getCurrentMidiPan() const noexcept { return panner.getLastMidiPan(); }
+	/** @name synth_voice_attributes Attribute queries */
+	///@{
 
-    [[nodiscard]] bool isKeyDown() const noexcept { return keyIsDown; }
+	[[nodiscard]] bool isCurrentPedalVoice() const noexcept { return isPedalPitchVoice; }
+	[[nodiscard]] bool isCurrentDescantVoice() const noexcept { return isDescantVoice; }
 
-    [[nodiscard]] bool wasStartedBefore (const SynthVoiceBase& other) const noexcept { return noteOnTime < other.noteOnTime; }
+	[[nodiscard]] int getCurrentMidiPan() const noexcept { return panner.getLastMidiPan(); }
 
-    [[nodiscard]] bool isPlayingButReleased() const noexcept { return playingButReleased; }
+	[[nodiscard]] bool isKeyDown() const noexcept { return keyIsDown; }
 
-    [[nodiscard]] bool isVoiceActive() const noexcept { return currentlyPlayingNote >= 0; }
+	[[nodiscard]] bool wasStartedBefore (const SynthVoiceBase& other) const noexcept { return noteOnTime < other.noteOnTime; }
 
-    [[nodiscard]] int getCurrentlyPlayingNote() const noexcept { return currentlyPlayingNote; }
+	[[nodiscard]] bool isPlayingButReleased() const noexcept { return playingButReleased; }
 
-    [[nodiscard]] int getMidiChannel() const { return midiChannel > 0 ? midiChannel : parent->midi.router.getLastMidiChannel(); }
+	[[nodiscard]] bool isVoiceActive() const noexcept { return currentlyPlayingNote >= 0; }
 
-    ///@}
-    
-    /** @name synth_voice_pitch_glide Pitch glide */
-    ///@{
+	[[nodiscard]] int getCurrentlyPlayingNote() const noexcept { return currentlyPlayingNote; }
+
+	[[nodiscard]] int getMidiChannel() const { return midiChannel > 0 ? midiChannel : parent->midi.router.getLastMidiChannel(); }
+
+	///@}
+
+	/** @name synth_voice_pitch_glide Pitch glide */
+	///@{
 
 	void setPitchGlideTime (double glideTimeSeconds);
 	void togglePitchGlide (bool shouldGlide);
-    
-    ///@}
+
+	///@}
 
 protected:
 	friend class SynthBase<SampleType>;
@@ -109,7 +109,7 @@ private:
 	void setAdsrParameters (const ADSRParams newParams) { adsr.setParameters (newParams); }
 	void setQuickReleaseParameters (const ADSRParams newParams) { quickRelease.setParameters (newParams); }
 
-    [[nodiscard]] bool isVoiceOnRightNow() const;
+	[[nodiscard]] bool isVoiceOnRightNow() const;
 
 	void resetRampedValues();
 

@@ -25,4 +25,4 @@ private:
 	std::function<void (bool)> callback;
 };
 
-}  // namespace lemons::gui
+}  // namespace lemons::gui::components

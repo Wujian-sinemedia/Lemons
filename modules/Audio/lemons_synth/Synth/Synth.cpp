@@ -131,7 +131,7 @@ void SynthBase<SampleType>::renderVoices (MidiBuffer& midiMessages, AudioBuffer<
 template <typename SampleType>
 void SynthBase<SampleType>::bypassedBlock (int numSamples, MidiBuffer& midiMessages)
 {
-//	midi.processBypassed (midiMessages);
+	//	midi.processBypassed (midiMessages);
 
 	for (auto* voice : voices)
 		voice->bypassedBlock (numSamples);
@@ -145,19 +145,19 @@ void SynthBase<SampleType>::bypassedBlock (int numSamples, MidiBuffer& midiMessa
 template <typename SampleType>
 void SynthBase<SampleType>::changeNumVoices (int newNumVoices)
 {
-    voices.resize (newNumVoices);
-    
-    jassert (voices->size() == newNumVoices);
-    
-    numVoicesChanged();
+	voices.resize (newNumVoices);
+
+	jassert (voices->size() == newNumVoices);
+
+	numVoicesChanged();
 }
 
 
 /*
  Removes a specified number of voices from the synth. This function attempts to remove inactive voices first.
  */
-//template <typename SampleType>
-//void SynthBase<SampleType>::removeNumVoices (int voicesToRemove)
+// template <typename SampleType>
+// void SynthBase<SampleType>::removeNumVoices (int voicesToRemove)
 //{
 //	if (voicesToRemove == 0) return;
 //
@@ -190,7 +190,7 @@ void SynthBase<SampleType>::changeNumVoices (int newNumVoices)
 //	jassert (voices.isEmpty() || voices.size() == shouldBeLeft);
 //
 //	numVoicesChanged();
-//}
+// }
 
 
 /*

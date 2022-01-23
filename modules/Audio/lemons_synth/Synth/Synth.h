@@ -12,7 +12,7 @@ namespace lemons::dsp
 
 using juce::MidiMessage;
 
-template<typename T>
+template <typename T>
 using Array = juce::Array<T>;
 
 template <typename SampleType>
@@ -25,7 +25,7 @@ class SynthBase
 public:
 	virtual ~SynthBase() = default;
 
-	void initialize (int initNumVoices, double initSamplerate = 44100.0, int initBlocksize = 512);
+	void               initialize (int initNumVoices, double initSamplerate = 44100.0, int initBlocksize = 512);
 	[[nodiscard]] bool isInitialized() const;
 
 	void prepare (double samplerate, int blocksize);
@@ -39,89 +39,89 @@ public:
 
 	void processMidiEvent (const MidiMessage& m);
 
-    [[nodiscard]] int  getNumActiveVoices() const;
-    [[nodiscard]] int  getNumVoices() const noexcept { return voices->size(); }
-	void changeNumVoices (int newNumVoices);
-    
-    [[nodiscard]] const midi::PitchPipeline* getPitchAdjuster() { return &pitch; }
-    
-    
-    /** @name synth_base_midi MIDI settings */
-    ///@{
+	[[nodiscard]] int getNumActiveVoices() const;
+	[[nodiscard]] int getNumVoices() const noexcept { return voices->size(); }
+	void              changeNumVoices (int newNumVoices);
+
+	[[nodiscard]] const midi::PitchPipeline* getPitchAdjuster() { return &pitch; }
+
+
+	/** @name synth_base_midi MIDI settings */
+	///@{
 
 	void setNoteStealingEnabled (bool shouldSteal) noexcept { shouldStealNotes = shouldSteal; }
 	void updateMidiVelocitySensitivity (int newSensitivity);
 	void updatePitchbendRange (int rangeUp, int rangeDown);
 	void updatePitchbendRange (int rangeSemitones);
 	void setAftertouchGainOnOff (bool shouldBeOn) { aftertouchGainIsOn = shouldBeOn; }
-    
-    ///@}
-    
-    /** @name synth_base_chords Chords */
-    ///@{
-    
-    void playChord (const juce::Array<int>& desiredPitches, float velocity = 1.0f, bool allowTailOffOfOld = false);
-    
-    void allNotesOff (bool allowTailOff = false, float velocity = 1.0f);
-    
-    void turnOffAllKeyupNotes (bool  allowTailOff                = false,
-                               bool  includePedalPitchAndDescant = true,
-                               float velocity                    = 1.0f,
-                               bool  overrideSostenutoPedal      = true);
-    
-    ///@}
-    
-    /** @name synth_base_notes Note reporting */
-    ///@{
-    
-    [[nodiscard]] bool isPitchActive (int midiPitch, bool countRingingButReleased = false, bool countKeyUpNotes = false) const;
-    void reportActiveNotes (juce::Array<int>& outputArray, bool includePlayingButReleased = false, bool includeKeyUpNotes = true) const;
-    
-    ///@}
-    
-    /** @name synth_base_midi_latch MIDI latch */
-    ///@{
 
-	void setMidiLatch (bool shouldBeOn, const bool allowTailOff = false);
-    [[nodiscard]] bool isLatched() const noexcept { return latchIsOn; }
-    
-    ///@}
-    
-    /** @name synth_base_adsrs ADSRs */
-    ///@{
+	///@}
+
+	/** @name synth_base_chords Chords */
+	///@{
+
+	void playChord (const juce::Array<int>& desiredPitches, float velocity = 1.0f, bool allowTailOffOfOld = false);
+
+	void allNotesOff (bool allowTailOff = false, float velocity = 1.0f);
+
+	void turnOffAllKeyupNotes (bool  allowTailOff                = false,
+	                           bool  includePedalPitchAndDescant = true,
+	                           float velocity                    = 1.0f,
+	                           bool  overrideSostenutoPedal      = true);
+
+	///@}
+
+	/** @name synth_base_notes Note reporting */
+	///@{
+
+	[[nodiscard]] bool isPitchActive (int midiPitch, bool countRingingButReleased = false, bool countKeyUpNotes = false) const;
+	void               reportActiveNotes (juce::Array<int>& outputArray, bool includePlayingButReleased = false, bool includeKeyUpNotes = true) const;
+
+	///@}
+
+	/** @name synth_base_midi_latch MIDI latch */
+	///@{
+
+	void               setMidiLatch (bool shouldBeOn, const bool allowTailOff = false);
+	[[nodiscard]] bool isLatched() const noexcept { return latchIsOn; }
+
+	///@}
+
+	/** @name synth_base_adsrs ADSRs */
+	///@{
 
 	void updateADSRsettings (float attack, float decay, float sustain, float release);
 	void updateQuickReleaseMs (int newMs);
-    
-    ///@}
-    
-    /** @name synth_base_midi_pedals MIDI pedals */
-    ///@{
 
-    [[nodiscard]] bool isSustainPedalDown() const noexcept { return midi.router.isSustainPedalDown(); }
-    [[nodiscard]] bool isSostenutoPedalDown() const noexcept { return midi.router.isSostenutoPedalDown(); }
-    [[nodiscard]] bool isSoftPedalDown() const noexcept { return midi.router.isSoftPedalDown(); }
-    [[nodiscard]] bool isAftertouchGainOn() const noexcept { return aftertouchGainIsOn; }
-    
-    ///@}
-    
-    /** @name synth_base_mtsesp MTS-ESP */
-    ///@{
+	///@}
 
-    [[nodiscard]] bool   isConnectedToMtsEsp() const { return pitch.tuning.isConnected(); }
-    [[nodiscard]] String getScaleName() const { return pitch.tuning.getScaleName(); }
-    
-    ///@}
-    
-    /** @name synth_base_pitch_glide Pitch glide */
-    ///@{
+	/** @name synth_base_midi_pedals MIDI pedals */
+	///@{
+
+	[[nodiscard]] bool isSustainPedalDown() const noexcept { return midi.router.isSustainPedalDown(); }
+	[[nodiscard]] bool isSostenutoPedalDown() const noexcept { return midi.router.isSostenutoPedalDown(); }
+	[[nodiscard]] bool isSoftPedalDown() const noexcept { return midi.router.isSoftPedalDown(); }
+	[[nodiscard]] bool isAftertouchGainOn() const noexcept { return aftertouchGainIsOn; }
+
+	///@}
+
+	/** @name synth_base_mtsesp MTS-ESP */
+	///@{
+
+	[[nodiscard]] bool   isConnectedToMtsEsp() const { return pitch.tuning.isConnected(); }
+	[[nodiscard]] String getScaleName() const { return pitch.tuning.getScaleName(); }
+
+	///@}
+
+	/** @name synth_base_pitch_glide Pitch glide */
+	///@{
 
 	void setPitchGlideTime (double glideTimeSeconds);
 	void togglePitchGlide (bool shouldGlide);
-    
-    ///@}
 
-    
+	///@}
+
+
 	juce::MidiKeyboardState keyboardState;
 
 	synth::PanningManager<SampleType> panner { *this };
@@ -162,7 +162,7 @@ protected:
 	virtual void release() { }
 
 	// this method should return an instance of your synth's voice subclass
-    [[nodiscard]] virtual Voice* createVoice() = 0;
+	[[nodiscard]] virtual Voice* createVoice() = 0;
 
 private:
 	void numVoicesChanged();
@@ -178,12 +178,12 @@ private:
 
 	void updateChannelPressure (int newIncomingAftertouch);
 
-    [[nodiscard]] Voice* getVoicePlayingNote (int midiPitch) const;
+	[[nodiscard]] Voice* getVoicePlayingNote (int midiPitch) const;
 
 	/*==============================================================================================================
 	 ===============================================================================================================*/
 
-    ConstructedArray<Voice> voices; // { 0, [base = this](){ return base->createVoice(); } };
+	ConstructedArray<Voice> voices;  // { 0, [base = this](){ return base->createVoice(); } };
 
 	bool latchIsOn { false }, shouldStealNotes { true }, aftertouchGainIsOn { true };
 
@@ -204,8 +204,8 @@ private:
 	synth::MidiManager<SampleType> midi { *this };
 
 	synth::VoiceAllocator<SampleType> voiceAllocator { *this };
-    
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (SynthBase)
+
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (SynthBase)
 };
 
 

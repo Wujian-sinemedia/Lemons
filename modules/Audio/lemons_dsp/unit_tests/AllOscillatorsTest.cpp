@@ -4,8 +4,8 @@ namespace lemons::tests
 template <typename SampleType>
 void AllOscillatorsTest<SampleType>::runTest()
 {
-    beginTest (getName());
-    
+	beginTest (getName());
+
 	{
 		const auto subtest = beginSubtest ("Sine");
 		runOscillatorTest (sine);

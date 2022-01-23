@@ -29,12 +29,12 @@ void StereoPanner<SampleType>::process (const AudioBuffer& stereoInput,
 	right.setGain (PannerBase::getRightGain());
 
 	const auto numSamples = stereoInput.getNumSamples();
-    
-    for (int i = 0; i < 2; ++i)
-        juce::FloatVectorOperations::copy (stereoOutput.getWritePointer (i), stereoInput.getReadPointer (i), numSamples);
 
-    auto leftAlias = buffers::getAliasBuffer (stereoOutput, 0, numSamples, 1);
-    auto rightAlias = buffers::getAliasBuffer (stereoOutput, 0, numSamples, 1, 1);
+	for (int i = 0; i < 2; ++i)
+		juce::FloatVectorOperations::copy (stereoOutput.getWritePointer (i), stereoInput.getReadPointer (i), numSamples);
+
+	auto leftAlias  = buffers::getAliasBuffer (stereoOutput, 0, numSamples, 1);
+	auto rightAlias = buffers::getAliasBuffer (stereoOutput, 0, numSamples, 1, 1);
 
 	left.process (leftAlias);
 	right.process (rightAlias);

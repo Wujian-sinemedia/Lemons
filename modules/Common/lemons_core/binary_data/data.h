@@ -58,7 +58,7 @@ struct Data final
 	/** Creates a Data object referencing a named resource. */
 	explicit Data (const char* fileToFind);
 
-    /** Creates a Data object referencing a named resource. */
+	/** Creates a Data object referencing a named resource. */
 	explicit Data (const String& fileToFind);
 
 	/** Returns true if the requested data has been loaded successfully from the binary data target. */

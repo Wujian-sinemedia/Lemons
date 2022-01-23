@@ -27,4 +27,4 @@ private:
 	void stoppedDragging() final;
 };
 
-}  // namespace lemons::gui
+}  // namespace lemons::gui::components

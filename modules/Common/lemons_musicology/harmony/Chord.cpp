@@ -13,7 +13,7 @@ bool Chord::operator!= (const Chord& other) const
 
 bool Chord::containsSamePitchClassesAs (const Chord& other) const
 {
-    return true;
+	return true;
 }
 
 bool Chord::containsPitch (int midiNote) const
@@ -40,7 +40,7 @@ int Chord::getNumPitches() const
 
 int Chord::getNumUniquePitchClasses() const
 {
-    return 0;
+	return 0;
 }
 
 int Chord::getLowestPitch() const

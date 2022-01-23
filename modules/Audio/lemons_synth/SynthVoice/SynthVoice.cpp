@@ -70,9 +70,9 @@ void SynthVoiceBase<SampleType>::renderBlock (AudioBuffer<SampleType>& output)
 
 	jassert (parent->sampleRate > 0);
 	jassert (renderingBuffer.getNumChannels() > 0);
-    
-    scratchBuffer.clear();
-    renderingBuffer.clear();
+
+	scratchBuffer.clear();
+	renderingBuffer.clear();
 
 	// puts generated audio samples into renderingBuffer
 	renderInternal (numSamples);
@@ -95,13 +95,13 @@ void SynthVoiceBase<SampleType>::renderBlock (AudioBuffer<SampleType>& output)
 	else
 		for (int i = 0; i < numSamples; ++i)
 			quickRelease.getNextSample();
-    
-    using FVO = juce::FloatVectorOperations;
+
+	using FVO = juce::FloatVectorOperations;
 
 	if (output.getNumChannels() == 1)
 	{
 		//  add (!) to output
-        FVO::add (output.getWritePointer (0), render.getReadPointer (0), numSamples);
+		FVO::add (output.getWritePointer (0), render.getReadPointer (0), numSamples);
 	}
 	else
 	{
@@ -109,7 +109,7 @@ void SynthVoiceBase<SampleType>::renderBlock (AudioBuffer<SampleType>& output)
 
 		//  add (!) to output
 		for (int chan = 0; chan < 2; ++chan)
-            FVO::add (output.getWritePointer (chan), stereoBuffer.getReadPointer (chan), numSamples);
+			FVO::add (output.getWritePointer (chan), stereoBuffer.getReadPointer (chan), numSamples);
 	}
 
 	if (! isVoiceOnRightNow()) clearCurrentNote();
@@ -144,10 +144,10 @@ void SynthVoiceBase<SampleType>::renderInternal (int totalNumSamples)
 		renderPlease (alias, static_cast<float> (outputFrequency.getNextValue()), parent->sampleRate);
 
 		// copy to output (rendering buffer)
-        juce::FloatVectorOperations::copy (renderingBuffer.getWritePointer (0, samplesProcessed),
-                                           scratchBuffer.getReadPointer (0),
-                                           samplesLeft);
-        
+		juce::FloatVectorOperations::copy (renderingBuffer.getWritePointer (0, samplesProcessed),
+		                                   scratchBuffer.getReadPointer (0),
+		                                   samplesLeft);
+
 		return;
 	}
 }

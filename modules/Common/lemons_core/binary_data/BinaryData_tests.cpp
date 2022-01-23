@@ -48,7 +48,7 @@ private:
 
 				expect (data.isValid());
 
-                expect (data.getAsString().isNotEmpty());
+				expect (data.getAsString().isNotEmpty());
 
 				const auto block = data.getAsMemoryBlock();
 
@@ -62,10 +62,10 @@ private:
 		for (const auto& filename : binary::getFilenames())
 		{
 			expect (! binary::getBlob (filename).isEmpty());
-            expect (! binary::getString (filename).isEmpty());
-            expect (! binary::getStrings (filename).isEmpty());
-            
-            // TO DO: getValueTree()
+			expect (! binary::getString (filename).isEmpty());
+			expect (! binary::getStrings (filename).isEmpty());
+
+			// TO DO: getValueTree()
 		}
 	}
 };

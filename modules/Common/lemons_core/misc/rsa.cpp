@@ -60,9 +60,9 @@ void generateKeyPair (const juce::File& outputFile, int numBits, const juce::Arr
 	else
 	{
 		if (randomSeeds.size() < 3)
-        {
+		{
 			DBG ("Warning - you should provide more than 2 random seed values!");
-        }
+		}
 
 		RSAKey::createKeyPair (publicKey, privateKey, numBits, randomSeeds.getRawDataPointer(), randomSeeds.size());
 	}

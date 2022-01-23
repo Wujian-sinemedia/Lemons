@@ -4,7 +4,7 @@
 
 namespace lemons
 {
-    using LemonsPluginMetadataEditor = GuiApp<PluginMetadataEditor::gui::DocumentComponent>;
+using LemonsPluginMetadataEditor = GuiApp<PluginMetadataEditor::gui::DocumentComponent>;
 }
 
 

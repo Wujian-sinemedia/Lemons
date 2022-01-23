@@ -63,7 +63,7 @@ void Protector<SampleType>::renderBlock (const AudioBuffer<SampleType>& input,
 	{
 		const auto* samples = input.getReadPointer (chan);
 
-        for (auto s = 0; s < input.getNumSamples(); ++s)
+		for (auto s = 0; s < input.getNumSamples(); ++s)
 		{
 			const auto sample = samples[s];
 

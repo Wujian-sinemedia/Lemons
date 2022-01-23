@@ -201,10 +201,10 @@ void Reverb::process (juce::AudioBuffer<float>& input,
 	for (int chan = 0; chan < numChannels; ++chan)
 	{
 		// add & write result to workingBuffer
-        juce::FloatVectorOperations::add (workingBuffer.getWritePointer (chan),
-                                          sidechainBuffer.getReadPointer (chan),
-                                          numSamples);
-        
+		juce::FloatVectorOperations::add (workingBuffer.getWritePointer (chan),
+		                                  sidechainBuffer.getReadPointer (chan),
+		                                  numSamples);
+
 		buffers::copy (workingBuffer, input);
 	}
 }

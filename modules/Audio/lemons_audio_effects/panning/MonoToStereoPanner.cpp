@@ -28,14 +28,14 @@ void MonoToStereoPanner<SampleType>::process (const AudioBuffer& monoInput,
 	right.setGain (PannerBase::getRightGain());
 
 	const auto numSamples = stereoOutput.getNumSamples();
-    
-    using FVO = juce::FloatVectorOperations;
-    
-    FVO::copy (stereoOutput.getWritePointer (0), monoInput.getReadPointer (0), numSamples);
-    FVO::copy (stereoOutput.getWritePointer (1), monoInput.getReadPointer (0), numSamples);
-    
-    auto leftAlias = buffers::getAliasBuffer (stereoOutput, 0, numSamples, 1);
-    auto rightAlias = buffers::getAliasBuffer (stereoOutput, 0, numSamples, 1, 1);
+
+	using FVO = juce::FloatVectorOperations;
+
+	FVO::copy (stereoOutput.getWritePointer (0), monoInput.getReadPointer (0), numSamples);
+	FVO::copy (stereoOutput.getWritePointer (1), monoInput.getReadPointer (0), numSamples);
+
+	auto leftAlias  = buffers::getAliasBuffer (stereoOutput, 0, numSamples, 1);
+	auto rightAlias = buffers::getAliasBuffer (stereoOutput, 0, numSamples, 1, 1);
 
 	left.process (leftAlias);
 	right.process (rightAlias);
