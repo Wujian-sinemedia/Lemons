@@ -14,16 +14,16 @@ jobs:
     timeout-minutes: 10
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
-      with:
-        token: ${{ secrets.ACCESS_TOKEN }}
-        submodules: recursive
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.ACCESS_TOKEN }}
+          submodules: recursive
 
-    - name: Install deps
-      shell: bash
-      run: cmake -D LEMONS_DOCS=1 -P '${{ github.workspace }}/scripts/install_deps.cmake'
+      - name: Install deps
+        shell: bash
+        run: cmake -D LEMONS_DOCS=1 -P '${{ github.workspace }}/scripts/install_deps.cmake' # yamllint disable-line
 
-    - name: Run script
-      shell: bash
-      run: export GH_REPO_TOKEN=${{ secrets.ACCESS_TOKEN }} && bash .github/publish_docs.sh
+      - name: Run script
+        shell: bash
+        run: export GH_REPO_TOKEN=${{ secrets.ACCESS_TOKEN }} && bash .github/publish_docs.sh # yamllint disable-line

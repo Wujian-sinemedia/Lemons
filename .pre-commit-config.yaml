@@ -1,8 +1,8 @@
 repos:
--   repo: https://github.com/pre-commit/mirrors-clang-format
+  - repo: https://github.com/pre-commit/mirrors-clang-format
     rev: v13.0.0
     hooks:
-    -   id: clang-format
+      - id: clang-format
         args: [--style=file, -i]
 # -   repo: https://github.com/cheshirekow/cmake-format-precommit
 #     rev: v0.6.13
@@ -10,19 +10,24 @@ repos:
 #     -   id: cmake-format
 #         args: [--in-place]
 #     -   id: cmake-lint
--   repo: https://github.com/pre-commit/pre-commit-hooks
+  - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.1.0
     hooks:
-    -   id: check-json
-    -   id: pretty-format-json
+      - id: check-json
+      - id: pretty-format-json
         args: [--autofix, --no-sort-keys]
-    #-   id: check-yaml
-    -   id: check-case-conflict
-    -   id: check-executables-have-shebangs
-    -   id: end-of-file-fixer
-    -   id: mixed-line-ending
+      - id: check-yaml
+        args: [--allow-multiple-documents]
+      - id: check-case-conflict
+      - id: check-executables-have-shebangs
+      - id: end-of-file-fixer
+      - id: mixed-line-ending
         args: [--fix=lf]
-    -   id: trailing-whitespace
+      - id: trailing-whitespace
+  - repo: https://github.com/adrienverge/yamllint
+    rev: v1.26.3
+    hooks:
+      - id: yamllint
 # -   repo: https://github.com/jumanjihouse/pre-commit-hooks
 #     rev: 2.1.5
 #     hooks:
