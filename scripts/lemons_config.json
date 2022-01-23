@@ -1,77 +1,96 @@
 {
-	"project":
-	{
-		"name": "Lemons"
-	},
-	"Dependencies": [
-		{
-			"name": "Default",
-			"packages": [ "ccache", "git", "python3", "cppcheck" ],
-			"LinuxPackages": [
-				"libasound2-dev",
-				"libjack-jackd2-dev",
-				"ladspa-sdk",
-				"libcurl4-openssl-dev",
-				"libfreetype6-dev",
-				"libx11-dev",
-				"libxcomposite-dev",
-				"libxcursor-dev",
-				"libxext-dev",
-				"libxinerama-dev",
-				"libxrandr-dev",
-				"libxrender-dev",
-				"libwebkit2gtk-4.0-dev",
-				"libglu1-mesa-dev",
-				"mesa-common-dev",
-				"openssh-client",
-				"ninja-build"
-			],
-			"PythonPackages": [ "pre-commit" ]
-		},
-		{
-			"name": "Docs",
-			"packages": [ "graphviz" ],
-			"LinuxPackages": [ "doxygen" ],
-			"MacPackages": [ "doxygen" ],
-			"WindowsPackages": [ "doxygen.install" ]
-		},
-		{
-			"name": "Docker",
-			"packages": [ "clang-13" ],
-			"categories": [ "Docs" ]
-		},
-		{
-			"name": "Android",
-			"packages": [
-				"openjdk-8-jre",
-				"openjdk-8-jdk",
-				"android-sdk",
-				"sdkmanager"
-			]
-		}
-	],
-	"Cleaning": {
-		"clean": [
-			"Builds",
-			"logs",
-			"Testing",
-			"CPM_modules",
-			"cpm-package-lock.cmake",
-			"util/doxygen/build",
-			"util/doxygen/doc",
-			"util/doxygen/Builds",
-			"util/tests/Builds",
-			"util/tests/CompileModulesIndividually/Builds",
-			"util/CommandLineUtils/Builds",
-			"util/Templates/Builds",
-			"util/PluginMetadataEditor/Builds",
-			"util/cmake/modules/Builds",
-			"modules/Builds",
-			"docs",
-			".github/docs"
-		],
-		"wipe": [
-			"Cache"
-		]
-	}
+  "project": {
+    "name": "Lemons"
+  },
+  "Dependencies": [
+    {
+      "name": "Default",
+      "packages": [
+        "ccache",
+        "git",
+        "python3",
+        "cppcheck",
+        "shellcheck"
+      ],
+      "LinuxPackages": [
+        "libasound2-dev",
+        "libjack-jackd2-dev",
+        "ladspa-sdk",
+        "libcurl4-openssl-dev",
+        "libfreetype6-dev",
+        "libx11-dev",
+        "libxcomposite-dev",
+        "libxcursor-dev",
+        "libxext-dev",
+        "libxinerama-dev",
+        "libxrandr-dev",
+        "libxrender-dev",
+        "libwebkit2gtk-4.0-dev",
+        "libglu1-mesa-dev",
+        "mesa-common-dev",
+        "openssh-client",
+        "ninja-build"
+      ],
+      "PythonPackages": [
+        "pre-commit"
+      ]
+    },
+    {
+      "name": "Docs",
+      "packages": [
+        "graphviz"
+      ],
+      "LinuxPackages": [
+        "doxygen"
+      ],
+      "MacPackages": [
+        "doxygen"
+      ],
+      "WindowsPackages": [
+        "doxygen.install"
+      ]
+    },
+    {
+      "name": "Docker",
+      "packages": [
+        "clang-13"
+      ],
+      "categories": [
+        "Docs"
+      ]
+    },
+    {
+      "name": "Android",
+      "packages": [
+        "openjdk-8-jre",
+        "openjdk-8-jdk",
+        "android-sdk",
+        "sdkmanager"
+      ]
+    }
+  ],
+  "Cleaning": {
+    "clean": [
+      "Builds",
+      "logs",
+      "Testing",
+      "CPM_modules",
+      "cpm-package-lock.cmake",
+      "util/doxygen/build",
+      "util/doxygen/doc",
+      "util/doxygen/Builds",
+      "util/tests/Builds",
+      "util/tests/CompileModulesIndividually/Builds",
+      "util/CommandLineUtils/Builds",
+      "util/Templates/Builds",
+      "util/PluginMetadataEditor/Builds",
+      "util/cmake/modules/Builds",
+      "modules/Builds",
+      "docs",
+      ".github/docs"
+    ],
+    "wipe": [
+      "Cache"
+    ]
+  }
 }
