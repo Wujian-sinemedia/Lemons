@@ -5,11 +5,12 @@
 # inputs:
 # GH_REPO_TOKEN
 
-set -euo pipefail
+set -euo
 
 readonly GH_REPO_REF="github.com/benthevining/Lemons.git"
 
-readonly script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+script_dir="$(dirname "$(readlink -f "$0")")"
+readonly script_dir
 
 readonly temp_dir="$script_dir/docs"
 
@@ -37,10 +38,10 @@ echo "" > .nojekyll
 cd "$docs_git_tree"
 
 # remove everything currently in the docs branch
-rm -rf *
+rm -rf -- *
 
 # copy generated docs to cloned copy of docs git tree
-mv $lemons_root/util/doxygen/doc/* "$docs_git_tree"
+mv "$lemons_root"/util/doxygen/doc/* "$docs_git_tree"
 
 # configure git
 git config push.default simple

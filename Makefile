@@ -1,6 +1,6 @@
 SHELL = /bin/sh
 .ONESHELL:
-.SHELLFLAGS: -euo pipefail
+.SHELLFLAGS: -euo
 .DEFAULT_GOAL: help
 .NOTPARALLEL:
 .POSIX:
