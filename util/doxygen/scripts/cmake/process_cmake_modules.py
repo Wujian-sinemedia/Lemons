@@ -35,6 +35,7 @@ def add_category_to_output_file(output_file, category):
         out_file.write("\r\n")
         out_file.write(formatted_line)
 
+
 #
 
 
@@ -44,7 +45,8 @@ def process_files_in_subdir(dirpath, dest_dir, category):
 
     add_category_to_output_file(destination_file, category)
 
-    for path, dirnames, filenames in os.walk(dirpath):  # pylint: disable=unused-variable
+    # pylint: disable-next=unused-variable
+    for path, dirnames, filenames in os.walk(dirpath):
         for file in filenames:
             file_path = os.path.join(dirpath, file)
             if os.path.isfile(file_path):
@@ -53,6 +55,7 @@ def process_files_in_subdir(dirpath, dest_dir, category):
     if os.path.isfile(destination_file):
         with open(destination_file, "a") as file:
             file.write("\r\n")
+
 
 #
 
@@ -67,7 +70,8 @@ def process_subdir(directory, dest_dir, category):
 
     process_files_in_subdir(directory, dest_dir, category)
 
-    for dirpath, dirnames, filenames in os.walk(directory):  # pylint: disable=unused-variable
+    # pylint: disable-next=unused-variable
+    for dirpath, dirnames, filenames in os.walk(directory):
         for subdir in dirnames:
             subdir_path = os.path.join(dirpath, subdir)
 
@@ -81,21 +85,17 @@ def process_subdir(directory, dest_dir, category):
 
             process_files_in_subdir(subdir_path, dest_dir, rec_cat)
 
+
 #
 
 
 if __name__ == "__main__":
     parser = ArgumentParser()
-    parser.add_argument(
-        "cmake_modules", help="the absolute path to the CMake modules")
-    parser.add_argument(
-        "juce_modules", help="the absolute path to the JUCE modules")
-    parser.add_argument(
-        "lemons_root", help="the absolute path to the Lemons repo root")
-    parser.add_argument("cmake_doc_output",
-                        help="the absolute path to the output")
-    parser.add_argument("cmake_api_input",
-                        help="path to the CMake API input file")
+    parser.add_argument("cmake_modules", help="the absolute path to the CMake modules")
+    parser.add_argument("juce_modules", help="the absolute path to the JUCE modules")
+    parser.add_argument("lemons_root", help="the absolute path to the Lemons repo root")
+    parser.add_argument("cmake_doc_output", help="the absolute path to the output")
+    parser.add_argument("cmake_api_input", help="path to the CMake API input file")
 
     args = parser.parse_args()
 
@@ -107,8 +107,7 @@ if __name__ == "__main__":
         os.makedirs(args.cmake_doc_output)
 
     process_subdir(args.cmake_modules, args.cmake_doc_output, "")
-    process_subdir(args.juce_modules, args.cmake_doc_output,
-                   "JUCE module inclusion")
+    process_subdir(args.juce_modules, args.cmake_doc_output, "JUCE module inclusion")
 
     with open(dest_file, "r") as f:
         module_list = f.read()

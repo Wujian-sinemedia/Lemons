@@ -8,10 +8,10 @@ from argparse import ArgumentParser
 
 if __name__ == "__main__":
     parser = ArgumentParser()
+    parser.add_argument("lemons_root", help="the absolute path to the Lemons repo root")
     parser.add_argument(
-        "lemons_root", help="the absolute path to the Lemons repo root")
-    parser.add_argument(
-        "main_page_text", help="absolute path to the text to preprend to the main page")
+        "main_page_text", help="absolute path to the text to preprend to the main page"
+    )
     parser.add_argument("output_file", help="absolute path to write to")
 
     args = parser.parse_args()
@@ -26,7 +26,7 @@ if __name__ == "__main__":
     idx = content.find(last_bit_of_intro)
 
     if idx >= 0:
-        content = content[idx+len(last_bit_of_intro):]
+        content = content[idx + len(last_bit_of_intro) :]
 
     with open(args.main_page_text, "r") as f:
         content = f.read() + content

@@ -26,6 +26,7 @@ def process_module_includes(orig_content):
 
     return "\r\n".join(output_lines)
 
+
 #
 
 
@@ -69,6 +70,7 @@ def process_module_targets(orig_content, cmake_module_path):
 
     return "\r\n".join(output_lines)
 
+
 #
 
 
@@ -76,6 +78,7 @@ def add_module_to_output_file(module, dest_file):
     with open(dest_file, "a") as f:
         f.write("\r\n")
         f.write("- [{n}](@ref {n})".format(n=module))
+
 
 #
 
@@ -95,7 +98,7 @@ def process_file(file_path, dest_dir, dest_file, category):
 
     add_module_to_output_file(name, dest_file)
 
-    content = content[content.find("\n")+1:content.find("]]")]
+    content = content[content.find("\n") + 1 : content.find("]]")]
     content = process_module_includes(content)
 
     if category == "JUCE module inclusion" and name != "AllLemonsModules":
@@ -106,7 +109,6 @@ def process_file(file_path, dest_dir, dest_file, category):
     with open(output_file, "w") as f:
         f.write("# {n}		{{#{n}}}".format(n=name))
         f.write("\r\n")
-        f.write(
-            "[Back to CMake modules reference](@ref {n})".format(n="CMake_modules"))
+        f.write("[Back to CMake modules reference](@ref {n})".format(n="CMake_modules"))
         f.write("\r\n\r\n")
         f.write(content)

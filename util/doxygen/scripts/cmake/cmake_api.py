@@ -8,13 +8,13 @@ import os
 
 def split_args_from_line(inputString):
 
-    inputString = inputString[inputString.find('(')+1:inputString.find(')')]
+    inputString = inputString[inputString.find("(") + 1 : inputString.find(")")]
 
     res = []
     temp = []
 
     for word in inputString.split():
-        if word in ("\"\"", "\""):
+        if word in ('""', '"'):
             res.append(" ")
             continue
 
@@ -29,7 +29,7 @@ def split_args_from_line(inputString):
         if word.endswith('"'):
             temp.append(word)
 
-            newWord = ' '.join(temp)
+            newWord = " ".join(temp)
             if newWord.startswith('"'):
                 newWord = newWord[1:]
             if newWord.endswith('"'):
@@ -41,6 +41,7 @@ def split_args_from_line(inputString):
             res.append(word)
 
     return res
+
 
 #
 
@@ -80,6 +81,7 @@ def get_options_from_cmakelists(orig_text):
 
     return options
 
+
 #
 
 
@@ -114,6 +116,7 @@ def get_cache_vars_from_cmakelists(orig_text):
 
     return cache_vars
 
+
 #
 
 
@@ -127,8 +130,7 @@ def process_cmake_api(cmake_api_input, lemons_root):
     with open(lemons_cmakelists, "r") as f:
         cmakelists_text = f.read()
 
-    output_lines = [
-        "# Lemons CMake API		{#CMake_API}", "\r\n", "## CMake options"]
+    output_lines = ["# Lemons CMake API		{#CMake_API}", "\r\n", "## CMake options"]
 
     options = get_options_from_cmakelists(cmakelists_text)
     options += get_cache_vars_from_cmakelists(cmakelists_text)

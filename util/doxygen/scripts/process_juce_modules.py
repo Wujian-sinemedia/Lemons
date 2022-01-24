@@ -9,7 +9,8 @@ from argparse import ArgumentParser
 
 
 def get_category_description_from_cmake_module(dir_path):
-    for dirpath, dirnames, filenames in os.walk(dir_path):  # pylint: disable=unused-variable
+    # pylint: disable-next=unused-variable
+    for dirpath, dirnames, filenames in os.walk(dir_path):
         for file in filenames:
             root, ext = os.path.splitext(file)
             if ext == ".cmake":
@@ -17,17 +18,18 @@ def get_category_description_from_cmake_module(dir_path):
 
     return ""
 
+
 #
 
 
 def process_category_description(dir_path):
 
-    category_cmake_module = get_category_description_from_cmake_module(
-        dir_path)
+    category_cmake_module = get_category_description_from_cmake_module(dir_path)
 
     if not category_cmake_module:
         raise Exception(
-            "Can't find CMake module in this JUCE module category directory!")
+            "Can't find CMake module in this JUCE module category directory!"
+        )
 
     description = ""
 
@@ -42,9 +44,11 @@ def process_category_description(dir_path):
         raise Exception("Description could not be parsed!")
 
     cmakeInfo = "To use these JUCE modules, include the [{n}](@ref {n}) CMake module, and link against the `{n}` target.".format(
-        n=category_cmake_module)
+        n=category_cmake_module
+    )
 
     return description, cmakeInfo
+
 
 #
 
@@ -82,6 +86,7 @@ def process_module_category(category_name, orig_cat_dir, dest_cat_dir):
 
 #
 
+
 def create_module_hierarchy(source_dir, dest_dir):
 
     if not os.path.isdir(source_dir):
@@ -97,12 +102,16 @@ def create_module_hierarchy(source_dir, dest_dir):
     for category in os.listdir(orig_module_dir):
         category_path = os.path.join(orig_module_dir, category)
         if os.path.isdir(category_path):
-            category_definitions.append(process_module_category(category, category_path,
-                                                                os.path.join(dest_dir, category)))
+            category_definitions.append(
+                process_module_category(
+                    category, category_path, os.path.join(dest_dir, category)
+                )
+            )
 
     # Create a .dox file containing the entire module hierarchy
     with open(os.path.join(dest_dir, "lemons_modules.dox"), "w") as f:
         f.write("\r\n\r\n".join(category_definitions))
+
 
 #
 
@@ -110,8 +119,7 @@ def create_module_hierarchy(source_dir, dest_dir):
 if __name__ == "__main__":
 
     parser = ArgumentParser()
-    parser.add_argument(
-        "lemons_root", help="the absolute path to the Lemons repo root")
+    parser.add_argument("lemons_root", help="the absolute path to the Lemons repo root")
     parser.add_argument("dest_dir", help="the absolute path to the output")
 
     args = parser.parse_args()
