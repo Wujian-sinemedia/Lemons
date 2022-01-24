@@ -99,12 +99,12 @@ SCRIPTS_DIR = $(LEMONS_ROOT)/scripts
 
 clean:  ## Cleans the Lemons source tree
 	$(CMAKE) -P $(SCRIPTS_DIR)/clean.cmake
+	$(PRECOMMIT) gc
 
 
 wipe:  ## Wipes the persistent cache of fetched dependencies and ccache artifacts
 	$(CMAKE) -D LEMONS_WIPE_CLEAN=1 -P $(SCRIPTS_DIR)/clean.cmake
 	$(PRECOMMIT) clean
-	$(PRECOMMIT) gc
 
 
 init:  ## Initializes the Lemons workspace and installs all dependencies
