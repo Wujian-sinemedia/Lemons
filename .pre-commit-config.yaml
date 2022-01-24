@@ -11,6 +11,10 @@ repos:
         args: [--in-place]
       # - id: cmake-lint
       #  exclude: util/cmake/modules/integrations/scripts/run_clang_format.cmake
+  # - repo: https://github.com/cmake-lint/cmake-lint
+  #   rev: 1.4.2
+  #   hooks:
+  #     - id: cmakelint
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.1.0
     hooks:

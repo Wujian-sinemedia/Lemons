@@ -107,12 +107,8 @@ wipe:  ## Wipes the persistent cache of fetched dependencies and ccache artifact
 	$(PRECOMMIT) gc
 
 
-format:  ## Runs clang-format over the entire source tree
-	$(CMAKE) -P $(SCRIPTS_DIR)/format.cmake
-
-
 init:  ## Initializes the Lemons workspace and installs all dependencies
-	@chmod +x $(SCRIPTS_DIR)/clean.cmake $(SCRIPTS_DIR)/format.cmake $(SCRIPTS_DIR)/install_deps.cmake
+	@chmod +x $(SCRIPTS_DIR)/clean.cmake $(SCRIPTS_DIR)/install_deps.cmake
 	$(CMAKE) -P $(SCRIPTS_DIR)/install_deps.cmake
 	@cd $(LEMONS_ROOT) && $(PRECOMMIT) install --install-hooks --overwrite
 
