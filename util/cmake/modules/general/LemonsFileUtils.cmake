@@ -30,8 +30,7 @@ function (lemons_subdir_list)
 	set (options RECURSE FILES FULL_PATHS)
 	set (oneValueArgs RESULT DIR)
 
-	cmake_parse_arguments (LEMONS_SUBDIR "${options}" "${oneValueArgs}" ""
-						   ${ARGN})
+	cmake_parse_arguments (LEMONS_SUBDIR "${options}" "${oneValueArgs}" "" ${ARGN})
 
 	lemons_require_function_arguments (LEMONS_SUBDIR RESULT DIR)
 	lemons_check_for_unparsed_args (LEMONS_SUBDIR)
@@ -58,8 +57,8 @@ function (lemons_subdir_list)
 		if (LEMONS_SUBDIR_FILES)
 			set (filepath "${dir}/${child}")
 
-			if (EXISTS ${filepath} AND NOT IS_DIRECTORY ${filepath}
-				AND NOT "${child}" STREQUAL ".DS_Store")
+			if (EXISTS ${filepath} AND NOT IS_DIRECTORY ${filepath} AND NOT "${child}" STREQUAL
+																		".DS_Store")
 				if (LEMONS_SUBDIR_FULL_PATHS)
 					list (APPEND dirlist "${filepath}")
 				else ()
@@ -97,8 +96,7 @@ function (lemons_make_path_absolute)
 	cmake_path (IS_ABSOLUTE ${LEMONS_PATH_VAR} is_abs_path)
 
 	if (NOT is_abs_path)
-		set (${LEMONS_PATH_VAR} "${LEMONS_PATH_BASE_DIR}/${${LEMONS_PATH_VAR}}"
-			 PARENT_SCOPE)
+		set (${LEMONS_PATH_VAR} "${LEMONS_PATH_BASE_DIR}/${${LEMONS_PATH_VAR}}" PARENT_SCOPE)
 	endif ()
 
 endfunction ()

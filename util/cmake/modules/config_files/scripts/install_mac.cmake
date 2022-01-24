@@ -8,17 +8,13 @@ if (NOT HOMEBREW)
 	find_program (BASH bash)
 
 	if (NOT BASH)
-		message (
-			FATAL_ERROR
-				"bash is required for installing Homebrew, and cannot be found!"
-			)
+		message (FATAL_ERROR "bash is required for installing Homebrew, and cannot be found!")
 	endif ()
 
 	message (STATUS "Installing Homebrew...")
 
-	execute_process (
-		COMMAND "${BASH}" "${CMAKE_CURRENT_LIST_DIR}/mac_install_homebrew.sh"
-				COMMAND_ECHO STDOUT COMMAND_ERROR_IS_FATAL ANY)
+	execute_process (COMMAND "${BASH}" "${CMAKE_CURRENT_LIST_DIR}/mac_install_homebrew.sh"
+							 COMMAND_ECHO STDOUT COMMAND_ERROR_IS_FATAL ANY)
 
 	find_program (HOMEBREW brew)
 

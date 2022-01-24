@@ -16,8 +16,7 @@ endif ()
 
 include ("${CPM_Lemons_SOURCE}/scripts/AddLemons.cmake")
 
-option (COMPILE_MODULES_INDIVIDUALLY
-		"Test compiling each JUCE module individually" OFF)
+option (COMPILE_MODULES_INDIVIDUALLY "Test compiling each JUCE module individually" OFF)
 
 add_subdirectory (UnitTestRunner)
 

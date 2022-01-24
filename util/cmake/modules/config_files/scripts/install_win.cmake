@@ -9,15 +9,12 @@ if (NOT CHOCO)
 
 	if (NOT POWERSHELL)
 		message (
-			FATAL_ERROR
-				"powershell is required for installing Chocolatey, and cannot be found!"
-			)
+			FATAL_ERROR "powershell is required for installing Chocolatey, and cannot be found!")
 	endif ()
 
 	message (STATUS "Installing Chocolatey...")
 
-	execute_process (COMMAND ${POWERSHELL} Set-ExecutionPolicy Bypass
-							 COMMAND_ECHO STDOUT)
+	execute_process (COMMAND ${POWERSHELL} Set-ExecutionPolicy Bypass COMMAND_ECHO STDOUT)
 
 	execute_process (
 		COMMAND

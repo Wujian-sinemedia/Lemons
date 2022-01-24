@@ -24,10 +24,7 @@ if (NOT LEMONS_AAX_SDK_PATH)
 endif ()
 
 if (NOT IS_DIRECTORY "${LEMONS_AAX_SDK_PATH}")
-	message (
-		WARNING
-			"LEMONS_AAX_SDK_PATH has been specified, but the directory does not exist!"
-		)
+	message (WARNING "LEMONS_AAX_SDK_PATH has been specified, but the directory does not exist!")
 	return ()
 endif ()
 
@@ -46,10 +43,7 @@ if (APPLE)
 	find_program (XCODE_BUILD xcodebuild)
 
 	if (NOT XCODE_BUILD)
-		message (
-			WARNING
-				"xcodebuild is required to build the AAXSDK, but could not be found!"
-			)
+		message (WARNING "xcodebuild is required to build the AAXSDK, but could not be found!")
 		return ()
 	endif ()
 
@@ -57,17 +51,14 @@ if (APPLE)
 
 	set (xcode_proj_file "${macBuildDir}/AAXLibrary.xcodeproj")
 	if (NOT EXISTS "${xcode_proj_file}")
-		message (
-			AUTHOR_WARNING
-				"${xcode_proj_file} could not be found, AAX SDK cannot be built!"
-			)
+		message (AUTHOR_WARNING "${xcode_proj_file} could not be found, AAX SDK cannot be built!")
 		return ()
 	endif ()
 
 	add_custom_target (
 		AAXSDK
-		COMMAND ${XCODE_BUILD} -scheme AAXLibrary_libcpp ONLY_ACTIVE_ARCH=NO
-				ARCHS=x86_64 -configuration "$<COMMAND_CONFIG:$<CONFIG>>" build
+		COMMAND ${XCODE_BUILD} -scheme AAXLibrary_libcpp ONLY_ACTIVE_ARCH=NO ARCHS=x86_64
+				-configuration "$<COMMAND_CONFIG:$<CONFIG>>" build
 		COMMAND_EXPAND_LISTS VERBATIM
 		WORKING_DIRECTORY "${macBuildDir}"
 		COMMENT "Building AAX SDK..."
@@ -82,10 +73,7 @@ elseif (WIN32)
 	set (msvc_proj_file "${LEMONS_AAX_SDK_PATH}/msvc/AAX_SDK.sln")
 
 	if (NOT EXISTS "${msvc_proj_file}")
-		message (
-			AUTHOR_WARNING
-				"${msvc_proj_file} could not be found, AAX SDK cannot be built!"
-			)
+		message (AUTHOR_WARNING "${msvc_proj_file} could not be found, AAX SDK cannot be built!")
 		return ()
 	endif ()
 

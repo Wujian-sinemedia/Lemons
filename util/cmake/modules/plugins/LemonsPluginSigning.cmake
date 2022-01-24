@@ -35,42 +35,33 @@ function (lemons_configure_plugin_signing)
 	get_target_property (pluginFormats ${LEMONS_SIGN_TARGET} JUCE_FORMATS)
 
 	if (NOT pluginFormats)
-		message (
-			AUTHOR_WARNING
-				"Error retrieving plugin formats of target ${LEMONS_SIGN_TARGET}!"
-			)
+		message (AUTHOR_WARNING "Error retrieving plugin formats of target ${LEMONS_SIGN_TARGET}!")
 		return ()
 	endif ()
 
 	function (_lemons_config_plugin_format_signing formatTarget)
 
-		message (DEBUG
-				 "Configuring signing for plugin target ${formatTarget}...")
+		message (DEBUG "Configuring signing for plugin target ${formatTarget}...")
 
 		if (APPLE)
 
 			find_program (CODESIGN codesign)
 
 			if (NOT CODESIGN)
-				message (
-					WARNING
-						"Codesign cannot be found, plugin signing cannot be configured!"
-					)
+				message (WARNING "Codesign cannot be found, plugin signing cannot be configured!")
 				return ()
 			endif ()
 
 			add_custom_command (
 				TARGET ${formatTarget}
 				POST_BUILD VERBATIM COMMAND_EXPAND_LISTS
-				COMMAND ${CODESIGN} -s - --force
-						"$<TARGET_BUNDLE_DIR:${formatTarget}>"
+				COMMAND ${CODESIGN} -s - --force "$<TARGET_BUNDLE_DIR:${formatTarget}>"
 				COMMENT "Signing ${formatTarget}...")
 
 			add_custom_command (
 				TARGET ${formatTarget}
 				POST_BUILD VERBATIM COMMAND_EXPAND_LISTS
-				COMMAND ${CODESIGN} -verify
-						"$<TARGET_BUNDLE_DIR:${formatTarget}>"
+				COMMAND ${CODESIGN} -verify "$<TARGET_BUNDLE_DIR:${formatTarget}>"
 				COMMENT "Verifying signing of ${formatTarget}...")
 
 		elseif (WIN32)

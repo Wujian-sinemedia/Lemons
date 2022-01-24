@@ -7,8 +7,7 @@ include (BVBrandFlags)
 
 set (sourceDir ${CMAKE_CURRENT_LIST_DIR}/Source)
 
-lemons_add_juce_modules (DIR "${sourceDir}/modules" ALIAS_NAMESPACE
-						 ${PROJECT_NAME})
+lemons_add_juce_modules (DIR "${sourceDir}/modules" ALIAS_NAMESPACE ${PROJECT_NAME})
 
 juce_add_plugin (
 	${PROJECT_NAME}
@@ -78,5 +77,4 @@ lemons_configure_juce_plugin (TARGET ${PROJECT_NAME})
 
 target_sources (${PROJECT_NAME} PRIVATE ${sourceDir}/Main.cpp)
 
-target_link_libraries (${PROJECT_NAME} PRIVATE ${PROJECT_NAME}::new_dsp
-											   ${PROJECT_NAME}::new_gui)
+target_link_libraries (${PROJECT_NAME} PRIVATE ${PROJECT_NAME}::new_dsp ${PROJECT_NAME}::new_gui)

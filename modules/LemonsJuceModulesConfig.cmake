@@ -12,8 +12,7 @@ include (LemonsDefaultProjectSettings)
 
 #
 
-file (GLOB children RELATIVE ${CMAKE_CURRENT_LIST_DIR}
-	  ${CMAKE_CURRENT_LIST_DIR}/*)
+file (GLOB children RELATIVE ${CMAKE_CURRENT_LIST_DIR} ${CMAKE_CURRENT_LIST_DIR}/*)
 
 list (REMOVE_ITEM children Builds)
 

@@ -7,8 +7,7 @@ include (BVBrandFlags)
 
 set (sourceDir ${CMAKE_CURRENT_LIST_DIR}/Source)
 
-lemons_add_juce_modules (DIR "${sourceDir}/modules" ALIAS_NAMESPACE
-						 ${PROJECT_NAME})
+lemons_add_juce_modules (DIR "${sourceDir}/modules" ALIAS_NAMESPACE ${PROJECT_NAME})
 
 juce_add_gui_app (
 	${PROJECT_NAME}

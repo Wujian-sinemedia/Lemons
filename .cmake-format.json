@@ -31,7 +31,7 @@
   },
   "format": {
     "disable": false,
-    "line_width": 80,
+    "line_width": 100,
     "tab_size": 4,
     "use_tabchars": true,
     "fractional_tab_policy": "use-space",
@@ -125,68 +125,32 @@
     "enable_markup": true
   },
   "lint": {
-    "_help_disabled_codes": [
-      "a list of lint codes to disable"
+    "disabled_codes": [
+      "C0301",
+      "E1126",
+      "E1120",
+      "W0106",
+      "R0915",
+      "C0307"
     ],
-    "disabled_codes": [],
-    "_help_function_pattern": [
-      "regular expression pattern describing valid function names"
-    ],
-    "function_pattern": "[0-9a-z_]+",
-    "_help_macro_pattern": [
-      "regular expression pattern describing valid macro names"
-    ],
-    "macro_pattern": "[0-9A-Z_]+",
-    "_help_global_var_pattern": [
-      "regular expression pattern describing valid names for",
-      "variables with global (cache) scope"
-    ],
-    "global_var_pattern": "[A-Z][0-9A-Z_]+",
-    "_help_internal_var_pattern": [
-      "regular expression pattern describing valid names for",
-      "variables with global scope (but internal semantic)"
-    ],
-    "internal_var_pattern": "_[A-Z][0-9A-Z_]+",
-    "_help_local_var_pattern": [
-      "regular expression pattern describing valid names for",
-      "variables with local scope"
-    ],
-    "local_var_pattern": "[a-z][a-z0-9_]+",
-    "_help_private_var_pattern": [
-      "regular expression pattern describing valid names for",
-      "privatedirectory variables"
-    ],
-    "private_var_pattern": "_[0-9a-z_]+",
-    "_help_public_var_pattern": [
-      "regular expression pattern describing valid names for public",
-      "directory variables"
-    ],
-    "public_var_pattern": "[A-Z][0-9A-Z_]+",
-    "_help_argument_var_pattern": [
-      "regular expression pattern describing valid names for",
-      "function/macro arguments and loop variables."
-    ],
-    "argument_var_pattern": "[a-z][a-z0-9_]+",
-    "_help_keyword_pattern": [
-      "regular expression pattern describing valid names for",
-      "keywords used in functions or macros"
-    ],
-    "keyword_pattern": "[A-Z][0-9A-Z_]+",
+    "function_pattern": ".*",
+    "macro_pattern": ".*",
+    "global_var_pattern": ".*",
+    "internal_var_pattern": ".*",
+    "local_var_pattern": ".*",
+    "private_var_pattern": ".*",
+    "public_var_pattern": ".*",
+    "argument_var_pattern": ".*",
+    "keyword_pattern": ".*",
     "_help_max_conditionals_custom_parser": [
       "In the heuristic for C0201, how many conditionals to match",
       "within a loop in before considering the loop a parser."
     ],
     "max_conditionals_custom_parser": 2,
-    "_help_min_statement_spacing": [
-      "Require at least this many newlines between statements"
-    ],
     "min_statement_spacing": 1,
-    "_help_max_statement_spacing": [
-      "Require no more than this many newlines between statements"
-    ],
     "max_statement_spacing": 2,
     "max_returns": 6,
-    "max_branches": 12,
+    "max_branches": 13,
     "max_arguments": 5,
     "max_localvars": 15,
     "max_statements": 50

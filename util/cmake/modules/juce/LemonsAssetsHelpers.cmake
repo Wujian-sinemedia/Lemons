@@ -35,8 +35,7 @@ function (lemons_add_resources_folder)
 	lemons_require_function_arguments (LEMONS_RSRC_FLDR TARGET ASSET_FOLDER)
 	lemons_check_for_unparsed_args (LEMONS_RSRC_FLDR)
 
-	lemons_make_path_absolute (VAR LEMONS_RSRC_FLDR_ASSET_FOLDER BASE_DIR
-							   ${PROJECT_SOURCE_DIR})
+	lemons_make_path_absolute (VAR LEMONS_RSRC_FLDR_ASSET_FOLDER BASE_DIR ${PROJECT_SOURCE_DIR})
 
 	if (LEMONS_RSRC_FLDR_OUTPUT_TARGET)
 		set (resourcesTarget "${LEMONS_RSRC_FLDR_OUTPUT_TARGET}")
@@ -47,8 +46,7 @@ function (lemons_add_resources_folder)
 	lemons_make_variable_const (resourcesTarget)
 
 	message (DEBUG "Assets target name: ${resourcesTarget}")
-	message (DEBUG
-			 "Assets target source folder: ${LEMONS_RSRC_FLDR_ASSET_FOLDER}")
+	message (DEBUG "Assets target source folder: ${LEMONS_RSRC_FLDR_ASSET_FOLDER}")
 
 	if (NOT TARGET ${resourcesTarget})
 		if (TARGET ${LEMONS_RSRC_FLDR_TARGET}::${resourcesTarget})
@@ -68,26 +66,21 @@ function (lemons_add_resources_folder)
 			files)
 
 		if (NOT files)
-			message (
-				AUTHOR_WARNING
-					"No files found for inclusion in resources target!")
+			message (AUTHOR_WARNING "No files found for inclusion in resources target!")
 			return ()
 		endif ()
 
 		juce_add_binary_data (${resourcesTarget} SOURCES ${files})
 
-		set_target_properties (${resourcesTarget}
-							   PROPERTIES POSITION_INDEPENDENT_CODE TRUE)
-		target_compile_definitions (${resourcesTarget}
-									INTERFACE LEMONS_HAS_BINARY_DATA=1)
+		set_target_properties (${resourcesTarget} PROPERTIES POSITION_INDEPENDENT_CODE TRUE)
+		target_compile_definitions (${resourcesTarget} INTERFACE LEMONS_HAS_BINARY_DATA=1)
 
 		if (NOT TARGET ${resourcesTarget})
 			message (WARNING "Error creating resources target.")
 			return ()
 		endif ()
 
-		add_library (${LEMONS_RSRC_FLDR_TARGET}::${resourcesTarget} ALIAS
-					 ${resourcesTarget})
+		add_library (${LEMONS_RSRC_FLDR_TARGET}::${resourcesTarget} ALIAS ${resourcesTarget})
 	endif ()
 
 	if (NOT TARGET ${LEMONS_RSRC_FLDR_TARGET}::${resourcesTarget})
@@ -101,8 +94,7 @@ function (lemons_add_resources_folder)
 	juce_add_bundle_resources_directory (${LEMONS_RSRC_FLDR_TARGET}
 										 ${LEMONS_RSRC_FLDR_ASSET_FOLDER})
 
-	target_link_libraries (
-		${LEMONS_RSRC_FLDR_TARGET}
-		PRIVATE ${LEMONS_RSRC_FLDR_TARGET}::${resourcesTarget})
+	target_link_libraries (${LEMONS_RSRC_FLDR_TARGET}
+						   PRIVATE ${LEMONS_RSRC_FLDR_TARGET}::${resourcesTarget})
 
 endfunction ()

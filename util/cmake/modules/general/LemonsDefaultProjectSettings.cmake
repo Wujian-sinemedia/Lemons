@@ -4,16 +4,14 @@ cmake_minimum_required (VERSION 3.22 FATAL_ERROR)
 
 include (LemonsDefaultPlatformSettings)
 
-option (LEMONS_ENABLE_INTEGRATIONS
-		"Enable all available integrations by default" ON)
+option (LEMONS_ENABLE_INTEGRATIONS "Enable all available integrations by default" ON)
 
 if (LEMONS_ENABLE_INTEGRATIONS)
 	include (LemonsAllIntegrations)
 endif ()
 
-set_property (
-	GLOBAL PROPERTY REPORT_UNDEFINED_PROPERTIES
-					"${PROJECT_SOURCE_DIR}/logs/undefined_properties.log")
+set_property (GLOBAL PROPERTY REPORT_UNDEFINED_PROPERTIES
+							  "${PROJECT_SOURCE_DIR}/logs/undefined_properties.log")
 
 set (CMAKE_CXX_STANDARD 20 CACHE STRING "C++ standard version")
 set (CMAKE_CXX_STANDARD_REQUIRED ON CACHE INTERNAL "")

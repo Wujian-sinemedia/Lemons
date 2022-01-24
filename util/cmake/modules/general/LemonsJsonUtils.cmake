@@ -38,6 +38,7 @@ endif()
 ```
 
 ]]
+
 function (lemons_json_array_to_list)
 
 	set (oneValueArgs TEXT ARRAY OUT)

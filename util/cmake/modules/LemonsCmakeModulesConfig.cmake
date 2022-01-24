@@ -27,8 +27,7 @@ function (_lemons_add_cmake_module_dir directory parent)
 	set (lemonsModulePaths "${lemonsModulePaths}" PARENT_SCOPE)
 endfunction ()
 
-file (GLOB children RELATIVE ${CMAKE_CURRENT_LIST_DIR}
-	  ${CMAKE_CURRENT_LIST_DIR}/*)
+file (GLOB children RELATIVE ${CMAKE_CURRENT_LIST_DIR} ${CMAKE_CURRENT_LIST_DIR}/*)
 
 list (REMOVE_ITEM children Builds)
 

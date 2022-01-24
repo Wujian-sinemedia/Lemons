@@ -31,8 +31,7 @@ function (lemons_configure_clang_format_integration)
 
 	set (script_name "run_clang_format.cmake")
 
-	configure_file ("${CMAKE_CURRENT_LIST_DIR}/scripts/${script_name}"
-					"${script_name}" @ONLY)
+	configure_file ("${CMAKE_CURRENT_LIST_DIR}/scripts/${script_name}" "${script_name}" @ONLY)
 
 	add_custom_target (
 		${LEMONS_CF_TARGET} COMMAND "${CMAKE_COMMAND}" -P
@@ -60,8 +59,7 @@ function (lemons_run_clang_format)
 
 			if (NOT is_abs_path)
 				list (REMOVE_ITEM LEMONS_CF_EXCLUDE ${excludeDir})
-				list (APPEND LEMONS_CF_EXCLUDE
-					  "${CMAKE_CURRENT_SOURCE_DIR}/${excludeDir}")
+				list (APPEND LEMONS_CF_EXCLUDE "${CMAKE_CURRENT_SOURCE_DIR}/${excludeDir}")
 			endif ()
 		endforeach ()
 	else ()
@@ -78,12 +76,10 @@ function (lemons_run_clang_format)
 			return ()
 		endif ()
 
-		separate_arguments (clang_format_command UNIX_COMMAND
-							"-i *.h *.hpp *.c *.cpp")
+		separate_arguments (clang_format_command UNIX_COMMAND "-i *.h *.hpp *.c *.cpp")
 
-		execute_process (
-			COMMAND ${CLANG_FORMAT} ${clang_format_command}
-			WORKING_DIRECTORY ${directory} OUTPUT_QUIET ERROR_QUIET)
+		execute_process (COMMAND ${CLANG_FORMAT} ${clang_format_command}
+						 WORKING_DIRECTORY ${directory} OUTPUT_QUIET ERROR_QUIET)
 
 		lemons_subdir_list (RESULT subdirs DIR ${directory} FULL_PATHS)
 
@@ -105,8 +101,7 @@ function (lemons_run_clang_format)
 
 	foreach (directory ${LEMONS_CF_DIRS})
 
-		lemons_make_path_absolute (VAR directory BASE_DIR
-								   ${CMAKE_CURRENT_LIST_DIR})
+		lemons_make_path_absolute (VAR directory BASE_DIR ${CMAKE_CURRENT_LIST_DIR})
 
 		_lemons_clang_format_process_subdir (${directory})
 

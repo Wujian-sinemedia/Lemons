@@ -8,12 +8,10 @@ set (CMAKE_XCODE_ATTRIBUTE_ONLY_ACTIVE_ARCH NO CACHE INTERNAL "")
 enable_language (OBJCXX)
 enable_language (OBJC)
 
-option (LEMONS_IOS_SIMULATOR
-		"Build for an iOS simulator, rather than a real device" ON)
+option (LEMONS_IOS_SIMULATOR "Build for an iOS simulator, rather than a real device" ON)
 
 if (LEMONS_IOS_SIMULATOR)
-	set (CMAKE_XCODE_ATTRIBUTE_CODE_SIGN_IDENTITY "\"iPhone Developer\""
-		 CACHE INTERNAL "")
+	set (CMAKE_XCODE_ATTRIBUTE_CODE_SIGN_IDENTITY "\"iPhone Developer\"" CACHE INTERNAL "")
 
 	set (IOS_PLATFORM_LOCATION "iPhoneSimulator.platform" CACHE INTERNAL "")
 	set (CMAKE_XCODE_EFFECTIVE_PLATFORMS "-iphonesimulator" CACHE INTERNAL "")
@@ -29,7 +27,6 @@ else () # Options for building for a real device
 	set (CMAKE_XCODE_EFFECTIVE_PLATFORMS "-iphoneos" CACHE INTERNAL "")
 
 	set (ENV{CMAKE_OSX_ARCHITECTURES} "armv7;armv7s;arm64;i386;x86_64")
-	set (CMAKE_OSX_ARCHITECTURES "armv7;armv7s;arm64;i386;x86_64" CACHE INTERNAL
-																		"")
+	set (CMAKE_OSX_ARCHITECTURES "armv7;armv7s;arm64;i386;x86_64" CACHE INTERNAL "")
 
 endif ()

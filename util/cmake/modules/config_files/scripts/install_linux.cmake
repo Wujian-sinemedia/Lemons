@@ -26,11 +26,9 @@ endif ()
 
 function (_lemons_deps_os_update_func)
 
-	execute_process (COMMAND "${SUDO}" ${apt_program} update COMMAND_ECHO
-							 STDOUT)
+	execute_process (COMMAND "${SUDO}" ${apt_program} update COMMAND_ECHO STDOUT)
 
-	execute_process (COMMAND "${SUDO}" ${apt_program} upgrade COMMAND_ECHO
-							 STDOUT)
+	execute_process (COMMAND "${SUDO}" ${apt_program} upgrade COMMAND_ECHO STDOUT)
 
 endfunction ()
 
@@ -38,8 +36,7 @@ endfunction ()
 
 function (_lemons_deps_os_install_func deps)
 
-	execute_process (
-		COMMAND "${SUDO}" ${apt_program} install -y --no-install-recommends
-				${deps} COMMAND_ECHO STDOUT COMMAND_ERROR_IS_FATAL ANY)
+	execute_process (COMMAND "${SUDO}" ${apt_program} install -y --no-install-recommends ${deps}
+							 COMMAND_ECHO STDOUT COMMAND_ERROR_IS_FATAL ANY)
 
 endfunction ()
