@@ -33,6 +33,16 @@ endif ()
 
 #
 
+include (CheckIPOSupported)
+
+check_ipo_supported (RESULT result OUTPUT output)
+
+if (result)
+	set (CMAKE_INTERPROCEDURAL_OPTIMIZATION ON)
+endif ()
+
+#
+
 function (lemons_enable_coverage_flags target)
 
 	if (NOT CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
