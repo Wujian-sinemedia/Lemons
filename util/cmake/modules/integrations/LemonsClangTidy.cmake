@@ -2,9 +2,9 @@ include_guard (GLOBAL)
 
 find_program (clangTidyProgram NAMES clang-tidy)
 
-if (NOT clangTidyProgram)
+if(NOT clangTidyProgram)
 	return ()
-endif ()
+endif()
 
 set (CMAKE_CXX_CLANG_TIDY "${clangTidyProgram}" CACHE INTERNAL "")
 

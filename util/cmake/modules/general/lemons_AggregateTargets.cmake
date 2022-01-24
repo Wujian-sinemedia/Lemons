@@ -8,41 +8,41 @@ mark_as_advanced (LEMONS_CREATE_AGGREGATE_TARGETS)
 
 #
 
-function (_lemons_add_to_all_apps_target target)
+function(_lemons_add_to_all_apps_target target)
 
-	if (NOT LEMONS_CREATE_AGGREGATE_TARGETS)
+	if(NOT LEMONS_CREATE_AGGREGATE_TARGETS)
 		return ()
-	endif ()
+	endif()
 
-	if (NOT TARGET LEMONS_ALL_APPS)
+	if(NOT TARGET LEMONS_ALL_APPS)
 		message (DEBUG "Creating aggregate target LEMONS_ALL_APPS...")
 		add_custom_target (LEMONS_ALL_APPS COMMENT "Building all apps...")
-	endif ()
+	endif()
 
 	add_dependencies (LEMONS_ALL_APPS ${target})
 
-endfunction ()
+endfunction()
 
 #
 
-function (_lemons_add_to_all_plugins_target target)
+function(_lemons_add_to_all_plugins_target target)
 
-	if (NOT LEMONS_CREATE_AGGREGATE_TARGETS)
+	if(NOT LEMONS_CREATE_AGGREGATE_TARGETS)
 		return ()
-	endif ()
+	endif()
 
-	if (NOT TARGET LEMONS_ALL_PLUGINS)
+	if(NOT TARGET LEMONS_ALL_PLUGINS)
 		message (DEBUG "Creating aggregate target LEMONS_ALL_PLUGINS...")
 		add_custom_target (LEMONS_ALL_PLUGINS COMMENT "Building all plugins...")
-	endif ()
+	endif()
 
 	add_dependencies (LEMONS_ALL_PLUGINS "${target}_All")
 
 	set (stdaln_target "${target}_Standalone")
 
-	if (TARGET ${stdaln_target})
+	if(TARGET ${stdaln_target})
 		message (DEBUG "Adding standalone plugin to all apps target...")
 		_lemons_add_to_all_apps_target (${stdaln_target})
-	endif ()
+	endif()
 
-endfunction ()
+endfunction()

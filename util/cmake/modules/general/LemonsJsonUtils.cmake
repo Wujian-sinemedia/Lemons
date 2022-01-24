@@ -39,7 +39,7 @@ endif()
 
 ]]
 
-function (lemons_json_array_to_list)
+function(lemons_json_array_to_list)
 
 	set (oneValueArgs TEXT ARRAY OUT)
 
@@ -53,22 +53,22 @@ function (lemons_json_array_to_list)
 	string (JSON array_size ERROR_VARIABLE errno LENGTH "${LEMONS_JSON_TEXT}"
 														"${LEMONS_JSON_ARRAY}")
 
-	if (errno)
+	if(errno)
 		return ()
-	endif ()
+	endif()
 
 	math (EXPR array_size "${array_size} - 1" OUTPUT_FORMAT DECIMAL)
 
 	set (out_list "")
 
-	foreach (idx RANGE ${array_size})
+	foreach(idx RANGE ${array_size})
 
 		string (JSON item GET ${LEMONS_JSON_TEXT} "${LEMONS_JSON_ARRAY}" ${idx})
 
 		list (APPEND out_list ${item})
 
-	endforeach ()
+	endforeach()
 
 	set (${LEMONS_JSON_OUT} "${out_list}" PARENT_SCOPE)
 
-endfunction ()
+endfunction()

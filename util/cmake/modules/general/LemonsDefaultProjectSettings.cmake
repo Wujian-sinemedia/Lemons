@@ -6,9 +6,9 @@ include (LemonsDefaultPlatformSettings)
 
 option (LEMONS_ENABLE_INTEGRATIONS "Enable all available integrations by default" ON)
 
-if (LEMONS_ENABLE_INTEGRATIONS)
+if(LEMONS_ENABLE_INTEGRATIONS)
 	include (LemonsAllIntegrations)
-endif ()
+endif()
 
 set_property (GLOBAL PROPERTY REPORT_UNDEFINED_PROPERTIES
 							  "${PROJECT_SOURCE_DIR}/logs/undefined_properties.log")
@@ -27,9 +27,9 @@ set (CMAKE_SUPPRESS_REGENERATION TRUE CACHE INTERNAL "")
 set (ENV{CMAKE_EXPORT_COMPILE_COMMANDS} TRUE)
 set (CMAKE_EXPORT_COMPILE_COMMANDS TRUE CACHE INTERNAL "")
 
-if (NOT DEFINED ENV{CMAKE_INSTALL_MODE})
+if(NOT DEFINED ENV{CMAKE_INSTALL_MODE})
 	set (ENV{CMAKE_INSTALL_MODE} ABS_SYMLINK_OR_COPY)
-endif ()
+endif()
 
 #
 
@@ -37,22 +37,22 @@ include (CheckIPOSupported)
 
 check_ipo_supported (RESULT result OUTPUT output)
 
-if (result)
+if(result)
 	set (ENV{CMAKE_INTERPROCEDURAL_OPTIMIZATION} ON)
 	message (VERBOSE "Enabling IPO")
-endif ()
+endif()
 
 #
 
-function (lemons_enable_coverage_flags target)
+function(lemons_enable_coverage_flags target)
 
-	if (NOT CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
+	if(NOT CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
 		message (
 			WARNING
 				"Coverage flags are not supported with your current compiler: ${CMAKE_CXX_COMPILER_ID}"
 			)
 		return ()
-	endif ()
+	endif()
 
 	target_compile_options (
 		${target}
@@ -63,4 +63,4 @@ function (lemons_enable_coverage_flags target)
 
 	target_link_options (${target} PUBLIC --coverage)
 
-endfunction ()
+endfunction()

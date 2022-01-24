@@ -74,7 +74,7 @@ set (CMAKE_FIND_FRAMEWORK FIRST)
 # ${CMAKE_IOS_SDK_ROOT}/System/Library/PrivateFrameworks
 # ${CMAKE_IOS_SDK_ROOT}/Developer/Library/Frameworks )
 
-if (LEMONS_IOS_SIMULATOR)
+if(LEMONS_IOS_SIMULATOR)
 	# Options for building for a simulator
 
 	set (CMAKE_XCODE_ATTRIBUTE_CODE_SIGN_IDENTITY "\"iPhone Developer\"" CACHE INTERNAL "")
@@ -84,7 +84,7 @@ if (LEMONS_IOS_SIMULATOR)
 
 	set (CMAKE_OSX_ARCHITECTURES "i386;x86_64" CACHE INTERNAL "")
 
-else ()
+else()
 	# Options for building for a real device
 
 	set (CMAKE_XCODE_ATTRIBUTE_DEVELOPMENT_TEAM "<10 character ID>" CACHE INTERNAL "")
@@ -94,4 +94,4 @@ else ()
 
 	set (CMAKE_OSX_ARCHITECTURES "armv7;armv7s;arm64;i386;x86_64" CACHE INTERNAL "")
 
-endif ()
+endif()

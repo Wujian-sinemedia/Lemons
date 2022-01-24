@@ -12,13 +12,13 @@ project (
 find_package (Doxygen REQUIRED dot)
 find_package (Python3 COMPONENTS Interpreter)
 
-if (NOT TARGET Python3::Interpreter OR NOT TARGET Doxygen::doxygen)
+if(NOT TARGET Python3::Interpreter OR NOT TARGET Doxygen::doxygen)
 	message (FATAL_ERROR "Doxygen dependencies missing!")
-endif ()
+endif()
 
-if (NOT DEFINED Lemons_SOURCE_DIR)
+if(NOT DEFINED Lemons_SOURCE_DIR)
 	set (Lemons_SOURCE_DIR "${CMAKE_CURRENT_LIST_DIR}/../.." CACHE INTERNAL "")
-endif ()
+endif()
 
 set (out_folder "${CMAKE_CURRENT_LIST_DIR}/build")
 

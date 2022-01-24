@@ -6,13 +6,13 @@ project (LemonsTests VERSION 0.1.0 LANGUAGES CXX C)
 
 enable_testing ()
 
-if (NOT DEFINED CPM_Lemons_SOURCE)
+if(NOT DEFINED CPM_Lemons_SOURCE)
 	set (CPM_Lemons_SOURCE "${CMAKE_CURRENT_LIST_DIR}/../.." CACHE INTERNAL "")
-endif ()
+endif()
 
-if (NOT DEFINED ENV{CPM_SOURCE_CACHE})
+if(NOT DEFINED ENV{CPM_SOURCE_CACHE})
 	set (ENV{CPM_SOURCE_CACHE} "${CPM_Lemons_SOURCE}/Cache")
-endif ()
+endif()
 
 include ("${CPM_Lemons_SOURCE}/scripts/AddLemons.cmake")
 
@@ -20,6 +20,6 @@ option (COMPILE_MODULES_INDIVIDUALLY "Test compiling each JUCE module individual
 
 add_subdirectory (UnitTestRunner)
 
-if (COMPILE_MODULES_INDIVIDUALLY)
+if(COMPILE_MODULES_INDIVIDUALLY)
 	add_subdirectory (CompileModulesIndividually)
-endif ()
+endif()

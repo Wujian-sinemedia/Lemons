@@ -18,14 +18,14 @@ list (REMOVE_ITEM children Builds)
 
 set (lemonsModulePaths "${CMAKE_CURRENT_LIST_DIR}")
 
-foreach (child ${children})
+foreach(child ${children})
 	set (full_path "${CMAKE_CURRENT_LIST_DIR}/${child}")
 
-	if (IS_DIRECTORY "${full_path}")
+	if(IS_DIRECTORY "${full_path}")
 		file (REAL_PATH "${full_path}" _abs_path EXPAND_TILDE)
 		list (APPEND lemonsModulePaths "${_abs_path}")
-	endif ()
-endforeach ()
+	endif()
+endforeach()
 
 list (APPEND CMAKE_MODULE_PATH "${lemonsModulePaths}")
 list (APPEND LEMONS_CMAKE_MODULE_PATH "${lemonsModulePaths}")

@@ -61,16 +61,16 @@ include (LemonsCreateAAXSDKTarget)
 include (LemonsFileUtils)
 include (LemonsJuceUtilities)
 
-if (TARGET AAXSDK)
+if(TARGET AAXSDK)
 	juce_set_aax_sdk_path ("${LEMONS_AAX_SDK_PATH}")
 	message (DEBUG "AAXSDK target created successfully!")
-else ()
+else()
 	message (DEBUG "AAXSDK target not created, see log for errors...")
-endif ()
+endif()
 
 #
 
-function (lemons_configure_aax_plugin)
+function(lemons_configure_aax_plugin)
 
 	set (oneValueArgs TARGET PAGETABLE_FILE)
 
@@ -79,20 +79,20 @@ function (lemons_configure_aax_plugin)
 	lemons_require_function_arguments (LEMONS_AAX TARGET)
 	lemons_check_for_unparsed_args (LEMONS_AAX)
 
-	if (NOT TARGET ${LEMONS_AAX_TARGET})
+	if(NOT TARGET ${LEMONS_AAX_TARGET})
 		message (WARNING "AAX target does not exist!")
 		return ()
-	endif ()
+	endif()
 
-	if (NOT TARGET AAXSDK)
+	if(NOT TARGET AAXSDK)
 		message (FATAL_ERROR "AAX plugin target created, but AAXSDK target doesn't exist!")
-	endif ()
+	endif()
 
 	set_target_properties (${LEMONS_AAX_TARGET} PROPERTIES OSX_ARCHITECTURES x86_64)
 
 	add_dependencies (${LEMONS_AAX_TARGET} AAXSDK)
 
-	if (LEMONS_AAX_PAGETABLE_FILE)
+	if(LEMONS_AAX_PAGETABLE_FILE)
 
 		message (DEBUG "Configuring AAX pagetable file...")
 
@@ -104,7 +104,7 @@ function (lemons_configure_aax_plugin)
 			${LEMONS_AAX_TARGET}
 			PRIVATE "JucePlugin_AAXPageTableFile=\"${LEMONS_AAX_PAGETABLE_FILE}\"")
 
-		if (WIN32)
+		if(WIN32)
 			# On Windows, pagetable files need a special post-build copy step to be included in the
 			# binary correctly
 			add_custom_command (
@@ -114,6 +114,6 @@ function (lemons_configure_aax_plugin)
 					"${CMAKE_COMMAND}" ARGS -E copy "${LEMONS_AAX_PAGETABLE_FILE}"
 					"$<TARGET_PROPERTY:${LEMONS_AAX_TARGET},JUCE_PLUGIN_ARTEFACT_FILE>/Contents/Resources"
 				COMMENT "Copying AAX pagetable into AAX binary...")
-		endif ()
-	endif ()
-endfunction ()
+		endif()
+	endif()
+endfunction()

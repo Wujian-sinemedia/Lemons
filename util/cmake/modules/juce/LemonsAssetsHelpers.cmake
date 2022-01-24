@@ -26,7 +26,7 @@ include (LemonsCmakeDevTools)
 
 lemons_warn_if_not_processing_project ()
 
-function (lemons_add_resources_folder)
+function(lemons_add_resources_folder)
 
 	set (oneValueArgs TARGET ASSET_FOLDER OUTPUT_TARGET)
 
@@ -37,24 +37,24 @@ function (lemons_add_resources_folder)
 
 	lemons_make_path_absolute (VAR LEMONS_RSRC_FLDR_ASSET_FOLDER BASE_DIR ${PROJECT_SOURCE_DIR})
 
-	if (LEMONS_RSRC_FLDR_OUTPUT_TARGET)
+	if(LEMONS_RSRC_FLDR_OUTPUT_TARGET)
 		set (resourcesTarget "${LEMONS_RSRC_FLDR_OUTPUT_TARGET}")
-	else ()
+	else()
 		set (resourcesTarget "${PROJECT_NAME}-Assets")
-	endif ()
+	endif()
 
 	lemons_make_variable_const (resourcesTarget)
 
 	message (DEBUG "Assets target name: ${resourcesTarget}")
 	message (DEBUG "Assets target source folder: ${LEMONS_RSRC_FLDR_ASSET_FOLDER}")
 
-	if (NOT TARGET ${resourcesTarget})
-		if (TARGET ${LEMONS_RSRC_FLDR_TARGET}::${resourcesTarget})
+	if(NOT TARGET ${resourcesTarget})
+		if(TARGET ${LEMONS_RSRC_FLDR_TARGET}::${resourcesTarget})
 			message (
 				AUTHOR_WARNING
 					"Target ${LEMONS_RSRC_FLDR_TARGET}::${resourcesTarget} exists, but target ${resourcesTarget} not found!"
 				)
-		endif ()
+		endif()
 
 		lemons_subdir_list (
 			DIR
@@ -65,31 +65,31 @@ function (lemons_add_resources_folder)
 			RESULT
 			files)
 
-		if (NOT files)
+		if(NOT files)
 			message (AUTHOR_WARNING "No files found for inclusion in resources target!")
 			return ()
-		endif ()
+		endif()
 
 		juce_add_binary_data (${resourcesTarget} SOURCES ${files})
 
 		set_target_properties (${resourcesTarget} PROPERTIES POSITION_INDEPENDENT_CODE TRUE)
 		target_compile_definitions (${resourcesTarget} INTERFACE LEMONS_HAS_BINARY_DATA=1)
 
-		if (NOT TARGET ${resourcesTarget})
+		if(NOT TARGET ${resourcesTarget})
 			message (WARNING "Error creating resources target.")
 			return ()
-		endif ()
+		endif()
 
 		add_library (${LEMONS_RSRC_FLDR_TARGET}::${resourcesTarget} ALIAS ${resourcesTarget})
-	endif ()
+	endif()
 
-	if (NOT TARGET ${LEMONS_RSRC_FLDR_TARGET}::${resourcesTarget})
+	if(NOT TARGET ${LEMONS_RSRC_FLDR_TARGET}::${resourcesTarget})
 		message (
 			AUTHOR_WARNING
 				"Error creating resources target - target ${LEMONS_RSRC_FLDR_TARGET}::${resourcesTarget} not found."
 			)
 		return ()
-	endif ()
+	endif()
 
 	juce_add_bundle_resources_directory (${LEMONS_RSRC_FLDR_TARGET}
 										 ${LEMONS_RSRC_FLDR_ASSET_FOLDER})
@@ -97,4 +97,4 @@ function (lemons_add_resources_folder)
 	target_link_libraries (${LEMONS_RSRC_FLDR_TARGET}
 						   PRIVATE ${LEMONS_RSRC_FLDR_TARGET}::${resourcesTarget})
 
-endfunction ()
+endfunction()

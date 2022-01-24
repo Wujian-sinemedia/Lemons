@@ -17,10 +17,10 @@ set (LSB_CODENAME "unknown" CACHE INTERNAL "")
 
 find_program (LSB_RELEASE_EXECUTABLE lsb_release)
 
-if (NOT LSB_RELEASE_EXECUTABLE)
+if(NOT LSB_RELEASE_EXECUTABLE)
 	message (AUTHOR_WARNING "Unable to detect LSB info for your Linux distro")
 	return ()
-endif ()
+endif()
 
 execute_process (COMMAND ${LSB_RELEASE_EXECUTABLE} -sc OUTPUT_VARIABLE LSB_CODENAME
 				 OUTPUT_STRIP_TRAILING_WHITESPACE)

@@ -13,40 +13,40 @@ include (AllLemonsModules)
 
 get_target_property (lemons_module_categories Lemons::AllLemonsModules ModuleCategoryNames)
 
-if (NOT lemons_module_categories)
+if(NOT lemons_module_categories)
 	message (AUTHOR_WARNING "Error retrieving juce module category names!")
 	return ()
-endif ()
+endif()
 
-foreach (module_category ${lemons_module_categories})
+foreach(module_category ${lemons_module_categories})
 
-	if (NOT TARGET Lemons::${module_category})
+	if(NOT TARGET Lemons::${module_category})
 		message ("Module category target ${module_category} not found!")
 		continue ()
-	endif ()
+	endif()
 
 	get_target_property (module_names Lemons::${module_category} OriginalModuleNames)
 
-	if (NOT module_names)
+	if(NOT module_names)
 		message (
 			AUTHOR_WARNING
 				"Error retrieving original juce module names from category ${module_names}!")
 		return ()
-	endif ()
+	endif()
 
-	foreach (moduleName ${module_names})
+	foreach(moduleName ${module_names})
 
-		if (NOT TARGET "Lemons::${moduleName}")
+		if(NOT TARGET "Lemons::${moduleName}")
 			message (AUTHOR_WARNING "Juce module ${moduleName} not found!")
 			continue ()
-		endif ()
+		endif()
 
 		set (moduleTestName "${moduleName}_test")
 
-		if (TARGET "${moduleTestName}")
+		if(TARGET "${moduleTestName}")
 			message (AUTHOR_WARNING "Duplicate juce module test ${moduleTestName} found!")
 			continue ()
-		endif ()
+		endif()
 
 		set (generated_file "${moduleName}_test.cpp")
 
@@ -63,6 +63,6 @@ foreach (module_category ${lemons_module_categories})
 
 		add_dependencies (${PROJECT_NAME} ${moduleTestName})
 
-	endforeach ()
+	endforeach()
 
-endforeach ()
+endforeach()

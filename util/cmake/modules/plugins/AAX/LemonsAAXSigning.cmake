@@ -4,7 +4,7 @@ cmake_minimum_required (VERSION 3.21 FATAL_ERROR)
 
 include (LemonsCmakeDevTools)
 
-function (lemons_set_aax_signing_settings)
+function(lemons_set_aax_signing_settings)
 
 	set (oneValueArgs ACCOUNT SIGNID KEYFILE KEYPASSWORD)
 
@@ -12,27 +12,27 @@ function (lemons_set_aax_signing_settings)
 
 	lemons_check_for_unparsed_args (LEMONS_AAX)
 
-	function (_lemons_aax_sign_config_check_for_option option description)
-		if (LEMONS_AAX_${option})
-			if (LEMONS_AAX_FORCE)
+	function(_lemons_aax_sign_config_check_for_option option description)
+		if(LEMONS_AAX_${option})
+			if(LEMONS_AAX_FORCE)
 				set (LEMONS_AAX_${option} "${LEMONS_AAX_${option}}" CACHE STRING "${description}"
 																		  FORCE)
-			else ()
+			else()
 				set (LEMONS_AAX_${option} "${LEMONS_AAX_${option}}" CACHE STRING "${description}")
-			endif ()
-		endif ()
-	endfunction ()
+			endif()
+		endif()
+	endfunction()
 
 	_lemons_aax_sign_config_check_for_option (ACCOUNT "Account ID for AAX plugin signing")
 	_lemons_aax_sign_config_check_for_option (SIGNID "SignID for AAX signing on Mac")
 	_lemons_aax_sign_config_check_for_option (KEYFILE "Keyfile for AAX signing on Windows")
 	_lemons_aax_sign_config_check_for_option (KEYPASSWORD "Keypassword for AAX signing on Windows")
 
-endfunction ()
+endfunction()
 
 #
 
-function (lemons_configure_aax_plugin_signing)
+function(lemons_configure_aax_plugin_signing)
 
 	set (oneValueArgs TARGET GUID ACCOUNT SIGNID KEYFILE KEYPASSWORD)
 
@@ -43,12 +43,12 @@ function (lemons_configure_aax_plugin_signing)
 
 	find_program (WRAPTOOL_PROGRAM wraptool)
 
-	if (NOT WRAPTOOL_PROGRAM)
+	if(NOT WRAPTOOL_PROGRAM)
 		message (WARNING "wraptool cannot be found, AAX signing disabled!")
 		return ()
-	endif ()
+	endif()
 
-	if (APPLE)
+	if(APPLE)
 		lemons_require_function_arguments (LEMONS_AAX SIGNID)
 
 		add_custom_command (
@@ -61,7 +61,7 @@ function (lemons_configure_aax_plugin_signing)
 				"$<TARGET_PROPERTY:${aaxTarget},JUCE_PLUGIN_ARTEFACT_FILE>" --out
 				"$<TARGET_PROPERTY:${aaxTarget},JUCE_PLUGIN_ARTEFACT_FILE>"
 			COMMENT "Signing ${LEMONS_AAX_TARGET}...")
-	elseif (WIN32)
+	elseif(WIN32)
 		lemons_require_function_arguments (LEMONS_AAX KEYFILE KEYPASSWORD)
 
 		add_custom_command (
@@ -74,7 +74,7 @@ function (lemons_configure_aax_plugin_signing)
 				"$<TARGET_PROPERTY:${aaxTarget},JUCE_PLUGIN_ARTEFACT_FILE>" --out
 				"$<TARGET_PROPERTY:${aaxTarget},JUCE_PLUGIN_ARTEFACT_FILE>"
 			COMMENT "Signing ${LEMONS_AAX_TARGET}...")
-	endif ()
+	endif()
 
 	message (DEBUG "Configured AAX plugin signing!")
-endfunction ()
+endfunction()

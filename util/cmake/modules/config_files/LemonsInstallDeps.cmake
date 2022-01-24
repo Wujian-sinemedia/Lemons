@@ -7,33 +7,33 @@ include (LemonsFileUtils)
 
 set (lemons_install_scripts_dir "${CMAKE_CURRENT_LIST_DIR}/scripts" CACHE INTERNAL "")
 
-if (APPLE)
+if(APPLE)
 	include (${lemons_install_scripts_dir}/install_mac.cmake)
-elseif (WIN32)
+elseif(WIN32)
 	include (${lemons_install_scripts_dir}/install_win.cmake)
-else ()
+else()
 	include (${lemons_install_scripts_dir}/install_linux.cmake)
-endif ()
+endif()
 
 option (LEMONS_DEPS_UPDATE_ALL_FIRST
 		"Whether to update all installed system packages before installing additional dependencies"
 		OFF)
 
-if (LEMONS_DEPS_UPDATE_ALL_FIRST)
+if(LEMONS_DEPS_UPDATE_ALL_FIRST)
 	_lemons_deps_os_update_func ()
-endif ()
+endif()
 
 #
 
-function (lemons_get_list_of_deps_to_install)
+function(lemons_get_list_of_deps_to_install)
 
-	function (_lemons_deps_get_category_with_name rootJsonObj catName outVar)
+	function(_lemons_deps_get_category_with_name rootJsonObj catName outVar)
 
 		string (JSON numCategories LENGTH ${rootJsonObj} "Dependencies")
 
 		math (EXPR numCategories "${numCategories} - 1" OUTPUT_FORMAT DECIMAL)
 
-		foreach (idx RANGE ${numCategories})
+		foreach(idx RANGE ${numCategories})
 			string (
 				JSON
 				cat_name
@@ -43,18 +43,18 @@ function (lemons_get_list_of_deps_to_install)
 				${idx}
 				"name")
 
-			if ("${cat_name}" STREQUAL "${catName}")
+			if("${cat_name}" STREQUAL "${catName}")
 				string (JSON cat_obj GET ${rootJsonObj} "Dependencies" ${idx})
 				set (${outVar} "${cat_obj}" PARENT_SCOPE)
 				return ()
-			endif ()
-		endforeach ()
+			endif()
+		endforeach()
 
-	endfunction ()
+	endfunction()
 
 	#
 
-	function (_lemons_deps_add_from_category rootJsonObj catJsonObj sysOutVar pyOutVar)
+	function(_lemons_deps_add_from_category rootJsonObj catJsonObj sysOutVar pyOutVar)
 
 		lemons_json_array_to_list (TEXT "${catJsonObj}" ARRAY "packages" OUT sysPackages)
 
@@ -62,31 +62,31 @@ function (lemons_get_list_of_deps_to_install)
 
 		lemons_json_array_to_list (TEXT "${catJsonObj}" ARRAY "categories" OUT subCats)
 
-		if (subCats)
-			foreach (subcategory ${subCats})
+		if(subCats)
+			foreach(subcategory ${subCats})
 
 				_lemons_deps_get_category_with_name ("${rootJsonObj}" ${subcategory} subcatObj)
 
-				if (subcatObj)
+				if(subcatObj)
 					_lemons_deps_add_from_category ("${rootJsonObj}" "${subcatObj}" sys py)
 
 					list (APPEND sysPackages ${sys})
 					list (APPEND pyPackages ${py})
-				else ()
+				else()
 					message (AUTHOR_WARNING "Category dependency ${subcategory} not found!")
-				endif ()
-			endforeach ()
-		endif ()
+				endif()
+			endforeach()
+		endif()
 
 		# check for OS-specific packages
 
-		if (APPLE)
+		if(APPLE)
 			set (osCatName "MacPackages")
-		elseif (WIN32)
+		elseif(WIN32)
 			set (osCatName "WindowsPackages")
-		else ()
+		else()
 			set (osCatName "LinuxPackages")
-		endif ()
+		endif()
 
 		lemons_json_array_to_list (TEXT "${catJsonObj}" ARRAY ${osCatName} OUT osPackages)
 
@@ -104,7 +104,7 @@ function (lemons_get_list_of_deps_to_install)
 		set (${sysOutVar} "${sysPackages}" PARENT_SCOPE)
 		set (${pyOutVar} "${pyPackages}" PARENT_SCOPE)
 
-	endfunction ()
+	endfunction()
 
 	#
 
@@ -112,17 +112,17 @@ function (lemons_get_list_of_deps_to_install)
 
 	cmake_parse_arguments (LEMONS_DEPS "OMIT_DEFAULT" "${oneValueArgs}" "CATEGORIES" ${ARGN})
 
-	if (NOT LEMONS_DEPS_FILE)
+	if(NOT LEMONS_DEPS_FILE)
 		# from global config func...
-		if (${PROJECT_NAME}_CONFIG_FILE)
+		if(${PROJECT_NAME}_CONFIG_FILE)
 			set (LEMONS_DEPS_FILE ${${PROJECT_NAME}_CONFIG_FILE})
-		else ()
+		else()
 			message (
 				AUTHOR_WARNING
 					"FILE not specified in call to ${CMAKE_CURRENT_FUNCTION}, either provide it in this call or call lemons_parse_project_configuration_file in this project first."
 				)
-		endif ()
-	endif ()
+		endif()
+	endif()
 
 	lemons_require_function_arguments (LEMONS_DEPS SYSTEM_OUTPUT PYTHON_OUTPUT)
 	lemons_check_for_unparsed_args (LEMONS_DEPS)
@@ -135,31 +135,31 @@ function (lemons_get_list_of_deps_to_install)
 
 	string (JSON depsJsonObj GET ${fileContents} "Dependencies")
 
-	if (NOT LEMONS_DEPS_OMIT_DEFAULT)
+	if(NOT LEMONS_DEPS_OMIT_DEFAULT)
 		_lemons_deps_get_category_with_name ("${fileContents}" Default defaultCatObj)
 
-		if (defaultCatObj)
+		if(defaultCatObj)
 			_lemons_deps_add_from_category ("${fileContents}" "${defaultCatObj}" sys py)
 
 			list (APPEND sysList ${sys})
 			list (APPEND pyList ${py})
-		endif ()
-	endif ()
+		endif()
+	endif()
 
-	foreach (category ${LEMONS_DEPS_CATEGORIES})
+	foreach(category ${LEMONS_DEPS_CATEGORIES})
 
 		_lemons_deps_get_category_with_name ("${fileContents}" ${category} categoryObj)
 
-		if (NOT categoryObj)
+		if(NOT categoryObj)
 			message (AUTHOR_WARNING "Requested category ${category} not found in JSON file!")
 			continue ()
-		endif ()
+		endif()
 
 		_lemons_deps_add_from_category ("${fileContents}" "${categoryObj}" sys py)
 
 		list (APPEND sysList ${sys})
 		list (APPEND pyList ${py})
-	endforeach ()
+	endforeach()
 
 	list (REMOVE_DUPLICATES sysList)
 	list (REMOVE_DUPLICATES pyList)
@@ -167,26 +167,26 @@ function (lemons_get_list_of_deps_to_install)
 	set (${LEMONS_DEPS_SYSTEM_OUTPUT} "${sysList}" PARENT_SCOPE)
 	set (${LEMONS_DEPS_PYTHON_OUTPUT} "${pyList}" PARENT_SCOPE)
 
-endfunction ()
+endfunction()
 
 #
 
-function (lemons_install_deps)
+function(lemons_install_deps)
 
 	lemons_get_list_of_deps_to_install (SYSTEM_OUTPUT system_deps PYTHON_OUTPUT python_deps ${ARGN})
 
-	if (system_deps)
+	if(system_deps)
 		_lemons_deps_os_install_func ("${system_deps}")
-	else ()
+	else()
 		message (STATUS "No dependencies found to install.")
-	endif ()
+	endif()
 
-	if (python_deps)
+	if(python_deps)
 		include (${lemons_install_scripts_dir}/install_pips.cmake)
 
 		lemons_install_python_pips (${python_deps})
-	else ()
+	else()
 		message (STATUS "No Python packages found to install.")
-	endif ()
+	endif()
 
-endfunction ()
+endfunction()

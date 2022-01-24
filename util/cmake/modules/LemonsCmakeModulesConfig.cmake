@@ -4,13 +4,13 @@ cmake_minimum_required (VERSION 3.21 FATAL_ERROR)
 
 #
 
-function (_lemons_add_cmake_module_dir directory parent)
+function(_lemons_add_cmake_module_dir directory parent)
 	set (full_path "${parent}/${directory}")
 
-	if (IS_DIRECTORY "${full_path}")
-		if ("${full_path}" STREQUAL "${CMAKE_CURRENT_BINARY_DIR}")
+	if(IS_DIRECTORY "${full_path}")
+		if("${full_path}" STREQUAL "${CMAKE_CURRENT_BINARY_DIR}")
 			return ()
-		endif ()
+		endif()
 
 		file (REAL_PATH "${full_path}" _abs_path EXPAND_TILDE)
 		list (APPEND lemonsModulePaths "${_abs_path}")
@@ -19,21 +19,21 @@ function (_lemons_add_cmake_module_dir directory parent)
 
 		list (REMOVE_ITEM dirChildren scripts)
 
-		foreach (child ${dirChildren})
+		foreach(child ${dirChildren})
 			_lemons_add_cmake_module_dir ("${child}" "${_abs_path}")
-		endforeach ()
-	endif ()
+		endforeach()
+	endif()
 
 	set (lemonsModulePaths "${lemonsModulePaths}" PARENT_SCOPE)
-endfunction ()
+endfunction()
 
 file (GLOB children RELATIVE ${CMAKE_CURRENT_LIST_DIR} ${CMAKE_CURRENT_LIST_DIR}/*)
 
 list (REMOVE_ITEM children Builds)
 
-foreach (child ${children})
+foreach(child ${children})
 	_lemons_add_cmake_module_dir ("${child}" "${CMAKE_CURRENT_LIST_DIR}")
-endforeach ()
+endforeach()
 
 #
 

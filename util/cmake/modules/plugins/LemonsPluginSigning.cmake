@@ -5,7 +5,7 @@ cmake_minimum_required (VERSION 3.21 FATAL_ERROR)
 include (LemonsAAXSigning)
 include (LemonsCmakeDevTools)
 
-function (lemons_configure_plugin_signing)
+function(lemons_configure_plugin_signing)
 
 	set (oneValueArgs TARGET GUID ACCOUNT SIGNID KEYFILE KEYPASSWORD)
 
@@ -16,7 +16,7 @@ function (lemons_configure_plugin_signing)
 
 	set (aaxTarget "${LEMONS_SIGN_TARGET}_AAX")
 
-	if (TARGET ${aaxTarget} AND LEMONS_SIGN_GUID AND LEMONS_SIGN_ACCOUNT)
+	if(TARGET ${aaxTarget} AND LEMONS_SIGN_GUID AND LEMONS_SIGN_ACCOUNT)
 		lemons_configure_aax_plugin_signing (
 			TARGET
 			${aaxTarget}
@@ -30,27 +30,27 @@ function (lemons_configure_plugin_signing)
 			${LEMONS_SIGN_KEYFILE}
 			KEYPASSWORD
 			${LEMONS_SIGN_KEYPASSWORD})
-	endif ()
+	endif()
 
 	get_target_property (pluginFormats ${LEMONS_SIGN_TARGET} JUCE_FORMATS)
 
-	if (NOT pluginFormats)
+	if(NOT pluginFormats)
 		message (AUTHOR_WARNING "Error retrieving plugin formats of target ${LEMONS_SIGN_TARGET}!")
 		return ()
-	endif ()
+	endif()
 
-	function (_lemons_config_plugin_format_signing formatTarget)
+	function(_lemons_config_plugin_format_signing formatTarget)
 
 		message (DEBUG "Configuring signing for plugin target ${formatTarget}...")
 
-		if (APPLE)
+		if(APPLE)
 
 			find_program (CODESIGN codesign)
 
-			if (NOT CODESIGN)
+			if(NOT CODESIGN)
 				message (WARNING "Codesign cannot be found, plugin signing cannot be configured!")
 				return ()
-			endif ()
+			endif()
 
 			add_custom_command (
 				TARGET ${formatTarget}
@@ -64,27 +64,27 @@ function (lemons_configure_plugin_signing)
 				COMMAND ${CODESIGN} -verify "$<TARGET_BUNDLE_DIR:${formatTarget}>"
 				COMMENT "Verifying signing of ${formatTarget}...")
 
-		elseif (WIN32)
+		elseif(WIN32)
 
-		else ()
+		else()
 
-		endif ()
-	endfunction ()
+		endif()
+	endfunction()
 
-	foreach (pluginFormat ${pluginFormats})
+	foreach(pluginFormat ${pluginFormats})
 
 		set (formatTarget "${LEMONS_SIGN_TARGET}_${pluginFormat}")
 
-		if (NOT TARGET ${formatTarget})
+		if(NOT TARGET ${formatTarget})
 			message (
 				AUTHOR_WARNING
 					"Format ${pluginFormat} is in property list for target ${LEMONS_SIGN_TARGET}, but target ${formatTarget} does not exist!"
 				)
 			continue ()
-		endif ()
+		endif()
 
 		_lemons_config_plugin_format_signing (${formatTarget})
 
-	endforeach ()
+	endforeach()
 
-endfunction ()
+endfunction()

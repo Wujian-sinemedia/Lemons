@@ -7,7 +7,7 @@ include (LemonsAAXSigning)
 include (LemonsInstallDeps)
 include (LemonsRunClean)
 
-function (lemons_parse_project_configuration_file)
+function(lemons_parse_project_configuration_file)
 
 	cmake_parse_arguments (LEMONS_CONFIG "FORCE" "FILE" "" ${ARGN})
 
@@ -19,12 +19,12 @@ function (lemons_parse_project_configuration_file)
 
 	string (JSON jsonProjName GET ${configFileContents} "project" "name")
 
-	if (NOT "${jsonProjName}" STREQUAL "${PROJECT_NAME}")
+	if(NOT "${jsonProjName}" STREQUAL "${PROJECT_NAME}")
 		message (
 			AUTHOR_WARNING
 				"The current CMake project name ('${PROJECT_NAME}') doesn't match the configuration file ('${jsonProjName}')."
 			)
-	endif ()
+	endif()
 
 	string (
 		JSON
@@ -36,23 +36,23 @@ function (lemons_parse_project_configuration_file)
 		"project"
 		"AppleDevelopmentTeamId")
 
-	if (LEMONS_CONFIG_FORCE)
+	if(LEMONS_CONFIG_FORCE)
 		set (${PROJECT_NAME}_CONFIG_FILE "${LEMONS_CONFIG_FILE}"
 			 CACHE PATH "Path to the configuration file for this project" FORCE)
 
-		if (jsonAppleDevID)
+		if(jsonAppleDevID)
 			set (CMAKE_XCODE_ATTRIBUTE_DEVELOPMENT_TEAM "${jsonAppleDevID}"
 				 CACHE STRING "10-character ID for your Apple developer account" FORCE)
-		endif ()
-	else ()
+		endif()
+	else()
 		set (${PROJECT_NAME}_CONFIG_FILE "${LEMONS_CONFIG_FILE}"
 			 CACHE PATH "Path to the configuration file for this project")
 
-		if (jsonAppleDevID)
+		if(jsonAppleDevID)
 			set (CMAKE_XCODE_ATTRIBUTE_DEVELOPMENT_TEAM "${jsonAppleDevID}"
 				 CACHE STRING "10-character ID for your Apple developer account")
-		endif ()
-	endif ()
+		endif()
+	endif()
 
 	mark_as_advanced (${PROJECT_NAME}_CONFIG_FILE CMAKE_XCODE_ATTRIBUTE_DEVELOPMENT_TEAM)
 
@@ -65,7 +65,7 @@ function (lemons_parse_project_configuration_file)
 		${configFileContents}
 		"AAX_signing")
 
-	if (aaxSignJsonObj)
+	if(aaxSignJsonObj)
 		set (aaxSettings "")
 
 		string (
@@ -76,9 +76,9 @@ function (lemons_parse_project_configuration_file)
 			GET
 			${aaxSignJsonObj}
 			"Account")
-		if (accountJson)
+		if(accountJson)
 			list (APPEND aaxSettings ACCOUNT "${accountJson}")
-		endif ()
+		endif()
 
 		string (
 			JSON
@@ -88,9 +88,9 @@ function (lemons_parse_project_configuration_file)
 			GET
 			${aaxSignJsonObj}
 			"SignID")
-		if (signIDJson)
+		if(signIDJson)
 			list (APPEND aaxSettings SIGNID "${signIDJson}")
-		endif ()
+		endif()
 
 		string (
 			JSON
@@ -100,9 +100,9 @@ function (lemons_parse_project_configuration_file)
 			GET
 			${aaxSignJsonObj}
 			"Keyfile")
-		if (keyfileJson)
+		if(keyfileJson)
 			list (APPEND aaxSettings KEYFILE "${keyfileJson}")
-		endif ()
+		endif()
 
 		string (
 			JSON
@@ -112,20 +112,20 @@ function (lemons_parse_project_configuration_file)
 			GET
 			${aaxSignJsonObj}
 			"Keypassword")
-		if (keypasswordJson)
+		if(keypasswordJson)
 			list (APPEND keypasswordJson KEYPASSWORD "${keypasswordJson}")
-		endif ()
+		endif()
 
-		if (aaxSettings)
-			if (LEMONS_CONFIG_FORCE)
+		if(aaxSettings)
+			if(LEMONS_CONFIG_FORCE)
 				list (APPEND aaxSettings FORCE)
-			endif ()
+			endif()
 
 			lemons_set_aax_signing_settings (${aaxSettings})
-		endif ()
-	endif ()
+		endif()
+	endif()
 
 	set_property (DIRECTORY "${PROJECT_SOURCE_DIR}" APPEND PROPERTY CMAKE_CONFIGURE_DEPENDS
 																	"${LEMONS_CONFIG_FILE}")
 
-endfunction ()
+endfunction()

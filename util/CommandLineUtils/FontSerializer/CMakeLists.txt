@@ -6,13 +6,13 @@ project (FontSerializer VERSION 0.1.0 LANGUAGES CXX)
 
 #
 
-if (NOT DEFINED CPM_Lemons_SOURCE)
+if(NOT DEFINED CPM_Lemons_SOURCE)
 	set (CPM_Lemons_SOURCE "${CMAKE_CURRENT_LIST_DIR}/../../.." CACHE INTERNAL "")
-endif ()
+endif()
 
-if (NOT DEFINED ENV{CPM_SOURCE_CACHE})
+if(NOT DEFINED ENV{CPM_SOURCE_CACHE})
 	set (ENV{CPM_SOURCE_CACHE} "${CPM_Lemons_SOURCE}/Cache")
-endif ()
+endif()
 
 include ("${CPM_Lemons_SOURCE}/scripts/AddLemons.cmake")
 

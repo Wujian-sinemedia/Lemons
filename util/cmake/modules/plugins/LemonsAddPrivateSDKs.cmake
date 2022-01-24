@@ -4,9 +4,9 @@ cmake_minimum_required (VERSION 3.21 FATAL_ERROR)
 
 include (LemonsGetCPM)
 
-if (DEFINED ENV{LEMONS_PRIVATE_SDKS})
+if(DEFINED ENV{LEMONS_PRIVATE_SDKS})
 	file (REAL_PATH $ENV{LEMONS_PRIVATE_SDKS} CPM_PrivateSDKs_SOURCE EXPAND_TILDE)
-endif ()
+endif()
 
 cpmaddpackage (NAME PrivateSDKs GITHUB_REPOSITORY benthevining/PrivateSDKs GIT_TAG origin/main)
 
