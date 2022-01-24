@@ -6,7 +6,8 @@ if(NOT cppCheckProgram)
 	return ()
 endif()
 
-set (CMAKE_CXX_CPPCHECK "${cppCheckProgram}" CACHE INTERNAL "")
+set (CMAKE_CXX_CPPCHECK "${cppCheckProgram};--suppress=preprocessorErrorDirective" CACHE INTERNAL
+																						 "")
 
 set (CMAKE_EXPORT_COMPILE_COMMANDS TRUE CACHE INTERNAL "")
 
