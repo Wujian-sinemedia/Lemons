@@ -9,7 +9,7 @@ struct MidiFifoTests final : public MidiTest
 {
 public:
 	explicit MidiFifoTests()
-	    : MidiTest ("MIDI FIFO tests")
+		: MidiTest ("MIDI FIFO tests")
 	{
 	}
 

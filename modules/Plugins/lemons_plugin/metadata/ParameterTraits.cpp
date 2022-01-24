@@ -19,20 +19,20 @@ namespace lemons::plugin
 
 template <typename ValType>
 ParameterTraits::ParameterTraits (ValType minimum, ValType maximum, ValType defaultVal,
-                                  const String& nameToUse, const String& labelToUse,
-                                  ValToStringFunc<ValType> stringFromValue,
-                                  StringToValFunc<ValType> valueFromString,
-                                  bool automatable, bool metaParameter,
-                                  ParameterCategory categoryToUse)
-    : name (nameToUse)
-    , label (labelToUse)
-    , range (ranges::create (minimum, maximum))
-    , defaultValue (static_cast<float> (defaultVal))
-    , valueToText (detail::convertValToStringFuncFromTyped (stringFromValue, label, range.interval))
-    , textToValue (detail::convertStringToValFuncFromTyped (valueFromString))
-    , isAutomatable (automatable)
-    , isMetaParameter (metaParameter)
-    , category (categoryToUse)
+								  const String& nameToUse, const String& labelToUse,
+								  ValToStringFunc<ValType> stringFromValue,
+								  StringToValFunc<ValType> valueFromString,
+								  bool automatable, bool metaParameter,
+								  ParameterCategory categoryToUse)
+	: name (nameToUse)
+	, label (labelToUse)
+	, range (ranges::create (minimum, maximum))
+	, defaultValue (static_cast<float> (defaultVal))
+	, valueToText (detail::convertValToStringFuncFromTyped (stringFromValue, label, range.interval))
+	, textToValue (detail::convertStringToValFuncFromTyped (valueFromString))
+	, isAutomatable (automatable)
+	, isMetaParameter (metaParameter)
+	, category (categoryToUse)
 {
 	jassert (valueToText != nullptr);
 	jassert (textToValue != nullptr);
@@ -66,13 +66,13 @@ bool ParameterTraits::isValid() const
 
 namespace ParameterTraitsVTProperties
 {
-static constexpr auto typeProp        = "value_type";
-static constexpr auto nameProp        = "name";
-static constexpr auto labelProp       = "label";
-static constexpr auto defaultProp     = "default_value";
+static constexpr auto typeProp		  = "value_type";
+static constexpr auto nameProp		  = "name";
+static constexpr auto labelProp		  = "label";
+static constexpr auto defaultProp	  = "default_value";
 static constexpr auto automatableProp = "automatable";
-static constexpr auto metaProp        = "meta_parameter";
-static constexpr auto categoryProp    = "category";
+static constexpr auto metaProp		  = "meta_parameter";
+static constexpr auto categoryProp	  = "category";
 }  // namespace ParameterTraitsVTProperties
 
 ValueTree ParameterTraits::toValueTree() const

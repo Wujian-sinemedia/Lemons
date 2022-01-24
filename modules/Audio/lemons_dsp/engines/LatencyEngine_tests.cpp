@@ -10,7 +10,7 @@ struct LatencyEngineTests final : public DspTest
 {
 public:
 	explicit LatencyEngineTests()
-	    : DspTest (getDspTestName<FloatType> ("Latency audio engine tests"))
+		: DspTest (getDspTestName<FloatType> ("Latency audio engine tests"))
 	{
 	}
 
@@ -74,8 +74,8 @@ private:
 	struct PassThroughEngine : public dsp::LatencyEngine<FloatType>
 	{
 		void renderChunk (const AudioBuffer<FloatType>& input,
-		                  AudioBuffer<FloatType>&       output,
-		                  MidiBuffer& midiMessages, bool isBypassed) final
+						  AudioBuffer<FloatType>&		output,
+						  MidiBuffer& midiMessages, bool isBypassed) final
 		{
 			jassert (input.getNumSamples() == output.getNumSamples());
 			jassert (input.getNumChannels() == output.getNumChannels());

@@ -4,7 +4,7 @@
 namespace lemons::spline
 {
 Knot::Knot (float xToUse, float yToUse)
-    : location (xToUse, yToUse)
+	: location (xToUse, yToUse)
 {
 }
 
@@ -73,18 +73,18 @@ void Knots::add (const Point& p)
 void Knots::sort()
 {
 	std::sort (begin(), end(),
-	           [] (const Knot& a, const Knot& b)
-	           { return a.location.x < b.location.x; });
+			   [] (const Knot& a, const Knot& b)
+			   { return a.location.x < b.location.x; });
 }
 
 void Knots::removeOffLimits()
 {
 	std::remove_if (begin(), end(),
-	                [] (const Knot& knot)
-	                {
-		                if (! knot.isSelected()) return false;
-		                return knot.location.x <= 0.f || knot.location.x >= 1.f || knot.location.y <= 0.f || knot.location.y >= 1.f;
-	                });
+					[] (const Knot& knot)
+					{
+						if (! knot.isSelected()) return false;
+						return knot.location.x <= 0.f || knot.location.x >= 1.f || knot.location.y <= 0.f || knot.location.y >= 1.f;
+					});
 }
 
 void Knots::remove (const juce::Range<float>& range)
@@ -128,10 +128,10 @@ void Knots::deselect()
 
 void Knots::makeSpline (Points& spline) const
 {
-	const auto inc              = 1.f / static_cast<float> (spline.size());
+	const auto inc				= 1.f / static_cast<float> (spline.size());
 	const auto smallestDistance = inc * 2.f;
-	auto       x                = 0.f;
-	int        kIdx             = 1;
+	auto	   x				= 0.f;
+	int		   kIdx				= 1;
 
 	for (auto& point : spline)
 	{
@@ -142,7 +142,7 @@ void Knots::makeSpline (Points& spline) const
 		}
 
 		point = juce::jlimit (0.f, 1.f,
-		                      interpolation::hermitCubic2 (*this, x, smallestDistance, kIdx - 1));
+							  interpolation::hermitCubic2 (*this, x, smallestDistance, kIdx - 1));
 
 		x += inc;
 	}

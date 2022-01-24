@@ -17,7 +17,7 @@ bool isCapsLockOn()
 	result = (GetKeyState (VK_CAPITAL) & 0x0001) != 0;
 #elif JUCE_MAC
 	const auto flags = CGEventSourceFlagsState (kCGEventSourceStateHIDSystemState);
-	result           = (kCGEventFlagMaskAlphaShift & flags) != 0;
+	result			 = (kCGEventFlagMaskAlphaShift & flags) != 0;
 #else
 	// not currently implemented for Linux
 #endif

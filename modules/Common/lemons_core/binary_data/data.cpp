@@ -44,7 +44,7 @@ Data::Data (const char* fileToFind)
 }
 
 Data::Data (const String& fileToFind)
-    : Data (fileToFind.toRawUTF8())
+	: Data (fileToFind.toRawUTF8())
 {
 }
 

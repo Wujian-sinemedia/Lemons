@@ -18,7 +18,7 @@ void MonoToStereoPanner<SampleType>::reset()
 
 template <typename SampleType>
 void MonoToStereoPanner<SampleType>::process (const AudioBuffer& monoInput,
-                                              AudioBuffer&       stereoOutput)
+											  AudioBuffer&		 stereoOutput)
 {
 	stereoOutput.clear();
 	jassert (stereoOutput.getNumChannels() >= 2);
@@ -34,7 +34,7 @@ void MonoToStereoPanner<SampleType>::process (const AudioBuffer& monoInput,
 	FVO::copy (stereoOutput.getWritePointer (0), monoInput.getReadPointer (0), numSamples);
 	FVO::copy (stereoOutput.getWritePointer (1), monoInput.getReadPointer (0), numSamples);
 
-	auto leftAlias  = buffers::getAliasBuffer (stereoOutput, 0, numSamples, 1);
+	auto leftAlias	= buffers::getAliasBuffer (stereoOutput, 0, numSamples, 1);
 	auto rightAlias = buffers::getAliasBuffer (stereoOutput, 0, numSamples, 1, 1);
 
 	left.process (leftAlias);

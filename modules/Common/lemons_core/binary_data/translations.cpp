@@ -17,7 +17,7 @@ namespace lemons::locale
 {
 
 void initializeTranslations (const binary::Data& data,
-                             bool                ignoreCaseOfKeys)
+							 bool				 ignoreCaseOfKeys)
 {
 	if (! data.isValid())
 		return;
@@ -35,7 +35,7 @@ void initializeTranslations (const binary::Data& data,
 
 
 static constexpr auto TRANSLATION_FILE_PREFIX = "trans_";
-static constexpr auto TRANSLATION_FILE_XTN    = ".txt";
+static constexpr auto TRANSLATION_FILE_XTN	  = ".txt";
 
 
 void initializeDefaultTranslations()

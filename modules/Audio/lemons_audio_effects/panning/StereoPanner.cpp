@@ -18,11 +18,11 @@ void StereoPanner<SampleType>::reset()
 
 template <typename SampleType>
 void StereoPanner<SampleType>::process (const AudioBuffer& stereoInput,
-                                        AudioBuffer&       stereoOutput)
+										AudioBuffer&	   stereoOutput)
 {
 	stereoOutput.clear();
 	jassert (stereoInput.getNumChannels() >= 2
-	         && stereoOutput.getNumChannels() >= 2);
+			 && stereoOutput.getNumChannels() >= 2);
 	jassert (stereoInput.getNumSamples() == stereoOutput.getNumSamples());
 
 	left.setGain (PannerBase::getLeftGain());
@@ -33,7 +33,7 @@ void StereoPanner<SampleType>::process (const AudioBuffer& stereoInput,
 	for (int i = 0; i < 2; ++i)
 		juce::FloatVectorOperations::copy (stereoOutput.getWritePointer (i), stereoInput.getReadPointer (i), numSamples);
 
-	auto leftAlias  = buffers::getAliasBuffer (stereoOutput, 0, numSamples, 1);
+	auto leftAlias	= buffers::getAliasBuffer (stereoOutput, 0, numSamples, 1);
 	auto rightAlias = buffers::getAliasBuffer (stereoOutput, 0, numSamples, 1, 1);
 
 	left.process (leftAlias);

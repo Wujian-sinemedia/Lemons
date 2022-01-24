@@ -2,7 +2,7 @@ namespace lemons::gui::components
 {
 
 VersionViewer::VersionViewer (const Version& versionToUse)
-    : version (versionToUse)
+	: version (versionToUse)
 {
 	util::addAndMakeVisible (*this, major, minor, patch);
 }

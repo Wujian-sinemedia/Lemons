@@ -2,7 +2,7 @@
 namespace lemons::gui::components
 {
 Label::Label (const String& textToUse)
-    : juce::Label (TRANS (textToUse), TRANS (textToUse))
+	: juce::Label (TRANS (textToUse), TRANS (textToUse))
 {
 }
 
@@ -13,7 +13,7 @@ void Label::set (const String& newText)
 
 
 TextEntry::TextEntry (const String& initialText, std::function<void (const String&)> textChangeFunc)
-    : Label (initialText)
+	: Label (initialText)
 {
 	setEditable (true, true, false);
 

@@ -4,7 +4,7 @@ namespace lemons::gui::components
 {
 
 /** @ingroup lemons_gui_components
-    A simple wrapper around juce::Label that simplifies its API a bit.
+	A simple wrapper around juce::Label that simplifies its API a bit.
  */
 struct Label : juce::Label
 {
@@ -17,7 +17,7 @@ struct Label : juce::Label
 
 
 /** @ingroup lemons_gui_components
-    A simple text entry field, with a callback fired when the user changes the text.
+	A simple text entry field, with a callback fired when the user changes the text.
  */
 struct TextEntry : public Label
 {

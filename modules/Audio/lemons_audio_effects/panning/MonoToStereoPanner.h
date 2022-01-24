@@ -15,7 +15,7 @@ public:
 	void reset();
 
 	void process (const AudioBuffer& monoInput,
-	              AudioBuffer&       stereoOutput);
+				  AudioBuffer&		 stereoOutput);
 
 private:
 	SmoothedGain<SampleType, 1> left, right;

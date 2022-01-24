@@ -18,9 +18,9 @@ namespace lemons::dsp::psola
 
 template <typename SampleType>
 Shifter<SampleType>::Shifter (Analyzer<SampleType>& analyzerToUse)
-    : SampleStream<SampleType> ([this]
-                                { return getNextSample(); })
-    , analyzer (analyzerToUse)
+	: SampleStream<SampleType> ([this]
+								{ return getNextSample(); })
+	, analyzer (analyzerToUse)
 {
 	analyzer.registerShifter (*this);
 }
@@ -41,7 +41,7 @@ void Shifter<SampleType>::setPitchHz (int pitchHz) noexcept
 	targetPitchHz = pitchHz;
 
 	if (const auto intTargetPeriod = juce::roundToInt (targetPeriod);
-	    samplesToNextGrain > intTargetPeriod)
+		samplesToNextGrain > intTargetPeriod)
 	{
 		// ???
 		samplesToNextGrain = intTargetPeriod;
@@ -123,8 +123,8 @@ void Shifter<SampleType>::reset() noexcept
 		grain->clearGrain();
 
 	samplesToNextGrain = 0;
-	targetPeriod       = 0.f;
-	placeInBlock       = 0;
+	targetPeriod	   = 0.f;
+	placeInBlock	   = 0;
 }
 
 template <typename SampleType>
@@ -133,8 +133,8 @@ void Shifter<SampleType>::releaseResources()
 	grains.clear();
 
 	samplesToNextGrain = 0;
-	targetPeriod       = 0.f;
-	placeInBlock       = 0;
+	targetPeriod	   = 0.f;
+	placeInBlock	   = 0;
 }
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
@@ -166,7 +166,7 @@ void Shifter<SampleType>::Grain::startNewGrain (AnalysisGrain& analysisGrainToUs
 	jassert (analysisGrainToUse.getSize() > 0);
 
 	analysisGrain = &analysisGrainToUse;
-	sampleIdx     = 0;
+	sampleIdx	  = 0;
 
 	analysisGrainToUse.incReferenceCount();
 }

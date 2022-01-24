@@ -4,7 +4,7 @@ namespace lemons::dsp
 {
 
 /** Base class for any kind of oscillator.
-    Oscillators process only a single channel of samples at a time.
+	Oscillators process only a single channel of samples at a time.
  */
 template <typename SampleType>
 struct Oscillator : public SampleStream<SampleType>

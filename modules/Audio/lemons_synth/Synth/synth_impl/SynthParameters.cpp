@@ -62,9 +62,9 @@ void SynthBase<SampleType>::updatePitchbendRange (int rangeSemitones)
 
 
 /*
-    _   ___  ___ ___ _ ___
-   /_\ |   \/ __| _ ( ) __|
-  / _ \| |) \__ \   //\__ \
+	_   ___  ___ ___ _ ___
+	/_\ |   \/ __| _ ( ) __|
+	/ _ \| |) \__ \   //\__ \
  /_/ \_\___/|___/_|_\ |___/
 
  Parameters to control the synth's various ADSRs
@@ -98,7 +98,7 @@ void SynthBase<SampleType>::updateADSRsettings (float attack, float decay, float
 template <typename SampleType>
 void SynthBase<SampleType>::updateQuickReleaseMs (int newMs)
 {
-	quickReleaseParams         = adsrParams;
+	quickReleaseParams		   = adsrParams;
 	quickReleaseParams.release = newMs * 0.001f;
 
 	for (auto* voice : voices)

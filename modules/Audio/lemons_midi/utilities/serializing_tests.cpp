@@ -8,7 +8,7 @@ namespace lemons::tests
 struct MidiSerializingTests final : public CoreTest
 {
 	explicit MidiSerializingTests()
-	    : CoreTest ("MIDI serializing")
+		: CoreTest ("MIDI serializing")
 	{
 	}
 
@@ -24,7 +24,7 @@ private:
 		{
 			const auto subtest = beginSubtest ("MIDI buffer to/from MIDI file");
 
-			const auto file    = midi::midiBufferToFile (origMidi);
+			const auto file	   = midi::midiBufferToFile (origMidi);
 			const auto decoded = midi::midiBufferFromFile (file);
 
 			expect (midiBuffersAreEqual (origMidi, decoded));
@@ -54,8 +54,8 @@ private:
 		{
 			const auto subtest = beginSubtest ("MidiMessage");
 
-			constexpr auto channel  = 1;
-			constexpr auto note     = 78;
+			constexpr auto channel	= 1;
+			constexpr auto note		= 78;
 			constexpr auto velocity = 0.38f;
 
 			const auto orig = juce::MidiMessage::noteOn (channel, note, velocity);

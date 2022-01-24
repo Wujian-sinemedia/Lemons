@@ -3,7 +3,7 @@ namespace lemons::PluginMetadataEditor
 
 namespace documentVT
 {
-static constexpr auto treeType        = "PluginMetadataEditorDocument";
+static constexpr auto treeType		  = "PluginMetadataEditorDocument";
 static constexpr auto projectNameProp = "ProjectName";
 }  // namespace documentVT
 

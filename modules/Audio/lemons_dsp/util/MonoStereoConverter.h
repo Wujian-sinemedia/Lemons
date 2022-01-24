@@ -20,12 +20,12 @@ namespace lemons::dsp
 {
 
 /** @defgroup lemons_stereo_conversion Mono/stereo conversion
-    @ingroup lemons_dsp
-    Mono/stereo conversion utilities.
+	@ingroup lemons_dsp
+	Mono/stereo conversion utilities.
  */
 
 /** @ingroup lemons_stereo_conversion
-    An enum used to describe how a MonoStereoConverter will convert stereo signals to mono. */
+	An enum used to describe how a MonoStereoConverter will convert stereo signals to mono. */
 enum class StereoReductionMode
 {
 	/** In this mode, a MonoStereoConverter will output only the left channel of a stereo signal as its mono reduction. */
@@ -39,7 +39,7 @@ enum class StereoReductionMode
 };
 
 /** @ingroup lemons_stereo_conversion
-    A utility class for converting mono signals to stereo, or stereo signals to mono.
+	A utility class for converting mono signals to stereo, or stereo signals to mono.
  */
 template <typename SampleType>
 class MonoStereoConverter final
@@ -59,18 +59,18 @@ public:
 
 	/** Converts a stereo signal to mono. */
 	void convertStereoToMono (const SampleType* leftIn,
-	                          const SampleType* rightIn,
-	                          SampleType*       monoOut,
-	                          int               numSamples);
+							  const SampleType* rightIn,
+							  SampleType*		monoOut,
+							  int				numSamples);
 
 	/** Converts a stereo signal to mono. */
 	void convertStereoToMono (const AudioBuffer<SampleType>& input, AudioBuffer<SampleType>& output);
 
 	/** Converts a mono signal to stereo. */
 	void convertMonoToStereo (const SampleType* monoIn,
-	                          SampleType*       leftOut,
-	                          SampleType*       rightOut,
-	                          int               numSamples);
+							  SampleType*		leftOut,
+							  SampleType*		rightOut,
+							  int				numSamples);
 
 	/** Converts a mono signal to stereo. */
 	void convertMonoToStereo (const AudioBuffer<SampleType>& input, AudioBuffer<SampleType>& output);

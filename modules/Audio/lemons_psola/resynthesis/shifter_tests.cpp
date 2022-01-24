@@ -10,7 +10,7 @@ class PsolaTests final : public AllOscillatorsTest<SampleType>
 {
 public:
 	explicit PsolaTests()
-	    : AllOscillatorsTest<SampleType> ("PSOLA tests")
+		: AllOscillatorsTest<SampleType> ("PSOLA tests")
 	{
 	}
 
@@ -82,7 +82,7 @@ private:
 
 
 	dsp::psola::Analyzer<SampleType> analyzer;
-	dsp::psola::Shifter<SampleType>  shifter { analyzer };
+	dsp::psola::Shifter<SampleType>	 shifter { analyzer };
 
 	AudioBuffer<SampleType> origAudio, shiftedAudio;
 };

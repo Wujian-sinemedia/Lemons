@@ -24,7 +24,7 @@ namespace lemons::tests
 struct VariantConversionTests final : public CoreTest
 {
 	explicit VariantConversionTests()
-	    : CoreTest ("Variant conversions")
+		: CoreTest ("Variant conversions")
 	{
 	}
 

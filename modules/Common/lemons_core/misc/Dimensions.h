@@ -21,7 +21,7 @@ namespace lemons
 
 
 /** @ingroup lemons_core
-    A simple struct that represents the dimensions of a GUI. */
+	A simple struct that represents the dimensions of a GUI. */
 struct Dimensions final
 {
 	/** Creates an invalid Dimensions object. */
@@ -29,8 +29,8 @@ struct Dimensions final
 
 	/** Creates a valid Dimensions object with a specified width and height. */
 	constexpr explicit Dimensions (int widthToUse, int heightToUse)
-	    : width (widthToUse)
-	    , height (heightToUse)
+		: width (widthToUse)
+		, height (heightToUse)
 	{
 	}
 
@@ -56,8 +56,8 @@ struct Dimensions final
 	[[nodiscard]] int getHeight() const noexcept;
 
 	/** Returns the aspect ratio of the represented dimensions, calculated as width / height.
-	    If isValid() return false, then this function will return 0.
-	 */
+		If isValid() return false, then this function will return 0.
+	*/
 	[[nodiscard]] double getAspectRatio() const noexcept;
 
 	/** Returns true if the passed Dimensions object has the same aspect ratio as this one. */

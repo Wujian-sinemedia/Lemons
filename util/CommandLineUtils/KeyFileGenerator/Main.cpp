@@ -24,9 +24,9 @@ int main (int argc, char** argv)
 
 	file.deleteFile();
 
-	const auto appName   = args["--app|-a"];
-	const auto email     = args["--email|-e"];
-	const auto username  = args["--name|-n"];
+	const auto appName	 = args["--app|-a"];
+	const auto email	 = args["--email|-e"];
+	const auto username	 = args["--name|-n"];
 	const auto machineID = args["--machine|-m"];
 
 	const juce::RSAKey privateKey { args["--key|-k"] };

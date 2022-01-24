@@ -17,9 +17,9 @@ void registerEngine (CreationFunc<SampleType>, const String& typeID);
 
 struct EngineCreator
 {
-	explicit EngineCreator (const CreationFunc<float>&  floatFunc,
-	                        const CreationFunc<double>& doubleFunc,
-	                        const String&               typeID);
+	explicit EngineCreator (const CreationFunc<float>&	floatFunc,
+							const CreationFunc<double>& doubleFunc,
+							const String&				typeID);
 
 	virtual ~EngineCreator() = default;
 };
@@ -29,11 +29,11 @@ template <template <typename SampleType> class EngineType, LEMONS_MUST_INHERIT_F
 struct DefaultEngineCreator : EngineCreator
 {
 	explicit DefaultEngineCreator (const String& typeIDtoUse)
-	    : EngineCreator ([]()
-	                     { return std::make_unique<EngineType<float>>(); },
-	                     []()
-	                     { return std::make_unique<EngineType<double>>(); },
-	                     typeIDtoUse)
+		: EngineCreator ([]()
+						 { return std::make_unique<EngineType<float>>(); },
+						 []()
+						 { return std::make_unique<EngineType<double>>(); },
+						 typeIDtoUse)
 	{
 	}
 };
@@ -43,11 +43,11 @@ template <template <typename SampleType> class EngineType, typename... Args>
 struct ArgumentsEngineCreator : EngineCreator
 {
 	explicit ArgumentsEngineCreator (const String& typeIDtoUse, Args&&... args)
-	    : EngineCreator ([=]()
-	                     { return std::make_unique<EngineType<float>> (std::forward<Args> (args)...); },
-	                     [=]()
-	                     { return std::make_unique<EngineType<double>> (std::forward<Args> (args)...); },
-	                     typeIDtoUse)
+		: EngineCreator ([=]()
+						 { return std::make_unique<EngineType<float>> (std::forward<Args> (args)...); },
+						 [=]()
+						 { return std::make_unique<EngineType<double>> (std::forward<Args> (args)...); },
+						 typeIDtoUse)
 	{
 	}
 };

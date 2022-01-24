@@ -5,21 +5,21 @@
 namespace lemons::dsp::FX
 {
 /**
-    A class that wraps an AudioEffect into a dsp::Engine.
-    @tparam EffectType A template class representing the type of effect this engine will manage -- for example, EQ<SampleType> or Compressor<SampleType>.
-    @tparam SampleType The specialization of EffectType that this engine will instantiate. Must be float or double.
-    @see AudioEffect, dsp::Engine
+	A class that wraps an AudioEffect into a dsp::Engine.
+	@tparam EffectType A template class representing the type of effect this engine will manage -- for example, EQ<SampleType> or Compressor<SampleType>.
+	@tparam SampleType The specialization of EffectType that this engine will instantiate. Must be float or double.
+	@see AudioEffect, dsp::Engine
  */
 template <template <typename FloatType> class EffectType, typename SampleType, LEMONS_MUST_INHERIT_FROM (EffectType<SampleType>, AudioEffect<SampleType>)>
 class EffectEngine : public dsp::Engine<SampleType>
 {
 public:
 	/** Creates an EffectEngine.
-	    Forwards all constructor arguments to the underlying effect object.
-	 */
+		Forwards all constructor arguments to the underlying effect object.
+	*/
 	template <typename... Args>
 	EffectEngine (Args&&... args)
-	    : effect (std::forward<Args> (args)...)
+		: effect (std::forward<Args> (args)...)
 	{
 	}
 
@@ -34,9 +34,9 @@ public:
 
 private:
 	void renderBlock (const AudioBuffer<SampleType>& input,
-	                  AudioBuffer<SampleType>&       output,
-	                  MidiBuffer&,
-	                  bool isBypassed) final
+					  AudioBuffer<SampleType>&		 output,
+					  MidiBuffer&,
+					  bool isBypassed) final
 	{
 		if (isBypassed)
 		{
@@ -63,7 +63,7 @@ private:
 		storage.setSize (0, 0);
 	}
 
-	EffectType<SampleType>  effect;
+	EffectType<SampleType>	effect;
 	AudioBuffer<SampleType> storage;
 };
 

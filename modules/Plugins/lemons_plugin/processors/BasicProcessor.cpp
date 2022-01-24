@@ -21,12 +21,12 @@ juce::AudioProcessor::BusesProperties BasicProcessor::getDefaultBusesLayout()
 	const auto stereo = juce::AudioChannelSet::stereo();
 
 	return BusesProperties()
-	    .withInput (TRANS ("Input"), stereo, true)
-	    .withOutput (TRANS ("Output"), stereo, true);
+		.withInput (TRANS ("Input"), stereo, true)
+		.withOutput (TRANS ("Output"), stereo, true);
 }
 
 BasicProcessor::BasicProcessor (const BusesProperties& busesLayout)
-    : AudioProcessor (busesLayout)
+	: AudioProcessor (busesLayout)
 {
 }
 
@@ -64,21 +64,21 @@ void BasicProcessor::callEditorMethod (std::function<void (juce::AudioProcessorE
 	using EditorPtr = juce::Component::SafePointer<juce::AudioProcessorEditor>;
 
 	juce::MessageManager::callAsync ([editor = EditorPtr (getActiveEditor()), func]
-	                                 {
-        if (auto* e = editor.getComponent())
-            func (*e); });
+									 {
+		if (auto* e = editor.getComponent())
+			func (*e); });
 }
 
 void BasicProcessor::repaintEditor() const
 {
 	callEditorMethod ([] (juce::AudioProcessorEditor& e)
-	                  { e.repaint(); });
+					  { e.repaint(); });
 }
 
 
 namespace BusPropertiesVT
 {
-static constexpr auto nameProp    = "bus_name";
+static constexpr auto nameProp	  = "bus_name";
 static constexpr auto defaultProp = "default_layout";
 static constexpr auto activeProp  = "active_by_default";
 }  // namespace BusPropertiesVT
@@ -115,8 +115,8 @@ ValueTree BasicProcessor::busPropertiesToValueTree (const BusProperties& propert
 	tree.setProperty (nameProp, properties.busName, nullptr);
 
 	tree.setProperty (defaultProp,
-	                  juce::VariantConverter<juce::AudioChannelSet>::toVar (properties.defaultLayout),
-	                  nullptr);
+					  juce::VariantConverter<juce::AudioChannelSet>::toVar (properties.defaultLayout),
+					  nullptr);
 
 	tree.setProperty (activeProp, properties.isActivatedByDefault, nullptr);
 

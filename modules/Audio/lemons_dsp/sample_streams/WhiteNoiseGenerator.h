@@ -20,7 +20,7 @@ namespace lemons::dsp
 {
 
 /** @ingroup lemons_dsp
-    A simple processor that generates random noise.
+	A simple processor that generates random noise.
  */
 template <typename SampleType>
 class WhiteNoiseGenerator final : public SampleStream<SampleType>

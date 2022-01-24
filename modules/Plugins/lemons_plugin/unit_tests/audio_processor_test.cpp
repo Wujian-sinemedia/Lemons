@@ -18,8 +18,8 @@ namespace lemons::tests
 {
 
 AudioProcessorTestBase::AudioProcessorTestBase (juce::AudioProcessor& processorToUse, const String& testName)
-    : Test (testName, "AudioProcessors")
-    , processor (processorToUse)
+	: Test (testName, "AudioProcessors")
+	, processor (processorToUse)
 {
 }
 
@@ -63,11 +63,11 @@ void AudioProcessorTestBase::fuzzParameters()
 void AudioProcessorTestBase::runTest()
 {
 	/*
-	 - accepts midi
-	 - supports mpe
-	 - programs API
-	 - tail length secs
-	 */
+	- accepts midi
+	- supports mpe
+	- programs API
+	- tail length secs
+	*/
 
 	beginTest ("Processor features");
 
@@ -151,7 +151,7 @@ void AudioProcessorTestBase::runTypedTests()
 			}
 
 			if (const auto latency = processor->getLatencySamples();
-			    latency > 0)
+				latency > 0)
 			{
 				const auto subtest = beginSubtest ("Processor has correct latency");
 
@@ -312,7 +312,7 @@ void AudioProcessorTestBase::runTypedTests()
 				processor->processBlock (audioIO, midiIO);
 
 				const auto audioStorage = makeCopyOfAudioBuffer (audioIO);
-				const auto midiStorage  = makeCopyOfMidiBuffer (midiIO);
+				const auto midiStorage	= makeCopyOfMidiBuffer (midiIO);
 
 				expect (buffersAreEqual (audioIO, audioStorage));
 				expect (midiBuffersAreEqual (midiStorage, midiIO));

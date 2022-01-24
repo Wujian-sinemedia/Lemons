@@ -26,8 +26,8 @@ using juce::ValueTree;
 
 
 /** @defgroup plugin_metadata Metadata
-    @ingroup lemons_plugin
-    Plugin metadata classes.
+	@ingroup lemons_plugin
+	Plugin metadata classes.
  */
 
 class Parameter;
@@ -36,9 +36,9 @@ class ParameterList;
 
 
 /** @ingroup plugin_metadata
-    An ephemeral type-erased way to store all the metadata necessary to reconstruct any given parameter object.
-    You can use this type to save and later recreate a parameter object.
-    @see ParameterLayout, ParameterList, Parameter, TypedParameter
+	An ephemeral type-erased way to store all the metadata necessary to reconstruct any given parameter object.
+	You can use this type to save and later recreate a parameter object.
+	@see ParameterLayout, ParameterList, Parameter, TypedParameter
  */
 struct ParameterTraits final
 {
@@ -48,11 +48,11 @@ struct ParameterTraits final
 	/** Creates a ParameterTraits object with similar semantics as the TypedParameter constructor. */
 	template <typename ValType>
 	explicit ParameterTraits (ValType minimum, ValType maximum, ValType defaultVal,
-	                          const String& nameToUse, const String& labelToUse,
-	                          ValToStringFunc<ValType> stringFromValue = nullptr,
-	                          StringToValFunc<ValType> valueFromString = nullptr,
-	                          bool automatable = true, bool metaParameter = false,
-	                          ParameterCategory categoryToUse = ParameterCategory::genericParameter);
+							  const String& nameToUse, const String& labelToUse,
+							  ValToStringFunc<ValType> stringFromValue = nullptr,
+							  StringToValFunc<ValType> valueFromString = nullptr,
+							  bool automatable = true, bool metaParameter = false,
+							  ParameterCategory categoryToUse = ParameterCategory::genericParameter);
 
 	/** Saves this ParameterTraits object to a ValueTree. */
 	[[nodiscard]] ValueTree toValueTree() const;
@@ -67,11 +67,11 @@ struct ParameterTraits final
 	[[nodiscard]] bool isValid() const;
 
 	/** Creates a parameter object of the correct type for this ParameterTraits object.
-	    If this ParameterTraits represents a meta parameter, then the returned object will be a kind of MetaParameter.
-	    If this ParameterTraits represents a meter parameter, then the returned object will be a kind of MeterParameter.
-	    Otherwise, the returned object will be a kind of TypedParameter.
-	    The parameter's value type is determined by the ValueType enum.
-	 */
+		If this ParameterTraits represents a meta parameter, then the returned object will be a kind of MetaParameter.
+		If this ParameterTraits represents a meter parameter, then the returned object will be a kind of MeterParameter.
+		Otherwise, the returned object will be a kind of TypedParameter.
+		The parameter's value type is determined by the ValueType enum.
+	*/
 	[[nodiscard]] std::unique_ptr<Parameter> createParameter (const ParameterList& list) const;
 
 	/** Enum to describe the various types of TypedParameter that can be instantiated. */
@@ -120,8 +120,8 @@ struct ParameterTraits final
 
 
 /** @ingroup plugin_metadata
-    A container of ParameterTraits objects that can be used to recreate an entire ParameterList.
-    @see ParameterTraits, ParameterList, Parameter
+	A container of ParameterTraits objects that can be used to recreate an entire ParameterList.
+	@see ParameterTraits, ParameterList, Parameter
  */
 struct ParameterLayout final
 {
@@ -159,12 +159,12 @@ namespace lemons::files
 {
 
 /** @ingroup plugin_metadata lemons_files
-    Loads a ParameterLayout from a file that was serialized in the given format. The default format is JSON. */
+	Loads a ParameterLayout from a file that was serialized in the given format. The default format is JSON. */
 template <FileType Type = FileType::JSON>
 [[nodiscard]] plugin::ParameterLayout loadParameterLayout (const File& file);
 
 /** @ingroup plugin_metadata lemons_files
-    Saves a ParameterLayout to a file in the given format. The default format is JSON. */
+	Saves a ParameterLayout to a file in the given format. The default format is JSON. */
 template <FileType Type = FileType::JSON>
 bool saveParameterLayout (const plugin::ParameterLayout& layout, const File& file);
 

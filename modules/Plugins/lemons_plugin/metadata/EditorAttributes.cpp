@@ -3,10 +3,10 @@ namespace lemons::plugin
 
 namespace EditorAttributeVT
 {
-static constexpr auto initSize        = "initial_size";
-static constexpr auto resizable       = "is_resizable";
+static constexpr auto initSize		  = "initial_size";
+static constexpr auto resizable		  = "is_resizable";
 static constexpr auto resizableCorner = "use_resizing_corner";
-static constexpr auto tooltipTime     = "ms_before_tooltip";
+static constexpr auto tooltipTime	  = "ms_before_tooltip";
 }  // namespace EditorAttributeVT
 
 ValueTree EditorAttributes::toValueTree() const

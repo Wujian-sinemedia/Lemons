@@ -18,19 +18,19 @@ namespace lemons
 #endif
 
 /** @defgroup lemons_gui_app GUI app
-    @ingroup lemons_gui
-    Building blocks for GUI apps.
+	@ingroup lemons_gui
+	Building blocks for GUI apps.
  */
 
 /** @ingroup lemons_gui_app
-    Base class for a GUI app's main window.
+	Base class for a GUI app's main window.
  */
 struct DefaultWindowBase : public juce::DocumentWindow
 {
 public:
 	/** Constructs a window with a specified initial size. */
-	DefaultWindowBase (const String&     appName     = LEMONS_DEFAULT_APP_NAME,
-	                   const Dimensions& initialSize = Dimensions::getDefault());
+	DefaultWindowBase (const String&	 appName	 = LEMONS_DEFAULT_APP_NAME,
+					   const Dimensions& initialSize = Dimensions::getDefault());
 
 protected:
 	/** Initializes the window. */
@@ -42,17 +42,17 @@ private:
 
 
 /** @ingroup lemons_gui_app
-    A class representing a GUI app's main window.
-    @tparam ComponentType The type of top-level main component that this window owns and displays. This must inherit from juce::Component and must be default-constructable.
-    @see DefaultWindowBase, GuiApp
+	A class representing a GUI app's main window.
+	@tparam ComponentType The type of top-level main component that this window owns and displays. This must inherit from juce::Component and must be default-constructable.
+	@see DefaultWindowBase, GuiApp
  */
 template <typename ComponentType, LEMONS_MUST_INHERIT_FROM (ComponentType, juce::Component)>
 struct DefaultWindow : public DefaultWindowBase
 {
 	/** Constructs a default window. */
-	DefaultWindow (const String&     appName     = LEMONS_DEFAULT_APP_NAME,
-	               const Dimensions& initialSize = Dimensions::getDefault())
-	    : DefaultWindowBase (appName, initialSize)
+	DefaultWindow (const String&	 appName	 = LEMONS_DEFAULT_APP_NAME,
+				   const Dimensions& initialSize = Dimensions::getDefault())
+		: DefaultWindowBase (appName, initialSize)
 	{
 		jassert (initialSize.isValid());
 		setSize (initialSize.getWidth(), initialSize.getHeight());

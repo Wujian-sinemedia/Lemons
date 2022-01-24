@@ -16,7 +16,7 @@ std::map<String, CreationFunc<SampleType>>& getEngineBank()
 	return engines;
 }
 
-template std::map<String, CreationFunc<float>>&  getEngineBank();
+template std::map<String, CreationFunc<float>>&	 getEngineBank();
 template std::map<String, CreationFunc<double>>& getEngineBank();
 
 
@@ -39,8 +39,8 @@ template void registerEngine (CreationFunc<double>, const String&);
 
 
 EngineCreator::EngineCreator (const CreationFunc<float>&  floatFunc,
-                              const CreationFunc<double>& doubleFunc,
-                              const String&               typeID)
+							  const CreationFunc<double>& doubleFunc,
+							  const String&				  typeID)
 {
 	registerEngine<float> (floatFunc, typeID);
 	registerEngine<double> (doubleFunc, typeID);

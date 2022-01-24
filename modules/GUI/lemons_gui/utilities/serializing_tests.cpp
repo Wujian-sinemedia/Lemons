@@ -9,7 +9,7 @@ namespace lemons::tests
 struct GuiSerializingTests final : public CoreTest
 {
 	explicit GuiSerializingTests()
-	    : CoreTest ("GUI Serializing")
+		: CoreTest ("GUI Serializing")
 	{
 	}
 

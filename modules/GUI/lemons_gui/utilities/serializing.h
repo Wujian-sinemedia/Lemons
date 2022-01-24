@@ -12,20 +12,20 @@ using juce::juce_wchar;
 using juce::MemoryBlock;
 
 /** @defgroup lemons_gui lemons_gui
-    @ingroup GUI
-    GUI building blocks.
+	@ingroup GUI
+	GUI building blocks.
  */
 
 
 /** @ingroup lemons_gui lemons_serializing
-    Encodes an Image object as a blob of binary data. Internally, this uses JUCE's PNGImageFormat.
-    @see imageFromBinary(), saveImageToFile()
+	Encodes an Image object as a blob of binary data. Internally, this uses JUCE's PNGImageFormat.
+	@see imageFromBinary(), saveImageToFile()
  */
 [[nodiscard]] MemoryBlock imageToBinary (const Image& image);
 
 /** @ingroup lemons_gui lemons_serializing
-    Returns an Image object from a binary representation of one. Internally, this uses JUCE's PNGImageFormat.
-    @see imageToBinary(), loadImageFromFile(), binary::Data::getImage()
+	Returns an Image object from a binary representation of one. Internally, this uses JUCE's PNGImageFormat.
+	@see imageToBinary(), loadImageFromFile(), binary::Data::getImage()
  */
 [[nodiscard]] Image imageFromBinary (const MemoryBlock& block);
 
@@ -48,14 +48,14 @@ namespace lemons::files
 using juce::Image;
 
 /** @ingroup lemons_gui lemons_files
-    Saves an Image to a File.
-    @see loadImageFromFile(), imageToBinary()
+	Saves an Image to a File.
+	@see loadImageFromFile(), imageToBinary()
  */
 bool saveImage (const Image& image, const File& file);
 
 /** @ingroup lemons_gui lemons_files
-    Loads an Image from a File.
-    @see saveImageToFile(), imageFromBinary(),  binary::Data::getImage()
+	Loads an Image from a File.
+	@see saveImageToFile(), imageFromBinary(),  binary::Data::getImage()
  */
 [[nodiscard]] Image loadImage (const File& file);
 
@@ -82,21 +82,21 @@ namespace lemons::binary
 using juce::String;
 
 /** @ingroup lemons_gui lemons_binary
-    Returns an image object from an image file in the BinaryData target.
-    If the image can't be loaded, an assertion will be thrown.
-    @see serializing::loadImageFromFile(), serializing::saveImageToFile()
+	Returns an image object from an image file in the BinaryData target.
+	If the image can't be loaded, an assertion will be thrown.
+	@see serializing::loadImageFromFile(), serializing::saveImageToFile()
  */
 [[nodiscard]] juce::Image getImage (const String& imageFileName);
 
 /** @ingroup lemons_binary
-    Returns a list of names of binary resource files that have file extensions matching known image file formats.
+	Returns a list of names of binary resource files that have file extensions matching known image file formats.
  */
 [[nodiscard]] juce::StringArray getImageFileNames();
 
 /** @ingroup lemons_gui lemons_binary
-    Returns a font that has been previously serialized with the serializing::serializeFont() method.
-    If the font can't be loaded, an assertion will be thrown.
-    @see serializing::serializeFont()
+	Returns a font that has been previously serialized with the serializing::serializeFont() method.
+	If the font can't be loaded, an assertion will be thrown.
+	@see serializing::serializeFont()
  */
 [[nodiscard]] std::unique_ptr<juce::CustomTypeface> getFont (const String& filename);
 
@@ -111,21 +111,21 @@ template <>
 struct VariantConverter<Colour>
 {
 	static Colour fromVar (const var& v);
-	static var    toVar (const Colour& c);
+	static var	  toVar (const Colour& c);
 };
 
 template <>
 struct VariantConverter<Image>
 {
 	static Image fromVar (const var& v);
-	static var   toVar (const Image& i);
+	static var	 toVar (const Image& i);
 };
 
 template <>
 struct VariantConverter<Justification>
 {
 	static Justification fromVar (const var& v);
-	static var           toVar (const Justification& j);
+	static var			 toVar (const Justification& j);
 };
 
 }  // namespace juce

@@ -44,13 +44,13 @@ ProcessorAttributes ProcessorAttributes::fromProjectDefines()
 
 namespace ProcessorAttributeProperties
 {
-static constexpr auto accepts_midi     = "AcceptsMidi";
-static constexpr auto produces_midi    = "ProducesMidi";
-static constexpr auto supports_mpe     = "SupportsMPE";
+static constexpr auto accepts_midi	   = "AcceptsMidi";
+static constexpr auto produces_midi	   = "ProducesMidi";
+static constexpr auto supports_mpe	   = "SupportsMPE";
 static constexpr auto is_midi_effect   = "IsMidiEffect";
 static constexpr auto processor_name   = "ProcessorName";
-static constexpr auto alt_names        = "AlternateDisplayNames";
-static constexpr auto has_editor       = "HasEditor";
+static constexpr auto alt_names		   = "AlternateDisplayNames";
+static constexpr auto has_editor	   = "HasEditor";
 static constexpr auto engine_type_name = "EngineType";
 }  // namespace ProcessorAttributeProperties
 

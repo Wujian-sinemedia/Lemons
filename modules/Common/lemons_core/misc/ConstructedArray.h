@@ -20,25 +20,25 @@ namespace lemons
 {
 
 /** @ingroup lemons_core
-    A wrapper around juce::OwnedArray that automatically deletes or creates objects when you resize it. For example:
-    @code
-    struct MyStruct
-    {
-        MyStruct (SomeObject& arg);
+	A wrapper around juce::OwnedArray that automatically deletes or creates objects when you resize it. For example:
+	@code
+	struct MyStruct
+	{
+		MyStruct (SomeObject& arg);
 
-        void doSomething();
-    };
+		void doSomething();
+	};
 
-    SomeObject myObject;
+	SomeObject myObject;
 
-    ConstructedArray<MyStruct> myStructs { 1, [&myObject]{ return new MyStruct(myObject) } };
+	ConstructedArray<MyStruct> myStructs { 1, [&myObject]{ return new MyStruct(myObject) } };
 
-    myStructs.resize (5);
+	myStructs.resize (5);
 
-    myStructs.for_each ([](MyStruct& s){ s.doSomething(); });
+	myStructs.for_each ([](MyStruct& s){ s.doSomething(); });
 
-    myStructs.resize (1);
-    @endcode
+	myStructs.resize (1);
+	@endcode
  */
 template <typename ObjectType>
 struct ConstructedArray final
@@ -48,17 +48,17 @@ struct ConstructedArray final
 
 	/** Creates an array with a specified initial number of objects, and an optional lambda function that will be called to create new objects. */
 	explicit ConstructedArray (
-	    int                      initialNumObjects  = 0,
-	    ObjectCreationFunction&& objectCreationFunc = []
-	    { return new ObjectType(); })
-	    : creationFunc (std::move (objectCreationFunc))
+		int						 initialNumObjects	= 0,
+		ObjectCreationFunction&& objectCreationFunc = []
+		{ return new ObjectType(); })
+		: creationFunc (std::move (objectCreationFunc))
 	{
 		resize (initialNumObjects);
 	}
 
 	/** Resizes the array.
-	    If the array contains more objects than newNumObjects, the extra objects will be deleted. If the array contains fewer objects, new objects will be added to the array, created using the lambda function passed to the constructor.
-	 */
+		If the array contains more objects than newNumObjects, the extra objects will be deleted. If the array contains fewer objects, new objects will be added to the array, created using the lambda function passed to the constructor.
+	*/
 	void resize (int newNumObjects)
 	{
 		while (array.size() < newNumObjects)

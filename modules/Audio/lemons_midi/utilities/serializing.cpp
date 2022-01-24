@@ -40,7 +40,7 @@ MemoryBlock midiToBinary (const MidiBuffer& midi)
 
 MemoryBlock midiToBinary (const MidiFile& midi)
 {
-	MemoryBlock              block;
+	MemoryBlock				 block;
 	juce::MemoryOutputStream stream { block, false };
 
 	midi.writeTo (stream);
@@ -186,7 +186,7 @@ MidiFile VariantConverter<MidiFile>::fromVar (const var& v)
 
 var VariantConverter<MidiFile>::toVar (const MidiFile& f)
 {
-	MemoryBlock              block;
+	MemoryBlock				 block;
 	juce::MemoryOutputStream stream { block, false };
 
 	f.writeTo (stream);

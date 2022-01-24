@@ -47,7 +47,7 @@ template <>
 ValueTree loadValueTree<FileType::Opaque> (const String& fileContents)
 {
 	juce::CharPointer_UTF8 stringPointer (fileContents.toUTF8());
-	juce::MemoryBlock      stringMemoryBlock (stringPointer.getAddress(), stringPointer.sizeInBytes());
+	juce::MemoryBlock	   stringMemoryBlock (stringPointer.getAddress(), stringPointer.sizeInBytes());
 
 	juce::MemoryInputStream is { stringMemoryBlock, false };
 
@@ -67,8 +67,8 @@ ValueTree loadValueTree<FileType::Opaque> (const File& file)
 
 
 bool saveValueTreeImpl (const File& file,
-                        std::function<void (juce::FileOutputStream&)>
-                            writeFunc)
+						std::function<void (juce::FileOutputStream&)>
+							writeFunc)
 {
 	const juce::TemporaryFile temp { file };
 
@@ -91,31 +91,31 @@ template <>
 bool saveValueTree<FileType::XML> (const File& file, const ValueTree& tree)
 {
 	return saveValueTreeImpl (file,
-	                          [tree] (juce::FileOutputStream& os)
-	                          {
-		                          if (auto xml = tree.createXml())
-			                          xml->writeTo (os);
-	                          });
+							  [tree] (juce::FileOutputStream& os)
+							  {
+								  if (auto xml = tree.createXml())
+									  xml->writeTo (os);
+							  });
 }
 
 template <>
 bool saveValueTree<FileType::JSON> (const File& file, const ValueTree& tree)
 {
 	return saveValueTreeImpl (file,
-	                          [tree] (juce::FileOutputStream& os)
-	                          {
-		                          os.writeString (serializing::valueTreeToJSON (tree));
-	                          });
+							  [tree] (juce::FileOutputStream& os)
+							  {
+								  os.writeString (serializing::valueTreeToJSON (tree));
+							  });
 }
 
 template <>
 bool saveValueTree<FileType::Opaque> (const File& file, const ValueTree& tree)
 {
 	return saveValueTreeImpl (file,
-	                          [tree] (juce::FileOutputStream& os)
-	                          {
-		                          tree.writeToStream (os);
-	                          });
+							  [tree] (juce::FileOutputStream& os)
+							  {
+								  tree.writeToStream (os);
+							  });
 }
 
 //==============================================================================
@@ -150,11 +150,11 @@ bool saveBlockToFile (const MemoryBlock& block, const File& file)
 bool isAbsolutePath (const String& path)
 {
 	return File::isAbsolutePath (path)
-	    || path.startsWithChar ('/')
-	    || path.startsWithChar ('$')
-	    || path.startsWithChar ('~')
-	    || (juce::CharacterFunctions::isLetter (path[0]) && path[1] == ':')
-	    || path.startsWithIgnoreCase ("smb:");
+		|| path.startsWithChar ('/')
+		|| path.startsWithChar ('$')
+		|| path.startsWithChar ('~')
+		|| (juce::CharacterFunctions::isLetter (path[0]) && path[1] == ':')
+		|| path.startsWithIgnoreCase ("smb:");
 }
 
 }  // namespace lemons::files

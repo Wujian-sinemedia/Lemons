@@ -22,8 +22,8 @@ template <typename ValueType>
 static constexpr auto valueTreeType = "NormalisableRange";
 
 /** @defgroup lemons_serializing Serializing
-    @ingroup lemons_core
-    Utilities for serializing.
+	@ingroup lemons_core
+	Utilities for serializing.
  */
 
 /** @ingroup lemons_serializing

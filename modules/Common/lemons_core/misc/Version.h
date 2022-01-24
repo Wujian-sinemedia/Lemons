@@ -48,7 +48,7 @@ namespace lemons
 using juce::String;
 
 /** @ingroup lemons_core
-    A class that represents a version of something, with major, minor, and patch numbers.
+	A class that represents a version of something, with major, minor, and patch numbers.
  */
 struct Version final
 {
@@ -57,9 +57,9 @@ struct Version final
 
 	/** Creates a Version object with a specified value. */
 	constexpr explicit Version (int maj, int min, int p)
-	    : major (maj)
-	    , minor (min)
-	    , patch (p)
+		: major (maj)
+		, minor (min)
+		, patch (p)
 	{
 	}
 
@@ -141,33 +141,33 @@ struct Version final
 	}
 
 	/** Returns a new Version object with bumpMajor() applied.
-	    @see bumpMajor()
-	 */
+		@see bumpMajor()
+	*/
 	[[nodiscard]] constexpr Version withMajorBump() const
 	{
 		return Version { major + 1,
-			             0,
-			             0 };
+						 0,
+						 0 };
 	}
 
 	/** Returns a new Version object with bumpMinor() applied.
-	    @see bumpMinor()
-	 */
+		@see bumpMinor()
+	*/
 	[[nodiscard]] constexpr Version withMinorBump() const
 	{
 		return Version { major,
-			             minor + 1,
-			             0 };
+						 minor + 1,
+						 0 };
 	}
 
 	/** Returns a new Version object with bumpPatch() applied.
-	    @see bumpPatch()
-	 */
+		@see bumpPatch()
+	*/
 	[[nodiscard]] constexpr Version withPatchBump() const
 	{
 		return Version { major,
-			             minor,
-			             patch + 1 };
+						 minor,
+						 patch + 1 };
 	}
 
 	/** Returns a String representation of this Version, with a '.' placed between the major, minor, and patch integers.
@@ -192,8 +192,8 @@ struct Version final
 	}
 
 	/** Returns a Version object representing the version of the current project that this module was compiled as a part of.
-	    Note that this will only be correct if you use the Lemons repo's CMake configuration scripts, or manually define the macros LEMONS_PROJECT_VERSION_MAJOR, LEMONS_PROJECT_VERSION_MINOR, and LEMONS_PROJECT_VERSION_PATCH.
-	 */
+		Note that this will only be correct if you use the Lemons repo's CMake configuration scripts, or manually define the macros LEMONS_PROJECT_VERSION_MAJOR, LEMONS_PROJECT_VERSION_MINOR, and LEMONS_PROJECT_VERSION_PATCH.
+	*/
 	[[nodiscard]] constexpr static Version projectVersion()
 	{
 		return Version { 0, 0, 1 };

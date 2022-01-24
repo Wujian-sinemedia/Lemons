@@ -22,13 +22,13 @@ using juce::File;
 
 
 /** @name lemons_translation_file_generation Translation file generation
-    @ingroup lemons_locale
+	@ingroup lemons_locale
  */
 ///@{
 
 /** Writes a JUCE-style translation file header, including the language name and relevant country codes, for the specified language.
-    @param language The language name or language code. When interpreting this argument as a language code, a 2-character string will be interpreted as an ISO639-1 code; if it is 3 characters long, it will be interpreted as an ISO639-2 code. Other lengths of passed strings are invalid and will cause this method to return an empty string.
-    @param languageName If true, the 'language' argument is interpreted as the name of the language; if false, it is interpreted as an ISO language code.
+	@param language The language name or language code. When interpreting this argument as a language code, a 2-character string will be interpreted as an ISO639-1 code; if it is 3 characters long, it will be interpreted as an ISO639-2 code. Other lengths of passed strings are invalid and will cause this method to return an empty string.
+	@param languageName If true, the 'language' argument is interpreted as the name of the language; if false, it is interpreted as an ISO language code.
  */
 [[nodiscard]] String writeTranslationFileHeader (const String& language, bool languageName = true);
 
@@ -40,9 +40,9 @@ using juce::File;
 
 /** Scans a directory tree for phrases that need to be translated, and generates JUCE-style translation files for each specified language, placing them in the output directory.
  */
-void generateTranslationFiles (const File&        rootDir,
-                               const StringArray& languageCodes,
-                               const File& outputDir, const String& filenamePrefix = "trans_", const String& fileExtension = ".txt");
+void generateTranslationFiles (const File&		  rootDir,
+							   const StringArray& languageCodes,
+							   const File& outputDir, const String& filenamePrefix = "trans_", const String& fileExtension = ".txt");
 
 ///@}
 

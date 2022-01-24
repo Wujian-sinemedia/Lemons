@@ -4,8 +4,8 @@
 namespace lemons::dsp::FX
 {
 /**
-    An enum class that represents the type of filter topology to be used by a Filter effect.
-    @see Filter
+	An enum class that represents the type of filter topology to be used by a Filter effect.
+	@see Filter
  */
 enum class FilterType
 {
@@ -21,8 +21,8 @@ enum class FilterType
 
 
 /**
-    A filter audio effect class that wraps the more low-level filters::Filter.
-    @see FilterType, filters::Filter, filters::MultiFilter
+	A filter audio effect class that wraps the more low-level filters::Filter.
+	@see FilterType, filters::Filter, filters::MultiFilter
  */
 template <typename SampleType>
 class Filter : public AudioEffect<SampleType>
@@ -53,13 +53,13 @@ public:
 	float getQfactor() const;
 
 	/** Sets the gain of this filter.
-	    Note that gain is only relevant for shelf and peak filter types.
-	 */
+		Note that gain is only relevant for shelf and peak filter types.
+	*/
 	void setGain (float newGain);
 
 	/** Returns the current gain of this filter.
-	    Note that gain is only relevant for shelf and peak filter types.
-	 */
+		Note that gain is only relevant for shelf and peak filter types.
+	*/
 	float getGain() const;
 
 	/** Applies the filter to a stream of audio. */
@@ -82,8 +82,8 @@ private:
 
 
 /**
-    A class that represents an audio engine holding a filter effect.
-    @see FX::Filter
+	A class that represents an audio engine holding a filter effect.
+	@see FX::Filter
  */
 template <typename SampleType>
 struct FilterEngine final : EffectEngine<Filter, SampleType>

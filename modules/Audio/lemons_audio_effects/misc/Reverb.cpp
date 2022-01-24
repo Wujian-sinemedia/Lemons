@@ -3,11 +3,11 @@ namespace lemons::dsp::FX
 {
 Reverb::Reverb()
 {
-	juceReverbParams.roomSize   = 0.5f;
-	juceReverbParams.damping    = 0.35f;
-	juceReverbParams.wetLevel   = 1.0f;
-	juceReverbParams.dryLevel   = 0.0f;
-	juceReverbParams.width      = 1.0f;
+	juceReverbParams.roomSize	= 0.5f;
+	juceReverbParams.damping	= 0.35f;
+	juceReverbParams.wetLevel	= 1.0f;
+	juceReverbParams.dryLevel	= 0.0f;
+	juceReverbParams.width		= 1.0f;
 	juceReverbParams.freezeMode = 0.2f;
 
 	compressor.setAttack (15.0f);
@@ -15,11 +15,11 @@ Reverb::Reverb()
 }
 
 Reverb::Reverb (float roomSizeToUse, float dampingAmountToUse, float widthToUse, int wetPcnt, int duckAmountToUse, float loCutF, float hiCutF)
-    : Reverb()
+	: Reverb()
 {
 	juceReverbParams.roomSize = roomSizeToUse;
 	juceReverbParams.damping  = dampingAmountToUse;
-	juceReverbParams.width    = widthToUse;
+	juceReverbParams.width	  = widthToUse;
 
 	reverb.setParameters (juceReverbParams);
 
@@ -44,13 +44,13 @@ void Reverb::prepare (int blocksize, double samplerate, int numChannels)
 	sampleRate = samplerate;
 
 	loCut.coefs.makeLowPass (
-	    samplerate,
-	    loCutFreq);
+		samplerate,
+		loCutFreq);
 	loCut.prepare();
 
 	hiCut.coefs.makeHighPass (
-	    samplerate,
-	    hiCutFreq);
+		samplerate,
+		hiCutFreq);
 	hiCut.prepare();
 
 	sidechainBuffer.setSize (numChannels, blocksize, true, true, true);
@@ -93,7 +93,7 @@ void Reverb::setWidth (float newWidth)
 
 void Reverb::setDryWet (int wetMixPercent)
 {
-	dryWet_val     = wetMixPercent;
+	dryWet_val	   = wetMixPercent;
 	const auto wet = static_cast<float> (wetMixPercent) * 0.01f;
 	wetGain.setGain (wet);
 	dryGain.setGain (1.0f - wet);
@@ -113,8 +113,8 @@ void Reverb::setLoCutFrequency (float freq)
 {
 	loCutFreq = freq;
 	loCut.coefs.makeLowPass (
-	    sampleRate,
-	    loCutFreq);
+		sampleRate,
+		loCutFreq);
 	loCut.reset();
 }
 
@@ -122,8 +122,8 @@ void Reverb::setHiCutFrequency (float freq)
 {
 	hiCutFreq = freq;
 	hiCut.coefs.makeHighPass (
-	    sampleRate,
-	    hiCutFreq);
+		sampleRate,
+		hiCutFreq);
 	hiCut.reset();
 }
 
@@ -140,8 +140,8 @@ void Reverb::process (juce::AudioBuffer<float>& input, float* reverbLevel)
 
 
 void Reverb::process (juce::AudioBuffer<double>& input,
-                      juce::AudioBuffer<double>& compressorSidechain,
-                      double*                    reverbLevel)
+					  juce::AudioBuffer<double>& compressorSidechain,
+					  double*					 reverbLevel)
 {
 	conversionBuffer.makeCopyOf (input, true);
 	sidechainBuffer.makeCopyOf (compressorSidechain, true);
@@ -157,8 +157,8 @@ void Reverb::process (juce::AudioBuffer<double>& input,
 
 
 void Reverb::process (juce::AudioBuffer<float>& input,
-                      juce::AudioBuffer<float>& compressorSidechain,
-                      float*                    reverbLevel)
+					  juce::AudioBuffer<float>& compressorSidechain,
+					  float*					reverbLevel)
 {
 	const auto numSamples  = input.getNumSamples();
 	const auto numChannels = std::min (2, input.getNumChannels());
@@ -179,8 +179,8 @@ void Reverb::process (juce::AudioBuffer<float>& input,
 
 		default :
 			reverb.processStereo (workingBuffer.getWritePointer (0),
-			                      workingBuffer.getWritePointer (1),
-			                      numSamples);
+								  workingBuffer.getWritePointer (1),
+								  numSamples);
 	}
 
 	if (reverbLevel != nullptr)
@@ -202,8 +202,8 @@ void Reverb::process (juce::AudioBuffer<float>& input,
 	{
 		// add & write result to workingBuffer
 		juce::FloatVectorOperations::add (workingBuffer.getWritePointer (chan),
-		                                  sidechainBuffer.getReadPointer (chan),
-		                                  numSamples);
+										  sidechainBuffer.getReadPointer (chan),
+										  numSamples);
 
 		buffers::copy (workingBuffer, input);
 	}

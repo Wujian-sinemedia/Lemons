@@ -24,8 +24,8 @@ namespace lemons::tests
 using juce::String;
 
 /** @defgroup lemons_unit_testing Unit testing
-    @ingroup lemons_core
-    Utilities for writing and running unit tests.
+	@ingroup lemons_core
+	Utilities for writing and running unit tests.
  */
 
 /** @ingroup lemons_unit_testing
@@ -68,7 +68,7 @@ protected:
 
 	[[nodiscard]] static int getNumTestingRepetitions();
 
-	[[nodiscard]] static const std::vector<int>    getTestingBlockSizes();
+	[[nodiscard]] static const std::vector<int>	   getTestingBlockSizes();
 	[[nodiscard]] static const std::vector<double> getTestingSamplerates();
 
 	template <typename SampleType>
@@ -89,7 +89,7 @@ private:
 	void endSubtest();
 
 	static constexpr auto indentSize = 4;
-	String                importantMsgIndent { "  " };
+	String				  importantMsgIndent { "  " };
 
 	static Intensity intensity;
 };

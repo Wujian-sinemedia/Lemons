@@ -1,7 +1,7 @@
 namespace New
 {
 State::State()
-    : plugin::State()
+	: plugin::State()
 {
 }
 

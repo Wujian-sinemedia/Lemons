@@ -81,8 +81,8 @@ juce::UnitTest* getUnitTestWithName (const String& name)
 
 
 bool executeUnitTests (Intensity intensityLevel, const File& logOutput, juce::int64 seed,
-                       const String& singleTestName, const String& categoryName,
-                       bool rerunFailed)
+					   const String& singleTestName, const String& categoryName,
+					   bool rerunFailed)
 {
 	jassert (! (singleTestName.isNotEmpty() && categoryName.isNotEmpty()));
 
@@ -91,7 +91,7 @@ bool executeUnitTests (Intensity intensityLevel, const File& logOutput, juce::in
 	struct RAII_FileLogger final : public juce::FileLogger
 	{
 		explicit RAII_FileLogger (const File& output)
-		    : FileLogger (output, "", 0)
+			: FileLogger (output, "", 0)
 		{
 			juce::Logger::setCurrentLogger (this);
 		}

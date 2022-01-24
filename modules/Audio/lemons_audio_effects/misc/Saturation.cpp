@@ -23,20 +23,20 @@ template <typename SampleType>
 inline SampleType saturation_firstPhase (SampleType inputSample, SampleType transferFuncSample)
 {
 	return std::max (-transferFuncSample,
-	                 std::min (inputSample, transferFuncSample));
+					 std::min (inputSample, transferFuncSample));
 }
 
-template float  saturation_firstPhase (float, float);
+template float	saturation_firstPhase (float, float);
 template double saturation_firstPhase (double, double);
 
 template <typename SampleType>
 inline SampleType saturation_secondPhase (SampleType inputSample, SampleType transferFuncSample, SampleType phaseOneSample)
 {
 	return std::tanh ((inputSample - phaseOneSample) / (SampleType (1.) - transferFuncSample))
-	     * (SampleType (1.) - transferFuncSample);
+		 * (SampleType (1.) - transferFuncSample);
 }
 
-template float  saturation_secondPhase (float, float, float);
+template float	saturation_secondPhase (float, float, float);
 template double saturation_secondPhase (double, double, double);
 
 template <typename SampleType>
@@ -44,7 +44,7 @@ SampleType Saturator<SampleType>::processSample (SampleType inputSample)
 {
 	const SampleType amplitude = 1.;
 
-	const auto tf     = transferFunc (amplitude);
+	const auto tf	  = transferFunc (amplitude);
 	const auto sample = inputSample * amplitude;
 
 	const auto p1 = saturation_firstPhase (sample, tf);

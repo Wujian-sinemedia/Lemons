@@ -10,7 +10,7 @@ struct AudioBufferUtilsTests final : public DspTest
 {
 public:
 	explicit AudioBufferUtilsTests()
-	    : DspTest (getDspTestName<FloatType> ("Audio buffer util functions"))
+		: DspTest (getDspTestName<FloatType> ("Audio buffer util functions"))
 	{
 	}
 
@@ -119,8 +119,8 @@ private:
 
 				for (int s = 0; s < numSamples; ++s)
 					expectWithinAbsoluteError (static_cast<FloatType> (samplesB[s]),
-					                           samplesA[s],
-					                           static_cast<FloatType> (0.001));
+											   samplesA[s],
+											   static_cast<FloatType> (0.001));
 			}
 		};
 

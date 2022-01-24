@@ -3,7 +3,7 @@ namespace lemons::dsp::synth
 {
 template <typename SampleType>
 TimbreMod<SampleType>::TimbreMod (const typename SynthBase<SampleType>::TimbreModParams& modSource)
-    : params (modSource)
+	: params (modSource)
 {
 }
 

@@ -39,7 +39,7 @@ private:
 
 	private:
 		Editor& editor;
-		float   x { -1.f }, width { .1f };
+		float	x { -1.f }, width { .1f };
 	};
 
 	struct Attribute
@@ -85,7 +85,7 @@ private:
 	Attributes attributes;
 
 	events::TimerCallback t { [&]
-		                      { timerCallback(); } };
+							  { timerCallback(); } };
 
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (Editor)
 };

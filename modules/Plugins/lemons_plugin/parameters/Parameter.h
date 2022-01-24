@@ -23,65 +23,65 @@ using juce::String;
 using juce::ValueTree;
 
 /** @defgroup lemons_plugin_parameters Parameters
-    @ingroup lemons_plugin
-    Plugin parameter classes and utilities.
+	@ingroup lemons_plugin
+	Plugin parameter classes and utilities.
  */
 
 /** @defgroup fundamental_parameter_types Fundamental parameter types
-    @ingroup lemons_plugin_parameters
-    The basic building blocks for all other kinds of parameters.
+	@ingroup lemons_plugin_parameters
+	The basic building blocks for all other kinds of parameters.
  */
 
 /** @ingroup fundamental_parameter_types
-    A plugin parameter class.
-    @see TypedParameter, ParameterTraits
+	A plugin parameter class.
+	@see TypedParameter, ParameterTraits
  */
 class Parameter : public juce::RangedAudioParameter
 {
 public:
 
 	/** Creates a parameter.
-	    @param paramName The name of this parameter.
-	    @param paramRange The range of values that this parameter can have.
-	    @param paramDefaultValue The default value of this parameter.
-	    @param valueToTextFuncToUse An optional lambda function that converts this parameter's value to a text description.
-	    @param textToValueFuncToUse An optional lambda function that converts a text input string to a value for this parameter.
-	    @param paramLabel An optional label to use for this parameter's units.
-	    @param isAutomatable Boolean flag that indicates whether this parameter should be automatable in the user's DAW.
-	    @param metaParam Boolean flag that indicates whether this parameter represents a "meta-parameter" -- that is, a parameter that controls other parameters.
-	    @param parameterCategory An optional parameter category. See juce::AudioProcessorParameter::Category.
-	 */
-	explicit Parameter (const String&         paramName,
-	                    const ParameterRange& paramRange,
-	                    float                 paramDefaultValue    = 1.f,
-	                    BasicValToStringFunc  valueToTextFuncToUse = nullptr,
-	                    BasicStringToValFunc  textToValueFuncToUse = nullptr,
-	                    const String&         paramLabel           = {},
-	                    bool                  isAutomatable        = true,
-	                    bool                  metaParam            = false,
-	                    ParameterCategory     parameterCategory    = ParameterCategory::genericParameter);
+		@param paramName The name of this parameter.
+		@param paramRange The range of values that this parameter can have.
+		@param paramDefaultValue The default value of this parameter.
+		@param valueToTextFuncToUse An optional lambda function that converts this parameter's value to a text description.
+		@param textToValueFuncToUse An optional lambda function that converts a text input string to a value for this parameter.
+		@param paramLabel An optional label to use for this parameter's units.
+		@param isAutomatable Boolean flag that indicates whether this parameter should be automatable in the user's DAW.
+		@param metaParam Boolean flag that indicates whether this parameter represents a "meta-parameter" -- that is, a parameter that controls other parameters.
+		@param parameterCategory An optional parameter category. See juce::AudioProcessorParameter::Category.
+	*/
+	explicit Parameter (const String&		  paramName,
+						const ParameterRange& paramRange,
+						float				  paramDefaultValue	   = 1.f,
+						BasicValToStringFunc  valueToTextFuncToUse = nullptr,
+						BasicStringToValFunc  textToValueFuncToUse = nullptr,
+						const String&		  paramLabel		   = {},
+						bool				  isAutomatable		   = true,
+						bool				  metaParam			   = false,
+						ParameterCategory	  parameterCategory	   = ParameterCategory::genericParameter);
 
 	/** Creates a parameter from a ParameterTraits object. */
 	explicit Parameter (const ParameterTraits& traits);
 
 	/** Returns the parameter's current value, in a normalized 0-1 range.
-	    @see getDenormalizedValue()
-	 */
+		@see getDenormalizedValue()
+	*/
 	[[nodiscard]] float getNormalizedValue() const noexcept { return currentValue.load(); }
 
 	/** Returns the parameter's current value, in the parameter's denormalized range.
-	    @see getNormalizedValue()
-	 */
+		@see getNormalizedValue()
+	*/
 	[[nodiscard]] float getDenormalizedValue() const noexcept { return denormalize (currentValue.load()); }
 
 	/** Sets the parameter's value, in a normalized 0-1 range.
-	    @see setDenormalizedValue()
-	 */
+		@see setDenormalizedValue()
+	*/
 	void setNormalizedValue (float value);
 
 	/** Sets the parameter's value, in the parameter's denormalized range.
-	    @see setNormalizedValue()
-	 */
+		@see setNormalizedValue()
+	*/
 	void setDenormalizedValue (float value) { setNormalizedValue (normalize (value)); }
 
 	/** Returns this parameter's range object. */
@@ -105,8 +105,8 @@ public:
 	virtual void loadFromValueTree (const ValueTree& tree);
 
 	/** Returns a ParameterTraits object representing this parameter.
-	    An object identical to this one can be recreated using the constructor that takes a ParameterTraits object.
-	 */
+		An object identical to this one can be recreated using the constructor that takes a ParameterTraits object.
+	*/
 	[[nodiscard]] virtual ParameterTraits getParameterTraits() const;
 
 	///@}
@@ -143,8 +143,8 @@ public:
 	void removeMidiControllerMapping() noexcept { setMidiControllerNumber (-1); }
 
 	/** Call this function with each MIDI CC message your plugin receives, and the Parameter class will automatically update itself with changes in the appropriate controller, if a mapping is active.
-	    @returns True if this parameter is mapped to the passed controller number.
-	 */
+		@returns True if this parameter is mapped to the passed controller number.
+	*/
 	bool processNewControllerMessage (int controllerNumber, int controllerValue);
 
 	///@}
@@ -160,23 +160,23 @@ public:
 	void resetToDefault() { setNormalizedValue (getNormalizedDefault()); }
 
 	/** Returns the parameter's default value, in a normalized 0-1 range.
-	    @see getDenormalizedDefault()
-	 */
+		@see getDenormalizedDefault()
+	*/
 	[[nodiscard]] float getNormalizedDefault() const noexcept { return currentDefault.load(); }
 
 	/** Returns the parameter's default value, in the parameter's denormalized range.
-	    @see getNormalizedDefault()
-	 */
+		@see getNormalizedDefault()
+	*/
 	[[nodiscard]] float getDenormalizedDefault() const noexcept { return denormalize (getNormalizedDefault()); }
 
 	/** Sets the parameter's default, in a normalized 0-1 range.
-	    @see setDenormalizedDefault()
-	 */
+		@see setDenormalizedDefault()
+	*/
 	void setNormalizedDefault (float value);
 
 	/** Sets the parameter's default, in the parameter's denormalized range.
-	    @see setNormalizedDefault()
-	 */
+		@see setNormalizedDefault()
+	*/
 	void setDenormalizedDefault (float value) { setNormalizedDefault (normalize (value)); }
 
 	///@}
@@ -186,26 +186,26 @@ public:
 	///@{
 
 	/** Returns a textual description of a normalized value in the range 0-1.
-	    @see getTextForDenormalizedValue()
-	 */
+		@see getTextForDenormalizedValue()
+	*/
 	[[nodiscard]] String getTextForNormalizedValue (float value) const { return valueToTextFunc (value); }
 
 	/** Returns a textual description of a value in the parameter's denormalized range.
-	    @see getTextForNormalizedValue()
-	 */
+		@see getTextForNormalizedValue()
+	*/
 	[[nodiscard]] String getTextForDenormalizedValue (float value) const { return getTextForNormalizedValue (normalize (value)); }
 
 	/** Returns a textual representation of the parameter's current value. */
 	[[nodiscard]] String getTextForCurrentValue() const { return valueToTextFunc (currentValue.load()); }
 
 	/** Returns a textual description of the parameter's maximum value.
-	    @see getTextForMin()
-	 */
+		@see getTextForMin()
+	*/
 	[[nodiscard]] String getTextForMax() const { return getTextForDenormalizedValue (range.end); }
 
 	/** Returns a textual description of the parameter's minimum value.
-	    @see getTextForMax()
-	 */
+		@see getTextForMax()
+	*/
 	[[nodiscard]] String getTextForMin() const { return getTextForDenormalizedValue (range.start); }
 
 	///@}
@@ -217,8 +217,8 @@ public:
 	struct Listener
 	{
 		/** Constructs a listener that listens to a specified Parameter.
-		    Unlike the JUCE listeners' API, this class handles its own RAII with registering and deregistering itself for updates from the parameter.
-		 */
+			Unlike the JUCE listeners' API, this class handles its own RAII with registering and deregistering itself for updates from the parameter.
+		*/
 		explicit Listener (Parameter& paramToUse);
 
 		/** Destructor. */
@@ -234,8 +234,8 @@ public:
 		virtual void parameterDefaultChanged (float newNormalizedDefault);
 
 		/** Called when the MIDI controller that the parameter is mapped to changes.
-		    Note that when the parameter's MIDI CC mapping is removed, this function will be called in the listeners with a value of -1 for the controller number.
-		 */
+			Note that when the parameter's MIDI CC mapping is removed, this function will be called in the listeners with a value of -1 for the controller number.
+		*/
 		virtual void controllerNumberChanged (int newControllerNumber);
 
 	private:
@@ -250,11 +250,11 @@ public:
 	struct LambdaListener final : public Listener
 	{
 		explicit LambdaListener (Parameter& parameter,
-		                         std::function<void (float)>
-		                                                     valueChanged,
-		                         std::function<void (float)> defaultChanged        = nullptr,
-		                         std::function<void (bool)>  gestureChanged        = nullptr,
-		                         std::function<void (int)>   midiControllerChanged = nullptr);
+								 std::function<void (float)>
+															 valueChanged,
+								 std::function<void (float)> defaultChanged		   = nullptr,
+								 std::function<void (bool)>	 gestureChanged		   = nullptr,
+								 std::function<void (int)>	 midiControllerChanged = nullptr);
 
 	private:
 		void parameterValueChanged (float newNormalizedValue) final;
@@ -263,8 +263,8 @@ public:
 		void controllerNumberChanged (int newControllerNumber) final;
 
 		std::function<void (float)> valueChangeFunc, defaultChangeFunc;
-		std::function<void (bool)>  gestureChangeFunc;
-		std::function<void (int)>   controllerChangeFunc;
+		std::function<void (bool)>	gestureChangeFunc;
+		std::function<void (int)>	controllerChangeFunc;
 	};
 
 	/*---------------------------------------------------------------------------------------------------------------------------*/

@@ -28,7 +28,7 @@ template String DspTest::getDspTestName<double> (const String&);
 
 
 DspTest::DspTest (const String& testName)
-    : Test (testName, "DSP")
+	: Test (testName, "DSP")
 {
 }
 

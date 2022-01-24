@@ -10,7 +10,7 @@ SmoothedGain<SampleType, channels>::SmoothedGain()
 
 template <typename SampleType, size_t channels>
 SmoothedGain<SampleType, channels>::SmoothedGain (float gain)
-    : SmoothedGain()
+	: SmoothedGain()
 {
 	setGain (gain);
 }
@@ -37,8 +37,8 @@ void SmoothedGain<SampleType, channels>::process (AudioBuffer<SampleType>& audio
 	const auto numSamples = audio.getNumSamples();
 
 	for (int chan = 0;
-	     chan < std::min (static_cast<int> (channels), audio.getNumChannels());
-	     ++chan)
+		 chan < std::min (static_cast<int> (channels), audio.getNumChannels());
+		 ++chan)
 	{
 		smoothers[chan]->applyGain (audio.getWritePointer (chan), numSamples);
 	}

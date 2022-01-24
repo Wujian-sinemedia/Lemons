@@ -19,7 +19,7 @@ namespace lemons::plugin
 
 template <typename SampleType>
 ProcessorEngine<SampleType>::ProcessorEngine (juce::AudioProcessor& processor)
-    : processorHolder (processor)
+	: processorHolder (processor)
 {
 	if constexpr (std::is_same_v<SampleType, double>)
 	{

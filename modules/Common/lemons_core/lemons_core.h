@@ -38,8 +38,8 @@
 //==============================================================================
 /** Config: LEMONS_UNIT_TESTS
 
-    Set this to 1 to build the Lemons unit tests.
-    The Lemons repo's cmake scripts set this automatically for you; if that's how you added the Lemons package, then you don't need to worry about setting this manually.
+	Set this to 1 to build the Lemons unit tests.
+	The Lemons repo's cmake scripts set this automatically for you; if that's how you added the Lemons package, then you don't need to worry about setting this manually.
  */
 #ifndef LEMONS_UNIT_TESTS
 #  define LEMONS_UNIT_TESTS 0
@@ -49,8 +49,8 @@
 //==============================================================================
 /** Config: LEMONS_HAS_BINARY_DATA
 
-    Set this to 1 if your project has a juce BinaryData target.
-    The Lemons repo's cmake scripts set this automatically for you; if that's how you added the Lemons package, then you don't need to worry about setting this manually.
+	Set this to 1 if your project has a juce BinaryData target.
+	The Lemons repo's cmake scripts set this automatically for you; if that's how you added the Lemons package, then you don't need to worry about setting this manually.
  */
 #ifndef LEMONS_HAS_BINARY_DATA
 #  if __has_include("BinaryData/BinaryData.h")

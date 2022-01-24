@@ -4,7 +4,7 @@ namespace lemons::dsp::osc
 {
 
 template <typename SampleType, template <typename T> class OscType,
-          LEMONS_MUST_INHERIT_FROM (OscType<SampleType>, Oscillator<SampleType>)>
+		  LEMONS_MUST_INHERIT_FROM (OscType<SampleType>, Oscillator<SampleType>)>
 class Engine : public dsp::StreamEngine<SampleType, OscType>
 {
 public:
@@ -18,7 +18,7 @@ public:
 
 		frequency = freqHz;
 
-		const auto sr   = static_cast<SampleType> (this->getSamplerate());
+		const auto sr	= static_cast<SampleType> (this->getSamplerate());
 		const auto freq = static_cast<SampleType> (frequency);
 
 		for (auto* osc : this->streams)

@@ -8,8 +8,8 @@ namespace lemons::dsp
 template <typename SampleType>
 class SynthVoiceBase
 {
-	using uint32     = juce::uint32;
-	using ADSR       = juce::ADSR;
+	using uint32	 = juce::uint32;
+	using ADSR		 = juce::ADSR;
 	using ADSRParams = juce::ADSR::Parameters;
 
 public:
@@ -62,9 +62,9 @@ protected:
 	friend class synth::MidiManager<SampleType>;
 
 	/*
-	        Called in the subclass to actually generate some audio at the desired frequency.
-	        The output buffer sent to this function will contain the number of samples desired for this frame, and your output samples should start at index 0.
-	    */
+			Called in the subclass to actually generate some audio at the desired frequency.
+			The output buffer sent to this function will contain the number of samples desired for this frame, and your output samples should start at index 0.
+		*/
 	virtual void renderPlease (AudioBuffer<SampleType>& output, float desiredFrequency, double currentSamplerate) = 0;
 
 	virtual void prepared (double /*samplerate*/, int /*blocksize*/) { }
@@ -79,18 +79,18 @@ protected:
 	virtual void newBlockComing (int /*previousBlocksize*/, int /*upcomingBlocksize*/) { }
 
 	/*=================================================================================
-	     =================================================================================*/
+		 =================================================================================*/
 
 private:
 	void renderInternal (int totalNumSamples);
 
-	void startNote (const int    midiPitch,
-	                const float  velocity,
-	                const uint32 noteOnTimestamp,
-	                const bool   keyboardKeyIsDown = true,
-	                const bool   isPedal           = false,
-	                const bool   isDescant         = false,
-	                const int    midichannel       = -1);
+	void startNote (const int	 midiPitch,
+					const float	 velocity,
+					const uint32 noteOnTimestamp,
+					const bool	 keyboardKeyIsDown = true,
+					const bool	 isPedal		   = false,
+					const bool	 isDescant		   = false,
+					const int	 midichannel	   = -1);
 
 	void stopNote (const float velocity, const bool allowTailOff);
 
@@ -122,7 +122,7 @@ private:
 
 	bool isPedalPitchVoice { false }, isDescantVoice { false }, isDoubledByAutomatedVoice { false };
 
-	int    currentlyPlayingNote { -1 }, currentAftertouch { 0 }, midiChannel { 1 };
+	int	   currentlyPlayingNote { -1 }, currentAftertouch { 0 }, midiChannel { 1 };
 	float  lastReceivedVelocity { 0 };
 	double pitchGlideTimeSecs { 0.4 };
 

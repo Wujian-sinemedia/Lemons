@@ -18,7 +18,7 @@ namespace lemons::tests
 {
 
 MidiTest::MidiTest (const String& testName)
-    : Test (testName, "MIDI")
+	: Test (testName, "MIDI")
 {
 }
 
@@ -28,11 +28,11 @@ void fillMidiBufferWithRandomEvents (MidiBuffer& buffer, int numEvents, juce::Ra
 
 	for (int i = 0; i < numEvents; ++i)
 		buffer.addEvent (juce::MidiMessage::controllerEvent (1, rng.nextInt (128), rng.nextInt (128)),
-		                 i);
+						 i);
 }
 
 bool midiBuffersAreEqual (const MidiBuffer& buffer1,
-                          const MidiBuffer& buffer2)
+						  const MidiBuffer& buffer2)
 {
 	if (buffer1.getNumEvents() != buffer2.getNumEvents())
 		return false;
@@ -44,8 +44,8 @@ bool midiBuffersAreEqual (const MidiBuffer& buffer1,
 		return false;
 
 	for (auto it1 = buffer1.begin(), it2 = buffer2.begin();
-	     it1 != buffer1.end() && it2 != buffer2.end();
-	     ++it1, ++it2)
+		 it1 != buffer1.end() && it2 != buffer2.end();
+		 ++it1, ++it2)
 	{
 		auto meta1 = *it1;
 		auto meta2 = *it2;
@@ -65,7 +65,7 @@ MidiBuffer makeCopyOfMidiBuffer (const MidiBuffer& inputBuffer)
 	MidiBuffer newBuffer;
 
 	if (const auto numSamples = inputBuffer.getLastEventTime();
-	    numSamples > 0)
+		numSamples > 0)
 	{
 		newBuffer.addEvents (inputBuffer, 0, numSamples, 0);
 		jassert (! newBuffer.isEmpty());

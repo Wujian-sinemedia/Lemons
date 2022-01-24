@@ -43,13 +43,13 @@ int main (int argc, char** argv)
 		style |= juce::Font::underlined;
 
 	const juce::Font font { args["--name|-n"],
-		                    args.getArgumentAsType<float> ("--size|-s"),
-		                    style };
+							args.getArgumentAsType<float> ("--size|-s"),
+							style };
 
 	const auto res = lemons::files::saveFont (font,
-	                                          args.getFilepathForOption ("--file|-f"),
-	                                          args.getArgumentAsType<int> ("--chars|-c"),
-	                                          args.getArgumentAsType<juce::juce_wchar> ("--default|-d"));
+											  args.getFilepathForOption ("--file|-f"),
+											  args.getArgumentAsType<int> ("--chars|-c"),
+											  args.getArgumentAsType<juce::juce_wchar> ("--default|-d"));
 
 	if (res)
 		return EXIT_SUCCESS;

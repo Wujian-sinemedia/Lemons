@@ -11,7 +11,7 @@ DeEsser<SampleType>::DeEsser()
 
 template <typename SampleType>
 DeEsser<SampleType>::DeEsser (float threshDB, int deEssAmount)
-    : DeEsser()
+	: DeEsser()
 {
 	gate.setThreshold (threshDB);
 	setDeEssAmount (deEssAmount);
@@ -54,10 +54,10 @@ void DeEsser<SampleType>::setDeEssAmount (int newAmount)
 }
 
 template <typename SampleType>
-SampleType DeEsser<SampleType>::processChannel (int               channel,
-                                                int               numSamples,
-                                                SampleType*       signalToDeEss,
-                                                const SampleType* sidechain)
+SampleType DeEsser<SampleType>::processChannel (int				  channel,
+												int				  numSamples,
+												SampleType*		  signalToDeEss,
+												const SampleType* sidechain)
 {
 	filter.processChannel (channel, signalToDeEss, numSamples);
 

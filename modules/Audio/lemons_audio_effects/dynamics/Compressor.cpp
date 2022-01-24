@@ -13,8 +13,8 @@ template <typename SampleType>
 Compressor<SampleType>::Compressor (float thresh, float ratioToUse, float attackMs, float releaseMs)
 {
 	thresholddB = static_cast<SampleType> (thresh);
-	ratio       = static_cast<SampleType> (ratioToUse);
-	attackTime  = static_cast<SampleType> (attackMs);
+	ratio		= static_cast<SampleType> (ratioToUse);
+	attackTime	= static_cast<SampleType> (attackMs);
 	releaseTime = static_cast<SampleType> (releaseMs);
 
 	spec.numChannels = 2;
@@ -27,7 +27,7 @@ void Compressor<SampleType>::prepare (double samplerate, int blocksize)
 {
 	jassert (samplerate > 0);
 
-	spec.sampleRate       = samplerate;
+	spec.sampleRate		  = samplerate;
 	spec.maximumBlockSize = static_cast<juce::uint32> (blocksize);
 
 	envelopeFilter.prepare (spec);
@@ -37,15 +37,15 @@ void Compressor<SampleType>::prepare (double samplerate, int blocksize)
 }
 
 template <typename SampleType>
-SampleType Compressor<SampleType>::processChannel (int               channel,
-                                                   int               numSamples,
-                                                   SampleType*       signalToCompress,
-                                                   const SampleType* sidechain)
+SampleType Compressor<SampleType>::processChannel (int				 channel,
+												   int				 numSamples,
+												   SampleType*		 signalToCompress,
+												   const SampleType* sidechain)
 {
 	if (numSamples == 0) return static_cast<SampleType> (0);
 
 	SampleType avgGainReduction = 0;
-	SampleType gainRedux        = 0;
+	SampleType gainRedux		= 0;
 
 	for (int s = 0; s < numSamples; ++s)
 	{
@@ -58,19 +58,19 @@ SampleType Compressor<SampleType>::processChannel (int               channel,
 }
 
 template <typename SampleType>
-SampleType Compressor<SampleType>::processSample (int         channel,
-                                                  SampleType  inputSample,
-                                                  SampleType  sidechainSample,
-                                                  SampleType* gainReduction)
+SampleType Compressor<SampleType>::processSample (int		  channel,
+												  SampleType  inputSample,
+												  SampleType  sidechainSample,
+												  SampleType* gainReduction)
 {
 	auto env = envelopeFilter.processSample (
-	    channel,
-	    sidechainSample);  // Ballistics filter with peak rectifier
+		channel,
+		sidechainSample);  // Ballistics filter with peak rectifier
 
 	// VCA
 	auto gain = (env < threshold) ? SampleType (1.0)
-	                              : std::pow (env * thresholdInverse,
-	                                          ratioInverse - SampleType (1.0));
+								  : std::pow (env * thresholdInverse,
+											  ratioInverse - SampleType (1.0));
 
 	if (gainReduction != nullptr)  // report gain reduction, if requested
 		*gainReduction = gain;
@@ -119,10 +119,10 @@ template <typename SampleType>
 void Compressor<SampleType>::update()
 {
 	threshold = juce::Decibels::decibelsToGain (
-	    thresholddB,
-	    static_cast<SampleType> (-200.0));
+		thresholddB,
+		static_cast<SampleType> (-200.0));
 	thresholdInverse = static_cast<SampleType> (1.0) / threshold;
-	ratioInverse     = static_cast<SampleType> (1.0) / ratio;
+	ratioInverse	 = static_cast<SampleType> (1.0) / ratio;
 
 	envelopeFilter.setAttackTime (attackTime);
 	envelopeFilter.setReleaseTime (releaseTime);

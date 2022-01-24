@@ -19,8 +19,8 @@ namespace lemons::math
 {
 
 /** @addtogroup lemons_math Math
-    @ingroup lemons_core
-    Math utility functions.
+	@ingroup lemons_core
+	Math utility functions.
 
  @{
  */

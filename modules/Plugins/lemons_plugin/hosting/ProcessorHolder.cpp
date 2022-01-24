@@ -17,7 +17,7 @@ namespace lemons::plugin
 {
 
 ProcessorHolder::ProcessorHolder (juce::AudioProcessor& processorToUse)
-    : processor (processorToUse)
+	: processor (processorToUse)
 {
 }
 

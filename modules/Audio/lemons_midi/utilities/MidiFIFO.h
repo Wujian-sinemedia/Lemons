@@ -20,8 +20,8 @@ namespace lemons::midi
 {
 
 /** @ingroup lemons_midi
-    A FIFO for storing MIDI events.
-    @see AudioAndMidiFIFO
+	A FIFO for storing MIDI events.
+	@see AudioAndMidiFIFO
  */
 class MidiFIFO final
 {
@@ -39,13 +39,13 @@ public:
 	void popEvents (MidiBuffer& output, int numSamples);
 
 	/** Returns the number of MIDI messages currently stored in the FIFO.
-	    @see numStoredSamples()
-	 */
+		@see numStoredSamples()
+	*/
 	[[nodiscard]] int numStoredEvents() const noexcept;
 
 	/** Returns the number of samples that the FIFO's stored messages represent. Note that this may be different than the actual number of messages stored.
-	    @see numStoredEvents()
-	 */
+		@see numStoredEvents()
+	*/
 	[[nodiscard]] int numStoredSamples() const noexcept;
 
 	/** Changes the capacity of the FIFO. Calling this method clears any previously stored data from the FIFO. */

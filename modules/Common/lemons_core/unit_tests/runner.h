@@ -41,9 +41,9 @@ private:
 
 /** @ingroup lemons_unit_testing
  */
-[[nodiscard]] bool executeUnitTests (Intensity   intensityLevel = Intensity::Medium,
-                                     const File& logOutput = {}, juce::int64 seed = juce::Random::getSystemRandom().nextInt64(),
-                                     const String& singleTestName = {}, const String& categoryName = {},
-                                     bool rerunFailed = false);
+[[nodiscard]] bool executeUnitTests (Intensity	 intensityLevel = Intensity::Medium,
+									 const File& logOutput = {}, juce::int64 seed = juce::Random::getSystemRandom().nextInt64(),
+									 const String& singleTestName = {}, const String& categoryName = {},
+									 bool rerunFailed = false);
 
 }  // namespace lemons::tests

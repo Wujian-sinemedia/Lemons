@@ -18,7 +18,7 @@ namespace lemons::plugin
 {
 
 MetaParameterBase::MetaParameterBase (const ParameterList& parameterListToUse)
-    : parameterList (parameterListToUse)
+	: parameterList (parameterListToUse)
 {
 }
 
@@ -135,12 +135,12 @@ void MetaParameterBase::loadConnectionsFromValueTree (const ValueTree& tree)
 namespace ConnectionVTproperties
 {
 static constexpr auto parameterID = "parameter_id";
-static constexpr auto minAmount   = "minimum_amount";
-static constexpr auto maxAmount   = "maximum_amount";
+static constexpr auto minAmount	  = "minimum_amount";
+static constexpr auto maxAmount	  = "maximum_amount";
 }  // namespace ConnectionVTproperties
 
 MetaParameterBase::Connection::Connection (const ParameterList& list)
-    : paramList (list)
+	: paramList (list)
 {
 }
 
@@ -212,8 +212,8 @@ void MetaParameterBase::Connection::editMapping (Parameter& param, float minimum
 	jassert (param.isAutomatable());
 
 	parameter = &param;
-	min       = minimum;
-	max       = maximum;
+	min		  = minimum;
+	max		  = maximum;
 }
 
 void MetaParameterBase::Connection::removeMapping()
@@ -227,28 +227,28 @@ void MetaParameterBase::Connection::removeMapping()
 
 template <typename ValueType>
 MetaParameter<ValueType>::MetaParameter (
-    const ParameterList& parameterListToUse,
-    ValueType minimum, ValueType maximum, ValueType defaultValue,
-    const String&              paramName,
-    ValToStringFunc<ValueType> stringFromValue,
-    StringToValFunc<ValueType> valueFromString,
-    const String& paramLabel, bool isAutomatable,
-    ParameterCategory parameterCategory)
-    : TypedParameter<ValueType> (minimum, maximum, defaultValue, paramName, stringFromValue, valueFromString, paramLabel, isAutomatable, true, parameterCategory)
-    , MetaParameterBase (parameterListToUse)
+	const ParameterList& parameterListToUse,
+	ValueType minimum, ValueType maximum, ValueType defaultValue,
+	const String&			   paramName,
+	ValToStringFunc<ValueType> stringFromValue,
+	StringToValFunc<ValueType> valueFromString,
+	const String& paramLabel, bool isAutomatable,
+	ParameterCategory parameterCategory)
+	: TypedParameter<ValueType> (minimum, maximum, defaultValue, paramName, stringFromValue, valueFromString, paramLabel, isAutomatable, true, parameterCategory)
+	, MetaParameterBase (parameterListToUse)
 {
 }
 
 template <typename ValueType>
 MetaParameter<ValueType>::MetaParameter (const ParameterTraits& traits, const ParameterList& parameterListToUse)
-    : MetaParameter (
-        parameterListToUse,
-        static_cast<ValueType> (traits.range.start), static_cast<ValueType> (traits.range.end), static_cast<ValueType> (traits.defaultValue), traits.name,
-        detail::convertValToStringFuncToTyped<ValueType> (traits.valueToText, traits.label),
-        detail::convertStringToValFuncToTyped<ValueType> (traits.textToValue),
-        traits.label,
-        traits.isAutomatable,
-        traits.category)
+	: MetaParameter (
+		parameterListToUse,
+		static_cast<ValueType> (traits.range.start), static_cast<ValueType> (traits.range.end), static_cast<ValueType> (traits.defaultValue), traits.name,
+		detail::convertValToStringFuncToTyped<ValueType> (traits.valueToText, traits.label),
+		detail::convertStringToValFuncToTyped<ValueType> (traits.textToValue),
+		traits.label,
+		traits.isAutomatable,
+		traits.category)
 {
 }
 
@@ -290,8 +290,8 @@ const Parameter& MetaParameter<ValueType>::getParameter() const
 
 template <typename ValueType>
 MetaParameter<ValueType>::Updater::Updater (MetaParameter& paramToUse)
-    : Parameter::Listener (paramToUse)
-    , metaParam (paramToUse)
+	: Parameter::Listener (paramToUse)
+	, metaParam (paramToUse)
 {
 }
 

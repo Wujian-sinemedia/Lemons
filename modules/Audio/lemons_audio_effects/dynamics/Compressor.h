@@ -4,9 +4,9 @@
 namespace lemons::dsp::FX
 {
 /**
-    A simple compressor effect class that allows you to optionally sidechain the signal.
-    This class is essentially a refactor of the compressor class from the juce dsp module, with the sidechaining capabilities added.
-    @see LevelReportingAudioEffect, AudioEffect
+	A simple compressor effect class that allows you to optionally sidechain the signal.
+	This class is essentially a refactor of the compressor class from the juce dsp module, with the sidechaining capabilities added.
+	@see LevelReportingAudioEffect, AudioEffect
  */
 template <typename SampleType>
 class Compressor : public LevelReportingAudioEffect<SampleType>
@@ -23,29 +23,29 @@ public:
 
 
 	/** Processes a single channel of audio.
-	    @param channel The channel number that this input sample is from, in the original buffer.
-	    @param numSamples The number of samples to process.
-	    @param signalToCompress Pointer to contiguous uncompressed input sample values.
-	    @param sidechain Pointer to contiguous sidechain signal values.
-	    @return The gain reduction amount for this frame of this channel's audio.
-	 */
-	SampleType processChannel (int               channel,
-	                           int               numSamples,
-	                           SampleType*       signalToCompress,
-	                           const SampleType* sidechain) final;
+		@param channel The channel number that this input sample is from, in the original buffer.
+		@param numSamples The number of samples to process.
+		@param signalToCompress Pointer to contiguous uncompressed input sample values.
+		@param sidechain Pointer to contiguous sidechain signal values.
+		@return The gain reduction amount for this frame of this channel's audio.
+	*/
+	SampleType processChannel (int				 channel,
+							   int				 numSamples,
+							   SampleType*		 signalToCompress,
+							   const SampleType* sidechain) final;
 
 
 	/** Processes a single sample.
-	    @param channel The channel number that this input sample is from, in the original buffer.
-	    @param inputSample The value of the uncompressed input sample.
-	    @param sidechainSample The value of the sidechain sample.
-	    @param gainReduction Pointer to where to write the gain reduction value for this sample. This may be null.
-	    @return The output compressed sample.
-	 */
-	SampleType processSample (int         channel,
-	                          SampleType  inputSample,
-	                          SampleType  sidechainSample,
-	                          SampleType* gainReduction);
+		@param channel The channel number that this input sample is from, in the original buffer.
+		@param inputSample The value of the uncompressed input sample.
+		@param sidechainSample The value of the sidechain sample.
+		@param gainReduction Pointer to where to write the gain reduction value for this sample. This may be null.
+		@return The output compressed sample.
+	*/
+	SampleType processSample (int		  channel,
+							  SampleType  inputSample,
+							  SampleType  sidechainSample,
+							  SampleType* gainReduction);
 
 	/** Sets the threshold, in decidebls, of the compressor. */
 	void setThreshold (float newThresh_dB);
@@ -66,12 +66,12 @@ public:
 private:
 	void update();
 
-	SampleType                              threshold { 0. }, thresholdInverse { 0. }, ratioInverse { 0. };
+	SampleType								threshold { 0. }, thresholdInverse { 0. }, ratioInverse { 0. };
 	juce::dsp::BallisticsFilter<SampleType> envelopeFilter;
 
 	juce::dsp::ProcessSpec spec;
 
-	double     sampleRate { 44100.0 };
+	double	   sampleRate { 44100.0 };
 	SampleType thresholddB { 0.0 }, ratio { 1.0 }, attackTime { 1.0 }, releaseTime { 100.0 };
 };
 

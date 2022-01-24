@@ -8,7 +8,7 @@ namespace lemons::tests
 struct RangeTests final : public CoreTest
 {
 	explicit RangeTests()
-	    : CoreTest ("Ranges tests")
+		: CoreTest ("Ranges tests")
 	{
 	}
 

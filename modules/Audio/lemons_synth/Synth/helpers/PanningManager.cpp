@@ -72,7 +72,7 @@ void PanningManager<SampleType>::setLowestNote (int newLowestNote)
 	{
 		if (! voice->isVoiceActive()) continue;
 
-		const auto note       = voice->getCurrentlyPlayingNote();
+		const auto note		  = voice->getCurrentlyPlayingNote();
 		const auto currentPan = voice->getCurrentMidiPan();
 
 		if (note < newLowestNote)
@@ -100,11 +100,11 @@ void PanningManager<SampleType>::updatePanValueLookupTables (int newWidth)
 	jassert (numVoices > 0);
 
 	const auto rangeMultiplier = newWidth * 0.01f;
-	const auto range_extent    = 63.5f * rangeMultiplier;
-	const auto maxPan          = 63.5f + range_extent;
-	const auto minPan          = 63.5f - range_extent;
+	const auto range_extent	   = 63.5f * rangeMultiplier;
+	const auto maxPan		   = 63.5f + range_extent;
+	const auto minPan		   = 63.5f - range_extent;
 	jassert (maxPan <= 127.0f && minPan >= 0.0f);
-	const auto increment     = (maxPan - minPan) / numVoices;
+	const auto increment	 = (maxPan - minPan) / numVoices;
 	const auto halfIncrement = increment * 0.5f;
 
 	possiblePanVals.clearQuick();
@@ -172,7 +172,7 @@ void PanningManager<SampleType>::panValTurnedOff (int panVal)
 
 	const int targetindex = panValsInAssigningOrder.indexOf (panVal);
 
-	if (targetindex == -1)  // targetindex will be -1 if the turned off pan val is not in panValsInAssigningOrder. in this case, do nothing.
+	if (targetindex == -1)	// targetindex will be -1 if the turned off pan val is not in panValsInAssigningOrder. in this case, do nothing.
 		return;
 
 	if (unsentPanVals.isEmpty())
@@ -181,7 +181,7 @@ void PanningManager<SampleType>::panValTurnedOff (int panVal)
 		return;
 	}
 
-	int  i       = 0;
+	int	 i		 = 0;
 	bool addedIt = false;
 
 	do
@@ -250,7 +250,7 @@ void PanningManager<SampleType>::mapArrayIndexes()
 
 	while (i < numVoices)
 	{
-		if (i % 2 == 0)  // i is even
+		if (i % 2 == 0)	 // i is even
 		{
 			const int newI = middleIndex + p;
 
@@ -286,7 +286,7 @@ int PanningManager<SampleType>::findClosestValueInNewArray (int targetValue, Arr
 	}
 
 	return newArray.removeAndReturn (
-	    static_cast<int> (std::distance (distances.begin(), std::min_element (distances.begin(), distances.end()))));
+		static_cast<int> (std::distance (distances.begin(), std::min_element (distances.begin(), distances.end()))));
 }
 
 template class PanningManager<float>;

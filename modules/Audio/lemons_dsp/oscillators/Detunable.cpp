@@ -3,15 +3,15 @@ namespace lemons::dsp::osc
 
 template <typename SampleType>
 DetunableBase<SampleType>::DetunableBase (ConstructedArray<Oscillator<SampleType>>& arrayToUse)
-    : Oscillator<SampleType> ([this]
-                              {
-    auto sample = SampleType (0);
+	: Oscillator<SampleType> ([this]
+							  {
+	auto sample = SampleType (0);
 
-    for (auto* osc : oscillators)
-        sample += osc->getSample();
+	for (auto* osc : oscillators)
+		sample += osc->getSample();
 
-    return sample; })
-    , oscillators (arrayToUse)
+	return sample; })
+	, oscillators (arrayToUse)
 {
 }
 
@@ -28,11 +28,11 @@ void DetunableBase<SampleType>::setFrequency (SampleType frequency, SampleType s
 	jassert (! oscillators->isEmpty());
 
 	lastFrequency = frequency;
-	samplerate    = sampleRate;
+	samplerate	  = sampleRate;
 
 	const auto spreadSemitones = static_cast<SampleType> (totalSpreadCents) * SampleType (0.01);
-	const auto increment       = spreadSemitones / static_cast<SampleType> (oscillators->size());
-	const auto centerPitch     = math::freqToMidi (frequency);
+	const auto increment	   = spreadSemitones / static_cast<SampleType> (oscillators->size());
+	const auto centerPitch	   = math::freqToMidi (frequency);
 
 	auto lowBound = centerPitch - (spreadSemitones * SampleType (0.5));
 

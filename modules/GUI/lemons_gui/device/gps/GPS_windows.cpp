@@ -45,22 +45,22 @@ GPSLocation GPSLocation::getCurrentLocation()
 	}
 
 	ComSmartPtr<ILatLongReport> latLongReport;
-	double                      latitude = 0.0, longitude = 0.0, altitude = 0.0;
+	double						latitude = 0.0, longitude = 0.0, altitude = 0.0;
 
 	auto parseReport = [&]() -> bool
 	{
 		return latLongReport != nullptr
-		    && SUCCEEDED (latLongReport->GetLatitude (&latitude))
-		    && SUCCEEDED (latLongReport->GetLongitude (&longitude))
-		    && SUCCEEDED (latLongReport->GetAltitude (&altitude));
+			&& SUCCEEDED (latLongReport->GetLatitude (&latitude))
+			&& SUCCEEDED (latLongReport->GetLongitude (&longitude))
+			&& SUCCEEDED (latLongReport->GetAltitude (&altitude));
 	};
 
 	// Attempt getting the most up to date location:
 	ComSmartPtr<ILocationReport> locationReport;
 
 	if (SUCCEEDED (ilocation->GetReport (IID_ILatLongReport, locationReport.resetAndGetPointerAddress()))
-	    && SUCCEEDED (locationReport->QueryInterface (latLongReport.resetAndGetPointerAddress()))
-	    && parseReport())
+		&& SUCCEEDED (locationReport->QueryInterface (latLongReport.resetAndGetPointerAddress()))
+		&& parseReport())
 	{
 		return GPSLocation (latitude, longitude, altitude);
 	}
@@ -69,8 +69,8 @@ GPSLocation GPSLocation::getCurrentLocation()
 	ComSmartPtr<IDefaultLocation> defaultLocation;
 
 	if (SUCCEEDED (defaultLocation.CoCreateInstance (CLSID_DefaultLocation))
-	    && SUCCEEDED (defaultLocation->QueryInterface (latLongReport.resetAndGetPointerAddress()))
-	    && parseReport())
+		&& SUCCEEDED (defaultLocation->QueryInterface (latLongReport.resetAndGetPointerAddress()))
+		&& parseReport())
 	{
 		return GPSLocation (latitude, longitude, altitude);
 	}

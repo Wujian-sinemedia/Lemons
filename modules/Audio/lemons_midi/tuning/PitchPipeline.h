@@ -16,7 +16,7 @@ struct PitchPipeline
 	void reset();
 
 	PitchBendTracker bend;
-	MtsClient        tuning;
+	MtsClient		 tuning;
 };
 
 }  // namespace lemons::midi

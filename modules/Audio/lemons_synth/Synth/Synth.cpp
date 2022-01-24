@@ -81,11 +81,11 @@ void SynthBase<SampleType>::releaseResources()
 
 
 /*=========================================================================================================
-          _    _ _____ _____ ____     _____  ______ _   _ _____  ______ _____  _____ _   _  _____
-     /\  | |  | |  __ \_   _/ __ \   |  __ \|  ____| \ | |  __ \|  ____|  __ \|_   _| \ | |/ ____|
-    /  \ | |  | | |  | || || |  | |  | |__) | |__  |  \| | |  | | |__  | |__) | | | |  \| | |  __
-   / /\ \| |  | | |  | || || |  | |  |  _  /|  __| | . ` | |  | |  __| |  _  /  | | | . ` | | |_ |
-  / ____ \ |__| | |__| || || |__| |  | | \ \| |____| |\  | |__| | |____| | \ \ _| |_| |\  | |__| |
+		_    _ _____ _____ ____     _____  ______ _   _ _____  ______ _____  _____ _   _  _____
+	/\  | |  | |  __ \_   _/ __ \   |  __ \|  ____| \ | |  __ \|  ____|  __ \|_   _| \ | |/ ____|
+	/  \ | |  | | |  | || || |  | |  | |__) | |__  |  \| | |  | | |__  | |__) | | | |  \| | |  __
+	/ /\ \| |  | | |  | || || |  | |  |  _  /|  __| | . ` | |  | |  __| |  _  /  | | | . ` | | |_ |
+	/ ____ \ |__| | |__| || || |__| |  | | \ \| |____| |\  | |__| | |____| | \ \ _| |_| |\  | |__| |
  /_/    \_\____/|_____/_____\____/   |_|  \_\______|_| \_|_____/|______|_|  \_\_____|_| \_|\_____|
 
  Functions for audio rendering
@@ -216,9 +216,9 @@ template <typename SampleType>
 SynthVoiceBase<SampleType>* SynthBase<SampleType>::getVoicePlayingNote (int midiPitch) const
 {
 	auto it = std::find_if (voices.begin(),
-	                        voices.end(),
-	                        [&midiPitch] (SynthVoiceBase<SampleType>* voice)
-	                        { return voice->isVoiceActive() && voice->getCurrentlyPlayingNote() == midiPitch; });
+							voices.end(),
+							[&midiPitch] (SynthVoiceBase<SampleType>* voice)
+							{ return voice->isVoiceActive() && voice->getCurrentlyPlayingNote() == midiPitch; });
 
 	return it != voices.end() ? *it : nullptr;
 }
@@ -232,8 +232,8 @@ template <typename SampleType>
 int SynthBase<SampleType>::getNumActiveVoices() const
 {
 	return static_cast<int> (
-	    std::count_if (voices.begin(), voices.end(), [] (SynthVoiceBase<SampleType>* voice)
-	                   { return voice->isVoiceActive(); }));
+		std::count_if (voices.begin(), voices.end(), [] (SynthVoiceBase<SampleType>* voice)
+					   { return voice->isVoiceActive(); }));
 }
 
 

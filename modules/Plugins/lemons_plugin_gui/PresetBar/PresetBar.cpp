@@ -1,11 +1,11 @@
 
 namespace lemons::plugin
 {
-PresetBar::PresetBar (  // StateBase&    stateToUse,
-                        // StateToggles& toggler,
-    const String& productName,
-    const String& presetFileExtension,
-    const String& companyName)
+PresetBar::PresetBar (	// StateBase&    stateToUse,
+						// StateToggles& toggler,
+	const String& productName,
+	const String& presetFileExtension,
+	const String& companyName)
 //    : presetLibrary (stateToUse, companyName, productName, presetFileExtension)
 //    , toggleButtons (toggler)
 {

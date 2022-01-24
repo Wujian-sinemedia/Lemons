@@ -41,7 +41,7 @@ const Test::Subtest Test::beginSubtest (const String& name)
 }
 
 Test::Subtest::Subtest (const String& name, Test& t)
-    : test (t)
+	: test (t)
 {
 	test.beginSubtestInternal (name);
 }
@@ -124,7 +124,7 @@ template String Test::getPrecisionString<float>();
 template String Test::getPrecisionString<double>();
 
 CoreTest::CoreTest (const String& testName)
-    : Test (testName, "Core")
+	: Test (testName, "Core")
 {
 }
 

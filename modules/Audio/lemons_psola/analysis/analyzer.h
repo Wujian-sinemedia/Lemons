@@ -24,44 +24,44 @@ template <typename SampleType>
 class Shifter;
 
 /** @ingroup lemons_psola_analysis
-    A class that analyzes and stores a stream of audio, so that Shifter objects can repitch it.
-    This process is separated so that multiple shifter instances can be used simultaneously while only needing to do the expensive analysis step once.
-    Shifter objects reference an Analyzer for the duration of their lifetimes, and can be thought of as clients of the Analyzer -- things that affect the entire PSOLA algorithm, such as changing the samplerate, are only done through the Analyzer.
-    This PSOLA algorithm is only suitable for monophonic pitched audio. If you want to shift more than one channel of audio, you'll need separate Analyzer and Shifter objects for each channel.
+	A class that analyzes and stores a stream of audio, so that Shifter objects can repitch it.
+	This process is separated so that multiple shifter instances can be used simultaneously while only needing to do the expensive analysis step once.
+	Shifter objects reference an Analyzer for the duration of their lifetimes, and can be thought of as clients of the Analyzer -- things that affect the entire PSOLA algorithm, such as changing the samplerate, are only done through the Analyzer.
+	This PSOLA algorithm is only suitable for monophonic pitched audio. If you want to shift more than one channel of audio, you'll need separate Analyzer and Shifter objects for each channel.
  */
 template <typename SampleType>
 class Analyzer final
 {
 public:
 	/** Creates an Analyzer with an initial minimum detectable frequency.
-	    @see setMinInputFreq()
-	 */
+		@see setMinInputFreq()
+	*/
 	explicit Analyzer (int minFreqHz = 60);
 
 	/** Analyzes a frame of audio. This must be called before Shifter::getSamples(), and should be called consistently.
-	    The caller must ensure that there are at least enough samples in this frame of audio for analysis to be performed; ie, that inputAudio.getNumSamples() is greater than or equal to getLatencySamples().
-	 */
+		The caller must ensure that there are at least enough samples in this frame of audio for analysis to be performed; ie, that inputAudio.getNumSamples() is greater than or equal to getLatencySamples().
+	*/
 	void analyzeInput (const AudioBuffer<SampleType>& inputAudio);
 
 	/**
-	    Analyzes a frame of audio. This must be called before Shifter::getSamples(), and should be called consistently.
-	    The caller must ensure that there are at least enough samples in this frame of audio for analysis to be performed; ie, that numSamples is greater than or equal to getLatencySamples().
-	 */
+		Analyzes a frame of audio. This must be called before Shifter::getSamples(), and should be called consistently.
+		The caller must ensure that there are at least enough samples in this frame of audio for analysis to be performed; ie, that numSamples is greater than or equal to getLatencySamples().
+	*/
 	void analyzeInput (const SampleType* inputAudio, int numSamples);
 
 	/** Returns the latency in samples of the PSOLA algorithm. The latency is the same as the latency of the analyzer's internal PitchDetector object, so you can see that documentation for more details.
-	    @see setMinInputFreq(), dsp::PitchDetector
-	 */
+		@see setMinInputFreq(), dsp::PitchDetector
+	*/
 	[[nodiscard]] int getLatencySamples() const noexcept;
 
 	/** Sets the samplerate, and informs any Shifter objects that are using this Analyzer.
-	    @returns The new latency, in samples, of the PSOLA algorithm at the new samplerate.
-	 */
+		@returns The new latency, in samples, of the PSOLA algorithm at the new samplerate.
+	*/
 	int setSamplerate (double newSamplerate);
 
 	/** Sets the minimum frequency detectable as pitched by the internal PitchDetector object. The latency of the PSOLA algorithm is equal to 2 times the period of the minimum detectable frequency; thus, setting a higher minimum input frequency will lower the latency of the algorithm.
-	    @returns The new latency, in samples, of the PSOLA algorithm with the new minimum frequency.
-	 */
+		@returns The new latency, in samples, of the PSOLA algorithm with the new minimum frequency.
+	*/
 	int setMinInputFreq (int minFreqHz);
 
 	/** Resets the analyzer to its initial state, without releasing any resources. This also calls reset() on all Shifter objects using this Analyzer. */
@@ -99,12 +99,12 @@ private:
 		void storeNewGrain (const SampleType* origSamples, int startIndex, const SampleType* windowSamples, int numSamples);
 
 		void storeNewGrain (const SampleType* origSamples1, int startIndex1, int blocksize1,
-		                    const SampleType* origSamples2, int blocksize2,
-		                    const SampleType* windowSamples, int totalNumSamples, int grainStartIdx);
+							const SampleType* origSamples2, int blocksize2,
+							const SampleType* windowSamples, int totalNumSamples, int grainStartIdx);
 
-		void storeNewGrainWithZeroesAtStart (int               numZeroes,
-		                                     const SampleType* origSamples, int numSamples,
-		                                     const SampleType* windowSamples, int totalNumSamples, int grainStartIdx);
+		void storeNewGrainWithZeroesAtStart (int			   numZeroes,
+											 const SampleType* origSamples, int numSamples,
+											 const SampleType* windowSamples, int totalNumSamples, int grainStartIdx);
 
 		void reserveSize (int numSamples);
 
@@ -125,7 +125,7 @@ private:
 	float currentPeriod { 0.f };
 
 	PitchDetector<SampleType> pitchDetector;
-	PeakFinder<SampleType>    peakFinder;
+	PeakFinder<SampleType>	  peakFinder;
 
 	Array<SampleType> window;
 

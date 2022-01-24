@@ -4,9 +4,9 @@
 namespace lemons::dsp::FX
 {
 /**
-    A simple limiter effect class that allows you to optionally sidechain the signal.
-    This class is essentially a refactor of the limiter class from the juce dsp module, with the sidechaining capabilities added.
-    @see LevelReportingAudioEffect, AudioEffect
+	A simple limiter effect class that allows you to optionally sidechain the signal.
+	This class is essentially a refactor of the limiter class from the juce dsp module, with the sidechaining capabilities added.
+	@see LevelReportingAudioEffect, AudioEffect
  */
 template <typename SampleType>
 class Limiter : public LevelReportingAudioEffect<SampleType>
@@ -32,16 +32,16 @@ public:
 
 
 	/** Processes a single channel of audio.
-	    @param channel The channel number that this input sample is from, in the original buffer.
-	    @param numSamples The number of samples to process.
-	    @param signalToLimit Pointer to contiguous input sample values.
-	    @param sidechain Pointer to contiguous sidechain signal values.
-	    @return The gain reduction amount for this frame of this channel's audio.
-	 */
-	SampleType processChannel (int               channel,
-	                           int               numSamples,
-	                           SampleType*       signalToLimit,
-	                           const SampleType* sidechain) final;
+		@param channel The channel number that this input sample is from, in the original buffer.
+		@param numSamples The number of samples to process.
+		@param signalToLimit Pointer to contiguous input sample values.
+		@param sidechain Pointer to contiguous sidechain signal values.
+		@return The gain reduction amount for this frame of this channel's audio.
+	*/
+	SampleType processChannel (int				 channel,
+							   int				 numSamples,
+							   SampleType*		 signalToLimit,
+							   const SampleType* sidechain) final;
 
 
 private:
@@ -50,7 +50,7 @@ private:
 	Compressor<SampleType> firstStageCompressor, secondStageCompressor;
 
 	juce::SmoothedValue<SampleType, juce::ValueSmoothingTypes::Linear>
-	    outputVolume;
+		outputVolume;
 
 	double sampleRate { 44100.0 };
 	float  thresholddB { -10.0 }, releaseTime { 100.0 };

@@ -19,7 +19,7 @@ public:
 private:
 	SynthBase<SampleType>& synth;
 
-	Array<Voice*> usableVoices;  // this array is used to sort the voices when a 'steal' is requested
+	Array<Voice*> usableVoices;	 // this array is used to sort the voices when a 'steal' is requested
 };
 
 }  // namespace lemons::dsp::synth

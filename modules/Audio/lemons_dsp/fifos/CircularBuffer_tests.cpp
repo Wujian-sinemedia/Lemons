@@ -10,7 +10,7 @@ struct CircularBufferTests final : public DspTest
 {
 public:
 	explicit CircularBufferTests()
-	    : DspTest (getDspTestName<FloatType> ("Circular buffer tests"))
+		: DspTest (getDspTestName<FloatType> ("Circular buffer tests"))
 	{
 	}
 

@@ -2,14 +2,14 @@
 namespace lemons::spline
 {
 Editor::Select::Select (Editor& e)
-    : editor (e)
+	: editor (e)
 {
 }
 
 void Editor::Select::setX (float xP) noexcept
 {
 	const auto bounds = editor.getAdjustedBounds();
-	x                 = (xP - bounds.getX()) / bounds.getWidth();
+	x				  = (xP - bounds.getX()) / bounds.getWidth();
 }
 
 void Editor::Select::mouseExited()
@@ -37,31 +37,31 @@ void Editor::Select::paint (juce::Graphics& g)
 
 	const auto bounds = editor.getAdjustedBounds();
 
-	const auto w       = bounds.getWidth();
+	const auto w	   = bounds.getWidth();
 	const auto boundsX = bounds.getX();
 
-	auto xN     = juce::jlimit (0.f, 1.f, x - width) * w + boundsX;
+	auto xN		= juce::jlimit (0.f, 1.f, x - width) * w + boundsX;
 	auto rightN = juce::jlimit (0.f, 1.f, x + width) * w + boundsX;
 
 	juce::Rectangle<float> area (xN,
-	                             bounds.getY(),
-	                             rightN - xN,
-	                             bounds.getHeight());
+								 bounds.getY(),
+								 rightN - xN,
+								 bounds.getHeight());
 
 	g.fillRect (area);
 }
 
 Editor::Attributes::Attributes()
 {
-	border.thickness    = 2.f;
-	point.thickness     = 3.f;
-	curve.thickness     = 1.5f;
+	border.thickness	= 2.f;
+	point.thickness		= 3.f;
+	curve.thickness		= 1.5f;
 	selection.thickness = 5.f;
 
-	border.color     = juce::Colours::cadetblue;
-	point.color      = juce::Colours::cadetblue;
-	curve.color      = juce::Colours::yellowgreen;
-	selection.color  = juce::Colours::yellowgreen.withAlpha (.2f);
+	border.color	 = juce::Colours::cadetblue;
+	point.color		 = juce::Colours::cadetblue;
+	curve.color		 = juce::Colours::yellowgreen;
+	selection.color	 = juce::Colours::yellowgreen.withAlpha (.2f);
 	background.color = juce::Colours::cadetblue.darker (2);
 
 	pntrs.push_back ({ &border });
@@ -157,8 +157,8 @@ void Editor::paint (juce::Graphics& g)
 
 	for (auto i = 1; i < static_cast<decltype (i)> (spline.points.size()); ++i)
 	{
-		const auto yEnd   = spline.getPoint (i);
-		const auto xEnd   = i + x;
+		const auto yEnd	  = spline.getPoint (i);
+		const auto xEnd	  = i + x;
 		const auto xStart = xEnd - 1;
 
 		juce::Line<float> cLine (xStart, yStart, xEnd, yEnd);
@@ -173,22 +173,22 @@ void Editor::paint (juce::Graphics& g)
 
 	for (const auto& knot : spline.knots)
 	{
-		const auto  point     = knot.getDenormalizedPoint (bounds);
+		const auto	point	  = knot.getDenormalizedPoint (bounds);
 		const auto& attribute = knot.isSelected() ? attributes.selection : attributes.point;
 
 		drawPoint (point, attribute, g);
 	}
 }
 
-void Editor::drawPoint (const Point&     knot,
-                        const Attribute& attribute,
-                        juce::Graphics&  g)
+void Editor::drawPoint (const Point&	 knot,
+						const Attribute& attribute,
+						juce::Graphics&	 g)
 {
 	const auto width = attribute.thickness * 2.f + 1.f;
 
 	g.fillEllipse (knot.x - attribute.thickness,
-	               knot.y - attribute.thickness,
-	               width, width);
+				   knot.y - attribute.thickness,
+				   width, width);
 }
 
 Point Editor::normalizePoint (const Point& position) const noexcept

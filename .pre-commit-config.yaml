@@ -98,3 +98,5 @@ repos:
   #   rev: 2.4.0
   #   hooks:
   #     - id: editorconfig-checker
+ci:
+  skip: [shellcheck]

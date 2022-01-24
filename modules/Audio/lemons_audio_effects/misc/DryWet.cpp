@@ -31,9 +31,9 @@ void DryWetMixer<SampleType>::setWetLatency (int latencySamples)
 template <typename SampleType>
 void DryWetMixer<SampleType>::prepare (int numChannels, int blocksize, double samplerate)
 {
-	spec.numChannels      = static_cast<juce::uint32> (numChannels);
+	spec.numChannels	  = static_cast<juce::uint32> (numChannels);
 	spec.maximumBlockSize = static_cast<juce::uint32> (blocksize);
-	spec.sampleRate       = samplerate;
+	spec.sampleRate		  = samplerate;
 
 	mixer.prepare (spec);
 }

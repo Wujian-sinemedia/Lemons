@@ -4,9 +4,9 @@
 namespace lemons::dsp::FX
 {
 /**
-    A handy effect class that allows you to change the gain of a stream of audio, and will smooth the changes.
-    Internally, this uses my ValueSmoother class.
-    @see ValueSmoother, AudioEffect
+	A handy effect class that allows you to change the gain of a stream of audio, and will smooth the changes.
+	Internally, this uses my ValueSmoother class.
+	@see ValueSmoother, AudioEffect
  */
 template <typename SampleType, size_t channels = 1>
 class SmoothedGain : public AudioEffect<SampleType>
@@ -25,13 +25,13 @@ public:
 	void process (AudioBuffer<SampleType>& audio) final;
 
 	/** Call this to inform the SmoothedGain that a bypassed block was received.
-	    This will skip ahead in the ramp created by the smoother.
-	 */
+		This will skip ahead in the ramp created by the smoother.
+	*/
 	void bypassedBlock (int numSamples) final;
 
 	/** Sets the gain value.
-	    The next time process() is called, the frame of audio will be ramped from the previous gain value to this new gain value.
-	 */
+		The next time process() is called, the frame of audio will be ramped from the previous gain value to this new gain value.
+	*/
 	void setGain (float gain);
 
 	/** Returns the current gain value. */
@@ -43,7 +43,7 @@ public:
 private:
 	juce::OwnedArray<ValueSmoother<SampleType>> smoothers;
 
-	int   lastBlocksize { 0 };
+	int	  lastBlocksize { 0 };
 	float gainVal { 1.f };
 };
 

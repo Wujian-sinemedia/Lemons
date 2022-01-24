@@ -23,7 +23,7 @@ namespace lemons
 {
 
 /** @ingroup lemons_device
-    Use this class to report various aspects of the device's motion, when sensor data is available, and register listeners.
+	Use this class to report various aspects of the device's motion, when sensor data is available, and register listeners.
  */
 class DeviceMotion final
 {
@@ -103,13 +103,13 @@ private:
 
 	void update();
 
-	constexpr int LOOPER_ID_USER           = 3;
+	constexpr int LOOPER_ID_USER		   = 3;
 	constexpr int SENSOR_REFRESH_RATE_HZ   = 100;
 	constexpr int SENSOR_REFRESH_PERIOD_US = 1000000 / SENSOR_REFRESH_RATE_HZ;
 
-	ASensorManager*    sensorManager;
+	ASensorManager*	   sensorManager;
 	ASensorEventQueue* motionEventQueue;
-	ALooper*           looper;
+	ALooper*		   looper;
 
 	const ASensor* accelerometer;
 	const ASensor* rotation;
@@ -117,8 +117,8 @@ private:
 	const ASensor* attitude;
 
 	TimerCallback t { [&]
-		              { if (running) update(); },
-		              SENSOR_REFRESH_RATE_HZ, false };
+					  { if (running) update(); },
+					  SENSOR_REFRESH_RATE_HZ, false };
 #endif
 };
 

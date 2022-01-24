@@ -2,9 +2,9 @@
 namespace lemons::gui::components
 {
 FloatSlider::FloatSlider (plugin::FloatParameter& paramToUse, SliderStyle style)
-    : SliderBase (paramToUse)
-    , plugin::FloatParameter::Listener (paramToUse)
-    , param (paramToUse)
+	: SliderBase (paramToUse)
+	, plugin::FloatParameter::Listener (paramToUse)
+	, param (paramToUse)
 {
 	Slider::valueFromTextFunction = [&] (const String& text)
 	{
@@ -21,7 +21,7 @@ FloatSlider::FloatSlider (plugin::FloatParameter& paramToUse, SliderStyle style)
 void FloatSlider::paramValueChanged (float newValue)
 {
 	Slider::setValue (static_cast<double> (newValue),
-	                  juce::NotificationType::dontSendNotification);
+					  juce::NotificationType::dontSendNotification);
 }
 
 void FloatSlider::paramDefaultChanged (float newDefault)
@@ -39,9 +39,9 @@ void FloatSlider::valueChanged()
  -----------------------------------------------------------------------------------------------------------------------*/
 
 IntSlider::IntSlider (plugin::IntParameter& paramToUse, SliderStyle style)
-    : SliderBase (paramToUse)
-    , plugin::IntParameter::Listener (paramToUse)
-    , param (paramToUse)
+	: SliderBase (paramToUse)
+	, plugin::IntParameter::Listener (paramToUse)
+	, param (paramToUse)
 {
 	Slider::valueFromTextFunction = [&] (const String& text)
 	{
@@ -58,7 +58,7 @@ IntSlider::IntSlider (plugin::IntParameter& paramToUse, SliderStyle style)
 void IntSlider::paramValueChanged (int newValue)
 {
 	Slider::setValue (static_cast<double> (newValue),
-	                  juce::NotificationType::dontSendNotification);
+					  juce::NotificationType::dontSendNotification);
 }
 
 void IntSlider::paramDefaultChanged (int newDefault)

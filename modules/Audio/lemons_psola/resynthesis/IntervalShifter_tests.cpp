@@ -10,7 +10,7 @@ class IntervalShifterTests final : public AllOscillatorsTest<SampleType>
 {
 public:
 	explicit IntervalShifterTests()
-	    : AllOscillatorsTest<SampleType> ("PSOLA interval shifter tests")
+		: AllOscillatorsTest<SampleType> ("PSOLA interval shifter tests")
 	{
 	}
 
@@ -96,7 +96,7 @@ private:
 	{
 	}
 
-	dsp::psola::Analyzer<SampleType>        analyzer;
+	dsp::psola::Analyzer<SampleType>		analyzer;
 	dsp::psola::IntervalShifter<SampleType> shifter { analyzer };
 
 	AudioBuffer<SampleType> origAudio, shiftedAudio;

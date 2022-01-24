@@ -6,7 +6,7 @@ void Spline::updatePoints (const juce::Rectangle<float>& bounds)
 	knots.makeSpline (points);
 
 	const auto height = bounds.getHeight();
-	const auto y      = bounds.getY();
+	const auto y	  = bounds.getY();
 
 	for (auto& point : points)
 		point = point * height + y;

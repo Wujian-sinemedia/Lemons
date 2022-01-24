@@ -4,16 +4,16 @@ namespace lemons::serializing
 Image imageFromBinary (const MemoryBlock& block)
 {
 	juce::MemoryInputStream stream { block, false };
-	juce::PNGImageFormat    format;
+	juce::PNGImageFormat	format;
 
 	return format.decodeImage (stream);
 }
 
 MemoryBlock imageToBinary (const Image& image)
 {
-	MemoryBlock              block;
+	MemoryBlock				 block;
 	juce::MemoryOutputStream stream { block, false };
-	juce::PNGImageFormat     format;
+	juce::PNGImageFormat	 format;
 
 	format.writeImageToStream (image, stream);
 
@@ -40,7 +40,7 @@ MemoryBlock fontToBinary (const juce::Font& font, int maxNumChars, juce_wchar de
 	juce::CustomTypeface customTypeface;
 
 	customTypeface.setCharacteristics (font.getTypefaceName(), font.getAscent(),
-	                                   font.isBold(), font.isItalic(), defaultChar);
+									   font.isBold(), font.isItalic(), defaultChar);
 
 	customTypeface.addGlyphsFromOtherTypeface (*font.getTypefacePtr(), 0, maxNumChars);
 

@@ -8,7 +8,7 @@ namespace lemons::tests
 struct ParameterTests final : public Test
 {
 	explicit ParameterTests()
-	    : Test ("Parameter base class test", "Plugins")
+		: Test ("Parameter base class test", "Plugins")
 	{
 		processor.addParameter (parameter.release());
 	}
@@ -135,11 +135,11 @@ private:
 	static constexpr auto parameterName = "TestParameter";
 
 	std::unique_ptr<plugin::Parameter> parameter { std::make_unique<plugin::Parameter> (parameterName,
-		                                                                                ranges::create (0.f, 100.f),
-		                                                                                35.f,
-		                                                                                nullptr, nullptr,
-		                                                                                "test_units",
-		                                                                                true, false) };
+																						ranges::create (0.f, 100.f),
+																						35.f,
+																						nullptr, nullptr,
+																						"test_units",
+																						true, false) };
 	;
 
 	plugin::BasicProcessor processor;

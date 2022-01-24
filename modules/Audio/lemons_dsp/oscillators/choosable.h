@@ -20,8 +20,8 @@
 namespace lemons::dsp::osc
 {
 /** @ingroup lemons_oscillators
-    An enum class that represents the kinds of oscillator that ChoosableOscillator encapsulates.
-    @see ChoosableOscillator
+	An enum class that represents the kinds of oscillator that ChoosableOscillator encapsulates.
+	@see ChoosableOscillator
  */
 enum class OscType
 {
@@ -34,8 +34,8 @@ enum class OscType
 
 
 /** @ingroup lemons_oscillators audio_engines
-    A class that encapsulates together all the kinds of oscillators, and allows you to seamlessly switch between them during playback without pops or clicks.
-    @see OscType, OscEngine, Oscillator
+	A class that encapsulates together all the kinds of oscillators, and allows you to seamlessly switch between them during playback without pops or clicks.
+	@see OscType, OscEngine, Oscillator
  */
 template <typename SampleType>
 class ChoosableOscillator final : public dsp::Engine<SampleType>
@@ -62,11 +62,11 @@ private:
 	void released() final;
 
 	OscType type { OscType::Sine };
-	float   freq { 440.f };
+	float	freq { 440.f };
 
-	Engine<SampleType, Sine>     sine;
-	Engine<SampleType, Saw>      saw;
-	Engine<SampleType, Square>   square;
+	Engine<SampleType, Sine>	 sine;
+	Engine<SampleType, Saw>		 saw;
+	Engine<SampleType, Square>	 square;
 	Engine<SampleType, Triangle> triangle;
 	Engine<SampleType, SuperSaw> superSaw;
 

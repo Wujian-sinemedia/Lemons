@@ -28,8 +28,8 @@ void MtsClient::parseMidiMessageForSysEx (const juce::MidiMessage& m) const
 		return;
 
 	MTS_ParseMIDIDataU (client.get(),
-	                    m.getSysExData(),
-	                    m.getSysExDataSize());
+						m.getSysExData(),
+						m.getSysExDataSize());
 }
 
 

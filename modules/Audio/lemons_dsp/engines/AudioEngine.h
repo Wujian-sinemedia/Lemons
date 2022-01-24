@@ -20,14 +20,14 @@ namespace lemons::dsp
 {
 
 /** @defgroup audio_engines Engines
-    @ingroup lemons_dsp
-    Base classes for audio engines.
+	@ingroup lemons_dsp
+	Base classes for audio engines.
  */
 
 /** @ingroup audio_engines
-    Base class for an audio engine.
-    This should be a self-contained signal chain. This class handles pop-preventing between successive bypassed/unbypassed frames, and provides several options for top-level process() function APIs while allowing you to implement only one internal renderBlock() function.
-    @see LatencyEngine
+	Base class for an audio engine.
+	This should be a self-contained signal chain. This class handles pop-preventing between successive bypassed/unbypassed frames, and provides several options for top-level process() function APIs while allowing you to implement only one internal renderBlock() function.
+	@see LatencyEngine
  */
 template <typename SampleType>
 class Engine
@@ -43,52 +43,52 @@ public:
 	///@{
 
 	/** Processes the audio engine with in-place audio I/O and MIDI.
-	    @param inplaceInAndOut The audio buffer that the input will be read from and the output will be written to.
-	    @param midiMessages MIDI I/O buffer. The engine's MIDI output will be returned in-place.
-	    @param isBypassed Should be true if the engine is bypassed this frame.
-	 */
+		@param inplaceInAndOut The audio buffer that the input will be read from and the output will be written to.
+		@param midiMessages MIDI I/O buffer. The engine's MIDI output will be returned in-place.
+		@param isBypassed Should be true if the engine is bypassed this frame.
+	*/
 	void process (AudioBuffer<SampleType>& inplaceInAndOut,
-	              MidiBuffer&              midiMessages,
-	              bool                     isBypassed = false);
+				  MidiBuffer&			   midiMessages,
+				  bool					   isBypassed = false);
 
 
 	/** Processes the audio engine with separate audio in and out, and MIDI.
-	    @param input The audio input.
-	    @param output The audio output.
-	    @param midiMessages MIDI I/O buffer. The engine's MIDI output will be returned in-place.
-	    @param isBypassed Should be true if the engine is bypassed this frame.
-	 */
+		@param input The audio input.
+		@param output The audio output.
+		@param midiMessages MIDI I/O buffer. The engine's MIDI output will be returned in-place.
+		@param isBypassed Should be true if the engine is bypassed this frame.
+	*/
 	void process (const AudioBuffer<SampleType>& input,
-	              AudioBuffer<SampleType>&       output,
-	              MidiBuffer&                    midiMessages,
-	              bool                           isBypassed = false);
+				  AudioBuffer<SampleType>&		 output,
+				  MidiBuffer&					 midiMessages,
+				  bool							 isBypassed = false);
 
 
 	/** Processes the audio engine with in-place audio I/O and no MIDI.
-	    The internal renderBlock() function will be called with an empty dummy MidiBuffer.
-	    @param inplaceInAndOut The audio buffer that the input will be read from and the output will be written to.
-	    @param isBypassed Should be true if the engine is bypassed this frame.
-	 */
+		The internal renderBlock() function will be called with an empty dummy MidiBuffer.
+		@param inplaceInAndOut The audio buffer that the input will be read from and the output will be written to.
+		@param isBypassed Should be true if the engine is bypassed this frame.
+	*/
 	void process (AudioBuffer<SampleType>& inplaceInAndOut,
-	              bool                     isBypassed = false);
+				  bool					   isBypassed = false);
 
 
 	/** Processes the audio engine with separate audio in and out and no MIDI.
-	    The internal renderBlock() function will be called with an empty dummy MidiBuffer.
-	    @param input The audio input.
-	    @param output The audio output.
-	    @param isBypassed Should be true if the engine is bypassed this frame.
-	 */
+		The internal renderBlock() function will be called with an empty dummy MidiBuffer.
+		@param input The audio input.
+		@param output The audio output.
+		@param isBypassed Should be true if the engine is bypassed this frame.
+	*/
 	void process (const AudioBuffer<SampleType>& input,
-	              AudioBuffer<SampleType>&       output,
-	              bool                           isBypassed = false);
+				  AudioBuffer<SampleType>&		 output,
+				  bool							 isBypassed = false);
 
 	///@}
 
 
 	/** Returns true if prepare() has been called at least once since the object's construction or the last releaseResources() call.
-	    @see prepare(), releaseResources()
-	 */
+		@see prepare(), releaseResources()
+	*/
 	[[nodiscard]] bool isInitialized() const noexcept;
 
 
@@ -102,18 +102,18 @@ public:
 	[[nodiscard]] virtual int reportLatency() const noexcept;
 
 	/** Returns the engine's samplerate.
-	    This will return 0. if the engine is unprepared.
-	 */
+		This will return 0. if the engine is unprepared.
+	*/
 	[[nodiscard]] double getSamplerate() const noexcept;
 
 	/** Returns the number of channels this engine has been prepared to process.
-	    This will return 0 if the engine is unprepared.
-	 */
+		This will return 0 if the engine is unprepared.
+	*/
 	[[nodiscard]] int getNumChannels() const noexcept;
 
 	/** Returns the maximum blocksize this engine has been prepared to process.
-	    This will return 0 if the engine is unprepared.
-	 */
+		This will return 0 if the engine is unprepared.
+	*/
 	[[nodiscard]] int getBlocksize() const noexcept;
 
 	/** Call this method to reset the engine, without deallocating resources -- for example, stopping all voices of a synth.
@@ -136,14 +136,14 @@ private:
 	virtual void released() { }
 
 	/** Your subclass may implement this to be informed when reset() is called.
-	    @attention You should NOT deallocate any resources in here, as process() may be called again before another call to prepare()!
-	 */
+		@attention You should NOT deallocate any resources in here, as process() may be called again before another call to prepare()!
+	*/
 	virtual void onReset() { }
 
 	MidiBuffer dummyMidiBuffer;
-	bool       wasBypassedLastCallback { true };
-	double     sampleRate { 0. };
-	int        blockSize { 0 };
+	bool	   wasBypassedLastCallback { true };
+	double	   sampleRate { 0. };
+	int		   blockSize { 0 };
 
 	AudioBuffer<SampleType> outputStorage;
 
@@ -157,8 +157,8 @@ template <typename SampleType>
 class PassThroughEngine : public Engine<SampleType>
 {
 	void renderBlock (const AudioBuffer<SampleType>& input,
-	                  AudioBuffer<SampleType>&       output,
-	                  MidiBuffer& midiMessages, bool isBypassed) final;
+					  AudioBuffer<SampleType>&		 output,
+					  MidiBuffer& midiMessages, bool isBypassed) final;
 };
 
 #endif

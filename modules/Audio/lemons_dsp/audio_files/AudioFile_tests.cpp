@@ -8,7 +8,7 @@ namespace lemons::tests
 struct AudioFileTests final : public DspTest
 {
 	explicit AudioFileTests()
-	    : DspTest ("Audio files")
+		: DspTest ("Audio files")
 	{
 	}
 

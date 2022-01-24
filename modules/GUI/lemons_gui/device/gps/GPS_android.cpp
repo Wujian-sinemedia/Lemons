@@ -40,17 +40,17 @@ GPSLocation GPSLocation::getCurrentLocation()
 		_getGPSLocation = env->GetMethodID (GetJNIActivityClass(), "_getGPSLocation", "()[D");
 
 	if (_getGPSLocation == nullptr)
-		return {};  // Possibly unimplemented or unsupported method...
+		return {};	// Possibly unimplemented or unsupported method...
 
 	auto javaGPSCurrentLocationResult = (jdoubleArray) env->CallObjectMethod (cachedActivity, _getGPSLocation);
 	if (javaGPSCurrentLocationResult == nullptr)
-		return {};  // If this is reached, the GPS permission was probably disabled but it's hard to say exactly...
+		return {};	// If this is reached, the GPS permission was probably disabled but it's hard to say exactly...
 
-	auto                numItems = env->GetArrayLength (javaGPSCurrentLocationResult);
+	auto				numItems = env->GetArrayLength (javaGPSCurrentLocationResult);
 	std::vector<double> input (numItems);
 	env->GetDoubleArrayRegion (javaGPSCurrentLocationResult, 0, numItems, &input[0]);
 
-	GPSLocation         result;
+	GPSLocation			result;
 	decltype (numItems) index = 0;
 	if (index < numItems) result.latitude = (double) input[index++];
 	if (index < numItems) result.longitude = (double) input[index++];

@@ -19,9 +19,9 @@ namespace lemons::dsp
 
 template <typename SampleType>
 AudioFilePlayer<SampleType>::AudioFilePlayer (AudioFile& file)
-    : origAudio (file.getData<float>())
-    , origSamplerate (file.getSamplerate())
-    , origNumSamples (file.getNumSamples())
+	: origAudio (file.getData<float>())
+	, origSamplerate (file.getSamplerate())
+	, origNumSamples (file.getNumSamples())
 {
 	jassert (file.isValid());
 	jassert (origNumSamples == origAudio.getNumSamples());
@@ -36,7 +36,7 @@ AudioFilePlayer<SampleType>::AudioFilePlayer (AudioFile& file)
 
 template <typename SampleType>
 void AudioFilePlayer<SampleType>::renderChunk (const AudioBuffer<SampleType>&,
-                                               AudioBuffer<SampleType>& output, MidiBuffer&, bool isBypassed)
+											   AudioBuffer<SampleType>& output, MidiBuffer&, bool isBypassed)
 {
 	if (isBypassed)
 	{
@@ -57,17 +57,17 @@ void AudioFilePlayer<SampleType>::renderChunk (const AudioBuffer<SampleType>&,
 	}();
 
 	for (auto chan = 0;
-	     chan < std::min (interpolators->size(), output.getNumChannels());
-	     ++chan)
+		 chan < std::min (interpolators->size(), output.getNumChannels());
+		 ++chan)
 	{
 		const auto prevReadPos = readPositions.getUnchecked (chan);
 
 		const auto numUsed = interpolators[chan]->process (speedRatio,
-		                                                   origAudio.getReadPointer (chan, prevReadPos),
-		                                                   destBuf.getWritePointer (chan),
-		                                                   numSamples,
-		                                                   origNumSamples - prevReadPos,
-		                                                   0);
+														   origAudio.getReadPointer (chan, prevReadPos),
+														   destBuf.getWritePointer (chan),
+														   numSamples,
+														   origNumSamples - prevReadPos,
+														   0);
 
 		readPositions.set (chan, prevReadPos + numUsed);
 	}

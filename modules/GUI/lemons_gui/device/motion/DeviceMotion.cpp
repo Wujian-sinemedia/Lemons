@@ -17,7 +17,7 @@ namespace lemons
 {
 
 DeviceMotion::Listener::Listener (DeviceMotion& manager)
-    : m (manager)
+	: m (manager)
 {
 	m.addListener (*this);
 }
@@ -54,7 +54,7 @@ void DeviceMotion::accelerationChanged (double x, double y, double z)
 	acceleration.z = z;
 
 	listeners.call ([&] (Listener& l)
-	                { l.accelerationChanged (acceleration); });
+					{ l.accelerationChanged (acceleration); });
 }
 
 void DeviceMotion::gravityChanged (double x, double y, double z)
@@ -64,7 +64,7 @@ void DeviceMotion::gravityChanged (double x, double y, double z)
 	gravity.z = z;
 
 	listeners.call ([&] (Listener& l)
-	                { l.gravityChanged (gravity); });
+					{ l.gravityChanged (gravity); });
 }
 
 void DeviceMotion::rotationChanged (double x, double y, double z)
@@ -74,7 +74,7 @@ void DeviceMotion::rotationChanged (double x, double y, double z)
 	rotation.z = z;
 
 	listeners.call ([&] (Listener& l)
-	                { l.rotationChanged (rotation); });
+					{ l.rotationChanged (rotation); });
 }
 
 void DeviceMotion::attitudeChanged (double x, double y, double z)
@@ -84,7 +84,7 @@ void DeviceMotion::attitudeChanged (double x, double y, double z)
 	attitude.z = z;
 
 	listeners.call ([&] (Listener& l)
-	                { l.attitudeChanged (attitude); });
+					{ l.attitudeChanged (attitude); });
 }
 
 #if ! JUCE_IOS

@@ -6,7 +6,7 @@ Filter<SampleType>::Filter (FilterType filterType, float frequency, float Qfacto
 {
 	type = filterType;
 	freq = static_cast<SampleType> (frequency);
-	Q    = static_cast<SampleType> (Qfactor);
+	Q	 = static_cast<SampleType> (Qfactor);
 	gain = static_cast<SampleType> (gainMult);
 
 	filter.prepare();

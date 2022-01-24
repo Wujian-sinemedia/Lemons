@@ -27,12 +27,12 @@ void SynthBase<SampleType>::noteOn (int midiPitch, float velocity, bool isKeyboa
 
 	if (auto* prevVoice = getVoicePlayingNote (midiPitch))
 	{
-		voice = prevVoice;  // retrigger the same voice with the new velocity
+		voice = prevVoice;	// retrigger the same voice with the new velocity
 	}
 	else
 	{
 		const bool isStealing =
-		    isKeyboard ? shouldStealNotes : false;  // never steal voices for automated note events, only for keyboard triggered events
+			isKeyboard ? shouldStealNotes : false;	// never steal voices for automated note events, only for keyboard triggered events
 
 		if (auto* newVoice = voiceAllocator.findFreeVoice (isStealing))
 		{
@@ -59,14 +59,14 @@ void SynthBase<SampleType>::startVoice (Voice* voice, int midiPitch, float veloc
 
 	const auto prevNote = voice->getCurrentlyPlayingNote();
 	const bool wasStolen =
-	    voice->isVoiceActive();  // we know the voice is being "stolen" from another note if it was already on before getting this start command
+		voice->isVoiceActive();	 // we know the voice is being "stolen" from another note if it was already on before getting this start command
 	const bool sameNoteRetriggered = wasStolen && prevNote == midiPitch;
 
 	// aftertouch value based on how much the new velocity has changed from the voice's last received velocity (only used if applicable)
 	const auto aftertouch = juce::jlimit (0, 127,
-	                                      juce::roundToInt ((velocity - voice->lastReceivedVelocity) * 127.0f));
+										  juce::roundToInt ((velocity - voice->lastReceivedVelocity) * 127.0f));
 
-	if (! sameNoteRetriggered)  // only output note events if it's not the same note being retriggered
+	if (! sameNoteRetriggered)	// only output note events if it's not the same note being retriggered
 	{
 		if (wasStolen)
 		{
@@ -94,7 +94,7 @@ void SynthBase<SampleType>::startVoice (Voice* voice, int midiPitch, float veloc
 		voice->aftertouchChanged (0);
 	}
 
-	if (midiPitch < panner.getLowestNote())  // set pan to 64 if note is below panning threshold
+	if (midiPitch < panner.getLowestNote())	 // set pan to 64 if note is below panning threshold
 	{
 		if (wasStolen) panner.panValTurnedOff (voice->getCurrentMidiPan());
 
@@ -105,9 +105,9 @@ void SynthBase<SampleType>::startVoice (Voice* voice, int midiPitch, float veloc
 		voice->setPan (panner.getNextPanVal());
 	}
 
-	const bool isPedal   = pedal.isAutomatedPitch (midiPitch);
+	const bool isPedal	 = pedal.isAutomatedPitch (midiPitch);
 	const bool isDescant = descant.isAutomatedPitch (midiPitch);
-	const bool keydown   = isKeyboard ? true : voice->isKeyDown();
+	const bool keydown	 = isKeyboard ? true : voice->isKeyDown();
 	const auto timestamp = sameNoteRetriggered ? voice->noteOnTime : static_cast<uint32> (midi.router.getLastMidiTimestamp());
 
 	voice->startNote (midiPitch, velocity, timestamp, keydown, isPedal, isDescant, midiChannel);
@@ -173,13 +173,13 @@ void SynthBase<SampleType>::stopVoice (Voice* voice, float velocity, bool allowT
 
 	aggregateMidiBuffer.addEvent (MidiMessage::noteOff (voice->getMidiChannel(), note, velocity), midi.router.getLastMidiTimestamp());
 
-	const bool isPedal   = voice->isCurrentPedalVoice();
+	const bool isPedal	 = voice->isCurrentPedalVoice();
 	const bool isDescant = voice->isCurrentDescantVoice();
 
 	if (isPedal) pedal.setNoteToOff();
 	if (isDescant) descant.setNoteToOff();
 
-	const bool shouldStopPedal   = voice->isDoubledByAutomatedVoice && ! isPedal;
+	const bool shouldStopPedal	 = voice->isDoubledByAutomatedVoice && ! isPedal;
 	const bool shouldStopDescant = voice->isDoubledByAutomatedVoice && ! isDescant;
 
 	voice->stopNote (velocity, allowTailOff);
@@ -209,16 +209,16 @@ void SynthBase<SampleType>::allNotesOff (bool allowTailOff, float velocity)
  Turns off all notes whose keyboard keys aren't being held down anymore.
  */
 template <typename SampleType>
-void SynthBase<SampleType>::turnOffAllKeyupNotes (bool  allowTailOff,
-                                                  bool  includePedalPitchAndDescant,
-                                                  float velocity,
-                                                  bool  overrideSostenutoPedal)
+void SynthBase<SampleType>::turnOffAllKeyupNotes (bool	allowTailOff,
+												  bool	includePedalPitchAndDescant,
+												  float velocity,
+												  bool	overrideSostenutoPedal)
 {
 	for (auto* voice : voices)
 	{
 		if ((voice->isVoiceActive() && ! voice->isKeyDown())
-		    && (includePedalPitchAndDescant || (! (voice->isCurrentPedalVoice() || voice->isCurrentDescantVoice())))
-		    && (overrideSostenutoPedal || ! voice->sustainingFromSostenutoPedal))
+			&& (includePedalPitchAndDescant || (! (voice->isCurrentPedalVoice() || voice->isCurrentDescantVoice())))
+			&& (overrideSostenutoPedal || ! voice->sustainingFromSostenutoPedal))
 		{
 			stopVoice (voice, velocity, allowTailOff);
 		}
@@ -242,7 +242,7 @@ void SynthBase<SampleType>::updateChannelPressure (int newIncomingAftertouch)
 
 	if (newIncomingAftertouch > highestAftertouch)
 		midi.router.process (MidiMessage::channelPressureChange (midi.router.getLastMidiChannel(),
-		                                                         highestAftertouch));
+																 highestAftertouch));
 }
 
 
@@ -349,7 +349,7 @@ bool SynthBase<SampleType>::isPitchActive (int midiPitch, bool countRingingButRe
 {
 	for (auto* voice : voices)
 		if ((voice->isVoiceActive() && voice->getCurrentlyPlayingNote() == midiPitch) && (countRingingButReleased || ! voice->isPlayingButReleased())
-		    && (countKeyUpNotes || voice->isKeyDown()))
+			&& (countKeyUpNotes || voice->isKeyDown()))
 		{
 			return true;
 		}
@@ -364,8 +364,8 @@ bool SynthBase<SampleType>::isPitchActive (int midiPitch, bool countRingingButRe
  */
 template <typename SampleType>
 void SynthBase<SampleType>::reportActiveNotes (juce::Array<int>& outputArray,
-                                               bool              includePlayingButReleased,
-                                               bool              includeKeyUpNotes) const
+											   bool				 includePlayingButReleased,
+											   bool				 includeKeyUpNotes) const
 {
 	outputArray.clearQuick();
 

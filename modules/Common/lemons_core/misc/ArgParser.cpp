@@ -18,22 +18,22 @@ namespace lemons
 {
 
 ArgParser::ArgParser (int argc, char** argv)
-    : argList (argc, argv)
+	: argList (argc, argv)
 {
 	addArgument ("--help|-h", false, "Display usage information");
 }
 
 void ArgParser::addArgument (const String& argOrFlags,
-                             bool          required,
-                             const String& help, const String& defaultValue,
-                             const juce::StringArray& options)
+							 bool		   required,
+							 const String& help, const String& defaultValue,
+							 const juce::StringArray& options)
 {
 	Argument newArg;
-	newArg.argOrFlags   = argOrFlags;
+	newArg.argOrFlags	= argOrFlags;
 	newArg.defaultValue = defaultValue;
-	newArg.required     = required;
-	newArg.help         = help;
-	newArg.options      = options;
+	newArg.required		= required;
+	newArg.help			= help;
+	newArg.options		= options;
 	args.add (newArg);
 }
 

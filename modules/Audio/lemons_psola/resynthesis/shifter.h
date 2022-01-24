@@ -19,13 +19,13 @@ namespace lemons::dsp::psola
 {
 
 /** @defgroup lemons_psola_synthesis Resynthesis
-    @ingroup lemons_psola
-    PSOLA resynthesis classes.
+	@ingroup lemons_psola
+	PSOLA resynthesis classes.
  */
 
 /** @ingroup lemons_psola_synthesis
-    A class that repitches a stream of monophonic audio using PSOLA-like techniques.
-    This class is essentially a "client" of an Analyzer object, which allows multiple Shifters to be used simultaneously without requiring the expensive analysis process to be repeated.
+	A class that repitches a stream of monophonic audio using PSOLA-like techniques.
+	This class is essentially a "client" of an Analyzer object, which allows multiple Shifters to be used simultaneously without requiring the expensive analysis process to be repeated.
  */
 template <typename SampleType>
 class Shifter : public SampleStream<SampleType>
@@ -40,8 +40,8 @@ public:
 	virtual ~Shifter();
 
 	/** Sets the pitch, in Hz, of the shifter's output.
-	    Note that before calling this, you must set the samplerate of the algorithm using Analyzer::setSamplerate()!
-	 */
+		Note that before calling this, you must set the samplerate of the algorithm using Analyzer::setSamplerate()!
+	*/
 	void setPitchHz (int pitchHz) noexcept;
 
 	[[nodiscard]] float getPitchHz() const noexcept;

@@ -34,9 +34,9 @@ private:
 	const bool shiftingUp;
 
 	bool isOn { false };
-	int  lastPitch { -1 };
-	int  thresh { 0 };
-	int  interval { 12 };
+	int	 lastPitch { -1 };
+	int	 thresh { 0 };
+	int	 interval { 12 };
 
 	SynthBase<SampleType>& synth;
 };

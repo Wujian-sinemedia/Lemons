@@ -11,7 +11,7 @@ void StateToggleButtons::resized()
 {
 	using namespace gui;
 
-	constexpr auto oneThird  = 1.f / 3.f;
+	constexpr auto oneThird	 = 1.f / 3.f;
 	constexpr auto twoThirds = 2.f / 3.f;
 
 	if (vertical)

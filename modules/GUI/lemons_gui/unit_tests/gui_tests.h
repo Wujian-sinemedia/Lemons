@@ -24,7 +24,7 @@ namespace lemons::tests
 using juce::Image;
 
 /** @defgroup lemons_gui_unit_tests GUI tests
-    @ingroup lemons_unit_testing
+	@ingroup lemons_unit_testing
  */
 
 /** @ingroup lemons_gui_unit_tests

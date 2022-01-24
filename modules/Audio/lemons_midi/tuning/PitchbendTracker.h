@@ -27,10 +27,10 @@ public:
 
 		if (lastReceivedPitchbend > 64.f)
 			return static_cast<float> (((rangeUp * (lastReceivedPitchbend - 65.f)) / 62.f)
-			                           + float (midiPitch));
+									   + float (midiPitch));
 
 		return static_cast<float> ((((1.f - rangeDown) * lastReceivedPitchbend) / 63.f) + float (midiPitch)
-		                           - rangeDown);
+								   - rangeDown);
 	}
 
 private:

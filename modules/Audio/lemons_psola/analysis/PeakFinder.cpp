@@ -91,7 +91,7 @@ const Array<int>& PeakFinder<SampleType>::findPeaks (const SampleType* inputSamp
 		jassert (frameStart >= 0 && frameEnd <= numSamples && frameEnd > frameStart);
 
 		peakIndices.add (findNextPeak (frameStart, frameEnd, std::min (analysisIndex, frameEnd),
-		                               inputSamples, intPeriod, grainSize));
+									   inputSamples, intPeriod, grainSize));
 
 		[[maybe_unused]] const auto prevAnalysisIndex = analysisIndex;
 
@@ -119,7 +119,7 @@ const Array<int>& PeakFinder<SampleType>::findPeaks (const SampleType* inputSamp
 
 template <typename SampleType>
 int PeakFinder<SampleType>::findNextPeak (int frameStart, int frameEnd, int predictedPeak,
-                                          const SampleType* inputSamples, int period, int grainSize)
+										  const SampleType* inputSamples, int period, int grainSize)
 {
 	jassert (predictedPeak >= frameStart && predictedPeak <= frameEnd);
 
@@ -150,8 +150,8 @@ int PeakFinder<SampleType>::findNextPeak (int frameStart, int frameEnd, int pred
 				return choosePeakWithGreatestPower (inputSamples);
 
 			return chooseIdealPeakCandidate (inputSamples,
-			                                 peakIndices.getLast() + period,
-			                                 peakIndices.getUnchecked (peakIndices.size() - 2) + grainSize);
+											 peakIndices.getLast() + period,
+											 peakIndices.getUnchecked (peakIndices.size() - 2) + grainSize);
 		}
 	}
 }
@@ -159,7 +159,7 @@ int PeakFinder<SampleType>::findNextPeak (int frameStart, int frameEnd, int pred
 
 template <typename SampleType>
 int PeakFinder<SampleType>::getPeakCandidateInRange (const SampleType* inputSamples,
-                                                     int startSample, int endSample, int predictedPeak) const
+													 int startSample, int endSample, int predictedPeak) const
 {
 	const auto starting = [this]
 	{
@@ -179,12 +179,12 @@ int PeakFinder<SampleType>::getPeakCandidateInRange (const SampleType* inputSamp
 	auto get_weighted_sample = [predictedPeak, numSamples, inputSamples] (int index) -> SampleType
 	{
 		const auto distance = static_cast<SampleType> (std::abs (predictedPeak - index));
-		const auto weight   = SampleType (1) - (distance / static_cast<SampleType> (numSamples));
+		const auto weight	= SampleType (1) - (distance / static_cast<SampleType> (numSamples));
 
 		return std::abs (inputSamples[index]) * weight;
 	};
 
-	auto strongest    = get_weighted_sample (starting);
+	auto strongest	  = get_weighted_sample (starting);
 	auto strongestIdx = starting;
 
 	for (const auto index : peakSearchingOrder)
@@ -197,7 +197,7 @@ int PeakFinder<SampleType>::getPeakCandidateInRange (const SampleType* inputSamp
 
 		if (currentSample > strongest)
 		{
-			strongest    = currentSample;
+			strongest	 = currentSample;
 			strongestIdx = index;
 		}
 	}
@@ -209,7 +209,7 @@ template <typename SampleType>
 int PeakFinder<SampleType>::choosePeakWithGreatestPower (const SampleType* inputSamples) const
 {
 	auto strongestPeakIndex = peakCandidates.getUnchecked (0);
-	auto strongestPeak      = std::abs (inputSamples[strongestPeakIndex]);
+	auto strongestPeak		= std::abs (inputSamples[strongestPeakIndex]);
 
 	for (const auto candidate : peakCandidates)
 	{
@@ -217,7 +217,7 @@ int PeakFinder<SampleType>::choosePeakWithGreatestPower (const SampleType* input
 
 		if (current > strongestPeak)
 		{
-			strongestPeak      = current;
+			strongestPeak	   = current;
 			strongestPeakIndex = candidate;
 		}
 	}
@@ -257,7 +257,7 @@ int PeakFinder<SampleType>::chooseIdealPeakCandidate (const SampleType* inputSam
 			auto* const minIt = std::min_element (candidateDeltas.begin(), candidateDeltas.end());
 
 			data.deltaValue = *minIt;
-			data.index      = std::distance (candidateDeltas.begin(), minIt);
+			data.index		= std::distance (candidateDeltas.begin(), minIt);
 
 			return data;
 		}();
@@ -294,7 +294,7 @@ int PeakFinder<SampleType>::chooseIdealPeakCandidate (const SampleType* inputSam
 		return std::abs (inputSamples[sampleIndex]) * deltaWeight;
 	};
 
-	auto chosenPeak    = finalHandful.getUnchecked (0);
+	auto chosenPeak	   = finalHandful.getUnchecked (0);
 	auto strongestPeak = get_weighted_sample (chosenPeak, 0);
 
 	for (auto i = 1; i < finalHandfulSize; ++i)
@@ -308,7 +308,7 @@ int PeakFinder<SampleType>::chooseIdealPeakCandidate (const SampleType* inputSam
 		if (testingPeak > strongestPeak)
 		{
 			strongestPeak = testingPeak;
-			chosenPeak    = candidate;
+			chosenPeak	  = candidate;
 		}
 	}
 

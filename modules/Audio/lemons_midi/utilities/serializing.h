@@ -27,28 +27,28 @@ using juce::MidiFile;
 
 
 /** @ingroup lemons_midi lemons_serializing
-    Encodes a MidiBuffer as a blob of binary data.
-    @see midiBufferFromBinary(), saveMidiToFile()
+	Encodes a MidiBuffer as a blob of binary data.
+	@see midiBufferFromBinary(), saveMidiToFile()
  */
 [[nodiscard]] MemoryBlock midiToBinary (const MidiBuffer& midi);
 
 /** @ingroup lemons_midi lemons_serializing
-    Returns a MidiBuffer from a binary representation of one.
-    @see midiFileFromBinary(), midiToBinary(), loadMidiFromFile(), binary::Data::getMidi()
+	Returns a MidiBuffer from a binary representation of one.
+	@see midiFileFromBinary(), midiToBinary(), loadMidiFromFile(), binary::Data::getMidi()
  */
 [[nodiscard]] MidiBuffer midiBufferFromBinary (const MemoryBlock& block);
 
 
 /** @ingroup lemons_midi lemons_serializing
-    Encodes a MidiFile as a blob of binary data.
-    @see midiFileFromBinary(), saveMidiToFile()
+	Encodes a MidiFile as a blob of binary data.
+	@see midiFileFromBinary(), saveMidiToFile()
  */
 [[nodiscard]] MemoryBlock midiToBinary (const MidiFile& midi);
 
 
 /** @ingroup lemons_midi lemons_serializing
-    Returns a MidiFile from a binary representation of one.
-    @see midiBufferFromBinary(), midiToBinary(), loadMidiFromFile(), binary::Data::getMidi()
+	Returns a MidiFile from a binary representation of one.
+	@see midiBufferFromBinary(), midiToBinary(), loadMidiFromFile(), binary::Data::getMidi()
  */
 [[nodiscard]] MidiFile midiFileFromBinary (const MemoryBlock& block);
 
@@ -64,27 +64,27 @@ using juce::MidiFile;
 
 
 /** @ingroup lemons_midi lemons_files
-    Loads a MidiFile from a file on disk.
-    @see saveMidiToFile(), midiBufferFromFile(), binary::Data::getMidi()
+	Loads a MidiFile from a file on disk.
+	@see saveMidiToFile(), midiBufferFromFile(), binary::Data::getMidi()
  */
 [[nodiscard]] MidiFile loadMidiFile (const File& file);
 
 /** @ingroup lemons_midi lemons_files
-    Saves a MidiFile to a file on disk.
-    @see loadMidiFromFile()
+	Saves a MidiFile to a file on disk.
+	@see loadMidiFromFile()
  */
 bool saveMidi (const MidiFile& midi, const File& file);
 
 
 /** @ingroup lemons_midi lemons_files
-    Loads a MidiBuffer from a file on disk.
-    @see saveMidiToFile(), binary::Data::getMidi()
+	Loads a MidiBuffer from a file on disk.
+	@see saveMidiToFile(), binary::Data::getMidi()
  */
 [[nodiscard]] MidiBuffer loadMidiBuffer (const File& file);
 
 /** @ingroup lemons_midi lemons_files
-    Saves a MidiBuffer to a file on disk, formatted as a MidiFile.
-    @see loadMidiFromFile(), midiBufferToFile()
+	Saves a MidiBuffer to a file on disk, formatted as a MidiFile.
+	@see loadMidiFromFile(), midiBufferToFile()
  */
 bool saveMidi (const MidiBuffer& midi, const File& file);
 
@@ -104,14 +104,14 @@ using juce::String;
 
 
 /** @ingroup lemons_midi lemons_binary
-    Returns a MIDI file object from a MIDI file in the BinaryData target. If the MIDI can't be loaded, an assertion will be thrown.
-    @see serializing::loadMidiFromFile(), serializing::saveMidiToFile()
+	Returns a MIDI file object from a MIDI file in the BinaryData target. If the MIDI can't be loaded, an assertion will be thrown.
+	@see serializing::loadMidiFromFile(), serializing::saveMidiToFile()
  */
 [[nodiscard]] juce::MidiFile getMidiFile (const String& midiFileName);
 
 /** @ingroup lemons_midi lemons_binary
-    Returns a MIDI buffer object from a MIDI file in the BinaryData target. If the MIDI can't be loaded, an assertion will be thrown.
-    @see serializing::loadMidiFromFile(), serializing::saveMidiToFile()
+	Returns a MIDI buffer object from a MIDI file in the BinaryData target. If the MIDI can't be loaded, an assertion will be thrown.
+	@see serializing::loadMidiFromFile(), serializing::saveMidiToFile()
  */
 [[nodiscard]] juce::MidiBuffer getMidiBuffer (const String& midiFileName);
 
@@ -131,21 +131,21 @@ template <>
 struct VariantConverter<MidiBuffer>
 {
 	static MidiBuffer fromVar (const var& v);
-	static var        toVar (const MidiBuffer& b);
+	static var		  toVar (const MidiBuffer& b);
 };
 
 template <>
 struct VariantConverter<MidiFile>
 {
 	static MidiFile fromVar (const var& v);
-	static var      toVar (const MidiFile& f);
+	static var		toVar (const MidiFile& f);
 };
 
 template <>
 struct VariantConverter<MidiMessage>
 {
 	static MidiMessage fromVar (const var& v);
-	static var         toVar (const MidiMessage& m);
+	static var		   toVar (const MidiMessage& m);
 
 private:
 	static constexpr auto data_prop = "Data";

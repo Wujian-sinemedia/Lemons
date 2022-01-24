@@ -25,7 +25,7 @@ using namespace lemons::math;
 struct MathTests final : public CoreTest
 {
 	explicit MathTests()
-	    : CoreTest ("Math tests")
+		: CoreTest ("Math tests")
 	{
 	}
 
@@ -112,7 +112,7 @@ private:
 
 				for (int i = 0; i < getNumTestingRepetitions(); ++i)
 				{
-					const auto ms         = rand.nextDouble();
+					const auto ms		  = rand.nextDouble();
 					const auto estSamples = msToSamps (samplerate, ms);
 
 					expectWithinAbsoluteError (sampsToMs (samplerate, estSamples), ms, 0.015);

@@ -17,26 +17,26 @@ namespace lemons::dsp
 {
 
 AudioFile::AudioFile (const File& audioFile)
-    : AudioFile (formats::getDefaultAudioFormatManager().createReaderFor (audioFile), audioFile)
+	: AudioFile (formats::getDefaultAudioFormatManager().createReaderFor (audioFile), audioFile)
 {
 }
 
 AudioFile::AudioFile (std::unique_ptr<juce::InputStream> audioStream)
-    : AudioFile (formats::getDefaultAudioFormatManager().createReaderFor (std::move (audioStream)), {})
+	: AudioFile (formats::getDefaultAudioFormatManager().createReaderFor (std::move (audioStream)), {})
 {
 }
 
 AudioFile::AudioFile (juce::AudioFormatReader* reader, const juce::File& f)
-    : file (f)
+	: file (f)
 {
 	if (reader != nullptr)
 	{
-		audioFormat     = reader->getFormatName();
-		samplerate      = reader->sampleRate;
+		audioFormat		= reader->getFormatName();
+		samplerate		= reader->sampleRate;
 		lengthInSamples = static_cast<int> (reader->lengthInSamples);
-		numChannels     = static_cast<int> (reader->numChannels);
-		bitsPerSample   = static_cast<int> (reader->bitsPerSample);
-		metadata        = reader->metadataValues;
+		numChannels		= static_cast<int> (reader->numChannels);
+		bitsPerSample	= static_cast<int> (reader->bitsPerSample);
+		metadata		= reader->metadataValues;
 
 		if (isValid())
 		{
@@ -153,7 +153,7 @@ dsp::AudioFile getAudioFile (const String& audioFileName)
 juce::StringArray getAudioFileNames()
 {
 	const auto validFileExtensions = juce::StringArray::fromTokens (dsp::formats::getDefaultAudioFormatManager().getWildcardForAllFormats(),
-	                                                                ";", "");
+																	";", "");
 
 	jassert (! validFileExtensions.isEmpty());
 

@@ -23,15 +23,15 @@ using juce::String;
 
 
 /** @defgroup plugin_hosting Plugin hosting
-    @ingroup lemons_plugin
-    Plugin hosting classes.
+	@ingroup lemons_plugin
+	Plugin hosting classes.
  */
 
 
 /** @ingroup plugin_hosting
-    This class holds a reference to a juce::AudioProcessor, and acts as a wrapper around it, providing some convenience and utility functions.
-    To instantiate a custom subclass of AudioProcessor and pass it into one of these automatically, use the TypedProcessorHolder class.
-    @see TypedProcessorHolder
+	This class holds a reference to a juce::AudioProcessor, and acts as a wrapper around it, providing some convenience and utility functions.
+	To instantiate a custom subclass of AudioProcessor and pass it into one of these automatically, use the TypedProcessorHolder class.
+	@see TypedProcessorHolder
  */
 struct ProcessorHolder
 {
@@ -48,8 +48,8 @@ struct ProcessorHolder
 	const juce::AudioProcessor* operator->() const;
 
 	/** Prepares the processor for playback.
-	    Internally, this sets the appropriate processing precision and buses layout and calls prepareToPlay().
-	 */
+		Internally, this sets the appropriate processing precision and buses layout and calls prepareToPlay().
+	*/
 	template <typename SampleType>
 	bool prepareForPlayback (double samplerate, int blocksize, int numChannels = 2);
 
@@ -64,8 +64,8 @@ struct ProcessorHolder
 	[[nodiscard]] const juce::AudioProcessorParameter* getNamedParameter (const String& name) const;
 
 	/** Finds a parameter with a specified name, and attempts to cast it to the specified subclass of juce::AudioProcessorParameter.
-	    @tparam ParameterType The type of parameter class you want to access the parameter as. This type must inherit from juce::AudioProcessorParameter.
-	 */
+		@tparam ParameterType The type of parameter class you want to access the parameter as. This type must inherit from juce::AudioProcessorParameter.
+	*/
 	template <typename ParameterType, LEMONS_MUST_INHERIT_FROM (ParameterType, juce::AudioProcessorParameter)>
 	[[nodiscard]] ParameterType* getTypedParameter (const String& name)
 	{
@@ -76,8 +76,8 @@ struct ProcessorHolder
 	}
 
 	/** Finds a parameter with a specified name, and attempts to cast it to the specified subclass of juce::AudioProcessorParameter.
-	    @tparam ParameterType The type of parameter class you want to access the parameter as. This type must inherit from juce::AudioProcessorParameter.
-	 */
+		@tparam ParameterType The type of parameter class you want to access the parameter as. This type must inherit from juce::AudioProcessorParameter.
+	*/
 	template <typename ParameterType, LEMONS_MUST_INHERIT_FROM (ParameterType, juce::AudioProcessorParameter)>
 	[[nodiscard]] const ParameterType* getTypedParameter (const String& name) const
 	{
@@ -112,16 +112,16 @@ struct ProcessorHolder
 
 
 /** @ingroup plugin_hosting
-    A ProcessorHolder that instantiates a custom subclass of AudioProcessor and automatically creates a ProcessorHolder for you.
-    @tparam ProcessorType The type of processor you wish to instantiate. This type must inherit from juce::AudioProcessor.
-    @see ProcessorHolder
+	A ProcessorHolder that instantiates a custom subclass of AudioProcessor and automatically creates a ProcessorHolder for you.
+	@tparam ProcessorType The type of processor you wish to instantiate. This type must inherit from juce::AudioProcessor.
+	@see ProcessorHolder
  */
 template <typename ProcessorType, LEMONS_MUST_INHERIT_FROM (ProcessorType, juce::AudioProcessor)>
 struct TypedProcessorHolder final : public ProcessorHolder
 {
 	/** Constructor. */
 	TypedProcessorHolder()
-	    : ProcessorHolder (typedProcessor)
+		: ProcessorHolder (typedProcessor)
 	{
 	}
 

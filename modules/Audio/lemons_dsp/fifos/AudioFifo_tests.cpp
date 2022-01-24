@@ -10,7 +10,7 @@ struct AudioFifoTests final : public DspTest
 {
 public:
 	explicit AudioFifoTests()
-	    : DspTest (getDspTestName<FloatType> ("Audio FIFO tests"))
+		: DspTest (getDspTestName<FloatType> ("Audio FIFO tests"))
 	{
 	}
 

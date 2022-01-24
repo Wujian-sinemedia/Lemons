@@ -29,7 +29,7 @@ Point nurbs (const Knots& data, float t, const int* k) noexcept
 float hermitCubic (const Knots& data, float x) noexcept
 {
 	const auto size = static_cast<int> (data.size());
-	const auto i1   = juce::roundToInt (x);
+	const auto i1	= juce::roundToInt (x);
 
 	auto i0 = i1 - 1;
 	while (i0 < 0)

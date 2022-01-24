@@ -17,13 +17,13 @@ namespace lemons::plugin
 {
 
 State::State (const ParameterLayout& parameterLayout)
-    : parameters (parameterLayout)
+	: parameters (parameterLayout)
 {
 }
 
 namespace StateVTProperties
 {
-static constexpr auto fullState    = "PluginState";
+static constexpr auto fullState	   = "PluginState";
 static constexpr auto programState = "Program";
 static constexpr auto dimensions   = "EditorDimensions";
 static constexpr auto customState  = "CustomState";

@@ -3,10 +3,10 @@ namespace lemons::plugin
 {
 
 LFO::LFO (const ParameterList& parameterListToUse, const String& paramName)
-    : MetaParameter<float> (
-        parameterListToUse,
-        0.f, 1.f, 0.f, paramName,
-        nullptr, nullptr, {}, false)
+	: MetaParameter<float> (
+		parameterListToUse,
+		0.f, 1.f, 0.f, paramName,
+		nullptr, nullptr, {}, false)
 {
 }
 

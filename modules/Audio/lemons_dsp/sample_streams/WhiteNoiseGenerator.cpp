@@ -19,9 +19,9 @@ namespace lemons::dsp
 
 template <typename SampleType>
 WhiteNoiseGenerator<SampleType>::WhiteNoiseGenerator (juce::Random rng)
-    : SampleStream<SampleType> ([this]
-                                { return rand.nextFloat() * 0.25f - 0.125f; })
-    , rand (rng)
+	: SampleStream<SampleType> ([this]
+								{ return rand.nextFloat() * 0.25f - 0.125f; })
+	, rand (rng)
 {
 }
 

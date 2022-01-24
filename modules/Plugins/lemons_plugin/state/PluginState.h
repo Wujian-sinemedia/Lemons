@@ -20,7 +20,7 @@ namespace lemons::plugin
 {
 
 /** @ingroup plugin_state
-    Base class for a plugin's entire state.
+	Base class for a plugin's entire state.
  */
 class State
 {

@@ -9,7 +9,7 @@ template <typename SampleType>
 struct OscillatorTests final : public DspTest
 {
 	explicit OscillatorTests()
-	    : DspTest (getDspTestName<SampleType> ("Oscillator tests"))
+		: DspTest (getDspTestName<SampleType> ("Oscillator tests"))
 	{
 	}
 
@@ -50,7 +50,7 @@ private:
 				logImportantMessage ("Frequency: " + String (freq));
 
 				osc.setFrequency (static_cast<SampleType> (freq),
-				                  static_cast<SampleType> (samplerate));
+								  static_cast<SampleType> (samplerate));
 
 				osc.getSamples (storage);
 
@@ -82,15 +82,15 @@ private:
 				for (int i = 1; i < zeroCrossings.size(); ++i)
 				{
 					expectWithinAbsoluteError (zeroCrossings.getUnchecked (i) - zeroCrossings.getUnchecked (i - 1),
-					                           period / 2,
-					                           3);
+											   period / 2,
+											   3);
 				}
 			}
 		}
 	}
 
-	dsp::osc::Sine<SampleType>     sine;
-	dsp::osc::Saw<SampleType>      saw;
+	dsp::osc::Sine<SampleType>	   sine;
+	dsp::osc::Saw<SampleType>	   saw;
 	dsp::osc::Square<SampleType>   square;
 	dsp::osc::Triangle<SampleType> triangle;
 

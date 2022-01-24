@@ -39,8 +39,8 @@ private:
 	SwappableComponent viewer;
 
 	static constexpr auto projectVersion = Version::projectVersion();
-	static constexpr auto juceVersion    = Version::juceVersion();
-	static constexpr auto lemonsVersion  = Version::lemonsVersion();
+	static constexpr auto juceVersion	 = Version::juceVersion();
+	static constexpr auto lemonsVersion	 = Version::lemonsVersion();
 };
 
 }  // namespace lemons::gui::components

@@ -16,8 +16,8 @@ private:
 
 	virtual void runOtherTests() { }
 
-	dsp::osc::Sine<SampleType>     sine;
-	dsp::osc::Saw<SampleType>      saw;
+	dsp::osc::Sine<SampleType>	   sine;
+	dsp::osc::Saw<SampleType>	   saw;
 	dsp::osc::Square<SampleType>   square;
 	dsp::osc::Triangle<SampleType> triangle;
 };

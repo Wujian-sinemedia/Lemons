@@ -25,7 +25,7 @@ private:
 
 
 struct Knots
-    : std::vector<Knot>
+	: std::vector<Knot>
 {
 	Knots();
 

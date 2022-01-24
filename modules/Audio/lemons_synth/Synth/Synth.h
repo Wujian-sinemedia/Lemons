@@ -18,14 +18,14 @@ using Array = juce::Array<T>;
 template <typename SampleType>
 class SynthBase
 {
-	using uint32     = juce::uint32;
-	using Voice      = SynthVoiceBase<SampleType>;
+	using uint32	 = juce::uint32;
+	using Voice		 = SynthVoiceBase<SampleType>;
 	using ADSRParams = juce::ADSR::Parameters;
 
 public:
 	virtual ~SynthBase() = default;
 
-	void               initialize (int initNumVoices, double initSamplerate = 44100.0, int initBlocksize = 512);
+	void			   initialize (int initNumVoices, double initSamplerate = 44100.0, int initBlocksize = 512);
 	[[nodiscard]] bool isInitialized() const;
 
 	void prepare (double samplerate, int blocksize);
@@ -41,7 +41,7 @@ public:
 
 	[[nodiscard]] int getNumActiveVoices() const;
 	[[nodiscard]] int getNumVoices() const noexcept { return voices->size(); }
-	void              changeNumVoices (int newNumVoices);
+	void			  changeNumVoices (int newNumVoices);
 
 	[[nodiscard]] const midi::PitchPipeline* getPitchAdjuster() { return &pitch; }
 
@@ -64,10 +64,10 @@ public:
 
 	void allNotesOff (bool allowTailOff = false, float velocity = 1.0f);
 
-	void turnOffAllKeyupNotes (bool  allowTailOff                = false,
-	                           bool  includePedalPitchAndDescant = true,
-	                           float velocity                    = 1.0f,
-	                           bool  overrideSostenutoPedal      = true);
+	void turnOffAllKeyupNotes (bool	 allowTailOff				 = false,
+							   bool	 includePedalPitchAndDescant = true,
+							   float velocity					 = 1.0f,
+							   bool	 overrideSostenutoPedal		 = true);
 
 	///@}
 
@@ -75,14 +75,14 @@ public:
 	///@{
 
 	[[nodiscard]] bool isPitchActive (int midiPitch, bool countRingingButReleased = false, bool countKeyUpNotes = false) const;
-	void               reportActiveNotes (juce::Array<int>& outputArray, bool includePlayingButReleased = false, bool includeKeyUpNotes = true) const;
+	void			   reportActiveNotes (juce::Array<int>& outputArray, bool includePlayingButReleased = false, bool includeKeyUpNotes = true) const;
 
 	///@}
 
 	/** @name synth_base_midi_latch MIDI latch */
 	///@{
 
-	void               setMidiLatch (bool shouldBeOn, const bool allowTailOff = false);
+	void			   setMidiLatch (bool shouldBeOn, const bool allowTailOff = false);
 	[[nodiscard]] bool isLatched() const noexcept { return latchIsOn; }
 
 	///@}
@@ -108,7 +108,7 @@ public:
 	/** @name synth_base_mtsesp MTS-ESP */
 	///@{
 
-	[[nodiscard]] bool   isConnectedToMtsEsp() const { return pitch.tuning.isConnected(); }
+	[[nodiscard]] bool	 isConnectedToMtsEsp() const { return pitch.tuning.isConnected(); }
 	[[nodiscard]] String getScaleName() const { return pitch.tuning.getScaleName(); }
 
 	///@}
@@ -183,7 +183,7 @@ private:
 	/*==============================================================================================================
 	 ===============================================================================================================*/
 
-	ConstructedArray<Voice> voices;  // { 0, [base = this](){ return base->createVoice(); } };
+	ConstructedArray<Voice> voices;	 // { 0, [base = this](){ return base->createVoice(); } };
 
 	bool latchIsOn { false }, shouldStealNotes { true }, aftertouchGainIsOn { true };
 
@@ -195,7 +195,7 @@ private:
 	double sampleRate { 0.0 };
 
 	midi::VelocityHelper velocityConverter;
-	midi::PitchPipeline  pitch;
+	midi::PitchPipeline	 pitch;
 
 	int lastBlocksize { 0 };
 

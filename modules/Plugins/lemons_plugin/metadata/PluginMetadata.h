@@ -10,9 +10,9 @@ struct PluginMetadata final
 	explicit PluginMetadata() = default;
 
 	explicit PluginMetadata (const ProcessorAttributes& processorAttributesToUse,
-	                         const ParameterLayout&     parameterLayoutToUse,
-	                         const EditorAttributes&    editorAttributesToUse,
-	                         const Version&             versionToUse = Version::projectVersion());
+							 const ParameterLayout&		parameterLayoutToUse,
+							 const EditorAttributes&	editorAttributesToUse,
+							 const Version&				versionToUse = Version::projectVersion());
 
 	[[nodiscard]] ValueTree toValueTree() const;
 
@@ -21,8 +21,8 @@ struct PluginMetadata final
 	[[nodiscard]] std::unique_ptr<ProcessorBase> createProcessor() const;
 
 	ProcessorAttributes processorAttributes;
-	ParameterLayout     parameterLayout;
-	EditorAttributes    editorAttributes;
+	ParameterLayout		parameterLayout;
+	EditorAttributes	editorAttributes;
 
 	Version version { Version::projectVersion() };
 

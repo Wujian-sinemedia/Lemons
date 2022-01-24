@@ -3,7 +3,7 @@ namespace lemons::dsp::synth
 {
 template <typename SampleType>
 VoiceAllocator<SampleType>::VoiceAllocator (SynthBase<SampleType>& s)
-    : synth (s)
+	: synth (s)
 {
 }
 
@@ -32,11 +32,11 @@ SynthVoiceBase<SampleType>* VoiceAllocator<SampleType>::findFreeVoice (bool stea
 		const auto note = voice->getCurrentlyPlayingNote();
 
 		for (auto midiIterator = synth.midiInputStorage.findNextSamplePosition (synth.midi.router.getLastMidiTimestamp() + 1);
-		     midiIterator != synth.midiInputStorage.findNextSamplePosition (synth.midi.router.getLastMidiTimestamp() + futureStealingMaxMs + 1);
-		     ++midiIterator)
+			 midiIterator != synth.midiInputStorage.findNextSamplePosition (synth.midi.router.getLastMidiTimestamp() + futureStealingMaxMs + 1);
+			 ++midiIterator)
 		{
 			const auto metadata = *midiIterator;
-			const auto msg      = metadata.getMessage();
+			const auto msg		= metadata.getMessage();
 
 			if (msg.isNoteOff() && msg.getNoteNumber() == note) return voice;
 		}
@@ -66,7 +66,7 @@ SynthVoiceBase<SampleType>* VoiceAllocator<SampleType>::findVoiceToSteal()
 	auto* descantVoice = synth.descant.getVoice();
 	auto* pedalVoice   = synth.pedal.getVoice();
 
-	usableVoices.clearQuick();  // this is a list of voices we can steal, sorted by how long they've been on
+	usableVoices.clearQuick();	// this is a list of voices we can steal, sorted by how long they've been on
 
 	for (auto* voice : synth.voices)
 	{
@@ -75,8 +75,8 @@ SynthVoiceBase<SampleType>* VoiceAllocator<SampleType>::findVoiceToSteal()
 		usableVoices.add (voice);
 
 		std::sort (usableVoices.begin(), usableVoices.end(),
-		           [] (const Voice* a, const Voice* b)
-		           { return a->wasStartedBefore (*b); });
+				   [] (const Voice* a, const Voice* b)
+				   { return a->wasStartedBefore (*b); });
 
 		if (voice->isVoiceActive() && ! voice->isPlayingButReleased())
 		{
@@ -88,7 +88,7 @@ SynthVoiceBase<SampleType>* VoiceAllocator<SampleType>::findVoiceToSteal()
 		}
 	}
 
-	if (top == low)  // Eliminate pathological cases (ie: only 1 note playing): we always give precedence to the lowest note(s)
+	if (top == low)	 // Eliminate pathological cases (ie: only 1 note playing): we always give precedence to the lowest note(s)
 		top = nullptr;
 
 	for (auto* voice : usableVoices)
@@ -106,7 +106,7 @@ SynthVoiceBase<SampleType>* VoiceAllocator<SampleType>::findVoiceToSteal()
 
 	// return final top & bottom notes held with keyboard keys
 
-	if (top != nullptr)  // save bass
+	if (top != nullptr)	 // save bass
 		return top;
 
 	return low;

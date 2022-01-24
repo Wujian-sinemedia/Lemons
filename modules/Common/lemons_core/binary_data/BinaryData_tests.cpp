@@ -11,7 +11,7 @@ namespace lemons::tests
 struct BinaryDataTests final : public Test
 {
 	explicit BinaryDataTests()
-	    : Test ("Binary data tests", "BinaryData")
+		: Test ("Binary data tests", "BinaryData")
 	{
 	}
 

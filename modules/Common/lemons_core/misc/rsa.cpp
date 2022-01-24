@@ -22,7 +22,7 @@ namespace lemons::rsa
 String encryptString (const String& stringToEncrypt, const RSAKey& publicKey)
 {
 	juce::CharPointer_UTF8 stringPointer (stringToEncrypt.toUTF8());
-	juce::MemoryBlock      stringMemoryBlock (stringPointer.getAddress(), stringPointer.sizeInBytes());
+	juce::MemoryBlock	   stringMemoryBlock (stringPointer.getAddress(), stringPointer.sizeInBytes());
 
 	juce::BigInteger stringAsData;
 	stringAsData.loadFromMemoryBlock (stringMemoryBlock);

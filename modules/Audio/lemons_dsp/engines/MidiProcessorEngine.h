@@ -8,7 +8,7 @@ struct MidiProcessorEngine : public Engine<SampleType>
 {
 	template <typename... Args>
 	explicit MidiProcessorEngine (Args&&... args)
-	    : processor (std::forward<Args> (args)...)
+		: processor (std::forward<Args> (args)...)
 	{
 	}
 

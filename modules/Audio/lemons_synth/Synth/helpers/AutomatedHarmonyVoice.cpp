@@ -3,8 +3,8 @@ namespace lemons::dsp::synth
 {
 template <typename SampleType>
 AutomatedHarmonyVoice<SampleType>::AutomatedHarmonyVoice (SynthBase<SampleType>& synthToUse, bool shiftUp)
-    : shiftingUp (shiftUp)
-    , synth (synthToUse)
+	: shiftingUp (shiftUp)
+	, synth (synthToUse)
 {
 }
 
@@ -25,8 +25,8 @@ void AutomatedHarmonyVoice<SampleType>::apply()
 		return;
 	}
 
-	int    currentExtreme = 128;
-	Voice* extremeVoice   = nullptr;
+	int	   currentExtreme = 128;
+	Voice* extremeVoice	  = nullptr;
 
 	// find the current lowest/highest note being played by a keyboard key
 	for (auto* voice : synth.voices)
@@ -58,11 +58,11 @@ void AutomatedHarmonyVoice<SampleType>::apply()
 	auto* prevVoice = synth.getVoicePlayingNote (lastPitch);  // attempt to keep the pedal line consistent - using the same synth voice
 
 	if (prevVoice != nullptr)
-		if (prevVoice->isKeyDown())  // can't "steal" the voice playing the last pedal note if its keyboard key is down
+		if (prevVoice->isKeyDown())	 // can't "steal" the voice playing the last pedal note if its keyboard key is down
 			prevVoice = nullptr;
 
 	const auto velocity = (extremeVoice != nullptr) ? extremeVoice->lastReceivedVelocity
-	                                                : (prevVoice != nullptr ? prevVoice->lastReceivedVelocity : 1.0f);
+													: (prevVoice != nullptr ? prevVoice->lastReceivedVelocity : 1.0f);
 
 	if (prevVoice != nullptr)
 	{
@@ -117,7 +117,7 @@ void AutomatedHarmonyVoice<SampleType>::setInterval (int newInterval)
 template <typename SampleType>
 void AutomatedHarmonyVoice<SampleType>::setParams (bool shouldBeOn, int newThresh, int newInterval)
 {
-	thresh   = newThresh;
+	thresh	 = newThresh;
 	interval = newInterval;
 
 	setEnabled (shouldBeOn);

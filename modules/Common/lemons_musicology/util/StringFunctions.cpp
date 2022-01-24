@@ -21,7 +21,7 @@ int stringToPitchClass (const String& string) noexcept
 	jassert (! string.isEmpty());
 
 	const auto pitchClassTokens = juce::String ("abcdefg#") + getSharpSymbol() + getFlatSymbol() + getNaturalSymbol();
-	const auto pitchClassName   = string.toLowerCase().retainCharacters (pitchClassTokens);
+	const auto pitchClassName	= string.toLowerCase().retainCharacters (pitchClassTokens);
 
 	const auto numChars = pitchClassName.length();
 
@@ -132,11 +132,11 @@ int midiPanStringToInt (const String& string) noexcept
 
 	if (string.endsWithIgnoreCase (TRANS ("R")))
 		return juce::jmap (string.dropLastCharacters (1).getIntValue(),
-		                   1, 50, 65, 127);
+						   1, 50, 65, 127);
 
 	if (string.endsWithIgnoreCase (TRANS ("L")))
 		return juce::jmap (string.dropLastCharacters (1).getIntValue(),
-		                   1, 50, 63, 0);
+						   1, 50, 63, 0);
 
 	jassertfalse;
 	return string.getIntValue();
@@ -153,7 +153,7 @@ namespace lemons::tests
 {
 
 StringFunctionsTests::StringFunctionsTests()
-    : CoreTest ("String functions")
+	: CoreTest ("String functions")
 {
 }
 

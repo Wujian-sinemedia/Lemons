@@ -11,8 +11,8 @@ static inline SliderRange convertToSliderRange (const ranges::Range<T>& range)
 
 template <typename ValueType>
 Slider::Slider (ValueType min, ValueType max,
-                ValueType initial, ValueType doubleClickReset)
-    : Slider (ranges::create (min, max), static_cast<float> (initial), static_cast<float> (doubleClickReset))
+				ValueType initial, ValueType doubleClickReset)
+	: Slider (ranges::create (min, max), static_cast<float> (initial), static_cast<float> (doubleClickReset))
 {
 }
 
@@ -23,7 +23,7 @@ template Slider::Slider (double, double, double, double);
 
 template <typename ValueType>
 Slider::Slider (ranges::Range<ValueType> range,
-                ValueType initial, ValueType doubleClickReset)
+				ValueType initial, ValueType doubleClickReset)
 {
 	setNormalisableRange (convertToSliderRange (range));
 
@@ -46,8 +46,8 @@ template Slider::Slider (ranges::Range<double>, double, double);
 
 template <typename ValueType>
 Knob::Knob (ValueType min, ValueType max,
-            ValueType initial, ValueType doubleClickReset)
-    : Knob (ranges::create (min, max), static_cast<float> (initial), static_cast<float> (doubleClickReset))
+			ValueType initial, ValueType doubleClickReset)
+	: Knob (ranges::create (min, max), static_cast<float> (initial), static_cast<float> (doubleClickReset))
 {
 }
 
@@ -58,8 +58,8 @@ template Knob::Knob (double, double, double, double);
 
 template <typename ValueType>
 Knob::Knob (ranges::Range<ValueType> range,
-            ValueType initial, ValueType doubleClickReset)
-    : Slider (range, initial, doubleClickReset)
+			ValueType initial, ValueType doubleClickReset)
+	: Slider (range, initial, doubleClickReset)
 {
 	setSliderStyle (Rotary);
 

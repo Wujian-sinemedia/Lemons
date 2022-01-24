@@ -13,7 +13,7 @@ class ProcessorBaseTest final : public AudioProcessorTestBase
 {
 public:
 	explicit ProcessorBaseTest()
-	    : AudioProcessorTestBase (processor, "ProcessorBase")
+		: AudioProcessorTestBase (processor, "ProcessorBase")
 	{
 	}
 

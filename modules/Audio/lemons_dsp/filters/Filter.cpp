@@ -67,7 +67,7 @@ void Filter<SampleType>::processOrder2 (SampleType* buffer, int numSamples)
 	{
 		const auto input  = buffer[i];
 		const auto output = (input * b0) + lv1;
-		buffer[i]         = output;
+		buffer[i]		  = output;
 
 		lv1 = (input * b1) - (output * a1) + lv2;
 		lv2 = (input * b2) - (output * a2);
@@ -100,7 +100,7 @@ void Filter<SampleType>::processOrder3 (SampleType* buffer, int numSamples)
 	{
 		const auto input  = buffer[i];
 		const auto output = (input * b0) + lv1;
-		buffer[i]         = output;
+		buffer[i]		  = output;
 
 		lv1 = (input * b1) - (output * a1) + lv2;
 		lv2 = (input * b2) - (output * a2) + lv3;
@@ -124,14 +124,14 @@ void Filter<SampleType>::processDefault (SampleType* buffer, int numSamples)
 	{
 		const auto input  = buffer[i];
 		const auto output = (input * coeffs[0]) + state[0];
-		buffer[i]         = output;
+		buffer[i]		  = output;
 
 		for (int j = 0; j < order - 1; ++j)
 			state.set (j, (input * coeffs[j + 1])
-			                  - (output * coeffs[order + j + 1]) + state[j + 1]);
+							  - (output * coeffs[order + j + 1]) + state[j + 1]);
 
 		state.set (order - 1,
-		           (input * coeffs[order]) - (output * coeffs[order * 2]));
+				   (input * coeffs[order]) - (output * coeffs[order * 2]));
 	}
 
 	snapToZero();
@@ -205,11 +205,11 @@ void MultiFilter<SampleType, numChannels>::process (AudioBuffer& buffer) noexcep
 		filter->coefs = coefs;
 
 	for (int channel = 0;
-	     channel < std::min (buffer.getNumChannels(), static_cast<int> (numChannels));
-	     ++channel)
+		 channel < std::min (buffer.getNumChannels(), static_cast<int> (numChannels));
+		 ++channel)
 	{
 		filters[channel]->process (buffer.getWritePointer (channel),
-		                           buffer.getNumSamples());
+								   buffer.getNumSamples());
 	}
 }
 

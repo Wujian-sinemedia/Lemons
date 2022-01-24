@@ -8,7 +8,7 @@ namespace lemons::tests
 struct DspSerializingTests final : public CoreTest
 {
 	explicit DspSerializingTests()
-	    : CoreTest ("DSP serializing")
+		: CoreTest ("DSP serializing")
 	{
 	}
 

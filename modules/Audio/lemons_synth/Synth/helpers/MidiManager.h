@@ -12,8 +12,8 @@ class MidiManager : public midi::ChoppingProcessor<SampleType>
 {
 public:
 	MidiManager (SynthBase<SampleType>& s)
-	    : router (s)
-	    , synth (s)
+		: router (s)
+		, synth (s)
 	{
 	}
 
@@ -23,7 +23,7 @@ public:
 	{
 	public:
 		MidiRouter (SynthBase<SampleType>& s)
-		    : synth (s)
+			: synth (s)
 		{
 		}
 

@@ -15,7 +15,7 @@ int main (int argc, char** argv)
 		return EXIT_FAILURE;
 
 	lemons::rsa::generateKeyPair (args.getFilepathForOption ("--file|-f"),
-	                              args.getArgumentAsType<int> ("--bits|-b"));
+								  args.getArgumentAsType<int> ("--bits|-b"));
 
 	return EXIT_SUCCESS;
 }

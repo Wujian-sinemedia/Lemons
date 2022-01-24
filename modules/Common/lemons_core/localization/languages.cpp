@@ -19,17 +19,17 @@ namespace lemons::locale
 struct LanguageData final
 {
 	LanguageData()
-	    : languageName (UNKNOWN)
+		: languageName (UNKNOWN)
 	{
 	}
 
 	LanguageData (const String& name,
-	              const String& ISO_639_1, const String& ISO_639_2,
-	              const StringArray& countries = {})
-	    : languageName (name)
-	    , ISO639_1 (ISO_639_1)
-	    , ISO639_2 (ISO_639_2)
-	    , countryCodes (countries)
+				  const String& ISO_639_1, const String& ISO_639_2,
+				  const StringArray& countries = {})
+		: languageName (name)
+		, ISO639_1 (ISO_639_1)
+		, ISO639_2 (ISO_639_2)
+		, countryCodes (countries)
 	{
 		jassert (ISO639_1.isEmpty() || ISO639_1.length() == 2);
 		jassert (ISO639_2.length() == 3);
@@ -50,8 +50,8 @@ private:
 
 
 /** Note that ISO639-2/B codes are used instead of ISO639-2/T codes.
-    See https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
-    And https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes
+	See https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
+	And https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes
  */
 struct KnownLanguages final
 {
@@ -73,7 +73,7 @@ struct KnownLanguages final
 		languages.emplace_back ("Amharic", "am", "amh", StringArray { "ET" });
 		languages.emplace_back ("Angika", "", "anp", StringArray { "IN", "NP" });
 		languages.emplace_back ("Arabic", "ar", "ara",
-		                        StringArray { "DZ", "BH", "BJ", "TD", "KM", "DJ", "EG", "ER", "GM", "GN", "GW", "ID", "IR", "IL", "JO", "KW", "LB", "LY", "ML", "MR", "MA", "NE", "OM", "PS", "PH", "QA", "SA", "SN", "SO", "ZA", "SD", "SY", "TJ", "TZ", "TN", "AE", "UZ", "VE", "EH", "YE" });
+								StringArray { "DZ", "BH", "BJ", "TD", "KM", "DJ", "EG", "ER", "GM", "GN", "GW", "ID", "IR", "IL", "JO", "KW", "LB", "LY", "ML", "MR", "MA", "NE", "OM", "PS", "PH", "QA", "SA", "SN", "SO", "ZA", "SD", "SY", "TJ", "TZ", "TN", "AE", "UZ", "VE", "EH", "YE" });
 		languages.emplace_back ("Aragonese", "an", "arg", StringArray { "ES" });
 		languages.emplace_back ("Arapaho", "", "arp", StringArray { "US" });
 		languages.emplace_back ("Arawak", "", "arw", StringArray { "SR", "VE", "GY" });
@@ -145,9 +145,9 @@ struct KnownLanguages final
 		languages.emplace_back ("Efik", "", "efi", StringArray { "NG" });
 		languages.emplace_back ("Ekajuk", "", "eka", StringArray { "NG" });
 		languages.emplace_back ("English", "en", "eng",
-		                        StringArray { "AS", "AI", "AG", "AU", "AZ", "BS", "BH", "BB", "BZ", "BJ", "BM", "BQ", "BW", "IO", "BN", "BI", "CM", "CA", "KY", "CX", "CC", "CO", "CK", "CU", "CW", "DM", "ER", "SZ", "FK", "FJ", "FI", "GM", "GH", "GI", "GD", "GU", "GG", "GW", "GN"
-		                                                                                                                                                                                                                                                                          "GY",
-		                                      "HK", "IN", "ID", "IQ", "IE", "JM", "KE", "KI", "LS", "LR", "MW", "MY", "MV", "MT", "MH", "MU", "FM", "NA", "NR", "NL", "NZ", "NI", "NG", "NU", "NF", "MP", "PK", "PW", "PG", "PH", "PN", "PR", "QA", "RU", "RW", "KN", "LC", "VC", "WS", "SC", "SL", "SG", "SX", "SB", "SO", "ZA", "GS", "SS", "LK", "SD", "SR", "TZ", "TH", "TL", "TK", "TO", "TT", "TC", "TV", "UG", "GB", "US", "VU", "VE", "VG", "VI", "ZM", "ZW" });
+								StringArray { "AS", "AI", "AG", "AU", "AZ", "BS", "BH", "BB", "BZ", "BJ", "BM", "BQ", "BW", "IO", "BN", "BI", "CM", "CA", "KY", "CX", "CC", "CO", "CK", "CU", "CW", "DM", "ER", "SZ", "FK", "FJ", "FI", "GM", "GH", "GI", "GD", "GU", "GG", "GW", "GN"
+																																																																				  "GY",
+											  "HK", "IN", "ID", "IQ", "IE", "JM", "KE", "KI", "LS", "LR", "MW", "MY", "MV", "MT", "MH", "MU", "FM", "NA", "NR", "NL", "NZ", "NI", "NG", "NU", "NF", "MP", "PK", "PW", "PG", "PH", "PN", "PR", "QA", "RU", "RW", "KN", "LC", "VC", "WS", "SC", "SL", "SG", "SX", "SB", "SO", "ZA", "GS", "SS", "LK", "SD", "SR", "TZ", "TH", "TL", "TK", "TO", "TT", "TC", "TV", "UG", "GB", "US", "VU", "VE", "VG", "VI", "ZM", "ZW" });
 		languages.emplace_back ("Erzya", "", "myv", StringArray { "RU" });
 		languages.emplace_back ("Esperanto", "eo", "epo");
 		languages.emplace_back ("Estonian", "et", "est", StringArray { "EE" });
@@ -161,7 +161,7 @@ struct KnownLanguages final
 		languages.emplace_back ("Finnish", "fi", "fin", StringArray { "FI", "SE" });
 		languages.emplace_back ("Fon", "", "fon", StringArray { "BJ" });
 		languages.emplace_back ("French", "fr", "fre",
-		                        StringArray { "DZ", "BE", "BJ", "BF", "BI", "CM", "CA", "CF", "TD", "KM", "CD", "CG", "CI", "DJ", "GQ", "FR", "PF", "GM", "GN", "GY", "HT", "VA", "LA", "LB", "LU", "MG", "ML", "MR", "MU", "MC", "MA", "NC", "NE", "RU", "RW", "BL", "MF", "SN", "SC", "SR", "CH", "TG", "TN", "VU", "WF", "EH" });
+								StringArray { "DZ", "BE", "BJ", "BF", "BI", "CM", "CA", "CF", "TD", "KM", "CD", "CG", "CI", "DJ", "GQ", "FR", "PF", "GM", "GN", "GY", "HT", "VA", "LA", "LB", "LU", "MG", "ML", "MR", "MU", "MC", "MA", "NC", "NE", "RU", "RW", "BL", "MF", "SN", "SC", "SR", "CH", "TG", "TN", "VU", "WF", "EH" });
 		languages.emplace_back ("Friulian", "", "fur", StringArray { "IT" });
 		languages.emplace_back ("Fulah", "ff", "ful", StringArray { "BJ", "CM", "GM", "GN", "ML", "NE", "NG" });
 		languages.emplace_back ("Ga", "", "gaa", StringArray { "GH" });
@@ -172,7 +172,7 @@ struct KnownLanguages final
 		languages.emplace_back ("Gbaya", "", "gba", StringArray { "CD", "CF", "CM", "CG" });
 		languages.emplace_back ("Georgian", "ka", "geo", StringArray { "GE" });
 		languages.emplace_back ("German", "de", "ger",
-		                        StringArray { "AT", "BE", "BZ", "CR", "CZ", "DK", "DE", "LI", "LU", "NA", "RO", "RU", "ZA", "CH", "VE" });
+								StringArray { "AT", "BE", "BZ", "CR", "CZ", "DK", "DE", "LI", "LU", "NA", "RO", "RU", "ZA", "CH", "VE" });
 		languages.emplace_back ("Gilbertese", "", "gil", StringArray { "KI" });
 		languages.emplace_back ("Gondi", "", "gon", StringArray { "IN" });
 		languages.emplace_back ("Gorontalo", "", "gor", StringArray { "ID" });
@@ -337,7 +337,7 @@ struct KnownLanguages final
 		languages.emplace_back ("Pashto", "ps", "pus", StringArray { "AF", "PK" });
 		languages.emplace_back ("Pohnpeian", "", "pon", StringArray { "FM" });
 		languages.emplace_back ("Portuguese", "pt", "por",
-		                        StringArray { "AO", "BR", "CV", "CO", "GQ", "GY", "MO", "MZ", "PT", "ST", "ZA", "SR", "TL", "UY", "VE" });
+								StringArray { "AO", "BR", "CV", "CO", "GQ", "GY", "MO", "MZ", "PT", "ST", "ZA", "SR", "TL", "UY", "VE" });
 		languages.emplace_back ("Quechua", "qu", "que", StringArray { "AR", "BO", "CO", "EC", "PE" });
 		languages.emplace_back ("Rajasthani", "", "raj");
 		languages.emplace_back ("Rapanui", "", "rap");
@@ -381,7 +381,7 @@ struct KnownLanguages final
 		languages.emplace_back ("Somali", "so", "som", StringArray { "DJ", "ET", "SO" });
 		languages.emplace_back ("Sotho", "st", "sot", StringArray { "LS", "ZA", "ZW" });
 		languages.emplace_back ("Spanish", "es", "spa",
-		                        StringArray { "AR", "BZ", "BO", "CL", "CO", "CR", "CU", "DO", "EC", "SV", "GQ", "GI", "GT", "GY", "HN", "MX", "NI", "PA", "PY", "PE", "PH", "PR", "ES", "SR", "TT", "US", "UY", "VE", "EH" });
+								StringArray { "AR", "BZ", "BO", "CL", "CO", "CR", "CU", "DO", "EC", "SV", "GQ", "GI", "GT", "GY", "HN", "MX", "NI", "PA", "PY", "PE", "PH", "PR", "ES", "SR", "TT", "US", "UY", "VE", "EH" });
 		languages.emplace_back ("Sundanese", "su", "sun", StringArray { "ID" });
 		languages.emplace_back ("Swahili", "sw", "swa", StringArray { "CD", "KE", "MZ", "RW", "TZ", "UG" });
 		languages.emplace_back ("Swati", "ss", "ssw", StringArray { "SZ", "ZA" });

@@ -10,7 +10,7 @@ struct AudioEngineTests final : public DspTest
 {
 public:
 	explicit AudioEngineTests()
-	    : DspTest (getDspTestName<FloatType> ("Audio engine tests"))
+		: DspTest (getDspTestName<FloatType> ("Audio engine tests"))
 	{
 	}
 

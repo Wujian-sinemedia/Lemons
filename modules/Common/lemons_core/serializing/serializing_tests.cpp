@@ -9,7 +9,7 @@ namespace lemons::tests
 struct CoreSerializingTests final : public CoreTest
 {
 	explicit CoreSerializingTests()
-	    : CoreTest ("Core serializing functions")
+		: CoreTest ("Core serializing functions")
 	{
 	}
 

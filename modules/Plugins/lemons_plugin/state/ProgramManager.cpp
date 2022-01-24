@@ -17,7 +17,7 @@ namespace lemons::plugin
 {
 
 static constexpr auto programVTtype = "Program";
-static constexpr auto nameProperty  = "Name";
+static constexpr auto nameProperty	= "Name";
 
 ValueTree Program::saveToValueTree() const
 {

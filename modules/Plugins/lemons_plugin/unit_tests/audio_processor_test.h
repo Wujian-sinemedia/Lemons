@@ -21,8 +21,8 @@ namespace lemons::tests
 using juce::MidiBuffer;
 
 /** @defgroup lemons_plugin_unit_tests Plugin tests
-    @ingroup lemons_unit_testing lemons_plugin
-    Utilities for unit testing plugin classes.
+	@ingroup lemons_unit_testing lemons_plugin
+	Utilities for unit testing plugin classes.
  */
 
 /** @ingroup lemons_plugin_unit_tests
@@ -63,8 +63,8 @@ struct AudioProcessorTest : public AudioProcessorTestBase
 {
 	template <typename... Args>
 	explicit AudioProcessorTest (const String& testName, Args&&... args)
-	    : AudioProcessorTestBase (processor, testName)
-	    , processor (std::forward<Args> (args)...)
+		: AudioProcessorTestBase (processor, testName)
+		, processor (std::forward<Args> (args)...)
 	{
 	}
 

@@ -3,9 +3,9 @@ namespace lemons::gui
 {
 
 ScopedCursor::ScopedCursor (
-    const juce::MouseCursor& cursor,
-    juce::MouseCursor        cursorToResetTo)
-    : resetCursor (std::move (cursorToResetTo))
+	const juce::MouseCursor& cursor,
+	juce::MouseCursor		 cursorToResetTo)
+	: resetCursor (std::move (cursorToResetTo))
 {
 	juce::Desktop::getInstance().getMainMouseSource().showMouseCursor (cursor);
 }

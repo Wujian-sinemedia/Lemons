@@ -5,7 +5,7 @@
 namespace lemons::dsp::filters
 {
 /** A basic IIR filter with coefficients that can be reassigned during realtime playback.
-    @see FX::Filter, MultiFilter
+	@see FX::Filter, MultiFilter
  */
 template <typename SampleType>
 class Filter
@@ -21,8 +21,8 @@ public:
 	void process (SampleType* buffer, int numSamples);
 
 	/** The filter's coefficients.
-	    You can call various methods of this object to create different kinds of filters.
-	 */
+		You can call various methods of this object to create different kinds of filters.
+	*/
 	Coefficients<SampleType> coefs;
 
 private:
@@ -34,13 +34,13 @@ private:
 	void snapToZero() noexcept;
 
 	juce::Array<SampleType> state;
-	int                     order = 0;
+	int						order = 0;
 };
 
 /*--------------------------------------------------------------------------------------------------------------*/
 
 /** A class that holds an array of filters and keeps their coefficients in sync, for processing multichannel audio.
-    @see Filter
+	@see Filter
  */
 template <typename SampleType, size_t numChannels = 2>
 struct MultiFilter
@@ -57,13 +57,13 @@ struct MultiFilter
 	void prepare() noexcept;
 
 	/** Processes multichannel audio.
-	    @see processChannel()
-	 */
+		@see processChannel()
+	*/
 	void process (AudioBuffer& buffer) noexcept;
 
 	/** Processes a single channel of audio in isolation.
-	    @see process()
-	 */
+		@see process()
+	*/
 	void processChannel (int channel, SampleType* audio, int numSamples) noexcept;
 
 	/** The raw coefficients. You can call methods of this object to create various filter topologies. */

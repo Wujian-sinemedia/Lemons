@@ -2,16 +2,16 @@
 namespace lemons::dsp::FX
 {
 PannerBase::PannerBase()
-    : lastReceivedMidiPan (64)
-    , leftGain (0.5f)
-    , rightGain (0.5f)
+	: lastReceivedMidiPan (64)
+	, leftGain (0.5f)
+	, rightGain (0.5f)
 {
 }
 
 void PannerBase::resetToCenter()
 {
-	leftGain            = 0.5f;
-	rightGain           = 0.5f;
+	leftGain			= 0.5f;
+	rightGain			= 0.5f;
 	lastReceivedMidiPan = 64;
 }
 
@@ -44,10 +44,10 @@ void PannerBase::setMidiPan (int newMidiPan)
 	if (lastReceivedMidiPan == newMidiPan) return;
 
 	const auto panningAngle = juce::jlimit (
-	    0.0f,
-	    90.0f,
-	    (90.0f * newMidiPan / 127.0f * juce::MathConstants<float>::pi)
-	        / 180.0f);
+		0.0f,
+		90.0f,
+		(90.0f * newMidiPan / 127.0f * juce::MathConstants<float>::pi)
+			/ 180.0f);
 
 	leftGain  = juce::jlimit (0.0f, 1.0f, std::sin (panningAngle));
 	rightGain = juce::jlimit (0.0f, 1.0f, std::cos (panningAngle));
@@ -58,7 +58,7 @@ void PannerBase::setMidiPan (int newMidiPan)
 void PannerBase::setMidiPan (int newMidiPan, float& leftGainOutput, float& rightGainOutput)
 {
 	setMidiPan (newMidiPan);
-	leftGainOutput  = leftGain;
+	leftGainOutput	= leftGain;
 	rightGainOutput = rightGain;
 }
 

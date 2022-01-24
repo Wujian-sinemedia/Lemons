@@ -13,7 +13,7 @@ public:
 	explicit PluginDetailView (const juce::PluginDescription& descriptionToUse);
 
 	[[nodiscard]] std::unique_ptr<juce::AudioPluginInstance> createPluginInstance (double initialSampleRate = 44100.,
-	                                                                               int    initialBlocksize  = 512) const;
+																				   int	  initialBlocksize	= 512) const;
 
 	juce::PluginDescription description;
 
@@ -69,8 +69,8 @@ public:
 	using SortMethod = plugin::scanning::Category::SortMethod;
 
 	explicit PluginLibraryComponent (juce::FileSearchPath searchPath,
-	                                 const File&          blacklistFile,
-	                                 SortMethod           initialSortMethod = SortMethod::sortByFormat);
+									 const File&		  blacklistFile,
+									 SortMethod			  initialSortMethod = SortMethod::sortByFormat);
 
 	void resort (SortMethod sortMethod);
 

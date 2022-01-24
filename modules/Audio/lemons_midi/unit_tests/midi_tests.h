@@ -23,8 +23,8 @@ namespace lemons::tests
 {
 
 /** @defgroup lemons_midi_unit_tests MIDI tests
-    @ingroup lemons_unit_testing lemons_midi
-    Utilities for unit testing MIDI algorithms.
+	@ingroup lemons_unit_testing lemons_midi
+	Utilities for unit testing MIDI algorithms.
  */
 
 using MidiBuffer = juce::MidiBuffer;

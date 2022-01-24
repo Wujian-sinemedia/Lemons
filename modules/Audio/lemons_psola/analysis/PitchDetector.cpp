@@ -19,8 +19,8 @@ namespace lemons::dsp::psola
 
 template <typename SampleType>
 PitchDetector<SampleType>::PitchDetector (int minFreqHz, float confidenceThreshold)
-    : minHz (minFreqHz)
-    , confidenceThresh (static_cast<SampleType> (confidenceThreshold))
+	: minHz (minFreqHz)
+	, confidenceThresh (static_cast<SampleType> (confidenceThreshold))
 {
 	jassert (minHz > 0);
 }
@@ -51,7 +51,7 @@ float PitchDetector<SampleType>::detectPeriod (const AudioBuffer<SampleType>& in
 template <typename SampleType>
 float PitchDetector<SampleType>::detectPeriod (const SampleType* inputAudio, int numSamples)
 {
-	jassert (samplerate > 0.);                    // pitch detector hasn't been prepared before calling this function!
+	jassert (samplerate > 0.);					  // pitch detector hasn't been prepared before calling this function!
 	jassert (numSamples >= getLatencySamples());  // not enough samples in this frame to do analysis
 
 	updatePeriodBounds();
@@ -114,7 +114,7 @@ void PitchDetector<SampleType>::updatePeriodBounds()
 	const auto periodUpperBound = math::periodInSamples (samplerate, minHz);
 	const auto periodLowerBound = math::periodInSamples (samplerate, 10000);
 
-	if (periodLastFrame > 0.f)  // Pitch should not halve or double between consecutive pitched frames
+	if (periodLastFrame > 0.f)	// Pitch should not halve or double between consecutive pitched frames
 	{
 		const auto freqLastFrame = math::freqFromPeriod (samplerate, periodLastFrame);
 
@@ -178,7 +178,7 @@ float PitchDetector<SampleType>::parabolicInterpolation (int periodEstimate) con
 	const auto x2 = [periodEstimate, max = maxPeriod]
 	{
 		if (const auto plusOne = periodEstimate + 1;
-		    plusOne < max)
+			plusOne < max)
 			return plusOne;
 
 		return periodEstimate;
@@ -263,8 +263,8 @@ template <typename SampleType>
 void PitchDetector<SampleType>::reset()
 {
 	periodLastFrame = 0.f;
-	minPeriod       = 0;
-	maxPeriod       = 0;
+	minPeriod		= 0;
+	maxPeriod		= 0;
 }
 
 template <typename SampleType>

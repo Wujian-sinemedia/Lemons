@@ -4,7 +4,7 @@ namespace lemons::midi
 
 void PitchBendTracker::setRange (int newStUp, int newStDown) noexcept
 {
-	rangeUp   = static_cast<float> (newStUp);
+	rangeUp	  = static_cast<float> (newStUp);
 	rangeDown = static_cast<float> (newStDown);
 }
 

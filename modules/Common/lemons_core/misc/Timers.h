@@ -21,25 +21,25 @@ namespace lemons::events
 {
 
 /** @ingroup lemons_core
-    A timer callback that calls a lambda function.
-    For example:
-    @code
-    void myFunction();
+	A timer callback that calls a lambda function.
+	For example:
+	@code
+	void myFunction();
 
-    TimerCallback t { [&]{ myFunction(); }; };
-    @endcode
+	TimerCallback t { [&]{ myFunction(); }; };
+	@endcode
  */
 struct TimerCallback final : public juce::Timer
 {
 	/** Creates a TimerCallback.
-	    @param callbackToUse The function to call as the timer callback.
-	    @param rateInMs The number of milliseconds between successive calls of callbackToUse when the timer is running.
-	    @param start If true, the timer will be started instantly when this object is created.
-	 */
+		@param callbackToUse The function to call as the timer callback.
+		@param rateInMs The number of milliseconds between successive calls of callbackToUse when the timer is running.
+		@param start If true, the timer will be started instantly when this object is created.
+	*/
 	explicit TimerCallback (std::function<void()>&& callbackToUse,
-	                        int                     rateInMs = 100,
-	                        bool                    start    = true)
-	    : callback (std::move (callbackToUse))
+							int						rateInMs = 100,
+							bool					start	 = true)
+		: callback (std::move (callbackToUse))
 	{
 		jassert (callback != nullptr);
 

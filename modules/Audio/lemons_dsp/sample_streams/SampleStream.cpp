@@ -3,7 +3,7 @@ namespace lemons::dsp
 
 template <typename SampleType>
 SampleStream<SampleType>::SampleStream (std::function<SampleType()>&& sampleFuncToUse)
-    : sampleFunc (std::move (sampleFuncToUse))
+	: sampleFunc (std::move (sampleFuncToUse))
 {
 }
 

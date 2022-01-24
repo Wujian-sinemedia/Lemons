@@ -4,7 +4,7 @@ namespace lemons::dsp
 {
 template <typename SampleType>
 SynthVoiceBase<SampleType>::SynthVoiceBase (SynthBase<SampleType>* base, double initSamplerate)
-    : parent (base)
+	: parent (base)
 {
 	adsr.setSampleRate (initSamplerate);
 	quickRelease.setSampleRate (initSamplerate);
@@ -39,16 +39,16 @@ void SynthVoiceBase<SampleType>::prepare (double samplerate, int blocksize)
 
 
 /*=========================================================================================================
-              _    _ _____ _____ ____     _____  ______ _   _ _____  ______ _____  _____ _   _  _____
-         /\  | |  | |  __ \_   _/ __ \   |  __ \|  ____| \ | |  __ \|  ____|  __ \|_   _| \ | |/ ____|
-        /  \ | |  | | |  | || || |  | |  | |__) | |__  |  \| | |  | | |__  | |__) | | | |  \| | |  __
-       / /\ \| |  | | |  | || || |  | |  |  _  /|  __| | . ` | |  | |  __| |  _  /  | | | . ` | | |_ |
-      / ____ \ |__| | |__| || || |__| |  | | \ \| |____| |\  | |__| | |____| | \ \ _| |_| |\  | |__| |
-     /_/    \_\____/|_____/_____\____/   |_|  \_\______|_| \_|_____/|______|_|  \_\_____|_| \_|\_____|
+			  _    _ _____ _____ ____     _____  ______ _   _ _____  ______ _____  _____ _   _  _____
+		 /\  | |  | |  __ \_   _/ __ \   |  __ \|  ____| \ | |  __ \|  ____|  __ \|_   _| \ | |/ ____|
+		/  \ | |  | | |  | || || |  | |  | |__) | |__  |  \| | |  | | |__  | |__) | | | |  \| | |  __
+	   / /\ \| |  | | |  | || || |  | |  |  _  /|  __| | . ` | |  | |  __| |  _  /  | | | . ` | | |_ |
+	  / ____ \ |__| | |__| || || |__| |  | | \ \| |____| |\  | |__| | |____| | \ \ _| |_| |\  | |__| |
+	 /_/    \_\____/|_____/_____\____/   |_|  \_\______|_| \_|_____/|______|_|  \_\_____|_| \_|\_____|
 
-     Functions for audio rendering
+	 Functions for audio rendering
 
-     ==========================================================================================================*/
+	 ==========================================================================================================*/
 
 template <typename SampleType>
 void SynthVoiceBase<SampleType>::renderBlock (AudioBuffer<SampleType>& output)
@@ -87,7 +87,7 @@ void SynthVoiceBase<SampleType>::renderBlock (AudioBuffer<SampleType>& output)
 	playingButReleasedMod.process (render);
 	softPedalMod.process (render);
 
-	adsr.applyEnvelopeToBuffer (render, 0, numSamples);  // midi-triggered adsr envelope
+	adsr.applyEnvelopeToBuffer (render, 0, numSamples);	 // midi-triggered adsr envelope
 
 	// quick fade out for stopNote w/ no tail off, to prevent clicks from output suddenly jumping to 0
 	if (isQuickFading)
@@ -130,8 +130,8 @@ void SynthVoiceBase<SampleType>::renderInternal (int totalNumSamples)
 			renderPlease (alias, static_cast<float> (outputFrequency.getNextValue()), parent->sampleRate);
 
 			renderingBuffer.setSample (0,
-			                           samplesProcessed++,
-			                           alias.getSample (0, 0));
+									   samplesProcessed++,
+									   alias.getSample (0, 0));
 
 			continue;
 		}
@@ -145,8 +145,8 @@ void SynthVoiceBase<SampleType>::renderInternal (int totalNumSamples)
 
 		// copy to output (rendering buffer)
 		juce::FloatVectorOperations::copy (renderingBuffer.getWritePointer (0, samplesProcessed),
-		                                   scratchBuffer.getReadPointer (0),
-		                                   samplesLeft);
+										   scratchBuffer.getReadPointer (0),
+										   samplesLeft);
 
 		return;
 	}
@@ -177,34 +177,34 @@ void SynthVoiceBase<SampleType>::bypassedBlock (int numSamples)
 
 
 /*=========================================================================================================
-      __  __ _____ _____ _____
-     |  \/  |_   _|  __ \_   _|
-     | \  / | | | | |  | || |
-     | |\/| | | | | |  | || |
-     | |  | |_| |_| |__| || |_
-     |_|  |_|_____|_____/_____|
+	  __  __ _____ _____ _____
+	 |  \/  |_   _|  __ \_   _|
+	 | \  / | | | | |  | || |
+	 | |\/| | | | | |  | || |
+	 | |  | |_| |_| |__| || |_
+	 |_|  |_|_____|_____/_____|
 
-     Functions for midi events and features
+	 Functions for midi events and features
 
-     ==========================================================================================================*/
+	 ==========================================================================================================*/
 
 template <typename SampleType>
-void SynthVoiceBase<SampleType>::startNote (const int    midiPitch,
-                                            const float  velocity,
-                                            const uint32 noteOnTimestamp,
-                                            const bool   keyboardKeyIsDown,
-                                            const bool   isPedal,
-                                            const bool   isDescant,
-                                            const int    midichannel)
+void SynthVoiceBase<SampleType>::startNote (const int	 midiPitch,
+											const float	 velocity,
+											const uint32 noteOnTimestamp,
+											const bool	 keyboardKeyIsDown,
+											const bool	 isPedal,
+											const bool	 isDescant,
+											const int	 midichannel)
 {
 	setTargetOutputFrequency (parent->pitch.getFrequencyForMidi (midiPitch, midichannel));
 
-	noteOnTime           = noteOnTimestamp;
+	noteOnTime			 = noteOnTimestamp;
 	currentlyPlayingNote = midiPitch;
 	lastReceivedVelocity = velocity;
-	isQuickFading        = false;
-	isPedalPitchVoice    = isPedal;
-	isDescantVoice       = isDescant;
+	isQuickFading		 = false;
+	isPedalPitchVoice	 = isPedal;
+	isDescantVoice		 = isDescant;
 
 	midiChannel = midichannel;
 
@@ -251,7 +251,7 @@ void SynthVoiceBase<SampleType>::stopNote (const float velocity, const bool allo
 
 	isQuickFading = ! allowTailOff;
 
-	keyIsDown          = false;
+	keyIsDown		   = false;
 	playingButReleased = false;
 }
 
@@ -259,17 +259,17 @@ void SynthVoiceBase<SampleType>::stopNote (const float velocity, const bool allo
 template <typename SampleType>
 void SynthVoiceBase<SampleType>::clearCurrentNote()
 {
-	lastReceivedVelocity         = 0.0f;
-	currentAftertouch            = 0;
-	currentlyPlayingNote         = -1;  // NB: this function does NOT change currentOutputFreq and that is intentional!!
-	noteOnTime                   = 0;
-	isQuickFading                = false;
-	keyIsDown                    = false;
-	playingButReleased           = false;
+	lastReceivedVelocity		 = 0.0f;
+	currentAftertouch			 = 0;
+	currentlyPlayingNote		 = -1;	// NB: this function does NOT change currentOutputFreq and that is intentional!!
+	noteOnTime					 = 0;
+	isQuickFading				 = false;
+	keyIsDown					 = false;
+	playingButReleased			 = false;
 	sustainingFromSostenutoPedal = false;
-	isPedalPitchVoice            = false;
-	isDescantVoice               = false;
-	isDoubledByAutomatedVoice    = false;
+	isPedalPitchVoice			 = false;
+	isDescantVoice				 = false;
+	isDoubledByAutomatedVoice	 = false;
 
 	if (quickRelease.isActive()) quickRelease.reset();
 
@@ -309,7 +309,7 @@ void SynthVoiceBase<SampleType>::aftertouchChanged (const int newAftertouchValue
 		constexpr auto inv127 = 1.0f / 127.0f;
 
 		const auto newWeightedGain = juce::jlimit (0.0f, 1.0f,
-		                                           lastReceivedVelocity + newAftertouchValue * inv127);
+												   lastReceivedVelocity + newAftertouchValue * inv127);
 
 		aftertouchGain.setGain (parent->velocityConverter.getGainForVelocity (newWeightedGain));
 	}
@@ -321,16 +321,16 @@ void SynthVoiceBase<SampleType>::aftertouchChanged (const int newAftertouchValue
 
 
 /*=========================================================================================================
-      __  __ _____  _____  _____      ______ _    _ _   _  _____ _______ _____ ____  _   _  _____
-     |  \/  |_   _|/ ____|/ ____|    |  ____| |  | | \ | |/ ____|__   __|_   _/ __ \| \ | |/ ____|
-     | \  / | | | | (___ | |         | |__  | |  | |  \| | |       | |    | || |  | |  \| | (___
-     | |\/| | | |  \___ \| |         |  __| | |  | | . ` | |       | |    | || |  | | . ` |\___ \
-     | |  | |_| |_ ____) | |____ _   | |    | |__| | |\  | |____   | |   _| || |__| | |\  |____) |
-     |_|  |_|_____|_____/ \_____(_)  |_|     \____/|_| \_|\_____|  |_|  |_____\____/|_| \_|_____/
+	  __  __ _____  _____  _____      ______ _    _ _   _  _____ _______ _____ ____  _   _  _____
+	 |  \/  |_   _|/ ____|/ ____|    |  ____| |  | | \ | |/ ____|__   __|_   _/ __ \| \ | |/ ____|
+	 | \  / | | | | (___ | |         | |__  | |  | |  \| | |       | |    | || |  | |  \| | (___
+	 | |\/| | | |  \___ \| |         |  __| | |  | | . ` | |       | |    | || |  | | . ` |\___ \
+	 | |  | |_| |_ ____) | |____ _   | |    | |__| | |\  | |____   | |   _| || |__| | |\  |____) |
+	 |_|  |_|_____|_____/ \_____(_)  |_|     \____/|_| \_|\_____|  |_|  |_____\____/|_| \_|_____/
 
-     Miscellaneous functions
+	 Miscellaneous functions
 
-     ==========================================================================================================*/
+	 ==========================================================================================================*/
 
 template <typename SampleType>
 void SynthVoiceBase<SampleType>::resetRampedValues()

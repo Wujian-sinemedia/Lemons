@@ -89,7 +89,7 @@ ValToStringFunc<ValueType> createDefaultStringFromValueFunc (float rangeInterval
 		}();
 
 		return checkForLength (appendParamLabel (String (v, numDecimalPlaces), paramLabel),
-		                       length);
+							   length);
 	};
 }
 
@@ -99,7 +99,7 @@ ValToStringFunc<int> createDefaultStringFromValueFunc (float, const String& para
 	return [paramLabel] (int v, int num) -> String
 	{
 		return checkForLength (appendParamLabel (String (v), paramLabel),
-		                       num);
+							   num);
 	};
 }
 
@@ -167,8 +167,8 @@ StringToValFunc<bool> createDefaultValueFromStringFunc()
 
 template <typename ValueType>
 BasicValToStringFunc convertValToStringFuncFromTyped (ValToStringFunc<ValueType> origFunc,
-                                                      const String&              paramLabel,
-                                                      float                      rangeInterval)
+													  const String&				 paramLabel,
+													  float						 rangeInterval)
 {
 	if (origFunc == nullptr)
 		origFunc = createDefaultStringFromValueFunc<ValueType> (rangeInterval, paramLabel);
@@ -208,13 +208,13 @@ ValToStringFunc<ValueType> convertValToStringFuncToTyped (BasicValToStringFunc o
 	return [origFunc] (ValueType v, int maxLength)
 	{
 		return checkForLength (origFunc (static_cast<float> (v)),
-		                       maxLength);
+							   maxLength);
 	};
 }
 
 template ValToStringFunc<float> convertValToStringFuncToTyped (BasicValToStringFunc, const String&);
-template ValToStringFunc<int>   convertValToStringFuncToTyped (BasicValToStringFunc, const String&);
-template ValToStringFunc<bool>  convertValToStringFuncToTyped (BasicValToStringFunc, const String&);
+template ValToStringFunc<int>	convertValToStringFuncToTyped (BasicValToStringFunc, const String&);
+template ValToStringFunc<bool>	convertValToStringFuncToTyped (BasicValToStringFunc, const String&);
 
 /*-------------------------------------------------------------------------------------------------------*/
 
@@ -229,7 +229,7 @@ StringToValFunc<ValueType> convertStringToValFuncToTyped (BasicStringToValFunc o
 }
 
 template StringToValFunc<float> convertStringToValFuncToTyped (BasicStringToValFunc);
-template StringToValFunc<int>   convertStringToValFuncToTyped (BasicStringToValFunc);
-template StringToValFunc<bool>  convertStringToValFuncToTyped (BasicStringToValFunc);
+template StringToValFunc<int>	convertStringToValFuncToTyped (BasicStringToValFunc);
+template StringToValFunc<bool>	convertStringToValFuncToTyped (BasicStringToValFunc);
 
 }  // namespace lemons::plugin::detail

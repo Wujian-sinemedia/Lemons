@@ -11,7 +11,7 @@ float PitchPipeline::getFrequencyForMidi (int midiPitch, int midiChannel) const
 float PitchPipeline::getFrequencyForMidi (float midiPitch, int midiChannel) const
 {
 	return tuning.midiToFrequency (bend.getAdjustedMidiPitch (midiPitch),
-	                               midiChannel);
+								   midiChannel);
 }
 
 float PitchPipeline::getMidiForFrequency (int midiPitch, int midiChannel) const
@@ -22,7 +22,7 @@ float PitchPipeline::getMidiForFrequency (int midiPitch, int midiChannel) const
 float PitchPipeline::getMidiForFrequency (float midiPitch, int midiChannel) const
 {
 	return bend.getAdjustedMidiPitch (tuning.frequencyToMidi (math::midiToFreq (midiPitch),
-	                                                          midiChannel));
+															  midiChannel));
 }
 
 void PitchPipeline::reset()

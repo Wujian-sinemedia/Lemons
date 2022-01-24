@@ -10,7 +10,7 @@ struct MonoStereoConverterTests final : public DspTest
 {
 public:
 	explicit MonoStereoConverterTests()
-	    : DspTest (getDspTestName<FloatType> ("Mono-stereo converter tests"))
+		: DspTest (getDspTestName<FloatType> ("Mono-stereo converter tests"))
 	{
 	}
 

@@ -3,7 +3,7 @@
 namespace lemons::dsp::filters
 {
 /** A filter coefficients class, with lots of methods for creating various filter topologies.
-    This class is designed so that coefficients can be recreated and reassigned during realtime playback; no allocations should occur.
+	This class is designed so that coefficients can be recreated and reassigned during realtime playback; no allocations should occur.
  */
 template <typename NumericType>
 struct Coefficients
@@ -37,41 +37,41 @@ struct Coefficients
 
 	//==============================================================================
 	/** Creates the coefficients for a low-pass shelf filter with variable Q and gain.
-	    The gain is a scale factor that the low frequencies are multiplied by, so values greater than 1.0 will boost the low frequencies, values less than 1.0 will attenuate them.
-	 */
-	void makeLowShelf (double      sampleRate,
-	                   NumericType cutOffFrequency,
-	                   NumericType Q          = inverseRootTwo,
-	                   NumericType gainFactor = (NumericType) 1);
+		The gain is a scale factor that the low frequencies are multiplied by, so values greater than 1.0 will boost the low frequencies, values less than 1.0 will attenuate them.
+	*/
+	void makeLowShelf (double	   sampleRate,
+					   NumericType cutOffFrequency,
+					   NumericType Q		  = inverseRootTwo,
+					   NumericType gainFactor = (NumericType) 1);
 
 	/** Creates the coefficients for a high-pass shelf filter with variable Q and gain.
-	    The gain is a scale factor that the high frequencies are multiplied by, so values greater than 1.0 will boost the high frequencies, values less than 1.0 will attenuate them.
-	 */
-	void makeHighShelf (double      sampleRate,
-	                    NumericType cutOffFrequency,
-	                    NumericType Q          = inverseRootTwo,
-	                    NumericType gainFactor = (NumericType) 1);
+		The gain is a scale factor that the high frequencies are multiplied by, so values greater than 1.0 will boost the high frequencies, values less than 1.0 will attenuate them.
+	*/
+	void makeHighShelf (double		sampleRate,
+						NumericType cutOffFrequency,
+						NumericType Q		   = inverseRootTwo,
+						NumericType gainFactor = (NumericType) 1);
 
 	/** Creates the coefficients for a peak filter centred around a given frequency, with a variable Q and gain.
-	    The gain is a scale factor that the centre frequencies are multiplied by, so values greater than 1.0 will boost the centre frequencies, values less than 1.0 will attenuate them.
-	 */
-	void makePeakFilter (double      sampleRate,
-	                     NumericType centreFrequency,
-	                     NumericType Q          = inverseRootTwo,
-	                     NumericType gainFactor = (NumericType) 1);
+		The gain is a scale factor that the centre frequencies are multiplied by, so values greater than 1.0 will boost the centre frequencies, values less than 1.0 will attenuate them.
+	*/
+	void makePeakFilter (double		 sampleRate,
+						 NumericType centreFrequency,
+						 NumericType Q			= inverseRootTwo,
+						 NumericType gainFactor = (NumericType) 1);
 
 	//==============================================================================
 	/** Returns the filter order associated with the coefficients */
 	int getFilterOrder() const noexcept;
 
-	NumericType*       getRawCoefficients() noexcept;
+	NumericType*	   getRawCoefficients() noexcept;
 	const NumericType* getRawCoefficients() const noexcept;
 
 	//==============================================================================
 
 	/** The actual storage of the coefficient values.
-	    You should leave this alone unless you really know what you're doing.
-	 */
+		You should leave this alone unless you really know what you're doing.
+	*/
 	struct Storage : juce::Array<NumericType>
 	{
 		Storage();
@@ -80,8 +80,8 @@ struct Coefficients
 
 	//==============================================================================
 	/** The raw coefficients.
-	    You should leave these numbers alone unless you really know what you're doing.
-	 */
+		You should leave these numbers alone unless you really know what you're doing.
+	*/
 	Storage coefficients;
 
 private:

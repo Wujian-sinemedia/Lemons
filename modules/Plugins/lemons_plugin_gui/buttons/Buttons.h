@@ -3,18 +3,18 @@
 namespace lemons::gui::components
 {
 /**
-    A stateful on/off button attached to a boolean plugin parameter.
-    For a simple press-button that triggers a lambda function, use TextButton or ImageButton.
-    @see plugin::BoolParameter
+	A stateful on/off button attached to a boolean plugin parameter.
+	For a simple press-button that triggers a lambda function, use TextButton or ImageButton.
+	@see plugin::BoolParameter
  */
 class ToggleButton : public ToggleTextButton
 {
 public:
 	/**
-	    Creates a ToggleButton linked to a boolean parameter.
-	    @param paramToUse The parameter to attach to.
-	    @param cb A lambda function that will be called when the state of the button/parameter changes.
-	 */
+		Creates a ToggleButton linked to a boolean parameter.
+		@param paramToUse The parameter to attach to.
+		@param cb A lambda function that will be called when the state of the button/parameter changes.
+	*/
 	explicit ToggleButton (plugin::BoolParameter& paramToUse, std::function<void (bool)> cb = {});
 
 	plugin::BoolParameter& param;

@@ -44,7 +44,7 @@ AudioBuffer<SampleType> audioFromBinary (const MemoryBlock& block)
 	return buffer;
 }
 
-template AudioBuffer<float>  audioFromBinary (const MemoryBlock&);
+template AudioBuffer<float>	 audioFromBinary (const MemoryBlock&);
 template AudioBuffer<double> audioFromBinary (const MemoryBlock&);
 
 

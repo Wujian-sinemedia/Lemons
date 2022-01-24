@@ -27,7 +27,7 @@ struct Program final
 	[[nodiscard]] static Program fromValueTree (const ValueTree& tree);
 
 	ValueTree state;
-	String    name;
+	String	  name;
 };
 
 

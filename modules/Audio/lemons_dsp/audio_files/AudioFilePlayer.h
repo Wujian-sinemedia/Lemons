@@ -20,8 +20,8 @@ namespace lemons::dsp
 {
 
 /** @ingroup audio_files audio_engines
-    A kind of AudioEngine that plays audio from an AudioFile object.
-    @see AudioFile
+	A kind of AudioEngine that plays audio from an AudioFile object.
+	@see AudioFile
  */
 template <typename SampleType>
 class AudioFilePlayer final : public LatencyEngine<SampleType>
@@ -42,7 +42,7 @@ private:
 	const AudioBuffer<float>& origAudio;
 
 	const double origSamplerate;
-	const int    origNumSamples;
+	const int	 origNumSamples;
 
 	double speedRatio { 0. };
 

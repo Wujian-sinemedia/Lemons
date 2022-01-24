@@ -4,8 +4,8 @@ namespace lemons::plugin
 {
 
 /** @defgroup lemons_plugin_editors Editors
-    @ingroup lemons_plugin
-    Plugin editor and GUI classes.
+	@ingroup lemons_plugin
+	Plugin editor and GUI classes.
  */
 
 /** @ingroup plugin_metadata lemons_plugin_editors

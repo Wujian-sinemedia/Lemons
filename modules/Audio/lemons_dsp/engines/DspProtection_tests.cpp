@@ -9,7 +9,7 @@ template <typename FloatType>
 struct DspProtectorTests final : public DspTest
 {
 	explicit DspProtectorTests()
-	    : DspTest (getDspTestName<FloatType> ("DSP protection"))
+		: DspTest (getDspTestName<FloatType> ("DSP protection"))
 	{
 	}
 

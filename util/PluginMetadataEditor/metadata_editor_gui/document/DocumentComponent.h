@@ -12,12 +12,12 @@ private:
 
 	Document document;
 
-	EditorAttributeComponent    editorView { document.metadata.editorAttributes, [this]
-                                          { this->stateChanged(); } };
-	ParameterLayoutComponent    parameterView { document.metadata.parameterLayout, [this]
-                                             { this->stateChanged(); } };
+	EditorAttributeComponent	editorView { document.metadata.editorAttributes, [this]
+											 { this->stateChanged(); } };
+	ParameterLayoutComponent	parameterView { document.metadata.parameterLayout, [this]
+												{ this->stateChanged(); } };
 	ProcessorAttributeComponent processorView { document.metadata.processorAttributes, [this]
-		                                        { this->stateChanged(); } };
+												{ this->stateChanged(); } };
 };
 
 }  // namespace lemons::PluginMetadataEditor::gui

@@ -23,19 +23,19 @@ template <typename T>
 using Oscillator = dsp::Oscillator<T>;
 
 /** @defgroup lemons_oscillators Oscillators
-    @ingroup lemons_dsp
-    %Oscillator classes.
+	@ingroup lemons_dsp
+	%Oscillator classes.
  */
 
 
 /** @defgroup lemons_basic_oscillators Basic wave shapes
-    @ingroup lemons_oscillators
-    Basic oscillator necessities.
+	@ingroup lemons_oscillators
+	Basic oscillator necessities.
  */
 
 /** @ingroup lemons_basic_oscillators
-    A basic sine wave oscillator.
-    @see Oscillator, Phase
+	A basic sine wave oscillator.
+	@see Oscillator, Phase
  */
 template <typename SampleType>
 struct Sine final : public Oscillator<SampleType>
@@ -54,14 +54,14 @@ struct Sine final : public Oscillator<SampleType>
 
 private:
 	typename Oscillator<SampleType>::Phase phase;
-	SampleType                             freq { 0 };
+	SampleType							   freq { 0 };
 };
 
 /*--------------------------------------------------------------------------------------------*/
 
 /** @ingroup lemons_basic_oscillators
-    A basic sawtooth wave oscillator.
-    @see SuperSaw, Oscillator, Phase
+	A basic sawtooth wave oscillator.
+	@see SuperSaw, Oscillator, Phase
  */
 template <typename SampleType>
 struct Saw final : public Oscillator<SampleType>
@@ -80,7 +80,7 @@ struct Saw final : public Oscillator<SampleType>
 
 private:
 	typename Oscillator<SampleType>::Phase phase;
-	SampleType                             freq { 0 };
+	SampleType							   freq { 0 };
 };
 
 /*--------------------------------------------------------------------------------------------*/
@@ -90,8 +90,8 @@ struct Triangle;
 
 
 /** @ingroup lemons_basic_oscillators
-    A basic square wave oscillator.
-    @see Oscillator, Phase
+	A basic square wave oscillator.
+	@see Oscillator, Phase
  */
 template <typename SampleType>
 struct Square final : public Oscillator<SampleType>
@@ -112,14 +112,14 @@ private:
 	friend struct Triangle<SampleType>;
 
 	typename Oscillator<SampleType>::Phase phase;
-	SampleType                             freq { 0 };
+	SampleType							   freq { 0 };
 };
 
 /*--------------------------------------------------------------------------------------------*/
 
 /** @ingroup lemons_basic_oscillators
-    A basic triangle wave oscillator.
-    @see Square, Oscillator, Phase
+	A basic triangle wave oscillator.
+	@see Square, Oscillator, Phase
  */
 template <typename SampleType>
 struct Triangle final : public Oscillator<SampleType>
@@ -138,8 +138,8 @@ struct Triangle final : public Oscillator<SampleType>
 
 private:
 	Square<SampleType> square;
-	SampleType         sum { 1 };
-	SampleType         freq { 0 };
+	SampleType		   sum { 1 };
+	SampleType		   freq { 0 };
 };
 
 }  // namespace lemons::dsp::osc

@@ -22,7 +22,7 @@ namespace lemons
 {
 
 /** @ingroup lemons_device
-    Use this struct's static methods to control various properties of the device's screen rotation/orientation.
+	Use this struct's static methods to control various properties of the device's screen rotation/orientation.
  */
 struct DeviceRotation final
 {
@@ -30,8 +30,8 @@ public:
 	using Orientation = juce::Desktop::DisplayOrientation;
 
 	/** RAII mechanism for temporarily disabling device rotation.
-	    When this object's destructor is called, it restores the rotations that were enabled when the object was constructed.
-	 */
+		When this object's destructor is called, it restores the rotations that were enabled when the object was constructed.
+	*/
 	struct ScopedDisabler final
 	{
 		/** Constructor. */
@@ -59,7 +59,7 @@ public:
 	private:
 		void timerCallback() final;
 
-		Callback    callback;
+		Callback	callback;
 		Orientation prevOrientation;
 	};
 

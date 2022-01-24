@@ -22,8 +22,8 @@ NoiseGate<SampleType>::NoiseGate (float threshDB, float ratioToUse, float attack
 	RMSFilter.setReleaseTime (static_cast<SampleType> (50.0));
 
 	thresholddB = static_cast<SampleType> (threshDB);
-	ratio       = static_cast<SampleType> (ratioToUse);
-	attackTime  = static_cast<SampleType> (attackMs);
+	ratio		= static_cast<SampleType> (ratioToUse);
+	attackTime	= static_cast<SampleType> (attackMs);
 	releaseTime = static_cast<SampleType> (releaseMs);
 
 	spec.numChannels = 2;
@@ -76,7 +76,7 @@ void NoiseGate<SampleType>::prepare (double samplerate, int blocksize)
 {
 	jassert (samplerate > 0);
 
-	spec.sampleRate       = samplerate;
+	spec.sampleRate		  = samplerate;
 	spec.maximumBlockSize = static_cast<juce::uint32> (blocksize);
 
 	RMSFilter.prepare (spec);
@@ -95,15 +95,15 @@ void NoiseGate<SampleType>::reset()
 }
 
 template <typename SampleType>
-SampleType NoiseGate<SampleType>::processChannel (int               channel,
-                                                  int               numSamples,
-                                                  SampleType*       signalToGate,
-                                                  const SampleType* sidechain)
+SampleType NoiseGate<SampleType>::processChannel (int				channel,
+												  int				numSamples,
+												  SampleType*		signalToGate,
+												  const SampleType* sidechain)
 {
 	if (numSamples == 0) return (SampleType) 0;
 
 	SampleType avgGainReduction = 0;
-	SampleType gainRedux        = 0;
+	SampleType gainRedux		= 0;
 
 	for (int s = 0; s < numSamples; ++s)
 	{
@@ -116,15 +116,15 @@ SampleType NoiseGate<SampleType>::processChannel (int               channel,
 
 
 template <typename SampleType>
-SampleType NoiseGate<SampleType>::processSample (int         channel,
-                                                 SampleType  sampleToGate,
-                                                 SampleType  sidechainValue,
-                                                 SampleType* gainReduction)
+SampleType NoiseGate<SampleType>::processSample (int		 channel,
+												 SampleType	 sampleToGate,
+												 SampleType	 sidechainValue,
+												 SampleType* gainReduction)
 {
 	auto env = RMSFilter.processSample (channel,
-	                                    sidechainValue);  // RMS ballistics filter
+										sidechainValue);  // RMS ballistics filter
 
-	env = envelopeFilter.processSample (channel, env);  // Ballistics filter
+	env = envelopeFilter.processSample (channel, env);	// Ballistics filter
 
 	// VCA
 	SampleType gain;
@@ -132,16 +132,16 @@ SampleType NoiseGate<SampleType>::processSample (int         channel,
 	if (inverted)
 	{
 		gain = (env < threshold)
-		         ? static_cast<SampleType> (1.0)
-		         : std::pow (env * thresholdInverse,
-		                     currentRatio - static_cast<SampleType> (1.0));
+				 ? static_cast<SampleType> (1.0)
+				 : std::pow (env * thresholdInverse,
+							 currentRatio - static_cast<SampleType> (1.0));
 	}
 	else
 	{
 		gain = (env > threshold)
-		         ? static_cast<SampleType> (1.0)
-		         : std::pow (env * thresholdInverse,
-		                     currentRatio - static_cast<SampleType> (1.0));
+				 ? static_cast<SampleType> (1.0)
+				 : std::pow (env * thresholdInverse,
+							 currentRatio - static_cast<SampleType> (1.0));
 	}
 
 	if (gainReduction != nullptr)  // report gain reduction, if requested
@@ -154,10 +154,10 @@ template <typename SampleType>
 void NoiseGate<SampleType>::update()
 {
 	threshold = juce::Decibels::decibelsToGain (
-	    thresholddB,
-	    static_cast<SampleType> (-200.0));
+		thresholddB,
+		static_cast<SampleType> (-200.0));
 	thresholdInverse = static_cast<SampleType> (1.0) / threshold;
-	currentRatio     = ratio;
+	currentRatio	 = ratio;
 
 	envelopeFilter.setAttackTime (attackTime);
 	envelopeFilter.setReleaseTime (releaseTime);

@@ -34,9 +34,9 @@ template void fillAudioBufferWithRandomNoise (AudioBuffer<double>&, juce::Random
 
 template <typename FloatType>
 bool allSamplesAreEqual (const juce::AudioBuffer<FloatType>& buffer1,
-                         const juce::AudioBuffer<FloatType>& buffer2,
-                         int startIndex1, int numSamples, int startIndex2,
-                         int channel1, int channel2)
+						 const juce::AudioBuffer<FloatType>& buffer2,
+						 int startIndex1, int numSamples, int startIndex2,
+						 int channel1, int channel2)
 {
 	if (startIndex2 < 0) startIndex2 = startIndex1;
 	if (channel2 < 0) channel2 = channel1;
@@ -50,8 +50,8 @@ bool allSamplesAreEqual (const juce::AudioBuffer<FloatType>& buffer1,
 	const auto* samplesB = buffer2.getReadPointer (channel2);
 
 	for (int i1 = startIndex1, i2 = startIndex2;
-	     i1 < startIndex1 + numSamples && i2 < startIndex2 + numSamples;
-	     ++i1, ++i2)
+		 i1 < startIndex1 + numSamples && i2 < startIndex2 + numSamples;
+		 ++i1, ++i2)
 	{
 		if (samplesA[i1] != samplesB[i2])
 			return false;
@@ -65,9 +65,9 @@ template bool allSamplesAreEqual (const AudioBuffer<double>&, const AudioBuffer<
 
 template <typename FloatType>
 bool bufferChannelsAreEqual (const AudioBuffer<FloatType>& buffer1,
-                             int                           channel1,
-                             const AudioBuffer<FloatType>& buffer2,
-                             int                           channel2)
+							 int						   channel1,
+							 const AudioBuffer<FloatType>& buffer2,
+							 int						   channel2)
 {
 	return allSamplesAreEqual (buffer1, buffer2, 0, buffer1.getNumSamples(), 0, channel1, channel2);
 }
@@ -77,7 +77,7 @@ template bool bufferChannelsAreEqual (const AudioBuffer<double>&, int, const Aud
 
 template <typename FloatType>
 bool buffersAreEqual (const AudioBuffer<FloatType>& buffer1,
-                      const AudioBuffer<FloatType>& buffer2)
+					  const AudioBuffer<FloatType>& buffer2)
 {
 	jassert (buffer1.getNumChannels() == buffer2.getNumChannels());
 
@@ -96,7 +96,7 @@ template bool buffersAreEqual (const AudioBuffer<double>&, const AudioBuffer<dou
 
 template <typename FloatType>
 bool buffersAreReasonablyEqual (const AudioBuffer<FloatType>& buffer1,
-                                const AudioBuffer<FloatType>& buffer2)
+								const AudioBuffer<FloatType>& buffer2)
 {
 	jassert (buffer1.getNumChannels() == buffer2.getNumChannels());
 
@@ -127,7 +127,7 @@ template bool buffersAreReasonablyEqual (const AudioBuffer<double>&, const Audio
 
 template <typename FloatType>
 bool allSamplesAreZero (const AudioBuffer<FloatType>& buffer,
-                        int startIndex, int numSamples, int channel)
+						int startIndex, int numSamples, int channel)
 {
 	jassert (startIndex + numSamples <= buffer.getNumSamples());
 	jassert (channel < buffer.getNumChannels());
@@ -210,7 +210,7 @@ AudioBuffer<SampleType> makeCopyOfAudioBuffer (const AudioBuffer<SampleType>& in
 	return copy;
 }
 
-template AudioBuffer<float>  makeCopyOfAudioBuffer (const AudioBuffer<float>&);
+template AudioBuffer<float>	 makeCopyOfAudioBuffer (const AudioBuffer<float>&);
 template AudioBuffer<double> makeCopyOfAudioBuffer (const AudioBuffer<double>&);
 
 }  // namespace lemons::tests

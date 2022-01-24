@@ -25,14 +25,14 @@ using juce::File;
 using juce::String;
 
 /** @defgroup audio_files Audio files
-    @ingroup lemons_dsp
-    Utilities for working with audio files.
+	@ingroup lemons_dsp
+	Utilities for working with audio files.
  */
 
 
 /** @ingroup audio_files
-    This class represents the data of an audio file, including the AudioBuffer itself, as well as the samplerate, bit depth, and metadata information.
-    One of these can be created from an audio file on disk, or from any kind of juce::InputStream.
+	This class represents the data of an audio file, including the AudioBuffer itself, as well as the samplerate, bit depth, and metadata information.
+	One of these can be created from an audio file on disk, or from any kind of juce::InputStream.
  */
 struct AudioFile final
 {
@@ -49,14 +49,14 @@ struct AudioFile final
 	[[nodiscard]] bool isValid() const noexcept;
 
 	/** Returns true if the file this data represents exists locally on the current device.
-	    This may return false if the file has been deleted since the construction of this object, or if you used the constructor that takes an input stream.
-	 */
+		This may return false if the file has been deleted since the construction of this object, or if you used the constructor that takes an input stream.
+	*/
 	[[nodiscard]] bool existsOnDisk() const noexcept;
 
 	/** Returns the actual audio data of this audio file.
-	    If isValid() returns false, then this function will return a buffer with a size of 0 channels and 0 samples.
-	    Internally, the data is always loaded as floats; the first time you call the double version of this function, the data will be converted to double precision internally.
-	 */
+		If isValid() returns false, then this function will return a buffer with a size of 0 channels and 0 samples.
+		Internally, the data is always loaded as floats; the first time you call the double version of this function, the data will be converted to double precision internally.
+	*/
 	template <typename SampleType>
 	[[nodiscard]] const AudioBuffer<SampleType>& getData();
 
@@ -73,8 +73,8 @@ struct AudioFile final
 	[[nodiscard]] int getBitsPerSample() const noexcept;
 
 	/** Returns the File object that this audio file was loaded from.
-	    Note that this may return an invalid File object if you used the constructor that takes an input stream.
-	 */
+		Note that this may return an invalid File object if you used the constructor that takes an input stream.
+	*/
 	[[nodiscard]] File getFile() const noexcept;
 
 	/** Returns the name of the audio format, eg, 'wav' or 'aiff'. */
@@ -89,11 +89,11 @@ struct AudioFile final
 private:
 	explicit AudioFile (juce::AudioFormatReader* reader, const File& f);
 
-	AudioBuffer<float>  float_data;
+	AudioBuffer<float>	float_data;
 	AudioBuffer<double> double_data;
 
 	double samplerate { 0. };
-	int    lengthInSamples { 0 }, numChannels { 0 }, bitsPerSample { 0 };
+	int	   lengthInSamples { 0 }, numChannels { 0 }, bitsPerSample { 0 };
 
 	File file;
 
@@ -110,12 +110,12 @@ namespace lemons::binary
 {
 
 /** @ingroup audio_files lemons_binary
-    Returns an AudioFile object from a file stored in the BinaryData target. If the audio can't be loaded, an assertion will be thrown.
+	Returns an AudioFile object from a file stored in the BinaryData target. If the audio can't be loaded, an assertion will be thrown.
  */
 [[nodiscard]] dsp::AudioFile getAudioFile (const String& audioFileName);
 
 /** @ingroup lemons_binary
-    Returns a list of names of binary resource files that have file extensions matching known audio file formats.
+	Returns a list of names of binary resource files that have file extensions matching known audio file formats.
  */
 [[nodiscard]] juce::StringArray getAudioFileNames();
 
