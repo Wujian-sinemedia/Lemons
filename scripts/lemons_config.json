@@ -46,7 +46,8 @@
         "ninja-build"
       ],
       "PythonPackages": [
-        "pre-commit"
+        "pre-commit",
+        "cpplint"
       ],
       "name": "Default",
       "packages": [

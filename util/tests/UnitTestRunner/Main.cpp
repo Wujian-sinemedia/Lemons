@@ -63,10 +63,10 @@ int main (int argc, char** argv)
 		return EXIT_FAILURE;
 	}
 
-	using lemons::tests::Intensity;
-
 	const auto intensity = [&args]
 	{
+		using lemons::tests::Intensity;
+
 		if (args["--intensity|-i"] == "Low")
 			return Intensity::Low;
 
@@ -84,20 +84,12 @@ int main (int argc, char** argv)
 		return juce::Random::getSystemRandom().nextInt64();
 	}();
 
-	const auto rerunFailed = [&args]
-	{
-		if (args.containsOption ("--rerun-failed|-r"))
-			return true;
-
-		return false;
-	}();
-
 	const auto res = lemons::tests::executeUnitTests (intensity,
 		args.getFilepathForOption ("--file|-f"),
 		seed,
 		args["--test|-t"],
 		args["--category|-c"],
-		rerunFailed);
+		args.containsOption ("--rerun-failed|-r"));
 
 	if (res)
 		return EXIT_SUCCESS;
