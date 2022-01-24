@@ -9,7 +9,7 @@ set -euo
 
 readonly GH_REPO_REF="github.com/benthevining/Lemons.git"
 
-script_dir="$(dirname "$(readlink -f "$0")")"
+script_dir="$(dirname "$0")"
 readonly script_dir
 
 readonly temp_dir="$script_dir/docs"
