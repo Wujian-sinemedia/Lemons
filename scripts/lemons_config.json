@@ -26,6 +26,7 @@
   "Dependencies": [
     {
       "LinuxPackages": [
+        "clang-tidy",
         "libasound2-dev",
         "libjack-jackd2-dev",
         "ladspa-sdk",
