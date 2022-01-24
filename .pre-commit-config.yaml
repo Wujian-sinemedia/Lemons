@@ -4,6 +4,56 @@ repos:
     hooks:
       - id: clang-format
         args: [--style=file, -i]
+
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.1.0
+    hooks:
+      - id: check-json
+      - id: check-xml
+      - id: check-yaml
+        args: [--allow-multiple-documents]
+      - id: pretty-format-json
+        args: [--autofix]
+
+      # general
+      - id: check-added-large-files
+      - id: check-case-conflict
+      - id: end-of-file-fixer
+        exclude_types: [cmake]
+      - id: fix-byte-order-marker
+      - id: mixed-line-ending
+        args: [--fix=lf]
+      - id: trailing-whitespace
+
+      # shell scripts
+      - id: check-executables-have-shebangs
+      - id: check-shebang-scripts-are-executable
+        exclude: util/
+
+      # Python
+      - id: check-ast
+      - id: debug-statements
+      - id: fix-encoding-pragma
+
+  - repo: https://github.com/sirosen/texthooks
+    rev: 0.2.2
+    hooks:
+      - id: fix-ligatures
+      - id: fix-smartquotes
+      - id: forbid-bidi-controls
+  - repo: https://github.com/crate-ci/typos
+    rev: typos-dict-v0.7.2
+    hooks:
+      - id: typos
+        args: [--write-changes]
+        exclude: modules/Common/lemons_core/localization/languages.cpp
+
+  # - repo: https://github.com/editorconfig-checker/editorconfig-checker.python
+  #   rev: 2.4.0
+  #   hooks:
+  #     - id: editorconfig-checker
+
+  # CMake
   - repo: https://github.com/cheshirekow/cmake-format-precommit
     rev: v0.6.13
     hooks:
@@ -11,33 +61,34 @@ repos:
         args: [--in-place]
       # - id: cmake-lint
       #  exclude: util/cmake/modules/integrations/scripts/run_clang_format.cmake
-  # - repo: https://github.com/cmake-lint/cmake-lint
-  #   rev: 1.4.2
-  #   hooks:
-  #     - id: cmakelint
-  - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.1.0
+
+  # YAML
+  - repo: https://github.com/adrienverge/yamllint
+    rev: v1.26.3
     hooks:
-      - id: check-json
-      - id: pretty-format-json
-        args: [--autofix, --no-sort-keys]
-      - id: check-yaml
-        args: [--allow-multiple-documents]
-      - id: check-ast
-      - id: check-xml
-      - id: check-case-conflict
-      - id: check-executables-have-shebangs
-      - id: check-shebang-scripts-are-executable
-        exclude: util/
-      - id: debug-statements
-      - id: end-of-file-fixer
-        exclude_types: [cmake]
-      - id: mixed-line-ending
-        args: [--fix=lf]
-      - id: trailing-whitespace
-      - id: fix-encoding-pragma
-      - id: fix-byte-order-marker
-      - id: check-added-large-files
+      - id: yamllint
+  - repo: https://github.com/sirosen/check-jsonschema
+    rev: 0.10.0
+    hooks:
+      - id: check-github-workflows
+
+  # Markdown
+  - repo: https://github.com/igorshubovych/markdownlint-cli
+    rev: v0.30.0
+    hooks:
+      - id: markdownlint-fix
+
+  # shell scripts
+  - repo: https://github.com/jumanjihouse/pre-commit-hooks
+    rev: 2.1.5
+    hooks:
+      - id: shellcheck
+  - repo: https://github.com/lovesegfault/beautysh
+    rev: v6.2.1
+    hooks:
+      - id: beautysh
+
+  # Python
   - repo: https://github.com/asottile/pyupgrade
     rev: v2.31.0
     hooks:
@@ -83,41 +134,6 @@ repos:
     rev: v2.12.2
     hooks:
       - id: pylint
-  - repo: https://github.com/adrienverge/yamllint
-    rev: v1.26.3
-    hooks:
-      - id: yamllint
-  - repo: https://github.com/jumanjihouse/pre-commit-hooks
-    rev: 2.1.5
-    hooks:
-      - id: shellcheck
-  - repo: https://github.com/lovesegfault/beautysh
-    rev: v6.2.1
-    hooks:
-      - id: beautysh
-  - repo: https://github.com/sirosen/texthooks
-    rev: 0.2.2
-    hooks:
-      - id: fix-ligatures
-      - id: fix-smartquotes
-      - id: forbid-bidi-controls
-  - repo: https://github.com/crate-ci/typos
-    rev: typos-dict-v0.7.2
-    hooks:
-      - id: typos
-        args: [--write-changes]
-        exclude: modules/Common/lemons_core/localization/languages.cpp
-  - repo: https://github.com/sirosen/check-jsonschema
-    rev: 0.10.0
-    hooks:
-      - id: check-github-workflows
-  - repo: https://github.com/igorshubovych/markdownlint-cli
-    rev: v0.30.0
-    hooks:
-      - id: markdownlint-fix
-  # - repo: https://github.com/editorconfig-checker/editorconfig-checker.python
-  #   rev: 2.4.0
-  #   hooks:
-  #     - id: editorconfig-checker
+
 ci:
   skip: [shellcheck]
