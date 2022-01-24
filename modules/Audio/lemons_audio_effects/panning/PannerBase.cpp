@@ -2,9 +2,7 @@
 namespace lemons::dsp::FX
 {
 PannerBase::PannerBase()
-	: lastReceivedMidiPan (64)
-	, leftGain (0.5f)
-	, rightGain (0.5f)
+	: lastReceivedMidiPan (64), leftGain (0.5f), rightGain (0.5f)
 {
 }
 

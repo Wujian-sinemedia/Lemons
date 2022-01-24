@@ -7,7 +7,7 @@ namespace lemons::plugin::scanning
 
 
 [[nodiscard]] std::unique_ptr<juce::KnownPluginList> scanDirectoryForPlugins (juce::FileSearchPath rootDirectory,
-																			  const File&		   blacklistFile);
+	const File&																					   blacklistFile);
 
 
 struct Category
@@ -23,10 +23,10 @@ struct Category
 
 	using SubcategoryNamingCallback = std::function<String (const juce::PluginDescription&)>;
 
-	explicit Category (const String&			 categoryName,
-					   SortMethod				 sortMethodToUse,
-					   SortingCallback			 sortingCallback,
-					   SubcategoryNamingCallback subcategoryNaming);
+	explicit Category (const String& categoryName,
+		SortMethod					 sortMethodToUse,
+		SortingCallback				 sortingCallback,
+		SubcategoryNamingCallback	 subcategoryNaming);
 
 	void addFromPluginTree (const juce::KnownPluginList::PluginTree& tree);
 
@@ -61,9 +61,9 @@ private:
 
 
 [[nodiscard]] std::unique_ptr<Category> scanDirectory (juce::FileSearchPath rootDirectory,
-													   const File&			blacklistFile,
-													   Category::SortMethod sortMethod,
-													   const String&		rootCategoryName = "Plugins");
+	const File&																blacklistFile,
+	Category::SortMethod													sortMethod,
+	const String&															rootCategoryName = "Plugins");
 
 }  // namespace lemons::plugin::scanning
 

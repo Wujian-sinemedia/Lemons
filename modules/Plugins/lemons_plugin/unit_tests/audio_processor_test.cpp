@@ -18,8 +18,7 @@ namespace lemons::tests
 {
 
 AudioProcessorTestBase::AudioProcessorTestBase (juce::AudioProcessor& processorToUse, const String& testName)
-	: Test (testName, "AudioProcessors")
-	, processor (processorToUse)
+	: Test (testName, "AudioProcessors"), processor (processorToUse)
 {
 }
 

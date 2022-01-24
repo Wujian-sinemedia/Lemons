@@ -89,7 +89,7 @@ int EngineChain<SampleType>::getNextNodeIndex() const
 
 template <typename SampleType>
 void EngineChain<SampleType>::renderChunk (const AudioBuffer<SampleType>& input,
-										   AudioBuffer<SampleType>& output, MidiBuffer& midiMessages, bool isBypassed)
+	AudioBuffer<SampleType>& output, MidiBuffer& midiMessages, bool isBypassed)
 {
 	for (auto i = 0; i < getNextNodeIndex(); ++i)
 	{

@@ -23,9 +23,9 @@ int main (int argc, char** argv)
 	std::cout << "Generating translation files..." << std::endl;
 
 	lemons::locale::generateTranslationFiles (args.getFilepathForOption ("--dir|-d"),
-											  getDefaultLanguageCodes(),
-											  args.getFilepathForOption ("--out|-o"),
-											  args["--prefix|-p"], args["--extension|-x"]);
+		getDefaultLanguageCodes(),
+		args.getFilepathForOption ("--out|-o"),
+		args["--prefix|-p"], args["--extension|-x"]);
 
 	return EXIT_SUCCESS;
 }

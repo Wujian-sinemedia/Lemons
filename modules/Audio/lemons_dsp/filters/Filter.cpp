@@ -131,7 +131,7 @@ void Filter<SampleType>::processDefault (SampleType* buffer, int numSamples)
 							  - (output * coeffs[order + j + 1]) + state[j + 1]);
 
 		state.set (order - 1,
-				   (input * coeffs[order]) - (output * coeffs[order * 2]));
+			(input * coeffs[order]) - (output * coeffs[order * 2]));
 	}
 
 	snapToZero();
@@ -209,7 +209,7 @@ void MultiFilter<SampleType, numChannels>::process (AudioBuffer& buffer) noexcep
 		 ++channel)
 	{
 		filters[channel]->process (buffer.getWritePointer (channel),
-								   buffer.getNumSamples());
+			buffer.getNumSamples());
 	}
 }
 

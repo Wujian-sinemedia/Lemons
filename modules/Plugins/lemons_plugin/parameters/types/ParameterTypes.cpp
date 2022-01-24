@@ -19,27 +19,26 @@ namespace lemons::plugin
 {
 
 template <typename ValueType>
-TypedParameter<ValueType>::TypedParameter (ValueType	 minimum,
-										   ValueType	 maximum,
-										   ValueType	 defaultValue,
-										   const String& paramName,
-										   ValToStringFunc<ValueType>
-											   stringFromValue,
-										   StringToValFunc<ValueType>
-															 valueFromString,
-										   const String&	 paramLabel,
-										   bool				 isAutomatable,
-										   bool				 metaParam,
-										   ParameterCategory parameterCategory)
+TypedParameter<ValueType>::TypedParameter (ValueType minimum,
+	ValueType										 maximum,
+	ValueType										 defaultValue,
+	const String&									 paramName,
+	ValToStringFunc<ValueType>
+		stringFromValue,
+	StringToValFunc<ValueType>
+					  valueFromString,
+	const String&	  paramLabel,
+	bool			  isAutomatable,
+	bool			  metaParam,
+	ParameterCategory parameterCategory)
 	: Parameter (
 		paramName,
 		ranges::create (minimum, maximum),
 		static_cast<float> (defaultValue),
 		detail::convertValToStringFuncFromTyped (stringFromValue, label, getNormalisableRange().interval),
 		detail::convertStringToValFuncFromTyped (valueFromString),
-		paramLabel, isAutomatable, metaParam, parameterCategory)
-	, stringFromValueFunction (stringFromValue)
-	, valueFromStringFunction (valueFromString)
+		paramLabel, isAutomatable, metaParam, parameterCategory),
+	  stringFromValueFunction (stringFromValue), valueFromStringFunction (valueFromString)
 {
 	if (stringFromValueFunction == nullptr)
 		stringFromValueFunction = detail::createDefaultStringFromValueFunc<ValueType> (getNormalisableRange().interval, label);
@@ -179,8 +178,7 @@ void TypedParameter<ValueType>::loadFromValueTree (const ValueTree& tree)
 
 template <typename ValueType>
 TypedParameter<ValueType>::Listener::Listener (TypedParameter<ValueType>& param)
-	: Parameter::Listener (param)
-	, parameter (param)
+	: Parameter::Listener (param), parameter (param)
 {
 }
 
@@ -200,19 +198,15 @@ void TypedParameter<ValueType>::Listener::parameterDefaultChanged (float)
 
 template <typename ValueType>
 TypedParameter<ValueType>::LambdaListener::LambdaListener (TypedParameter<ValueType>& parameter,
-														   std::function<void (ValueType)>
-															   valueChanged,
-														   std::function<void (ValueType)>
-															   defaultChanged,
-														   std::function<void (bool)>
-															   gestureChanged,
-														   std::function<void (int)>
-															   controllerChanged)
-	: Listener (parameter)
-	, valueChangeFunc (valueChanged)
-	, defaultChangeFunc (defaultChanged)
-	, gestureChangeFunc (gestureChanged)
-	, controllerChangeFunc (controllerChanged)
+	std::function<void (ValueType)>
+		valueChanged,
+	std::function<void (ValueType)>
+		defaultChanged,
+	std::function<void (bool)>
+		gestureChanged,
+	std::function<void (int)>
+		controllerChanged)
+	: Listener (parameter), valueChangeFunc (valueChanged), defaultChangeFunc (defaultChanged), gestureChangeFunc (gestureChanged), controllerChangeFunc (controllerChanged)
 {
 }
 
@@ -252,16 +246,16 @@ template class TypedParameter<bool>;
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
-BoolParameter::BoolParameter (bool			defaultValue,
-							  const String& paramName,
-							  ValToStringFunc<bool>
-								  stringFromValue,
-							  StringToValFunc<bool>
-											valueFromString,
-							  const String& paramLabel,
-							  bool			isAutomatable,
-							  bool			metaParam,
-							  Category		parameterCategory)
+BoolParameter::BoolParameter (bool defaultValue,
+	const String&				   paramName,
+	ValToStringFunc<bool>
+		stringFromValue,
+	StringToValFunc<bool>
+				  valueFromString,
+	const String& paramLabel,
+	bool		  isAutomatable,
+	bool		  metaParam,
+	Category	  parameterCategory)
 	: TypedParameter<bool> (false, true, defaultValue, paramName, stringFromValue, valueFromString, paramLabel, isAutomatable, metaParam, parameterCategory)
 {
 }

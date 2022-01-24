@@ -9,19 +9,16 @@ namespace lemons
 	@see DefaultWindow, SystemInitializer
  */
 template <typename ContentComponentType, LEMONS_MUST_INHERIT_FROM (ContentComponentType, juce::Component)>
-class GuiApp : public juce::JUCEApplication
-	, private locale::TranslationsInitializer
+class GuiApp : public juce::JUCEApplication, private locale::TranslationsInitializer
 {
 public:
 	using WindowType = DefaultWindow<ContentComponentType>;
 
 	/** Creates a default GuiApp. */
-	explicit GuiApp (const String&	   appName	  = LEMONS_DEFAULT_APP_NAME,
-					 const String&	   appVersion = LEMONS_DEFAULT_APP_VERSION,
-					 const Dimensions& initSize	  = Dimensions::getDefault())
-		: initialSize (initSize)
-		, name (appName)
-		, version (appVersion)
+	explicit GuiApp (const String& appName	  = LEMONS_DEFAULT_APP_NAME,
+		const String&			   appVersion = LEMONS_DEFAULT_APP_VERSION,
+		const Dimensions&		   initSize	  = Dimensions::getDefault())
+		: initialSize (initSize), name (appName), version (appVersion)
 	{
 	}
 

@@ -35,7 +35,7 @@ PluginCategoryComponent::PluginCategoryComponent (const plugin::scanning::Catego
 		plugins.createAndAddTo (*this, description);
 
 	categoryName.setText (category.getName(),
-						  juce::NotificationType::dontSendNotification);
+		juce::NotificationType::dontSendNotification);
 
 	addAndMakeVisible (categoryName);
 }
@@ -44,10 +44,9 @@ PluginCategoryComponent::PluginCategoryComponent (const plugin::scanning::Catego
 /*-------------------------------------------------------------------------------------------------------------------------*/
 
 PluginLibraryComponent::PluginLibraryComponent (juce::FileSearchPath searchPath,
-												const File&			 blacklistFile,
-												SortMethod			 initialSortMethod)
-	: rootPath (searchPath)
-	, blacklist (blacklistFile)
+	const File&														 blacklistFile,
+	SortMethod														 initialSortMethod)
+	: rootPath (searchPath), blacklist (blacklistFile)
 {
 	addAndMakeVisible (rootCategoryComponent);
 

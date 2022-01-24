@@ -85,7 +85,7 @@ private:
 	Attributes attributes;
 
 	events::TimerCallback t { [&]
-							  { timerCallback(); } };
+		{ timerCallback(); } };
 
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (Editor)
 };

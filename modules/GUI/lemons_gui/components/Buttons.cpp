@@ -13,7 +13,7 @@ TextButton::TextButton (const String& buttonText, std::function<void()> whenClic
 
 ToggleTextButton::ToggleTextButton (const String& buttonText, bool initialValue, std::function<void (bool)> whenClicked)
 	: TextButton (buttonText, [whenClicked, this]
-				  { whenClicked (getToggleState()); })
+		{ whenClicked (getToggleState()); })
 {
 	this->setToggleable (true);
 	set (initialValue);
@@ -32,9 +32,9 @@ ImageButton::ImageButton (const juce::Image& image, std::function<void()> whenCl
 	onClick = std::move (whenClicked);
 
 	this->setImages (false, true, true,
-					 image, 1.f - opacityRange, {},
-					 {}, 1.f, {},
-					 {}, 1.f, juce::Colours::lightgrey);
+		image, 1.f - opacityRange, {},
+		{}, 1.f, {},
+		{}, 1.f, juce::Colours::lightgrey);
 }
 
 

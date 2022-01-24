@@ -48,11 +48,11 @@ struct ParameterTraits final
 	/** Creates a ParameterTraits object with similar semantics as the TypedParameter constructor. */
 	template <typename ValType>
 	explicit ParameterTraits (ValType minimum, ValType maximum, ValType defaultVal,
-							  const String& nameToUse, const String& labelToUse,
-							  ValToStringFunc<ValType> stringFromValue = nullptr,
-							  StringToValFunc<ValType> valueFromString = nullptr,
-							  bool automatable = true, bool metaParameter = false,
-							  ParameterCategory categoryToUse = ParameterCategory::genericParameter);
+		const String& nameToUse, const String& labelToUse,
+		ValToStringFunc<ValType> stringFromValue = nullptr,
+		StringToValFunc<ValType> valueFromString = nullptr,
+		bool automatable = true, bool metaParameter = false,
+		ParameterCategory categoryToUse = ParameterCategory::genericParameter);
 
 	/** Saves this ParameterTraits object to a ValueTree. */
 	[[nodiscard]] ValueTree toValueTree() const;

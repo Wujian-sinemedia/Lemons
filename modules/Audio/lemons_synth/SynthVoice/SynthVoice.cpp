@@ -130,8 +130,8 @@ void SynthVoiceBase<SampleType>::renderInternal (int totalNumSamples)
 			renderPlease (alias, static_cast<float> (outputFrequency.getNextValue()), parent->sampleRate);
 
 			renderingBuffer.setSample (0,
-									   samplesProcessed++,
-									   alias.getSample (0, 0));
+				samplesProcessed++,
+				alias.getSample (0, 0));
 
 			continue;
 		}
@@ -145,8 +145,8 @@ void SynthVoiceBase<SampleType>::renderInternal (int totalNumSamples)
 
 		// copy to output (rendering buffer)
 		juce::FloatVectorOperations::copy (renderingBuffer.getWritePointer (0, samplesProcessed),
-										   scratchBuffer.getReadPointer (0),
-										   samplesLeft);
+			scratchBuffer.getReadPointer (0),
+			samplesLeft);
 
 		return;
 	}
@@ -189,13 +189,13 @@ void SynthVoiceBase<SampleType>::bypassedBlock (int numSamples)
 	 ==========================================================================================================*/
 
 template <typename SampleType>
-void SynthVoiceBase<SampleType>::startNote (const int	 midiPitch,
-											const float	 velocity,
-											const uint32 noteOnTimestamp,
-											const bool	 keyboardKeyIsDown,
-											const bool	 isPedal,
-											const bool	 isDescant,
-											const int	 midichannel)
+void SynthVoiceBase<SampleType>::startNote (const int midiPitch,
+	const float										  velocity,
+	const uint32									  noteOnTimestamp,
+	const bool										  keyboardKeyIsDown,
+	const bool										  isPedal,
+	const bool										  isDescant,
+	const int										  midichannel)
 {
 	setTargetOutputFrequency (parent->pitch.getFrequencyForMidi (midiPitch, midichannel));
 
@@ -309,7 +309,7 @@ void SynthVoiceBase<SampleType>::aftertouchChanged (const int newAftertouchValue
 		constexpr auto inv127 = 1.0f / 127.0f;
 
 		const auto newWeightedGain = juce::jlimit (0.0f, 1.0f,
-												   lastReceivedVelocity + newAftertouchValue * inv127);
+			lastReceivedVelocity + newAftertouchValue * inv127);
 
 		aftertouchGain.setGain (parent->velocityConverter.getGainForVelocity (newWeightedGain));
 	}

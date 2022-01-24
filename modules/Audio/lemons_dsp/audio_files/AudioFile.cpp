@@ -153,7 +153,7 @@ dsp::AudioFile getAudioFile (const String& audioFileName)
 juce::StringArray getAudioFileNames()
 {
 	const auto validFileExtensions = juce::StringArray::fromTokens (dsp::formats::getDefaultAudioFormatManager().getWildcardForAllFormats(),
-																	";", "");
+		";", "");
 
 	jassert (! validFileExtensions.isEmpty());
 

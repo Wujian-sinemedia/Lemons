@@ -123,8 +123,7 @@ private:
 	@see MetaParameterBase, TypedParameter
  */
 template <typename ValueType>
-class MetaParameter : public TypedParameter<ValueType>
-	, public MetaParameterBase
+class MetaParameter : public TypedParameter<ValueType>, public MetaParameterBase
 {
 public:
 	/** Creates a meta parameter.

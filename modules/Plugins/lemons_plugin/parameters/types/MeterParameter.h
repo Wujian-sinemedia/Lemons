@@ -43,10 +43,10 @@ struct MeterParameter : public TypedParameter<ValueType>
 	@param parameterCategory The parameter's category. This is used to indicate to the DAW whether the parameter is a level meter, a gain reduction meter, etc.
 	*/
 	explicit MeterParameter (ValueType min, ValueType max, ValueType defaultVal, const String& paramName,
-							 ValToStringFunc<ValueType> stringFromValue	  = nullptr,
-							 StringToValFunc<ValueType> valueFromString	  = nullptr,
-							 const String&				parameterLabel	  = {},
-							 ParameterCategory			parameterCategory = ParameterCategory::genericParameter);
+		ValToStringFunc<ValueType> stringFromValue	 = nullptr,
+		StringToValFunc<ValueType> valueFromString	 = nullptr,
+		const String&			   parameterLabel	 = {},
+		ParameterCategory		   parameterCategory = ParameterCategory::genericParameter);
 
 	explicit MeterParameter (const ParameterTraits& traits);
 
@@ -70,8 +70,8 @@ struct GainMeterParameter final : public MeterParameter<float>
 	@param paramName The name of this parameter.
 	@param parameterCategory The category of this meter parameter. This is used to indicate to the DAW whether the parameter is a level meter, a gain reduction meter, etc.
 	*/
-	GainMeterParameter (const String&	  paramName,
-						ParameterCategory parameterCategory = ParameterCategory::genericParameter);
+	GainMeterParameter (const String& paramName,
+		ParameterCategory			  parameterCategory = ParameterCategory::genericParameter);
 };
 
 

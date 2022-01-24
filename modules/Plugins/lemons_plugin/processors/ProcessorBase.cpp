@@ -16,26 +16,21 @@
 namespace lemons::plugin
 {
 
-ProcessorBase::ProcessorBase (dsp::Engine<float>&		 floatEngineToUse,
-							  dsp::Engine<double>&		 doubleEngineToUse,
-							  State&					 stateToUse,
-							  const BusesProperties&	 busesLayout,
-							  const ProcessorAttributes& attributes,
-							  const Version&			 processorVersion)
-	: BasicProcessor (busesLayout)
-	, floatEngine (floatEngineToUse)
-	, doubleEngine (doubleEngineToUse)
-	, state (stateToUse)
-	, processorAttributes (attributes.withDefaultBuses (busesPropertiesToValueTree (busesLayout)))
-	, version (processorVersion)
+ProcessorBase::ProcessorBase (dsp::Engine<float>& floatEngineToUse,
+	dsp::Engine<double>&						  doubleEngineToUse,
+	State&										  stateToUse,
+	const BusesProperties&						  busesLayout,
+	const ProcessorAttributes&					  attributes,
+	const Version&								  processorVersion)
+	: BasicProcessor (busesLayout), floatEngine (floatEngineToUse), doubleEngine (doubleEngineToUse), state (stateToUse), processorAttributes (attributes.withDefaultBuses (busesPropertiesToValueTree (busesLayout))), version (processorVersion)
 {
 	state.parameters.addTo (*this);
 }
 
-ProcessorBase::ProcessorBase (dsp::Engine<float>&		 floatEngineToUse,
-							  dsp::Engine<double>&		 doubleEngineToUse,
-							  State&					 stateToUse,
-							  const ProcessorAttributes& attributes)
+ProcessorBase::ProcessorBase (dsp::Engine<float>& floatEngineToUse,
+	dsp::Engine<double>&						  doubleEngineToUse,
+	State&										  stateToUse,
+	const ProcessorAttributes&					  attributes)
 	: ProcessorBase (floatEngineToUse, doubleEngineToUse, stateToUse, busesPropertiesFromValueTree (attributes.defaultBusesLayout), attributes)
 {
 }
@@ -137,7 +132,7 @@ void ProcessorBase::setStateInformation (const void* data, int size)
 	loadState (ValueTree::readFromData (data, static_cast<size_t> (size)));
 
 	callEditorMethod ([w = state.editorSize.getWidth(), h = state.editorSize.getHeight()] (juce::AudioProcessorEditor& e)
-					  { e.setSize (w, h); });
+		{ e.setSize (w, h); });
 }
 
 void ProcessorBase::setCurrentProgramStateInformation (const void* data, int size)
@@ -275,9 +270,7 @@ Version ProcessorBase::getVersion() const noexcept
 
 template <typename SampleType>
 ProcessorBase::InternalProcessor<SampleType>::InternalProcessor (dsp::Engine<SampleType>& engineToUse, ProcessorBase& processorBase)
-	: engine (engineToUse)
-	, audioProcessor (processorBase)
-	, list (processorBase.getState().parameters)
+	: engine (engineToUse), audioProcessor (processorBase), list (processorBase.getState().parameters)
 {
 }
 

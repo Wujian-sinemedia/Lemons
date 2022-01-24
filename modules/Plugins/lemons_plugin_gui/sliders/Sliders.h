@@ -10,8 +10,7 @@ namespace lemons::gui::components
 	Plugin slider that attaches to a float parameter
 	@see plugin::FloatParameter
  */
-class FloatSlider : public SliderBase
-	, private plugin::FloatParameter::Listener
+class FloatSlider : public SliderBase, private plugin::FloatParameter::Listener
 {
 public:
 	/**
@@ -36,8 +35,7 @@ private:
 	Plugin slider that attaches to an integer parameter
 	@see plugin::IntParameter
  */
-class IntSlider : public SliderBase
-	, private plugin::IntParameter::Listener
+class IntSlider : public SliderBase, private plugin::IntParameter::Listener
 {
 public:
 	/**

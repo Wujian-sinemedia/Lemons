@@ -11,7 +11,7 @@ template <>
 ParameterRange create (double minimum, double maximum)
 {
 	return create (static_cast<float> (minimum),
-				   static_cast<float> (maximum));
+		static_cast<float> (maximum));
 }
 
 template <>
@@ -20,13 +20,13 @@ ParameterRange create (int minimum, int maximum)
 	auto denormalize = [] (float start, float end, float v)
 	{
 		return juce::jlimit (start, end,
-							 v * (end - start) + start);
+			v * (end - start) + start);
 	};
 
 	auto normalize = [] (float start, float end, float v)
 	{
 		return juce::jlimit (0.f, 1.f,
-							 (v - start) / (end - start));
+			(v - start) / (end - start));
 	};
 
 	auto snap = [] (float start, float end, float v)

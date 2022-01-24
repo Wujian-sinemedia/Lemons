@@ -44,8 +44,8 @@ template <typename T>
 
 
 // generates a pair of RSA keys and writes them to a file
-void generateKeyPair (const juce::File&		  outputFile,
-					  int					  numBits	  = 128,
-					  const juce::Array<int>& randomSeeds = {});
+void generateKeyPair (const juce::File& outputFile,
+	int									numBits		= 128,
+	const juce::Array<int>&				randomSeeds = {});
 
 }  // namespace lemons::rsa

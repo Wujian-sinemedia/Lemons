@@ -17,8 +17,7 @@ namespace lemons
 {
 
 DeviceRotation::Listener::Listener (Callback&& callbackToUse)
-	: callback (std::move (callbackToUse))
-	, prevOrientation (juce::Desktop::getInstance().getCurrentOrientation())
+	: callback (std::move (callbackToUse)), prevOrientation (juce::Desktop::getInstance().getCurrentOrientation())
 {
 #if JUCE_IOS || JUCE_ANDROID
 	startTimerHz (60);

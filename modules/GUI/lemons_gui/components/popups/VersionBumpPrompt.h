@@ -25,11 +25,11 @@ private:
 	VersionViewer viewer { version };
 
 	TextButton bumpPatch { TRANS ("Bump patch"), [&]()
-						   { this->version.bumpPatch(); this->close(); } };
+		{ this->version.bumpPatch(); this->close(); } };
 	TextButton bumpMinor { TRANS ("Bump minor"), [&]()
-						   { this->version.bumpMinor(); this->close(); } };
+		{ this->version.bumpMinor(); this->close(); } };
 	TextButton bumpMajor { TRANS ("Bump major"), [&]()
-						   { this->version.bumpMajor(); this->close(); } };
+		{ this->version.bumpMajor(); this->close(); } };
 };
 
 }  // namespace lemons::gui::components

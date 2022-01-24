@@ -60,10 +60,10 @@ struct LevelReportingAudioEffect : SidechainableAudioEffect<SampleType>
 
 		@return The level or gain reduction for this frame of audio for this channel.
 	*/
-	virtual SampleType processChannel (int				 channel,
-									   int				 numSamples,
-									   SampleType*		 signal,
-									   const SampleType* sidechain) = 0;
+	virtual SampleType processChannel (int channel,
+		int								   numSamples,
+		SampleType*						   signal,
+		const SampleType*				   sidechain) = 0;
 
 	/** Returns a gain reduction value for a certain channel.
 		This is identical to getLevel().

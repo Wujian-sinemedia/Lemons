@@ -4,8 +4,7 @@
 namespace lemons::dsp::FX
 {
 template <typename SampleType>
-class StereoPanner : public PannerBase
-	, public AudioEffect<SampleType>
+class StereoPanner : public PannerBase, public AudioEffect<SampleType>
 {
 public:
 	using AudioBuffer = juce::AudioBuffer<SampleType>;
@@ -16,7 +15,7 @@ public:
 	void reset();
 
 	void process (const AudioBuffer& stereoInput,
-				  AudioBuffer&		 stereoOutput);
+		AudioBuffer&				 stereoOutput);
 
 private:
 	SmoothedGain<SampleType, 1> left, right;

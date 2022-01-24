@@ -17,23 +17,16 @@ namespace lemons::plugin
 {
 
 
-Parameter::Parameter (const String&			paramName,
-					  const ParameterRange& paramRange,
-					  float					paramDefaultValue,
-					  BasicValToStringFunc	valueToTextFuncToUse,
-					  BasicStringToValFunc	textToValueFuncToUse,
-					  const String&			paramLabel,
-					  bool					isAutomatable,
-					  bool					metaParam,
-					  ParameterCategory		parameterCategory)
-	: juce::RangedAudioParameter (detail::paramNameToID (TRANS (paramName)), TRANS (paramName), paramLabel, parameterCategory)
-	, automatable (isAutomatable)
-	, metaParameter (metaParam)
-	, range (paramRange)
-	, currentValue (paramDefaultValue)
-	, currentDefault (paramDefaultValue)
-	, valueToTextFunc (valueToTextFuncToUse)
-	, textToValueFunc (textToValueFuncToUse)
+Parameter::Parameter (const String& paramName,
+	const ParameterRange&			paramRange,
+	float							paramDefaultValue,
+	BasicValToStringFunc			valueToTextFuncToUse,
+	BasicStringToValFunc			textToValueFuncToUse,
+	const String&					paramLabel,
+	bool							isAutomatable,
+	bool							metaParam,
+	ParameterCategory				parameterCategory)
+	: juce::RangedAudioParameter (detail::paramNameToID (TRANS (paramName)), TRANS (paramName), paramLabel, parameterCategory), automatable (isAutomatable), metaParameter (metaParam), range (paramRange), currentValue (paramDefaultValue), currentDefault (paramDefaultValue), valueToTextFunc (valueToTextFuncToUse), textToValueFunc (textToValueFuncToUse)
 {
 	if (valueToTextFunc == nullptr)
 		valueToTextFunc = detail::createDefaultValueToTextFunction (label);
@@ -72,7 +65,7 @@ void Parameter::setMidiControllerNumber (int newControllerNumber)
 	midiControllerNumber.store (newControllerNumber);
 
 	listeners.call ([newControllerNumber] (Listener& l)
-					{ l.controllerNumberChanged (newControllerNumber); });
+		{ l.controllerNumberChanged (newControllerNumber); });
 }
 
 bool Parameter::processNewControllerMessage (int controllerNumber, int controllerValue)
@@ -83,8 +76,8 @@ bool Parameter::processNewControllerMessage (int controllerNumber, int controlle
 	if (controllerNumber == midiControllerNumber.load())
 	{
 		setDenormalizedValue (juce::jmap (static_cast<float> (controllerValue),
-										  0.f, 127.f,
-										  range.start, range.end));
+			0.f, 127.f,
+			range.start, range.end));
 
 		return true;
 	}
@@ -101,7 +94,7 @@ void Parameter::beginGesture()
 	this->beginChangeGesture();
 
 	listeners.call ([] (Listener& l)
-					{ l.gestureStateChanged (true); });
+		{ l.gestureStateChanged (true); });
 }
 
 void Parameter::endGesture()
@@ -113,7 +106,7 @@ void Parameter::endGesture()
 	this->endChangeGesture();
 
 	listeners.call ([] (Listener& l)
-					{ l.gestureStateChanged (false); });
+		{ l.gestureStateChanged (false); });
 }
 
 
@@ -125,7 +118,7 @@ void Parameter::setNormalizedDefault (float value)
 
 	currentDefault.store (value);
 	listeners.call ([value] (Listener& l)
-					{ l.parameterDefaultChanged (value); });
+		{ l.parameterDefaultChanged (value); });
 }
 
 
@@ -145,7 +138,7 @@ void Parameter::setNormalizedValue (float value)
 
 	setValueNotifyingHost (value);
 	listeners.call ([value] (Listener& l)
-					{ l.parameterValueChanged (value); });
+		{ l.parameterValueChanged (value); });
 
 	if (needToEndGesture)
 		endGesture();
@@ -213,19 +206,15 @@ void Parameter::Listener::controllerNumberChanged (int) { }
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
 Parameter::LambdaListener::LambdaListener (Parameter& parameter,
-										   std::function<void (float)>
-											   valueChanged,
-										   std::function<void (float)>
-											   defaultChanged,
-										   std::function<void (bool)>
-											   gestureChanged,
-										   std::function<void (int)>
-											   midiControllerChanged)
-	: Listener (parameter)
-	, valueChangeFunc (valueChanged)
-	, defaultChangeFunc (defaultChanged)
-	, gestureChangeFunc (gestureChanged)
-	, controllerChangeFunc (midiControllerChanged)
+	std::function<void (float)>
+		valueChanged,
+	std::function<void (float)>
+		defaultChanged,
+	std::function<void (bool)>
+		gestureChanged,
+	std::function<void (int)>
+		midiControllerChanged)
+	: Listener (parameter), valueChangeFunc (valueChanged), defaultChangeFunc (defaultChanged), gestureChangeFunc (gestureChanged), controllerChangeFunc (midiControllerChanged)
 {
 }
 

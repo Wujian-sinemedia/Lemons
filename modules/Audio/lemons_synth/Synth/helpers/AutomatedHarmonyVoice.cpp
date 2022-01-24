@@ -3,8 +3,7 @@ namespace lemons::dsp::synth
 {
 template <typename SampleType>
 AutomatedHarmonyVoice<SampleType>::AutomatedHarmonyVoice (SynthBase<SampleType>& synthToUse, bool shiftUp)
-	: shiftingUp (shiftUp)
-	, synth (synthToUse)
+	: shiftingUp (shiftUp), synth (synthToUse)
 {
 }
 

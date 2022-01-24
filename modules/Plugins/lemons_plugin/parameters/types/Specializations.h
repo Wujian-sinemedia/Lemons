@@ -35,9 +35,9 @@ struct GainParameter : public FloatParameter
 		@param defaultVal The default value of this parameter.
 		@param parameterCategory The category of this parameter.
 	*/
-	explicit GainParameter (const String&	  paramName,
-							float			  defaultVal,
-							ParameterCategory parameterCategory = ParameterCategory::genericParameter);
+	explicit GainParameter (const String& paramName,
+		float							  defaultVal,
+		ParameterCategory				  parameterCategory = ParameterCategory::genericParameter);
 };
 
 /*-----------------------------------------------------------------------------------------------------------------------
@@ -71,10 +71,10 @@ struct FloatAmountParameter : public FloatParameter
 		@param parameterCategory The category of this parameter.
 		@param parameterLabel An optional label to use for this parameter's units.
 	*/
-	explicit FloatAmountParameter (const String&	 paramName,
-								   float			 defaultVal,
-								   ParameterCategory parameterCategory = ParameterCategory::genericParameter,
-								   const String&	 parameterLabel	   = {});
+	explicit FloatAmountParameter (const String& paramName,
+		float									 defaultVal,
+		ParameterCategory						 parameterCategory = ParameterCategory::genericParameter,
+		const String&							 parameterLabel	   = {});
 };
 
 /*-----------------------------------------------------------------------------------------------------------------------

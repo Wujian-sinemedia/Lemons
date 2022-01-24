@@ -42,13 +42,12 @@ namespace lemons::plugin
 	@see ProcessorBase, Engine, ProcessorWithEditor
  */
 template <template <typename SampleType> class EngineType, typename StateType, LEMONS_MUST_INHERIT_FROM (EngineType<float>, dsp::Engine<float>), LEMONS_MUST_INHERIT_FROM (StateType, State)>
-class Processor : public ProcessorBase
-	, private locale::TranslationsInitializer
+class Processor : public ProcessorBase, private locale::TranslationsInitializer
 {
 public:
 	/** Creates a processor with the specified bus layout. */
-	explicit Processor (const BusesProperties&	   busesLayout = getDefaultBusesLayout(),
-						const ProcessorAttributes& attributes  = ProcessorAttributes::fromProjectDefines())
+	explicit Processor (const BusesProperties& busesLayout = getDefaultBusesLayout(),
+		const ProcessorAttributes&			   attributes  = ProcessorAttributes::fromProjectDefines())
 		: ProcessorBase (floatEngine, doubleEngine, pluginState, busesLayout, attributes)
 	{
 	}
@@ -63,9 +62,7 @@ public:
 		@endcode
 	*/
 	explicit Processor (const PluginMetadata& metadata)
-		: ProcessorBase (floatEngine, doubleEngine, pluginState, metadata.processorAttributes)
-		, pluginState (metadata.parameterLayout)
-		, editorAttributes (metadata.editorAttributes)
+		: ProcessorBase (floatEngine, doubleEngine, pluginState, metadata.processorAttributes), pluginState (metadata.parameterLayout), editorAttributes (metadata.editorAttributes)
 	{
 	}
 

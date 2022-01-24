@@ -68,10 +68,10 @@ template double getMagnitude (const double*, int);
 
 
 template <typename SampleType>
-SampleType Limiter<SampleType>::processChannel (int				  channel,
-												int				  numSamples,
-												SampleType*		  signalToLimit,
-												const SampleType* sidechain)
+SampleType Limiter<SampleType>::processChannel (int channel,
+	int												numSamples,
+	SampleType*										signalToLimit,
+	const SampleType*								sidechain)
 {
 	if (numSamples == 0) return (SampleType) 0;
 
@@ -89,10 +89,10 @@ SampleType Limiter<SampleType>::processChannel (int				  channel,
 	}
 
 	juce::FloatVectorOperations::clip (signalToLimit,
-									   signalToLimit,
-									   SampleType (-1.0),
-									   SampleType (1.0),
-									   numSamples);
+		signalToLimit,
+		SampleType (-1.0),
+		SampleType (1.0),
+		numSamples);
 
 	return juce::jlimit (SampleType (0.0), SampleType (1.0), getMagnitude (signalToLimit, numSamples) - levelBefore);
 }

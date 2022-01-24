@@ -51,10 +51,10 @@ public:
 		@param sidechain Pointer to contiguous sidechain signal values.
 		@return The gain reduction amount for this frame of this channel's audio.
 	*/
-	SampleType processChannel (int				 channel,
-							   int				 numSamples,
-							   SampleType*		 signalToGate,
-							   const SampleType* sidechain) final;
+	SampleType processChannel (int channel,
+		int						   numSamples,
+		SampleType*				   signalToGate,
+		const SampleType*		   sidechain) final;
 
 
 	/** Processes a single sample.
@@ -64,10 +64,10 @@ public:
 		@param gainReduction Pointer to where to write the gain reduction value for this sample. This may be null.
 		@return The output gated sample.
 	*/
-	SampleType processSample (int		  channel,
-							  SampleType  sampleToGate,
-							  SampleType  sidechainValue,
-							  SampleType* gainReduction);
+	SampleType processSample (int channel,
+		SampleType				  sampleToGate,
+		SampleType				  sidechainValue,
+		SampleType*				  gainReduction);
 
 
 private:

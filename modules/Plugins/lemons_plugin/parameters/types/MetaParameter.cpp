@@ -234,8 +234,7 @@ MetaParameter<ValueType>::MetaParameter (
 	StringToValFunc<ValueType> valueFromString,
 	const String& paramLabel, bool isAutomatable,
 	ParameterCategory parameterCategory)
-	: TypedParameter<ValueType> (minimum, maximum, defaultValue, paramName, stringFromValue, valueFromString, paramLabel, isAutomatable, true, parameterCategory)
-	, MetaParameterBase (parameterListToUse)
+	: TypedParameter<ValueType> (minimum, maximum, defaultValue, paramName, stringFromValue, valueFromString, paramLabel, isAutomatable, true, parameterCategory), MetaParameterBase (parameterListToUse)
 {
 }
 
@@ -290,8 +289,7 @@ const Parameter& MetaParameter<ValueType>::getParameter() const
 
 template <typename ValueType>
 MetaParameter<ValueType>::Updater::Updater (MetaParameter& paramToUse)
-	: Parameter::Listener (paramToUse)
-	, metaParam (paramToUse)
+	: Parameter::Listener (paramToUse), metaParam (paramToUse)
 {
 }
 

@@ -4,8 +4,7 @@ namespace lemons::music
 {
 
 constexpr TimeSignature::TimeSignature (int numBeats, int beatKind)
-	: numerator (numBeats)
-	, denominator (beatKind)
+	: numerator (numBeats), denominator (beatKind)
 {
 }
 

@@ -8,8 +8,8 @@ namespace lemons::files
 class Listener final
 {
 public:
-	explicit Listener (const File&			   fileToWatch,
-					   std::function<void()>&& callback);
+	explicit Listener (const File& fileToWatch,
+		std::function<void()>&&	   callback);
 
 private:
 	void check();
@@ -21,7 +21,7 @@ private:
 	juce::int64 lastModTime { 0 };
 
 	const events::TimerCallback t { [this]
-									{ check(); } };
+		{ check(); } };
 
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (Listener)
 };

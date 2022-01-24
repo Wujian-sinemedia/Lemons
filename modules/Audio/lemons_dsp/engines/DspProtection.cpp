@@ -19,8 +19,7 @@ namespace lemons::dsp
 
 template <typename SampleType>
 Protector<SampleType>::Protector (bool hardClip, CallbackFunc&& whenMuteTriggered)
-	: isHardClipping (hardClip)
-	, muteCallback (std::move (whenMuteTriggered))
+	: isHardClipping (hardClip), muteCallback (std::move (whenMuteTriggered))
 {
 }
 
@@ -51,7 +50,7 @@ void Protector<SampleType>::released()
 
 template <typename SampleType>
 void Protector<SampleType>::renderBlock (const AudioBuffer<SampleType>& input,
-										 AudioBuffer<SampleType>& output, MidiBuffer& midi, bool isBypassed)
+	AudioBuffer<SampleType>& output, MidiBuffer& midi, bool isBypassed)
 {
 	if (mute || isBypassed)
 	{
@@ -103,8 +102,8 @@ void Protector<SampleType>::prepared (int blocksize, double samplerate, int numC
 
 template <typename SampleType>
 void Protector<SampleType>::InternalPassthruEngine::renderBlock (const AudioBuffer<SampleType>& input,
-																 AudioBuffer<SampleType>&		output,
-																 MidiBuffer&, bool isBypassed)
+	AudioBuffer<SampleType>&																	output,
+	MidiBuffer&, bool isBypassed)
 {
 	if (isBypassed)
 		output.clear();

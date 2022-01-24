@@ -41,10 +41,10 @@ void LevelReportingAudioEffect<SampleType>::process (AudioBuffer<SampleType>& in
 	for (int chan = 0; chan < numChannels; ++chan)
 	{
 		gainReductions.set (chan,
-							processChannel (chan,
-											numSamples,
-											inOut.getWritePointer (chan),
-											sidechain.getReadPointer (chan)));
+			processChannel (chan,
+				numSamples,
+				inOut.getWritePointer (chan),
+				sidechain.getReadPointer (chan)));
 	}
 }
 

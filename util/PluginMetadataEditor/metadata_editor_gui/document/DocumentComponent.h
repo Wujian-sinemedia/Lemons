@@ -13,11 +13,11 @@ private:
 	Document document;
 
 	EditorAttributeComponent	editorView { document.metadata.editorAttributes, [this]
-											 { this->stateChanged(); } };
+		   { this->stateChanged(); } };
 	ParameterLayoutComponent	parameterView { document.metadata.parameterLayout, [this]
-												{ this->stateChanged(); } };
+		   { this->stateChanged(); } };
 	ProcessorAttributeComponent processorView { document.metadata.processorAttributes, [this]
-												{ this->stateChanged(); } };
+		{ this->stateChanged(); } };
 };
 
 }  // namespace lemons::PluginMetadataEditor::gui

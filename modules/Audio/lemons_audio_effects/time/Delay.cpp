@@ -52,7 +52,7 @@ SampleType Delay<SampleType>::popSample (int channel, SampleType* delayLevel)
 	const auto delaySamps = delay.getDelay();
 
 	const auto drySample = delay.popSample (channel, SampleType (0), false)
-						 * dryGain.getNextValue();
+						   * dryGain.getNextValue();
 	const auto wetSample =
 		delay.popSample (channel, delaySamps, true) * wetGain.getNextValue();
 
@@ -62,10 +62,10 @@ SampleType Delay<SampleType>::popSample (int channel, SampleType* delayLevel)
 }
 
 template <typename SampleType>
-SampleType Delay<SampleType>::processChannel (int		  channel,
-											  int		  numSamples,
-											  SampleType* signal,
-											  const SampleType*)
+SampleType Delay<SampleType>::processChannel (int channel,
+	int											  numSamples,
+	SampleType*									  signal,
+	const SampleType*)
 {
 	if (numSamples == 0) return (SampleType) 0;
 

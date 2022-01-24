@@ -13,8 +13,8 @@ public:
 	using LfoNamingFunc = std::function<String (int)>;
 
 	explicit ModulationManager (const ParameterList& parameterList,
-								int					 initialNumLFOs = 0,
-								LfoNamingFunc&&		 namingFunc		= nullptr);
+		int											 initialNumLFOs = 0,
+		LfoNamingFunc&&								 namingFunc		= nullptr);
 
 
 	/** @name mod_manager_access_lfos Accessing LFOs */

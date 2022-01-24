@@ -50,9 +50,9 @@ GPSLocation GPSLocation::getCurrentLocation()
 	auto parseReport = [&]() -> bool
 	{
 		return latLongReport != nullptr
-			&& SUCCEEDED (latLongReport->GetLatitude (&latitude))
-			&& SUCCEEDED (latLongReport->GetLongitude (&longitude))
-			&& SUCCEEDED (latLongReport->GetAltitude (&altitude));
+			   && SUCCEEDED (latLongReport->GetLatitude (&latitude))
+			   && SUCCEEDED (latLongReport->GetLongitude (&longitude))
+			   && SUCCEEDED (latLongReport->GetAltitude (&altitude));
 	};
 
 	// Attempt getting the most up to date location:

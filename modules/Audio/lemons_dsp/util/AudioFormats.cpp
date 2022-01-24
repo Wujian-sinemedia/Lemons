@@ -37,9 +37,9 @@ juce::StringArray getValidFormatNames()
 
 
 template <>
-bool writeAudioToBlock (MemoryBlock&			  outputBlock,
-						const AudioBuffer<float>& buffer, double samplerate,
-						juce::AudioFormat& format)
+bool writeAudioToBlock (MemoryBlock& outputBlock,
+	const AudioBuffer<float>& buffer, double samplerate,
+	juce::AudioFormat& format)
 {
 	jassert (buffer.getNumChannels() > 0 && buffer.getNumSamples() > 0);
 
@@ -54,9 +54,9 @@ bool writeAudioToBlock (MemoryBlock&			  outputBlock,
 }
 
 template <>
-bool writeAudioToBlock (MemoryBlock&			   outputBlock,
-						const AudioBuffer<double>& buffer, double samplerate,
-						juce::AudioFormat& format)
+bool writeAudioToBlock (MemoryBlock& outputBlock,
+	const AudioBuffer<double>& buffer, double samplerate,
+	juce::AudioFormat& format)
 {
 	AudioBuffer<float> floatBuf;
 
@@ -68,7 +68,7 @@ bool writeAudioToBlock (MemoryBlock&			   outputBlock,
 
 template <>
 bool readAudioFromBlock (AudioBuffer<float>& outputBuffer,
-						 const MemoryBlock& block, juce::AudioFormat& format)
+	const MemoryBlock& block, juce::AudioFormat& format)
 {
 	juce::MemoryInputStream in { block.getData(), block.getSize(), false };
 
@@ -92,7 +92,7 @@ bool readAudioFromBlock (AudioBuffer<float>& outputBuffer,
 
 template <>
 bool readAudioFromBlock (AudioBuffer<double>& outputBuffer,
-						 const MemoryBlock& block, juce::AudioFormat& format)
+	const MemoryBlock& block, juce::AudioFormat& format)
 {
 	AudioBuffer<float> floatBuf;
 
@@ -106,9 +106,9 @@ bool readAudioFromBlock (AudioBuffer<double>& outputBuffer,
 
 
 template <typename SampleType>
-bool saveAudioToFile (const File&					 destFile,
-					  const AudioBuffer<SampleType>& buffer, double samplerate,
-					  juce::AudioFormat& format)
+bool saveAudioToFile (const File&  destFile,
+	const AudioBuffer<SampleType>& buffer, double samplerate,
+	juce::AudioFormat& format)
 {
 	MemoryBlock block;
 
@@ -124,7 +124,7 @@ template bool saveAudioToFile (const File&, const AudioBuffer<double>&, double, 
 
 template <typename SampleType>
 bool loadAudioFromFile (AudioBuffer<SampleType>& outputBuffer,
-						const File& sourceFile, juce::AudioFormat& format)
+	const File& sourceFile, juce::AudioFormat& format)
 {
 	return readAudioFromBlock (outputBuffer, files::loadFileAsBlock (sourceFile), format);
 }

@@ -132,11 +132,11 @@ int midiPanStringToInt (const String& string) noexcept
 
 	if (string.endsWithIgnoreCase (TRANS ("R")))
 		return juce::jmap (string.dropLastCharacters (1).getIntValue(),
-						   1, 50, 65, 127);
+			1, 50, 65, 127);
 
 	if (string.endsWithIgnoreCase (TRANS ("L")))
 		return juce::jmap (string.dropLastCharacters (1).getIntValue(),
-						   1, 50, 63, 0);
+			1, 50, 63, 0);
 
 	jassertfalse;
 	return string.getIntValue();

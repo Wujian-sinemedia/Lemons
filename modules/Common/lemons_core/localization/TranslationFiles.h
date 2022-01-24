@@ -40,9 +40,9 @@ using juce::File;
 
 /** Scans a directory tree for phrases that need to be translated, and generates JUCE-style translation files for each specified language, placing them in the output directory.
  */
-void generateTranslationFiles (const File&		  rootDir,
-							   const StringArray& languageCodes,
-							   const File& outputDir, const String& filenamePrefix = "trans_", const String& fileExtension = ".txt");
+void generateTranslationFiles (const File& rootDir,
+	const StringArray&					   languageCodes,
+	const File& outputDir, const String& filenamePrefix = "trans_", const String& fileExtension = ".txt");
 
 ///@}
 

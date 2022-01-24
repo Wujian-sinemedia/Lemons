@@ -63,8 +63,7 @@ struct AudioProcessorTest : public AudioProcessorTestBase
 {
 	template <typename... Args>
 	explicit AudioProcessorTest (const String& testName, Args&&... args)
-		: AudioProcessorTestBase (processor, testName)
-		, processor (std::forward<Args> (args)...)
+		: AudioProcessorTestBase (processor, testName), processor (std::forward<Args> (args)...)
 	{
 	}
 

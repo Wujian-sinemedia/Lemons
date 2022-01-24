@@ -18,16 +18,16 @@ private:
 	plugin::ParameterTraits& traits;
 
 	ToggleTextButton isAutomatable { TRANS ("Is automatable"), traits.isAutomatable, [this] (bool v)
-									 { this->traits.isAutomatable = v; this->stateChanged(); } };
+		{ this->traits.isAutomatable = v; this->stateChanged(); } };
 
 	ToggleTextButton isMetaParameter { TRANS ("Is automatable"), traits.isMetaParameter, [this] (bool v)
-									   { this->traits.isMetaParameter = v; this->stateChanged(); } };
+		{ this->traits.isMetaParameter = v; this->stateChanged(); } };
 
 	TextEntry name { TRANS (traits.name), [this] (const String& v)
-					 { this->traits.name = v; this->stateChanged(); } };
+		{ this->traits.name = v; this->stateChanged(); } };
 
 	TextEntry label { TRANS (traits.label), [this] (const String& v)
-					  { this->traits.label = v; this->stateChanged(); } };
+		{ this->traits.label = v; this->stateChanged(); } };
 
 	/*
 	 value type

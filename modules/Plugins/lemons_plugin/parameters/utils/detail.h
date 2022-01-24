@@ -58,8 +58,8 @@ namespace lemons::plugin::detail
 
 
 template <typename ValueType>
-[[nodiscard]] inline ValToStringFunc<ValueType> createDefaultStringFromValueFunc (float			rangeInterval,
-																				  const String& paramLabel = {});
+[[nodiscard]] inline ValToStringFunc<ValueType> createDefaultStringFromValueFunc (float rangeInterval,
+	const String&																		paramLabel = {});
 
 
 template <typename ValueType>
@@ -68,8 +68,8 @@ template <typename ValueType>
 
 template <typename ValueType>
 [[nodiscard]] inline BasicValToStringFunc convertValToStringFuncFromTyped (ValToStringFunc<ValueType> origFunc,
-																		   const String&			  paramLabel	= {},
-																		   float					  rangeInterval = 1.f);
+	const String&																					  paramLabel	= {},
+	float																							  rangeInterval = 1.f);
 
 
 template <typename ValueType>
@@ -78,7 +78,7 @@ template <typename ValueType>
 
 template <typename ValueType>
 [[nodiscard]] inline ValToStringFunc<ValueType> convertValToStringFuncToTyped (BasicValToStringFunc origFunc,
-																			   const String&		paramLabel = {});
+	const String&																					paramLabel = {});
 
 
 template <typename ValueType>

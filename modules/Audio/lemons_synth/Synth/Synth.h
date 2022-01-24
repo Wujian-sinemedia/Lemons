@@ -64,10 +64,10 @@ public:
 
 	void allNotesOff (bool allowTailOff = false, float velocity = 1.0f);
 
-	void turnOffAllKeyupNotes (bool	 allowTailOff				 = false,
-							   bool	 includePedalPitchAndDescant = true,
-							   float velocity					 = 1.0f,
-							   bool	 overrideSostenutoPedal		 = true);
+	void turnOffAllKeyupNotes (bool allowTailOff				= false,
+		bool						includePedalPitchAndDescant = true,
+		float						velocity					= 1.0f,
+		bool						overrideSostenutoPedal		= true);
 
 	///@}
 

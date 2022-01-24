@@ -59,11 +59,11 @@ public:
 		@param defaultValue An optional default value for this argument.
 		@param options If specified, the passed argument must be one of these choices.
 	*/
-	void addArgument (const String&			   argOrFlags,
-					  bool					   required		= false,
-					  const String&			   help			= {},
-					  const String&			   defaultValue = {},
-					  const juce::StringArray& options		= {});
+	void addArgument (const String& argOrFlags,
+		bool						required	 = false,
+		const String&				help		 = {},
+		const String&				defaultValue = {},
+		const juce::StringArray&	options		 = {});
 
 	/** Prints the parser's help to std::cout. */
 	void printHelp() const;

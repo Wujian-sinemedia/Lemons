@@ -33,18 +33,18 @@ public:
 		@param busesLayout The buses layout to pass to the underlying juce::AudioProcessor.
 		@param attributes The ProcessorAttributes object to use.
 	*/
-	explicit ProcessorBase (dsp::Engine<float>&		   floatEngineToUse,
-							dsp::Engine<double>&	   doubleEngineToUse,
-							State&					   stateToUse,
-							const BusesProperties&	   busesLayout		= getDefaultBusesLayout(),
-							const ProcessorAttributes& attributes		= ProcessorAttributes::fromProjectDefines(),
-							const Version&			   processorVersion = Version::projectVersion());
+	explicit ProcessorBase (dsp::Engine<float>& floatEngineToUse,
+		dsp::Engine<double>&					doubleEngineToUse,
+		State&									stateToUse,
+		const BusesProperties&					busesLayout		 = getDefaultBusesLayout(),
+		const ProcessorAttributes&				attributes		 = ProcessorAttributes::fromProjectDefines(),
+		const Version&							processorVersion = Version::projectVersion());
 
 	/** Creates a processor with a BusesProperties object created from the ProcessorAttributes object. */
-	explicit ProcessorBase (dsp::Engine<float>&		   floatEngineToUse,
-							dsp::Engine<double>&	   doubleEngineToUse,
-							State&					   stateToUse,
-							const ProcessorAttributes& attributes);
+	explicit ProcessorBase (dsp::Engine<float>& floatEngineToUse,
+		dsp::Engine<double>&					doubleEngineToUse,
+		State&									stateToUse,
+		const ProcessorAttributes&				attributes);
 
 	/** Returns the plugin's state object. */
 	[[nodiscard]] State& getState() noexcept;

@@ -39,7 +39,7 @@ public:
 
 private:
 	void processInternal (AudioBuffer<SampleType>& audio, MidiBuffer& midi,
-						  int startSample, int endSample);
+		int startSample, int endSample);
 
 	[[nodiscard]] virtual bool shouldChopAroundMidiMessage (const MidiMessage& m) const;
 

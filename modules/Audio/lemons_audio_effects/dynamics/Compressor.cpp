@@ -37,10 +37,10 @@ void Compressor<SampleType>::prepare (double samplerate, int blocksize)
 }
 
 template <typename SampleType>
-SampleType Compressor<SampleType>::processChannel (int				 channel,
-												   int				 numSamples,
-												   SampleType*		 signalToCompress,
-												   const SampleType* sidechain)
+SampleType Compressor<SampleType>::processChannel (int channel,
+	int												   numSamples,
+	SampleType*										   signalToCompress,
+	const SampleType*								   sidechain)
 {
 	if (numSamples == 0) return static_cast<SampleType> (0);
 
@@ -58,10 +58,10 @@ SampleType Compressor<SampleType>::processChannel (int				 channel,
 }
 
 template <typename SampleType>
-SampleType Compressor<SampleType>::processSample (int		  channel,
-												  SampleType  inputSample,
-												  SampleType  sidechainSample,
-												  SampleType* gainReduction)
+SampleType Compressor<SampleType>::processSample (int channel,
+	SampleType										  inputSample,
+	SampleType										  sidechainSample,
+	SampleType*										  gainReduction)
 {
 	auto env = envelopeFilter.processSample (
 		channel,
@@ -70,7 +70,7 @@ SampleType Compressor<SampleType>::processSample (int		  channel,
 	// VCA
 	auto gain = (env < threshold) ? SampleType (1.0)
 								  : std::pow (env * thresholdInverse,
-											  ratioInverse - SampleType (1.0));
+									  ratioInverse - SampleType (1.0));
 
 	if (gainReduction != nullptr)  // report gain reduction, if requested
 		*gainReduction = gain;

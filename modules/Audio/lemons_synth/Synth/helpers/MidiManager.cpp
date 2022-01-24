@@ -42,8 +42,8 @@ void MidiManager<SampleType>::MidiRouter::handleAftertouch (int noteNumber, int 
 	jassert (aftertouchValue >= 0 && aftertouchValue <= 127);
 
 	synth.aggregateMidiBuffer.addEvent (MidiMessage::aftertouchChange (getLastMidiChannel(),
-																	   noteNumber, aftertouchValue),
-										getLastMidiTimestamp());
+											noteNumber, aftertouchValue),
+		getLastMidiTimestamp());
 
 	for (auto* voice : synth.voices)
 		if (voice->isVoiceActive() && voice->getCurrentlyPlayingNote() == noteNumber)
@@ -56,8 +56,8 @@ void MidiManager<SampleType>::MidiRouter::handleChannelPressure (int channelPres
 	jassert (channelPressureValue >= 0 && channelPressureValue <= 127);
 
 	synth.aggregateMidiBuffer.addEvent (MidiMessage::channelPressureChange (getLastMidiChannel(),
-																			channelPressureValue),
-										getLastMidiTimestamp());
+											channelPressureValue),
+		getLastMidiTimestamp());
 
 	for (auto* voice : synth.voices)
 		voice->aftertouchChanged (channelPressureValue);
@@ -69,7 +69,7 @@ void MidiManager<SampleType>::MidiRouter::handleSustainPedal (int controllerValu
 	const bool isDown = (controllerValue >= 64);
 
 	synth.aggregateMidiBuffer.addEvent (MidiMessage::controllerEvent (getLastMidiChannel(), 0x40, controllerValue),
-										getLastMidiTimestamp());
+		getLastMidiTimestamp());
 
 	if (! isDown && ! synth.latchIsOn)
 		synth.turnOffAllKeyupNotes (false, false, 0.0f, false);
@@ -81,8 +81,8 @@ void MidiManager<SampleType>::MidiRouter::handleSostenutoPedal (int controllerVa
 	const bool isDown = (controllerValue >= 64);
 
 	synth.aggregateMidiBuffer.addEvent (MidiMessage::controllerEvent (getLastMidiChannel(),
-																	  0x42, controllerValue),
-										getLastMidiTimestamp());
+											0x42, controllerValue),
+		getLastMidiTimestamp());
 
 	if (isDown && ! synth.latchIsOn)
 	{
@@ -102,8 +102,8 @@ void MidiManager<SampleType>::MidiRouter::handleSoftPedal (int controllerValue)
 	const bool isDown = controllerValue >= 64;
 
 	synth.aggregateMidiBuffer.addEvent (MidiMessage::controllerEvent (getLastMidiChannel(),
-																	  0x43, controllerValue),
-										getLastMidiTimestamp());
+											0x43, controllerValue),
+		getLastMidiTimestamp());
 
 	for (auto* voice : synth.voices)
 		voice->softPedalChanged (isDown);
@@ -115,8 +115,8 @@ void MidiManager<SampleType>::MidiRouter::handlePitchwheel (int wheelValue)
 	jassert (wheelValue >= 0 && wheelValue <= 127);
 
 	synth.aggregateMidiBuffer.addEvent (MidiMessage::pitchWheel (getLastMidiChannel(),
-																 wheelValue),
-										getLastMidiTimestamp());
+											wheelValue),
+		getLastMidiTimestamp());
 
 	synth.pitch.bend.newPitchbendReceived (wheelValue);
 

@@ -26,7 +26,7 @@ namespace lemons::dsp
 	@see Oscillator, dsp::Engine
  */
 template <typename SampleType, template <typename T> class StreamType,
-		  LEMONS_MUST_INHERIT_FROM (StreamType<SampleType>, SampleStream<SampleType>)>
+	LEMONS_MUST_INHERIT_FROM (StreamType<SampleType>, SampleStream<SampleType>)>
 class StreamEngine : public dsp::Engine<SampleType>
 {
 public:
@@ -39,8 +39,8 @@ protected:
 
 private:
 	void renderBlock (const AudioBuffer<SampleType>&,
-					  AudioBuffer<SampleType>& output,
-					  MidiBuffer&, bool isBypassed) final
+		AudioBuffer<SampleType>& output,
+		MidiBuffer&, bool isBypassed) final
 	{
 		const auto numSamples  = output.getNumSamples();
 		const auto numChannels = output.getNumChannels();

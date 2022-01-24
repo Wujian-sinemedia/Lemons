@@ -51,15 +51,15 @@ public:
 		@param metaParam Boolean flag that indicates whether this parameter represents a "meta-parameter" -- that is, a parameter that controls other parameters.
 		@param parameterCategory An optional parameter category. See juce::AudioProcessorParameter::Category.
 	*/
-	explicit Parameter (const String&		  paramName,
-						const ParameterRange& paramRange,
-						float				  paramDefaultValue	   = 1.f,
-						BasicValToStringFunc  valueToTextFuncToUse = nullptr,
-						BasicStringToValFunc  textToValueFuncToUse = nullptr,
-						const String&		  paramLabel		   = {},
-						bool				  isAutomatable		   = true,
-						bool				  metaParam			   = false,
-						ParameterCategory	  parameterCategory	   = ParameterCategory::genericParameter);
+	explicit Parameter (const String& paramName,
+		const ParameterRange&		  paramRange,
+		float						  paramDefaultValue	   = 1.f,
+		BasicValToStringFunc		  valueToTextFuncToUse = nullptr,
+		BasicStringToValFunc		  textToValueFuncToUse = nullptr,
+		const String&				  paramLabel		   = {},
+		bool						  isAutomatable		   = true,
+		bool						  metaParam			   = false,
+		ParameterCategory			  parameterCategory	   = ParameterCategory::genericParameter);
 
 	/** Creates a parameter from a ParameterTraits object. */
 	explicit Parameter (const ParameterTraits& traits);
@@ -250,11 +250,11 @@ public:
 	struct LambdaListener final : public Listener
 	{
 		explicit LambdaListener (Parameter& parameter,
-								 std::function<void (float)>
-															 valueChanged,
-								 std::function<void (float)> defaultChanged		   = nullptr,
-								 std::function<void (bool)>	 gestureChanged		   = nullptr,
-								 std::function<void (int)>	 midiControllerChanged = nullptr);
+			std::function<void (float)>
+										valueChanged,
+			std::function<void (float)> defaultChanged		  = nullptr,
+			std::function<void (bool)>	gestureChanged		  = nullptr,
+			std::function<void (int)>	midiControllerChanged = nullptr);
 
 	private:
 		void parameterValueChanged (float newNormalizedValue) final;

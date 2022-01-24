@@ -4,8 +4,7 @@
 namespace lemons::PluginMetadataEditor::gui
 {
 
-class BusesLayoutComponent final : public juce::Component
-	, private plugin::BasicProcessor
+class BusesLayoutComponent final : public juce::Component, private plugin::BasicProcessor
 {
 public:
 

@@ -104,8 +104,7 @@ public:
 	*/
 	template <typename... Args>
 	explicit PopupComponent (std::function<void()> toClose, bool useCloseButton, bool escapeKeyCloses, Args&&... args)
-		: PopupComponentBase (toClose, useCloseButton, escapeKeyCloses)
-		, content (std::forward<Args> (args)...)
+		: PopupComponentBase (toClose, useCloseButton, escapeKeyCloses), content (std::forward<Args> (args)...)
 	{
 		addAndMakeVisible (content);
 	}
@@ -118,8 +117,7 @@ public:
 	*/
 	template <typename... Args>
 	explicit PopupComponent (std::unique_ptr<PopupComponentBase>& holder, bool useCloseButton, bool escapeKeyCloses, Args&&... args)
-		: PopupComponentBase (holder, useCloseButton, escapeKeyCloses)
-		, content (std::forward<Args> (args)...)
+		: PopupComponentBase (holder, useCloseButton, escapeKeyCloses), content (std::forward<Args> (args)...)
 	{
 		addAndMakeVisible (content);
 	}
@@ -177,8 +175,7 @@ public:
 		@param escapeKeyCloses If true, the wrapper component consumes all escape key presses, and an escape key press will destroy the popup.
 	*/
 	explicit Popup (bool useCloseButton = true, bool escapeKeyCloses = true)
-		: wrapperCloseButton (useCloseButton)
-		, escapeKeyClosesWrapper (escapeKeyCloses)
+		: wrapperCloseButton (useCloseButton), escapeKeyClosesWrapper (escapeKeyCloses)
 	{
 		setInterceptsMouseClicks (false, true);
 	}
@@ -196,7 +193,7 @@ public:
 	juce::Component::SafePointer<ContentType> create (Args&&... args)
 	{
 		window.reset (new Content (window, wrapperCloseButton, escapeKeyClosesWrapper,
-								   std::forward<Args> (args)...));
+			std::forward<Args> (args)...));
 
 		auto* ptr = window.get();
 		getTopLevelComponent()->addAndMakeVisible (ptr);

@@ -4,8 +4,8 @@ namespace lemons::midi
 void RoutingProcessor::process (MidiBuffer& block)
 {
 	std::for_each (block.begin(), block.end(),
-				   [this] (const juce::MidiMessageMetadata& m)
-				   { processMessage (m.getMessage()); });
+		[this] (const juce::MidiMessageMetadata& m)
+		{ processMessage (m.getMessage()); });
 }
 
 void RoutingProcessor::processMessage (const MidiMessage& m)
@@ -77,7 +77,7 @@ void RoutingProcessor::processMessage (const MidiMessage& m)
 			numSharps = std::abs (numSharps);
 
 		return handleKeySignatureMetaEvent (numSharps, isSharps,
-											m.isKeySignatureMajorKey());
+			m.isKeySignatureMajorKey());
 	}
 
 	if (m.isTextMetaEvent())

@@ -61,7 +61,7 @@ public:
 
 private:
 	[[nodiscard]] int findNextPeak (int frameStart, int frameEnd, int predictedPeak,
-									const SampleType* inputSamples, int period, int grainSize);
+		const SampleType* inputSamples, int period, int grainSize);
 
 	void sortSampleIndicesForPeakSearching (int startSample, int endSample, int predictedPeak);
 

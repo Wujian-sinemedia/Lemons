@@ -99,12 +99,12 @@ private:
 		void storeNewGrain (const SampleType* origSamples, int startIndex, const SampleType* windowSamples, int numSamples);
 
 		void storeNewGrain (const SampleType* origSamples1, int startIndex1, int blocksize1,
-							const SampleType* origSamples2, int blocksize2,
-							const SampleType* windowSamples, int totalNumSamples, int grainStartIdx);
+			const SampleType* origSamples2, int blocksize2,
+			const SampleType* windowSamples, int totalNumSamples, int grainStartIdx);
 
-		void storeNewGrainWithZeroesAtStart (int			   numZeroes,
-											 const SampleType* origSamples, int numSamples,
-											 const SampleType* windowSamples, int totalNumSamples, int grainStartIdx);
+		void storeNewGrainWithZeroesAtStart (int numZeroes,
+			const SampleType* origSamples, int numSamples,
+			const SampleType* windowSamples, int totalNumSamples, int grainStartIdx);
 
 		void reserveSize (int numSamples);
 

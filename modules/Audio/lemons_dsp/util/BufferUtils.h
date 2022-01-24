@@ -36,9 +36,9 @@ void convert (const AudioBuffer<Type1>& source, AudioBuffer<Type2>& dest);
  */
 template <typename SampleType>
 [[nodiscard]] AudioBuffer<SampleType> getAliasBuffer (AudioBuffer<SampleType>& bufferToAlias,
-													  int					   startSample,
-													  int					   numSamples,
-													  int					   numChannels	 = -1,
-													  int					   channelOffset = 0);
+	int																		   startSample,
+	int																		   numSamples,
+	int																		   numChannels	 = -1,
+	int																		   channelOffset = 0);
 
 }  // namespace lemons::dsp::buffers

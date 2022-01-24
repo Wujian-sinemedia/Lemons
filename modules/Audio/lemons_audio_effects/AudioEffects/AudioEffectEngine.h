@@ -34,9 +34,9 @@ public:
 
 private:
 	void renderBlock (const AudioBuffer<SampleType>& input,
-					  AudioBuffer<SampleType>&		 output,
-					  MidiBuffer&,
-					  bool isBypassed) final
+		AudioBuffer<SampleType>&					 output,
+		MidiBuffer&,
+		bool isBypassed) final
 	{
 		if (isBypassed)
 		{

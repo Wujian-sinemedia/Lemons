@@ -122,7 +122,7 @@ StringArray getPhrasesToBeTranslated (const File& rootDir)
 
 
 void generateTranslationFiles (const File& rootDir, const StringArray& languageCodes,
-							   const File& outputDir, const String& filenamePrefix, const String& fileExtension)
+	const File& outputDir, const String& filenamePrefix, const String& fileExtension)
 {
 	String fileBody;
 

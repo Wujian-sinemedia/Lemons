@@ -27,8 +27,8 @@ public:
 	float midiToFrequency (T midiNote, int midiChannel = -1) const
 	{
 		return static_cast<float> (MTS_NoteToFrequency (client.get(),
-														char (midiNote),
-														char (midiChannel)));
+			char (midiNote),
+			char (midiChannel)));
 	}
 
 	/** Converts a given frequency in Hz to a MIDI note, using the master tuning table.
@@ -39,8 +39,8 @@ public:
 	float frequencyToMidi (T frequency, int midiChannel = -1) const
 	{
 		return static_cast<float> (MTS_FrequencyToNote (client.get(),
-														static_cast<double> (frequency),
-														char (midiChannel)));
+			static_cast<double> (frequency),
+			char (midiChannel)));
 	}
 
 	/** Returns the retune amount in semitones for a given MIDI pitch.
@@ -51,8 +51,8 @@ public:
 	float retuneAmountInSemitones (T midiNote, int midiChannel = -1) const
 	{
 		return static_cast<float> (MTS_RetuningInSemitones (client.get(),
-															char (midiNote),
-															char (midiChannel)));
+			char (midiNote),
+			char (midiChannel)));
 	}
 
 	/** MTS-ESP supports "filtering" some notes out of tuning tables.

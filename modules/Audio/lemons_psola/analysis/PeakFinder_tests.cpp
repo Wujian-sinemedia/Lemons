@@ -32,7 +32,7 @@ private:
 			audioStorage.setSize (1, blocksize);
 
 			osc.setFrequency (static_cast<FloatType> (freq),
-							  static_cast<FloatType> (samplerate));
+				static_cast<FloatType> (samplerate));
 
 			osc.getSamples (audioStorage);
 
@@ -78,7 +78,7 @@ private:
 
 			for (auto i = 0; i < indices.size() - 1; ++i)
 				this->expectGreaterThan (indices.getUnchecked (i + 1),
-										 indices.getUnchecked (i));
+					indices.getUnchecked (i));
 		}
 
 		{

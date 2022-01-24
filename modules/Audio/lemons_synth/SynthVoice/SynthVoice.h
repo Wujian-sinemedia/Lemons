@@ -84,13 +84,13 @@ protected:
 private:
 	void renderInternal (int totalNumSamples);
 
-	void startNote (const int	 midiPitch,
-					const float	 velocity,
-					const uint32 noteOnTimestamp,
-					const bool	 keyboardKeyIsDown = true,
-					const bool	 isPedal		   = false,
-					const bool	 isDescant		   = false,
-					const int	 midichannel	   = -1);
+	void startNote (const int midiPitch,
+		const float			  velocity,
+		const uint32		  noteOnTimestamp,
+		const bool			  keyboardKeyIsDown = true,
+		const bool			  isPedal			= false,
+		const bool			  isDescant			= false,
+		const int			  midichannel		= -1);
 
 	void stopNote (const float velocity, const bool allowTailOff);
 

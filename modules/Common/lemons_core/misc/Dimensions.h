@@ -29,8 +29,7 @@ struct Dimensions final
 
 	/** Creates a valid Dimensions object with a specified width and height. */
 	constexpr explicit Dimensions (int widthToUse, int heightToUse)
-		: width (widthToUse)
-		, height (heightToUse)
+		: width (widthToUse), height (heightToUse)
 	{
 	}
 

@@ -41,16 +41,16 @@ public:
 		@param metaParam Boolean flag that indicates whether this parameter represents a "meta-parameter" -- that is, a parameter that controls other parameters.
 		@param parameterCategory An optional parameter category. See juce::AudioProcessorParameter::Category.
 	*/
-	explicit TypedParameter (ValueType					minimum,
-							 ValueType					maximum,
-							 ValueType					defaultValue,
-							 const String&				paramName,
-							 ValToStringFunc<ValueType> stringFromValue	  = nullptr,
-							 StringToValFunc<ValueType> valueFromString	  = nullptr,
-							 const String&				paramLabel		  = {},
-							 bool						isAutomatable	  = true,
-							 bool						metaParam		  = false,
-							 ParameterCategory			parameterCategory = ParameterCategory::genericParameter);
+	explicit TypedParameter (ValueType minimum,
+		ValueType					   maximum,
+		ValueType					   defaultValue,
+		const String&				   paramName,
+		ValToStringFunc<ValueType>	   stringFromValue	 = nullptr,
+		StringToValFunc<ValueType>	   valueFromString	 = nullptr,
+		const String&				   paramLabel		 = {},
+		bool						   isAutomatable	 = true,
+		bool						   metaParam		 = false,
+		ParameterCategory			   parameterCategory = ParameterCategory::genericParameter);
 
 	/** Creates a typed parameter from a ParameterTraits object. */
 	explicit TypedParameter (const ParameterTraits& traits);
@@ -126,11 +126,11 @@ public:
 	{
 	public:
 		explicit LambdaListener (TypedParameter<ValueType>& parameter,
-								 std::function<void (ValueType)>
-																 valueChanged,
-								 std::function<void (ValueType)> defaultChanged	   = nullptr,
-								 std::function<void (bool)>		 gestureChanged	   = nullptr,
-								 std::function<void (int)>		 controllerChanged = nullptr);
+			std::function<void (ValueType)>
+											valueChanged,
+			std::function<void (ValueType)> defaultChanged	  = nullptr,
+			std::function<void (bool)>		gestureChanged	  = nullptr,
+			std::function<void (int)>		controllerChanged = nullptr);
 
 	private:
 		void paramValueChanged (ValueType newValue) final;
@@ -176,14 +176,14 @@ struct BoolParameter : TypedParameter<bool>
 		@param metaParam Boolean flag that indicates whether this parameter represents a "meta-parameter" -- that is, a parameter that controls other parameters.
 		@param parameterCategory An optional parameter category. See juce::AudioProcessorParameter::Category.
 	*/
-	explicit BoolParameter (bool				  defaultValue,
-							const String&		  paramName,
-							ValToStringFunc<bool> stringFromValue	= nullptr,
-							StringToValFunc<bool> valueFromString	= nullptr,
-							const String&		  paramLabel		= {},
-							bool				  isAutomatable		= true,
-							bool				  metaParam			= false,
-							Category			  parameterCategory = Category::genericParameter);
+	explicit BoolParameter (bool defaultValue,
+		const String&			 paramName,
+		ValToStringFunc<bool>	 stringFromValue   = nullptr,
+		StringToValFunc<bool>	 valueFromString   = nullptr,
+		const String&			 paramLabel		   = {},
+		bool					 isAutomatable	   = true,
+		bool					 metaParam		   = false,
+		Category				 parameterCategory = Category::genericParameter);
 
 	/** Creates a boolean parameter from a ParameterTraits object. */
 	explicit BoolParameter (const ParameterTraits& traits);

@@ -57,8 +57,8 @@ Coefficients<NumericType>::Coefficients()
 }
 
 template <typename NumericType>
-void Coefficients<NumericType>::makeFirstOrderLowPass (double	   sampleRate,
-													   NumericType frequency)
+void Coefficients<NumericType>::makeFirstOrderLowPass (double sampleRate,
+	NumericType												  frequency)
 {
 	jassert (sampleRate > 0.0);
 	jassert (frequency > 0 && frequency <= static_cast<float> (sampleRate * 0.5));
@@ -70,8 +70,8 @@ void Coefficients<NumericType>::makeFirstOrderLowPass (double	   sampleRate,
 }
 
 template <typename NumericType>
-void Coefficients<NumericType>::makeFirstOrderHighPass (double		sampleRate,
-														NumericType frequency)
+void Coefficients<NumericType>::makeFirstOrderHighPass (double sampleRate,
+	NumericType												   frequency)
 {
 	jassert (sampleRate > 0.0);
 	jassert (frequency > 0 && frequency <= static_cast<float> (sampleRate * 0.5));
@@ -83,8 +83,8 @@ void Coefficients<NumericType>::makeFirstOrderHighPass (double		sampleRate,
 }
 
 template <typename NumericType>
-void Coefficients<NumericType>::makeFirstOrderAllPass (double	   sampleRate,
-													   NumericType frequency)
+void Coefficients<NumericType>::makeFirstOrderAllPass (double sampleRate,
+	NumericType												  frequency)
 {
 	jassert (sampleRate > 0.0);
 	jassert (frequency > 0 && frequency <= static_cast<float> (sampleRate * 0.5));
@@ -96,13 +96,13 @@ void Coefficients<NumericType>::makeFirstOrderAllPass (double	   sampleRate,
 }
 
 template <typename NumericType>
-void Coefficients<NumericType>::makeLowPass (double		 sampleRate,
-											 NumericType frequency,
-											 NumericType Q)
+void Coefficients<NumericType>::makeLowPass (double sampleRate,
+	NumericType										frequency,
+	NumericType										Q)
 {
 	const auto n = 1
-				 / std::tan (juce::MathConstants<NumericType>::pi * frequency
-							 / static_cast<NumericType> (sampleRate));
+				   / std::tan (juce::MathConstants<NumericType>::pi * frequency
+							   / static_cast<NumericType> (sampleRate));
 	const auto nSquared = n * n;
 	const auto invQ		= (NumericType) 1 / Q;
 	const auto c1		= 1 / (1 + invQ * n + nSquared);
@@ -113,9 +113,9 @@ void Coefficients<NumericType>::makeLowPass (double		 sampleRate,
 }
 
 template <typename NumericType>
-void Coefficients<NumericType>::makeHighPass (double	  sampleRate,
-											  NumericType frequency,
-											  NumericType Q)
+void Coefficients<NumericType>::makeHighPass (double sampleRate,
+	NumericType										 frequency,
+	NumericType										 Q)
 {
 	const auto n		= std::tan (juce::MathConstants<NumericType>::pi * frequency
 									/ static_cast<NumericType> (sampleRate));
@@ -129,41 +129,41 @@ void Coefficients<NumericType>::makeHighPass (double	  sampleRate,
 }
 
 template <typename NumericType>
-void Coefficients<NumericType>::makeBandPass (double	  sampleRate,
-											  NumericType frequency,
-											  NumericType Q)
+void Coefficients<NumericType>::makeBandPass (double sampleRate,
+	NumericType										 frequency,
+	NumericType										 Q)
 {
 	jassert (sampleRate > 0.0);
 	jassert (frequency > 0 && frequency <= static_cast<float> (sampleRate * 0.5));
 	jassert (Q > 0.0);
 
 	const auto n = 1
-				 / std::tan (juce::MathConstants<NumericType>::pi * frequency
-							 / static_cast<NumericType> (sampleRate));
+				   / std::tan (juce::MathConstants<NumericType>::pi * frequency
+							   / static_cast<NumericType> (sampleRate));
 	const auto nSquared = n * n;
 	const auto invQ		= 1 / Q;
 	const auto c1		= 1 / (1 + invQ * n + nSquared);
 
 	coefficients = { c1 * n * invQ,
-					 0,
-					 -c1 * n * invQ,
-					 1,
-					 c1 * 2 * (1 - nSquared),
-					 c1 * (1 - invQ * n + nSquared) };
+		0,
+		-c1 * n * invQ,
+		1,
+		c1 * 2 * (1 - nSquared),
+		c1 * (1 - invQ * n + nSquared) };
 }
 
 template <typename NumericType>
-void Coefficients<NumericType>::makeNotch (double	   sampleRate,
-										   NumericType frequency,
-										   NumericType Q)
+void Coefficients<NumericType>::makeNotch (double sampleRate,
+	NumericType									  frequency,
+	NumericType									  Q)
 {
 	jassert (sampleRate > 0.0);
 	jassert (frequency > 0 && frequency <= static_cast<float> (sampleRate * 0.5));
 	jassert (Q > 0.0);
 
 	const auto n = 1
-				 / std::tan (juce::MathConstants<NumericType>::pi * frequency
-							 / static_cast<NumericType> (sampleRate));
+				   / std::tan (juce::MathConstants<NumericType>::pi * frequency
+							   / static_cast<NumericType> (sampleRate));
 	const auto nSquared = n * n;
 	const auto invQ		= 1 / Q;
 	const auto c1		= 1 / (1 + n * invQ + nSquared);
@@ -174,17 +174,17 @@ void Coefficients<NumericType>::makeNotch (double	   sampleRate,
 }
 
 template <typename NumericType>
-void Coefficients<NumericType>::makeAllPass (double		 sampleRate,
-											 NumericType frequency,
-											 NumericType Q)
+void Coefficients<NumericType>::makeAllPass (double sampleRate,
+	NumericType										frequency,
+	NumericType										Q)
 {
 	jassert (sampleRate > 0);
 	jassert (frequency > 0 && frequency <= sampleRate * 0.5);
 	jassert (Q > 0);
 
 	const auto n = 1
-				 / std::tan (juce::MathConstants<NumericType>::pi * frequency
-							 / static_cast<NumericType> (sampleRate));
+				   / std::tan (juce::MathConstants<NumericType>::pi * frequency
+							   / static_cast<NumericType> (sampleRate));
 	const auto nSquared = n * n;
 	const auto invQ		= 1 / Q;
 	const auto c1		= 1 / (1 + invQ * n + nSquared);
@@ -195,10 +195,10 @@ void Coefficients<NumericType>::makeAllPass (double		 sampleRate,
 }
 
 template <typename NumericType>
-void Coefficients<NumericType>::makeLowShelf (double	  sampleRate,
-											  NumericType cutOffFrequency,
-											  NumericType Q,
-											  NumericType gainFactor)
+void Coefficients<NumericType>::makeLowShelf (double sampleRate,
+	NumericType										 cutOffFrequency,
+	NumericType										 Q,
+	NumericType										 gainFactor)
 {
 	jassert (sampleRate > 0.0);
 	jassert (cutOffFrequency > 0.0 && cutOffFrequency <= sampleRate * 0.5);
@@ -208,25 +208,25 @@ void Coefficients<NumericType>::makeLowShelf (double	  sampleRate,
 	const auto aminus1 = A - 1;
 	const auto aplus1  = A + 1;
 	const auto omega   = (2 * juce::MathConstants<NumericType>::pi
-						  * juce::jmax (cutOffFrequency, static_cast<NumericType> (2.0)))
-					 / static_cast<NumericType> (sampleRate);
+							 * juce::jmax (cutOffFrequency, static_cast<NumericType> (2.0)))
+					   / static_cast<NumericType> (sampleRate);
 	const auto coso				= std::cos (omega);
 	const auto beta				= std::sin (omega) * std::sqrt (A) / Q;
 	const auto aminus1TimesCoso = aminus1 * coso;
 
 	coefficients = { A * (aplus1 - aminus1TimesCoso + beta),
-					 A * 2 * (aminus1 - aplus1 * coso),
-					 A * (aplus1 - aminus1TimesCoso - beta),
-					 aplus1 + aminus1TimesCoso + beta,
-					 -2 * (aminus1 + aplus1 * coso),
-					 aplus1 + aminus1TimesCoso - beta };
+		A * 2 * (aminus1 - aplus1 * coso),
+		A * (aplus1 - aminus1TimesCoso - beta),
+		aplus1 + aminus1TimesCoso + beta,
+		-2 * (aminus1 + aplus1 * coso),
+		aplus1 + aminus1TimesCoso - beta };
 }
 
 template <typename NumericType>
-void Coefficients<NumericType>::makeHighShelf (double	   sampleRate,
-											   NumericType cutOffFrequency,
-											   NumericType Q,
-											   NumericType gainFactor)
+void Coefficients<NumericType>::makeHighShelf (double sampleRate,
+	NumericType										  cutOffFrequency,
+	NumericType										  Q,
+	NumericType										  gainFactor)
 {
 	jassert (sampleRate > 0);
 	jassert (cutOffFrequency > 0
@@ -237,25 +237,25 @@ void Coefficients<NumericType>::makeHighShelf (double	   sampleRate,
 	const auto aminus1 = A - 1;
 	const auto aplus1  = A + 1;
 	const auto omega   = (2 * juce::MathConstants<NumericType>::pi
-						  * juce::jmax (cutOffFrequency, static_cast<NumericType> (2.0)))
-					 / static_cast<NumericType> (sampleRate);
+							 * juce::jmax (cutOffFrequency, static_cast<NumericType> (2.0)))
+					   / static_cast<NumericType> (sampleRate);
 	const auto coso				= std::cos (omega);
 	const auto beta				= std::sin (omega) * std::sqrt (A) / Q;
 	const auto aminus1TimesCoso = aminus1 * coso;
 
 	coefficients = { A * (aplus1 + aminus1TimesCoso + beta),
-					 A * -2 * (aminus1 + aplus1 * coso),
-					 A * (aplus1 + aminus1TimesCoso - beta),
-					 aplus1 - aminus1TimesCoso + beta,
-					 2 * (aminus1 - aplus1 * coso),
-					 aplus1 - aminus1TimesCoso - beta };
+		A * -2 * (aminus1 + aplus1 * coso),
+		A * (aplus1 + aminus1TimesCoso - beta),
+		aplus1 - aminus1TimesCoso + beta,
+		2 * (aminus1 - aplus1 * coso),
+		aplus1 - aminus1TimesCoso - beta };
 }
 
 template <typename NumericType>
-void Coefficients<NumericType>::makePeakFilter (double		sampleRate,
-												NumericType frequency,
-												NumericType Q,
-												NumericType gainFactor)
+void Coefficients<NumericType>::makePeakFilter (double sampleRate,
+	NumericType										   frequency,
+	NumericType										   Q,
+	NumericType										   gainFactor)
 {
 	jassert (sampleRate > 0);
 	jassert (frequency > 0
@@ -265,8 +265,8 @@ void Coefficients<NumericType>::makePeakFilter (double		sampleRate,
 
 	const auto A	 = juce::jmax (static_cast<NumericType> (0.0), std::sqrt (gainFactor));
 	const auto omega = (2 * juce::MathConstants<NumericType>::pi
-						* juce::jmax (frequency, static_cast<NumericType> (2.0)))
-					 / static_cast<NumericType> (sampleRate);
+						   * juce::jmax (frequency, static_cast<NumericType> (2.0)))
+					   / static_cast<NumericType> (sampleRate);
 	const auto alpha	   = std::sin (omega) / (Q * 2);
 	const auto c2		   = -2 * std::cos (omega);
 	const auto alphaTimesA = alpha * A;

@@ -1,8 +1,7 @@
 namespace lemons::gui::components
 {
 PopupComponentBase::PopupComponentBase (std::function<void()> toClose, bool useCloseButton, bool escapeKeyCloses)
-	: closeFunc (std::move (toClose))
-	, escapeKeyDestroys (escapeKeyCloses)
+	: closeFunc (std::move (toClose)), escapeKeyDestroys (escapeKeyCloses)
 {
 	if (toClose == nullptr)
 		toClose = [this]()

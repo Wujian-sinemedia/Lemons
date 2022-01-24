@@ -42,7 +42,7 @@ private:
 
 
 template <typename SampleType, template <typename T> class OscillatorType,
-		  LEMONS_MUST_INHERIT_FROM (OscillatorType<SampleType>, Oscillator<SampleType>)>
+	LEMONS_MUST_INHERIT_FROM (OscillatorType<SampleType>, Oscillator<SampleType>)>
 class Detunable : public DetunableBase<SampleType>
 {
 public:
@@ -53,7 +53,7 @@ public:
 
 private:
 	ConstructedArray<Oscillator<SampleType>> oscs { 1, []()
-													{ return new OscillatorType<SampleType>; } };
+		{ return new OscillatorType<SampleType>; } };
 };
 
 template <typename SampleType>

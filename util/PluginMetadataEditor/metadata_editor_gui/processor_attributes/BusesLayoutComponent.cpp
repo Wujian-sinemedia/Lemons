@@ -2,8 +2,7 @@ namespace lemons::PluginMetadataEditor::gui
 {
 
 BusesLayoutComponent::BusesLayoutComponent (plugin::ProcessorAttributes& attributes, std::function<void()> changedCallback)
-	: processorAttributes (attributes)
-	, onChange (changedCallback)
+	: processorAttributes (attributes), onChange (changedCallback)
 {
 	jassert (onChange != nullptr);
 }

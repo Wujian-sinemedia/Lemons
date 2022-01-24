@@ -108,11 +108,11 @@ public:
 	struct Listener final
 	{
 		explicit Listener (const ParameterList& list,
-						   std::function<void (Parameter&)>
-																  onParamValueChange,
-						   std::function<void (Parameter&)>		  onParamDefaultChange	  = nullptr,
-						   std::function<void (Parameter&, bool)> onParamGestureGhange	  = nullptr,
-						   std::function<void (Parameter&)>		  onParamControllerChange = nullptr);
+			std::function<void (Parameter&)>
+												   onParamValueChange,
+			std::function<void (Parameter&)>	   onParamDefaultChange	   = nullptr,
+			std::function<void (Parameter&, bool)> onParamGestureGhange	   = nullptr,
+			std::function<void (Parameter&)>	   onParamControllerChange = nullptr);
 
 	private:
 		juce::OwnedArray<Parameter::LambdaListener> updaters;

@@ -48,8 +48,8 @@ public:
 		@param isBypassed Should be true if the engine is bypassed this frame.
 	*/
 	void process (AudioBuffer<SampleType>& inplaceInAndOut,
-				  MidiBuffer&			   midiMessages,
-				  bool					   isBypassed = false);
+		MidiBuffer&						   midiMessages,
+		bool							   isBypassed = false);
 
 
 	/** Processes the audio engine with separate audio in and out, and MIDI.
@@ -59,9 +59,9 @@ public:
 		@param isBypassed Should be true if the engine is bypassed this frame.
 	*/
 	void process (const AudioBuffer<SampleType>& input,
-				  AudioBuffer<SampleType>&		 output,
-				  MidiBuffer&					 midiMessages,
-				  bool							 isBypassed = false);
+		AudioBuffer<SampleType>&				 output,
+		MidiBuffer&								 midiMessages,
+		bool									 isBypassed = false);
 
 
 	/** Processes the audio engine with in-place audio I/O and no MIDI.
@@ -70,7 +70,7 @@ public:
 		@param isBypassed Should be true if the engine is bypassed this frame.
 	*/
 	void process (AudioBuffer<SampleType>& inplaceInAndOut,
-				  bool					   isBypassed = false);
+		bool							   isBypassed = false);
 
 
 	/** Processes the audio engine with separate audio in and out and no MIDI.
@@ -80,8 +80,8 @@ public:
 		@param isBypassed Should be true if the engine is bypassed this frame.
 	*/
 	void process (const AudioBuffer<SampleType>& input,
-				  AudioBuffer<SampleType>&		 output,
-				  bool							 isBypassed = false);
+		AudioBuffer<SampleType>&				 output,
+		bool									 isBypassed = false);
 
 	///@}
 
@@ -157,8 +157,8 @@ template <typename SampleType>
 class PassThroughEngine : public Engine<SampleType>
 {
 	void renderBlock (const AudioBuffer<SampleType>& input,
-					  AudioBuffer<SampleType>&		 output,
-					  MidiBuffer& midiMessages, bool isBypassed) final;
+		AudioBuffer<SampleType>&					 output,
+		MidiBuffer& midiMessages, bool isBypassed) final;
 };
 
 #endif

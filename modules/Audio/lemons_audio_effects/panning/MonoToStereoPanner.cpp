@@ -18,7 +18,7 @@ void MonoToStereoPanner<SampleType>::reset()
 
 template <typename SampleType>
 void MonoToStereoPanner<SampleType>::process (const AudioBuffer& monoInput,
-											  AudioBuffer&		 stereoOutput)
+	AudioBuffer&												 stereoOutput)
 {
 	stereoOutput.clear();
 	jassert (stereoOutput.getNumChannels() >= 2);

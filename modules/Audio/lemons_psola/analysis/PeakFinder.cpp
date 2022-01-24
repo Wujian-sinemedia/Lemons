@@ -91,7 +91,7 @@ const Array<int>& PeakFinder<SampleType>::findPeaks (const SampleType* inputSamp
 		jassert (frameStart >= 0 && frameEnd <= numSamples && frameEnd > frameStart);
 
 		peakIndices.add (findNextPeak (frameStart, frameEnd, std::min (analysisIndex, frameEnd),
-									   inputSamples, intPeriod, grainSize));
+			inputSamples, intPeriod, grainSize));
 
 		[[maybe_unused]] const auto prevAnalysisIndex = analysisIndex;
 
@@ -119,7 +119,7 @@ const Array<int>& PeakFinder<SampleType>::findPeaks (const SampleType* inputSamp
 
 template <typename SampleType>
 int PeakFinder<SampleType>::findNextPeak (int frameStart, int frameEnd, int predictedPeak,
-										  const SampleType* inputSamples, int period, int grainSize)
+	const SampleType* inputSamples, int period, int grainSize)
 {
 	jassert (predictedPeak >= frameStart && predictedPeak <= frameEnd);
 
@@ -150,8 +150,8 @@ int PeakFinder<SampleType>::findNextPeak (int frameStart, int frameEnd, int pred
 				return choosePeakWithGreatestPower (inputSamples);
 
 			return chooseIdealPeakCandidate (inputSamples,
-											 peakIndices.getLast() + period,
-											 peakIndices.getUnchecked (peakIndices.size() - 2) + grainSize);
+				peakIndices.getLast() + period,
+				peakIndices.getUnchecked (peakIndices.size() - 2) + grainSize);
 		}
 	}
 }
@@ -159,7 +159,7 @@ int PeakFinder<SampleType>::findNextPeak (int frameStart, int frameEnd, int pred
 
 template <typename SampleType>
 int PeakFinder<SampleType>::getPeakCandidateInRange (const SampleType* inputSamples,
-													 int startSample, int endSample, int predictedPeak) const
+	int startSample, int endSample, int predictedPeak) const
 {
 	const auto starting = [this]
 	{

@@ -75,8 +75,8 @@ SynthVoiceBase<SampleType>* VoiceAllocator<SampleType>::findVoiceToSteal()
 		usableVoices.add (voice);
 
 		std::sort (usableVoices.begin(), usableVoices.end(),
-				   [] (const Voice* a, const Voice* b)
-				   { return a->wasStartedBefore (*b); });
+			[] (const Voice* a, const Voice* b)
+			{ return a->wasStartedBefore (*b); });
 
 		if (voice->isVoiceActive() && ! voice->isPlayingButReleased())
 		{

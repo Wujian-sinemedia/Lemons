@@ -73,18 +73,18 @@ void Knots::add (const Point& p)
 void Knots::sort()
 {
 	std::sort (begin(), end(),
-			   [] (const Knot& a, const Knot& b)
-			   { return a.location.x < b.location.x; });
+		[] (const Knot& a, const Knot& b)
+		{ return a.location.x < b.location.x; });
 }
 
 void Knots::removeOffLimits()
 {
 	std::remove_if (begin(), end(),
-					[] (const Knot& knot)
-					{
-						if (! knot.isSelected()) return false;
-						return knot.location.x <= 0.f || knot.location.x >= 1.f || knot.location.y <= 0.f || knot.location.y >= 1.f;
-					});
+		[] (const Knot& knot)
+		{
+			if (! knot.isSelected()) return false;
+			return knot.location.x <= 0.f || knot.location.x >= 1.f || knot.location.y <= 0.f || knot.location.y >= 1.f;
+		});
 }
 
 void Knots::remove (const juce::Range<float>& range)
@@ -142,7 +142,7 @@ void Knots::makeSpline (Points& spline) const
 		}
 
 		point = juce::jlimit (0.f, 1.f,
-							  interpolation::hermitCubic2 (*this, x, smallestDistance, kIdx - 1));
+			interpolation::hermitCubic2 (*this, x, smallestDistance, kIdx - 1));
 
 		x += inc;
 	}

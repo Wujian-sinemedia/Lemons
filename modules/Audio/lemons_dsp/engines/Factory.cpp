@@ -38,9 +38,9 @@ template void registerEngine (CreationFunc<float>, const String&);
 template void registerEngine (CreationFunc<double>, const String&);
 
 
-EngineCreator::EngineCreator (const CreationFunc<float>&  floatFunc,
-							  const CreationFunc<double>& doubleFunc,
-							  const String&				  typeID)
+EngineCreator::EngineCreator (const CreationFunc<float>& floatFunc,
+	const CreationFunc<double>&							 doubleFunc,
+	const String&										 typeID)
 {
 	registerEngine<float> (floatFunc, typeID);
 	registerEngine<double> (doubleFunc, typeID);

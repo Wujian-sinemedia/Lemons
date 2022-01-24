@@ -56,8 +56,8 @@ private:
 	struct InternalPassthruEngine : public Engine<SampleType>
 	{
 		void renderBlock (const AudioBuffer<SampleType>& input,
-						  AudioBuffer<SampleType>&		 output,
-						  MidiBuffer&, bool isBypassed) final;
+			AudioBuffer<SampleType>&					 output,
+			MidiBuffer&, bool isBypassed) final;
 	};
 
 	InternalPassthruEngine internalEngine;

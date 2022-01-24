@@ -20,10 +20,10 @@ private:
 	plugin::EditorAttributes& attributes;
 
 	ToggleTextButton isResizable { TRANS ("Is resizable"), attributes.isResizable, [this] (bool v)
-								   { this->attributes.isResizable = v; this->stateChanged(); } };
+		{ this->attributes.isResizable = v; this->stateChanged(); } };
 
 	ToggleTextButton useResizableCorner { TRANS ("Use resizable corner"), attributes.useResizableCorner, [this] (bool v)
-										  { this->attributes.useResizableCorner = v; this->stateChanged(); } };
+		{ this->attributes.useResizableCorner = v; this->stateChanged(); } };
 
 	/*
 	 initial size

@@ -232,14 +232,14 @@ Parameter& ParameterList::Holder::getParameter() const
 /*-----------------------------------------------------------------------------------------------------------------------*/
 
 ParameterList::Listener::Listener (const ParameterList& list,
-								   std::function<void (Parameter&)>
-									   onParamValueChange,
-								   std::function<void (Parameter&)>
-									   onParamDefaultChange,
-								   std::function<void (Parameter&, bool)>
-									   onParamGestureGhange,
-								   std::function<void (Parameter&)>
-									   onParamControllerChange)
+	std::function<void (Parameter&)>
+		onParamValueChange,
+	std::function<void (Parameter&)>
+		onParamDefaultChange,
+	std::function<void (Parameter&, bool)>
+		onParamGestureGhange,
+	std::function<void (Parameter&)>
+		onParamControllerChange)
 {
 	for (const auto* param : list.parameters)
 	{

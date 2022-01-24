@@ -48,7 +48,7 @@ private:
 					detector.reset();
 
 				osc.setFrequency (static_cast<FloatType> (correctFreq),
-								  static_cast<FloatType> (samplerate));
+					static_cast<FloatType> (samplerate));
 
 				osc.getSamples (storage);
 
@@ -57,8 +57,8 @@ private:
 				this->expectWithinAbsoluteError (estFreq, correctFreq, 20.f);
 
 				this->expectWithinAbsoluteError (math::freqToMidi (estFreq),
-												 math::freqToMidi (correctFreq),
-												 0.2f);
+					math::freqToMidi (correctFreq),
+					0.2f);
 			};
 
 			testFreq (440.f, true);
@@ -119,7 +119,7 @@ private:
 				detector.reset();
 
 				this->expectWithinAbsoluteError (detector.detectPeriod (storage),
-												 static_cast<float> (realPeriod), 1.5f);
+					static_cast<float> (realPeriod), 1.5f);
 			}
 		}
 
