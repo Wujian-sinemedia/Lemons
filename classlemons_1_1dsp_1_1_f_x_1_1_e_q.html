@@ -105,7 +105,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a0ee108b89a0976558ee529c4f240a81e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a new band to the <a class="el" href="classlemons_1_1dsp_1_1_f_x_1_1_e_q.html" title="An equalizer effect class.">EQ</a>.  <a href="classlemons_1_1dsp_1_1_f_x_1_1_e_q.html#a0ee108b89a0976558ee529c4f240a81e">More...</a><br /></td></tr>
 <tr class="separator:a0ee108b89a0976558ee529c4f240a81e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0e2734ec1b7a89c566cbd2fe9b3592c8"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1dsp_1_1_f_x_1_1_audio_effect.html#a0e2734ec1b7a89c566cbd2fe9b3592c8">bypassedBlock</a> (int numSamples)</td></tr>
-<tr class="memdesc:a0e2734ec1b7a89c566cbd2fe9b3592c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Notifies the effect when a bypassed block is recieved.  <a href="structlemons_1_1dsp_1_1_f_x_1_1_audio_effect.html#a0e2734ec1b7a89c566cbd2fe9b3592c8">More...</a><br /></td></tr>
+<tr class="memdesc:a0e2734ec1b7a89c566cbd2fe9b3592c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Notifies the effect when a bypassed block is received.  <a href="structlemons_1_1dsp_1_1_f_x_1_1_audio_effect.html#a0e2734ec1b7a89c566cbd2fe9b3592c8">More...</a><br /></td></tr>
 <tr class="separator:a0e2734ec1b7a89c566cbd2fe9b3592c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aff7b81f9a8254b44843f18d52bc12033"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classlemons_1_1dsp_1_1_f_x_1_1_filter.html">Filter</a>&lt; SampleType &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1_f_x_1_1_e_q.html#aff7b81f9a8254b44843f18d52bc12033">getBand</a> (int index)</td></tr>
 <tr class="memdesc:aff7b81f9a8254b44843f18d52bc12033"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a band at a certain index in the <a class="el" href="classlemons_1_1dsp_1_1_f_x_1_1_e_q.html" title="An equalizer effect class.">EQ</a>'s internal array of bands.  <a href="classlemons_1_1dsp_1_1_f_x_1_1_e_q.html#aff7b81f9a8254b44843f18d52bc12033">More...</a><br /></td></tr>
@@ -257,7 +257,7 @@ template&lt;typename SampleType &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Notifies the effect when a bypassed block is recieved. </p>
+<p>Notifies the effect when a bypassed block is received. </p>
 <p >Implementing this is optional. </p>
 
 <p>Reimplemented in <a class="el" href="classlemons_1_1dsp_1_1_f_x_1_1_smoothed_gain.html#a8335b506c3444b98f063652352100d65">lemons::dsp::FX::SmoothedGain&lt; SampleType, channels &gt;</a>, <a class="el" href="classlemons_1_1dsp_1_1_f_x_1_1_smoothed_gain.html#a8335b506c3444b98f063652352100d65">lemons::dsp::FX::SmoothedGain&lt; SampleType, 1 &gt;</a>, and <a class="el" href="classlemons_1_1dsp_1_1_f_x_1_1_smoothed_gain.html#a8335b506c3444b98f063652352100d65">lemons::dsp::FX::SmoothedGain&lt; float, 2 &gt;</a>.</p>
@@ -283,7 +283,7 @@ template&lt;typename SampleType &gt; </div>
 </div><div class="memdoc">
 
 <p>Returns a band at a certain index in the <a class="el" href="classlemons_1_1dsp_1_1_f_x_1_1_e_q.html" title="An equalizer effect class.">EQ</a>'s internal array of bands. </p>
-<p >This is the least preferrable way of retrieving bands; I would recommend either <a class="el" href="classlemons_1_1dsp_1_1_f_x_1_1_e_q.html#ac57a8f3bf8b81085a2352741d880c16b" title="Returns the first band found of the given type, if any.">getBandOfType()</a> or <a class="el" href="classlemons_1_1dsp_1_1_f_x_1_1_e_q.html#abb6045404f7a98340592447cef4dbd18" title="Returns the first band found with the given frequency, if any.">getBandAtFrequency()</a>. <br  />
+<p >This is the least preferable way of retrieving bands; I would recommend either <a class="el" href="classlemons_1_1dsp_1_1_f_x_1_1_e_q.html#ac57a8f3bf8b81085a2352741d880c16b" title="Returns the first band found of the given type, if any.">getBandOfType()</a> or <a class="el" href="classlemons_1_1dsp_1_1_f_x_1_1_e_q.html#abb6045404f7a98340592447cef4dbd18" title="Returns the first band found with the given frequency, if any.">getBandAtFrequency()</a>. <br  />
  <br  />
 The returned pointer may be null if no such index exists in the <a class="el" href="classlemons_1_1dsp_1_1_f_x_1_1_e_q.html" title="An equalizer effect class.">EQ</a>'s array of bands. </p>
 
@@ -437,7 +437,7 @@ template&lt;typename SampleType &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jan 23 2022 00:44:11 for Lemons by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3
+Generated on Mon Jan 24 2022 07:07:50 for Lemons by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3
 </small></address>
 </body>
 </html>

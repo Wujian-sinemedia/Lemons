@@ -52,7 +52,7 @@
 <!-- Node4 -->
 <g id="node4" class="node">
 <title>Node4</title>
-<g id="a_node4"><a xlink:href="structlemons_1_1plugin_1_1_typed_parameter_1_1_listener.html" target="_top" xlink:title="A class that will recieve updates when aspects of a TypedParameter change.">
+<g id="a_node4"><a xlink:href="structlemons_1_1plugin_1_1_typed_parameter_1_1_listener.html" target="_top" xlink:title="A class that will receive updates when aspects of a TypedParameter change.">
 <polygon fill="none" stroke="black" points="167,-0.5 167,-30.5 324,-30.5 324,-0.5 167,-0.5"/>
 <text text-anchor="start" x="175" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::plugin::TypedParameter</text>
 <text text-anchor="middle" x="245.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">&lt; ValueType &gt;::Listener</text>

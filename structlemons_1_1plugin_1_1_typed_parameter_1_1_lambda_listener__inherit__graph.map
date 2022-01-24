@@ -1,5 +1,5 @@
 <map id="lemons::plugin::TypedParameter&lt; ValueType &gt;::LambdaListener" name="lemons::plugin::TypedParameter&lt; ValueType &gt;::LambdaListener">
 <area shape="rect" id="node1" title="A listener that fires lambdas for each callback." alt="" coords="5,184,215,225"/>
-<area shape="rect" id="node2" href="$structlemons_1_1plugin_1_1_typed_parameter_1_1_listener.html" title="A class that will recieve updates when aspects of a TypedParameter change." alt="" coords="5,95,215,136"/>
+<area shape="rect" id="node2" href="$structlemons_1_1plugin_1_1_typed_parameter_1_1_listener.html" title="A class that will receive updates when aspects of a TypedParameter change." alt="" coords="5,95,215,136"/>
 <area shape="rect" id="node3" href="$structlemons_1_1plugin_1_1_parameter_1_1_listener.html" title="A Listener class that will be notified when aspects of a Parameter change." alt="" coords="23,5,197,47"/>
 </map>

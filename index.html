@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.3"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Lemons: Welcome to the Lemons online documentation!</title>
+<title>Lemons: Welcome to the Lemons online documentation</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -64,7 +64,7 @@ $(function() {
 </div>
 
 <div><div class="header">
-  <div class="headertitle"><div class="title">Welcome to the Lemons online documentation! </div></div>
+  <div class="headertitle"><div class="title">Welcome to the Lemons online documentation </div></div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p ><a class="anchor" id="md_build_main_page"></a> The source code repository itself can be found <a href="https://github.com/benthevining/Lemons" target="_blank">here</a>.</p>
@@ -74,19 +74,23 @@ $(function() {
 <p >The full CMake API reference can be found <a href="https://benthevining.github.io/Lemons/cmake_api.html" target="_blank">here</a>.</p>
 <h2>Adding with CPM.cmake</h2>
 <p >I recommend that within your CMake, you add Lemons by using <a href="https://github.com/cpm-cmake/CPM.cmake" target="_blank">CPM.cmake</a>, which is a single-script CMake package manager that allows you lots of flexibility in project configuration. One particularly important feature is the ability to specify that a local directory contains the source code for a certain package &ndash; so that not every project repository on your machine has to contain a copy of Lemons as a submodule. This makes your cmake perfectly modular: simply add the Lemons package with CPM.cmake in each project, and then if that project is cloned and built in isolation, CPM will download the Lemons package at configure time, but you also have the ability to tell CPM to reference a local copy of Lemons on your machine, so you can work on all your projects while only having one copy of Lemons on your machine.</p>
-<p >Adding Lemons with CPM.cmake looks like this: </p><div class="fragment"><div class="line">include (CPM.cmake)</div>
+<p >Adding Lemons with CPM.cmake looks like this:</p>
+<div class="fragment"><div class="line">include (CPM.cmake)</div>
 <div class="line"> </div>
 <div class="line">CPMAddPackage (</div>
 <div class="line">        NAME Lemons</div>
 <div class="line">        GIT_REPOSITORY https://github.com/benthevining/Lemons.git</div>
 <div class="line">        GIT_TAG origin/main)</div>
 </div><!-- fragment --><h2>A note about adding JUCE</h2>
-<p >Internally, Lemons's cmake scripts <a href="https://github.com/benthevining/Lemons/blob/main/util/cmake/modules/general/LemonsJuceUtilities.cmake" target="_blank">add JUCE like this</a>, using CPM.cmake. JUCE will automatically be fetched for you at configure time &ndash; but, if you'd like to reference another local copy of JUCE, you can set this variable before adding the Lemons package: </p><div class="fragment"><div class="line">set (CPM_JUCE_SOURCE /absolute/path/to/your/copy/of/juce)</div>
-</div><!-- fragment --><p> Note that this is optional, and if you omit the above line, adding the Lemons package will automatically also add the latest copy of JUCE for you.</p>
+<p >Internally, Lemons's cmake scripts <a href="https://github.com/benthevining/Lemons/blob/main/util/cmake/modules/general/LemonsJuceUtilities.cmake" target="_blank">add JUCE like this</a>, using CPM.cmake. JUCE will automatically be fetched for you at configure time &ndash; but, if you'd like to reference another local copy of JUCE, you can set this variable before adding the Lemons package:</p>
+<div class="fragment"><div class="line">set (CPM_JUCE_SOURCE /absolute/path/to/your/copy/of/juce)</div>
+</div><!-- fragment --><p >Note that this is optional, and if you omit the above line, adding the Lemons package will automatically also add the latest copy of JUCE for you.</p>
 <h2>What I actually do in my projects' CMake</h2>
 <p >I noticed myself duplicating several lines of CMake code in every project, so I encapsulated the <em>adding of Lemons</em> into <a href="https://github.com/benthevining/GetLemons" target="_blank">its own little repository</a>.</p>
-<p >What I usually do in my project repos is make my <a href="https://github.com/benthevining/GetLemons" target="_blank">GetLemons</a> repo a git submodule, then from the project's main CMakeLists.txt, simply </p><div class="fragment"><div class="line">addSubdirectory (GetLemons)</div>
-</div><!-- fragment --><p> What this will do is:</p><ul>
+<p >What I usually do in my project repos is make my <a href="https://github.com/benthevining/GetLemons" target="_blank">GetLemons</a> repo a git submodule, then from the project's main CMakeLists.txt, simply</p>
+<div class="fragment"><div class="line">addSubdirectory (GetLemons)</div>
+</div><!-- fragment --><p >What this will do is:</p>
+<ul>
 <li>Either fetch the CPM.cmake script from the github repository and cache it for future use; <em><b>or</b></em> include the previously-cached version if it can be found</li>
 <li>Include the Lemons repository using CPM.cmake</li>
 </ul>
@@ -114,7 +118,7 @@ $(function() {
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jan 23 2022 00:44:12 for Lemons by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3
+Generated on Mon Jan 24 2022 07:07:51 for Lemons by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3
 </small></address>
 </body>
 </html>

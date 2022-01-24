@@ -16,5 +16,5 @@ var searchData=
   ['busespropertiesfromvaluetree_13',['busesPropertiesFromValueTree',['../classlemons_1_1plugin_1_1_basic_processor.html#a7dbd2725134a33bbf9a97660bf7d3a69',1,'lemons::plugin::BasicProcessor']]],
   ['busespropertiestovaluetree_14',['busesPropertiesToValueTree',['../classlemons_1_1plugin_1_1_basic_processor.html#a3edb9916845558dde0dbbeb22dcb5fd4',1,'lemons::plugin::BasicProcessor']]],
   ['bypassedblock_15',['bypassedBlock',['../structlemons_1_1dsp_1_1_f_x_1_1_audio_effect.html#a0e2734ec1b7a89c566cbd2fe9b3592c8',1,'lemons::dsp::FX::AudioEffect::bypassedBlock()'],['../classlemons_1_1dsp_1_1_f_x_1_1_smoothed_gain.html#a8335b506c3444b98f063652352100d65',1,'lemons::dsp::FX::SmoothedGain::bypassedBlock()'],['../classlemons_1_1dsp_1_1_synth_base.html#a56641cc1e3f530f450c37855553d403e',1,'lemons::dsp::SynthBase::bypassedBlock()'],['../classlemons_1_1dsp_1_1_synth_voice_base.html#a41811700a1db4d05074f7e4717201b64',1,'lemons::dsp::SynthVoiceBase::bypassedBlock(int numSamples)']]],
-  ['bypassedblockrecieved_16',['bypassedBlockRecieved',['../classlemons_1_1dsp_1_1_synth_voice_base.html#a66792c4e9f40d929865adb20d7d7a6aa',1,'lemons::dsp::SynthVoiceBase']]]
+  ['bypassedblockreceived_16',['bypassedBlockReceived',['../classlemons_1_1dsp_1_1_synth_voice_base.html#acbcf85ba6f732e3ab1cdaf1fe8be49d5',1,'lemons::dsp::SynthVoiceBase']]]
 ];

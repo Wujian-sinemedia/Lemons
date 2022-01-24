@@ -1,7 +1,7 @@
 var searchData=
 [
   ['newblockcoming_0',['newBlockComing',['../classlemons_1_1dsp_1_1_synth_voice_base.html#a2fdfe023fcaebb4ccd8f27e57d564b2b',1,'lemons::dsp::SynthVoiceBase']]],
-  ['newpitchbendrecieved_1',['newPitchbendRecieved',['../classlemons_1_1midi_1_1_pitch_bend_tracker.html#a209a730f6d0c397bb086da6e0b216312',1,'lemons::midi::PitchBendTracker']]],
+  ['newpitchbendreceived_1',['newPitchbendReceived',['../classlemons_1_1midi_1_1_pitch_bend_tracker.html#a25ae9ae0e5e18e1530f4597bafd39652',1,'lemons::midi::PitchBendTracker']]],
   ['next_2',['next',['../structlemons_1_1dsp_1_1_oscillator_1_1_phase.html#a36d06ec0b958acbbf14f0c7aa5c608d2',1,'lemons::dsp::Oscillator::Phase']]],
   ['node_3',['Node',['../structlemons_1_1dsp_1_1_engine_chain_1_1_node.html#a7e10d5f5f9a4382a7ce8f03980fcfd8f',1,'lemons::dsp::EngineChain::Node']]],
   ['noisegate_4',['NoiseGate',['../classlemons_1_1dsp_1_1_f_x_1_1_noise_gate.html#ab3e228df0aaef4d9e2a132132c07eb46',1,'lemons::dsp::FX::NoiseGate::NoiseGate()'],['../classlemons_1_1dsp_1_1_f_x_1_1_noise_gate.html#a2d85157fc7cbdb8321210f14ec4ddad4',1,'lemons::dsp::FX::NoiseGate::NoiseGate(float threshDB, float ratioToUse, float attackMs, float releaseMs, bool shouldBeInverted=false)']]],

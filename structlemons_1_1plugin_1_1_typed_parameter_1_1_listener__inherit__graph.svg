@@ -57,7 +57,7 @@ var sectionId = 'dynsection-0';
 <!-- Node1 -->
 <g id="node1" class="node">
 <title>Node1</title>
-<g id="a_node1"><a xlink:title="A class that will recieve updates when aspects of a TypedParameter change.">
+<g id="a_node1"><a xlink:title="A class that will receive updates when aspects of a TypedParameter change.">
 <polygon fill="#bfbfbf" stroke="black" points="167,-24.5 167,-54.5 324,-54.5 324,-24.5 167,-24.5"/>
 <text text-anchor="start" x="175" y="-42.5" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::plugin::TypedParameter</text>
 <text text-anchor="middle" x="245.5" y="-31.5" font-family="Helvetica,sans-Serif" font-size="10.00">&lt; ValueType &gt;::Listener</text>

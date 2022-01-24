@@ -1163,11 +1163,6 @@
     <filename>_lemons_ccache_8md.html</filename>
   </compound>
   <compound kind="file">
-    <name>LemonsClangFormat.md</name>
-    <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/CMake/</path>
-    <filename>_lemons_clang_format_8md.html</filename>
-  </compound>
-  <compound kind="file">
     <name>LemonsCommonModules.md</name>
     <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/CMake/</path>
     <filename>_lemons_common_modules_8md.html</filename>
@@ -15998,9 +15993,9 @@
     </member>
     <member kind="function" protection="protected" virtualness="virtual">
       <type>virtual void</type>
-      <name>bypassedBlockRecieved</name>
+      <name>bypassedBlockReceived</name>
       <anchorfile>classlemons_1_1dsp_1_1_synth_voice_base.html</anchorfile>
-      <anchor>a66792c4e9f40d929865adb20d7d7a6aa</anchor>
+      <anchor>acbcf85ba6f732e3ab1cdaf1fe8be49d5</anchor>
       <arglist>(float, double, int)</arglist>
     </member>
     <member kind="function" protection="protected" virtualness="virtual">
@@ -17594,9 +17589,9 @@
     </member>
     <member kind="function">
       <type>int</type>
-      <name>getLastRecievedPitchbend</name>
+      <name>getLastReceivedPitchbend</name>
       <anchorfile>classlemons_1_1midi_1_1_pitch_bend_tracker.html</anchorfile>
-      <anchor>af2cb699d8149f9372e56fa71e5d0f769</anchor>
+      <anchor>a27ffadcc5fa602a1bc2fabb1f2ce3053</anchor>
       <arglist>() const noexcept</arglist>
     </member>
     <member kind="function">
@@ -17615,9 +17610,9 @@
     </member>
     <member kind="function">
       <type>void</type>
-      <name>newPitchbendRecieved</name>
+      <name>newPitchbendReceived</name>
       <anchorfile>classlemons_1_1midi_1_1_pitch_bend_tracker.html</anchorfile>
-      <anchor>a209a730f6d0c397bb086da6e0b216312</anchor>
+      <anchor>a25ae9ae0e5e18e1530f4597bafd39652</anchor>
       <arglist>(int newPitchbend) noexcept</arglist>
     </member>
     <member kind="function">
@@ -18049,9 +18044,9 @@
     </member>
     <member kind="function" protection="private" virtualness="virtual">
       <type>virtual bool</type>
-      <name>keyPressRecieved</name>
+      <name>keyPressReceived</name>
       <anchorfile>classlemons_1_1gui_1_1components_1_1_popup_component_base.html</anchorfile>
-      <anchor>ac6b075953a7367405f51b67654179015</anchor>
+      <anchor>a259bbee6b746681799c949ed9e7fffd5</anchor>
       <arglist>(const juce::KeyPress &amp;key)</arglist>
     </member>
     <member kind="function" protection="private" virtualness="virtual">
@@ -19732,8 +19727,8 @@
       <type></type>
       <name>SecondsParameter</name>
       <anchorfile>structlemons_1_1plugin_1_1_seconds_parameter.html</anchorfile>
-      <anchor>a8e726034c3e0057d4a989bf07bdd3c3d</anchor>
-      <arglist>(const String &amp;paramName, float minSeonds=0.f, float maxSeconds=1.f, float defaultVal=0.5f)</arglist>
+      <anchor>a07c1482b14bbb96e6fad87f8f6f2fe5f</anchor>
+      <arglist>(const String &amp;paramName, float minSeconds=0.f, float maxSeconds=1.f, float defaultVal=0.5f)</arglist>
     </member>
     <member kind="function">
       <type>float</type>
@@ -22195,9 +22190,9 @@
     </member>
     <member kind="function" protection="protected" virtualness="virtual">
       <type>virtual void</type>
-      <name>bypassedBlockRecieved</name>
+      <name>bypassedBlockReceived</name>
       <anchorfile>classlemons_1_1dsp_1_1_synth_voice_base.html</anchorfile>
-      <anchor>a66792c4e9f40d929865adb20d7d7a6aa</anchor>
+      <anchor>acbcf85ba6f732e3ab1cdaf1fe8be49d5</anchor>
       <arglist>(float, double, int)</arglist>
     </member>
     <member kind="function" protection="protected" virtualness="virtual">
@@ -23626,8 +23621,8 @@
       <type></type>
       <name>ToggleTextButton</name>
       <anchorfile>structlemons_1_1gui_1_1components_1_1_toggle_text_button.html</anchorfile>
-      <anchor>a2213d120e52537dc7b6c192c2983dce4</anchor>
-      <arglist>(const String &amp;buttonText, bool intialValue, std::function&lt; void(bool)&gt; whenClicked)</arglist>
+      <anchor>a86ddc125b8f95f70062ec7737f2b0c0b</anchor>
+      <arglist>(const String &amp;buttonText, bool initialValue, std::function&lt; void(bool)&gt; whenClicked)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -28324,12 +28319,6 @@
     <docanchor file="_lemons_ccache.html">md_build_CMake_LemonsCcache</docanchor>
   </compound>
   <compound kind="page">
-    <name>LemonsClangFormat</name>
-    <title>LemonsClangFormat</title>
-    <filename>_lemons_clang_format.html</filename>
-    <docanchor file="_lemons_clang_format.html">md_build_CMake_LemonsClangFormat</docanchor>
-  </compound>
-  <compound kind="page">
     <name>LemonsCommonModules</name>
     <title>LemonsCommonModules</title>
     <filename>_lemons_common_modules.html</filename>
@@ -28410,7 +28399,7 @@
   </compound>
   <compound kind="page">
     <name>index</name>
-    <title>Welcome to the Lemons online documentation!</title>
+    <title>Welcome to the Lemons online documentation</title>
     <filename>index.html</filename>
     <docanchor file="index.html">md_build_main_page</docanchor>
   </compound>

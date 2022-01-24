@@ -86,7 +86,7 @@ var searchData=
   ['getlastinputpitch_83',['getLastInputPitch',['../classlemons_1_1dsp_1_1psola_1_1_analyzer.html#ad1fd9048060c1e09d1b7805a0cbd4a13',1,'lemons::dsp::psola::Analyzer']]],
   ['getlastmidipan_84',['getLastMidiPan',['../classlemons_1_1dsp_1_1_f_x_1_1_panner_base.html#ae8871e9d712186ba640183a7791242e6',1,'lemons::dsp::FX::PannerBase']]],
   ['getlastpitchwheelvalue_85',['getLastPitchwheelValue',['../structlemons_1_1midi_1_1_stateful_routing_processor.html#a61cb87d9cfd4003a9bb9fb632381ef8e',1,'lemons::midi::StatefulRoutingProcessor']]],
-  ['getlastrecievedpitchbend_86',['getLastRecievedPitchbend',['../classlemons_1_1midi_1_1_pitch_bend_tracker.html#af2cb699d8149f9372e56fa71e5d0f769',1,'lemons::midi::PitchBendTracker']]],
+  ['getlastreceivedpitchbend_86',['getLastReceivedPitchbend',['../classlemons_1_1midi_1_1_pitch_bend_tracker.html#a27ffadcc5fa602a1bc2fabb1f2ce3053',1,'lemons::midi::PitchBendTracker']]],
   ['getlatencysamples_87',['getLatencySamples',['../classlemons_1_1dsp_1_1psola_1_1_analyzer.html#a392fa0d9e1ce3e05a25f405db613a183',1,'lemons::dsp::psola::Analyzer::getLatencySamples()'],['../classlemons_1_1dsp_1_1psola_1_1_pitch_detector.html#ad63226891fbbcc36c41463b60ec2d25f',1,'lemons::dsp::psola::PitchDetector::getLatencySamples()']]],
   ['getleftgain_88',['getLeftGain',['../classlemons_1_1dsp_1_1_f_x_1_1_panner_base.html#ae23e59c46275aa57b9345a0769d82bfc',1,'lemons::dsp::FX::PannerBase']]],
   ['getlengthinseconds_89',['getLengthInSeconds',['../structlemons_1_1dsp_1_1_audio_file.html#a1ddd5b18178332354de41eb6721b84e7',1,'lemons::dsp::AudioFile']]],

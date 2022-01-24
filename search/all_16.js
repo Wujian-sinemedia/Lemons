@@ -1,7 +1,7 @@
 var searchData=
 [
   ['wasstartedbefore_0',['wasStartedBefore',['../classlemons_1_1dsp_1_1_synth_voice_base.html#a60ce72b630ee7eb687154ad7c623b0bb',1,'lemons::dsp::SynthVoiceBase']]],
-  ['welcome_20to_20the_20lemons_20online_20documentation_21_1',['Welcome to the Lemons online documentation!',['../index.html',1,'']]],
+  ['welcome_20to_20the_20lemons_20online_20documentation_1',['Welcome to the Lemons online documentation',['../index.html',1,'']]],
   ['whitenoisegenerator_2',['WhiteNoiseGenerator',['../classlemons_1_1dsp_1_1_white_noise_generator.html',1,'lemons::dsp::WhiteNoiseGenerator&lt; SampleType &gt;'],['../classlemons_1_1dsp_1_1_white_noise_generator.html#a670cc4b89a8b3861972bcb9973f9b098',1,'lemons::dsp::WhiteNoiseGenerator::WhiteNoiseGenerator()']]],
   ['whitenoisegenerator_2eh_3',['WhiteNoiseGenerator.h',['../_white_noise_generator_8h.html',1,'']]],
   ['windowtype_4',['WindowType',['../classlemons_1_1_gui_app.html#aecc78c8f4dee507f282b9e3b648f46da',1,'lemons::GuiApp']]],
