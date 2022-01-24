@@ -85,6 +85,7 @@ struct Coefficients
 	Storage coefficients;
 
 private:
+
 	static constexpr NumericType inverseRootTwo { static_cast<NumericType> (0.70710678118654752440L) };
 };
 

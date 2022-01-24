@@ -12,9 +12,11 @@ using namespace lemons::gui;
 class EditorAttributeComponent final : public juce::Component
 {
 public:
+
 	explicit EditorAttributeComponent (plugin::EditorAttributes& attributesToUse, std::function<void()> callback);
 
 private:
+
 	std::function<void()> stateChanged;
 
 	plugin::EditorAttributes& attributes;

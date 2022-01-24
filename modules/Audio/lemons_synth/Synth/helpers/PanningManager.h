@@ -10,6 +10,7 @@ template <typename SampleType>
 class PanningManager
 {
 public:
+
 	PanningManager (SynthBase<SampleType>& b)
 		: synth (b)
 	{
@@ -21,6 +22,7 @@ public:
 	int	 getLowestNote() const { return lowestPannedNote; }
 
 private:
+
 	friend class SynthBase<SampleType>;
 
 	void prepare (int numVoices, bool clearArrays = true);

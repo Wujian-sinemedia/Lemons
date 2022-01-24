@@ -38,6 +38,7 @@ namespace lemons::gui::components
 class PopupComponentBase : public Component
 {
 public:
+
 	/** Creates a popup component.
 		@param toClose Lambda function that must destroy/close this popup.
 		@param useCloseButton If true, this component will create a "close" button in the upper left corner of the owned content that, when clicked, will destroy this component.
@@ -68,6 +69,7 @@ public:
 	void close() const;
 
 private:
+
 	void resized() final;
 	bool keyPressed (const juce::KeyPress& key) final;
 
@@ -96,6 +98,7 @@ template <typename OwnedContentType, LEMONS_MUST_INHERIT_FROM (OwnedContentType,
 class PopupComponent final : public PopupComponentBase
 {
 public:
+
 	/** Creates a PopupComponent with a lambda to destroy itself.
 		@param toClose Lambda function that must destroy this PopupComponent.
 		@param useCloseButton  If true, the wrapper component will create a "close" button in the upper left corner of the owned content that, when clicked, will destroy the popup.
@@ -126,6 +129,7 @@ public:
 	OwnedContentType content;
 
 private:
+
 	void resizeTriggered() final
 	{
 		content.setBounds (getLocalBounds());
@@ -168,6 +172,7 @@ class Popup final : public Component
 	using Content = PopupComponent<ContentType>;
 
 public:
+
 	/** Creates a popup component holder.
 		The close button and escape key options are constant for the life of this object, so you only have to set them once on creation.
 		At first, the popup is not visible. You must call the create() method to show the popup.
@@ -215,6 +220,7 @@ public:
 	}
 
 private:
+
 	void resized() final
 	{
 		if (auto* w = window.get())

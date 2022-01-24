@@ -8,12 +8,14 @@ namespace lemons::tests
 struct MidiFifoTests final : public MidiTest
 {
 public:
+
 	explicit MidiFifoTests()
 		: MidiTest ("MIDI FIFO tests")
 	{
 	}
 
 private:
+
 	void runTest() final
 	{
 		for (const auto numSamples : getTestingBlockSizes())

@@ -45,6 +45,7 @@ template <template <typename SampleType> class EngineType, typename StateType, L
 class Processor : public ProcessorBase, private locale::TranslationsInitializer
 {
 public:
+
 	/** Creates a processor with the specified bus layout. */
 	explicit Processor (const BusesProperties& busesLayout = getDefaultBusesLayout(),
 		const ProcessorAttributes&			   attributes  = ProcessorAttributes::fromProjectDefines())
@@ -72,12 +73,14 @@ public:
 	}
 
 protected:
+
 	/** The plugin's state object. */
 	StateType pluginState;
 
 	const EditorAttributes editorAttributes;
 
 private:
+
 	EngineType<float>  floatEngine;
 	EngineType<double> doubleEngine;
 };

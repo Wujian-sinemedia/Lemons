@@ -36,6 +36,7 @@ template <typename SampleType>
 class ProcessorEngine : public dsp::Engine<SampleType>
 {
 public:
+
 	/** Creates an engine that will stream audio through the specified AudioProcessor. */
 	explicit ProcessorEngine (juce::AudioProcessor& processor);
 
@@ -48,6 +49,7 @@ public:
 	ProcessorHolder processorHolder;
 
 private:
+
 	void renderBlock (const AudioBuffer<SampleType>& input, AudioBuffer<SampleType>& output, MidiBuffer& midiMessages, bool isBypassed) final;
 
 	void prepared (int blocksize, double samplerate, int numChannels) final;

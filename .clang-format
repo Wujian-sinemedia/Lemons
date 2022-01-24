@@ -1,4 +1,3 @@
-Language: Cpp
 AccessModifierOffset: -4
 AlignAfterOpenBracket: DontAlign
 AlignArrayOfStructures: Left
@@ -9,8 +8,8 @@ AlignConsecutiveMacros: Consecutive
 AlignEscapedNewlines: Right
 AlignOperands: Align
 AlignTrailingComments: false
-AllowAllArgumentsOnNextLine: false
-AllowAllParametersOfDeclarationOnNextLine: false
+AllowAllArgumentsOnNextLine: true
+AllowAllParametersOfDeclarationOnNextLine: true
 AllowShortBlocksOnASingleLine: Always
 AllowShortCaseLabelsOnASingleLine: true
 AllowShortEnumsOnASingleLine: true
@@ -36,10 +35,13 @@ CompactNamespaces: true
 ConstructorInitializerIndentWidth: 4
 ContinuationIndentWidth: 4
 Cpp11BracedListStyle: false
-EmptyLineAfterAccessModifier: Leave
+DeriveLineEnding: false
+DerivePointerAlignment: false
+EmptyLineAfterAccessModifier: Always
 EmptyLineBeforeAccessModifier: Always
 ExperimentalAutoDetectBinPacking: true
 FixNamespaceComments: true
+IncludeBlocks: Preserve
 IndentAccessModifiers: false
 IndentCaseBlocks: false
 IndentCaseLabels: true
@@ -49,10 +51,16 @@ IndentPPDirectives: AfterHash
 IndentRequires: true
 IndentWidth: 4
 IndentWrappedFunctionNames: true
+InsertTrailingCommas: None
 KeepEmptyLinesAtTheStartOfBlocks: false
 LambdaBodyIndentation: Signature
 MaxEmptyLinesToKeep: 2
 NamespaceIndentation: None
+ObjCBinPackProtocolList: Auto
+ObjCBlockIndentWidth: 4
+ObjCBreakBeforeNestedBlockParam: true
+ObjCSpaceAfterProperty: true
+ObjCSpaceBeforeProtocolList: true
 PPIndentWidth: 2
 PointerAlignment: Left
 ReferenceAlignment: Pointer
@@ -62,7 +70,7 @@ SortUsingDeclarations: true
 SpaceAfterCStyleCast: true
 SpaceAfterLogicalNot: true
 SpaceAfterTemplateKeyword: true
-SpaceAroundPointerQualifiers: Default
+SpaceAroundPointerQualifiers: Both
 SpaceBeforeAssignmentOperators: true
 SpaceBeforeCaseColon: true
 SpaceBeforeCpp11BracedList: true
@@ -84,5 +92,3 @@ Standard: c++20
 TabWidth: 4
 UseCRLF: false
 UseTab: Always
----
-Language: ObjC

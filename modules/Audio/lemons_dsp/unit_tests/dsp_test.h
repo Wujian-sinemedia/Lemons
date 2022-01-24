@@ -32,9 +32,11 @@ namespace lemons::tests
 struct DspTest : public Test
 {
 public:
+
 	explicit DspTest (const String& testName);
 
 protected:
+
 	template <typename SampleType>
 	[[nodiscard]] static String getDspTestName (const String& name);
 };

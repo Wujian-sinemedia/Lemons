@@ -55,6 +55,7 @@ struct TimerCallback final : public juce::Timer
 	}
 
 private:
+
 	void timerCallback() final
 	{
 		callback();

@@ -13,6 +13,7 @@ struct RangeTests final : public CoreTest
 	}
 
 private:
+
 	void runTest() final
 	{
 		// create

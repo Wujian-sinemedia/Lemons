@@ -44,6 +44,7 @@ template <typename SampleType>
 class CircularBuffer final
 {
 public:
+
 	/** Creates a CircularBuffer with an initial size. */
 	explicit CircularBuffer (int initialCapacity = 512);
 
@@ -82,6 +83,7 @@ public:
 	void clear();
 
 private:
+
 	AudioBuffer<SampleType> buffer;
 
 	juce::AbstractFifo fifo;

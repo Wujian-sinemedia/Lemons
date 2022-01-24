@@ -12,6 +12,7 @@ template <typename SampleType>
 class Limiter : public LevelReportingAudioEffect<SampleType>
 {
 public:
+
 	/** Creates a limiter with some default initial settings. */
 	Limiter();
 
@@ -45,6 +46,7 @@ public:
 
 
 private:
+
 	void update();
 
 	Compressor<SampleType> firstStageCompressor, secondStageCompressor;

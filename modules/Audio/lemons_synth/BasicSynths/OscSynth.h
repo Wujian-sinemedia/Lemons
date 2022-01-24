@@ -8,6 +8,7 @@ struct OscSynthVoice : public SynthVoiceBase<SampleType>
 	using SynthVoiceBase<SampleType>::SynthVoiceBase;
 
 private:
+
 	void renderPlease (AudioBuffer<SampleType>& output, float desiredFrequency, double currentSamplerate) final;
 
 	void released() final;

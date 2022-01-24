@@ -55,6 +55,7 @@ public:
 	[[nodiscard]] float getFrequency() const noexcept { return freq; }
 
 private:
+
 	void renderBlock (const AudioBuffer<SampleType>& input, AudioBuffer<SampleType>& output, MidiBuffer& midiMessages, bool isBypassed) final;
 
 	void prepared (int blocksize, double samplerate, int numChannels) final;

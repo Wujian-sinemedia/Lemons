@@ -9,6 +9,7 @@ namespace lemons::midi
 class PitchBendTracker
 {
 public:
+
 	void setRange (int newStUp, int newStDown) noexcept;
 
 	int getRangeUp() const noexcept;
@@ -34,6 +35,7 @@ public:
 	}
 
 private:
+
 	float rangeUp { 2.f };
 	float rangeDown { 2.f };
 	float lastReceivedPitchbend { 64.f };

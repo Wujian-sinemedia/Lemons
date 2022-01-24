@@ -72,6 +72,7 @@ struct Dimensions final
 	[[nodiscard]] static constexpr Dimensions getDefault() { return Dimensions { 1060, 640 }; }
 
 private:
+
 	std::atomic<int> width { 0 }, height { 0 };
 };
 

@@ -6,6 +6,7 @@ template <typename SampleType>
 class VoiceAllocator
 {
 public:
+
 	using Voice = SynthVoiceBase<SampleType>;
 
 	VoiceAllocator (SynthBase<SampleType>& s);
@@ -17,6 +18,7 @@ public:
 	Voice* findVoiceToSteal();
 
 private:
+
 	SynthBase<SampleType>& synth;
 
 	Array<Voice*> usableVoices;	 // this array is used to sort the voices when a 'steal' is requested

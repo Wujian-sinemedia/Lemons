@@ -42,6 +42,7 @@ enum class Intensity
 class Test : public juce::UnitTest
 {
 public:
+
 	using juce::UnitTest::UnitTest;
 
 	[[nodiscard]] static Intensity getTestingIntensityLevel();
@@ -53,6 +54,7 @@ public:
 	[[nodiscard]] static bool testingIntensityIsHigh();
 
 protected:
+
 	void logImportantMessage (const String& message);
 
 	struct Subtest
@@ -61,6 +63,7 @@ protected:
 		~Subtest();
 
 	private:
+
 		Test& test;
 	};
 
@@ -83,6 +86,7 @@ protected:
 	}
 
 private:
+
 	friend struct Subtest;
 
 	void beginSubtestInternal (const String& name);

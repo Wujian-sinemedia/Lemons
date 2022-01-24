@@ -56,6 +56,7 @@ public:
 		[[nodiscard]] int getIndex() const noexcept;
 
 	private:
+
 		friend class EngineChain;
 
 		std::unique_ptr<Engine<SampleType>> engine;
@@ -199,6 +200,7 @@ public:
 	bool removeNode (int index);
 
 private:
+
 	void renderChunk (const AudioBuffer<SampleType>& input, AudioBuffer<SampleType>& output, MidiBuffer& midiMessages, bool isBypassed) final;
 
 	void prepared (int blocksize, double samplerate, int numChannels) final;
@@ -239,6 +241,7 @@ template <typename SampleType, template <typename T> typename... EngineTypes>
 class BuiltEngineChain final : public EngineChain<SampleType>
 {
 public:
+
 	BuiltEngineChain()
 	{
 		(this->template createAndAddNode<EngineTypes<SampleType>>(), ...);

@@ -51,9 +51,11 @@ std::unique_ptr<ProcessorBase> PluginMetadata::createProcessor() const
 		}
 
 	protected:
+
 		const EditorAttributes editorAttributes;
 
 	private:
+
 		std::unique_ptr<State> state;
 
 		std::unique_ptr<dsp::Engine<float>>	 floatEngine;

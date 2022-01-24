@@ -15,6 +15,7 @@ struct MidiProcessorEngine : public Engine<SampleType>
 	MidiProcessorType processor;
 
 private:
+
 	void renderBlock (const AudioBuffer<SampleType>&, AudioBuffer<SampleType>&, MidiBuffer& midiMessages, bool) final
 	{
 		processor.process (midiMessages);

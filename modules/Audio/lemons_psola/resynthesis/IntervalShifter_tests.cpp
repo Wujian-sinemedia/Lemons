@@ -9,12 +9,14 @@ template <typename SampleType>
 class IntervalShifterTests final : public AllOscillatorsTest<SampleType>
 {
 public:
+
 	explicit IntervalShifterTests()
 		: AllOscillatorsTest<SampleType> ("PSOLA interval shifter tests")
 	{
 	}
 
 private:
+
 	void runOscillatorTest (dsp::Oscillator<SampleType>& osc) final
 	{
 		constexpr auto samplerate = 44100.;

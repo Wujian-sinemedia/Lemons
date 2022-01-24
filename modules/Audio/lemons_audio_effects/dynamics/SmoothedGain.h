@@ -12,6 +12,7 @@ template <typename SampleType, size_t channels = 1>
 class SmoothedGain : public AudioEffect<SampleType>
 {
 public:
+
 	/** Creates a default SmoothedGain with an initial gain of 1. */
 	SmoothedGain();
 
@@ -41,6 +42,7 @@ public:
 	void reset();
 
 private:
+
 	juce::OwnedArray<ValueSmoother<SampleType>> smoothers;
 
 	int	  lastBlocksize { 0 };

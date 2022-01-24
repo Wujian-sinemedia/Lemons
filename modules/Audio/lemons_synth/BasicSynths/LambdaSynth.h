@@ -7,6 +7,7 @@ template <typename SampleType>
 class LambdaSynth : public SynthBase<SampleType>
 {
 public:
+
 	using Voice				= SynthVoiceBase<SampleType>;
 	using VoiceCreationFunc = std::function<Voice*()>;
 
@@ -16,6 +17,7 @@ public:
 	}
 
 private:
+
 	Voice* createVoice() final
 	{
 		return createVoiceFunc();

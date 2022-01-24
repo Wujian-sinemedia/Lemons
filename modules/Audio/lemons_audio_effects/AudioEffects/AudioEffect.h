@@ -86,6 +86,7 @@ struct LevelReportingAudioEffect : SidechainableAudioEffect<SampleType>
 	SampleType getAverageLevel() const;
 
 private:
+
 	juce::Array<SampleType> gainReductions;
 };
 

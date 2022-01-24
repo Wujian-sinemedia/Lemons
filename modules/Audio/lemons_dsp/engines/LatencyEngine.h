@@ -27,6 +27,7 @@ template <typename SampleType>
 class LatencyEngine : public Engine<SampleType>
 {
 public:
+
 	/** Returns the latency in samples of the engine. */
 	[[nodiscard]] int reportLatency() const noexcept final;
 
@@ -38,6 +39,7 @@ public:
 	void changeLatency (int newInternalBlocksize, bool setTopLevelEngineBlocksize = false);
 
 private:
+
 	void renderBlock (const AudioBuffer<SampleType>& input, AudioBuffer<SampleType>& output, MidiBuffer& midiMessages, bool isBypassed) final;
 
 	void released() final;

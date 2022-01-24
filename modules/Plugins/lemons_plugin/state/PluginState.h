@@ -44,6 +44,7 @@ public:
 	ProgramManager programs;
 
 private:
+
 	[[nodiscard]] virtual ValueTree saveCustomStateData (const String& valueTreeType, bool currentProgramOnly) const;
 
 	virtual void loadCustomStateData (const ValueTree& tree);

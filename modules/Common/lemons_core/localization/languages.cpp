@@ -42,6 +42,7 @@ struct LanguageData final
 	StringArray countryCodes;
 
 private:
+
 	static constexpr auto UNKNOWN = "Unknown_language_";
 };
 
@@ -511,6 +512,7 @@ struct KnownLanguages final
 	}
 
 private:
+
 	std::vector<LanguageData> languages;
 };
 

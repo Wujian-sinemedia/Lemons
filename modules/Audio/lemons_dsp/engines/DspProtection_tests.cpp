@@ -14,6 +14,7 @@ struct DspProtectorTests final : public DspTest
 	}
 
 private:
+
 	void runTest() final
 	{
 		beginTest ("DSP protection");

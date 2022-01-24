@@ -9,12 +9,14 @@ template <typename FloatType>
 class PeakFinderTests final : public AllOscillatorsTest<FloatType>
 {
 public:
+
 	explicit PeakFinderTests()
 		: AllOscillatorsTest<FloatType> ("PSOLA peak finder")
 	{
 	}
 
 private:
+
 	static constexpr auto samplerate = 44100.;
 
 	void runOscillatorTest (dsp::Oscillator<FloatType>& osc) final

@@ -12,6 +12,7 @@ template <typename SampleType>
 class DryWetMixer
 {
 public:
+
 	/** Creates a DryWetMixer with some default initial settings. */
 	DryWetMixer();
 
@@ -58,6 +59,7 @@ public:
 	void process (AudioBuffer<SampleType>& dry, AudioBuffer<SampleType>& wet);
 
 private:
+
 	juce::dsp::DryWetMixer<SampleType> mixer { 512 };
 	juce::dsp::ProcessSpec			   spec;
 };

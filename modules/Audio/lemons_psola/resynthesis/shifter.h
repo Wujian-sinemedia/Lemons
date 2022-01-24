@@ -53,9 +53,11 @@ public:
 	void releaseResources();
 
 protected:
+
 	Analyzer<SampleType>& analyzer;
 
 private:
+
 	friend class Analyzer<SampleType>;
 
 	[[nodiscard]] SampleType getNextSample();
@@ -86,6 +88,7 @@ private:
 		void startNewGrain (AnalysisGrain& analysisGrainToUse) noexcept;
 
 	private:
+
 		AnalysisGrain* analysisGrain { nullptr };
 
 		int sampleIdx { 0 };

@@ -7,9 +7,11 @@ template <typename SampleType>
 struct AllOscillatorsTest : public DspTest
 {
 public:
+
 	using DspTest::DspTest;
 
 private:
+
 	void runTest() final;
 
 	virtual void runOscillatorTest (dsp::Oscillator<SampleType>& osc) = 0;

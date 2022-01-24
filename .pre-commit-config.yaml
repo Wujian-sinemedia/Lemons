@@ -14,7 +14,6 @@ repos:
       - id: check-json
       - id: check-xml
       - id: check-yaml
-        args: [--allow-multiple-documents]
       - id: pretty-format-json
         args: [--autofix]
 

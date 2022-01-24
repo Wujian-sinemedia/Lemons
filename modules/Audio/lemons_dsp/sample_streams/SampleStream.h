@@ -30,6 +30,7 @@ public:
 	void skipSamples (int numToSkip) const;
 
 private:
+
 	std::function<SampleType()> sampleFunc;
 };
 

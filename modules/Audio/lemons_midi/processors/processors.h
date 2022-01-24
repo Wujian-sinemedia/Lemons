@@ -21,11 +21,13 @@ struct Processor
 class RoutingProcessor : public Processor
 {
 public:
+
 	void process (MidiBuffer& block) final;
 
 	void processMessage (const MidiMessage& message);
 
 private:
+
 	virtual void handleNoteOn (int midiPitch, float velocity);
 	virtual void handleNoteOff (int midiPitch, float velocity);
 	virtual void handlePitchwheel (int wheelValue);
@@ -62,6 +64,7 @@ struct StatefulRoutingProcessor : public RoutingProcessor
 	void reset();
 
 private:
+
 	void handlePitchwheel (int wheelValue) final;
 	void handleSustainPedal (int controllerValue) final;
 	void handleSostenutoPedal (int controllerValue) final;

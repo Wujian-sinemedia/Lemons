@@ -115,6 +115,7 @@ public:
 			std::function<void (Parameter&)>	   onParamControllerChange = nullptr);
 
 	private:
+
 		juce::OwnedArray<Parameter::LambdaListener> updaters;
 	};
 
@@ -133,6 +134,7 @@ private:
 		[[nodiscard]] Parameter& getParameter() const;
 
 	private:
+
 		bool addedToProcessor { false };
 
 		Parameter* param { nullptr };

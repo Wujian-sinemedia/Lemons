@@ -31,6 +31,7 @@ template <typename SampleType>
 class AudioAndMidiFIFO final
 {
 public:
+
 	/** Creates a FIFO with an initial capacity. */
 	explicit AudioAndMidiFIFO (int samples = 1024);
 
@@ -50,6 +51,7 @@ public:
 	void clear();
 
 private:
+
 	midi::MidiFIFO		  midi;
 	AudioFifo<SampleType> audio;
 

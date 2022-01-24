@@ -16,6 +16,7 @@ struct BinaryDataTests final : public Test
 	}
 
 private:
+
 	void runTest() final
 	{
 		beginTest ("binary::Data objects are valid");

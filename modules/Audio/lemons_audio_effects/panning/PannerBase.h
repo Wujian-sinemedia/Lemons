@@ -14,6 +14,7 @@ namespace lemons::dsp::FX
 class PannerBase
 {
 public:
+
 	PannerBase();
 	virtual ~PannerBase() = default;
 
@@ -29,6 +30,7 @@ public:
 	int	 getLastMidiPan() const noexcept;
 
 private:
+
 	int lastReceivedMidiPan;
 
 	float leftGain;

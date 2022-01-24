@@ -32,6 +32,7 @@ struct AudioProcessorTestBase : public Test
 	explicit AudioProcessorTestBase (juce::AudioProcessor& processorToUse, const String& testName);
 
 protected:
+
 	using ProcessorHolder = plugin::ProcessorHolder;
 
 	void runTest() override;
@@ -43,6 +44,7 @@ protected:
 	void checkProcessorDoesNotMatchParameterState (const ProcessorHolder::ParameterState& state);
 
 private:
+
 	template <typename SampleType>
 	void runTypedTests();
 
@@ -68,6 +70,7 @@ struct AudioProcessorTest : public AudioProcessorTestBase
 	}
 
 private:
+
 	void runTest() final
 	{
 		AudioProcessorTestBase::runTest();

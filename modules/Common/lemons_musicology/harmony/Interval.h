@@ -29,6 +29,7 @@ public:
 	// get string description
 
 private:
+
 	Quality quality;
 };
 

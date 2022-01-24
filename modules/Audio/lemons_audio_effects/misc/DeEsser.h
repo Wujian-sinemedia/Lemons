@@ -12,6 +12,7 @@ template <typename SampleType>
 class DeEsser : public LevelReportingAudioEffect<SampleType>
 {
 public:
+
 	/** Creates a DeEsser with some default initial settings. */
 	DeEsser();
 
@@ -54,6 +55,7 @@ public:
 
 
 private:
+
 	dsp::filters::MultiFilter<SampleType, 2> filter;
 
 	NoiseGate<SampleType> gate;

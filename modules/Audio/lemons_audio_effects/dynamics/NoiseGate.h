@@ -14,6 +14,7 @@ template <typename SampleType>
 class NoiseGate : public LevelReportingAudioEffect<SampleType>
 {
 public:
+
 	/** Creates a noise gate with some default initial settings. */
 	NoiseGate();
 
@@ -71,6 +72,7 @@ public:
 
 
 private:
+
 	void update();
 
 	juce::dsp::ProcessSpec spec;

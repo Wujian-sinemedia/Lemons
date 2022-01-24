@@ -103,6 +103,7 @@ public:
 	[[nodiscard]] bool containsOption (const String& argOrFlags, bool includeDefaults = false) const;
 
 private:
+
 	juce::ArgumentList argList;
 
 	struct Argument final

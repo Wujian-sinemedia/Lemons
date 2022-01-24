@@ -27,6 +27,7 @@ namespace lemons
 struct DeviceRotation final
 {
 public:
+
 	using Orientation = juce::Desktop::DisplayOrientation;
 
 	/** RAII mechanism for temporarily disabling device rotation.
@@ -41,6 +42,7 @@ public:
 		~ScopedDisabler();
 
 	private:
+
 		const int prevOrientations;
 	};
 
@@ -57,6 +59,7 @@ public:
 		virtual ~Listener() override;
 
 	private:
+
 		void timerCallback() final;
 
 		Callback	callback;
@@ -76,6 +79,7 @@ public:
 	[[nodiscard]] static Orientation getCurrent();
 
 private:
+
 	using Desktop = juce::Desktop;
 };
 

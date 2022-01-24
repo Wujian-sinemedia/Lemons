@@ -9,12 +9,14 @@ template <typename FloatType>
 struct CircularBufferTests final : public DspTest
 {
 public:
+
 	explicit CircularBufferTests()
 		: DspTest (getDspTestName<FloatType> ("Circular buffer tests"))
 	{
 	}
 
 private:
+
 	void runTest() final
 	{
 		for (const auto numSamples : getTestingBlockSizes())

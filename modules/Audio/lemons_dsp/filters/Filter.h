@@ -11,6 +11,7 @@ template <typename SampleType>
 class Filter
 {
 public:
+
 	/** Resets the internal state of the filter. */
 	void reset (SampleType resetToValue = SampleType (0));
 
@@ -26,6 +27,7 @@ public:
 	Coefficients<SampleType> coefs;
 
 private:
+
 	void processOrder1 (SampleType* buffer, int numSamples);
 	void processOrder2 (SampleType* buffer, int numSamples);
 	void processOrder3 (SampleType* buffer, int numSamples);

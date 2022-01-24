@@ -31,6 +31,7 @@ template <typename SampleType>
 class AudioFifo final
 {
 public:
+
 	/** Creates an AudioFifo with an initial capacity. */
 	explicit AudioFifo (int numSamples = 512, int numChannels = 2);
 
@@ -59,6 +60,7 @@ public:
 	void resize (int maxNumSamples, int numChannels = 2);
 
 private:
+
 	ConstructedArray<CircularBuffer<SampleType>> buffers;
 
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AudioFifo)

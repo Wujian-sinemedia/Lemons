@@ -10,6 +10,7 @@ namespace lemons::plugin
 class ModulationManager final
 {
 public:
+
 	using LfoNamingFunc = std::function<String (int)>;
 
 	explicit ModulationManager (const ParameterList& parameterList,
@@ -59,6 +60,7 @@ public:
 	void finishBlock (int numSamples);
 
 private:
+
 	const ParameterList& paramList;
 
 	ConstructedArray<LFO> lfos;

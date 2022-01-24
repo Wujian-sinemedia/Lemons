@@ -7,6 +7,7 @@ namespace New
 class Processor : public plugin::Processor<Engine, State>
 {
 public:
+
 	Processor();
 };
 

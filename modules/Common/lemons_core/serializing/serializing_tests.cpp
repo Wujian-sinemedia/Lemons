@@ -14,6 +14,7 @@ struct CoreSerializingTests final : public CoreTest
 	}
 
 private:
+
 	void runTest() final
 	{
 		beginTest ("Memory block to/from string");

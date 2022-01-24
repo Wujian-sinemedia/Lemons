@@ -13,6 +13,7 @@ namespace lemons::gui::components
 class SliderBase : public juce::Slider
 {
 public:
+
 	/**
 		Creates a slider that references a plugin parameter.
 		The slider will map its range, default value, name, label, and some other properties to the parameter's settings. Your parameter should be fully constructed and configured before you attach it to a slider.
@@ -21,6 +22,7 @@ public:
 	explicit SliderBase (plugin::Parameter& paramToUse);
 
 private:
+
 	plugin::Parameter& param_;
 
 	void startedDragging() final;

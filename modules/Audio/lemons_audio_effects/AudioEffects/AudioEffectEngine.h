@@ -14,6 +14,7 @@ template <template <typename FloatType> class EffectType, typename SampleType, L
 class EffectEngine : public dsp::Engine<SampleType>
 {
 public:
+
 	/** Creates an EffectEngine.
 		Forwards all constructor arguments to the underlying effect object.
 	*/
@@ -33,6 +34,7 @@ public:
 	EffectType<SampleType>* operator->() { return &effect; }
 
 private:
+
 	void renderBlock (const AudioBuffer<SampleType>& input,
 		AudioBuffer<SampleType>&					 output,
 		MidiBuffer&,

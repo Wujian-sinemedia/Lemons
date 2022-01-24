@@ -49,6 +49,7 @@ struct ProgramManager final
 	static constexpr auto valueTreeType = "Programs";
 
 private:
+
 	juce::Array<Program> programs;
 };
 

@@ -10,6 +10,7 @@ namespace lemons::dsp::FX
 class Reverb
 {
 public:
+
 	/** Creates a default Reverb object. */
 	Reverb();
 
@@ -89,6 +90,7 @@ public:
 
 
 private:
+
 	juce::Reverb reverb;
 
 	juce::Reverb::Parameters juceReverbParams;

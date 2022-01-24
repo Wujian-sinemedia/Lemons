@@ -6,6 +6,7 @@ template <typename SampleType>
 class AutomatedHarmonyVoice
 {
 public:
+
 	using Voice = SynthVoiceBase<SampleType>;
 
 	AutomatedHarmonyVoice (SynthBase<SampleType>& synthToUse, bool shiftUp);
@@ -23,6 +24,7 @@ public:
 	Voice* getVoice();
 
 private:
+
 	friend class SynthBase<SampleType>;
 
 	void apply();

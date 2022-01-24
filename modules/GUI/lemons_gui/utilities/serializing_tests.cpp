@@ -14,6 +14,7 @@ struct GuiSerializingTests final : public CoreTest
 	}
 
 private:
+
 	void runTest() final
 	{
 		{

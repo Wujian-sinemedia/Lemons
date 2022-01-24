@@ -7,6 +7,7 @@ template <typename SampleType>
 class RatioShifter final : public Shifter<SampleType>
 {
 public:
+
 	using Shifter<SampleType>::Shifter;
 
 	void setShiftingRatio (float newRatio);
@@ -14,6 +15,7 @@ public:
 	[[nodiscard]] float getShiftingRatio() const noexcept;
 
 private:
+
 	void onNewBlock() final;
 
 	void pitchHzChanged (int newPitchHz) final;

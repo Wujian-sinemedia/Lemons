@@ -25,6 +25,7 @@ using juce::File;
 class Runner : public juce::UnitTestRunner
 {
 public:
+
 	[[nodiscard]] bool hadAnyFailures() const;
 
 	[[nodiscard]] juce::StringArray getFailedTestNames() const;
@@ -32,6 +33,7 @@ public:
 	bool runTest (const String& testName, juce::int64 seed = juce::Random::getSystemRandom().nextInt64());
 
 private:
+
 	void logMessage (const juce::String& message) final;
 };
 

@@ -8,6 +8,7 @@ template <typename SampleType>
 class Delay : public LevelReportingAudioEffect<SampleType>
 {
 public:
+
 	void prepare (double samplerate, int blocksize) final;
 
 	void reset();
@@ -19,6 +20,7 @@ public:
 	SampleType popSample (int channel, SampleType* delayLevel = nullptr);
 
 private:
+
 	SampleType processChannel (int channel,
 		int						   numSamples,
 		SampleType*				   signal,

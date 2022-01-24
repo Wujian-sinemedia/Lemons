@@ -42,6 +42,7 @@ struct LFO final : public MetaParameter<float>
 	void loadFromValueTree (const ValueTree& tree) final;
 
 private:
+
 	Osc osc;
 
 	AudioBuffer<float> storage;

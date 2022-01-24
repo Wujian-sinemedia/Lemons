@@ -12,6 +12,7 @@ template <typename ContentComponentType, LEMONS_MUST_INHERIT_FROM (ContentCompon
 class GuiApp : public juce::JUCEApplication, private locale::TranslationsInitializer
 {
 public:
+
 	using WindowType = DefaultWindow<ContentComponentType>;
 
 	/** Creates a default GuiApp. */
@@ -38,6 +39,7 @@ public:
 	const String getApplicationVersion() final { return version; }
 
 private:
+
 	const Dimensions initialSize;
 
 	std::unique_ptr<WindowType> window;

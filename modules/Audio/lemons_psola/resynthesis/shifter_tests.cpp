@@ -9,12 +9,14 @@ template <typename SampleType>
 class PsolaTests final : public AllOscillatorsTest<SampleType>
 {
 public:
+
 	explicit PsolaTests()
 		: AllOscillatorsTest<SampleType> ("PSOLA tests")
 	{
 	}
 
 private:
+
 	void runOscillatorTest (dsp::Oscillator<SampleType>& osc) final
 	{
 		for (const auto samplerate : this->getTestingSamplerates())

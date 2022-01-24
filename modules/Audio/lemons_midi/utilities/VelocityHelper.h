@@ -16,6 +16,7 @@ struct VelocityHelper
 	float getSensitivity() const { return sensitivity; }
 
 private:
+
 	float sensitivity { 1.0f };
 };
 

@@ -29,6 +29,7 @@ template <typename SampleType>
 class ChoppingProcessor
 {
 public:
+
 	virtual ~ChoppingProcessor() = default;
 
 	void prepare (int maxBlocksize);
@@ -38,6 +39,7 @@ public:
 	void releaseResources();
 
 private:
+
 	void processInternal (AudioBuffer<SampleType>& audio, MidiBuffer& midi,
 		int startSample, int endSample);
 

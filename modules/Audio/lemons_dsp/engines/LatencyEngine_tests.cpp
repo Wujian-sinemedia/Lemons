@@ -9,12 +9,14 @@ template <typename FloatType>
 struct LatencyEngineTests final : public DspTest
 {
 public:
+
 	explicit LatencyEngineTests()
 		: DspTest (getDspTestName<FloatType> ("Latency audio engine tests"))
 	{
 	}
 
 private:
+
 	void runTest() final
 	{
 		constexpr auto numChannels = 2;

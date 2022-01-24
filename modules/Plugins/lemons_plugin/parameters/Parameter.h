@@ -239,6 +239,7 @@ public:
 		virtual void controllerNumberChanged (int newControllerNumber);
 
 	private:
+
 		Parameter& param;
 	};
 
@@ -257,6 +258,7 @@ public:
 			std::function<void (int)>	midiControllerChanged = nullptr);
 
 	private:
+
 		void parameterValueChanged (float newNormalizedValue) final;
 		void gestureStateChanged (bool gestureIsStarting) final;
 		void parameterDefaultChanged (float newNormalizedDefault) final;

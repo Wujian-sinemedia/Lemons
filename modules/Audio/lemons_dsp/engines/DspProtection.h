@@ -45,6 +45,7 @@ public:
 	void resetMute() noexcept;
 
 private:
+
 	void renderBlock (const AudioBuffer<SampleType>& input, AudioBuffer<SampleType>& output, MidiBuffer& midi, bool isBypassed) final;
 
 	void released() final;

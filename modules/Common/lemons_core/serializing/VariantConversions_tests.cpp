@@ -29,6 +29,7 @@ struct VariantConversionTests final : public CoreTest
 	}
 
 private:
+
 	void runTest() final
 	{
 		using namespace juce;

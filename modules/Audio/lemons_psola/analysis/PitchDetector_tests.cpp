@@ -32,6 +32,7 @@ public:
 	}
 
 private:
+
 	void runOscillatorTest (dsp::Oscillator<FloatType>& osc) final
 	{
 		for (const auto samplerate : this->getTestingSamplerates())

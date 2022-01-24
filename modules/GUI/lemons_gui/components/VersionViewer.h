@@ -6,9 +6,11 @@ namespace lemons::gui::components
 class VersionViewer : public Component
 {
 public:
+
 	explicit VersionViewer (const Version& versionToUse);
 
 private:
+
 	void resized() final;
 
 	const Version& version;
@@ -36,6 +38,7 @@ public:
 	 */
 
 private:
+
 	SwappableComponent viewer;
 
 	static constexpr auto projectVersion = Version::projectVersion();

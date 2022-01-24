@@ -13,6 +13,7 @@ namespace lemons::gui::components
 class FloatSlider : public SliderBase, private plugin::FloatParameter::Listener
 {
 public:
+
 	/**
 		Creates a FloatSlider attached to a float parameter.
 	*/
@@ -21,6 +22,7 @@ public:
 	plugin::FloatParameter& param;
 
 private:
+
 	void paramValueChanged (float newValue) final;
 	void paramDefaultChanged (float newDefault) final;
 
@@ -38,6 +40,7 @@ private:
 class IntSlider : public SliderBase, private plugin::IntParameter::Listener
 {
 public:
+
 	/**
 	Creates an IntSlider attached to an integer parameter.
 	*/
@@ -46,6 +49,7 @@ public:
 	plugin::IntParameter& param;
 
 private:
+
 	void paramValueChanged (int newValue) final;
 	void paramDefaultChanged (int newDefault) final;
 

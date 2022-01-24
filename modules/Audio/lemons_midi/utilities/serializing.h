@@ -148,6 +148,7 @@ struct VariantConverter<MidiMessage>
 	static var		   toVar (const MidiMessage& m);
 
 private:
+
 	static constexpr auto data_prop = "Data";
 	static constexpr auto time_prop = "Timestamp";
 };

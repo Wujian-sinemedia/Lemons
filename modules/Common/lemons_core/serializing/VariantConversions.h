@@ -27,6 +27,7 @@ struct VariantConverter<BigInteger>
 	static var		  toVar (const BigInteger& i);
 
 private:
+
 	static constexpr auto data	   = "Data";
 	static constexpr auto negative = "Negative";
 };
@@ -130,6 +131,7 @@ struct VariantConverter<ValueTree>
 	static var		 toVar (const ValueTree& t);
 
 private:
+
 	static constexpr auto NAME_PROP		= "_name";
 	static constexpr auto CHILDREN_PROP = "_children";
 	static constexpr auto BASE64_PROP	= "_base64:";

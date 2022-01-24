@@ -60,6 +60,7 @@ public:
 	void releaseResources();
 
 private:
+
 	[[nodiscard]] int findNextPeak (int frameStart, int frameEnd, int predictedPeak,
 		const SampleType* inputSamples, int period, int grainSize);
 

@@ -9,6 +9,7 @@ template <typename SampleType>
 class TimbreMod
 {
 public:
+
 	TimbreMod (const typename SynthBase<SampleType>::TimbreModParams& modSource);
 
 	void prepare (int blocksize, double samplerate);
@@ -22,6 +23,7 @@ public:
 	void setToggle (bool shouldModBeOn);
 
 private:
+
 	const typename SynthBase<SampleType>::TimbreModParams& params;
 
 	// FX::FilterEngine< SampleType > filter {filterParams};

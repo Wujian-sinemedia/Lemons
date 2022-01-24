@@ -10,9 +10,11 @@ template <typename SampleType>
 class Saturator : AudioEffect<SampleType>
 {
 public:
+
 	void setHardness (float newHardness);
 
 private:
+
 	void serialize (TreeReflector& ref) final;
 
 	void process (juce::AudioBuffer<SampleType>& audio) final;

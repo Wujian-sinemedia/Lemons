@@ -9,12 +9,14 @@ template <typename FloatType>
 struct MonoStereoConverterTests final : public DspTest
 {
 public:
+
 	explicit MonoStereoConverterTests()
 		: DspTest (getDspTestName<FloatType> ("Mono-stereo converter tests"))
 	{
 	}
 
 private:
+
 	void runTest() final
 	{
 		constexpr auto blocksize = 512;

@@ -13,6 +13,7 @@ class SynthVoiceBase
 	using ADSRParams = juce::ADSR::Parameters;
 
 public:
+
 	explicit SynthVoiceBase (SynthBase<SampleType>* base, double initSamplerate = 44100.0);
 
 	virtual ~SynthVoiceBase() = default;
@@ -56,6 +57,7 @@ public:
 	///@}
 
 protected:
+
 	friend class SynthBase<SampleType>;
 	friend class synth::AutomatedHarmonyVoice<SampleType>;
 	friend class synth::PanningManager<SampleType>;
@@ -82,6 +84,7 @@ protected:
 		 =================================================================================*/
 
 private:
+
 	void renderInternal (int totalNumSamples);
 
 	void startNote (const int midiPitch,

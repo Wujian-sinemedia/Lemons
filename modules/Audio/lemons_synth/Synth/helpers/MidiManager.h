@@ -11,6 +11,7 @@ template <typename SampleType>
 class MidiManager : public midi::ChoppingProcessor<SampleType>
 {
 public:
+
 	MidiManager (SynthBase<SampleType>& s)
 		: router (s), synth (s)
 	{
@@ -21,12 +22,14 @@ public:
 	class MidiRouter : public midi::MidiProcessor
 	{
 	public:
+
 		MidiRouter (SynthBase<SampleType>& s)
 			: synth (s)
 		{
 		}
 
 	private:
+
 		void handleNoteOn (int midiPitch, float velocity) final;
 		void handleNoteOff (int midiPitch, float velocity) final;
 		void handlePitchwheel (int wheelValue) final;
@@ -45,6 +48,7 @@ public:
 	MidiRouter router;
 
 private:
+
 	void handleMidiMessage (const MidiMessage& m) final;
 	void renderChunk (AudioBuffer<SampleType>& audio, MidiBuffer&) final;
 

@@ -7,6 +7,7 @@ template <typename SampleType>
 class IntervalShifter final : public Shifter<SampleType>
 {
 public:
+
 	using Shifter<SampleType>::Shifter;
 
 	void setShiftingInterval (int newIntervalSemitones);
@@ -14,6 +15,7 @@ public:
 	[[nodiscard]] int getShiftingInterval() const noexcept;
 
 private:
+
 	void onNewBlock() final;
 
 	void pitchHzChanged (int newPitchHz) final;

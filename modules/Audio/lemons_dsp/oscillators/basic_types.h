@@ -53,6 +53,7 @@ struct Sine final : public Oscillator<SampleType>
 	[[nodiscard]] SampleType getFrequency() const noexcept final;
 
 private:
+
 	typename Oscillator<SampleType>::Phase phase;
 	SampleType							   freq { 0 };
 };
@@ -79,6 +80,7 @@ struct Saw final : public Oscillator<SampleType>
 	[[nodiscard]] SampleType getFrequency() const noexcept final;
 
 private:
+
 	typename Oscillator<SampleType>::Phase phase;
 	SampleType							   freq { 0 };
 };
@@ -109,6 +111,7 @@ struct Square final : public Oscillator<SampleType>
 	[[nodiscard]] SampleType getFrequency() const noexcept final;
 
 private:
+
 	friend struct Triangle<SampleType>;
 
 	typename Oscillator<SampleType>::Phase phase;
@@ -137,6 +140,7 @@ struct Triangle final : public Oscillator<SampleType>
 	[[nodiscard]] SampleType getFrequency() const noexcept final;
 
 private:
+
 	Square<SampleType> square;
 	SampleType		   sum { 1 };
 	SampleType		   freq { 0 };

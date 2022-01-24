@@ -5,11 +5,13 @@ namespace New
 class GUI : public plugin::GUI<State>
 {
 public:
+
 	using plugin::GUI<State>::GUI;
 
 	virtual ~GUI() override;
 
 private:
+
 	void paint (juce::Graphics& g) final;
 	void resized() final;
 

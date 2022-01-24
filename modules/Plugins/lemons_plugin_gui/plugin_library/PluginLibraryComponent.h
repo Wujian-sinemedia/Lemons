@@ -18,6 +18,7 @@ public:
 	juce::PluginDescription description;
 
 private:
+
 	void resized() final;
 
 	Label name { description.name };
@@ -75,6 +76,7 @@ public:
 	void resort (SortMethod sortMethod);
 
 private:
+
 	OptionalComponent<PluginCategoryComponent> rootCategoryComponent;
 
 	juce::FileSearchPath rootPath;

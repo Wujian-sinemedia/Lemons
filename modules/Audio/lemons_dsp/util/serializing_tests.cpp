@@ -13,6 +13,7 @@ struct DspSerializingTests final : public CoreTest
 	}
 
 private:
+
 	void runTest() final
 	{
 		// PluginDescription

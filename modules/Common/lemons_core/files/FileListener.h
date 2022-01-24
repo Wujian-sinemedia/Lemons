@@ -8,10 +8,12 @@ namespace lemons::files
 class Listener final
 {
 public:
+
 	explicit Listener (const File& fileToWatch,
 		std::function<void()>&&	   callback);
 
 private:
+
 	void check();
 
 	const std::function<void()> callbackFunc;

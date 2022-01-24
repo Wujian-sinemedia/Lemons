@@ -33,6 +33,7 @@ public:
 	[[nodiscard]] int getNumVoices() const noexcept;
 
 private:
+
 	ConstructedArray<Oscillator<SampleType>>& oscillators;
 
 	int totalSpreadCents { 0 };
@@ -46,12 +47,14 @@ template <typename SampleType, template <typename T> class OscillatorType,
 class Detunable : public DetunableBase<SampleType>
 {
 public:
+
 	explicit Detunable()
 		: DetunableBase<SampleType> (oscs)
 	{
 	}
 
 private:
+
 	ConstructedArray<Oscillator<SampleType>> oscs { 1, []()
 		{ return new OscillatorType<SampleType>; } };
 };

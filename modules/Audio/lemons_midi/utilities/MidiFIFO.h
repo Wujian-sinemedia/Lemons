@@ -26,6 +26,7 @@ namespace lemons::midi
 class MidiFIFO final
 {
 public:
+
 	/** Creates a MIDI FIFO with an initial capacity, in messages. */
 	explicit MidiFIFO (int maxNumMessages = 512);
 
@@ -55,6 +56,7 @@ public:
 	void clear();
 
 private:
+
 	int numSamplesStored { 0 };
 
 	MidiBuffer base, copying;

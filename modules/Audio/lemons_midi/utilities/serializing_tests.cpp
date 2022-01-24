@@ -13,6 +13,7 @@ struct MidiSerializingTests final : public CoreTest
 	}
 
 private:
+
 	void runTest() final
 	{
 		beginTest ("MIDI serializing");

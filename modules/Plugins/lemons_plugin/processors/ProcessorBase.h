@@ -26,6 +26,7 @@ namespace lemons::plugin
 class ProcessorBase : public BasicProcessor
 {
 public:
+
 	/** Creates a processor with an explicitly specified default BusesProperties.
 		@param floatEngineToUse The float specialization of the Engine to use.
 		@param doubleEngineToUse The double specialization of the Engine to use.
@@ -65,6 +66,7 @@ public:
 	void loadState (const ValueTree& tree);
 
 private:
+
 	juce::AudioProcessorParameter* getBypassParameter() const final;
 
 	void getStateInformation (juce::MemoryBlock& block) final;
@@ -113,9 +115,11 @@ private:
 	class InternalProcessor : public midi::ChoppingProcessor<SampleType>
 	{
 	public:
+
 		explicit InternalProcessor (dsp::Engine<SampleType>& engineToUse, ProcessorBase& processorBase);
 
 	private:
+
 		[[nodiscard]] bool shouldChopAroundMidiMessage (const juce::MidiMessage& m) const final;
 
 		void handleMidiMessage (const juce::MidiMessage& m) final;

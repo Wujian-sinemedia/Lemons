@@ -9,6 +9,7 @@ namespace lemons::plugin
 class PresetBar : public juce::Component
 {
 public:
+
 	PresetBar (	 // StateBase&    stateToUse,
 				 // StateToggles& toggler,
 		const String& productName,
@@ -16,6 +17,7 @@ public:
 		const String& companyName		  = "BenViningMusicSoftware");
 
 private:
+
 	StateToggleButtons toggleButtons;
 };
 

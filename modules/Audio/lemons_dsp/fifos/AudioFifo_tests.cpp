@@ -9,12 +9,14 @@ template <typename FloatType>
 struct AudioFifoTests final : public DspTest
 {
 public:
+
 	explicit AudioFifoTests()
 		: DspTest (getDspTestName<FloatType> ("Audio FIFO tests"))
 	{
 	}
 
 private:
+
 	void runTest() final
 	{
 		constexpr auto numChannels = 4;

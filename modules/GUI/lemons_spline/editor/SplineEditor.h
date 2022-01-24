@@ -8,6 +8,7 @@ namespace lemons::spline
 class Editor : public juce::Component
 {
 public:
+
 	using Color = juce::Colour;
 
 	juce::Rectangle<float> getAdjustedBounds() const;
@@ -23,6 +24,7 @@ public:
 	void setSelectionThickness (float pxl);
 
 private:
+
 	struct Select
 	{
 		Select (Editor& e);
@@ -38,6 +40,7 @@ private:
 		void mouseExited();
 
 	private:
+
 		Editor& editor;
 		float	x { -1.f }, width { .1f };
 	};
@@ -57,6 +60,7 @@ private:
 		Attribute border, point, curve, selection, background;
 
 	private:
+
 		std::vector<Attribute*> pntrs;
 	};
 

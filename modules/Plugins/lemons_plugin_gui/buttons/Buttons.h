@@ -10,6 +10,7 @@ namespace lemons::gui::components
 class ToggleButton : public ToggleTextButton
 {
 public:
+
 	/**
 		Creates a ToggleButton linked to a boolean parameter.
 		@param paramToUse The parameter to attach to.
@@ -20,6 +21,7 @@ public:
 	plugin::BoolParameter& param;
 
 private:
+
 	void clicked_callback (bool state);
 
 	std::function<void (bool)> callback;

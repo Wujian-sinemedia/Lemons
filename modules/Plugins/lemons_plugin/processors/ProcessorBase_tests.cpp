@@ -12,6 +12,7 @@ static AudioProcessorTest<plugin::BasicProcessor> basicProcessorTest { "BasicPro
 class ProcessorBaseTest final : public AudioProcessorTestBase
 {
 public:
+
 	explicit ProcessorBaseTest()
 		: AudioProcessorTestBase (processor, "ProcessorBase")
 	{

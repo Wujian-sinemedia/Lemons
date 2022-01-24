@@ -74,6 +74,7 @@ struct StringFunctionsTests : public CoreTest
 	StringFunctionsTests();
 
 private:
+
 	void runTest() final;
 };
 

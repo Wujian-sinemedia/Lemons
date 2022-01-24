@@ -34,10 +34,12 @@ public:
 	explicit StreamEngine() = default;
 
 protected:
+
 	/** The managed stream objects. */
 	ConstructedArray<StreamType<SampleType>> streams;
 
 private:
+
 	void renderBlock (const AudioBuffer<SampleType>&,
 		AudioBuffer<SampleType>& output,
 		MidiBuffer&, bool isBypassed) final

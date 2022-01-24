@@ -9,12 +9,14 @@ template <typename FloatType>
 struct AudioBufferUtilsTests final : public DspTest
 {
 public:
+
 	explicit AudioBufferUtilsTests()
 		: DspTest (getDspTestName<FloatType> ("Audio buffer util functions"))
 	{
 	}
 
 private:
+
 	void runTest() final
 	{
 		for (const auto numChannels : { 1, 2, 3, 5, 8, 9 })

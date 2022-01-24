@@ -29,6 +29,7 @@ struct ScopedCursor
 	~ScopedCursor();
 
 private:
+
 	const juce::MouseCursor resetCursor;
 };
 

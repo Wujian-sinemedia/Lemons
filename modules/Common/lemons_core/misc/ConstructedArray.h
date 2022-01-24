@@ -94,18 +94,19 @@ struct ConstructedArray final
 	[[nodiscard]] ObjectType** begin() noexcept { return array.begin(); }
 
 	/** Calls OwnedArray::begin. */
-	[[nodiscard]] ObjectType* const* begin() const noexcept { return array.begin(); }
+	[[nodiscard]] ObjectType* const * begin() const noexcept { return array.begin(); }
 
 	/** Calls OwnedArray::end. */
 	[[nodiscard]] ObjectType** end() noexcept { return array.end(); }
 
 	/** Calls OwnedArray::end. */
-	[[nodiscard]] ObjectType* const* end() const noexcept { return array.end(); }
+	[[nodiscard]] ObjectType* const * end() const noexcept { return array.end(); }
 
 	/** The managed array. */
 	juce::OwnedArray<ObjectType> array;
 
 private:
+
 	const ObjectCreationFunction creationFunc;
 
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (ConstructedArray)

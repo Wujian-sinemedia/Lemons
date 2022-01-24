@@ -27,10 +27,12 @@ template <typename SampleType>
 class AudioFilePlayer final : public LatencyEngine<SampleType>
 {
 public:
+
 	/** Constructor. */
 	explicit AudioFilePlayer (AudioFile& file);
 
 private:
+
 	using InterpolatorType = juce::Interpolators::Lagrange;
 
 	void renderChunk (const AudioBuffer<SampleType>&, AudioBuffer<SampleType>& output, MidiBuffer&, bool isBypassed) final;

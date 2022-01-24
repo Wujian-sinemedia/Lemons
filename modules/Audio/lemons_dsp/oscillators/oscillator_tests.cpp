@@ -15,6 +15,7 @@ struct OscillatorTests final : public DspTest
 
 
 private:
+
 	void runTest() final
 	{
 		beginTest ("Sine tests");

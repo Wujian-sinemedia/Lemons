@@ -33,6 +33,7 @@ template <typename SampleType>
 class Engine
 {
 public:
+
 	/** Creates a default audio engine. */
 	explicit Engine() = default;
 
@@ -124,6 +125,7 @@ public:
 	using ValueType = SampleType;
 
 private:
+
 	void processInternal (const AudioBuffer<SampleType>& input, AudioBuffer<SampleType>& output, MidiBuffer& midiMessages, bool isBypassed);
 
 	/** Your subclass should implement this with your audio algorithm's rendering logic. */

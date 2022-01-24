@@ -13,6 +13,7 @@ struct AudioFileTests final : public DspTest
 	}
 
 private:
+
 	void runTest() final
 	{
 		beginTest ("Loading audio files from binary data");

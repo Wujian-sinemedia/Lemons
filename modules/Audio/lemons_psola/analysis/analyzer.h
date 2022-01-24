@@ -33,6 +33,7 @@ template <typename SampleType>
 class Analyzer final
 {
 public:
+
 	/** Creates an Analyzer with an initial minimum detectable frequency.
 		@see setMinInputFreq()
 	*/
@@ -74,6 +75,7 @@ public:
 	[[nodiscard]] int getLastInputPitch() const noexcept;
 
 private:
+
 	friend class Shifter<SampleType>;
 
 	void registerShifter (Shifter<SampleType>& shifter);
@@ -111,6 +113,7 @@ private:
 		void clearGrain();
 
 	private:
+
 		int origStartIndex { 0 }, grainSize { 0 };
 
 		AudioBuffer<SampleType> samples;

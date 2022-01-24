@@ -38,6 +38,7 @@ using juce::MidiBuffer;
 class BasicProcessor : public juce::AudioProcessor
 {
 public:
+
 	using BusesProperties = juce::AudioProcessor::BusesProperties;
 	using BusProperties	  = juce::AudioProcessor::BusProperties;
 
@@ -78,6 +79,7 @@ protected:
 	///@}
 
 private:
+
 	void prepareToPlay (double /* samplerate */, int /* blocksize */) override { }
 	void releaseResources() override { }
 

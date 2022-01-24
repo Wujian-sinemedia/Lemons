@@ -45,6 +45,7 @@ template <typename SampleType>
 class MonoStereoConverter final
 {
 public:
+
 	/** Default constructor. */
 	explicit MonoStereoConverter() = default;
 
@@ -77,6 +78,7 @@ public:
 
 
 private:
+
 	StereoReductionMode toMonoMode { StereoReductionMode::leftOnly };
 
 	AudioBuffer<SampleType> monoStorage;

@@ -12,6 +12,7 @@ template <typename SampleType>
 class Compressor : public LevelReportingAudioEffect<SampleType>
 {
 public:
+
 	/** Creates a compressor with some default initial settings. */
 	Compressor();
 
@@ -64,6 +65,7 @@ public:
 
 
 private:
+
 	void update();
 
 	SampleType								threshold { 0. }, thresholdInverse { 0. }, ratioInverse { 0. };

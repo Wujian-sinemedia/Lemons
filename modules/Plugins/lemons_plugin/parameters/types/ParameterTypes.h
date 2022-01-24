@@ -28,6 +28,7 @@ template <typename ValueType>
 class TypedParameter : public Parameter
 {
 public:
+
 	/** Creates a typed parameter.
 		This constructor allows you to specify the minimum and maximum values, instead of supplying a range object.
 		@param minimum The minimum value the parameter can have.
@@ -113,6 +114,7 @@ public:
 		virtual void paramDefaultChanged (ValueType) { }
 
 	private:
+
 		void parameterValueChanged (float) final;
 		void parameterDefaultChanged (float) final;
 
@@ -125,6 +127,7 @@ public:
 	struct LambdaListener final : public Listener
 	{
 	public:
+
 		explicit LambdaListener (TypedParameter<ValueType>& parameter,
 			std::function<void (ValueType)>
 											valueChanged,
@@ -133,6 +136,7 @@ public:
 			std::function<void (int)>		controllerChanged = nullptr);
 
 	private:
+
 		void paramValueChanged (ValueType newValue) final;
 		void paramDefaultChanged (ValueType newDefault) final;
 		void gestureStateChanged (bool gestureIsStarting) final;
@@ -146,6 +150,7 @@ public:
 	/*---------------------------------------------------------------------------------------------------------------------------*/
 
 private:
+
 	ValToStringFunc<ValueType> stringFromValueFunction;
 	StringToValFunc<ValueType> valueFromStringFunction;
 };

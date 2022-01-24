@@ -9,6 +9,7 @@ template <typename SampleType>
 class MonoToStereoPanner : public PannerBase
 {
 public:
+
 	using AudioBuffer = juce::AudioBuffer<SampleType>;
 
 	void prepare (double sr, int blocksize);
@@ -18,6 +19,7 @@ public:
 		AudioBuffer&				 stereoOutput);
 
 private:
+
 	SmoothedGain<SampleType, 1> left, right;
 };
 

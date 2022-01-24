@@ -37,6 +37,7 @@ struct SwappableComponent : public Component
 	}
 
 private:
+
 	void resized() final;
 
 	std::unique_ptr<Component> comp;
@@ -83,6 +84,7 @@ struct OptionalComponent : public Component
 	}
 
 private:
+
 	void resized() final
 	{
 		if (auto* c = comp.get())

@@ -77,6 +77,7 @@ public:
 	static constexpr auto valueTreeType = "Connections";
 
 private:
+
 	struct Connection final
 	{
 		explicit Connection (const ParameterList& list);
@@ -98,6 +99,7 @@ private:
 		static constexpr auto valueTreeType = "Connection";
 
 	private:
+
 		const ParameterList& paramList;
 
 		Parameter* parameter { nullptr };
@@ -126,6 +128,7 @@ template <typename ValueType>
 class MetaParameter : public TypedParameter<ValueType>, public MetaParameterBase
 {
 public:
+
 	/** Creates a meta parameter.
 		@param parameterListToUse The parameter list for this meta parameter to use to rebuild its connections when loading state.
 		@param minimum The minimum value the parameter can have.
@@ -167,6 +170,7 @@ private:
 		Updater (MetaParameter& paramToUse);
 
 	private:
+
 		void parameterValueChanged (float) final;
 
 		MetaParameter& metaParam;

@@ -87,6 +87,7 @@ struct AudioFile final
 	[[nodiscard]] const juce::StringPairArray& getMetadata() const noexcept;
 
 private:
+
 	explicit AudioFile (juce::AudioFormatReader* reader, const File& f);
 
 	AudioBuffer<float>	float_data;

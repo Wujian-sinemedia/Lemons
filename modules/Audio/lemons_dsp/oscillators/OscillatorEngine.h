@@ -29,6 +29,7 @@ public:
 	[[nodiscard]] float getFrequency() const noexcept { return frequency; }
 
 private:
+
 	void prepared (int, double samplerate, int numChannels) final
 	{
 		this->streams.resize (numChannels);

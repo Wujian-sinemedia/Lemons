@@ -14,6 +14,7 @@ struct ParameterTests final : public Test
 	}
 
 private:
+
 	void runTest() final
 	{
 		beginTest ("Parameter tests");

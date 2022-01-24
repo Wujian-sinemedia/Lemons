@@ -20,6 +20,7 @@ struct Knot
 	Point dragStart;
 
 private:
+
 	bool selected { false };
 };
 

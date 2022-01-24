@@ -35,6 +35,7 @@ public:
 	// get pitch classes?
 
 private:
+
 	juce::Array<int> midiNotes;
 };
 

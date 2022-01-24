@@ -111,6 +111,7 @@ struct VariantConverter<ADSR::Parameters>
 	static var				toVar (const ADSR::Parameters& p);
 
 private:
+
 	static constexpr auto attack  = "Attack";
 	static constexpr auto decay	  = "Decay";
 	static constexpr auto sustain = "Sustain";

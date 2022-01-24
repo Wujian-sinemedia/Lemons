@@ -77,6 +77,7 @@ struct Data final
 	[[nodiscard]] int getSize() const noexcept;
 
 private:
+
 	const char* data { nullptr };
 
 	int size { 0 };

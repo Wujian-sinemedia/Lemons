@@ -28,6 +28,7 @@ template <typename SampleType>
 class Filter : public AudioEffect<SampleType>
 {
 public:
+
 	/** Creates a default filter. */
 	Filter() = default;
 
@@ -70,6 +71,7 @@ public:
 
 
 private:
+
 	filters::MultiFilter<SampleType, 2> filter;
 
 	FilterType type { FilterType::HighPass };

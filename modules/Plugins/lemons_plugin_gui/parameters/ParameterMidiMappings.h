@@ -12,6 +12,7 @@ public:
 	plugin::Parameter& parameter;
 
 private:
+
 	// is mapped
 	// controller number
 
@@ -22,6 +23,7 @@ private:
 struct ParameterListMIDIMappingsEditor : public Component
 {
 public:
+
 	explicit ParameterListMIDIMappingsEditor (plugin::ParameterList& listToUse);
 
 	plugin::ParameterList& list;

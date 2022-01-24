@@ -73,6 +73,7 @@ struct ScopedMidiBufferAlias final
 	~ScopedMidiBufferAlias();
 
 private:
+
 	MidiBuffer& origBuffer;
 	MidiBuffer& aliasBuffer;
 

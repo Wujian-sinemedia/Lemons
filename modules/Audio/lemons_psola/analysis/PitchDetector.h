@@ -31,6 +31,7 @@ template <typename SampleType>
 class PitchDetector final
 {
 public:
+
 	/** Creates a pitch detector with an initial minimum detectable frequency and confidence threshold.
 		The latency of the algorithm is determined by 2 * the period of the minimum frequency. Therefore, pitch detectors with a higher minimum frequency will have a lower latency.
 		@param minFreqHz The minimum frequency that this pitch detector will be able to detect.
@@ -115,6 +116,7 @@ public:
 	[[nodiscard]] juce::Range<int> getCurrentLegalPeriodRange() const;
 
 private:
+
 	inline void updatePeriodBounds();
 
 	[[nodiscard]] inline int absoluteThreshold() const;

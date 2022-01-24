@@ -73,6 +73,7 @@ public:
 	void parseMidiMessageForSysEx (const juce::MidiMessage& m) const;
 
 private:
+
 	struct Deleter
 	{
 		void operator() (MTSClient* c);

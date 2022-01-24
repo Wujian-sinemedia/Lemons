@@ -12,6 +12,7 @@ namespace lemons
 class GPSLocation final
 {
 public:
+
 	/** Represents a null GPS location.
 		The latitude and longitude will be infinity.
 		@see isNull

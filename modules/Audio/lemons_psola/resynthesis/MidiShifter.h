@@ -7,6 +7,7 @@ template <typename SampleType>
 class MidiShifter final : public Shifter<SampleType>
 {
 public:
+
 	using Shifter<SampleType>::Shifter;
 
 	void setMidiPitch (float newMidiPitch);
@@ -14,6 +15,7 @@ public:
 	[[nodiscard]] float getMidiPitch() const noexcept;
 
 private:
+
 	void onNewBlock() final;
 
 	void pitchHzChanged (int newPitchHz) final;

@@ -8,6 +8,7 @@ class DocumentComponent final : public juce::Component
 public:
 
 private:
+
 	void stateChanged();
 
 	Document document;

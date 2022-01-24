@@ -8,11 +8,13 @@ namespace lemons::PluginMetadataEditor::gui
 class ParameterMetadataComponent final : public juce::Component
 {
 public:
+
 	explicit ParameterMetadataComponent (plugin::ParameterTraits& traitsToUse, std::function<void()> callback);
 
 	[[nodiscard]] plugin::ParameterTraits& getTraits() const { return traits; }
 
 private:
+
 	std::function<void()> stateChanged;
 
 	plugin::ParameterTraits& traits;
@@ -43,9 +45,11 @@ private:
 class ParameterLayoutComponent final : public juce::Component
 {
 public:
+
 	explicit ParameterLayoutComponent (plugin::ParameterLayout& layoutToUse, std::function<void()> callback);
 
 private:
+
 	ParameterMetadataComponent& addNewParameter();
 
 	void removeParameter (plugin::ParameterTraits& traits);

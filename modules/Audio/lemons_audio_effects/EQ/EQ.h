@@ -12,6 +12,7 @@ template <typename SampleType>
 class EQ : public AudioEffect<SampleType>
 {
 public:
+
 	using Band = FilterEngine<SampleType>;
 
 	/** Creates a default EQ object. It will initially have no bands. */
@@ -60,6 +61,7 @@ public:
 
 
 private:
+
 	juce::OwnedArray<Band> bands;
 
 	double lastSamplerate { 44100. };

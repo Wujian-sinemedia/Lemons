@@ -50,6 +50,7 @@ public:
 		virtual void attitudeChanged (Coords) { }
 
 	private:
+
 		DeviceMotion& m;
 	};
 
@@ -81,6 +82,7 @@ public:
 	[[nodiscard]] Coords getAttitude() const noexcept;
 
 private:
+
 	void addListener (Listener& l);
 	void removeListener (Listener& l);
 

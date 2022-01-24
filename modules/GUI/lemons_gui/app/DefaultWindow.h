@@ -28,15 +28,18 @@ namespace lemons
 struct DefaultWindowBase : public juce::DocumentWindow
 {
 public:
+
 	/** Constructs a window with a specified initial size. */
 	DefaultWindowBase (const String& appName	 = LEMONS_DEFAULT_APP_NAME,
 		const Dimensions&			 initialSize = Dimensions::getDefault());
 
 protected:
+
 	/** Initializes the window. */
 	void init();
 
 private:
+
 	void closeButtonPressed() final;
 };
 
