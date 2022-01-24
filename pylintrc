@@ -8,13 +8,6 @@ disable=
 	line-too-long
 
 
-[BASIC]
-
-good-names=f
-
-function-naming-style=snake_case
-
-
 [DESIGN]
 
 max-args=5
@@ -24,4 +17,4 @@ max-branches=10
 
 [STRING]
 
-check-quote-consistency=no
+check-quote-consistency=yes
