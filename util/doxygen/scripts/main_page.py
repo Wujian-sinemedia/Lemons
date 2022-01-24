@@ -34,7 +34,7 @@ if __name__ == "__main__":
     output_dir = os.path.abspath(os.path.dirname(args.output_file))
 
     if not os.path.isdir(output_dir):
-        os.makedirs(output_dir)
+        os.makedirs(output_dir, exist_ok=True)
 
     with open(args.output_file, "w") as f:
         f.write(content)
