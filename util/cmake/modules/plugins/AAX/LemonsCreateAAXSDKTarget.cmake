@@ -27,7 +27,7 @@ if (NOT IS_DIRECTORY "${LEMONS_AAX_SDK_PATH}")
 	message (
 		WARNING
 			"LEMONS_AAX_SDK_PATH has been specified, but the directory does not exist!"
-	)
+		)
 	return ()
 endif ()
 
@@ -39,7 +39,7 @@ if (APPLE)
 		message (
 			WARNING
 				"You're not building for x86_64, which will cause linker errors with AAX targets! Enable universal binaries to build for AAX."
-		)
+			)
 		return ()
 	endif ()
 
@@ -49,7 +49,7 @@ if (APPLE)
 		message (
 			WARNING
 				"xcodebuild is required to build the AAXSDK, but could not be found!"
-		)
+			)
 		return ()
 	endif ()
 
@@ -60,7 +60,7 @@ if (APPLE)
 		message (
 			AUTHOR_WARNING
 				"${xcode_proj_file} could not be found, AAX SDK cannot be built!"
-		)
+			)
 		return ()
 	endif ()
 
@@ -85,7 +85,7 @@ elseif (WIN32)
 		message (
 			AUTHOR_WARNING
 				"${msvc_proj_file} could not be found, AAX SDK cannot be built!"
-		)
+			)
 		return ()
 	endif ()
 

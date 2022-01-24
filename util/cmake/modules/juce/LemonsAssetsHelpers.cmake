@@ -55,7 +55,7 @@ function (lemons_add_resources_folder)
 			message (
 				AUTHOR_WARNING
 					"Target ${LEMONS_RSRC_FLDR_TARGET}::${resourcesTarget} exists, but target ${resourcesTarget} not found!"
-			)
+				)
 		endif ()
 
 		lemons_subdir_list (
@@ -94,7 +94,7 @@ function (lemons_add_resources_folder)
 		message (
 			AUTHOR_WARNING
 				"Error creating resources target - target ${LEMONS_RSRC_FLDR_TARGET}::${resourcesTarget} not found."
-		)
+			)
 		return ()
 	endif ()
 

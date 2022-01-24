@@ -9,10 +9,7 @@ project (
 	HOMEPAGE_URL "www.github.com/benthevining/Lemons"
 	LANGUAGES CXX C)
 
-set (
-	CPM_Lemons_SOURCE
-	"${CMAKE_CURRENT_LIST_DIR}"
-	CACHE INTERNAL "")
+set (CPM_Lemons_SOURCE "${CMAKE_CURRENT_LIST_DIR}" CACHE INTERNAL "")
 
 file (REAL_PATH "${CMAKE_CURRENT_LIST_DIR}/util/cmake/modules"
 	  LemonsCmakeModules_DIR EXPAND_TILDE)

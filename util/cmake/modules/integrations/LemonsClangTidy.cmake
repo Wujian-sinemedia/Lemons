@@ -6,14 +6,8 @@ if (NOT clangTidyProgram)
 	return ()
 endif ()
 
-set (
-	CMAKE_CXX_CLANG_TIDY
-	"${clangTidyProgram}"
-	CACHE INTERNAL "")
+set (CMAKE_CXX_CLANG_TIDY "${clangTidyProgram}" CACHE INTERNAL "")
 
-set (
-	CMAKE_EXPORT_COMPILE_COMMANDS
-	TRUE
-	CACHE INTERNAL "")
+set (CMAKE_EXPORT_COMPILE_COMMANDS TRUE CACHE INTERNAL "")
 
 message (STATUS "Using clang-tidy")

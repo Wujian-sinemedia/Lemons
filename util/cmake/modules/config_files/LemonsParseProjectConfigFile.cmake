@@ -23,7 +23,7 @@ function (lemons_parse_project_configuration_file)
 		message (
 			AUTHOR_WARNING
 				"The current CMake project name ('${PROJECT_NAME}') doesn't match the configuration file ('${jsonProjName}')."
-		)
+			)
 	endif ()
 
 	string (
@@ -37,29 +37,22 @@ function (lemons_parse_project_configuration_file)
 		"AppleDevelopmentTeamId")
 
 	if (LEMONS_CONFIG_FORCE)
-		set (
-			${PROJECT_NAME}_CONFIG_FILE
-			"${LEMONS_CONFIG_FILE}"
-			CACHE PATH "Path to the configuration file for this project" FORCE)
+		set (${PROJECT_NAME}_CONFIG_FILE "${LEMONS_CONFIG_FILE}"
+			 CACHE PATH "Path to the configuration file for this project" FORCE)
 
 		if (jsonAppleDevID)
-			set (
-				CMAKE_XCODE_ATTRIBUTE_DEVELOPMENT_TEAM
-				"${jsonAppleDevID}"
-				CACHE STRING "10-character ID for your Apple developer account"
-					  FORCE)
+			set (CMAKE_XCODE_ATTRIBUTE_DEVELOPMENT_TEAM "${jsonAppleDevID}"
+				 CACHE STRING
+					   "10-character ID for your Apple developer account" FORCE)
 		endif ()
 	else ()
-		set (
-			${PROJECT_NAME}_CONFIG_FILE
-			"${LEMONS_CONFIG_FILE}"
-			CACHE PATH "Path to the configuration file for this project")
+		set (${PROJECT_NAME}_CONFIG_FILE "${LEMONS_CONFIG_FILE}"
+			 CACHE PATH "Path to the configuration file for this project")
 
 		if (jsonAppleDevID)
-			set (
-				CMAKE_XCODE_ATTRIBUTE_DEVELOPMENT_TEAM
-				"${jsonAppleDevID}"
-				CACHE STRING "10-character ID for your Apple developer account")
+			set (CMAKE_XCODE_ATTRIBUTE_DEVELOPMENT_TEAM "${jsonAppleDevID}"
+				 CACHE STRING
+					   "10-character ID for your Apple developer account")
 		endif ()
 	endif ()
 
@@ -135,9 +128,7 @@ function (lemons_parse_project_configuration_file)
 		endif ()
 	endif ()
 
-	set_property (
-		DIRECTORY "${PROJECT_SOURCE_DIR}"
-		APPEND
-		PROPERTY CMAKE_CONFIGURE_DEPENDS "${LEMONS_CONFIG_FILE}")
+	set_property (DIRECTORY "${PROJECT_SOURCE_DIR}" APPEND
+				  PROPERTY CMAKE_CONFIGURE_DEPENDS "${LEMONS_CONFIG_FILE}")
 
 endfunction ()

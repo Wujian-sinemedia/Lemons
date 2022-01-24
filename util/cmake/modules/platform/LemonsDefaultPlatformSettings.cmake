@@ -32,10 +32,7 @@ if (APPLE)
 			"${CMAKE_CURRENT_LIST_DIR}/scripts/lemons_macos_settings.cmake")
 	endif ()
 else ()
-	set (
-		CMAKE_INSTALL_RPATH
-		$ORIGIN
-		CACHE INTERNAL "")
+	set (CMAKE_INSTALL_RPATH $ORIGIN CACHE INTERNAL "")
 
 	if (WIN32)
 		include (

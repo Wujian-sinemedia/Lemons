@@ -17,10 +17,7 @@ if (NOT TARGET Python3::Interpreter OR NOT TARGET Doxygen::doxygen)
 endif ()
 
 if (NOT DEFINED Lemons_SOURCE_DIR)
-	set (
-		Lemons_SOURCE_DIR
-		"${CMAKE_CURRENT_LIST_DIR}/../.."
-		CACHE INTERNAL "")
+	set (Lemons_SOURCE_DIR "${CMAKE_CURRENT_LIST_DIR}/../.." CACHE INTERNAL "")
 endif ()
 
 set (out_folder "${CMAKE_CURRENT_LIST_DIR}/build")

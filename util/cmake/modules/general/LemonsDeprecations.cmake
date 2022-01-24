@@ -18,7 +18,7 @@ macro (lemons_deprecate_function functionName)
 		message (
 			AUTHOR_WARNING
 				"Attempting to deprecate function ${functionName}, but command is not defined!"
-		)
+			)
 	endif ()
 
 	function (${functionName})
@@ -33,7 +33,7 @@ macro (lemons_deprecate_function_args prefix)
 			message (
 				DEPRECATION
 					"Deprecated function argument ${argument} used in call to ${CMAKE_CURRENT_FUNCTION}!"
-			)
+				)
 		endif ()
 	endforeach ()
 endmacro ()

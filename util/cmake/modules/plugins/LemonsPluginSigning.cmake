@@ -16,9 +16,7 @@ function (lemons_configure_plugin_signing)
 
 	set (aaxTarget "${LEMONS_SIGN_TARGET}_AAX")
 
-	if (TARGET ${aaxTarget}
-		AND LEMONS_SIGN_GUID
-		AND LEMONS_SIGN_ACCOUNT)
+	if (TARGET ${aaxTarget} AND LEMONS_SIGN_GUID AND LEMONS_SIGN_ACCOUNT)
 		lemons_configure_aax_plugin_signing (
 			TARGET
 			${aaxTarget}
@@ -40,7 +38,7 @@ function (lemons_configure_plugin_signing)
 		message (
 			AUTHOR_WARNING
 				"Error retrieving plugin formats of target ${LEMONS_SIGN_TARGET}!"
-		)
+			)
 		return ()
 	endif ()
 
@@ -57,7 +55,7 @@ function (lemons_configure_plugin_signing)
 				message (
 					WARNING
 						"Codesign cannot be found, plugin signing cannot be configured!"
-				)
+					)
 				return ()
 			endif ()
 
@@ -90,7 +88,7 @@ function (lemons_configure_plugin_signing)
 			message (
 				AUTHOR_WARNING
 					"Format ${pluginFormat} is in property list for target ${LEMONS_SIGN_TARGET}, but target ${formatTarget} does not exist!"
-			)
+				)
 			continue ()
 		endif ()
 

@@ -40,10 +40,8 @@ include (GNUInstallDirs)
 
 #
 
-set (
-	LEMONS_JUCE_BRANCH
-	"develop"
-	CACHE STRING "The branch of the JUCE GitHub repository to use")
+set (LEMONS_JUCE_BRANCH "develop"
+	 CACHE STRING "The branch of the JUCE GitHub repository to use")
 set_property (CACHE LEMONS_JUCE_BRANCH PROPERTY STRINGS "develop;master")
 mark_as_advanced (LEMONS_JUCE_BRANCH)
 
@@ -121,7 +119,7 @@ function (lemons_configure_juce_target)
 		message (
 			DEBUG
 			"No target Lemons::LemonsCommonModules in call to ${CMAKE_CURRENT_FUNCTION}..."
-		)
+			)
 	endif ()
 
 	target_compile_features (${LEMONS_TARGETCONFIG_TARGET}
@@ -138,7 +136,7 @@ function (lemons_configure_juce_target)
 			message (
 				AUTHOR_WARNING
 					"Translation file generation requested without enabling a binary resources target!"
-			)
+				)
 		endif ()
 	endif ()
 

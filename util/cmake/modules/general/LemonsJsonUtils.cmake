@@ -68,9 +68,6 @@ function (lemons_json_array_to_list)
 
 	endforeach ()
 
-	set (
-		${LEMONS_JSON_OUT}
-		"${out_list}"
-		PARENT_SCOPE)
+	set (${LEMONS_JSON_OUT} "${out_list}" PARENT_SCOPE)
 
 endfunction ()

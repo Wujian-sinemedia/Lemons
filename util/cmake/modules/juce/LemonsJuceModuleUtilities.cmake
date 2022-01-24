@@ -30,7 +30,7 @@ define_property (
 	BRIEF_DOCS "Original juce module names"
 	FULL_DOCS
 		"The original names of a juce module category target's individual juce modules, without the Namespace:: prefixes."
-)
+	)
 
 function (lemons_add_juce_modules)
 
@@ -70,10 +70,8 @@ function (lemons_add_juce_modules)
 									   INTERFACE ${folder})
 			endif ()
 
-			set_property (
-				TARGET ${LEMONS_MOD_AGGREGATE}
-				APPEND
-				PROPERTY OriginalModuleNames ${folder})
+			set_property (TARGET ${LEMONS_MOD_AGGREGATE} APPEND
+						  PROPERTY OriginalModuleNames ${folder})
 		endif ()
 	endforeach ()
 
@@ -96,7 +94,7 @@ define_property (
 	BRIEF_DOCS "Juce module category names"
 	FULL_DOCS
 		"The original names of the lemons juce module category targets, without the Lemons:: prefix."
-)
+	)
 
 #
 
@@ -117,10 +115,8 @@ function (_lemons_add_module_subcategory)
 	target_link_libraries (AllLemonsModules
 						   INTERFACE Lemons::${LEMONS_SUBMOD_TARGET})
 
-	set_property (
-		TARGET AllLemonsModules
-		APPEND
-		PROPERTY ModuleCategoryNames ${LEMONS_SUBMOD_TARGET})
+	set_property (TARGET AllLemonsModules APPEND
+				  PROPERTY ModuleCategoryNames ${LEMONS_SUBMOD_TARGET})
 
 	foreach (categoryDependency ${LEMONS_SUBMOD_CATEGORY_DEPS})
 

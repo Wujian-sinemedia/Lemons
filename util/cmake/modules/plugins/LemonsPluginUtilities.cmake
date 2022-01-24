@@ -40,8 +40,7 @@ option (LEMONS_INCLUDE_PRIVATE_SDKS "Add the PrivateSDKs repo via CPM.cmake"
 
 mark_as_advanced (LEMONS_INCLUDE_PRIVATE_SDKS)
 
-if (LEMONS_INCLUDE_PRIVATE_SDKS
-	OR CPM_PrivateSDKs_SOURCE
+if (LEMONS_INCLUDE_PRIVATE_SDKS OR CPM_PrivateSDKs_SOURCE
 	OR DEFINED ENV{LEMONS_PRIVATE_SDKS})
 	include (LemonsAddPrivateSDKs)
 endif ()
@@ -81,15 +80,13 @@ if (NOT LEMONS_PLUGIN_FORMATS)
 				message (
 					AUTHOR_WARNING
 						"LEMONS_VST2_SDK_PATH specified, but the directory does not exist!"
-				)
+					)
 			endif ()
 		endif ()
 	endif ()
 
-	set (
-		LEMONS_PLUGIN_FORMATS
-		${available_formats}
-		CACHE STRING "Available plugin formats")
+	set (LEMONS_PLUGIN_FORMATS ${available_formats}
+		 CACHE STRING "Available plugin formats")
 
 	mark_as_advanced (LEMONS_PLUGIN_FORMATS)
 
@@ -126,7 +123,7 @@ function (lemons_configure_juce_plugin)
 		message (
 			DEBUG
 			"No target Lemons::LemonsPluginModules in call to ${CMAKE_CURRENT_FUNCTION}..."
-		)
+			)
 	endif ()
 
 	target_compile_definitions (${LEMONS_PLUGIN_TARGET}

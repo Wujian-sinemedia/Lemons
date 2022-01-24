@@ -1,9 +1,6 @@
 cmake_minimum_required (VERSION 3.21 FATAL_ERROR)
 
-project (
-	NewApp
-	VERSION 0.0.1
-	LANGUAGES CXX)
+project (NewApp VERSION 0.0.1 LANGUAGES CXX)
 
 include (LemonsAppModules)
 include (BVBrandFlags)

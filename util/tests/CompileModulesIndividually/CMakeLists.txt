@@ -2,10 +2,7 @@ include_guard (GLOBAL)
 
 cmake_minimum_required (VERSION 3.21 FATAL_ERROR)
 
-project (
-	CompileLemonsModulesIndividually
-	VERSION 0.1.0
-	LANGUAGES CXX)
+project (CompileLemonsModulesIndividually VERSION 0.1.0 LANGUAGES CXX)
 
 # For each juce module, create a dummy executable linked only to that module, to
 # test that each module can be built individually
@@ -37,7 +34,7 @@ foreach (module_category ${lemons_module_categories})
 		message (
 			AUTHOR_WARNING
 				"Error retrieving original juce module names from category ${module_names}!"
-		)
+			)
 		return ()
 	endif ()
 

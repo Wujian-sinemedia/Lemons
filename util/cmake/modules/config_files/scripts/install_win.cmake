@@ -11,7 +11,7 @@ if (NOT CHOCO)
 		message (
 			FATAL_ERROR
 				"powershell is required for installing Chocolatey, and cannot be found!"
-		)
+			)
 	endif ()
 
 	message (STATUS "Installing Chocolatey...")

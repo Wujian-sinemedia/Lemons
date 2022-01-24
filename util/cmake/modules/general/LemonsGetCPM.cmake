@@ -17,19 +17,14 @@ if (NOT DEFINED ENV{CPM_SOURCE_CACHE})
 endif ()
 
 list (APPEND CMAKE_PREFIX_PATH "$ENV{CPM_SOURCE_CACHE}")
-set (
-	CMAKE_PREFIX_PATH
-	"${CMAKE_PREFIX_PATH}"
-	CACHE INTERNAL "")
+set (CMAKE_PREFIX_PATH "${CMAKE_PREFIX_PATH}" CACHE INTERNAL "")
 
 if (COMMAND CPMAddPackage)
 	return ()
 endif ()
 
-set (
-	LEMONS_CPM_PATH
-	"$ENV{CPM_SOURCE_CACHE}/CPM.cmake"
-	CACHE PATH "Path to the CPM.cmake script")
+set (LEMONS_CPM_PATH "$ENV{CPM_SOURCE_CACHE}/CPM.cmake"
+	 CACHE PATH "Path to the CPM.cmake script")
 mark_as_advanced (LEMONS_CPM_PATH)
 
 if (NOT EXISTS ${LEMONS_CPM_PATH})

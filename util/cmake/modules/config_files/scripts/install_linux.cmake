@@ -11,18 +11,12 @@ endif ()
 find_program (APT_GET apt-get)
 
 if (APT_GET)
-	set (
-		apt_program
-		"${APT_GET}"
-		CACHE INTERNAL "")
+	set (apt_program "${APT_GET}" CACHE INTERNAL "")
 else ()
 	find_program (APT apt)
 
 	if (APT)
-		set (
-			apt_program
-			"${APT}"
-			CACHE INTERNAL "")
+		set (apt_program "${APT}" CACHE INTERNAL "")
 	else ()
 		message (FATAL_ERROR "Neither apt or apt-get can be found!")
 	endif ()

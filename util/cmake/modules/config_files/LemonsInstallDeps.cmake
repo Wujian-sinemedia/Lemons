@@ -5,10 +5,8 @@ cmake_minimum_required (VERSION 3.21 FATAL_ERROR)
 include (LemonsJsonUtils)
 include (LemonsFileUtils)
 
-set (
-	lemons_install_scripts_dir
-	"${CMAKE_CURRENT_LIST_DIR}/scripts"
-	CACHE INTERNAL "")
+set (lemons_install_scripts_dir "${CMAKE_CURRENT_LIST_DIR}/scripts"
+	 CACHE INTERNAL "")
 
 if (APPLE)
 	include (${lemons_install_scripts_dir}/install_mac.cmake)
@@ -49,10 +47,7 @@ function (lemons_get_list_of_deps_to_install)
 
 			if ("${cat_name}" STREQUAL "${catName}")
 				string (JSON cat_obj GET ${rootJsonObj} "Dependencies" ${idx})
-				set (
-					${outVar}
-					"${cat_obj}"
-					PARENT_SCOPE)
+				set (${outVar} "${cat_obj}" PARENT_SCOPE)
 				return ()
 			endif ()
 		endforeach ()
@@ -117,14 +112,8 @@ function (lemons_get_list_of_deps_to_install)
 		list (REMOVE_DUPLICATES sysPackages)
 		list (REMOVE_DUPLICATES pyPackages)
 
-		set (
-			${sysOutVar}
-			"${sysPackages}"
-			PARENT_SCOPE)
-		set (
-			${pyOutVar}
-			"${pyPackages}"
-			PARENT_SCOPE)
+		set (${sysOutVar} "${sysPackages}" PARENT_SCOPE)
+		set (${pyOutVar} "${pyPackages}" PARENT_SCOPE)
 
 	endfunction ()
 
@@ -143,7 +132,7 @@ function (lemons_get_list_of_deps_to_install)
 			message (
 				AUTHOR_WARNING
 					"FILE not specified in call to ${CMAKE_CURRENT_FUNCTION}, either provide it in this call or call lemons_parse_project_configuration_file in this project first."
-			)
+				)
 		endif ()
 	endif ()
 
@@ -194,14 +183,8 @@ function (lemons_get_list_of_deps_to_install)
 	list (REMOVE_DUPLICATES sysList)
 	list (REMOVE_DUPLICATES pyList)
 
-	set (
-		${LEMONS_DEPS_SYSTEM_OUTPUT}
-		"${sysList}"
-		PARENT_SCOPE)
-	set (
-		${LEMONS_DEPS_PYTHON_OUTPUT}
-		"${pyList}"
-		PARENT_SCOPE)
+	set (${LEMONS_DEPS_SYSTEM_OUTPUT} "${sysList}" PARENT_SCOPE)
+	set (${LEMONS_DEPS_PYTHON_OUTPUT} "${pyList}" PARENT_SCOPE)
 
 endfunction ()
 

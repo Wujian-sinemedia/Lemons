@@ -35,9 +35,8 @@ function (lemons_configure_clang_format_integration)
 					"${script_name}" @ONLY)
 
 	add_custom_target (
-		${LEMONS_CF_TARGET}
-		COMMAND "${CMAKE_COMMAND}" -P
-				"${CMAKE_CURRENT_BINARY_DIR}/${script_name}"
+		${LEMONS_CF_TARGET} COMMAND "${CMAKE_COMMAND}" -P
+									"${CMAKE_CURRENT_BINARY_DIR}/${script_name}"
 		COMMENT "Running clang-format...")
 endfunction ()
 
@@ -84,8 +83,7 @@ function (lemons_run_clang_format)
 
 		execute_process (
 			COMMAND ${CLANG_FORMAT} ${clang_format_command}
-			WORKING_DIRECTORY ${directory}
-			OUTPUT_QUIET ERROR_QUIET)
+			WORKING_DIRECTORY ${directory} OUTPUT_QUIET ERROR_QUIET)
 
 		lemons_subdir_list (RESULT subdirs DIR ${directory} FULL_PATHS)
 

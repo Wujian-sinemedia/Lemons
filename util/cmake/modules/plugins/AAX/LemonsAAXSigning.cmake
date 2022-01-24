@@ -15,15 +15,11 @@ function (lemons_set_aax_signing_settings)
 	function (_lemons_aax_sign_config_check_for_option option description)
 		if (LEMONS_AAX_${option})
 			if (LEMONS_AAX_FORCE)
-				set (
-					LEMONS_AAX_${option}
-					"${LEMONS_AAX_${option}}"
-					CACHE STRING "${description}" FORCE)
+				set (LEMONS_AAX_${option} "${LEMONS_AAX_${option}}"
+					 CACHE STRING "${description}" FORCE)
 			else ()
-				set (
-					LEMONS_AAX_${option}
-					"${LEMONS_AAX_${option}}"
-					CACHE STRING "${description}")
+				set (LEMONS_AAX_${option} "${LEMONS_AAX_${option}}"
+					 CACHE STRING "${description}")
 			endif ()
 		endif ()
 	endfunction ()

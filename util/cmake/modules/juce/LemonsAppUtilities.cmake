@@ -58,6 +58,6 @@ function (lemons_configure_juce_app)
 		message (
 			DEBUG
 			"No target Lemons::LemonsAppModules in call to ${CMAKE_CURRENT_FUNCTION}..."
-		)
+			)
 	endif ()
 endfunction ()

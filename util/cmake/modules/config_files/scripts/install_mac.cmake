@@ -11,7 +11,7 @@ if (NOT HOMEBREW)
 		message (
 			FATAL_ERROR
 				"bash is required for installing Homebrew, and cannot be found!"
-		)
+			)
 	endif ()
 
 	message (STATUS "Installing Homebrew...")

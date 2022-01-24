@@ -53,10 +53,8 @@ function (_lemons_configure_compiler_launcher language)
 	configure_file ("${CMAKE_CURRENT_LIST_DIR}/scripts/launcher.in"
 					"${script_name}")
 
-	set (
-		${language}_script
-		"${CMAKE_CURRENT_BINARY_DIR}/${script_name}"
-		PARENT_SCOPE)
+	set (${language}_script "${CMAKE_CURRENT_BINARY_DIR}/${script_name}"
+		 PARENT_SCOPE)
 endfunction ()
 
 _lemons_configure_compiler_launcher (c)
@@ -67,31 +65,13 @@ execute_process (COMMAND chmod a+rx "${c_script}" "${cxx_script}")
 #
 
 if (XCODE)
-	set (
-		CMAKE_XCODE_ATTRIBUTE_CC
-		"${c_script}"
-		CACHE INTERNAL "")
-	set (
-		CMAKE_XCODE_ATTRIBUTE_CXX
-		"${cxx_script}"
-		CACHE INTERNAL "")
-	set (
-		CMAKE_XCODE_ATTRIBUTE_LD
-		"${c_script}"
-		CACHE INTERNAL "")
-	set (
-		CMAKE_XCODE_ATTRIBUTE_LDPLUSPLUS
-		"${cxx_script}"
-		CACHE INTERNAL "")
+	set (CMAKE_XCODE_ATTRIBUTE_CC "${c_script}" CACHE INTERNAL "")
+	set (CMAKE_XCODE_ATTRIBUTE_CXX "${cxx_script}" CACHE INTERNAL "")
+	set (CMAKE_XCODE_ATTRIBUTE_LD "${c_script}" CACHE INTERNAL "")
+	set (CMAKE_XCODE_ATTRIBUTE_LDPLUSPLUS "${cxx_script}" CACHE INTERNAL "")
 else ()
-	set (
-		CMAKE_C_COMPILER_LAUNCHER
-		"${c_script}"
-		CACHE INTERNAL "")
-	set (
-		CMAKE_CXX_COMPILER_LAUNCHER
-		"${cxx_script}"
-		CACHE INTERNAL "")
+	set (CMAKE_C_COMPILER_LAUNCHER "${c_script}" CACHE INTERNAL "")
+	set (CMAKE_CXX_COMPILER_LAUNCHER "${cxx_script}" CACHE INTERNAL "")
 endif ()
 
 message (STATUS " -- Using ccache! -- ")

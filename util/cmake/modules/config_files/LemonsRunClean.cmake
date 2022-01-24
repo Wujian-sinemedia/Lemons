@@ -23,7 +23,7 @@ function (lemons_run_clean)
 			message (
 				AUTHOR_WARNING
 					"FILE not specified in call to ${CMAKE_CURRENT_FUNCTION}, either provide it in this call or call lemons_parse_project_configuration_file in this project first."
-			)
+				)
 		endif ()
 	endif ()
 

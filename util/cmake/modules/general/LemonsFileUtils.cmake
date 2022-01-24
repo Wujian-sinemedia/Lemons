@@ -47,15 +47,9 @@ function (lemons_subdir_list)
 	lemons_make_variable_const (dir)
 
 	if (LEMONS_SUBDIR_RECURSE)
-		file (
-			GLOB_RECURSE children
-			RELATIVE ${dir}
-			${dir}/*)
+		file (GLOB_RECURSE children RELATIVE ${dir} ${dir}/*)
 	else ()
-		file (
-			GLOB children
-			RELATIVE ${dir}
-			${dir}/*)
+		file (GLOB children RELATIVE ${dir} ${dir}/*)
 	endif ()
 
 	set (dirlist "")
@@ -64,8 +58,7 @@ function (lemons_subdir_list)
 		if (LEMONS_SUBDIR_FILES)
 			set (filepath "${dir}/${child}")
 
-			if (EXISTS ${filepath}
-				AND NOT IS_DIRECTORY ${filepath}
+			if (EXISTS ${filepath} AND NOT IS_DIRECTORY ${filepath}
 				AND NOT "${child}" STREQUAL ".DS_Store")
 				if (LEMONS_SUBDIR_FULL_PATHS)
 					list (APPEND dirlist "${filepath}")
@@ -86,10 +79,7 @@ function (lemons_subdir_list)
 		endif ()
 	endforeach ()
 
-	set (
-		${LEMONS_SUBDIR_RESULT}
-		${dirlist}
-		PARENT_SCOPE)
+	set (${LEMONS_SUBDIR_RESULT} ${dirlist} PARENT_SCOPE)
 
 endfunction ()
 
@@ -107,10 +97,8 @@ function (lemons_make_path_absolute)
 	cmake_path (IS_ABSOLUTE ${LEMONS_PATH_VAR} is_abs_path)
 
 	if (NOT is_abs_path)
-		set (
-			${LEMONS_PATH_VAR}
-			"${LEMONS_PATH_BASE_DIR}/${${LEMONS_PATH_VAR}}"
-			PARENT_SCOPE)
+		set (${LEMONS_PATH_VAR} "${LEMONS_PATH_BASE_DIR}/${${LEMONS_PATH_VAR}}"
+			 PARENT_SCOPE)
 	endif ()
 
 endfunction ()
