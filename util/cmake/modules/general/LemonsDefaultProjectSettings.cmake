@@ -38,7 +38,8 @@ include (CheckIPOSupported)
 check_ipo_supported (RESULT result OUTPUT output)
 
 if (result)
-	set (CMAKE_INTERPROCEDURAL_OPTIMIZATION ON)
+	set (ENV{CMAKE_INTERPROCEDURAL_OPTIMIZATION} ON)
+	message (VERBOSE "Enabling IPO")
 endif ()
 
 #
