@@ -92,12 +92,12 @@ public:
 	/** Returns a ParameterTraits object representing this parameter. */
 	[[nodiscard]] ParameterTraits getParameterTraits() const final;
 
-	/** The parameter's value type is publically accessible through this typedef. */
+	/** The parameter's value type is publicly accessible through this typedef. */
 	using ParameterValueType = ValueType;
 
 	/*---------------------------------------------------------------------------------------------------------------------------*/
 
-	/** A class that will recieve updates when aspects of a TypedParameter change.
+	/** A class that will receive updates when aspects of a TypedParameter change.
 	 */
 	struct Listener : public Parameter::Listener
 	{

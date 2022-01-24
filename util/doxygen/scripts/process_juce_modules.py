@@ -64,25 +64,25 @@ def process_module_category(category_name, orig_cat_dir, dest_cat_dir):
 
     category_info = process_category_description(dest_cat_dir)
 
-    category_definiton = []
-    category_definiton.append("/** @defgroup {n} {n}".format(n=category_name))
+    category_definition = []
+    category_definition.append("/** @defgroup {n} {n}".format(n=category_name))
 
-    category_definiton.append("")
-    category_definiton.append("    {d}".format(d=category_info[0]))
-    category_definiton.append("")
-    category_definiton.append("    {l}".format(l=category_info[1]))
+    category_definition.append("")
+    category_definition.append("    {d}".format(d=category_info[0]))
+    category_definition.append("")
+    category_definition.append("    {l}".format(l=category_info[1]))
 
     del category_info
 
-    category_definiton.append("*/")
-    category_definiton.append("")
+    category_definition.append("*/")
+    category_definition.append("")
 
-    return "\r\n".join(category_definiton)
+    return "\r\n".join(category_definition)
 
 
 #
 
-def create_module_heirarchy(source_dir, dest_dir):
+def create_module_hierarchy(source_dir, dest_dir):
 
     if not os.path.isdir(source_dir):
         raise Exception("Juce modules source directory does not exist!")
@@ -116,4 +116,4 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
 
-    create_module_heirarchy(args.lemons_root, args.dest_dir)
+    create_module_hierarchy(args.lemons_root, args.dest_dir)

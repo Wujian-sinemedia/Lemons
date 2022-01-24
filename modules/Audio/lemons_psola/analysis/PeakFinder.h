@@ -35,7 +35,7 @@ using Array = juce::Array<T>;
 
 /** @ingroup lemons_psola_analysis
     A class that identifies pitch peaks for PSOLA pitch shifting.
-    You probably won't ever need to use this class directly, as it's mainly intended as a utilty for the Analyzer class.
+    You probably won't ever need to use this class directly, as it's mainly intended as a utility for the Analyzer class.
     @see Analyzer
  */
 template <typename SampleType>

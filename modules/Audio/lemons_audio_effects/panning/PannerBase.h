@@ -29,7 +29,7 @@ public:
 	int  getLastMidiPan() const noexcept;
 
 private:
-	int lastRecievedMidiPan;
+	int lastReceivedMidiPan;
 
 	float leftGain;
 	float rightGain;

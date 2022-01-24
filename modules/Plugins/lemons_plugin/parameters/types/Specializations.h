@@ -172,7 +172,7 @@ struct SecondsParameter : public FloatParameter
 	    @param paramName The name of this parameter.
 	    @param defaultVal The default value of this parameter.
 	 */
-	explicit SecondsParameter (const String& paramName, float minSeonds = 0.f, float maxSeconds = 1.f, float defaultVal = 0.5f);
+	explicit SecondsParameter (const String& paramName, float minSeconds = 0.f, float maxSeconds = 1.f, float defaultVal = 0.5f);
 };
 
 

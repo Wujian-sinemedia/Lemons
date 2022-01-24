@@ -27,7 +27,7 @@ float PitchPipeline::getMidiForFrequency (float midiPitch, int midiChannel) cons
 
 void PitchPipeline::reset()
 {
-	bend.newPitchbendRecieved (64);
+	bend.newPitchbendReceived (64);
 }
 
 }  // namespace lemons::midi

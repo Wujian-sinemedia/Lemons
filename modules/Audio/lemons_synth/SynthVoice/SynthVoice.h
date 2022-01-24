@@ -73,9 +73,9 @@ protected:
 
 	virtual void noteCleared() { }
 
-	virtual void bypassedBlockRecieved (float /*voicesLastOutputFreq*/, double /*currentSamplerate*/, int /*numSamples*/) { }
+	virtual void bypassedBlockReceived (float /*voicesLastOutputFreq*/, double /*currentSamplerate*/, int /*numSamples*/) { }
 
-	/* called each time the parent recieves a new block in renderVoices(), before any calls to renderPlease() are made. This function may be called even if the voice is not currently active. */
+	/* called each time the parent receives a new block in renderVoices(), before any calls to renderPlease() are made. This function may be called even if the voice is not currently active. */
 	virtual void newBlockComing (int /*previousBlocksize*/, int /*upcomingBlocksize*/) { }
 
 	/*=================================================================================
@@ -123,7 +123,7 @@ private:
 	bool isPedalPitchVoice { false }, isDescantVoice { false }, isDoubledByAutomatedVoice { false };
 
 	int    currentlyPlayingNote { -1 }, currentAftertouch { 0 }, midiChannel { 1 };
-	float  lastRecievedVelocity { 0 };
+	float  lastReceivedVelocity { 0 };
 	double pitchGlideTimeSecs { 0.4 };
 
 	uint32 noteOnTime { 0 };

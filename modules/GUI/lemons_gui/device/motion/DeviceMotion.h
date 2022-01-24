@@ -37,7 +37,7 @@ public:
 		double z { 0. };
 	};
 
-	/** A listener that recieves callbacks with each kind of motion data. */
+	/** A listener that receives callbacks with each kind of motion data. */
 	struct Listener
 	{
 		explicit Listener (DeviceMotion& manager);

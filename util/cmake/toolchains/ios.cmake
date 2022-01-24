@@ -73,7 +73,7 @@ set (
 	"${CMAKE_C_OSX_CURRENT_VERSION_FLAG}"
 	CACHE INTERNAL "")
 
-# Hidden visibilty is required for cxx on iOS
+# Hidden visibility is required for cxx on iOS
 set (CMAKE_C_FLAGS_INIT "-fembed-bitcode")
 set (
 	CMAKE_CXX_FLAGS_INIT

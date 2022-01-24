@@ -50,7 +50,7 @@ void SynthBase<SampleType>::noteOn (int midiPitch, float velocity, bool isKeyboa
 }
 
 /*
- This function actually starts a given voice. Pass a nullptr to the first argument to indicate that a note-on event was requested, but an available voice could not be found (ie, if stealing is disbled, etc)
+ This function actually starts a given voice. Pass a nullptr to the first argument to indicate that a note-on event was requested, but an available voice could not be found (ie, if stealing is disabled, etc)
  */
 template <typename SampleType>
 void SynthBase<SampleType>::startVoice (Voice* voice, int midiPitch, float velocity, bool isKeyboard, int midiChannel)
@@ -62,9 +62,9 @@ void SynthBase<SampleType>::startVoice (Voice* voice, int midiPitch, float veloc
 	    voice->isVoiceActive();  // we know the voice is being "stolen" from another note if it was already on before getting this start command
 	const bool sameNoteRetriggered = wasStolen && prevNote == midiPitch;
 
-	// aftertouch value based on how much the new velocity has changed from the voice's last recieved velocity (only used if applicable)
+	// aftertouch value based on how much the new velocity has changed from the voice's last received velocity (only used if applicable)
 	const auto aftertouch = juce::jlimit (0, 127,
-	                                      juce::roundToInt ((velocity - voice->lastRecievedVelocity) * 127.0f));
+	                                      juce::roundToInt ((velocity - voice->lastReceivedVelocity) * 127.0f));
 
 	if (! sameNoteRetriggered)  // only output note events if it's not the same note being retriggered
 	{
@@ -227,7 +227,7 @@ void SynthBase<SampleType>::turnOffAllKeyupNotes (bool  allowTailOff,
 
 
 /*
- This function is used to output channel pressure data. Any time a new aftertouch value is triggered internally by the synth, this function is called to test is the new incoming value is greater than the highest previously recieved aftertouch value of any active voice. If it is, the new aftertouch value is output as the synth's aggregate channel pressure value.
+ This function is used to output channel pressure data. Any time a new aftertouch value is triggered internally by the synth, this function is called to test is the new incoming value is greater than the highest previously received aftertouch value of any active voice. If it is, the new aftertouch value is output as the synth's aggregate channel pressure value.
  */
 template <typename SampleType>
 void SynthBase<SampleType>::updateChannelPressure (int newIncomingAftertouch)
@@ -248,7 +248,7 @@ void SynthBase<SampleType>::updateChannelPressure (int newIncomingAftertouch)
 
 /*
  Use this function to toggle the synth's "midi latch" feature.
- When latch is on/true, any recieved note offs will be ignored until latch is turned off, at which point any notes whose keyboard keys aren't still being held will be turned off.
+ When latch is on/true, any received note offs will be ignored until latch is turned off, at which point any notes whose keyboard keys aren't still being held will be turned off.
  */
 template <typename SampleType>
 void SynthBase<SampleType>::setMidiLatch (bool shouldBeOn, bool allowTailOff)
@@ -380,7 +380,7 @@ void SynthBase<SampleType>::reportActiveNotes (juce::Array<int>& outputArray,
 
 
 /*
- This function should be called any time the aggregate collection of pitches being played by the synth changes (ie, after recieving a note event, or after triggering a chord, etc)
+ This function should be called any time the aggregate collection of pitches being played by the synth changes (ie, after receiving a note event, or after triggering a chord, etc)
  */
 template <typename SampleType>
 void SynthBase<SampleType>::pitchCollectionChanged()

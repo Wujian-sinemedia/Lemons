@@ -87,7 +87,7 @@ function (lemons_get_list_of_deps_to_install)
 				else ()
 					message (
 						AUTHOR_WARNING
-							"Category dependancy ${subcategory} not found!")
+							"Category dependency ${subcategory} not found!")
 				endif ()
 			endforeach ()
 		endif ()

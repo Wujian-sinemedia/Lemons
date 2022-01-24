@@ -118,7 +118,7 @@ void MidiManager<SampleType>::MidiRouter::handlePitchwheel (int wheelValue)
 	                                                             wheelValue),
 	                                    getLastMidiTimestamp());
 
-	synth.pitch.bend.newPitchbendRecieved (wheelValue);
+	synth.pitch.bend.newPitchbendReceived (wheelValue);
 
 	for (auto* voice : synth.voices)
 		if (voice->isVoiceActive())

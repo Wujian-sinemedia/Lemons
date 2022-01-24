@@ -11,12 +11,12 @@ TextButton::TextButton (const String& buttonText, std::function<void()> whenClic
 }
 
 
-ToggleTextButton::ToggleTextButton (const String& buttonText, bool intialValue, std::function<void (bool)> whenClicked)
+ToggleTextButton::ToggleTextButton (const String& buttonText, bool initialValue, std::function<void (bool)> whenClicked)
     : TextButton (buttonText, [whenClicked, this]
                   { whenClicked (getToggleState()); })
 {
 	this->setToggleable (true);
-	set (intialValue);
+	set (initialValue);
 }
 
 void ToggleTextButton::set (bool value)

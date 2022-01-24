@@ -12,7 +12,7 @@ template <typename SampleType>
 class DryWetMixer
 {
 public:
-	/** Creates a DryWetMixer with some default inital settings. */
+	/** Creates a DryWetMixer with some default initial settings. */
 	DryWetMixer();
 
 	/** Creates a DryWetMixer with some specified initial settings. */

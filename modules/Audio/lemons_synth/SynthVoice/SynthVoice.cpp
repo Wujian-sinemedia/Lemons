@@ -171,7 +171,7 @@ void SynthVoiceBase<SampleType>::bypassedBlock (int numSamples)
 	playingButReleasedMod.skipSamples (numSamples);
 	softPedalMod.skipSamples (numSamples);
 
-	bypassedBlockRecieved (static_cast<float> (outputFrequency.getTargetValue()), parent->sampleRate, numSamples);
+	bypassedBlockReceived (static_cast<float> (outputFrequency.getTargetValue()), parent->sampleRate, numSamples);
 	outputFrequency.skip (numSamples);
 }
 
@@ -201,7 +201,7 @@ void SynthVoiceBase<SampleType>::startNote (const int    midiPitch,
 
 	noteOnTime           = noteOnTimestamp;
 	currentlyPlayingNote = midiPitch;
-	lastRecievedVelocity = velocity;
+	lastReceivedVelocity = velocity;
 	isQuickFading        = false;
 	isPedalPitchVoice    = isPedal;
 	isDescantVoice       = isDescant;
@@ -243,7 +243,7 @@ void SynthVoiceBase<SampleType>::togglePitchGlide (bool shouldGlide)
 template <typename SampleType>
 void SynthVoiceBase<SampleType>::stopNote (const float velocity, const bool allowTailOff)
 {
-	const auto newGain = juce::jlimit (0.0f, 1.0f, lastRecievedVelocity - velocity);
+	const auto newGain = juce::jlimit (0.0f, 1.0f, lastReceivedVelocity - velocity);
 	midiVelocityGain.setGain (parent->velocityConverter.getGainForVelocity (newGain));
 
 	adsr.noteOff();
@@ -259,7 +259,7 @@ void SynthVoiceBase<SampleType>::stopNote (const float velocity, const bool allo
 template <typename SampleType>
 void SynthVoiceBase<SampleType>::clearCurrentNote()
 {
-	lastRecievedVelocity         = 0.0f;
+	lastReceivedVelocity         = 0.0f;
 	currentAftertouch            = 0;
 	currentlyPlayingNote         = -1;  // NB: this function does NOT change currentOutputFreq and that is intentional!!
 	noteOnTime                   = 0;
@@ -309,7 +309,7 @@ void SynthVoiceBase<SampleType>::aftertouchChanged (const int newAftertouchValue
 		constexpr auto inv127 = 1.0f / 127.0f;
 
 		const auto newWeightedGain = juce::jlimit (0.0f, 1.0f,
-		                                           lastRecievedVelocity + newAftertouchValue * inv127);
+		                                           lastReceivedVelocity + newAftertouchValue * inv127);
 
 		aftertouchGain.setGain (parent->velocityConverter.getGainForVelocity (newWeightedGain));
 	}

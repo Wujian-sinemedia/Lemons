@@ -3,7 +3,7 @@
 namespace lemons::dsp::filters
 {
 /** A filter coefficients class, with lots of methods for creating various filter topologies.
-    This class is designed so that coefficients can be recreated and reassigned during realtime playback; no allocations should ocur.
+    This class is designed so that coefficients can be recreated and reassigned during realtime playback; no allocations should occur.
  */
 template <typename NumericType>
 struct Coefficients

@@ -74,10 +74,10 @@ private:
 	/** Called when this component is resized. */
 	virtual void resizeTriggered();
 
-	/** Called when a keypress is recieved.
+	/** Called when a keypress is received.
 	    The PopupComponent base class automatically intercepts keypresses, and closes itself if an escape key is pressed; all other keypresses are forwarded to this function.
 	 */
-	virtual bool keyPressRecieved (const juce::KeyPress& key);
+	virtual bool keyPressReceived (const juce::KeyPress& key);
 
 	std::function<void()> closeFunc;
 
@@ -100,7 +100,7 @@ public:
 	    @param toClose Lambda function that must destroy this PopupComponent.
 	    @param useCloseButton  If true, the wrapper component will create a "close" button in the upper left corner of the owned content that, when clicked, will destroy the popup.
 	    @param escapeKeyCloses If true, the wrapper component consumes all escape key presses, and an escape key press will destroy the popup.
-	    @param args Optional additional arguments that will be forwarded to the constuctor of OwnedContentType.
+	    @param args Optional additional arguments that will be forwarded to the constructor of OwnedContentType.
 	 */
 	template <typename... Args>
 	explicit PopupComponent (std::function<void()> toClose, bool useCloseButton, bool escapeKeyCloses, Args&&... args)
@@ -114,7 +114,7 @@ public:
 	    @param holder unique_ptr holding this PopupComponent.
 	    @param useCloseButton  If true, the wrapper component will create a "close" button in the upper left corner of the owned content that, when clicked, will destroy the popup.
 	    @param escapeKeyCloses If true, the wrapper component consumes all escape key presses, and an escape key press will destroy the popup.
-	    @param args Optional additional arguments that will be forwarded to the constuctor of OwnedContentType.
+	    @param args Optional additional arguments that will be forwarded to the constructor of OwnedContentType.
 	 */
 	template <typename... Args>
 	explicit PopupComponent (std::unique_ptr<PopupComponentBase>& holder, bool useCloseButton, bool escapeKeyCloses, Args&&... args)
@@ -133,7 +133,7 @@ private:
 		content.setBounds (getLocalBounds());
 	}
 
-	bool keyPressRecieved (const juce::KeyPress& key) final
+	bool keyPressReceived (const juce::KeyPress& key) final
 	{
 		return content.keyPressed (key);
 	}

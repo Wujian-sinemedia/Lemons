@@ -33,7 +33,7 @@ using juce::MidiFile;
 [[nodiscard]] MemoryBlock midiToBinary (const MidiBuffer& midi);
 
 /** @ingroup lemons_midi lemons_serializing
-    Returns a MidiBufer from a binary representation of one.
+    Returns a MidiBuffer from a binary representation of one.
     @see midiFileFromBinary(), midiToBinary(), loadMidiFromFile(), binary::Data::getMidi()
  */
 [[nodiscard]] MidiBuffer midiBufferFromBinary (const MemoryBlock& block);

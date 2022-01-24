@@ -58,9 +58,9 @@ bool PopupComponentBase::keyPressed (const juce::KeyPress& key)
 		}
 	}
 
-	return keyPressRecieved (key);
+	return keyPressReceived (key);
 }
 
-bool PopupComponentBase::keyPressRecieved (const juce::KeyPress&) { return false; }
+bool PopupComponentBase::keyPressReceived (const juce::KeyPress&) { return false; }
 
 }  // namespace lemons::gui::components

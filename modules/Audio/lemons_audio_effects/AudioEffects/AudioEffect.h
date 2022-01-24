@@ -20,7 +20,7 @@ struct AudioEffect
 	/** Gives the effect a chance to prepare itself. Implementing this is optional. */
 	virtual void prepare (double samplerate, int blocksize);
 
-	/** Notifies the effect when a bypassed block is recieved. Implementing this is optional. */
+	/** Notifies the effect when a bypassed block is received. Implementing this is optional. */
 	virtual void bypassedBlock (int numSamples);
 };
 

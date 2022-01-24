@@ -24,7 +24,7 @@ public:
 	/** Processes the next frame of audio. */
 	void process (AudioBuffer<SampleType>& audio) final;
 
-	/** Call this to inform the SmoothedGain that a bypassed block was recieved.
+	/** Call this to inform the SmoothedGain that a bypassed block was received.
 	    This will skip ahead in the ramp created by the smoother.
 	 */
 	void bypassedBlock (int numSamples) final;

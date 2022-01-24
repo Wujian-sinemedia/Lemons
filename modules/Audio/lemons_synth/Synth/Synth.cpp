@@ -95,7 +95,7 @@ void SynthBase<SampleType>::releaseResources()
 /*
  Renders the synth's composite stereo output to "output". (If a mono buffer is passed, the synth will return mono output.)
  Reads events from and returns the synth's composite midi output to "midiMessages". Note that due to the midi latch, pedal pitch, and descant features, the returned midi buffer may have more or fewer events than the original passed midi buffer.
- Internally, the synth will render smaller chunks of audio in between each midi message timestamp, to keep midi events synchronous with the audio output. If you are implementing a class that derives from this class or the SynthVoiceBase class, note that the SynthVoiceBase's renderPlease() method may recieve blocksizes as small as 1 sample (but never 0 samples).
+ Internally, the synth will render smaller chunks of audio in between each midi message timestamp, to keep midi events synchronous with the audio output. If you are implementing a class that derives from this class or the SynthVoiceBase class, note that the SynthVoiceBase's renderPlease() method may receive blocksizes as small as 1 sample (but never 0 samples).
  */
 template <typename SampleType>
 void SynthBase<SampleType>::renderVoices (MidiBuffer& midiMessages, AudioBuffer<SampleType>& output)
@@ -125,7 +125,7 @@ void SynthBase<SampleType>::renderVoices (MidiBuffer& midiMessages, AudioBuffer<
 }
 
 /*
- This should be called when a block is recieved while the processor is in bypassed mode.
+ This should be called when a block is received while the processor is in bypassed mode.
  This will not output any audio, but may alter the contents of the MidiBuffer.
  */
 template <typename SampleType>

@@ -15,7 +15,7 @@ void VoiceAllocator<SampleType>::prepare (int maxNumVoices)
 }
 
 /*
- Attempts to find the appropriate voice to start when a note-on event is recieved.
+ Attempts to find the appropriate voice to start when a note-on event is received.
  */
 template <typename SampleType>
 SynthVoiceBase<SampleType>* VoiceAllocator<SampleType>::findFreeVoice (bool stealIfNoneAvailable)

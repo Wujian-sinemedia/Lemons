@@ -69,7 +69,7 @@ struct ScopedMidiBufferAlias final
 	                                int         startSampleInOrigBuffer,
 	                                int         numSamplesToCopy);
 
-	/** Copies the events now in the alias buffer back to the original range of the orignal buffer. */
+	/** Copies the events now in the alias buffer back to the original range of the original buffer. */
 	~ScopedMidiBufferAlias();
 
 private:

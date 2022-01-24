@@ -277,8 +277,8 @@ static const auto sec_floatFromString =
 	return text.trim().getFloatValue();
 };
 
-SecondsParameter::SecondsParameter (const String& paramName, float minSeonds, float maxSeconds, float defaultVal)
-    : FloatParameter (minSeonds, maxSeconds, defaultVal, paramName,
+SecondsParameter::SecondsParameter (const String& paramName, float minSeconds, float maxSeconds, float defaultVal)
+    : FloatParameter (minSeconds, maxSeconds, defaultVal, paramName,
                       sec_stringFromFloat, sec_floatFromString,
                       "sec")
 {

@@ -43,7 +43,7 @@ public:
 	int getNumBands() const;
 
 	/** Returns a band at a certain index in the EQ's internal array of bands.
-	    This is the least preferrable way of retrieving bands; I would recommend either getBandOfType() or getBandAtFrequency(). \n \n
+	    This is the least preferable way of retrieving bands; I would recommend either getBandOfType() or getBandAtFrequency(). \n \n
 	    The returned pointer may be null if no such index exists in the EQ's array of bands.
 	 */
 	Filter<SampleType>* getBand (int index);

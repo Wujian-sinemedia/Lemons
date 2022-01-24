@@ -29,7 +29,7 @@ struct TextButton : juce::TextButton
  */
 struct ToggleTextButton : TextButton
 {
-	explicit ToggleTextButton (const String& buttonText, bool intialValue, std::function<void (bool)> whenClicked);
+	explicit ToggleTextButton (const String& buttonText, bool initialValue, std::function<void (bool)> whenClicked);
 
 	void set (bool value);
 };

@@ -21,7 +21,8 @@ repos:
       - id: check-xml
       - id: check-case-conflict
       - id: check-executables-have-shebangs
-      #- id: check-shebang-scripts-are-executable
+      - id: check-shebang-scripts-are-executable
+        exclude: util/
       - id: end-of-file-fixer
         exclude_types: [cmake]
       - id: mixed-line-ending
@@ -69,6 +70,30 @@ repos:
     rev: 2.1.5
     hooks:
       - id: shellcheck
+  - repo: https://github.com/lovesegfault/beautysh
+    rev: v6.2.1
+    hooks:
+      - id: beautysh
+  - repo: https://github.com/sirosen/texthooks
+    rev: 0.2.2
+    hooks:
+      - id: fix-ligatures
+      - id: fix-smartquotes
+      - id: forbid-bidi-controls
+  - repo: https://github.com/crate-ci/typos
+    rev: v1.3.5
+    hooks:
+      - id: typos
+        args: [--write-changes]
+        exclude: modules/Common/lemons_core/localization/languages.cpp
+  - repo: https://github.com/sirosen/check-jsonschema
+    rev: 0.10.0
+    hooks:
+      - id: check-github-workflows
+  # - repo: https://github.com/editorconfig-checker/editorconfig-checker.python
+  #   rev: 2.4.0
+  #   hooks:
+  #     - id: editorconfig-checker
   # - repo: https://github.com/igorshubovych/markdownlint-cli
   #   rev: v0.30.0
   #   hooks:

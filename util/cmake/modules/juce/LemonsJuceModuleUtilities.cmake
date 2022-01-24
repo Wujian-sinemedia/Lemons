@@ -122,11 +122,11 @@ function (_lemons_add_module_subcategory)
 		APPEND
 		PROPERTY ModuleCategoryNames ${LEMONS_SUBMOD_TARGET})
 
-	foreach (categoryDependancy ${LEMONS_SUBMOD_CATEGORY_DEPS})
+	foreach (categoryDependency ${LEMONS_SUBMOD_CATEGORY_DEPS})
 
-		include (${categoryDependancy})
+		include (${categoryDependency})
 
 		target_link_libraries (${LEMONS_SUBMOD_TARGET}
-							   INTERFACE Lemons::${categoryDependancy})
+							   INTERFACE Lemons::${categoryDependency})
 	endforeach ()
 endfunction ()
