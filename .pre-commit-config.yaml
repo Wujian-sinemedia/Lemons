@@ -81,7 +81,7 @@ repos:
       - id: fix-smartquotes
       - id: forbid-bidi-controls
   - repo: https://github.com/crate-ci/typos
-    rev: v1.3.5
+    rev: typos-dict-v0.7.2
     hooks:
       - id: typos
         args: [--write-changes]
