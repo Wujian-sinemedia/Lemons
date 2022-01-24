@@ -9,7 +9,8 @@ set -euo
 
 readonly GH_REPO_REF="github.com/benthevining/Lemons.git"
 
-script_dir="$(dirname "$0")"
+# shellcheck disable=SC3028,SC3054,SC3020
+script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 readonly script_dir
 
 readonly temp_dir="$script_dir/docs"
