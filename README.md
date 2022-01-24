@@ -1,3 +1,5 @@
+<!-- markdownlint-disable MD013 MD033 -->
+
 # Lemons
 
 [![Tests](https://github.com/benthevining/Lemons/actions/workflows/tests.yml/badge.svg)](https://github.com/benthevining/Lemons/actions/workflows/tests.yml)
@@ -48,7 +50,7 @@ I recommend that within your CMake, you add Lemons by using [CPM.cmake](https://
 
 Adding Lemons with CPM.cmake looks like this:
 
-```
+```cmake
 include (CPM.cmake)
 
 CPMAddPackage (
@@ -61,7 +63,7 @@ CPMAddPackage (
 
 Internally, Lemons's cmake scripts [add JUCE like this](https://github.com/benthevining/Lemons/blob/main/util/cmake/modules/general/LemonsJuceUtilities.cmake), using CPM.cmake. JUCE will automatically be fetched for you at configure time -- but, if you'd like to reference another local copy of JUCE, you can set this variable before adding the Lemons package:
 
-```
+```cmake
 set (CPM_JUCE_SOURCE /absolute/path/to/your/copy/of/juce)
 ```
 
@@ -73,7 +75,7 @@ I noticed myself duplicating several lines of CMake code in every project, so I 
 
 What I usually do in my project repos is make my [GetLemons](https://github.com/benthevining/GetLemons) repo a git submodule, then from the project's main CMakeLists.txt, simply
 
-```
+```cmake
 addSubdirectory (GetLemons)
 ```
 

@@ -90,11 +90,11 @@ repos:
     rev: 0.10.0
     hooks:
       - id: check-github-workflows
+  - repo: https://github.com/igorshubovych/markdownlint-cli
+    rev: v0.30.0
+    hooks:
+      - id: markdownlint-fix
   # - repo: https://github.com/editorconfig-checker/editorconfig-checker.python
   #   rev: 2.4.0
   #   hooks:
   #     - id: editorconfig-checker
-  # - repo: https://github.com/igorshubovych/markdownlint-cli
-  #   rev: v0.30.0
-  #   hooks:
-  #     - id: markdownlint-fix
