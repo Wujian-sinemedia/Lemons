@@ -5,6 +5,7 @@ Checks: >
   clang-analyzer-*,
   concurrency-*,
   cppcoreguidelines-*,
+  -cppcoreguidelines-macro-usage,
   modernize-*,
   -modernize-use-trailing-return-type,
   performance-*,
@@ -43,4 +44,3 @@ CheckOptions:
   - key: misc-non-private-member-variables-in-classes.IgnoreClassesWithAllMemberVariablesBeingPublic # yamllint disable-line
     value: 1
 FormatStyle: 'file'
-HeaderFilterRegex: '^(?!juce_).*$'
