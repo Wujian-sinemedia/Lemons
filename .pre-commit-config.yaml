@@ -20,6 +20,7 @@ repos:
 
       # general
       - id: check-added-large-files
+        args: ['--maxkb=2000']
       - id: check-case-conflict
       - id: end-of-file-fixer
         exclude_types: [cmake]

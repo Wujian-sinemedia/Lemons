@@ -124,32 +124,6 @@ private:
 			}
 		}
 
-		//        {
-		//            const auto subtest = this->beginSubtest ("Audio samples");
-		//
-		//            struct FileData final
-		//            {
-		//                String filename;
-		//                float  pitch;
-		//            };
-		//
-		//            for (const auto& data : { FileData{ "file.wav", 440.f } })
-		//            {
-		//                const auto sampleSubtest = this->beginSubtest ("Sample: " + data.filename);
-		//
-		//                auto file = binary::getAudioFile (data.filename);
-		//
-		//                this->expect (file.isValid());
-		//
-		//                detector.reset();
-		//
-		//                detector.setSamplerate (file.getSamplerate());
-		//
-		//                this->expectWithinAbsoluteError (detector.detectPitch (file.template getData<FloatType>()),
-		//                                                 data.pitch, 20.f);
-		//            }
-		//        }
-
 		{
 			const auto subtest = this->beginSubtest ("Detect random noise as unpitched");
 
@@ -172,6 +146,26 @@ private:
 			{
 				detector.reset();
 				this->expectEquals (detector.detectPitch (storage), 0.f);
+			}
+		}
+
+		{
+			const auto subtest = this->beginSubtest ("Audio samples");
+
+			for (const auto& sample : binary::getAudioFileNames())
+			{
+				auto file = binary::getAudioFile (sample);
+
+				this->expect (file.isValid());
+
+				detector.reset();
+
+				detector.setSamplerate (file.getSamplerate());
+
+				const auto midiPitch = sample.fromLastOccurrenceOf ("_", false, false).upToFirstOccurrenceOf (".", false, false).getIntValue();
+
+				this->expectWithinAbsoluteError (math::freqToMidi (detector.detectPitch (file.getData<FloatType>())),
+					static_cast<float> (midiPitch), 0.75f);
 			}
 		}
 	}

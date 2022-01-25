@@ -18,9 +18,9 @@ private:
 	{
 		beginTest ("Loading audio files from binary data");
 
-		const juce::StringArray audioNames { "deke.png", "lemons.jpg", "logo.png" };
+		const juce::StringArray audioNames { "vox_60.wav", "vox_67.wav", "vox_72.wav", "inst_84.flac", "inst_60.wav", "inst_79.wav" };
 
-		for (const auto filename : audioNames)
+		for (const auto& filename : audioNames)
 		{
 			auto file = binary::getAudioFile (filename);
 
@@ -36,7 +36,7 @@ private:
 		}
 
 		{
-			const auto subtest = beginSubtest ("Getting image file names");
+			const auto subtest = beginSubtest ("Getting audio file names");
 
 			const auto audioNames_ = binary::getAudioFileNames();
 
@@ -48,6 +48,6 @@ private:
 	}
 };
 
-// static AudioFileTests audioFileTest;
+static AudioFileTests audioFileTest;
 
 }  // namespace lemons::tests

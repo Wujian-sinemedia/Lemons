@@ -43,6 +43,8 @@ AudioFile::AudioFile (juce::AudioFormatReader* reader, const juce::File& f)
 			float_data.setSize (numChannels, lengthInSamples);
 			reader->read (&float_data, 0, lengthInSamples, 0, true, numChannels > 1);
 		}
+
+		delete reader;
 	}
 
 	jassert (float_data.getNumChannels() == numChannels);
@@ -152,8 +154,18 @@ dsp::AudioFile getAudioFile (const String& audioFileName)
 
 juce::StringArray getAudioFileNames()
 {
-	const auto validFileExtensions = juce::StringArray::fromTokens (dsp::formats::getDefaultAudioFormatManager().getWildcardForAllFormats(),
-		";", "");
+	const auto validFileExtensions = []
+	{
+		auto arr = juce::StringArray::fromTokens (dsp::formats::getDefaultAudioFormatManager().getWildcardForAllFormats(),
+			";", "");
+
+		for (auto& element : arr)
+			element = element.fromLastOccurrenceOf (".", false, false);
+
+		arr.removeDuplicates (true);
+
+		return arr;
+	}();
 
 	jassert (! validFileExtensions.isEmpty());
 

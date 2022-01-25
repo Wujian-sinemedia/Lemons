@@ -103,6 +103,10 @@ juce::StringArray getFilenames()
 	{
 		filenames.add (originalFilenames[index]);
 	}
+
+	filenames.removeDuplicates (true);
+	filenames.removeString (".DS_Store");
+
 #endif
 
 	return filenames;
