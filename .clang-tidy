@@ -43,5 +43,5 @@ CheckOptions:
     value: 1
   - key: misc-non-private-member-variables-in-classes.IgnoreClassesWithAllMemberVariablesBeingPublic # yamllint disable-line
     value: 1
-HeaderFilterRegex: '(?!juce_)'
+HeaderFilterRegex: '/(?!juce_)'
 FormatStyle: 'file'
