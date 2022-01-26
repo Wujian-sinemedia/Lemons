@@ -1,0 +1,14 @@
+# Lines starting with '#' are comments.
+# Each line is a file pattern followed by one or more owners.
+# These owners will be the default owners for everything in the repo.
+# * <@insert_github_username>
+#
+# Order is important. The last matching pattern has the most precedence.
+
+
+# This file is also being managed automatically by the gitown tool.
+modules/Audio/lemons_dsp/util/ValueSmoother.cpp benthevining
+modules/Audio/lemons_audio_effects/panning/MonoToStereoPanner.cpp benthevining
+modules/Plugins/lemons_plugin_gui/PresetBar/PresetBar.h benthevining
+modules/Audio/lemons_psola/resynthesis/shifter.h benthevining
+.gitownrc benthevining

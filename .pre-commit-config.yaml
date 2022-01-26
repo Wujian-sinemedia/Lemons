@@ -41,28 +41,34 @@ repos:
       - id: debug-statements
       - id: fix-encoding-pragma
 
+  # git
   - repo: https://github.com/jorisroovers/gitlint
     rev: v0.17.0
     hooks:
       - id: gitlint
+  - repo: https://github.com/milin/gitown
+    rev: v0.1.7
+    hooks:
+      - id: gitown
 
+  # - repo: https://github.com/editorconfig-checker/editorconfig-checker.python
+  #   rev: 2.4.0
+  #   hooks:
+  #     - id: editorconfig-checker
+
+  # text and typos
   - repo: https://github.com/sirosen/texthooks
     rev: 0.2.2
     hooks:
       - id: fix-ligatures
       - id: fix-smartquotes
       - id: forbid-bidi-controls
-  # - repo: https://github.com/crate-ci/typos
-  #   rev: typos-v0.8.5
-  #   hooks:
-  #     - id: typos
-  #       args: [--write-changes]
-  #       exclude: modules/Common/lemons_core/localization/languages.cpp
-
-  # - repo: https://github.com/editorconfig-checker/editorconfig-checker.python
-  #   rev: 2.4.0
-  #   hooks:
-  #     - id: editorconfig-checker
+  - repo: https://github.com/crate-ci/typos
+    rev: typos-v0.8.5
+    hooks:
+      - id: typos
+        args: [--write-changes]
+        exclude: modules/Common/lemons_core/localization/languages.cpp
 
   # CMake
   - repo: https://github.com/cheshirekow/cmake-format-precommit
