@@ -25,3 +25,10 @@ CODEOWNERS benthevining
 modules/GUI/lemons_gui/device/DeviceRotation.h benthevining
 modules/Audio/lemons_midi/processors/processors.h benthevining
 .pre-commit-config.yaml benthevining
+modules/Audio/lemons_dsp/oscillators/basic_types.h benthevining
+modules/Audio/lemons_dsp/engines/LatencyEngine_tests.cpp benthevining
+modules/Audio/lemons_dsp/unit_tests/dsp_test.cpp benthevining
+modules/Audio/lemons_midi/tuning/mts_client.cpp benthevining
+modules/Audio/lemons_dsp/fifos/CircularBuffer.cpp benthevining
+modules/Audio/lemons_psola/resynthesis/IntervalShifter.h benthevining
+modules/Audio/lemons_psola/resynthesis/MidiShifter.cpp benthevining
