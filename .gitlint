@@ -1,0 +1,10 @@
+[general]
+
+ignore=title-trailing-punctuation, body-is-missing
+
+fail-without-commits=true
+
+
+[title-min-length]
+
+min-length=5

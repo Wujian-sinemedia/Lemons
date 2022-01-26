@@ -131,7 +131,7 @@ void SynthBase<SampleType>::renderVoices (MidiBuffer& midiMessages, AudioBuffer<
 template <typename SampleType>
 void SynthBase<SampleType>::bypassedBlock (int numSamples, MidiBuffer& midiMessages)
 {
-	//	midi.processBypassed (midiMessages);
+	//    midi.processBypassed (midiMessages);
 
 	for (auto* voice : voices)
 		voice->bypassedBlock (numSamples);
@@ -159,37 +159,37 @@ void SynthBase<SampleType>::changeNumVoices (int newNumVoices)
 // template <typename SampleType>
 // void SynthBase<SampleType>::removeNumVoices (int voicesToRemove)
 //{
-//	if (voicesToRemove == 0) return;
+//    if (voicesToRemove == 0) return;
 //
 //#if JUCE_DEBUG
-//	const auto shouldBeLeft = voices.size() - voicesToRemove;
+//    const auto shouldBeLeft = voices.size() - voicesToRemove;
 //#endif
 //
-//	int voicesRemoved = 0;
+//    int voicesRemoved = 0;
 //
-//	while (voicesRemoved < voicesToRemove && ! voices.isEmpty())
-//	{
-//		if (voices.isEmpty()) break;
+//    while (voicesRemoved < voicesToRemove && ! voices.isEmpty())
+//    {
+//        if (voices.isEmpty()) break;
 //
-//		Voice* removing = voiceAllocator.findFreeVoice (true);
+//        Voice* removing = voiceAllocator.findFreeVoice (true);
 //
-//		if (removing == nullptr) removing = voices[0];
+//        if (removing == nullptr) removing = voices[0];
 //
-//		if (removing->isVoiceActive())
-//		{
-//			panner.panValTurnedOff (removing->getCurrentMidiPan());
-//			aggregateMidiBuffer.addEvent (MidiMessage::noteOff (removing->getMidiChannel(), removing->getCurrentlyPlayingNote(), 1.0f),
-//			                              midi.router.getLastMidiTimestamp());
-//		}
+//        if (removing->isVoiceActive())
+//        {
+//            panner.panValTurnedOff (removing->getCurrentMidiPan());
+//            aggregateMidiBuffer.addEvent (MidiMessage::noteOff (removing->getMidiChannel(), removing->getCurrentlyPlayingNote(), 1.0f),
+//                                          midi.router.getLastMidiTimestamp());
+//        }
 //
-//		voices.removeObject (removing, true);
+//        voices.removeObject (removing, true);
 //
-//		++voicesRemoved;
-//	}
+//        ++voicesRemoved;
+//    }
 //
-//	jassert (voices.isEmpty() || voices.size() == shouldBeLeft);
+//    jassert (voices.isEmpty() || voices.size() == shouldBeLeft);
 //
-//	numVoicesChanged();
+//    numVoicesChanged();
 // }
 
 

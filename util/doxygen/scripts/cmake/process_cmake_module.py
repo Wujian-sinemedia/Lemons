@@ -107,7 +107,7 @@ def process_file(file_path, dest_dir, dest_file, category):
     output_file = os.path.join(dest_dir, name + ".md")
 
     with open(output_file, "w") as f:
-        f.write("# {n}		{{#{n}}}".format(n=name))
+        f.write("# {n}        {{#{n}}}".format(n=name))
         f.write("\r\n")
         f.write("[Back to CMake modules reference](@ref {n})".format(n="CMake_modules"))
         f.write("\r\n\r\n")

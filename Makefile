@@ -111,6 +111,7 @@ init:  ## Initializes the Lemons workspace and installs all dependencies
 	@chmod +x $(SCRIPTS_DIR)/clean.cmake $(SCRIPTS_DIR)/install_deps.cmake
 	$(CMAKE) -P $(SCRIPTS_DIR)/install_deps.cmake
 	@cd $(LEMONS_ROOT) && $(PRECOMMIT) install --install-hooks --overwrite
+	@cd $(LEMONS_ROOT) && $(PRECOMMIT) install --install-hooks --overwrite --hook-type commit-msg
 
 
 pc:  ## Runs all pre-commit hooks over all files

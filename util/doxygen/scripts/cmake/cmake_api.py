@@ -130,7 +130,11 @@ def process_cmake_api(cmake_api_input, lemons_root):
     with open(lemons_cmakelists, "r") as f:
         cmakelists_text = f.read()
 
-    output_lines = ["# Lemons CMake API		{#CMake_API}", "\r\n", "## CMake options"]
+    output_lines = [
+        "# Lemons CMake API        {#CMake_API}",
+        "\r\n",
+        "## CMake options",
+    ]
 
     options = get_options_from_cmakelists(cmakelists_text)
     options += get_cache_vars_from_cmakelists(cmakelists_text)
