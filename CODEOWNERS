@@ -39,3 +39,7 @@ util/Templates/plugin/Source/modules/new_dsp/new_dsp.cpp benthevining
 modules/Plugins/lemons_plugin/unit_tests/audio_processor_test.h benthevining
 modules/Plugins/lemons_plugin/state/ParameterList.cpp benthevining
 modules/GUI/lemons_gui/utilities/CapsLock.cpp benthevining
+modules/Audio/lemons_dsp/lemons_dsp.cpp benthevining
+modules/Plugins/lemons_plugin_gui/lemons_plugin_gui.cpp benthevining
+modules/Audio/lemons_synth/lemons_synth.cpp benthevining
+modules/Common/lemons_musicology/lemons_musicology.cpp benthevining

@@ -1,8 +1,8 @@
 #include "lemons_plugin_gui.h"
 
 
-#include "sliders/Sliders.cpp"
 #include "sliders/SliderBase.cpp"
+#include "sliders/Sliders.cpp"
 
 #include "buttons/Buttons.cpp"
 

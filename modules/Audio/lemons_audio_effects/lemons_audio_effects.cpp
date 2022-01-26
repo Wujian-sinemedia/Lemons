@@ -11,9 +11,9 @@
 #include "misc/DryWet.cpp"
 #include "misc/Reverb.cpp"
 #include "panning/MonoToStereoPanner.cpp"
-#include "panning/StereoPanner.cpp"
 #include "panning/PannerBase.cpp"
+#include "panning/StereoPanner.cpp"
 #include "time/Delay.cpp"
 
-#include "EQ/Filter.cpp"
 #include "EQ/EQ.cpp"
+#include "EQ/Filter.cpp"

@@ -20,7 +20,7 @@ repos:
 
       # general
       - id: check-added-large-files
-        args: ['--maxkb=2000']
+        args: [--maxkb=2000]
       - id: check-case-conflict
       - id: check-merge-conflict
       - id: end-of-file-fixer

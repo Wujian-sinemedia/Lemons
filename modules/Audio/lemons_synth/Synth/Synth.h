@@ -2,8 +2,8 @@
 #pragma once
 
 #include "helpers/AutomatedHarmonyVoice.h"
-#include "helpers/PanningManager.h"
 #include "helpers/MidiManager.h"
+#include "helpers/PanningManager.h"
 #include "helpers/VoiceAllocator.h"
 
 

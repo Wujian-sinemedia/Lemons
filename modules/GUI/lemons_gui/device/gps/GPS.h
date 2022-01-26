@@ -61,7 +61,7 @@ public:
 	bool		 operator!= (const GPSLocation& other) const;
 
 	double latitude, longitude;	 //< The coordinates in degrees.
-	double altitude = 0.0;	//< The altitude. Though typically this is in meters, it is platform dependant.
+	double altitude = 0.0;		 //< The altitude. Though typically this is in meters, it is platform dependant.
 };
 
 }  // namespace lemons

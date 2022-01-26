@@ -2,8 +2,8 @@
 
 #if 0
 
-#  include "SynthVoice/TimbreMod.cpp"
 #  include "SynthVoice/SynthVoice.cpp"
+#  include "SynthVoice/TimbreMod.cpp"
 
 #  include "Synth/helpers/AutomatedHarmonyVoice.cpp"
 #  include "Synth/helpers/MidiManager.cpp"

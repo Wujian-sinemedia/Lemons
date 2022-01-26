@@ -16,9 +16,9 @@
 
 #pragma once
 
+#include <list>
 #include <type_traits>
 #include <vector>
-#include <list>
 
 /** @defgroup lemons_core lemons_core
 	@ingroup Common

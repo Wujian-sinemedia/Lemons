@@ -1,7 +1,7 @@
 #pragma once
 
-#include <lemons_plugin/lemons_plugin.h>
 #include <lemons_gui/lemons_gui.h>
+#include <lemons_plugin/lemons_plugin.h>
 
 namespace lemons::gui::components
 {
