@@ -21,3 +21,7 @@ modules/Audio/lemons_dsp/engines/MidiProcessorEngine.h benthevining
 util/cmake/modules/integrations/LemonsAllIntegrations.cmake benthevining
 modules/Audio/lemons_psola/resynthesis/MidiShifter.h benthevining
 CODEOWNERS benthevining
+.clang-format benthevining
+modules/GUI/lemons_gui/device/DeviceRotation.h benthevining
+modules/Audio/lemons_midi/processors/processors.h benthevining
+.pre-commit-config.yaml benthevining

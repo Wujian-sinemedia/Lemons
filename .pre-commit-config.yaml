@@ -148,4 +148,4 @@ repos:
       - id: pylint
 
 ci:
-  skip: [shellcheck]
+  skip: [shellcheck, gitown]
