@@ -43,3 +43,4 @@ modules/Audio/lemons_dsp/lemons_dsp.cpp benthevining
 modules/Plugins/lemons_plugin_gui/lemons_plugin_gui.cpp benthevining
 modules/Audio/lemons_synth/lemons_synth.cpp benthevining
 modules/Common/lemons_musicology/lemons_musicology.cpp benthevining
+.gitlint benthevining
