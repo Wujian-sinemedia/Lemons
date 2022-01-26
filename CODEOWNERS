@@ -32,3 +32,10 @@ modules/Audio/lemons_midi/tuning/mts_client.cpp benthevining
 modules/Audio/lemons_dsp/fifos/CircularBuffer.cpp benthevining
 modules/Audio/lemons_psola/resynthesis/IntervalShifter.h benthevining
 modules/Audio/lemons_psola/resynthesis/MidiShifter.cpp benthevining
+util/assets/samples/inst_79.wav benthevining
+modules/GUI/lemons_spline/lemons_spline.h benthevining
+util/cmake/modules/juce/LemonsAssetsHelpers.cmake benthevining
+util/Templates/plugin/Source/modules/new_dsp/new_dsp.cpp benthevining
+modules/Plugins/lemons_plugin/unit_tests/audio_processor_test.h benthevining
+modules/Plugins/lemons_plugin/state/ParameterList.cpp benthevining
+modules/GUI/lemons_gui/utilities/CapsLock.cpp benthevining
