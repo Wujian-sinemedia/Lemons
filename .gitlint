@@ -1,9 +1,17 @@
 [general]
 
-ignore=title-trailing-punctuation, body-is-missing
+ignore=title-trailing-punctuation, body-is-missing, body-first-line-empty
 
 fail-without-commits=true
 
+staged=true
+
+contrib=contrib-title-conventional-commits
+
 
 [title-min-length]
-min-length=5
+min-length=10
+
+
+[contrib-title-conventional-commits]
+types = fix, feat, chore, docs, style, refactor, test, revert, ci
