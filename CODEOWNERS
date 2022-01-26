@@ -12,3 +12,12 @@ modules/Audio/lemons_audio_effects/panning/MonoToStereoPanner.cpp benthevining
 modules/Plugins/lemons_plugin_gui/PresetBar/PresetBar.h benthevining
 modules/Audio/lemons_psola/resynthesis/shifter.h benthevining
 .gitownrc benthevining
+modules/Audio/lemons_dsp/oscillators/choosable.cpp benthevining
+modules/Audio/lemons_dsp/fifos/CircularBuffer.h benthevining
+modules/Audio/lemons_dsp/unit_tests/dsp_test.h benthevining
+modules/Audio/lemons_midi/tuning/mts_client.h benthevining
+modules/Audio/lemons_psola/resynthesis/IntervalShifter_tests.cpp benthevining
+modules/Audio/lemons_dsp/engines/MidiProcessorEngine.h benthevining
+util/cmake/modules/integrations/LemonsAllIntegrations.cmake benthevining
+modules/Audio/lemons_psola/resynthesis/MidiShifter.h benthevining
+CODEOWNERS benthevining
