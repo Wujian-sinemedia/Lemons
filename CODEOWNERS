@@ -124,3 +124,7 @@ util/cmake/modules/general/LemonsCmakeDevTools.cmake benthevining
 .gitignore benthevining
 modules/Audio/lemons_synth/SynthVoice/TimbreMod.h benthevining
 scripts/lemons_config.json benthevining
+modules/Plugins/lemons_plugin/parameters/Parameter.cpp benthevining
+modules/Plugins/lemons_plugin_gui/PresetBar/StateToggleButtons.h benthevining
+modules/Audio/lemons_synth/BasicSynths/TemplateSynth.h benthevining
+modules/Audio/lemons_dsp/fifos/CircularBuffer_tests.cpp benthevining
