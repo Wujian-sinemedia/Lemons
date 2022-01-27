@@ -14,4 +14,4 @@ min-length=10
 
 
 [contrib-title-conventional-commits]
-types = fix, feat, chore, docs, style, refactor, test, revert, ci
+types = fix, feat, chore, docs, style, refactor, test, ci

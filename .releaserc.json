@@ -6,26 +6,98 @@
     [
       "@semantic-release/commit-analyzer",
       {
-        "preset": "conventionalcommits"
+        "preset": "conventionalcommits",
+        "presetConfig": {
+          "types": [
+            {
+              "section": "Bug Fixes",
+              "type": "fix"
+            },
+            {
+              "section": "Features",
+              "type": "feat"
+            },
+            {
+              "hidden": true,
+              "type": "chore"
+            },
+            {
+              "hidden": true,
+              "type": "docs"
+            },
+            {
+              "hidden": true,
+              "type": "style"
+            },
+            {
+              "hidden": true,
+              "type": "refactor"
+            },
+            {
+              "hidden": true,
+              "type": "test"
+            },
+            {
+              "hidden": true,
+              "type": "ci"
+            }
+          ]
+        }
       }
     ],
     [
       "@semantic-release/release-notes-generator",
       {
-        "preset": "conventionalcommits"
+        "preset": "conventionalcommits",
+        "presetConfig": {
+          "types": [
+            {
+              "section": "Bug Fixes",
+              "type": "fix"
+            },
+            {
+              "section": "Features",
+              "type": "feat"
+            },
+            {
+              "hidden": true,
+              "type": "chore"
+            },
+            {
+              "hidden": true,
+              "type": "docs"
+            },
+            {
+              "hidden": true,
+              "type": "style"
+            },
+            {
+              "hidden": true,
+              "type": "refactor"
+            },
+            {
+              "hidden": true,
+              "type": "test"
+            },
+            {
+              "hidden": true,
+              "type": "ci"
+            }
+          ]
+        }
       }
     ],
     [
       "@semantic-release/changelog",
       {
-        "changelogFile": "docs/CHANGELOG.md"
+        "changelogFile": "CHANGELOG.md"
       }
     ],
     [
       "@semantic-release/git",
       {
         "assets": [
-          "docs/CHANGELOG.md"
+          "CHANGELOG.md"
         ]
       }
     ],
@@ -35,7 +107,7 @@
         "assets": [
           {
             "label": "Changelog",
-            "path": "docs/CHANGELOG.md"
+            "path": "CHANGELOG.md"
           }
         ]
       }
