@@ -60,18 +60,18 @@ public:
 
 	/** Converts a stereo signal to mono. */
 	void convertStereoToMono (const SampleType* leftIn,
-		const SampleType*						rightIn,
-		SampleType*								monoOut,
-		int										numSamples);
+							  const SampleType* rightIn,
+							  SampleType*		monoOut,
+							  int				numSamples);
 
 	/** Converts a stereo signal to mono. */
 	void convertStereoToMono (const AudioBuffer<SampleType>& input, AudioBuffer<SampleType>& output);
 
 	/** Converts a mono signal to stereo. */
 	void convertMonoToStereo (const SampleType* monoIn,
-		SampleType*								leftOut,
-		SampleType*								rightOut,
-		int										numSamples);
+							  SampleType*		leftOut,
+							  SampleType*		rightOut,
+							  int				numSamples);
 
 	/** Converts a mono signal to stereo. */
 	void convertMonoToStereo (const AudioBuffer<SampleType>& input, AudioBuffer<SampleType>& output);

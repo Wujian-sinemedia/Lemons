@@ -28,11 +28,11 @@ void fillMidiBufferWithRandomEvents (MidiBuffer& buffer, int numEvents, juce::Ra
 
 	for (int i = 0; i < numEvents; ++i)
 		buffer.addEvent (juce::MidiMessage::controllerEvent (1, rng.nextInt (128), rng.nextInt (128)),
-			i);
+						 i);
 }
 
 bool midiBuffersAreEqual (const MidiBuffer& buffer1,
-	const MidiBuffer&						buffer2)
+						  const MidiBuffer& buffer2)
 {
 	if (buffer1.getNumEvents() != buffer2.getNumEvents())
 		return false;

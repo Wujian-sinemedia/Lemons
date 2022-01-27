@@ -28,8 +28,8 @@ GPSLocation& GPSLocation::operator= (const GPSLocation& other)
 bool GPSLocation::operator== (const GPSLocation& other) const
 {
 	return latitude == other.latitude
-		   && longitude == other.longitude
-		   && altitude == other.altitude;
+		&& longitude == other.longitude
+		&& altitude == other.altitude;
 }
 
 bool GPSLocation::operator!= (const GPSLocation& other) const
@@ -40,7 +40,7 @@ bool GPSLocation::operator!= (const GPSLocation& other) const
 bool GPSLocation::isNull() const
 {
 	return latitude == std::numeric_limits<double>::infinity()
-		   && longitude == std::numeric_limits<double>::infinity();
+		&& longitude == std::numeric_limits<double>::infinity();
 }
 
 }  // namespace lemons

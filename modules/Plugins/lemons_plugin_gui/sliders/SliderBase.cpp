@@ -15,8 +15,8 @@ SliderBase::SliderBase (plugin::Parameter& paramToUse)
 	auto range = param_.getNormalisableRange();
 
 	auto convertFrom0To1Function = [=] (double currentRangeStart,
-									   double  currentRangeEnd,
-									   double  normalisedValue) mutable
+										double currentRangeEnd,
+										double normalisedValue) mutable
 	{
 		range.start = static_cast<float> (currentRangeStart);
 		range.end	= static_cast<float> (currentRangeEnd);
@@ -25,8 +25,8 @@ SliderBase::SliderBase (plugin::Parameter& paramToUse)
 	};
 
 	auto convertTo0To1Function = [=] (double currentRangeStart,
-									 double	 currentRangeEnd,
-									 double	 mappedValue) mutable
+									  double currentRangeEnd,
+									  double mappedValue) mutable
 	{
 		range.start = static_cast<float> (currentRangeStart);
 		range.end	= static_cast<float> (currentRangeEnd);
@@ -35,8 +35,8 @@ SliderBase::SliderBase (plugin::Parameter& paramToUse)
 	};
 
 	auto snapToLegalValueFunction = [=] (double currentRangeStart,
-										double	currentRangeEnd,
-										double	mappedValue) mutable
+										 double currentRangeEnd,
+										 double mappedValue) mutable
 	{
 		range.start = static_cast<float> (currentRangeStart);
 		range.end	= static_cast<float> (currentRangeEnd);
@@ -45,10 +45,10 @@ SliderBase::SliderBase (plugin::Parameter& paramToUse)
 	};
 
 	juce::NormalisableRange<double> newRange { static_cast<double> (range.start),
-		static_cast<double> (range.end),
-		std::move (convertFrom0To1Function),
-		std::move (convertTo0To1Function),
-		std::move (snapToLegalValueFunction) };
+											   static_cast<double> (range.end),
+											   std::move (convertFrom0To1Function),
+											   std::move (convertTo0To1Function),
+											   std::move (snapToLegalValueFunction) };
 
 	newRange.interval	   = range.interval;
 	newRange.skew		   = range.skew;

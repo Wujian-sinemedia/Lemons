@@ -74,24 +74,24 @@ int Engine<SampleType>::getNumChannels() const noexcept
 
 template <typename SampleType>
 void Engine<SampleType>::process (AudioBuffer<SampleType>& inplaceInAndOut,
-	MidiBuffer&											   midiMessages,
-	bool												   isBypassed)
+								  MidiBuffer&			   midiMessages,
+								  bool					   isBypassed)
 {
 	processInternal (inplaceInAndOut, inplaceInAndOut, midiMessages, isBypassed);
 }
 
 template <typename SampleType>
 void Engine<SampleType>::process (const AudioBuffer<SampleType>& input,
-	AudioBuffer<SampleType>&									 output,
-	MidiBuffer&													 midiMessages,
-	bool														 isBypassed)
+								  AudioBuffer<SampleType>&		 output,
+								  MidiBuffer&					 midiMessages,
+								  bool							 isBypassed)
 {
 	processInternal (input, output, midiMessages, isBypassed);
 }
 
 template <typename SampleType>
 void Engine<SampleType>::process (AudioBuffer<SampleType>& inplaceInAndOut,
-	bool												   isBypassed)
+								  bool					   isBypassed)
 {
 	dummyMidiBuffer.clear();
 	processInternal (inplaceInAndOut, inplaceInAndOut, dummyMidiBuffer, isBypassed);
@@ -99,8 +99,8 @@ void Engine<SampleType>::process (AudioBuffer<SampleType>& inplaceInAndOut,
 
 template <typename SampleType>
 void Engine<SampleType>::process (const AudioBuffer<SampleType>& input,
-	AudioBuffer<SampleType>&									 output,
-	bool														 isBypassed)
+								  AudioBuffer<SampleType>&		 output,
+								  bool							 isBypassed)
 {
 	dummyMidiBuffer.clear();
 	processInternal (input, output, dummyMidiBuffer, isBypassed);
@@ -174,8 +174,8 @@ template class Engine<double>;
 
 template <typename SampleType>
 void PassThroughEngine<SampleType>::renderBlock (const AudioBuffer<SampleType>& input,
-	AudioBuffer<SampleType>&													output,
-	MidiBuffer& midiMessages, bool isBypassed)
+												 AudioBuffer<SampleType>&		output,
+												 MidiBuffer& midiMessages, bool isBypassed)
 {
 	if (isBypassed)
 		output.clear();

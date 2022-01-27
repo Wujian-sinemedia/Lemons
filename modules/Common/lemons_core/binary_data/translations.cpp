@@ -17,7 +17,7 @@ namespace lemons::locale
 {
 
 void initializeTranslations (const binary::Data& data,
-	bool										 ignoreCaseOfKeys)
+							 bool				 ignoreCaseOfKeys)
 {
 	if (! data.isValid())
 		return;

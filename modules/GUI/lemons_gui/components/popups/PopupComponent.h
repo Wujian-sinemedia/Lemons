@@ -198,7 +198,7 @@ public:
 	juce::Component::SafePointer<ContentType> create (Args&&... args)
 	{
 		window.reset (new Content (window, wrapperCloseButton, escapeKeyClosesWrapper,
-			std::forward<Args> (args)...));
+								   std::forward<Args> (args)...));
 
 		auto* ptr = window.get();
 		getTopLevelComponent()->addAndMakeVisible (ptr);

@@ -144,8 +144,8 @@ struct Version final
 	[[nodiscard]] constexpr Version withMajorBump() const
 	{
 		return Version { major + 1,
-			0,
-			0 };
+						 0,
+						 0 };
 	}
 
 	/** Returns a new Version object with bumpMinor() applied.
@@ -154,8 +154,8 @@ struct Version final
 	[[nodiscard]] constexpr Version withMinorBump() const
 	{
 		return Version { major,
-			minor + 1,
-			0 };
+						 minor + 1,
+						 0 };
 	}
 
 	/** Returns a new Version object with bumpPatch() applied.
@@ -164,8 +164,8 @@ struct Version final
 	[[nodiscard]] constexpr Version withPatchBump() const
 	{
 		return Version { major,
-			minor,
-			patch + 1 };
+						 minor,
+						 patch + 1 };
 	}
 
 	/** Returns a String representation of this Version, with a '.' placed between the major, minor, and patch integers.

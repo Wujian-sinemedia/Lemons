@@ -48,10 +48,10 @@ public:
 		@param sidechain Pointer to contiguous sidechain signal values, if any.
 		@return The gain reduction amount for this frame of this channel's audio.
 	*/
-	SampleType processChannel (int channel,
-		int						   numSamples,
-		SampleType*				   signalToDeEss,
-		const SampleType*		   sidechain) final;
+	SampleType processChannel (int				 channel,
+							   int				 numSamples,
+							   SampleType*		 signalToDeEss,
+							   const SampleType* sidechain) final;
 
 
 private:

@@ -16,8 +16,8 @@ SaveToFilePrompt::SaveToFilePrompt (const ValueTree& dataToSave, std::unique_ptr
 void SaveToFilePrompt::run()
 {
 	chooser.launchAsync (juce::FileBrowserComponent::canSelectFiles | juce::FileBrowserComponent::warnAboutOverwriting | juce::FileBrowserComponent::saveMode,
-		[this] (const juce::FileChooser& f)
-		{ this->processFileChooserResult (f.getResult()); });
+						 [this] (const juce::FileChooser& f)
+						 { this->processFileChooserResult (f.getResult()); });
 }
 
 void SaveToFilePrompt::processFileChooserResult (const File& chosenFile)

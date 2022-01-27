@@ -39,8 +39,8 @@ ValueTree VariantConverter<ValueTree>::fromVar (const var& obj)
 			if (name.startsWith (BASE64_PROP))
 			{
 				tree.setProperty (name.substring (base64PropLen),
-					VariantConverter<MemoryBlock>::toVar (lemons::serializing::memoryBlockFromString (itr.value.toString())),
-					nullptr);
+								  VariantConverter<MemoryBlock>::toVar (lemons::serializing::memoryBlockFromString (itr.value.toString())),
+								  nullptr);
 			}
 			else
 			{
@@ -80,7 +80,7 @@ var VariantConverter<ValueTree>::toVar (const ValueTree& tree)
 		if (const auto* mb = val.getBinaryData())
 		{
 			obj.setProperty (BASE64_PROP + name,
-				VariantConverter<MemoryBlock>::toVar (*mb));
+							 VariantConverter<MemoryBlock>::toVar (*mb));
 
 			continue;
 		}

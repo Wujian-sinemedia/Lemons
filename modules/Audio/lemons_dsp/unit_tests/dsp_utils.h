@@ -35,37 +35,37 @@ void fillAudioBufferWithRandomNoise (AudioBuffer<SampleType>& buffer, juce::Rand
  */
 template <typename FloatType>
 [[nodiscard]] bool buffersAreEqual (const AudioBuffer<FloatType>& buffer1,
-	const AudioBuffer<FloatType>&								  buffer2);
+									const AudioBuffer<FloatType>& buffer2);
 
 /** @ingroup lemons_dsp_unit_tests
  */
 template <typename FloatType>
 [[nodiscard]] bool buffersAreReasonablyEqual (const AudioBuffer<FloatType>& buffer1,
-	const AudioBuffer<FloatType>&											buffer2);
+											  const AudioBuffer<FloatType>& buffer2);
 
 /** @ingroup lemons_dsp_unit_tests
  */
 template <typename FloatType>
 [[nodiscard]] bool allSamplesAreEqual (const AudioBuffer<FloatType>& buffer1,
-	const AudioBuffer<FloatType>&									 buffer2,
-	int startIndex1, int numSamples,
-	int startIndex2 = -1,
-	int channel1	= 0,
-	int channel2	= -1);
+									   const AudioBuffer<FloatType>& buffer2,
+									   int startIndex1, int numSamples,
+									   int startIndex2 = -1,
+									   int channel1	   = 0,
+									   int channel2	   = -1);
 
 /** @ingroup lemons_dsp_unit_tests
  */
 template <typename FloatType>
 [[nodiscard]] bool bufferChannelsAreEqual (const AudioBuffer<FloatType>& buffer1,
-	int																	 channel1,
-	const AudioBuffer<FloatType>&										 buffer2,
-	int																	 channel2);
+										   int							 channel1,
+										   const AudioBuffer<FloatType>& buffer2,
+										   int							 channel2);
 
 /** @ingroup lemons_dsp_unit_tests
  */
 template <typename FloatType>
 [[nodiscard]] bool allSamplesAreZero (const AudioBuffer<FloatType>& buffer,
-	int startIndex, int numSamples, int channel = 0);
+									  int startIndex, int numSamples, int channel = 0);
 
 /** @ingroup lemons_dsp_unit_tests
  */

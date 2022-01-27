@@ -51,7 +51,7 @@ private:
 				logImportantMessage ("Frequency: " + String (freq));
 
 				osc.setFrequency (static_cast<SampleType> (freq),
-					static_cast<SampleType> (samplerate));
+								  static_cast<SampleType> (samplerate));
 
 				osc.getSamples (storage);
 
@@ -83,8 +83,8 @@ private:
 				for (int i = 1; i < zeroCrossings.size(); ++i)
 				{
 					expectWithinAbsoluteError (zeroCrossings.getUnchecked (i) - zeroCrossings.getUnchecked (i - 1),
-						period / 2,
-						3);
+											   period / 2,
+											   3);
 				}
 			}
 		}

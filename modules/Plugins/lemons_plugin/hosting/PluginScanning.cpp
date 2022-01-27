@@ -18,7 +18,7 @@ juce::AudioPluginFormatManager& getDefaultPluginFormatManager()
 
 
 std::unique_ptr<juce::KnownPluginList> scanDirectoryForPlugins (juce::FileSearchPath rootDirectory,
-	const File&																		 blacklistFile)
+																const File&			 blacklistFile)
 {
 	auto list = std::make_unique<juce::KnownPluginList>();
 
@@ -41,10 +41,10 @@ std::unique_ptr<juce::KnownPluginList> scanDirectoryForPlugins (juce::FileSearch
 /*------------------------------------------------------------------------------------------------------------------------*/
 
 
-Category::Category (const String& categoryName,
-	SortMethod					  sortMethodToUse,
-	SortingCallback				  sortingCallback,
-	SubcategoryNamingCallback	  subcategoryNaming)
+Category::Category (const String&			  categoryName,
+					SortMethod				  sortMethodToUse,
+					SortingCallback			  sortingCallback,
+					SubcategoryNamingCallback subcategoryNaming)
 	: shouldPutInThisCategory (sortingCallback), getSubcategoryName (subcategoryNaming), sortMethod (sortMethodToUse), name (categoryName)
 {
 }
@@ -101,7 +101,7 @@ void Category::addFromPluginTree (const juce::KnownPluginList::PluginTree& tree)
 					return subcat;
 
 			return subcategories.add (new Category (subcategoryName, sortMethod,
-				shouldPutInThisCategory, getSubcategoryName));
+													shouldPutInThisCategory, getSubcategoryName));
 		}();
 
 		jassert (subcategory != nullptr);
@@ -189,13 +189,13 @@ Category::SubcategoryNamingCallback Category::getDefaultSubcategoryNamingCallbac
 
 
 std::unique_ptr<Category> scanDirectory (juce::FileSearchPath rootDirectory,
-	const File&												  blacklistFile,
-	Category::SortMethod									  sortMethod,
-	const String&											  rootCategoryName)
+										 const File&		  blacklistFile,
+										 Category::SortMethod sortMethod,
+										 const String&		  rootCategoryName)
 {
 	auto category = std::make_unique<Category> (rootCategoryName, sortMethod,
-		Category::getDefaultSortingCallback (sortMethod),
-		Category::getDefaultSubcategoryNamingCallback (sortMethod));
+												Category::getDefaultSortingCallback (sortMethod),
+												Category::getDefaultSubcategoryNamingCallback (sortMethod));
 
 	const auto list = scanDirectoryForPlugins (rootDirectory, blacklistFile);
 	const auto tree = juce::KnownPluginList::createTree (list->getTypes(), getSortingMethod (sortMethod));

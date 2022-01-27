@@ -33,9 +33,9 @@ void MonoStereoConverter<SampleType>::setStereoReductionMode (StereoReductionMod
 
 template <typename SampleType>
 void MonoStereoConverter<SampleType>::convertStereoToMono (const SampleType* leftIn,
-	const SampleType*														 rightIn,
-	SampleType*																 monoOut,
-	int																		 numSamples)
+														   const SampleType* rightIn,
+														   SampleType*		 monoOut,
+														   int				 numSamples)
 {
 	using FVO = juce::FloatVectorOperations;
 
@@ -70,17 +70,17 @@ void MonoStereoConverter<SampleType>::convertStereoToMono (const AudioBuffer<Sam
 	jassert (output.getNumChannels() == 1);
 
 	convertStereoToMono (input.getReadPointer (0),
-		input.getReadPointer (1),
-		output.getWritePointer (0),
-		output.getNumSamples());
+						 input.getReadPointer (1),
+						 output.getWritePointer (0),
+						 output.getNumSamples());
 }
 
 
 template <typename SampleType>
 void MonoStereoConverter<SampleType>::convertMonoToStereo (const SampleType* monoIn,
-	SampleType*																 leftOut,
-	SampleType*																 rightOut,
-	int																		 numSamples)
+														   SampleType*		 leftOut,
+														   SampleType*		 rightOut,
+														   int				 numSamples)
 {
 	using FVO = juce::FloatVectorOperations;
 
@@ -96,9 +96,9 @@ void MonoStereoConverter<SampleType>::convertMonoToStereo (const AudioBuffer<Sam
 	jassert (output.getNumChannels() == 2);
 
 	convertMonoToStereo (input.getReadPointer (0),
-		output.getWritePointer (0),
-		output.getWritePointer (1),
-		output.getNumSamples());
+						 output.getWritePointer (0),
+						 output.getWritePointer (1),
+						 output.getNumSamples());
 }
 
 template class MonoStereoConverter<float>;

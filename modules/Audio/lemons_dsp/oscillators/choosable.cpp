@@ -25,7 +25,7 @@ void ChoosableOscillator<SampleType>::setOscType (OscType newType)
 
 template <typename SampleType>
 void ChoosableOscillator<SampleType>::renderBlock (const AudioBuffer<SampleType>& input,
-	AudioBuffer<SampleType>& output, MidiBuffer& midi, bool isBypassed)
+												   AudioBuffer<SampleType>& output, MidiBuffer& midi, bool isBypassed)
 {
 	output.clear();
 

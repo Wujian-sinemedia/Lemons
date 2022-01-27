@@ -40,7 +40,7 @@ MemoryBlock fontToBinary (const juce::Font& font, int maxNumChars, juce_wchar de
 	juce::CustomTypeface customTypeface;
 
 	customTypeface.setCharacteristics (font.getTypefaceName(), font.getAscent(),
-		font.isBold(), font.isItalic(), defaultChar);
+									   font.isBold(), font.isItalic(), defaultChar);
 
 	customTypeface.addGlyphsFromOtherTypeface (*font.getTypefacePtr(), 0, maxNumChars);
 

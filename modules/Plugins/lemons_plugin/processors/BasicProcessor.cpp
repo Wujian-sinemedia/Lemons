@@ -64,7 +64,7 @@ void BasicProcessor::callEditorMethod (std::function<void (juce::AudioProcessorE
 	using EditorPtr = juce::Component::SafePointer<juce::AudioProcessorEditor>;
 
 	juce::MessageManager::callAsync ([editor = EditorPtr (getActiveEditor()), func]
-		{
+									 {
 		if (auto* e = editor.getComponent())
 			func (*e); });
 }
@@ -72,7 +72,7 @@ void BasicProcessor::callEditorMethod (std::function<void (juce::AudioProcessorE
 void BasicProcessor::repaintEditor() const
 {
 	callEditorMethod ([] (juce::AudioProcessorEditor& e)
-		{ e.repaint(); });
+					  { e.repaint(); });
 }
 
 
@@ -115,8 +115,8 @@ ValueTree BasicProcessor::busPropertiesToValueTree (const BusProperties& propert
 	tree.setProperty (nameProp, properties.busName, nullptr);
 
 	tree.setProperty (defaultProp,
-		juce::VariantConverter<juce::AudioChannelSet>::toVar (properties.defaultLayout),
-		nullptr);
+					  juce::VariantConverter<juce::AudioChannelSet>::toVar (properties.defaultLayout),
+					  nullptr);
 
 	tree.setProperty (activeProp, properties.isActivatedByDefault, nullptr);
 

@@ -85,11 +85,11 @@ int main (int argc, char** argv)
 	}();
 
 	const auto res = lemons::tests::executeUnitTests (intensity,
-		args.getFilepathForOption ("--file|-f"),
-		seed,
-		args["--test|-t"],
-		args["--category|-c"],
-		args.containsOption ("--rerun-failed|-r"));
+													  args.getFilepathForOption ("--file|-f"),
+													  seed,
+													  args["--test|-t"],
+													  args["--category|-c"],
+													  args.containsOption ("--rerun-failed|-r"));
 
 	if (res)
 		return EXIT_SUCCESS;

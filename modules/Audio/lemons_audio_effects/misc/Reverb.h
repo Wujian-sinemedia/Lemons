@@ -75,8 +75,8 @@ public:
 		@param reverbLevel Pointer to which to report the reverb level. This may be null.
 	*/
 	void process (juce::AudioBuffer<double>& input,
-		juce::AudioBuffer<double>&			 compressorSidechain,
-		double*								 reverbLevel = nullptr);
+				  juce::AudioBuffer<double>& compressorSidechain,
+				  double*					 reverbLevel = nullptr);
 
 
 	/** Processes a stream of float samples with an external signal sidechaining the reverb signal.
@@ -85,8 +85,8 @@ public:
 		@param reverbLevel Pointer to which to report the reverb level. This may be null.
 	*/
 	void process (juce::AudioBuffer<float>& input,
-		juce::AudioBuffer<float>&			compressorSidechain,
-		float*								reverbLevel = nullptr);
+				  juce::AudioBuffer<float>& compressorSidechain,
+				  float*					reverbLevel = nullptr);
 
 
 private:

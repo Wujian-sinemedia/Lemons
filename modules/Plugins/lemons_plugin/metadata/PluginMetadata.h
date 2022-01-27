@@ -10,9 +10,9 @@ struct PluginMetadata final
 	explicit PluginMetadata() = default;
 
 	explicit PluginMetadata (const ProcessorAttributes& processorAttributesToUse,
-		const ParameterLayout&							parameterLayoutToUse,
-		const EditorAttributes&							editorAttributesToUse,
-		const Version&									versionToUse = Version::projectVersion());
+							 const ParameterLayout&		parameterLayoutToUse,
+							 const EditorAttributes&	editorAttributesToUse,
+							 const Version&				versionToUse = Version::projectVersion());
 
 	[[nodiscard]] ValueTree toValueTree() const;
 

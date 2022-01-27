@@ -95,10 +95,10 @@ void NoiseGate<SampleType>::reset()
 }
 
 template <typename SampleType>
-SampleType NoiseGate<SampleType>::processChannel (int channel,
-	int												  numSamples,
-	SampleType*										  signalToGate,
-	const SampleType*								  sidechain)
+SampleType NoiseGate<SampleType>::processChannel (int				channel,
+												  int				numSamples,
+												  SampleType*		signalToGate,
+												  const SampleType* sidechain)
 {
 	if (numSamples == 0) return (SampleType) 0;
 
@@ -116,13 +116,13 @@ SampleType NoiseGate<SampleType>::processChannel (int channel,
 
 
 template <typename SampleType>
-SampleType NoiseGate<SampleType>::processSample (int channel,
-	SampleType										 sampleToGate,
-	SampleType										 sidechainValue,
-	SampleType*										 gainReduction)
+SampleType NoiseGate<SampleType>::processSample (int		 channel,
+												 SampleType	 sampleToGate,
+												 SampleType	 sidechainValue,
+												 SampleType* gainReduction)
 {
 	auto env = RMSFilter.processSample (channel,
-		sidechainValue);  // RMS ballistics filter
+										sidechainValue);  // RMS ballistics filter
 
 	env = envelopeFilter.processSample (channel, env);	// Ballistics filter
 
@@ -132,16 +132,16 @@ SampleType NoiseGate<SampleType>::processSample (int channel,
 	if (inverted)
 	{
 		gain = (env < threshold)
-				   ? static_cast<SampleType> (1.0)
-				   : std::pow (env * thresholdInverse,
-					   currentRatio - static_cast<SampleType> (1.0));
+				 ? static_cast<SampleType> (1.0)
+				 : std::pow (env * thresholdInverse,
+							 currentRatio - static_cast<SampleType> (1.0));
 	}
 	else
 	{
 		gain = (env > threshold)
-				   ? static_cast<SampleType> (1.0)
-				   : std::pow (env * thresholdInverse,
-					   currentRatio - static_cast<SampleType> (1.0));
+				 ? static_cast<SampleType> (1.0)
+				 : std::pow (env * thresholdInverse,
+							 currentRatio - static_cast<SampleType> (1.0));
 	}
 
 	if (gainReduction != nullptr)  // report gain reduction, if requested

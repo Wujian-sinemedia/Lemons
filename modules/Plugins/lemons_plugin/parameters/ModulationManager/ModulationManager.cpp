@@ -14,10 +14,10 @@ namespace lemons::plugin
 }
 
 ModulationManager::ModulationManager (const ParameterList& parameterList,
-	int													   initialNumLFOs,
-	LfoNamingFunc&&										   namingFunc)
+									  int				   initialNumLFOs,
+									  LfoNamingFunc&&	   namingFunc)
 	: paramList (parameterList), lfos (initialNumLFOs, [&, func = createLfoNamingFunc (std::move (namingFunc))]()
-									 { return new LFO (paramList, func (lfos->size())); })
+									   { return new LFO (paramList, func (lfos->size())); })
 {
 }
 

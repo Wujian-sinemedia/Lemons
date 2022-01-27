@@ -216,9 +216,9 @@ template <typename SampleType>
 SynthVoiceBase<SampleType>* SynthBase<SampleType>::getVoicePlayingNote (int midiPitch) const
 {
 	auto it = std::find_if (voices.begin(),
-		voices.end(),
-		[&midiPitch] (SynthVoiceBase<SampleType>* voice)
-		{ return voice->isVoiceActive() && voice->getCurrentlyPlayingNote() == midiPitch; });
+							voices.end(),
+							[&midiPitch] (SynthVoiceBase<SampleType>* voice)
+							{ return voice->isVoiceActive() && voice->getCurrentlyPlayingNote() == midiPitch; });
 
 	return it != voices.end() ? *it : nullptr;
 }
@@ -233,7 +233,7 @@ int SynthBase<SampleType>::getNumActiveVoices() const
 {
 	return static_cast<int> (
 		std::count_if (voices.begin(), voices.end(), [] (SynthVoiceBase<SampleType>* voice)
-			{ return voice->isVoiceActive(); }));
+					   { return voice->isVoiceActive(); }));
 }
 
 

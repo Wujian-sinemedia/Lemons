@@ -44,9 +44,9 @@ void Editor::Select::paint (juce::Graphics& g)
 	auto rightN = juce::jlimit (0.f, 1.f, x + width) * w + boundsX;
 
 	juce::Rectangle<float> area (xN,
-		bounds.getY(),
-		rightN - xN,
-		bounds.getHeight());
+								 bounds.getY(),
+								 rightN - xN,
+								 bounds.getHeight());
 
 	g.fillRect (area);
 }
@@ -180,15 +180,15 @@ void Editor::paint (juce::Graphics& g)
 	}
 }
 
-void Editor::drawPoint (const Point& knot,
-	const Attribute&				 attribute,
-	juce::Graphics&					 g)
+void Editor::drawPoint (const Point&	 knot,
+						const Attribute& attribute,
+						juce::Graphics&	 g)
 {
 	const auto width = attribute.thickness * 2.f + 1.f;
 
 	g.fillEllipse (knot.x - attribute.thickness,
-		knot.y - attribute.thickness,
-		width, width);
+				   knot.y - attribute.thickness,
+				   width, width);
 }
 
 Point Editor::normalizePoint (const Point& position) const noexcept

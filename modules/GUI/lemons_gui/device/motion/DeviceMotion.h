@@ -119,8 +119,8 @@ private:
 	const ASensor* attitude;
 
 	TimerCallback t { [&]
-		{ if (running) update(); },
-		SENSOR_REFRESH_RATE_HZ, false };
+					  { if (running) update(); },
+					  SENSOR_REFRESH_RATE_HZ, false };
 #endif
 };
 

@@ -19,7 +19,7 @@ FloatSlider::FloatSlider (plugin::FloatParameter& paramToUse, SliderStyle style)
 void FloatSlider::paramValueChanged (float newValue)
 {
 	Slider::setValue (static_cast<double> (newValue),
-		juce::NotificationType::dontSendNotification);
+					  juce::NotificationType::dontSendNotification);
 }
 
 void FloatSlider::paramDefaultChanged (float newDefault)
@@ -54,7 +54,7 @@ IntSlider::IntSlider (plugin::IntParameter& paramToUse, SliderStyle style)
 void IntSlider::paramValueChanged (int newValue)
 {
 	Slider::setValue (static_cast<double> (newValue),
-		juce::NotificationType::dontSendNotification);
+					  juce::NotificationType::dontSendNotification);
 }
 
 void IntSlider::paramDefaultChanged (int newDefault)

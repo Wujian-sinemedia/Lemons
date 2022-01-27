@@ -64,7 +64,7 @@ void SynthBase<SampleType>::startVoice (Voice* voice, int midiPitch, float veloc
 
 	// aftertouch value based on how much the new velocity has changed from the voice's last received velocity (only used if applicable)
 	const auto aftertouch = juce::jlimit (0, 127,
-		juce::roundToInt ((velocity - voice->lastReceivedVelocity) * 127.0f));
+										  juce::roundToInt ((velocity - voice->lastReceivedVelocity) * 127.0f));
 
 	if (! sameNoteRetriggered)	// only output note events if it's not the same note being retriggered
 	{
@@ -209,10 +209,10 @@ void SynthBase<SampleType>::allNotesOff (bool allowTailOff, float velocity)
  Turns off all notes whose keyboard keys aren't being held down anymore.
  */
 template <typename SampleType>
-void SynthBase<SampleType>::turnOffAllKeyupNotes (bool allowTailOff,
-	bool											   includePedalPitchAndDescant,
-	float											   velocity,
-	bool											   overrideSostenutoPedal)
+void SynthBase<SampleType>::turnOffAllKeyupNotes (bool	allowTailOff,
+												  bool	includePedalPitchAndDescant,
+												  float velocity,
+												  bool	overrideSostenutoPedal)
 {
 	for (auto* voice : voices)
 	{
@@ -242,7 +242,7 @@ void SynthBase<SampleType>::updateChannelPressure (int newIncomingAftertouch)
 
 	if (newIncomingAftertouch > highestAftertouch)
 		midi.router.process (MidiMessage::channelPressureChange (midi.router.getLastMidiChannel(),
-			highestAftertouch));
+																 highestAftertouch));
 }
 
 
@@ -364,8 +364,8 @@ bool SynthBase<SampleType>::isPitchActive (int midiPitch, bool countRingingButRe
  */
 template <typename SampleType>
 void SynthBase<SampleType>::reportActiveNotes (juce::Array<int>& outputArray,
-	bool														 includePlayingButReleased,
-	bool														 includeKeyUpNotes) const
+											   bool				 includePlayingButReleased,
+											   bool				 includeKeyUpNotes) const
 {
 	outputArray.clearQuick();
 

@@ -44,7 +44,7 @@ protected:
 	@tparam StateType The type of the plugin's state object. This type must inherit from State.
  */
 template <typename ContentComponentType,
-	LEMONS_MUST_INHERIT_FROM (ContentComponentType, juce::Component)>
+		  LEMONS_MUST_INHERIT_FROM (ContentComponentType, juce::Component)>
 class Editor final : public juce::AudioProcessorEditor
 {
 public:

@@ -24,9 +24,9 @@ ArgParser::ArgParser (int argc, char** argv)
 }
 
 void ArgParser::addArgument (const String& argOrFlags,
-	bool								   required,
-	const String& help, const String& defaultValue,
-	const juce::StringArray& options)
+							 bool		   required,
+							 const String& help, const String& defaultValue,
+							 const juce::StringArray& options)
 {
 	Argument newArg;
 	newArg.argOrFlags	= argOrFlags;

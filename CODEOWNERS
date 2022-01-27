@@ -75,3 +75,11 @@ modules/GUI/lemons_gui/device/gps/GPS_windows.cpp benthevining
 modules/Common/lemons_core/misc/Version.h benthevining
 modules/Audio/lemons_dsp/util/serializing_tests.cpp benthevining
 modules/Audio/lemons_dsp/fifos/AudioAndMidiFIFO_tests.cpp benthevining
+modules/Audio/lemons_audio_effects/dynamics/Limiter.h benthevining
+modules/Audio/lemons_audio_effects/time/Delay.h benthevining
+modules/Audio/lemons_synth/Synth/Synth.h benthevining
+modules/Audio/lemons_audio_effects/dynamics/Compressor.cpp benthevining
+modules/Audio/lemons_midi/tuning/PitchPipeline.cpp benthevining
+util/PluginMetadataEditor/metadata_editor_gui/processor_attributes/ProcessorAttributeComponent.h benthevining
+modules/Audio/lemons_dsp/engines/DspProtection.h benthevining
+modules/Plugins/lemons_plugin_gui/plugin_library/PluginLibraryComponent.h benthevining

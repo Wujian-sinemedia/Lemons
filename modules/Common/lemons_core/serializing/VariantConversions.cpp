@@ -170,7 +170,7 @@ StringPairArray VariantConverter<StringPairArray>::fromVar (const var& v)
 		for (const auto& itr : obj->getProperties())
 		{
 			arr.set (itr.name.toString(),
-				itr.value.toString());
+					 itr.value.toString());
 		}
 	}
 
@@ -189,7 +189,7 @@ var VariantConverter<StringPairArray>::toVar (const StringPairArray& a)
 	for (int i = 0; i < keys.size(); ++i)
 	{
 		obj.setProperty (keys.strings.getUnchecked (i),
-			values.strings.getUnchecked (i));
+						 values.strings.getUnchecked (i));
 	}
 
 	return { obj.clone().get() };

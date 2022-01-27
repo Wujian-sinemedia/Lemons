@@ -25,7 +25,7 @@ namespace lemons
 	[self.motionManager
 		startDeviceMotionUpdatesToQueue:[NSOperationQueue currentQueue]
 							withHandler:^(CMDeviceMotion* motion,
-								NSError*				  error) {
+										  NSError*		  error) {
 								[self
 									outputUserAcceleration:motion.userAcceleration];
 								[self outputGravity:motion.gravity];

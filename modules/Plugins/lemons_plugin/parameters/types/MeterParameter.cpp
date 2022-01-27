@@ -18,10 +18,10 @@ namespace lemons::plugin
 
 template <typename ValueType>
 MeterParameter<ValueType>::MeterParameter (ValueType min, ValueType max, ValueType defaultVal, const String& paramName,
-	ValToStringFunc<ValueType> stringFromValue,
-	StringToValFunc<ValueType> valueFromString,
-	const String&			   parameterLabel,
-	ParameterCategory		   parameterCategory)
+										   ValToStringFunc<ValueType> stringFromValue,
+										   StringToValFunc<ValueType> valueFromString,
+										   const String&			  parameterLabel,
+										   ParameterCategory		  parameterCategory)
 	: TypedParameter<ValueType> (min, max, defaultVal, paramName, stringFromValue, valueFromString, parameterLabel, false, false, parameterCategory)
 {
 }
@@ -56,14 +56,14 @@ template struct MeterParameter<bool>;
  -----------------------------------------------------------------------------------------------------------------------*/
 
 
-GainMeterParameter::GainMeterParameter (const String& paramName,
-	ParameterCategory								  parameterCategory)
+GainMeterParameter::GainMeterParameter (const String&	  paramName,
+										ParameterCategory parameterCategory)
 
 	: MeterParameter<float> (-60.f, 0.f, -60.f,
-		paramName,
-		gain_stringFromFloat,
-		gain_floatFromString,
-		TRANS ("dB"), parameterCategory)
+							 paramName,
+							 gain_stringFromFloat,
+							 gain_floatFromString,
+							 TRANS ("dB"), parameterCategory)
 {
 }
 

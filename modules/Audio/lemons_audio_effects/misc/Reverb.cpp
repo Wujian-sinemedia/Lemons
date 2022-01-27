@@ -140,8 +140,8 @@ void Reverb::process (juce::AudioBuffer<float>& input, float* reverbLevel)
 
 
 void Reverb::process (juce::AudioBuffer<double>& input,
-	juce::AudioBuffer<double>&					 compressorSidechain,
-	double*										 reverbLevel)
+					  juce::AudioBuffer<double>& compressorSidechain,
+					  double*					 reverbLevel)
 {
 	conversionBuffer.makeCopyOf (input, true);
 	sidechainBuffer.makeCopyOf (compressorSidechain, true);
@@ -157,8 +157,8 @@ void Reverb::process (juce::AudioBuffer<double>& input,
 
 
 void Reverb::process (juce::AudioBuffer<float>& input,
-	juce::AudioBuffer<float>&					compressorSidechain,
-	float*										reverbLevel)
+					  juce::AudioBuffer<float>& compressorSidechain,
+					  float*					reverbLevel)
 {
 	const auto numSamples  = input.getNumSamples();
 	const auto numChannels = std::min (2, input.getNumChannels());
@@ -179,8 +179,8 @@ void Reverb::process (juce::AudioBuffer<float>& input,
 
 		default :
 			reverb.processStereo (workingBuffer.getWritePointer (0),
-				workingBuffer.getWritePointer (1),
-				numSamples);
+								  workingBuffer.getWritePointer (1),
+								  numSamples);
 	}
 
 	if (reverbLevel != nullptr)
@@ -202,8 +202,8 @@ void Reverb::process (juce::AudioBuffer<float>& input,
 	{
 		// add & write result to workingBuffer
 		juce::FloatVectorOperations::add (workingBuffer.getWritePointer (chan),
-			sidechainBuffer.getReadPointer (chan),
-			numSamples);
+										  sidechainBuffer.getReadPointer (chan),
+										  numSamples);
 
 		buffers::copy (workingBuffer, input);
 	}

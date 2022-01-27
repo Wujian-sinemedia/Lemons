@@ -21,10 +21,10 @@ public:
 
 private:
 
-	SampleType processChannel (int channel,
-		int						   numSamples,
-		SampleType*				   signal,
-		const SampleType*) final;
+	SampleType processChannel (int		   channel,
+							   int		   numSamples,
+							   SampleType* signal,
+							   const SampleType*) final;
 
 	juce::dsp::DelayLine<SampleType> delay;
 	juce::dsp::ProcessSpec			 spec;

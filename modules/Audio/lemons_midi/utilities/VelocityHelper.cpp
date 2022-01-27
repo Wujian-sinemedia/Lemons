@@ -13,7 +13,7 @@ float getGainMultFromMidiVelocity (int midiVelocity, float sensitivity)
 	jassert (midiVelocity >= 0 && midiVelocity <= 127);
 	constexpr auto inv127 = 1.0f / 127.0f;
 	return getGainMultFromMidiVelocity (static_cast<float> (midiVelocity) * inv127,
-		sensitivity);
+										sensitivity);
 }
 
 

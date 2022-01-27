@@ -38,14 +38,14 @@ static const auto gain_floatFromString =
 /*-----------------------------------------------------------------------------------------------------------------------
  -----------------------------------------------------------------------------------------------------------------------*/
 
-GainParameter::GainParameter (const String& paramName,
-	float									defaultVal,
-	ParameterCategory						parameterCategory)
+GainParameter::GainParameter (const String&		paramName,
+							  float				defaultVal,
+							  ParameterCategory parameterCategory)
 	: FloatParameter (-60.f, 0.f, defaultVal,
-		paramName,
-		gain_stringFromFloat,
-		gain_floatFromString,
-		TRANS ("dB"), true, false, parameterCategory)
+					  paramName,
+					  gain_stringFromFloat,
+					  gain_floatFromString,
+					  TRANS ("dB"), true, false, parameterCategory)
 {
 }
 
@@ -69,11 +69,11 @@ static const auto toggle_boolFromString =
 };
 
 ToggleParameter::ToggleParameter (const String& paramName,
-	bool										defaultVal)
+								  bool			defaultVal)
 	: BoolParameter (defaultVal,
-		paramName,
-		toggle_stringFromBool,
-		toggle_boolFromString)
+					 paramName,
+					 toggle_stringFromBool,
+					 toggle_boolFromString)
 {
 }
 
@@ -97,15 +97,15 @@ static const auto normPcnt_floatFromString =
 	return text.trim().getFloatValue();
 };
 
-FloatAmountParameter::FloatAmountParameter (const String& paramName,
-	float												  defaultVal,
-	ParameterCategory									  parameterCategory,
-	const String&										  parameterLabel)
+FloatAmountParameter::FloatAmountParameter (const String&	  paramName,
+											float			  defaultVal,
+											ParameterCategory parameterCategory,
+											const String&	  parameterLabel)
 	: FloatParameter (0.f, 1.f, defaultVal,
-		paramName,
-		normPcnt_stringFromFloat,
-		normPcnt_floatFromString,
-		parameterLabel, true, false, parameterCategory)
+					  paramName,
+					  normPcnt_stringFromFloat,
+					  normPcnt_floatFromString,
+					  parameterLabel, true, false, parameterCategory)
 {
 }
 
@@ -116,8 +116,8 @@ static const auto
 	hz_stringFromFloat = [] (float value, int maxLength) -> String
 {
 	auto string = (value < 1000.0f)
-					  ? String (value) + " " + TRANS ("Hz")
-					  : String (value * 0.001f) + " " + TRANS ("kHz");
+					? String (value) + " " + TRANS ("Hz")
+					: String (value * 0.001f) + " " + TRANS ("kHz");
 
 	return string.substring (0, maxLength);
 };
@@ -129,7 +129,7 @@ static const auto hz_floatFromString =
 
 	if (kHz_token_location > -1)
 		return text.substring (0, kHz_token_location).trim().getFloatValue()
-			   * 1000.0f;
+			 * 1000.0f;
 
 	const auto hz_token_location = text.indexOfWholeWordIgnoreCase (TRANS ("Hz"));
 
@@ -140,12 +140,12 @@ static const auto hz_floatFromString =
 };
 
 FrequencyParameter::FrequencyParameter (const String& paramName,
-	float											  defaultVal)
+										float		  defaultVal)
 	: FloatParameter (40.f, 10000.f, defaultVal,
-		paramName,
-		hz_stringFromFloat,
-		hz_floatFromString,
-		TRANS ("Hz"))
+					  paramName,
+					  hz_stringFromFloat,
+					  hz_floatFromString,
+					  TRANS ("Hz"))
 {
 }
 
@@ -194,8 +194,8 @@ static const auto midiPan_intFromString =
 
 MidiPanParameter::MidiPanParameter (const String& paramName, int defaultVal)
 	: IntParameter (0, 127, defaultVal, paramName,
-		midiPan_stringFromInt,
-		midiPan_intFromString)
+					midiPan_stringFromInt,
+					midiPan_intFromString)
 {
 }
 
@@ -221,9 +221,9 @@ static auto st_intFromString =
 
 SemitonesParameter::SemitonesParameter (const String& paramName, int minSemitones, int maxSemitones, int defaultVal)
 	: IntParameter (minSemitones, maxSemitones, defaultVal, paramName,
-		st_stringFromInt,
-		st_intFromString,
-		"semitones")
+					st_stringFromInt,
+					st_intFromString,
+					"semitones")
 {
 }
 
@@ -248,12 +248,12 @@ static const auto pcnt_intFromString =
 };
 
 PercentParameter::PercentParameter (const String& paramName,
-	int											  defaultVal)
+									int			  defaultVal)
 	: IntParameter (0, 100, defaultVal,
-		paramName,
-		pcnt_stringFromInt,
-		pcnt_intFromString,
-		"%")
+					paramName,
+					pcnt_stringFromInt,
+					pcnt_intFromString,
+					"%")
 {
 }
 
@@ -279,8 +279,8 @@ static const auto sec_floatFromString =
 
 SecondsParameter::SecondsParameter (const String& paramName, float minSeconds, float maxSeconds, float defaultVal)
 	: FloatParameter (minSeconds, maxSeconds, defaultVal, paramName,
-		sec_stringFromFloat, sec_floatFromString,
-		"sec")
+					  sec_stringFromFloat, sec_floatFromString,
+					  "sec")
 {
 }
 

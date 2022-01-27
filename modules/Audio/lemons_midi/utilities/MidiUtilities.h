@@ -32,10 +32,10 @@ using juce::String;
 /** @ingroup lemons_midi
  */
 void copyRangeOfMidiBuffer (const MidiBuffer& readingBuffer,
-	MidiBuffer&								  destBuffer,
-	int										  startSampleOfInput,
-	int										  startSampleOfOutput,
-	int										  numSamples);
+							MidiBuffer&		  destBuffer,
+							int				  startSampleOfInput,
+							int				  startSampleOfOutput,
+							int				  numSamples);
 
 
 /** @ingroup lemons_midi
@@ -65,9 +65,9 @@ struct ScopedMidiBufferAlias final
 {
 	/** Creates a scoped alias. This copies the events from originalBuffer, starting at startSampleInOrigBuffer, into the beginning of aliasBufferToUse. */
 	explicit ScopedMidiBufferAlias (MidiBuffer& originalBuffer,
-		MidiBuffer&								aliasBufferToUse,
-		int										startSampleInOrigBuffer,
-		int										numSamplesToCopy);
+									MidiBuffer& aliasBufferToUse,
+									int			startSampleInOrigBuffer,
+									int			numSamplesToCopy);
 
 	/** Copies the events now in the alias buffer back to the original range of the original buffer. */
 	~ScopedMidiBufferAlias();

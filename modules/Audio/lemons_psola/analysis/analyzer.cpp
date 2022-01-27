@@ -78,8 +78,8 @@ void Analyzer<SampleType>::analyzeInput (const SampleType* inputAudio, int numSa
 			jassert (samplesFromLastFrame > 0);
 
 			getGrainToStoreIn().storeNewGrain (prevFrameSamples, grainStartInLastFrame, samplesFromLastFrame,
-				inputAudio, lastFrameGrainSize - samplesFromLastFrame,
-				windowSamples, lastFrameGrainSize, -grainStartInLastFrame);
+											   inputAudio, lastFrameGrainSize - samplesFromLastFrame,
+											   windowSamples, lastFrameGrainSize, -grainStartInLastFrame);
 		}
 
 		incompleteGrainsFromLastFrame.clearQuick();
@@ -118,8 +118,8 @@ void Analyzer<SampleType>::analyzeInput (const SampleType* inputAudio, int numSa
 				makeWindow (samplesFromThisFrame);
 
 				getGrainToStoreIn().storeNewGrainWithZeroesAtStart (samplesFromPrevFrame,
-					inputAudio, samplesFromThisFrame,
-					windowSamples, grainSize, start);
+																	inputAudio, samplesFromThisFrame,
+																	windowSamples, grainSize, start);
 
 				continue;
 			}
@@ -127,8 +127,8 @@ void Analyzer<SampleType>::analyzeInput (const SampleType* inputAudio, int numSa
 			makeWindow (grainSize);
 
 			getGrainToStoreIn().storeNewGrain (prevFrameSamples, lastBlocksize - samplesFromPrevFrame, samplesFromPrevFrame,
-				inputAudio, samplesFromThisFrame,
-				windowSamples, grainSize, start);
+											   inputAudio, samplesFromThisFrame,
+											   windowSamples, grainSize, start);
 
 			continue;
 		}
@@ -349,16 +349,16 @@ SampleType Analyzer<SampleType>::Grain::getSample (int index) const noexcept
 
 template <typename SampleType>
 void Analyzer<SampleType>::Grain::storeNewGrain (const SampleType* origSamples, int startIndex,
-	const SampleType* windowSamples, int numSamples)
+												 const SampleType* windowSamples, int numSamples)
 {
 	storeNewGrain (origSamples, startIndex, numSamples, nullptr, 0, windowSamples, numSamples, startIndex);
 }
 
 template <typename SampleType>
 void Analyzer<SampleType>::Grain::storeNewGrain (const SampleType* origSamples1, int startIndex1, int blocksize1,
-	const SampleType* origSamples2, int blocksize2,
-	const SampleType* windowSamples, int totalNumSamples,
-	int grainStartIdx)
+												 const SampleType* origSamples2, int blocksize2,
+												 const SampleType* windowSamples, int totalNumSamples,
+												 int grainStartIdx)
 {
 	jassert (getReferenceCount() == 0);
 	jassert (totalNumSamples == blocksize1 + blocksize2);
@@ -382,9 +382,9 @@ void Analyzer<SampleType>::Grain::storeNewGrain (const SampleType* origSamples1,
 }
 
 template <typename SampleType>
-void Analyzer<SampleType>::Grain::storeNewGrainWithZeroesAtStart (int numZeroes,
-	const SampleType* origSamples, int numSamples,
-	const SampleType* windowSamples, int totalNumSamples, int grainStartIdx)
+void Analyzer<SampleType>::Grain::storeNewGrainWithZeroesAtStart (int				numZeroes,
+																  const SampleType* origSamples, int numSamples,
+																  const SampleType* windowSamples, int totalNumSamples, int grainStartIdx)
 {
 	jassert (getReferenceCount() == 0);
 	jassert (numZeroes > 0 && numSamples > 0);

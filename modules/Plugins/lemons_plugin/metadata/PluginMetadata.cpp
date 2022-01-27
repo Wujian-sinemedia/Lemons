@@ -2,9 +2,9 @@ namespace lemons::plugin
 {
 
 PluginMetadata::PluginMetadata (const ProcessorAttributes& processorAttributesToUse,
-	const ParameterLayout&								   parameterLayoutToUse,
-	const EditorAttributes&								   editorAttributesToUse,
-	const Version&										   versionToUse)
+								const ParameterLayout&	   parameterLayoutToUse,
+								const EditorAttributes&	   editorAttributesToUse,
+								const Version&			   versionToUse)
 	: processorAttributes (processorAttributesToUse), parameterLayout (parameterLayoutToUse), editorAttributes (editorAttributesToUse), version (versionToUse)
 {
 }
@@ -31,8 +31,8 @@ PluginMetadata PluginMetadata::fromValueTree (const ValueTree& tree)
 	const auto editor	 = tree.getChildWithName (EditorAttributes::valueTreeType);
 
 	return PluginMetadata { ProcessorAttributes::fromValueTree (processor),
-		ParameterLayout::fromValueTree (params),
-		EditorAttributes::fromValueTree (editor) };
+							ParameterLayout::fromValueTree (params),
+							EditorAttributes::fromValueTree (editor) };
 }
 
 std::unique_ptr<ProcessorBase> PluginMetadata::createProcessor() const
@@ -40,12 +40,12 @@ std::unique_ptr<ProcessorBase> PluginMetadata::createProcessor() const
 	struct TypeErasedProcessor final : public ProcessorBase
 	{
 		explicit TypeErasedProcessor (std::unique_ptr<dsp::Engine<float>> floatEngineToUse,
-			std::unique_ptr<dsp::Engine<double>>
-				doubleEngineToUse,
-			std::unique_ptr<State>
-									   stateToUse,
-			const ProcessorAttributes& attributes,
-			const EditorAttributes&	   editorAttributes)
+									  std::unique_ptr<dsp::Engine<double>>
+										  doubleEngineToUse,
+									  std::unique_ptr<State>
+																 stateToUse,
+									  const ProcessorAttributes& attributes,
+									  const EditorAttributes&	 editorAttributes)
 			: ProcessorBase (*floatEngineToUse, *doubleEngineToUse, *stateToUse, attributes), editorAttributes (editorAttributes), state (std::move (stateToUse)), floatEngine (std::move (floatEngineToUse)), doubleEngine (std::move (doubleEngineToUse))
 		{
 		}
@@ -63,9 +63,9 @@ std::unique_ptr<ProcessorBase> PluginMetadata::createProcessor() const
 	};
 
 	return std::make_unique<TypeErasedProcessor> (dsp::factory::createEngine<float> (processorAttributes.engineType),
-		dsp::factory::createEngine<double> (processorAttributes.engineType),
-		std::make_unique<State> (parameterLayout),
-		processorAttributes, editorAttributes);
+												  dsp::factory::createEngine<double> (processorAttributes.engineType),
+												  std::make_unique<State> (parameterLayout),
+												  processorAttributes, editorAttributes);
 }
 
 }  // namespace lemons::plugin

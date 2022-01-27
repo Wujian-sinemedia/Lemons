@@ -17,9 +17,9 @@ void registerEngine (CreationFunc<SampleType>, const String& typeID);
 
 struct EngineCreator
 {
-	explicit EngineCreator (const CreationFunc<float>& floatFunc,
-		const CreationFunc<double>&					   doubleFunc,
-		const String&								   typeID);
+	explicit EngineCreator (const CreationFunc<float>&	floatFunc,
+							const CreationFunc<double>& doubleFunc,
+							const String&				typeID);
 
 	virtual ~EngineCreator() = default;
 };
@@ -30,10 +30,10 @@ struct DefaultEngineCreator : EngineCreator
 {
 	explicit DefaultEngineCreator (const String& typeIDtoUse)
 		: EngineCreator ([]()
-			{ return std::make_unique<EngineType<float>>(); },
-			[]()
-			{ return std::make_unique<EngineType<double>>(); },
-			typeIDtoUse)
+						 { return std::make_unique<EngineType<float>>(); },
+						 []()
+						 { return std::make_unique<EngineType<double>>(); },
+						 typeIDtoUse)
 	{
 	}
 };
@@ -44,10 +44,10 @@ struct ArgumentsEngineCreator : EngineCreator
 {
 	explicit ArgumentsEngineCreator (const String& typeIDtoUse, Args&&... args)
 		: EngineCreator ([=]()
-			{ return std::make_unique<EngineType<float>> (std::forward<Args> (args)...); },
-			[=]()
-			{ return std::make_unique<EngineType<double>> (std::forward<Args> (args)...); },
-			typeIDtoUse)
+						 { return std::make_unique<EngineType<float>> (std::forward<Args> (args)...); },
+						 [=]()
+						 { return std::make_unique<EngineType<double>> (std::forward<Args> (args)...); },
+						 typeIDtoUse)
 	{
 	}
 };

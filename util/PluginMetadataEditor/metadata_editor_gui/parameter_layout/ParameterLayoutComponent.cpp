@@ -15,14 +15,14 @@ ParameterLayoutComponent::ParameterLayoutComponent (plugin::ParameterLayout& lay
 
 	for (auto& traits : layout.parameters)
 		parameterComponents.add (new ParameterMetadataComponent (traits, [this]()
-			{ this->stateChanged(); }));
+																 { this->stateChanged(); }));
 }
 
 ParameterMetadataComponent& ParameterLayoutComponent::addNewParameter()
 {
 	auto& newComp = *parameterComponents.add (new ParameterMetadataComponent (layout.parameters.emplace_back(),
-		[this]()
-		{ this->stateChanged(); }));
+																			  [this]()
+																			  { this->stateChanged(); }));
 
 	stateChanged();
 

@@ -19,11 +19,11 @@ namespace lemons::plugin
 
 template <typename ValType>
 ParameterTraits::ParameterTraits (ValType minimum, ValType maximum, ValType defaultVal,
-	const String& nameToUse, const String& labelToUse,
-	ValToStringFunc<ValType> stringFromValue,
-	StringToValFunc<ValType> valueFromString,
-	bool automatable, bool metaParameter,
-	ParameterCategory categoryToUse)
+								  const String& nameToUse, const String& labelToUse,
+								  ValToStringFunc<ValType> stringFromValue,
+								  StringToValFunc<ValType> valueFromString,
+								  bool automatable, bool metaParameter,
+								  ParameterCategory categoryToUse)
 	: name (nameToUse), label (labelToUse), range (ranges::create (minimum, maximum)), defaultValue (static_cast<float> (defaultVal)), valueToText (detail::convertValToStringFuncFromTyped (stringFromValue, label, range.interval)), textToValue (detail::convertStringToValFuncFromTyped (valueFromString)), isAutomatable (automatable), isMetaParameter (metaParameter), category (categoryToUse)
 {
 	jassert (valueToText != nullptr);

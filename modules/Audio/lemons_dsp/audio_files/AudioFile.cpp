@@ -157,7 +157,7 @@ juce::StringArray getAudioFileNames()
 	const auto validFileExtensions = []
 	{
 		auto arr = juce::StringArray::fromTokens (dsp::formats::getDefaultAudioFormatManager().getWildcardForAllFormats(),
-			";", "");
+												  ";", "");
 
 		for (auto& element : arr)
 			element = element.fromLastOccurrenceOf (".", false, false);

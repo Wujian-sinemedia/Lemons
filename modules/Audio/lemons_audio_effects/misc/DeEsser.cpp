@@ -54,10 +54,10 @@ void DeEsser<SampleType>::setDeEssAmount (int newAmount)
 }
 
 template <typename SampleType>
-SampleType DeEsser<SampleType>::processChannel (int channel,
-	int												numSamples,
-	SampleType*										signalToDeEss,
-	const SampleType*								sidechain)
+SampleType DeEsser<SampleType>::processChannel (int				  channel,
+												int				  numSamples,
+												SampleType*		  signalToDeEss,
+												const SampleType* sidechain)
 {
 	filter.processChannel (channel, signalToDeEss, numSamples);
 

@@ -16,7 +16,7 @@ public:
 	void reset();
 
 	void process (const AudioBuffer& monoInput,
-		AudioBuffer&				 stereoOutput);
+				  AudioBuffer&		 stereoOutput);
 
 private:
 

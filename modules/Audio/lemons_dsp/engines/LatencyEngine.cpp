@@ -63,7 +63,7 @@ void LatencyEngine<SampleType>::changeLatency (int newInternalBlocksize, bool se
 
 	// push newInternalBlocksize worth of silent samples into outputFIFO
 	outputFIFO.push (buffers::getAliasBuffer (outBuffer, 0, newInternalBlocksize),
-		chunkMidiBuffer);
+					 chunkMidiBuffer);
 
 	latencyChanged (newInternalBlocksize);
 

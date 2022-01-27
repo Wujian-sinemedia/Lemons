@@ -47,8 +47,8 @@ class Processor : public ProcessorBase, private locale::TranslationsInitializer
 public:
 
 	/** Creates a processor with the specified bus layout. */
-	explicit Processor (const BusesProperties& busesLayout = getDefaultBusesLayout(),
-		const ProcessorAttributes&			   attributes  = ProcessorAttributes::fromProjectDefines())
+	explicit Processor (const BusesProperties&	   busesLayout = getDefaultBusesLayout(),
+						const ProcessorAttributes& attributes  = ProcessorAttributes::fromProjectDefines())
 		: ProcessorBase (floatEngine, doubleEngine, pluginState, busesLayout, attributes)
 	{
 	}

@@ -155,7 +155,7 @@ public:
 	Node& createAndAddNodeAfter (const Node& nodeToInsertAfter, Args&&... args)
 	{
 		return addNodeAfter (*new Node (std::make_unique<EngineType> (std::forward<Args> (args)...)),
-			nodeToInsertAfter);
+							 nodeToInsertAfter);
 	}
 
 	/** Adds a node before the specified other node.
@@ -173,7 +173,7 @@ public:
 	Node& createAndAddNodeBefore (const Node& nodeToInsertBefore, Args&&... args)
 	{
 		return addNodeBefore (*new Node (std::make_unique<EngineType> (std::forward<Args> (args)...)),
-			nodeToInsertBefore);
+							  nodeToInsertBefore);
 	}
 
 	///@}

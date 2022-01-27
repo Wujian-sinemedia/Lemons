@@ -47,15 +47,15 @@ void CircularBuffer<SampleType>::storeSamples (const SampleType* samples, int nu
 	if (scopedWrite.blockSize1 > 0)
 	{
 		FVO::copy (buffer.getWritePointer (0, scopedWrite.startIndex1),
-			samples,
-			scopedWrite.blockSize1);
+				   samples,
+				   scopedWrite.blockSize1);
 	}
 
 	if (scopedWrite.blockSize2 > 0)
 	{
 		FVO::copy (buffer.getWritePointer (0, scopedWrite.startIndex2),
-			samples + scopedWrite.blockSize1,
-			scopedWrite.blockSize2);
+				   samples + scopedWrite.blockSize1,
+				   scopedWrite.blockSize2);
 	}
 }
 
@@ -85,15 +85,15 @@ void CircularBuffer<SampleType>::getSamples (SampleType* output, int numSamples)
 	if (scopedRead.blockSize1 > 0)
 	{
 		FVO::copy (sampleOutput,
-			buffer.getReadPointer (0, scopedRead.startIndex1),
-			scopedRead.blockSize1);
+				   buffer.getReadPointer (0, scopedRead.startIndex1),
+				   scopedRead.blockSize1);
 	}
 
 	if (scopedRead.blockSize2 > 0)
 	{
 		FVO::copy (sampleOutput + scopedRead.blockSize1,
-			buffer.getReadPointer (0, scopedRead.startIndex2),
-			scopedRead.blockSize2);
+				   buffer.getReadPointer (0, scopedRead.startIndex2),
+				   scopedRead.blockSize2);
 	}
 }
 

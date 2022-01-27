@@ -30,10 +30,10 @@ public:
 		@param sidechain Pointer to contiguous sidechain signal values.
 		@return The gain reduction amount for this frame of this channel's audio.
 	*/
-	SampleType processChannel (int channel,
-		int						   numSamples,
-		SampleType*				   signalToCompress,
-		const SampleType*		   sidechain) final;
+	SampleType processChannel (int				 channel,
+							   int				 numSamples,
+							   SampleType*		 signalToCompress,
+							   const SampleType* sidechain) final;
 
 
 	/** Processes a single sample.
@@ -43,10 +43,10 @@ public:
 		@param gainReduction Pointer to where to write the gain reduction value for this sample. This may be null.
 		@return The output compressed sample.
 	*/
-	SampleType processSample (int channel,
-		SampleType				  inputSample,
-		SampleType				  sidechainSample,
-		SampleType*				  gainReduction);
+	SampleType processSample (int		  channel,
+							  SampleType  inputSample,
+							  SampleType  sidechainSample,
+							  SampleType* gainReduction);
 
 	/** Sets the threshold, in decidebls, of the compressor. */
 	void setThreshold (float newThresh_dB);
