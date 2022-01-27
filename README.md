@@ -2,7 +2,7 @@
 
 # Lemons
 
-[![Tests](https://github.com/benthevining/Lemons/actions/workflows/tests.yml/badge.svg)](https://github.com/benthevining/Lemons/actions/workflows/tests.yml)
+[![Test and release](https://github.com/benthevining/Lemons/actions/workflows/tests.yml/badge.svg)](https://github.com/benthevining/Lemons/actions/workflows/tests.yml)
 [![Templates](https://github.com/benthevining/Lemons/actions/workflows/templates.yml/badge.svg)](https://github.com/benthevining/Lemons/actions/workflows/templates.yml)
 [![Utils](https://github.com/benthevining/Lemons/actions/workflows/utils.yml/badge.svg)](https://github.com/benthevining/Lemons/actions/workflows/utils.yml)
 [![Docs](https://github.com/benthevining/Lemons/actions/workflows/publish_docs.yml/badge.svg)](https://github.com/benthevining/Lemons/actions/workflows/publish_docs.yml)
