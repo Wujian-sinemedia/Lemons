@@ -1,5 +1,13 @@
 # Lemons changelog
 
+### [1.0.3](http://github.com/benthevining/Lemons/compare/v1.0.2...v1.0.3) (2022-01-27)
+
+
+### Bug Fixes
+
+* created a package.json for installing semantic-release's npm dependencies ([48d5465](http://github.com/benthevining/Lemons/commit/48d54655b0ab1f9a0e91c7ba7075c614e3fdeadf))
+* moved release configuration into package.json file ([e7986fd](http://github.com/benthevining/Lemons/commit/e7986fdb6006135d7763b216bbdbf40c9d6bd84f))
+
 ### [1.0.2](http://github.com/benthevining/Lemons/compare/v1.0.1...v1.0.2) (2022-01-27)
 
 
