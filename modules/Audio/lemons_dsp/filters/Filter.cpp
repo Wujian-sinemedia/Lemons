@@ -180,7 +180,7 @@ template class Filter<double>;
 template <typename SampleType, size_t numChannels>
 MultiFilter<SampleType, numChannels>::MultiFilter()
 {
-	while ((size_t) filters.size() < numChannels)
+	while (static_cast<size_t> (filters.size()) < numChannels)
 		filters.add (new Filter<SampleType>);
 }
 

@@ -31,7 +31,7 @@ BigInteger VariantConverter<BigInteger>::fromVar (const var& v)
 				i.loadFromMemoryBlock (*block);
 
 		if (obj->hasProperty (negative))
-			i.setNegative ((bool) obj->getProperty (negative));
+			i.setNegative ((bool) obj->getProperty (negative));	 // NOLINT
 	}
 
 	return i;
@@ -137,7 +137,7 @@ var VariantConverter<PropertySet>::toVar (const PropertySet& s)
 
 RelativeTime VariantConverter<RelativeTime>::fromVar (const var& v)
 {
-	return RelativeTime::milliseconds ((int64) v);
+	return RelativeTime::milliseconds ((int64) v);	// NOLINT
 }
 
 var VariantConverter<RelativeTime>::toVar (const RelativeTime& t)
@@ -197,7 +197,7 @@ var VariantConverter<StringPairArray>::toVar (const StringPairArray& a)
 
 Time VariantConverter<Time>::fromVar (const var& v)
 {
-	Time t { (int64) v };
+	Time t { (int64) v };  // NOLINT
 	return t;
 }
 

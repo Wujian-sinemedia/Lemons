@@ -9,7 +9,7 @@ class Engine : public dsp::StreamEngine<SampleType, OscType>
 {
 public:
 
-	explicit Engine() = default;
+	Engine() = default;
 
 	/** Updates the frequency of the owned oscillator object. */
 	void setFrequency (float freqHz)

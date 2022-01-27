@@ -48,7 +48,7 @@ public:
 
 	/** Use this struct to register a lambda that will be called any time the device's screen orientation changes.
 	 */
-	struct Listener : private juce::Timer
+	struct Listener final : private juce::Timer
 	{
 		using Callback = std::function<void (Orientation)>;
 
@@ -56,7 +56,7 @@ public:
 		explicit Listener (Callback&& callbackToUse);
 
 		/** Destructor. */
-		virtual ~Listener() override;
+		~Listener() final;
 
 	private:
 

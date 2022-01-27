@@ -25,7 +25,7 @@ class ToggleableVersionViewer : public Component
 {
 public:
 
-	explicit ToggleableVersionViewer();
+	ToggleableVersionViewer();
 
 	void showProjectVersion();
 

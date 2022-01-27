@@ -112,7 +112,7 @@ Range<ValueType> fromValueTree (const ValueTree& tree)
 			if (! tree.hasProperty (symmetricSkewProp))
 				return { start, end, interval, skew };
 
-			return { start, end, interval, skew, (bool) tree.getProperty (symmetricSkewProp) };
+			return { start, end, interval, skew, (bool) tree.getProperty (symmetricSkewProp) };	 // NOLINT
 		}
 	}
 

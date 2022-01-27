@@ -70,7 +70,7 @@ static constexpr auto channelTypeProp = "channel_type";
 		return {};
 
 	if (tree.hasProperty (channelTypeProp))
-		return static_cast<juce::AudioChannelSet::ChannelType> ((int) tree.getProperty (channelTypeProp));
+		return static_cast<juce::AudioChannelSet::ChannelType> ((int) tree.getProperty (channelTypeProp));	// NOLINT
 
 	return {};
 }

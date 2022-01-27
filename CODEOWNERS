@@ -113,3 +113,9 @@ modules/Common/lemons_core/localization/languages.cpp benthevining
 modules/Plugins/lemons_plugin/parameters/types/MetaParameter.cpp benthevining
 modules/Common/lemons_core/misc/ArgParser.cpp benthevining
 modules/Audio/lemons_psola/analysis/PeakFinder.cpp benthevining
+modules/Common/lemons_core/binary_data/translations.h benthevining
+modules/Audio/lemons_audio_effects/AudioEffects/AudioEffect.cpp benthevining
+modules/Audio/lemons_dsp/oscillators/OscillatorEngine.h benthevining
+modules/Common/lemons_core/serializing/VariantConversions.cpp benthevining
+modules/Audio/lemons_dsp/sample_streams/StreamEngine.h benthevining
+modules/Plugins/lemons_plugin/metadata/ParameterTraits.cpp benthevining

@@ -101,7 +101,7 @@ BasicProcessor::BusProperties BasicProcessor::busPropertiesFromValueTree (const 
 	}
 
 	if (tree.hasProperty (activeProp))
-		properties.isActivatedByDefault = (bool) tree.getProperty (activeProp);
+		properties.isActivatedByDefault = (bool) tree.getProperty (activeProp);	 // NOLINT
 
 	return properties;
 }

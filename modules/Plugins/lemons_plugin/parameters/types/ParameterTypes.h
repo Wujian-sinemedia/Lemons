@@ -85,10 +85,10 @@ public:
 	[[nodiscard]] ValueType getValueForString (const String& string) const;
 
 	/** Saves the state of this parameter to a ValueTree. */
-	[[nodiscard]] virtual ValueTree saveToValueTree() const override;
+	[[nodiscard]] ValueTree saveToValueTree() const override;
 
 	/** Restores the parameter's state from a ValueTree. */
-	virtual void loadFromValueTree (const ValueTree& tree) override;
+	void loadFromValueTree (const ValueTree& tree) override;
 
 	/** Returns a ParameterTraits object representing this parameter. */
 	[[nodiscard]] ParameterTraits getParameterTraits() const final;

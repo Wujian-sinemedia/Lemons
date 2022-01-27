@@ -245,13 +245,13 @@ ParameterList::Listener::Listener (const ParameterList& list,
 	{
 		auto* parameter = &param->getParameter();
 
-		auto change = [parameter, onParamValueChange] (float)
+		auto change = [parameter, onParamValueChange] (float)  // NOLINT
 		{
 			if (onParamValueChange)
 				onParamValueChange (*parameter);
 		};
 
-		auto default_ = [parameter, onParamDefaultChange] (float)
+		auto default_ = [parameter, onParamDefaultChange] (float)  // NOLINT
 		{
 			if (onParamDefaultChange)
 				onParamDefaultChange (*parameter);
@@ -263,7 +263,7 @@ ParameterList::Listener::Listener (const ParameterList& list,
 				onParamGestureGhange (*parameter, starting);
 		};
 
-		auto controller = [parameter, onParamControllerChange] (int)
+		auto controller = [parameter, onParamControllerChange] (int)  // NOLINT
 		{
 			if (onParamControllerChange)
 				onParamControllerChange (*parameter);

@@ -171,7 +171,7 @@ void TypedParameter<ValueType>::loadFromValueTree (const ValueTree& tree)
 		setDefault ((ValueType) tree.getProperty (default_prop));
 
 	if (tree.hasProperty (controller_prop))
-		setMidiControllerNumber ((int) tree.getProperty (controller_prop));
+		setMidiControllerNumber ((int) tree.getProperty (controller_prop));	 // NOLINT
 }
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
@@ -183,13 +183,13 @@ TypedParameter<ValueType>::Listener::Listener (TypedParameter<ValueType>& param)
 }
 
 template <typename ValueType>
-void TypedParameter<ValueType>::Listener::parameterValueChanged (float)
+void TypedParameter<ValueType>::Listener::parameterValueChanged (float)	 // NOLINT
 {
 	paramValueChanged (parameter.get());
 }
 
 template <typename ValueType>
-void TypedParameter<ValueType>::Listener::parameterDefaultChanged (float)
+void TypedParameter<ValueType>::Listener::parameterDefaultChanged (float)  // NOLINT
 {
 	paramDefaultChanged (parameter.getDefault());
 }

@@ -174,13 +174,13 @@ void Parameter::loadFromValueTree (const ValueTree& tree)
 		return;
 
 	if (tree.hasProperty (value_prop))
-		setDenormalizedValue ((float) tree.getProperty (value_prop));
+		setDenormalizedValue ((float) tree.getProperty (value_prop));  // NOLINT
 
 	if (tree.hasProperty (default_prop))
-		setDenormalizedDefault ((float) tree.getProperty (default_prop));
+		setDenormalizedDefault ((float) tree.getProperty (default_prop));  // NOLINT
 
 	if (tree.hasProperty (controller_prop))
-		midiControllerNumber.store ((int) tree.getProperty (controller_prop));
+		midiControllerNumber.store ((int) tree.getProperty (controller_prop));	// NOLINT
 }
 
 

@@ -48,7 +48,7 @@ class Detunable : public DetunableBase<SampleType>
 {
 public:
 
-	explicit Detunable()
+	Detunable()
 		: DetunableBase<SampleType> (oscs)
 	{
 	}

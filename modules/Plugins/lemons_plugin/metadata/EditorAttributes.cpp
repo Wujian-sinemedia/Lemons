@@ -36,13 +36,13 @@ EditorAttributes EditorAttributes::fromValueTree (const ValueTree& tree)
 		attributes.initialSize = Dimensions::fromString (tree.getProperty (initSize).toString());
 
 	if (tree.hasProperty (resizable))
-		attributes.isResizable = (bool) tree.getProperty (resizable);
+		attributes.isResizable = (bool) tree.getProperty (resizable);  // NOLINT
 
 	if (tree.hasProperty (resizableCorner))
-		attributes.useResizableCorner = (bool) tree.getProperty (resizableCorner);
+		attributes.useResizableCorner = (bool) tree.getProperty (resizableCorner);	// NOLINT
 
 	if (tree.hasProperty (tooltipTime))
-		attributes.msBeforeTooltip = (int) tree.getProperty (tooltipTime);
+		attributes.msBeforeTooltip = (int) tree.getProperty (tooltipTime);	// NOLINT
 
 	return attributes;
 }

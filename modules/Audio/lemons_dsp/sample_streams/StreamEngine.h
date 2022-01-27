@@ -31,7 +31,7 @@ class StreamEngine : public dsp::Engine<SampleType>
 {
 public:
 
-	explicit StreamEngine() = default;
+	StreamEngine() = default;
 
 protected:
 

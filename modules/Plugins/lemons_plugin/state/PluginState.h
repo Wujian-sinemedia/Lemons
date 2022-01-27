@@ -26,7 +26,7 @@ class State
 {
 public:
 
-	explicit State() = default;
+	State() = default;
 
 	explicit State (const ParameterLayout& parameterLayout);
 

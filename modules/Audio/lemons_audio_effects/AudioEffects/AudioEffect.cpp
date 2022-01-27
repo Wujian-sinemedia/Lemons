@@ -6,7 +6,7 @@ void AudioEffect<SampleType>::prepare (double, int)
 }
 
 template <typename SampleType>
-void AudioEffect<SampleType>::bypassedBlock (int)
+void AudioEffect<SampleType>::bypassedBlock (int)  // NOLINT
 {
 }
 

@@ -104,7 +104,7 @@ void LatencyEngine<SampleType>::renderBlock (const AudioBuffer<SampleType>& inpu
 }
 
 template <typename SampleType>
-void LatencyEngine<SampleType>::latencyChanged (int)
+void LatencyEngine<SampleType>::latencyChanged (int)  // NOLINT
 {
 }
 

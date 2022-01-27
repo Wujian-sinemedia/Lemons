@@ -85,22 +85,22 @@ ProcessorAttributes ProcessorAttributes::fromValueTree (const ValueTree& tree)
 		return attributes;
 
 	if (tree.hasProperty (accepts_midi))
-		attributes.acceptsMidi = (bool) tree.getProperty (accepts_midi);
+		attributes.acceptsMidi = (bool) tree.getProperty (accepts_midi);  // NOLINT
 
 	if (tree.hasProperty (produces_midi))
-		attributes.producesMidi = (bool) tree.getProperty (produces_midi);
+		attributes.producesMidi = (bool) tree.getProperty (produces_midi);	// NOLINT
 
 	if (tree.hasProperty (supports_mpe))
-		attributes.supportsMPE = (bool) tree.getProperty (supports_mpe);
+		attributes.supportsMPE = (bool) tree.getProperty (supports_mpe);  // NOLINT
 
 	if (tree.hasProperty (is_midi_effect))
-		attributes.isMidiEffect = (bool) tree.getProperty (is_midi_effect);
+		attributes.isMidiEffect = (bool) tree.getProperty (is_midi_effect);	 // NOLINT
 
 	if (tree.hasProperty (processor_name))
 		attributes.name = tree.getProperty (processor_name).toString();
 
 	if (tree.hasProperty (has_editor))
-		attributes.hasEditor = (bool) tree.getProperty (has_editor);
+		attributes.hasEditor = (bool) tree.getProperty (has_editor);  // NOLINT
 
 	if (tree.hasProperty (engine_type_name))
 		attributes.engineType = tree.getProperty (engine_type_name).toString();

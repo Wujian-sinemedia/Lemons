@@ -99,7 +99,7 @@ ParameterTraits ParameterTraits::fromValueTree (const ValueTree& tree)
 	using namespace ParameterTraitsVTProperties;
 
 	if (tree.hasProperty (typeProp))
-		traits.valueType = static_cast<ValueType> ((int) tree.getProperty (typeProp));
+		traits.valueType = static_cast<ValueType> ((int) tree.getProperty (typeProp));	// NOLINT
 
 	if (tree.hasProperty (nameProp))
 		traits.name = tree.getProperty (nameProp).toString();
@@ -108,16 +108,16 @@ ParameterTraits ParameterTraits::fromValueTree (const ValueTree& tree)
 		traits.label = tree.getProperty (labelProp).toString();
 
 	if (tree.hasProperty (defaultProp))
-		traits.defaultValue = (float) tree.getProperty (defaultProp);
+		traits.defaultValue = (float) tree.getProperty (defaultProp);  // NOLINT
 
 	if (tree.hasProperty (automatableProp))
-		traits.isAutomatable = (bool) tree.getProperty (automatableProp);
+		traits.isAutomatable = (bool) tree.getProperty (automatableProp);  // NOLINT
 
 	if (tree.hasProperty (metaProp))
-		traits.isMetaParameter = (bool) tree.getProperty (metaProp);
+		traits.isMetaParameter = (bool) tree.getProperty (metaProp);  // NOLINT
 
 	if (tree.hasProperty (categoryProp))
-		traits.category = static_cast<ParameterCategory> ((int) tree.getProperty (categoryProp));
+		traits.category = static_cast<ParameterCategory> ((int) tree.getProperty (categoryProp));  // NOLINT
 
 	const auto rangeTree = tree.getChildWithName (ranges::valueTreeType);
 

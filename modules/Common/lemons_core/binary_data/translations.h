@@ -49,7 +49,7 @@ void initializeDefaultTranslations();
 struct TranslationsInitializer
 {
 	/** The constructor simply calls initializeDefaultTranslations(). */
-	explicit TranslationsInitializer();
+	TranslationsInitializer();
 
 	/** Destructor. */
 	virtual ~TranslationsInitializer() = default;

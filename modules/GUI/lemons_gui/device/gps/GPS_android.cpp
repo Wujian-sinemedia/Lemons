@@ -52,9 +52,9 @@ GPSLocation GPSLocation::getCurrentLocation()
 
 	GPSLocation			result;
 	decltype (numItems) index = 0;
-	if (index < numItems) result.latitude = (double) input[index++];
-	if (index < numItems) result.longitude = (double) input[index++];
-	if (index < numItems) result.altitude = (double) input[index++];
+	if (index < numItems) result.latitude = static_cast<double> (input[index++]);
+	if (index < numItems) result.longitude = static_cast<double> (input[index++]);
+	if (index < numItems) result.altitude = static_cast<double> (input[index++]);
 
 	return result;
 }

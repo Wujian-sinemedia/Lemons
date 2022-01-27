@@ -2,13 +2,13 @@
 
 namespace New
 {
-class GUI : public plugin::GUI<State>
+class GUI final : public plugin::GUI<State>
 {
 public:
 
 	using plugin::GUI<State>::GUI;
 
-	virtual ~GUI() override;
+	~GUI() final;
 
 private:
 

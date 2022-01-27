@@ -190,10 +190,10 @@ void MetaParameterBase::Connection::loadFromValueTree (const ValueTree& tree)
 		return;
 
 	if (tree.hasProperty (minAmount))
-		min = (float) tree.getProperty (minAmount);
+		min = (float) tree.getProperty (minAmount);	 // NOLINT
 
 	if (tree.hasProperty (maxAmount))
-		max = (float) tree.getProperty (maxAmount);
+		max = (float) tree.getProperty (maxAmount);	 // NOLINT
 }
 
 bool MetaParameterBase::Connection::isMapped() const noexcept
@@ -294,7 +294,7 @@ MetaParameter<ValueType>::Updater::Updater (MetaParameter& paramToUse)
 }
 
 template <typename ValueType>
-void MetaParameter<ValueType>::Updater::parameterValueChanged (float)
+void MetaParameter<ValueType>::Updater::parameterValueChanged (float)  // NOLINT
 {
 	metaParam.applyAllConnections();
 }

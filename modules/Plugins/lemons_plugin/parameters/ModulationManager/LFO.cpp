@@ -68,10 +68,10 @@ void LFO::loadFromValueTree (const ValueTree& tree)
 	using namespace LfoVTprops;
 
 	if (tree.hasProperty (freqProp))
-		osc.setFrequency ((float) tree.getProperty (freqProp));
+		osc.setFrequency ((float) tree.getProperty (freqProp));	 // NOLINT
 
 	if (tree.hasProperty (typeProp))
-		osc.setOscType (static_cast<dsp::osc::OscType> ((int) tree.getProperty (typeProp)));
+		osc.setOscType (static_cast<dsp::osc::OscType> ((int) tree.getProperty (typeProp)));  // NOLINT
 }
 
 }  // namespace lemons::plugin

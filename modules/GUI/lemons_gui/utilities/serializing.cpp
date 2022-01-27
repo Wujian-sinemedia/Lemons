@@ -181,7 +181,7 @@ var VariantConverter<Image>::toVar (const Image& i)
 
 Justification VariantConverter<Justification>::fromVar (const var& v)
 {
-	return { (int) v };
+	return { (int) v };	 // NOLINT
 }
 
 var VariantConverter<Justification>::toVar (const Justification& j)
