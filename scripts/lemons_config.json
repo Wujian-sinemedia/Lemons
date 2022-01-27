@@ -47,7 +47,8 @@
       ],
       "PythonPackages": [
         "pre-commit",
-        "cpplint"
+        "cpplint",
+        "clang-format"
       ],
       "name": "Default",
       "packages": [

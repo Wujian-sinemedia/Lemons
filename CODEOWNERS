@@ -121,3 +121,6 @@ modules/Audio/lemons_dsp/sample_streams/StreamEngine.h benthevining
 modules/Plugins/lemons_plugin/metadata/ParameterTraits.cpp benthevining
 modules/Plugins/lemons_plugin_gui/PresetBar/PresetBar.cpp benthevining
 util/cmake/modules/general/LemonsCmakeDevTools.cmake benthevining
+.gitignore benthevining
+modules/Audio/lemons_synth/SynthVoice/TimbreMod.h benthevining
+scripts/lemons_config.json benthevining

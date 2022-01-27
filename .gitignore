@@ -10,3 +10,5 @@ CMakeUserPresets.json
 cpm-package-lock.cmake
 util/doxygen/doc/
 util/doxygen/build/
+node_modules/
+package-lock.json
