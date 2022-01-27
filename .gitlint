@@ -9,6 +9,10 @@ staged=true
 contrib=contrib-title-conventional-commits
 
 
+[title-max-length]
+line-length=200
+
+
 [title-min-length]
 min-length=10
 

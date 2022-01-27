@@ -94,6 +94,7 @@ repos:
     rev: v0.30.0
     hooks:
       - id: markdownlint-fix
+        exclude: CHANGELOG.md
 
   # shell scripts
   - repo: https://github.com/jumanjihouse/pre-commit-hooks

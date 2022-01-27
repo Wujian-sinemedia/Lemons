@@ -53,3 +53,9 @@ modules/Audio/lemons_midi/tuning/PitchbendTracker.h benthevining
 modules/GUI/lemons_gui/utilities/cursor.cpp benthevining
 modules/Common/lemons_core/unit_tests/test.h benthevining
 util/cmake/modules/config_files/scripts/install_pips.cmake benthevining
+modules/Plugins/lemons_plugin/processors/ProcessorBase.h benthevining
+modules/Audio/lemons_synth/Synth/helpers/MidiManager.h benthevining
+modules/Audio/lemons_midi/tuning/PitchbendTracker.cpp benthevining
+modules/Common/lemons_core/unit_tests/test.cpp benthevining
+util/CommandLineUtils/TranslationFileGenerator/CMakeLists.txt benthevining
+modules/Plugins/lemons_plugin/parameters/utils/detail.h benthevining
