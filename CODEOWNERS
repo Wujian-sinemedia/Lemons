@@ -128,3 +128,7 @@ modules/Plugins/lemons_plugin/parameters/Parameter.cpp benthevining
 modules/Plugins/lemons_plugin_gui/PresetBar/StateToggleButtons.h benthevining
 modules/Audio/lemons_synth/BasicSynths/TemplateSynth.h benthevining
 modules/Audio/lemons_dsp/fifos/CircularBuffer_tests.cpp benthevining
+modules/GUI/LemonsGUIModules.cmake benthevining
+modules/Audio/lemons_midi/processors/processors.cpp benthevining
+modules/Common/lemons_core/unit_tests/runner.h benthevining
+modules/Connectivity/lemons_osc/lemons_osc.h benthevining
