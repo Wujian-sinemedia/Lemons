@@ -148,3 +148,5 @@ repos:
 
 ci:
   skip: [shellcheck, gitown]
+  autofix_commit_msg: 'style: pre-commit autofixes [skip ci]'
+  autoupdate_commit_msg: 'chore: pre-commit autoupdate [skip ci]'
