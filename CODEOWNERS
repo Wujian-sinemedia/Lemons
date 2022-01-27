@@ -119,3 +119,5 @@ modules/Audio/lemons_dsp/oscillators/OscillatorEngine.h benthevining
 modules/Common/lemons_core/serializing/VariantConversions.cpp benthevining
 modules/Audio/lemons_dsp/sample_streams/StreamEngine.h benthevining
 modules/Plugins/lemons_plugin/metadata/ParameterTraits.cpp benthevining
+modules/Plugins/lemons_plugin_gui/PresetBar/PresetBar.cpp benthevining
+util/cmake/modules/general/LemonsCmakeDevTools.cmake benthevining
