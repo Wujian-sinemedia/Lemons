@@ -4,6 +4,23 @@ default_language_version:
 
 repos:
 
+  # git
+  - repo: https://github.com/jorisroovers/gitlint
+    rev: v0.17.0
+    hooks:
+      - id: gitlint
+  - repo: https://github.com/milin/gitown
+    rev: v0.1.7
+    hooks:
+      - id: gitown
+
+  # precommit configuration meta-checks
+  - repo: meta
+    hooks:
+      - id: check-hooks-apply
+      - id: check-useless-excludes
+
+  # C++ code formatting & linting
   - repo: https://github.com/pocc/pre-commit-hooks
     rev: v1.3.5
     hooks:
@@ -52,16 +69,6 @@ repos:
       - id: check-builtin-literals
       - id: debug-statements
       - id: fix-encoding-pragma
-
-  # git
-  - repo: https://github.com/jorisroovers/gitlint
-    rev: v0.17.0
-    hooks:
-      - id: gitlint
-  - repo: https://github.com/milin/gitown
-    rev: v0.1.7
-    hooks:
-      - id: gitown
 
   # text and typos
   - repo: https://github.com/sirosen/texthooks
@@ -153,6 +160,7 @@ repos:
     hooks:
       - id: pylint
 
+  # check editorconfig rules
   - repo: https://github.com/editorconfig-checker/editorconfig-checker.python
     rev: 2.4.0
     hooks:
