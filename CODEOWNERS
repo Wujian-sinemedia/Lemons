@@ -83,3 +83,4 @@ modules/Audio/lemons_midi/tuning/PitchPipeline.cpp benthevining
 util/PluginMetadataEditor/metadata_editor_gui/processor_attributes/ProcessorAttributeComponent.h benthevining
 modules/Audio/lemons_dsp/engines/DspProtection.h benthevining
 modules/Plugins/lemons_plugin_gui/plugin_library/PluginLibraryComponent.h benthevining
+.clang-tidy benthevining
