@@ -42,7 +42,7 @@ EmptyLineAfterAccessModifier: Always
 EmptyLineBeforeAccessModifier: Always
 ExperimentalAutoDetectBinPacking: true
 FixNamespaceComments: true
-IncludeBlocks: Preserve
+IncludeBlocks: Merge
 IndentAccessModifiers: false
 IndentCaseBlocks: false
 IndentCaseLabels: true
