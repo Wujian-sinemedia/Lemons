@@ -61,7 +61,7 @@ struct StatefulRoutingProcessor : public RoutingProcessor
 	[[nodiscard]] bool isSostenutoPedalDown() const noexcept;
 	[[nodiscard]] bool isSoftPedalDown() const noexcept;
 
-	void reset();
+	void reset() final;
 
 private:
 

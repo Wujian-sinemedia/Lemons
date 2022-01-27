@@ -138,11 +138,11 @@ Category::SortingCallback Category::getDefaultSortingCallback (SortMethod sortMe
 	{
 		return [] (const juce::PluginDescription& d, const Category& c)
 		{
-			for (const auto& plugin : c.getPlugins())
-				if (d.category != plugin.category)
-					return false;
+			auto& plugins = c.getPlugins();
 
-			return true;
+			return ! std::any_of (plugins.begin(), plugins.end(),
+								  [&d] (const juce::PluginDescription& plugin)
+								  { return d.category != plugin.category; });
 		};
 	}
 
@@ -150,21 +150,21 @@ Category::SortingCallback Category::getDefaultSortingCallback (SortMethod sortMe
 	{
 		return [] (const juce::PluginDescription& d, const Category& c)
 		{
-			for (const auto& plugin : c.getPlugins())
-				if (d.manufacturerName != plugin.manufacturerName)
-					return false;
+			auto& plugins = c.getPlugins();
 
-			return true;
+			return ! std::any_of (plugins.begin(), plugins.end(),
+								  [&d] (const juce::PluginDescription& plugin)
+								  { return d.manufacturerName != plugin.manufacturerName; });
 		};
 	}
 
 	return [] (const juce::PluginDescription& d, const Category& c)
 	{
-		for (const auto& plugin : c.getPlugins())
-			if (d.pluginFormatName != plugin.pluginFormatName)
-				return false;
+		auto& plugins = c.getPlugins();
 
-		return true;
+		return ! std::any_of (plugins.begin(), plugins.end(),
+							  [&d] (const juce::PluginDescription& plugin)
+							  { return d.pluginFormatName != plugin.pluginFormatName; });
 	};
 }
 

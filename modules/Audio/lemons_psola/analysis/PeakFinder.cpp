@@ -131,7 +131,7 @@ int PeakFinder<SampleType>::findNextPeak (int frameStart, int frameEnd, int pred
 	{
 		const auto nextPeak = getPeakCandidateInRange (inputSamples, frameStart, frameEnd, predictedPeak);
 
-		[[unlikely]] if (nextPeak == -1) break;
+		if (nextPeak == -1) break;
 
 		peakCandidates.add (nextPeak);
 	}
@@ -170,7 +170,7 @@ int PeakFinder<SampleType>::getPeakCandidateInRange (const SampleType* inputSamp
 		return -1;
 	}();
 
-	[[unlikely]] if (starting == -1) return -1;
+	if (starting == -1) return -1;
 
 	jassert (starting >= startSample && starting <= endSample);
 

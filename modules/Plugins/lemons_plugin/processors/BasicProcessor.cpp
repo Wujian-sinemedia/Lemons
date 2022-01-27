@@ -58,7 +58,7 @@ bool BasicProcessor::isBusesLayoutSupported (const BusesLayout& layout) const
 
 void BasicProcessor::callEditorMethod (std::function<void (juce::AudioProcessorEditor&)> func) const
 {
-	if (! hasEditor())
+	if (! hasEditor())	// cppcheck-suppress knownConditionTrueFalse
 		return;
 
 	using EditorPtr = juce::Component::SafePointer<juce::AudioProcessorEditor>;

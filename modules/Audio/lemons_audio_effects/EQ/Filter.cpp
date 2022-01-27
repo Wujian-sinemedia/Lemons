@@ -3,12 +3,8 @@ namespace lemons::dsp::FX
 {
 template <typename SampleType>
 Filter<SampleType>::Filter (FilterType filterType, float frequency, float Qfactor, float gainMult)
+	: type (filterType), freq (static_cast<SampleType> (frequency)), Q (static_cast<SampleType> (Qfactor)), gain (static_cast<SampleType> (gainMult))
 {
-	type = filterType;
-	freq = static_cast<SampleType> (frequency);
-	Q	 = static_cast<SampleType> (Qfactor);
-	gain = static_cast<SampleType> (gainMult);
-
 	filter.prepare();
 }
 

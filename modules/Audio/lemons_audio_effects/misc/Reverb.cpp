@@ -2,32 +2,29 @@
 namespace lemons::dsp::FX
 {
 Reverb::Reverb()
+	: Reverb (0.5f, 0.35f, 1.f, 1.f, 35, 80.f, 4000.f)
 {
-	juceReverbParams.roomSize	= 0.5f;
-	juceReverbParams.damping	= 0.35f;
-	juceReverbParams.wetLevel	= 1.0f;
-	juceReverbParams.dryLevel	= 0.0f;
-	juceReverbParams.width		= 1.0f;
-	juceReverbParams.freezeMode = 0.2f;
-
-	compressor.setAttack (15.0f);
-	compressor.setRelease (35.0f);
 }
 
 Reverb::Reverb (float roomSizeToUse, float dampingAmountToUse, float widthToUse, int wetPcnt, int duckAmountToUse, float loCutF, float hiCutF)
-	: Reverb()
 {
-	juceReverbParams.roomSize = roomSizeToUse;
-	juceReverbParams.damping  = dampingAmountToUse;
-	juceReverbParams.width	  = widthToUse;
+	compressor.setAttack (15.0f);
+	compressor.setRelease (35.0f);
 
-	reverb.setParameters (juceReverbParams);
+	juceReverbParams.roomSize	= roomSizeToUse;
+	juceReverbParams.damping	= dampingAmountToUse;
+	juceReverbParams.width		= widthToUse;
+	juceReverbParams.wetLevel	= 1.0f;
+	juceReverbParams.dryLevel	= 0.0f;
+	juceReverbParams.freezeMode = 0.2f;
 
 	setDryWet (wetPcnt);
 	setDuckAmount (duckAmountToUse);
 
 	setLoCutFrequency (loCutF);
 	setHiCutFrequency (hiCutF);
+
+	reverb.setParameters (juceReverbParams);
 }
 
 

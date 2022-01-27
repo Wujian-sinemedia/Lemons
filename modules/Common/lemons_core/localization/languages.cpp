@@ -449,9 +449,11 @@ struct KnownLanguages final
 	{
 		jassert (name.isNotEmpty());
 
-		for (const auto& lang : languages)
-			if (lang.languageName == name)
-				return lang;
+		if (auto res = std::find_if (languages.begin(), languages.end(),
+									 [&name] (const LanguageData& lang)
+									 { return lang.languageName == name; });
+			res != languages.end())
+			return *res;
 
 		return {};
 	}
@@ -460,9 +462,11 @@ struct KnownLanguages final
 	{
 		jassert (code.length() == 2);
 
-		for (const auto& lang : languages)
-			if (lang.ISO639_1 == code)
-				return lang;
+		if (auto res = std::find_if (languages.begin(), languages.end(),
+									 [&code] (const LanguageData& lang)
+									 { return lang.ISO639_1 == code; });
+			res != languages.end())
+			return *res;
 
 		return {};
 	}
@@ -471,9 +475,11 @@ struct KnownLanguages final
 	{
 		jassert (code.length() == 3);
 
-		for (const auto& lang : languages)
-			if (lang.ISO639_2 == code)
-				return lang;
+		if (auto res = std::find_if (languages.begin(), languages.end(),
+									 [&code] (const LanguageData& lang)
+									 { return lang.ISO639_2 == code; });
+			res != languages.end())
+			return *res;
 
 		return {};
 	}

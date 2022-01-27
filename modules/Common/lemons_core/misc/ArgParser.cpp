@@ -64,9 +64,11 @@ String ArgParser::operator[] (const String& argOrFlags) const
 	if (argList.containsOption (argOrFlags))
 		return argList.getValueForOption (argOrFlags);
 
-	for (const auto& arg : args)
-		if (arg.argOrFlags == argOrFlags)
-			return arg.defaultValue;
+	if (auto res = std::find_if (args.begin(), args.end(),
+								 [&argOrFlags] (const Argument& arg)
+								 { return arg.argOrFlags == argOrFlags; });
+		res != args.end())
+		return res->defaultValue;
 
 	return {};
 }

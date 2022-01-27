@@ -82,7 +82,7 @@ public:
 	[[nodiscard]] Node* getNodeOfType()
 	{
 		for (auto* node : nodes)
-			if (const auto* typed = dynamic_cast<EngineType*> (node->engine.get()))
+			if (const auto* typed = dynamic_cast<EngineType*> (node->engine.get()))	 // cppcheck-suppress useStlAlgorithm
 				return node;
 
 		return nullptr;
@@ -96,7 +96,7 @@ public:
 	[[nodiscard]] EngineType* getEngineOfType()
 	{
 		for (const auto* node : nodes)
-			if (auto* engine = dynamic_cast<EngineType*> (node->engine.get()))
+			if (auto* engine = dynamic_cast<EngineType*> (node->engine.get()))	// cppcheck-suppress useStlAlgorithm
 				return engine;
 
 		return nullptr;

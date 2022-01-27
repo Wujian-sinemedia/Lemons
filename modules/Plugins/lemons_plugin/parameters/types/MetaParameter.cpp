@@ -33,10 +33,10 @@ void MetaParameterBase::applyAllConnections() const
 
 MetaParameterBase::Connection& MetaParameterBase::getConnectionToAssign (const Parameter& parameter)
 {
-	if (auto* connection = getConnection (parameter))
+	if (auto* connection = getConnection (parameter))  // cppcheck-suppress constVariable
 		return *connection;
 
-	if (auto* connection = getInvalidConnection())
+	if (auto* connection = getInvalidConnection())	// cppcheck-suppress constVariable
 		return *connection;
 
 	return *connections.add (new Connection (parameterList));

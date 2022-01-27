@@ -42,7 +42,7 @@ typename Coefficients<NumericType>::Storage& Coefficients<NumericType>::Storage:
 	}
 
 	for (auto& c : *this)
-		c *= a0inv;
+		c *= a0inv;	 // cppcheck-suppress useStlAlgorithm
 
 	return *this;
 }

@@ -11,7 +11,7 @@ public:
 	using Voice				= SynthVoiceBase<SampleType>;
 	using VoiceCreationFunc = std::function<Voice*()>;
 
-	LambdaSynth (VoiceCreationFunc&& creationFuncToUse)
+	explicit LambdaSynth (VoiceCreationFunc&& creationFuncToUse)
 		: createVoiceFunc (std::move (creationFuncToUse))
 	{
 	}

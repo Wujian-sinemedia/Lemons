@@ -3,8 +3,8 @@ namespace lemons::gui::components
 PopupComponentBase::PopupComponentBase (std::function<void()> toClose, bool useCloseButton, bool escapeKeyCloses)
 	: closeFunc (std::move (toClose)), escapeKeyDestroys (escapeKeyCloses)
 {
-	if (toClose == nullptr)
-		toClose = [this]()
+	if (closeFunc == nullptr)
+		closeFunc = [this]()
 		{ delete this; };
 
 	setWantsKeyboardFocus (true);
@@ -17,7 +17,7 @@ PopupComponentBase::PopupComponentBase (std::function<void()> toClose, bool useC
 }
 
 
-static inline std::function<void()> makeCloserLambda (std::unique_ptr<PopupComponentBase>& holder, PopupComponentBase* parent)
+static inline std::function<void()> makeCloserLambda (std::unique_ptr<PopupComponentBase>& holder, const PopupComponentBase* parent)
 {
 	jassert (holder.get() == parent);
 

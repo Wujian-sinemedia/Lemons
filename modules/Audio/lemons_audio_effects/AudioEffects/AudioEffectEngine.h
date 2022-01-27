@@ -19,7 +19,7 @@ public:
 		Forwards all constructor arguments to the underlying effect object.
 	*/
 	template <typename... Args>
-	EffectEngine (Args&&... args)
+	explicit EffectEngine (Args&&... args)
 		: effect (std::forward<Args> (args)...)
 	{
 	}

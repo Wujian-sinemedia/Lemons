@@ -9,7 +9,7 @@ public:
 
 	using Voice = SynthVoiceBase<SampleType>;
 
-	VoiceAllocator (SynthBase<SampleType>& s);
+	explicit VoiceAllocator (SynthBase<SampleType>& s);
 
 	void prepare (int maxNumVoices);
 

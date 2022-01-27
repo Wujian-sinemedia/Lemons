@@ -10,7 +10,7 @@ class TimbreMod
 {
 public:
 
-	TimbreMod (const typename SynthBase<SampleType>::TimbreModParams& modSource);
+	explicit TimbreMod (const typename SynthBase<SampleType>::TimbreModParams& modSource);
 
 	void prepare (int blocksize, double samplerate);
 

@@ -1,5 +1,0 @@
-namespace lemons::music
-{
-
-
-}

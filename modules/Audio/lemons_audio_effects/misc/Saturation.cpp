@@ -12,10 +12,10 @@ void Saturator<SampleType>::process (juce::AudioBuffer<SampleType>& audio)
 {
 	for (int chan = 0; chan < audio.getNumChannels(); ++chan)
 	{
-		auto* audio = audio.getWritePointer (chan);
+		auto* audioData = audio.getWritePointer (chan);
 
 		for (int s = 0; s < audio.getNumSamples(); ++s)
-			audio[s] = processSample (audio[s]);
+			audioData[s] = processSample (audioData[s]);
 	}
 }
 

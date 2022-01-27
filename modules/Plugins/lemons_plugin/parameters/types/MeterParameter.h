@@ -70,8 +70,8 @@ struct GainMeterParameter final : public MeterParameter<float>
 	@param paramName The name of this parameter.
 	@param parameterCategory The category of this meter parameter. This is used to indicate to the DAW whether the parameter is a level meter, a gain reduction meter, etc.
 	*/
-	GainMeterParameter (const String&	  paramName,
-						ParameterCategory parameterCategory = ParameterCategory::genericParameter);
+	explicit GainMeterParameter (const String&	   paramName,
+								 ParameterCategory parameterCategory = ParameterCategory::genericParameter);
 };
 
 

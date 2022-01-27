@@ -20,7 +20,7 @@ struct ScopedCursor
 		@param cursor The new cursor to display for this object's lifetime.
 		@param cursorToResetTo The cursor to display when this object is destroyed.
 	*/
-	ScopedCursor (
+	explicit ScopedCursor (
 		const juce::MouseCursor& cursor,
 		juce::MouseCursor		 cursorToResetTo = juce::MouseCursor::NormalCursor);
 

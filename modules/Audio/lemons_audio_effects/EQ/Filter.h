@@ -33,7 +33,7 @@ public:
 	Filter() = default;
 
 	/** Creates a filter with specified parameters. */
-	Filter (FilterType filterType, float frequency = 440.f, float Qfactor = 0.70710678118654752440f, float gainMult = 1.f);
+	explicit Filter (FilterType filterType, float frequency = 440.f, float Qfactor = 0.70710678118654752440f, float gainMult = 1.f);
 
 	/** Sets the type of this filter. */
 	void setFilterType (FilterType newType);

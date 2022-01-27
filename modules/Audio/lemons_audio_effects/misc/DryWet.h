@@ -17,7 +17,7 @@ public:
 	DryWetMixer();
 
 	/** Creates a DryWetMixer with some specified initial settings. */
-	DryWetMixer (int wetPercentMix, int wetLatencySamples = 0);
+	explicit DryWetMixer (int wetPercentMix, int wetLatencySamples = 0);
 
 	/** Sets the amount of wet signal that will be present in the mixed output.
 		For example, if you pass 100, the output signal will be entirely wet and no dry. If you pass 0, the output signal will be entirely dry and no wet. If you pass 50, the output signal will be 50% dry and 50% wet.

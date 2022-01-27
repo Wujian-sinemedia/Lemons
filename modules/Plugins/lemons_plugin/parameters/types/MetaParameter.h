@@ -167,7 +167,7 @@ private:
 
 	struct Updater : Parameter::Listener
 	{
-		Updater (MetaParameter& paramToUse);
+		explicit Updater (MetaParameter& paramToUse);
 
 	private:
 

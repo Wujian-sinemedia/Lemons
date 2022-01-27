@@ -17,7 +17,7 @@ public:
 	SmoothedGain();
 
 	/** Creates a SmoothedGain with a specified initial gain value. */
-	SmoothedGain (float gain);
+	explicit SmoothedGain (float gain);
 
 	/** Prepares the SmoothedGain. */
 	void prepare (double samplerate, int blocksize) final;

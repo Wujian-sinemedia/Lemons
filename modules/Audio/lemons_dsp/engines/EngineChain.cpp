@@ -59,9 +59,11 @@ int EngineChain<SampleType>::Node::getIndex() const noexcept
 template <typename SampleType>
 typename EngineChain<SampleType>::Node* EngineChain<SampleType>::getNode (int index)
 {
-	for (auto* node : nodes)
-		if (node->index == index)
-			return node;
+	if (auto res = std::find_if (nodes.begin(), nodes.end(),
+								 [index] (Node* n)
+								 { return n->index == index; });
+		res != nodes.end())
+		return *res;
 
 	return nullptr;
 }
@@ -69,9 +71,11 @@ typename EngineChain<SampleType>::Node* EngineChain<SampleType>::getNode (int in
 template <typename SampleType>
 const typename EngineChain<SampleType>::Node* EngineChain<SampleType>::getNode (int index) const
 {
-	for (const auto* node : nodes)
-		if (node->index == index)
-			return node;
+	if (auto res = std::find_if (nodes.begin(), nodes.end(),
+								 [index] (Node* n)
+								 { return n->index == index; });
+		res != nodes.end())
+		return *res;
 
 	return nullptr;
 }

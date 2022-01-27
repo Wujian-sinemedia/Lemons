@@ -137,27 +137,22 @@ StringToValFunc<int> createDefaultValueFromStringFunc()
 template <>
 StringToValFunc<bool> createDefaultValueFromStringFunc()
 {
-	juce::StringArray onStrings;
-	onStrings.add (TRANS ("on"));
-	onStrings.add (TRANS ("yes"));
-	onStrings.add (TRANS ("true"));
-
-	juce::StringArray offStrings;
-	offStrings.add (TRANS ("off"));
-	offStrings.add (TRANS ("no"));
-	offStrings.add (TRANS ("false"));
+	const juce::StringArray onStrings { TRANS ("on"), TRANS ("yes"), TRANS ("true") };
+	const juce::StringArray offStrings { TRANS ("off"), TRANS ("no"), TRANS ("false") };
 
 	return [onStrings, offStrings] (const String& text) -> bool
 	{
 		const auto lowercaseText = text.toLowerCase();
 
-		for (const auto& testText : onStrings)
-			if (lowercaseText == testText)
-				return true;
+		if (std::any_of (onStrings.begin(), onStrings.end(),
+						 [&text] (const String& s)
+						 { return s == text; }))
+			return true;
 
-		for (const auto& testText : offStrings)
-			if (lowercaseText == testText)
-				return false;
+		if (std::any_of (offStrings.begin(), offStrings.end(),
+						 [&text] (const String& s)
+						 { return s == text; }))
+			return false;
 
 		return text.getIntValue() > 0;
 	};

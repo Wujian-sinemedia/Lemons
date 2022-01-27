@@ -22,20 +22,9 @@ void SaveToFilePrompt::run()
 
 void SaveToFilePrompt::processFileChooserResult (const File& chosenFile)
 {
-	bool asXML = false, asJSON = true;
+	// TO DO: enable choosing JSON, XML, or opaque
 
-	if (asXML)
-	{
-		files::saveValueTree<files::FileType::XML> (chosenFile, data);
-	}
-	else if (asJSON)
-	{
-		files::saveValueTree<files::FileType::JSON> (chosenFile, data);
-	}
-	else
-	{
-		files::saveValueTree<files::FileType::Opaque> (chosenFile, data);
-	}
+	files::saveValueTree<files::FileType::JSON> (chosenFile, data);
 
 	close();
 }

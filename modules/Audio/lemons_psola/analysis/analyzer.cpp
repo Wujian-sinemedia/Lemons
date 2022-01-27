@@ -221,7 +221,7 @@ typename Analyzer<SampleType>::Grain& Analyzer<SampleType>::getClosestGrain (int
 
 		const auto origStart = grain->getOrigStart();
 
-		[[unlikely]] if (origStart == placeInBlock) return *grain;
+		if (origStart == placeInBlock) return *grain;
 
 		const auto currentDist = std::abs (origStart - placeInBlock);
 
@@ -248,7 +248,7 @@ typename Analyzer<SampleType>::Grain& Analyzer<SampleType>::getClosestGrain (int
 
 	jassert (after.grain != nullptr);
 
-	return *after.grain;
+	return *after.grain;  // cppcheck-suppress returnReference
 }
 
 template <typename SampleType>

@@ -11,7 +11,7 @@ class PanningManager
 {
 public:
 
-	PanningManager (SynthBase<SampleType>& b)
+	explicit PanningManager (SynthBase<SampleType>& b)
 		: synth (b)
 	{
 	}
