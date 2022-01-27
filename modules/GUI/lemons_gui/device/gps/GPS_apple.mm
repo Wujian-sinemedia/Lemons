@@ -1,9 +1,9 @@
 #if ! (JUCE_MAC || JUCE_IOS)
-#  error
+#	error
 #endif
 
 #if ! LEMONS_ENABLE_GPS_LOCATION_SERVICES
-#  error
+#	error
 #endif
 
 #include <AppKit/AppKit.h>

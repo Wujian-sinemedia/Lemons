@@ -51,11 +51,6 @@ repos:
     hooks:
       - id: gitown
 
-  # - repo: https://github.com/editorconfig-checker/editorconfig-checker.python
-  #   rev: 2.4.0
-  #   hooks:
-  #     - id: editorconfig-checker
-
   # text and typos
   - repo: https://github.com/sirosen/texthooks
     rev: 0.2.2
@@ -89,6 +84,12 @@ repos:
     hooks:
       - id: check-github-workflows
 
+  # TOML
+  # - repo: https://github.com/macisamuele/language-formatters-pre-commit-hooks
+  #   rev: v2.2.0
+  #   hooks:
+  #     - id: pretty-format-toml
+
   # Markdown
   - repo: https://github.com/igorshubovych/markdownlint-cli
     rev: v0.30.0
@@ -105,6 +106,7 @@ repos:
     rev: v6.2.1
     hooks:
       - id: beautysh
+        args: [--tab]
 
   # Python
   - repo: https://github.com/asottile/pyupgrade
@@ -147,6 +149,11 @@ repos:
     rev: v2.12.2
     hooks:
       - id: pylint
+
+  - repo: https://github.com/editorconfig-checker/editorconfig-checker.python
+    rev: 2.4.0
+    hooks:
+      - id: editorconfig-checker
 
 ci:
   skip: [shellcheck, gitown]

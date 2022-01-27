@@ -14,7 +14,7 @@
  */
 
 #if JUCE_ANDROID
-#  error
+#	error
 #endif
 
 #include <juce_gui_basics/juce_gui_basics.h>

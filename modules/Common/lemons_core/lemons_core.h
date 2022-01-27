@@ -42,7 +42,7 @@
 	The Lemons repo's cmake scripts set this automatically for you; if that's how you added the Lemons package, then you don't need to worry about setting this manually.
  */
 #ifndef LEMONS_UNIT_TESTS
-#  define LEMONS_UNIT_TESTS 0
+#	define LEMONS_UNIT_TESTS 0
 #endif
 
 
@@ -53,11 +53,11 @@
 	The Lemons repo's cmake scripts set this automatically for you; if that's how you added the Lemons package, then you don't need to worry about setting this manually.
  */
 #ifndef LEMONS_HAS_BINARY_DATA
-#  if __has_include("BinaryData/BinaryData.h")
-#	define LEMONS_HAS_BINARY_DATA 1
-#  else
-#	define LEMONS_HAS_BINARY_DATA 0
-#  endif
+#	if __has_include("BinaryData/BinaryData.h")
+#		define LEMONS_HAS_BINARY_DATA 1
+#	else
+#		define LEMONS_HAS_BINARY_DATA 0
+#	endif
 #endif
 
 /*=======================================================================*/

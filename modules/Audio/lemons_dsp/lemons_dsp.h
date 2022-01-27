@@ -40,7 +40,7 @@ END_JUCE_MODULE_DECLARATION
  Set this to 1 to generate the static type registry of engines. You can turn this off to save performance and compile times.
  */
 #ifndef LEMONS_DSP_ENGINE_FACTORY
-#  define LEMONS_DSP_ENGINE_FACTORY 1
+#	define LEMONS_DSP_ENGINE_FACTORY 1
 #endif
 
 //==============================================================================

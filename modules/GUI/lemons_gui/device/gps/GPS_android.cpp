@@ -1,9 +1,9 @@
 #if ! JUCE_ANDROID
-#  error
+#	error
 #endif
 
 #if ! LEMONS_ENABLE_GPS_LOCATION_SERVICES
-#  error
+#	error
 #endif
 
 namespace lemons

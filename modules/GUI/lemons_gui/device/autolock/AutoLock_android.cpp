@@ -1,5 +1,5 @@
 #if ! JUCE_ANDROID
-#  error
+#	error
 #endif
 
 #include <juce_core/native/juce_android_JNIHelpers.h>
@@ -9,8 +9,8 @@ namespace lemons
 {
 
 #define JNI_CLASS_MEMBERS(METHOD, STATICMETHOD, FIELD, STATICFIELD, CALLBACK) \
-  METHOD (addFlags, "addFlags", "(I)V")                                       \
-  METHOD (clearFlags, "clearFlags", "(I)V")
+	METHOD (addFlags, "addFlags", "(I)V")                                     \
+	METHOD (clearFlags, "clearFlags", "(I)V")
 
 DECLARE_JNI_CLASS (Window, "android/view/Window")
 #undef JNI_CLASS_MEMBERS

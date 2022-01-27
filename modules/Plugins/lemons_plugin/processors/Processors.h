@@ -177,14 +177,14 @@ struct ProcessorWithGenericEditor final : ProcessorType
 /** @ingroup lemons_plugin_processors
 	A handy macro to define Juce's createPluginFilter() function for you; simply hand this macro the fully-specialized type of your plugin's processor.
  */
-#define LEMONS_DEFINE_PLUGIN_CREATOR(ProcessorClass)       \
-  juce::AudioProcessor* JUCE_CALLTYPE createPluginFilter() \
-  {                                                        \
-	return new ProcessorClass;                             \
-  }
+#define LEMONS_DEFINE_PLUGIN_CREATOR(ProcessorClass)         \
+	juce::AudioProcessor* JUCE_CALLTYPE createPluginFilter() \
+	{                                                        \
+		return new ProcessorClass;                           \
+	}
 
 /** @ingroup lemons_plugin_processors
 	A macro that creates a definition of createPluginFilter() based on a DSP engine type -- this will return a plugin that wraps the desired engine type.
  */
 #define LEMONS_CREATE_PLUGIN_FROM_ENGINE(EngineType) \
-  LEMONS_DEFINE_PLUGIN_CREATOR (StatelessProcessor<EngineType>)
+	LEMONS_DEFINE_PLUGIN_CREATOR (StatelessProcessor<EngineType>)

@@ -12,8 +12,8 @@ app_path=$1
 
 if [ -z "$app_path" ];
 then
-    echo "You need to specify the app to re-codesign!"
-    exit 1
+	echo "You need to specify the app to re-codesign!"
+	exit 1
 fi
 
 # This uses local codesign. so it'll be valid ONLY on the machine you've re-signed with.

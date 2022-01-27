@@ -45,6 +45,6 @@ protected:
 
 /** @ingroup lemons_dsp_unit_tests
  */
-#define LEMONS_CREATE_DSP_TEST(ClassTemplate)         \
-  static ClassTemplate<float>  ClassTemplate##_float; \
-  static ClassTemplate<double> ClassTemplate##_double;
+#define LEMONS_CREATE_DSP_TEST(ClassTemplate)           \
+	static ClassTemplate<float>	 ClassTemplate##_float; \
+	static ClassTemplate<double> ClassTemplate##_double;

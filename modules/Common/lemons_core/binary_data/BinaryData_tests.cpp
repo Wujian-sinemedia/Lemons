@@ -1,5 +1,5 @@
 #if ! LEMONS_UNIT_TESTS
-#  error
+#	error
 #endif
 
 static_assert (lemons::binary::hasBinaryData(), "Must have binary data to test the binary data!");

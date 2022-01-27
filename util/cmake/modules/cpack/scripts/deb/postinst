@@ -2,5 +2,5 @@
 # lintian compliant way to run ldconfig after .deb package install
 
 if [ "$1" = "configure" ]; then
-    ldconfig
+	ldconfig
 fi

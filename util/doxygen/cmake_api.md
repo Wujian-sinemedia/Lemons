@@ -1,4 +1,4 @@
-<!-- markdownlint-disable MD041 MD013 -->
+<!-- markdownlint-disable MD041 -->
 
 ## CMake modules {#CMake_modules}
 

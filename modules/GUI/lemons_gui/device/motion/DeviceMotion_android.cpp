@@ -1,5 +1,5 @@
 #if ! JUCE_ANDROID
-#  error
+#	error
 #endif
 
 namespace lemons

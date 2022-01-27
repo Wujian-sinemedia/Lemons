@@ -16,7 +16,7 @@
 #pragma once
 
 #if JUCE_ANDROID
-#  include <android/sensor.h>
+#	include <android/sensor.h>
 #endif
 
 namespace lemons

@@ -15,7 +15,7 @@ readonly script_dir
 readonly temp_dir="$script_dir/docs"
 
 if [ -d "$temp_dir" ]; then
-    rm -rf "$temp_dir"
+	rm -rf "$temp_dir"
 fi
 
 mkdir "$temp_dir"

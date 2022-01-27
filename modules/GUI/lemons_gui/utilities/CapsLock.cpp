@@ -1,7 +1,7 @@
 #if JUCE_WINDOWS
-#  include <Windows.h>
+#	include <Windows.h>
 #elif JUCE_MAC
-#  include <CoreGraphics/CoreGraphics.h>
+#	include <CoreGraphics/CoreGraphics.h>
 #else
 // not currently implemented for Linux
 #endif

@@ -5,12 +5,12 @@ template <typename SampleType>
 DetunableBase<SampleType>::DetunableBase (ConstructedArray<Oscillator<SampleType>>& arrayToUse)
 	: Oscillator<SampleType> ([this]
 		{
-    auto sample = SampleType (0);
+	auto sample = SampleType (0);
 
-    for (auto* osc : oscillators)
-        sample += osc->getSample();
+	for (auto* osc : oscillators)
+		sample += osc->getSample();
 
-    return sample; }),
+	return sample; }),
 	  oscillators (arrayToUse)
 {
 }

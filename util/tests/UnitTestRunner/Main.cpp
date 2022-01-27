@@ -18,7 +18,7 @@
 
 
 #if ! LEMONS_UNIT_TESTS
-#  error
+#	error
 #endif
 
 

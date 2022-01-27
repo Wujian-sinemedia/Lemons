@@ -27,7 +27,7 @@
  Set this to 1 to enable GPS location services.
  */
 #ifndef LEMONS_ENABLE_GPS_LOCATION_SERVICES
-#  define LEMONS_ENABLE_GPS_LOCATION_SERVICES 0
+#	define LEMONS_ENABLE_GPS_LOCATION_SERVICES 0
 #endif
 
 //==============================================================================

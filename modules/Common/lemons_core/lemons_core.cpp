@@ -40,9 +40,9 @@
 #include "localization/languages.cpp"
 
 #if LEMONS_UNIT_TESTS
-#  include "binary_data/BinaryData_tests.cpp"
-#  include "math/Ranges_tests.cpp"
-#  include "math/math_tests.cpp"
-#  include "serializing/VariantConversions_tests.cpp"
-#  include "serializing/serializing_tests.cpp"
+#	include "binary_data/BinaryData_tests.cpp"
+#	include "math/Ranges_tests.cpp"
+#	include "math/math_tests.cpp"
+#	include "serializing/VariantConversions_tests.cpp"
+#	include "serializing/serializing_tests.cpp"
 #endif

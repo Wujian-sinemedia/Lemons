@@ -1,7 +1,7 @@
 #if LEMONS_ENABLE_GPS_LOCATION_SERVICES
-#  if (JUCE_MAC || JUCE_IOS || JUCE_ANDROID || JUCE_WINDOWS)
-#	error
-#  endif
+#	if (JUCE_MAC || JUCE_IOS || JUCE_ANDROID || JUCE_WINDOWS)
+#		error
+#	endif
 #endif
 
 namespace lemons

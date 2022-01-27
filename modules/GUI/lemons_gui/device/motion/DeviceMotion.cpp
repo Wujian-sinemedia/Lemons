@@ -97,7 +97,7 @@ DeviceMotion::~DeviceMotion()
 {
 }
 
-#  if ! JUCE_ANDROID
+#	if ! JUCE_ANDROID
 
 void DeviceMotion::start()
 {
@@ -115,7 +115,7 @@ void DeviceMotion::stop()
 	running = false;
 }
 
-#  endif
+#	endif
 
 #endif
 

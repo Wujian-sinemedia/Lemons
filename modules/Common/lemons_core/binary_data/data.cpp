@@ -15,7 +15,7 @@
 
 
 #if LEMONS_HAS_BINARY_DATA
-#  include "BinaryData.h"
+#	include "BinaryData.h"
 #endif
 
 namespace lemons::binary

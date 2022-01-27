@@ -36,7 +36,7 @@
 	Note that both arguments to this macro must be fully specialized types.
  */
 #define LEMONS_MUST_INHERIT_FROM(classToTest, requiredBaseClass) \
-  std::enable_if_t<std::is_base_of<requiredBaseClass, classToTest>::value>* = nullptr
+	std::enable_if_t<std::is_base_of<requiredBaseClass, classToTest>::value>* = nullptr
 
 namespace lemons
 {
@@ -91,4 +91,4 @@ static_assert (! is_specialization<std::vector<int>, std::list>(), "is_specializ
 	Note that the first argument to this macro should be a fully-specialized type, and the second argument to this macro must be an unspecialized template!
  */
 #define LEMONS_MUST_BE_SPECIALIZATION(classToTest, requiredTemplate) \
-  std::enable_if_t<lemons::is_specialization<classToTest, requiredTemplate>::value>* = nullptr
+	std::enable_if_t<lemons::is_specialization<classToTest, requiredTemplate>::value>* = nullptr

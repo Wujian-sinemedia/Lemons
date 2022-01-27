@@ -15,7 +15,7 @@
 
 
 #if ! LEMONS_UNIT_TESTS
-#  error
+#	error
 #endif
 
 namespace lemons::tests

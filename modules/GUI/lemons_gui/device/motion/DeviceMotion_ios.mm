@@ -1,5 +1,5 @@
 #if ! JUCE_IOS
-#  error
+#	error
 #endif
 
 #include <CoreMotion/CoreMotion.h>

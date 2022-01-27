@@ -33,6 +33,6 @@
 #include <libMTSClient.cpp>
 
 #if LEMONS_UNIT_TESTING
-#  include "utilities/MidiFIFO_tests.cpp"
-#  include "utilities/serializing_tests.cpp"
+#	include "utilities/MidiFIFO_tests.cpp"
+#	include "utilities/serializing_tests.cpp"
 #endif
