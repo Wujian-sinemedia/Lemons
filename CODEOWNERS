@@ -45,3 +45,11 @@ modules/Audio/lemons_synth/lemons_synth.cpp benthevining
 modules/Common/lemons_musicology/lemons_musicology.cpp benthevining
 .gitlint benthevining
 .gitattributes benthevining
+.github/workflows/tests.yml benthevining
+util/assets/lemons.jpg benthevining
+modules/Audio/lemons_dsp/filters/Coeffecients.h benthevining
+modules/Plugins/lemons_plugin/metadata/ParameterTraits.h benthevining
+modules/Audio/lemons_midi/tuning/PitchbendTracker.h benthevining
+modules/GUI/lemons_gui/utilities/cursor.cpp benthevining
+modules/Common/lemons_core/unit_tests/test.h benthevining
+util/cmake/modules/config_files/scripts/install_pips.cmake benthevining
