@@ -1083,8 +1083,8 @@
     <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/Audio/lemons_synth/Synth/</path>
     <filename>_synth_8h.html</filename>
     <includes id="_automated_harmony_voice_8h" name="AutomatedHarmonyVoice.h" local="yes" imported="no">helpers/AutomatedHarmonyVoice.h</includes>
-    <includes id="_panning_manager_8h" name="PanningManager.h" local="yes" imported="no">helpers/PanningManager.h</includes>
     <includes id="_midi_manager_8h" name="MidiManager.h" local="yes" imported="no">helpers/MidiManager.h</includes>
+    <includes id="_panning_manager_8h" name="PanningManager.h" local="yes" imported="no">helpers/PanningManager.h</includes>
     <includes id="_voice_allocator_8h" name="VoiceAllocator.h" local="yes" imported="no">helpers/VoiceAllocator.h</includes>
     <class kind="class">lemons::dsp::SynthBase</class>
     <class kind="struct">lemons::dsp::SynthBase::TimbreModParams</class>
@@ -3185,9 +3185,9 @@
     <name>PresetBar.h</name>
     <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/Plugins/lemons_plugin_gui/PresetBar/</path>
     <filename>_preset_bar_8h.html</filename>
-    <includes id="_state_toggle_buttons_8h" name="StateToggleButtons.h" local="yes" imported="no">StateToggleButtons.h</includes>
-    <includes id="_preset_saving_component_8h" name="PresetSavingComponent.h" local="yes" imported="no">PresetSavingComponent/PresetSavingComponent.h</includes>
     <includes id="_preset_browser_component_8h" name="PresetBrowserComponent.h" local="yes" imported="no">PresetBrowserComponent/PresetBrowserComponent.h</includes>
+    <includes id="_preset_saving_component_8h" name="PresetSavingComponent.h" local="yes" imported="no">PresetSavingComponent/PresetSavingComponent.h</includes>
+    <includes id="_state_toggle_buttons_8h" name="StateToggleButtons.h" local="yes" imported="no">StateToggleButtons.h</includes>
     <class kind="class">lemons::plugin::PresetBar</class>
     <namespace>lemons</namespace>
     <namespace>lemons::plugin</namespace>
@@ -3221,8 +3221,8 @@
     <name>SliderBase.h</name>
     <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/Plugins/lemons_plugin_gui/sliders/</path>
     <filename>_slider_base_8h.html</filename>
-    <includes id="lemons__plugin_8h" name="lemons_plugin.h" local="no" imported="no">lemons_plugin/lemons_plugin.h</includes>
     <includes id="lemons__gui_8h" name="lemons_gui.h" local="no" imported="no">lemons_gui/lemons_gui.h</includes>
+    <includes id="lemons__plugin_8h" name="lemons_plugin.h" local="no" imported="no">lemons_plugin/lemons_plugin.h</includes>
     <class kind="class">lemons::gui::components::SliderBase</class>
     <namespace>lemons</namespace>
     <namespace>lemons::gui</namespace>
