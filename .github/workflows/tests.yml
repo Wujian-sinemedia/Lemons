@@ -1,13 +1,11 @@
 ---
-name: Tests
+name: Test and release
 
 on:
   workflow_dispatch:
   push:
     branches:
       - main
-  schedule:
-    - cron: '0 0 * * *'
 
 jobs:
 
@@ -72,6 +70,9 @@ jobs:
 
       - name: Install dependencies
         run: npm install @semantic-release/changelog -D
+
+      - name: Install dependencies
+        run: npm install @semantic-release/git -D
 
       - name: Run semantic release
         env:
