@@ -1,5 +1,5 @@
 {
 	"IgnoreDefaults": true,
 	"SpacesAftertabs": true,
-	"Exclude": [".clang-tidy", "LICENSE.txt", "\\.py$"]
+	"Exclude": [".clang-tidy", "LICENSE.txt"]
 }

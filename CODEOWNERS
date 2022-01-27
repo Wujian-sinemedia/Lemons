@@ -84,3 +84,13 @@ util/PluginMetadataEditor/metadata_editor_gui/processor_attributes/ProcessorAttr
 modules/Audio/lemons_dsp/engines/DspProtection.h benthevining
 modules/Plugins/lemons_plugin_gui/plugin_library/PluginLibraryComponent.h benthevining
 .clang-tidy benthevining
+util/doxygen/scripts/process_juce_modules.py benthevining
+modules/GUI/lemons_gui/lemons_gui.cpp benthevining
+modules/Plugins/lemons_plugin/metadata/PluginMetadata.cpp benthevining
+modules/Audio/lemons_audio_effects/misc/DryWet.h benthevining
+util/PluginMetadataEditor/metadata_editor_gui/editor_attributes/EditorAttributeComponent.h benthevining
+modules/Common/lemons_core/misc/rsa.h benthevining
+modules/Plugins/lemons_plugin_gui/buttons/Buttons.h benthevining
+modules/Audio/lemons_dsp/engines/DspProtection_tests.cpp benthevining
+util/doxygen/scripts/main_page.py benthevining
+util/doxygen/scripts/cmake/process_cmake_modules.py benthevining
