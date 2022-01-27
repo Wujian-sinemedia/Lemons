@@ -81,5 +81,4 @@ CheckOptions:
     value: 1
   - key: readability-uniqueptr-delete-release.PreferResetCall
     value: 1
-HeaderFilterRegex: '/(?!juce_)'
 FormatStyle: 'file'
