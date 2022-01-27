@@ -7,6 +7,10 @@ on:
     branches:
       - main
 
+defaults:
+  run:
+    shell: bash
+
 jobs:
 
   Tests:
@@ -20,10 +24,12 @@ jobs:
         os: [windows-latest, ubuntu-latest, macos-latest]
 
     steps:
+
       - name: Checkout code
         uses: actions/checkout@v2
         with:
           submodules: recursive
+          fetch-depth: 1
 
       - name: Set up cache
         uses: actions/cache@v2
@@ -33,11 +39,9 @@ jobs:
           restore-keys: ${{ runner.os }}.tests.
 
       - name: Install deps
-        shell: bash
         run: cmake -P '${{ github.workspace }}/scripts/install_deps.cmake'
 
       - name: Build and run tests
-        shell: bash
         run: make run_tests
 
       - name: Upload logs
@@ -55,27 +59,24 @@ jobs:
     needs: Tests
 
     steps:
+
       - name: Checkout code
         uses: actions/checkout@v2
         with:
           submodules: recursive
+          fetch-depth: 0
 
       - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
           node-version: 'lts/*'
 
-      - name: Install semantic release
-        run: npm install --save-dev semantic-release
-
       - name: Install dependencies
-        run: npm install @semantic-release/changelog -D
-
-      - name: Install dependencies
-        run: npm install @semantic-release/git -D
-
-      - name: Install dependencies
-        run: npm install conventional-changelog-conventionalcommits
+        run: |
+          npm install --save-dev semantic-release
+          npm install @semantic-release/changelog -D
+          npm install @semantic-release/git -D
+          npm install conventional-changelog-conventionalcommits
 
       - name: Run semantic release
         env:

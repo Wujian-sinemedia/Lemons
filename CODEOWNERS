@@ -59,3 +59,4 @@ modules/Audio/lemons_midi/tuning/PitchbendTracker.cpp benthevining
 modules/Common/lemons_core/unit_tests/test.cpp benthevining
 util/CommandLineUtils/TranslationFileGenerator/CMakeLists.txt benthevining
 modules/Plugins/lemons_plugin/parameters/utils/detail.h benthevining
+.github/workflows/test_and_release.yml benthevining
