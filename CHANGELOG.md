@@ -1,3 +1,12 @@
+# Lemons changelog
+
+### [1.0.2](http://github.com/benthevining/Lemons/compare/v1.0.1...v1.0.2) (2022-01-27)
+
+
+### Bug Fixes
+
+* specifying additional_dependencies in precommit configuration ([f129a96](http://github.com/benthevining/Lemons/commit/f129a961eb9360f7dfefcb8662624d491dc72ac9))
+
 ### [1.0.1](http://github.com/benthevining/Lemons/compare/v1.0.0...v1.0.1) (2022-01-27)
 
 
