@@ -3,15 +3,12 @@ default_language_version:
   python: python3
 
 repos:
-  - repo: https://github.com/pre-commit/mirrors-clang-format
-    rev: v13.0.0
-    hooks:
-      - id: clang-format
-        args: [--style=file, -i]
 
   - repo: https://github.com/pocc/pre-commit-hooks
     rev: v1.3.5
     hooks:
+      - id: clang-format
+        args: [--no-diff, --style=file, -i]
       # yamllint disable rule:line-length
       - id: cppcheck
         args: [--quiet, --inline-suppr, --std=c++20, --language=c++,
