@@ -28,9 +28,7 @@ var searchData=
   ['haseditor_25',['hasEditor',['../structlemons_1_1plugin_1_1_processor_attributes.html#addcdcc643a9e2e16d261baaf534b831c',1,'lemons::plugin::ProcessorAttributes::hasEditor()'],['../structlemons_1_1plugin_1_1_processor_with_editor.html#a00f7ca93bd01d20850375d3bb0522b9b',1,'lemons::plugin::ProcessorWithEditor::hasEditor()'],['../structlemons_1_1plugin_1_1_processor_with_generic_editor.html#a01b15535389b4b56d5d31999dc39c52a',1,'lemons::plugin::ProcessorWithGenericEditor::hasEditor()']]],
   ['hassameaspectratioas_26',['hasSameAspectRatioAs',['../structlemons_1_1_dimensions.html#ac784c9887251c92ee4a3c475035fca2c',1,'lemons::Dimensions']]],
   ['hassamemajorversion_27',['hasSameMajorVersion',['../structlemons_1_1_version.html#a309963d20eb0e640fed90907c378e5b0',1,'lemons::Version']]],
-  ['hermitcubic_28',['hermitCubic',['../namespacelemons_1_1spline_1_1interpolation.html#ade13a7f8e279d2dfef662217dd9a500f',1,'lemons::spline::interpolation']]],
-  ['hermitcubic2_29',['hermitCubic2',['../namespacelemons_1_1spline_1_1interpolation.html#a300030ec6a47046a739e4032c20c2c78',1,'lemons::spline::interpolation']]],
-  ['high_30',['High',['../group__lemons__unit__testing.html#ggabe71616eeadecd56537dd9a10376223ca655d20c1ca69519ca647684edbb2db35',1,'lemons::tests']]],
-  ['highpass_31',['HighPass',['../namespacelemons_1_1dsp_1_1_f_x.html#a2a75c0c88cd8cbd576add3c0d4db1d14ae9456dc865a19e434997ea20bb5373f6',1,'lemons::dsp::FX']]],
-  ['highshelf_32',['HighShelf',['../namespacelemons_1_1dsp_1_1_f_x.html#a2a75c0c88cd8cbd576add3c0d4db1d14aaafe3de5c829706a2fda73dd43fd740e',1,'lemons::dsp::FX']]]
+  ['high_28',['High',['../group__lemons__unit__testing.html#ggabe71616eeadecd56537dd9a10376223ca655d20c1ca69519ca647684edbb2db35',1,'lemons::tests']]],
+  ['highpass_29',['HighPass',['../namespacelemons_1_1dsp_1_1_f_x.html#a2a75c0c88cd8cbd576add3c0d4db1d14ae9456dc865a19e434997ea20bb5373f6',1,'lemons::dsp::FX']]],
+  ['highshelf_30',['HighShelf',['../namespacelemons_1_1dsp_1_1_f_x.html#a2a75c0c88cd8cbd576add3c0d4db1d14aaafe3de5c829706a2fda73dd43fd740e',1,'lemons::dsp::FX']]]
 ];

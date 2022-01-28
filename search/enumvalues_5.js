@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['intvalue_0',['intValue',['../structlemons_1_1plugin_1_1_parameter_traits.html#a797e21c8a6569de5d14bc7d5f8160a9ea481f44389b52d587646c4a792551b4dc',1,'lemons::plugin::ParameterTraits']]]
+  ['json_0',['JSON',['../group__lemons__files.html#ggad8666caaa02a1d74f5e234b8900b5390a0ecd11c1d7a287401d148a23bbd7a2f8',1,'lemons::files']]]
 ];

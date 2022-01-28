@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['diminished_0',['Diminished',['../classlemons_1_1music_1_1_interval.html#a5a677d72fb8a097e3f341402120a7d7ca539ef79c5675bdcd6fead7bc93643d98',1,'lemons::music::Interval']]]
+  ['floatvalue_0',['floatValue',['../structlemons_1_1plugin_1_1_parameter_traits.html#a797e21c8a6569de5d14bc7d5f8160a9ea9ec90e82509332a2d6e51de04dbbe788',1,'lemons::plugin::ParameterTraits']]]
 ];

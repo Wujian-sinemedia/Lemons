@@ -2154,46 +2154,10 @@
     </member>
   </compound>
   <compound kind="file">
-    <name>Chord.h</name>
-    <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/Common/lemons_musicology/harmony/</path>
-    <filename>_chord_8h.html</filename>
-    <class kind="class">lemons::music::Chord</class>
-    <namespace>lemons</namespace>
-    <namespace>lemons::music</namespace>
-  </compound>
-  <compound kind="file">
-    <name>Interval.h</name>
-    <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/Common/lemons_musicology/harmony/</path>
-    <filename>_interval_8h.html</filename>
-    <class kind="class">lemons::music::Interval</class>
-    <namespace>lemons</namespace>
-    <namespace>lemons::music</namespace>
-  </compound>
-  <compound kind="file">
-    <name>KeySignature.h</name>
-    <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/Common/lemons_musicology/harmony/</path>
-    <filename>_key_signature_8h.html</filename>
-    <class kind="class">lemons::music::KeySignature</class>
-    <namespace>lemons</namespace>
-    <namespace>lemons::music</namespace>
-  </compound>
-  <compound kind="file">
     <name>lemons_musicology.h</name>
     <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/Common/lemons_musicology/</path>
     <filename>lemons__musicology_8h.html</filename>
     <includes id="_string_functions_8h" name="StringFunctions.h" local="yes" imported="no">util/StringFunctions.h</includes>
-    <includes id="_time_signature_8h" name="TimeSignature.h" local="yes" imported="no">rhythm/TimeSignature.h</includes>
-    <includes id="_interval_8h" name="Interval.h" local="yes" imported="no">harmony/Interval.h</includes>
-    <includes id="_chord_8h" name="Chord.h" local="yes" imported="no">harmony/Chord.h</includes>
-    <includes id="_key_signature_8h" name="KeySignature.h" local="yes" imported="no">harmony/KeySignature.h</includes>
-  </compound>
-  <compound kind="file">
-    <name>TimeSignature.h</name>
-    <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/Common/lemons_musicology/rhythm/</path>
-    <filename>_time_signature_8h.html</filename>
-    <class kind="class">lemons::music::TimeSignature</class>
-    <namespace>lemons</namespace>
-    <namespace>lemons::music</namespace>
   </compound>
   <compound kind="file">
     <name>StringFunctions.h</name>
@@ -2514,99 +2478,6 @@
     <class kind="struct">lemons::gui::ScopedWaitCursor</class>
     <namespace>lemons</namespace>
     <namespace>lemons::gui</namespace>
-  </compound>
-  <compound kind="file">
-    <name>Common.h</name>
-    <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/GUI/lemons_spline/common/</path>
-    <filename>_common_8h.html</filename>
-    <includes id="_knots_8h" name="Knots.h" local="yes" imported="no">Knots.h</includes>
-    <includes id="_interpolation_8h" name="Interpolation.h" local="yes" imported="no">Interpolation.h</includes>
-    <namespace>lemons</namespace>
-    <namespace>lemons::spline</namespace>
-    <member kind="typedef">
-      <type>juce::Point&lt; float &gt;</type>
-      <name>Point</name>
-      <anchorfile>namespacelemons_1_1spline.html</anchorfile>
-      <anchor>a4815e51376e33169aa821c5b402e1462</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>std::vector&lt; float &gt;</type>
-      <name>Points</name>
-      <anchorfile>namespacelemons_1_1spline.html</anchorfile>
-      <anchor>addc7a93d56f97a7f73b2a53cba567b4e</anchor>
-      <arglist></arglist>
-    </member>
-  </compound>
-  <compound kind="file">
-    <name>Interpolation.h</name>
-    <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/GUI/lemons_spline/common/</path>
-    <filename>_interpolation_8h.html</filename>
-    <namespace>lemons</namespace>
-    <namespace>lemons::spline</namespace>
-    <namespace>lemons::spline::interpolation</namespace>
-    <member kind="function">
-      <type>float</type>
-      <name>hermitCubic</name>
-      <anchorfile>namespacelemons_1_1spline_1_1interpolation.html</anchorfile>
-      <anchor>ade13a7f8e279d2dfef662217dd9a500f</anchor>
-      <arglist>(const Knots &amp;data, float x) noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>float</type>
-      <name>hermitCubic2</name>
-      <anchorfile>namespacelemons_1_1spline_1_1interpolation.html</anchorfile>
-      <anchor>a300030ec6a47046a739e4032c20c2c78</anchor>
-      <arglist>(const Knots &amp;data, float x, float tolerance, int i1) noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>Point</type>
-      <name>lin</name>
-      <anchorfile>namespacelemons_1_1spline_1_1interpolation.html</anchorfile>
-      <anchor>a9894612d36a56455f83cd21a9f677008</anchor>
-      <arglist>(const Point &amp;a, const Point &amp;b, float x) noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>Point</type>
-      <name>nurbs</name>
-      <anchorfile>namespacelemons_1_1spline_1_1interpolation.html</anchorfile>
-      <anchor>a50c25e0f00a4a2947cbcc1218eecbc31</anchor>
-      <arglist>(const Knots &amp;data, float t, const int *k) noexcept</arglist>
-    </member>
-  </compound>
-  <compound kind="file">
-    <name>Knots.h</name>
-    <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/GUI/lemons_spline/common/</path>
-    <filename>_knots_8h.html</filename>
-    <class kind="struct">lemons::spline::Knot</class>
-    <class kind="struct">lemons::spline::Knots</class>
-    <namespace>lemons</namespace>
-    <namespace>lemons::spline</namespace>
-  </compound>
-  <compound kind="file">
-    <name>SplineEditor.h</name>
-    <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/GUI/lemons_spline/editor/</path>
-    <filename>_spline_editor_8h.html</filename>
-    <includes id="lemons__core_8h" name="lemons_core.h" local="no" imported="no">lemons_core/lemons_core.h</includes>
-    <class kind="class">lemons::spline::Editor</class>
-    <namespace>lemons</namespace>
-    <namespace>lemons::spline</namespace>
-  </compound>
-  <compound kind="file">
-    <name>lemons_spline.h</name>
-    <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/GUI/lemons_spline/</path>
-    <filename>lemons__spline_8h.html</filename>
-    <includes id="_spline_8h" name="Spline.h" local="yes" imported="no">spline/Spline.h</includes>
-    <includes id="_spline_editor_8h" name="SplineEditor.h" local="yes" imported="no">editor/SplineEditor.h</includes>
-  </compound>
-  <compound kind="file">
-    <name>Spline.h</name>
-    <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/GUI/lemons_spline/spline/</path>
-    <filename>_spline_8h.html</filename>
-    <includes id="_common_8h" name="Common.h" local="no" imported="no">lemons_spline/common/Common.h</includes>
-    <class kind="struct">lemons::spline::Spline</class>
-    <namespace>lemons</namespace>
-    <namespace>lemons::spline</namespace>
   </compound>
   <compound kind="file">
     <name>lemons_modules.dox</name>
@@ -4448,18 +4319,18 @@
       <anchor>a0e7e021b4bd12090ddecc145b7e927e4</anchor>
       <arglist>() const final</arglist>
     </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual void</type>
+    <member kind="function">
+      <type>void</type>
       <name>loadFromValueTree</name>
       <anchorfile>classlemons_1_1plugin_1_1_typed_parameter.html</anchorfile>
-      <anchor>a8f610c63d1d36585b39d723f4d94165a</anchor>
+      <anchor>a3cad7c920360ee8ca1f7a73b51b45700</anchor>
       <arglist>(const ValueTree &amp;tree) override</arglist>
     </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual ValueTree</type>
+    <member kind="function">
+      <type>ValueTree</type>
       <name>saveToValueTree</name>
       <anchorfile>classlemons_1_1plugin_1_1_typed_parameter.html</anchorfile>
-      <anchor>ae2c23845527074bb64c601925ee40898</anchor>
+      <anchor>ac2087079685cfc9b667a235aeff321e2</anchor>
       <arglist>() const override</arglist>
     </member>
     <member kind="function">
@@ -5438,73 +5309,6 @@
       <anchorfile>classlemons_1_1midi_1_1_chopping_processor.html</anchorfile>
       <anchor>aa5093954f0601f45d5442fb70b88282d</anchor>
       <arglist>(const MidiMessage &amp;m) const</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
-    <name>lemons::music::Chord</name>
-    <filename>classlemons_1_1music_1_1_chord.html</filename>
-    <member kind="function">
-      <type>bool</type>
-      <name>containsPitch</name>
-      <anchorfile>classlemons_1_1music_1_1_chord.html</anchorfile>
-      <anchor>a8f0990d25d2d30c907027dedf81c9c93</anchor>
-      <arglist>(int midiNote) const</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>containsPitchClass</name>
-      <anchorfile>classlemons_1_1music_1_1_chord.html</anchorfile>
-      <anchor>a0c58b75bb9d47e7d8acb80d407494b3c</anchor>
-      <arglist>(int pitchClass) const</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>containsSamePitchClassesAs</name>
-      <anchorfile>classlemons_1_1music_1_1_chord.html</anchorfile>
-      <anchor>acf5c06ceef5640bed3eec77dab9bc562</anchor>
-      <arglist>(const Chord &amp;other) const</arglist>
-    </member>
-    <member kind="function">
-      <type>int</type>
-      <name>getHighestPitch</name>
-      <anchorfile>classlemons_1_1music_1_1_chord.html</anchorfile>
-      <anchor>a472964fdb50c3cb6759b6103e13129de</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function">
-      <type>int</type>
-      <name>getLowestPitch</name>
-      <anchorfile>classlemons_1_1music_1_1_chord.html</anchorfile>
-      <anchor>a0d0f92628e91b0a8193b29fb31e71275</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function">
-      <type>int</type>
-      <name>getNumPitches</name>
-      <anchorfile>classlemons_1_1music_1_1_chord.html</anchorfile>
-      <anchor>acbd713bcedd3e8c8ace3996ade64d21d</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function">
-      <type>int</type>
-      <name>getNumUniquePitchClasses</name>
-      <anchorfile>classlemons_1_1music_1_1_chord.html</anchorfile>
-      <anchor>a305e7250881baddb530fa6f37dbee5fa</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>operator!=</name>
-      <anchorfile>classlemons_1_1music_1_1_chord.html</anchorfile>
-      <anchor>acd88a3b3a161c2c2e20706b801f3abbc</anchor>
-      <arglist>(const Chord &amp;other) const</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>operator==</name>
-      <anchorfile>classlemons_1_1music_1_1_chord.html</anchorfile>
-      <anchor>a3c61cbceea5a856d53778b9d0fc454d0</anchor>
-      <arglist>(const Chord &amp;other) const</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -6968,87 +6772,6 @@
       <arglist>() const</arglist>
     </member>
   </compound>
-  <compound kind="class">
-    <name>lemons::spline::Editor</name>
-    <filename>classlemons_1_1spline_1_1_editor.html</filename>
-    <member kind="typedef">
-      <type>juce::Colour</type>
-      <name>Color</name>
-      <anchorfile>classlemons_1_1spline_1_1_editor.html</anchorfile>
-      <anchor>af4ea9ab11310ad453aa96819fa4c46b6</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="function">
-      <type>juce::Rectangle&lt; float &gt;</type>
-      <name>getAdjustedBounds</name>
-      <anchorfile>classlemons_1_1spline_1_1_editor.html</anchorfile>
-      <anchor>a5edbbeacd4e7bc85ce794003d1844d78</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setBackgroundColour</name>
-      <anchorfile>classlemons_1_1spline_1_1_editor.html</anchorfile>
-      <anchor>ab7455a2a26920df5add72ba3d9a4b5a9</anchor>
-      <arglist>(Color c)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setBorderColour</name>
-      <anchorfile>classlemons_1_1spline_1_1_editor.html</anchorfile>
-      <anchor>a64cc29fc59a67f7634f4f2c122188394</anchor>
-      <arglist>(Color c)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setBorderThickness</name>
-      <anchorfile>classlemons_1_1spline_1_1_editor.html</anchorfile>
-      <anchor>a5401878c23950600604a654c6d7e543a</anchor>
-      <arglist>(float pxl)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setCurveColour</name>
-      <anchorfile>classlemons_1_1spline_1_1_editor.html</anchorfile>
-      <anchor>a6bd15b492585b1cbd92a3f1347149550</anchor>
-      <arglist>(Color c)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setCurveThickness</name>
-      <anchorfile>classlemons_1_1spline_1_1_editor.html</anchorfile>
-      <anchor>a67669c3e7a5e2d22e3c1b21815b2f9b8</anchor>
-      <arglist>(float pxl)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setPointColour</name>
-      <anchorfile>classlemons_1_1spline_1_1_editor.html</anchorfile>
-      <anchor>ae4c5d1bcfca97fc0c18c07eb7273f344</anchor>
-      <arglist>(Color c)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setPointThickness</name>
-      <anchorfile>classlemons_1_1spline_1_1_editor.html</anchorfile>
-      <anchor>a764f3aa896ae86f9d32a80eac2b3e06c</anchor>
-      <arglist>(float pxl)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setSelectionColour</name>
-      <anchorfile>classlemons_1_1spline_1_1_editor.html</anchorfile>
-      <anchor>a0db040e902afcad549bfbcc794e9edd7</anchor>
-      <arglist>(Color c)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setSelectionThickness</name>
-      <anchorfile>classlemons_1_1spline_1_1_editor.html</anchorfile>
-      <anchor>a8d046d58e4a4bee4c97ead87f35ecb6a</anchor>
-      <arglist>(float pxl)</arglist>
-    </member>
-  </compound>
   <compound kind="struct">
     <name>lemons::plugin::EditorAttributes</name>
     <filename>structlemons_1_1plugin_1_1_editor_attributes.html</filename>
@@ -8414,18 +8137,18 @@
       <anchor>a0e7e021b4bd12090ddecc145b7e927e4</anchor>
       <arglist>() const final</arglist>
     </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual void</type>
+    <member kind="function">
+      <type>void</type>
       <name>loadFromValueTree</name>
       <anchorfile>classlemons_1_1plugin_1_1_typed_parameter.html</anchorfile>
-      <anchor>a8f610c63d1d36585b39d723f4d94165a</anchor>
+      <anchor>a3cad7c920360ee8ca1f7a73b51b45700</anchor>
       <arglist>(const ValueTree &amp;tree) override</arglist>
     </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual ValueTree</type>
+    <member kind="function">
+      <type>ValueTree</type>
       <name>saveToValueTree</name>
       <anchorfile>classlemons_1_1plugin_1_1_typed_parameter.html</anchorfile>
-      <anchor>ae2c23845527074bb64c601925ee40898</anchor>
+      <anchor>ac2087079685cfc9b667a235aeff321e2</anchor>
       <arglist>() const override</arglist>
     </member>
     <member kind="function">
@@ -8901,18 +8624,18 @@
       <anchor>a0e7e021b4bd12090ddecc145b7e927e4</anchor>
       <arglist>() const final</arglist>
     </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual void</type>
+    <member kind="function">
+      <type>void</type>
       <name>loadFromValueTree</name>
       <anchorfile>classlemons_1_1plugin_1_1_typed_parameter.html</anchorfile>
-      <anchor>a8f610c63d1d36585b39d723f4d94165a</anchor>
+      <anchor>a3cad7c920360ee8ca1f7a73b51b45700</anchor>
       <arglist>(const ValueTree &amp;tree) override</arglist>
     </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual ValueTree</type>
+    <member kind="function">
+      <type>ValueTree</type>
       <name>saveToValueTree</name>
       <anchorfile>classlemons_1_1plugin_1_1_typed_parameter.html</anchorfile>
-      <anchor>ae2c23845527074bb64c601925ee40898</anchor>
+      <anchor>ac2087079685cfc9b667a235aeff321e2</anchor>
       <arglist>() const override</arglist>
     </member>
     <member kind="function">
@@ -9835,18 +9558,18 @@
       <anchor>a0e7e021b4bd12090ddecc145b7e927e4</anchor>
       <arglist>() const final</arglist>
     </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual void</type>
+    <member kind="function">
+      <type>void</type>
       <name>loadFromValueTree</name>
       <anchorfile>classlemons_1_1plugin_1_1_typed_parameter.html</anchorfile>
-      <anchor>a8f610c63d1d36585b39d723f4d94165a</anchor>
+      <anchor>a3cad7c920360ee8ca1f7a73b51b45700</anchor>
       <arglist>(const ValueTree &amp;tree) override</arglist>
     </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual ValueTree</type>
+    <member kind="function">
+      <type>ValueTree</type>
       <name>saveToValueTree</name>
       <anchorfile>classlemons_1_1plugin_1_1_typed_parameter.html</anchorfile>
-      <anchor>ae2c23845527074bb64c601925ee40898</anchor>
+      <anchor>ac2087079685cfc9b667a235aeff321e2</anchor>
       <arglist>() const override</arglist>
     </member>
     <member kind="function">
@@ -10376,36 +10099,6 @@
     </member>
   </compound>
   <compound kind="class">
-    <name>lemons::music::Interval</name>
-    <filename>classlemons_1_1music_1_1_interval.html</filename>
-    <member kind="enumeration">
-      <type></type>
-      <name>Quality</name>
-      <anchorfile>classlemons_1_1music_1_1_interval.html</anchorfile>
-      <anchor>a5a677d72fb8a097e3f341402120a7d7c</anchor>
-      <arglist></arglist>
-      <enumvalue file="classlemons_1_1music_1_1_interval.html" anchor="a5a677d72fb8a097e3f341402120a7d7ca3b329734e45b57e60f3df64c2cf412a9">Major</enumvalue>
-      <enumvalue file="classlemons_1_1music_1_1_interval.html" anchor="a5a677d72fb8a097e3f341402120a7d7ca6fed0c378a4b4e8c1e7dc5c16dabb388">Minor</enumvalue>
-      <enumvalue file="classlemons_1_1music_1_1_interval.html" anchor="a5a677d72fb8a097e3f341402120a7d7ca56cdd7e9e3cef1974f4075c03a80332d">Perfect</enumvalue>
-      <enumvalue file="classlemons_1_1music_1_1_interval.html" anchor="a5a677d72fb8a097e3f341402120a7d7cab45f39670f767b2c62c8d6b211cbcb1a">Augmented</enumvalue>
-      <enumvalue file="classlemons_1_1music_1_1_interval.html" anchor="a5a677d72fb8a097e3f341402120a7d7ca539ef79c5675bdcd6fead7bc93643d98">Diminished</enumvalue>
-    </member>
-    <member kind="function">
-      <type>int</type>
-      <name>getNumSemitones</name>
-      <anchorfile>classlemons_1_1music_1_1_interval.html</anchorfile>
-      <anchor>a9163335acb8675811f60f1af200a0c11</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function">
-      <type>Quality</type>
-      <name>getQuality</name>
-      <anchorfile>classlemons_1_1music_1_1_interval.html</anchorfile>
-      <anchor>a9f3fa54a55273450bfa3979c314bedac</anchor>
-      <arglist>() const</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
     <name>lemons::dsp::psola::IntervalShifter</name>
     <filename>classlemons_1_1dsp_1_1psola_1_1_interval_shifter.html</filename>
     <templarg>typename SampleType</templarg>
@@ -10534,31 +10227,6 @@
     <templarg>template&lt; class... &gt; class Template</templarg>
     <templarg>class... Args</templarg>
   </compound>
-  <compound kind="class">
-    <name>lemons::music::KeySignature</name>
-    <filename>classlemons_1_1music_1_1_key_signature.html</filename>
-    <member kind="function">
-      <type>bool</type>
-      <name>containsPitchClass</name>
-      <anchorfile>classlemons_1_1music_1_1_key_signature.html</anchorfile>
-      <anchor>a38288412c9c1ec1f51f8526dabd93bd8</anchor>
-      <arglist>(int pitchClass) const</arglist>
-    </member>
-    <member kind="function">
-      <type>constexpr bool</type>
-      <name>isFlatKey</name>
-      <anchorfile>classlemons_1_1music_1_1_key_signature.html</anchorfile>
-      <anchor>a97002308d86c0573414111663b040378</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function">
-      <type>constexpr bool</type>
-      <name>isSharpKey</name>
-      <anchorfile>classlemons_1_1music_1_1_key_signature.html</anchorfile>
-      <anchor>af2ef10eebc980dde57076c31fc214c12</anchor>
-      <arglist>() const</arglist>
-    </member>
-  </compound>
   <compound kind="struct">
     <name>lemons::gui::components::Knob</name>
     <filename>structlemons_1_1gui_1_1components_1_1_knob.html</filename>
@@ -10576,147 +10244,6 @@
       <anchorfile>structlemons_1_1gui_1_1components_1_1_knob.html</anchorfile>
       <anchor>ab42602118fe9426e2fc89a4c078d063f</anchor>
       <arglist>(ValueType min, ValueType max, ValueType initial, ValueType doubleClickReset)</arglist>
-    </member>
-  </compound>
-  <compound kind="struct">
-    <name>lemons::spline::Knot</name>
-    <filename>structlemons_1_1spline_1_1_knot.html</filename>
-    <member kind="function">
-      <type></type>
-      <name>Knot</name>
-      <anchorfile>structlemons_1_1spline_1_1_knot.html</anchorfile>
-      <anchor>af03b74500d91ff090a15143ab2612927</anchor>
-      <arglist>(float xToUse=0.f, float yToUse=0.f)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>deselect</name>
-      <anchorfile>structlemons_1_1spline_1_1_knot.html</anchorfile>
-      <anchor>ae213eb8874591dde319f7551f8602ddf</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>drag</name>
-      <anchorfile>structlemons_1_1spline_1_1_knot.html</anchorfile>
-      <anchor>a1ee9c55bf41422ff0e02eb99bd168010</anchor>
-      <arglist>(const Point &amp;p) noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>Point</type>
-      <name>getDenormalizedPoint</name>
-      <anchorfile>structlemons_1_1spline_1_1_knot.html</anchorfile>
-      <anchor>a3c3702c98b168a559b8dc81f7b574a6f</anchor>
-      <arglist>(const juce::Rectangle&lt; float &gt; &amp;bounds) const</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>isSelected</name>
-      <anchorfile>structlemons_1_1spline_1_1_knot.html</anchorfile>
-      <anchor>a4ebed8fda31c00f270a4317851ada0d7</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function">
-      <type>Knot &amp;</type>
-      <name>operator=</name>
-      <anchorfile>structlemons_1_1spline_1_1_knot.html</anchorfile>
-      <anchor>a46039b9fd80826befb988bd10fdc756a</anchor>
-      <arglist>(const Knot &amp;other)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>select</name>
-      <anchorfile>structlemons_1_1spline_1_1_knot.html</anchorfile>
-      <anchor>a236627045a4ae2a7c83db49668be6475</anchor>
-      <arglist>() noexcept</arglist>
-    </member>
-    <member kind="variable">
-      <type>Point</type>
-      <name>dragStart</name>
-      <anchorfile>structlemons_1_1spline_1_1_knot.html</anchorfile>
-      <anchor>ab0aa56e638a7cef7b7ee238378782cea</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>Point</type>
-      <name>location</name>
-      <anchorfile>structlemons_1_1spline_1_1_knot.html</anchorfile>
-      <anchor>a0d2bdd96e97eba6698c2d274424325f8</anchor>
-      <arglist></arglist>
-    </member>
-  </compound>
-  <compound kind="struct">
-    <name>lemons::spline::Knots</name>
-    <filename>structlemons_1_1spline_1_1_knots.html</filename>
-    <member kind="function">
-      <type></type>
-      <name>Knots</name>
-      <anchorfile>structlemons_1_1spline_1_1_knots.html</anchorfile>
-      <anchor>abd6d85c0c51d7df629dc07df0674fe3d</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>add</name>
-      <anchorfile>structlemons_1_1spline_1_1_knots.html</anchorfile>
-      <anchor>a8de66874f62a0741ff7254aa7ba7ac86</anchor>
-      <arglist>(const Point &amp;p)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>deselect</name>
-      <anchorfile>structlemons_1_1spline_1_1_knots.html</anchorfile>
-      <anchor>a5bcb03d2f385ec5a189bcd6216c2fd7a</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>drag</name>
-      <anchorfile>structlemons_1_1spline_1_1_knots.html</anchorfile>
-      <anchor>af8b6546ad3a588381e3b5f35c9d74b57</anchor>
-      <arglist>(const Point &amp;drag) noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>const Knot &amp;</type>
-      <name>getKnot</name>
-      <anchorfile>structlemons_1_1spline_1_1_knots.html</anchorfile>
-      <anchor>a3462bfe071ed922a465541a8a18cf654</anchor>
-      <arglist>(int index) const</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>makeSpline</name>
-      <anchorfile>structlemons_1_1spline_1_1_knots.html</anchorfile>
-      <anchor>a5b302eff91b1c3c9d36b85a5b624993b</anchor>
-      <arglist>(Points &amp;spline) const</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>remove</name>
-      <anchorfile>structlemons_1_1spline_1_1_knots.html</anchorfile>
-      <anchor>a0518edd727c043ab99465d17f12ef21d</anchor>
-      <arglist>(const juce::Range&lt; float &gt; &amp;range)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>removeOffLimits</name>
-      <anchorfile>structlemons_1_1spline_1_1_knots.html</anchorfile>
-      <anchor>a31a71c15d5bc9b97137d7e80aca61ca4</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>select</name>
-      <anchorfile>structlemons_1_1spline_1_1_knots.html</anchorfile>
-      <anchor>a2aa3b8cb43469922d79265363636b3af</anchor>
-      <arglist>(const juce::Range&lt; float &gt; &amp;range) noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>sort</name>
-      <anchorfile>structlemons_1_1spline_1_1_knots.html</anchorfile>
-      <anchor>acb55dd5a344178e4b781990662824ca9</anchor>
-      <arglist>()</arglist>
     </member>
   </compound>
   <compound kind="struct">
@@ -12190,12 +11717,12 @@
       <anchor>a30e6938a8de9f82332b66f66e8af9ba1</anchor>
       <arglist>(Callback &amp;&amp;callbackToUse)</arglist>
     </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual</type>
+    <member kind="function">
+      <type></type>
       <name>~Listener</name>
       <anchorfile>structlemons_1_1_device_rotation_1_1_listener.html</anchorfile>
-      <anchor>a68b17e1694fa069c68d52a0a2c0f71ae</anchor>
-      <arglist>() override</arglist>
+      <anchor>a97795bac93af52f51c465ad6a9f6d5ca</anchor>
+      <arglist>() final</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -13598,18 +13125,18 @@
       <anchor>a0e7e021b4bd12090ddecc145b7e927e4</anchor>
       <arglist>() const final</arglist>
     </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual void</type>
+    <member kind="function">
+      <type>void</type>
       <name>loadFromValueTree</name>
       <anchorfile>classlemons_1_1plugin_1_1_typed_parameter.html</anchorfile>
-      <anchor>a8f610c63d1d36585b39d723f4d94165a</anchor>
+      <anchor>a3cad7c920360ee8ca1f7a73b51b45700</anchor>
       <arglist>(const ValueTree &amp;tree) override</arglist>
     </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual ValueTree</type>
+    <member kind="function">
+      <type>ValueTree</type>
       <name>saveToValueTree</name>
       <anchorfile>classlemons_1_1plugin_1_1_typed_parameter.html</anchorfile>
-      <anchor>ae2c23845527074bb64c601925ee40898</anchor>
+      <anchor>ac2087079685cfc9b667a235aeff321e2</anchor>
       <arglist>() const override</arglist>
     </member>
     <member kind="function">
@@ -14065,18 +13592,18 @@
       <anchor>a0e7e021b4bd12090ddecc145b7e927e4</anchor>
       <arglist>() const final</arglist>
     </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual void</type>
+    <member kind="function">
+      <type>void</type>
       <name>loadFromValueTree</name>
       <anchorfile>classlemons_1_1plugin_1_1_typed_parameter.html</anchorfile>
-      <anchor>a8f610c63d1d36585b39d723f4d94165a</anchor>
+      <anchor>a3cad7c920360ee8ca1f7a73b51b45700</anchor>
       <arglist>(const ValueTree &amp;tree) override</arglist>
     </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual ValueTree</type>
+    <member kind="function">
+      <type>ValueTree</type>
       <name>saveToValueTree</name>
       <anchorfile>classlemons_1_1plugin_1_1_typed_parameter.html</anchorfile>
-      <anchor>ae2c23845527074bb64c601925ee40898</anchor>
+      <anchor>ac2087079685cfc9b667a235aeff321e2</anchor>
       <arglist>() const override</arglist>
     </member>
     <member kind="function">
@@ -17187,18 +16714,18 @@
       <anchor>a0e7e021b4bd12090ddecc145b7e927e4</anchor>
       <arglist>() const final</arglist>
     </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual void</type>
+    <member kind="function">
+      <type>void</type>
       <name>loadFromValueTree</name>
       <anchorfile>classlemons_1_1plugin_1_1_typed_parameter.html</anchorfile>
-      <anchor>a8f610c63d1d36585b39d723f4d94165a</anchor>
+      <anchor>a3cad7c920360ee8ca1f7a73b51b45700</anchor>
       <arglist>(const ValueTree &amp;tree) override</arglist>
     </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual ValueTree</type>
+    <member kind="function">
+      <type>ValueTree</type>
       <name>saveToValueTree</name>
       <anchorfile>classlemons_1_1plugin_1_1_typed_parameter.html</anchorfile>
-      <anchor>ae2c23845527074bb64c601925ee40898</anchor>
+      <anchor>ac2087079685cfc9b667a235aeff321e2</anchor>
       <arglist>() const override</arglist>
     </member>
     <member kind="function">
@@ -19821,18 +19348,18 @@
       <anchor>a0e7e021b4bd12090ddecc145b7e927e4</anchor>
       <arglist>() const final</arglist>
     </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual void</type>
+    <member kind="function">
+      <type>void</type>
       <name>loadFromValueTree</name>
       <anchorfile>classlemons_1_1plugin_1_1_typed_parameter.html</anchorfile>
-      <anchor>a8f610c63d1d36585b39d723f4d94165a</anchor>
+      <anchor>a3cad7c920360ee8ca1f7a73b51b45700</anchor>
       <arglist>(const ValueTree &amp;tree) override</arglist>
     </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual ValueTree</type>
+    <member kind="function">
+      <type>ValueTree</type>
       <name>saveToValueTree</name>
       <anchorfile>classlemons_1_1plugin_1_1_typed_parameter.html</anchorfile>
-      <anchor>ae2c23845527074bb64c601925ee40898</anchor>
+      <anchor>ac2087079685cfc9b667a235aeff321e2</anchor>
       <arglist>() const override</arglist>
     </member>
     <member kind="function">
@@ -20288,18 +19815,18 @@
       <anchor>a0e7e021b4bd12090ddecc145b7e927e4</anchor>
       <arglist>() const final</arglist>
     </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual void</type>
+    <member kind="function">
+      <type>void</type>
       <name>loadFromValueTree</name>
       <anchorfile>classlemons_1_1plugin_1_1_typed_parameter.html</anchorfile>
-      <anchor>a8f610c63d1d36585b39d723f4d94165a</anchor>
+      <anchor>a3cad7c920360ee8ca1f7a73b51b45700</anchor>
       <arglist>(const ValueTree &amp;tree) override</arglist>
     </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual ValueTree</type>
+    <member kind="function">
+      <type>ValueTree</type>
       <name>saveToValueTree</name>
       <anchorfile>classlemons_1_1plugin_1_1_typed_parameter.html</anchorfile>
-      <anchor>ae2c23845527074bb64c601925ee40898</anchor>
+      <anchor>ac2087079685cfc9b667a235aeff321e2</anchor>
       <arglist>() const override</arglist>
     </member>
     <member kind="function">
@@ -20939,45 +20466,6 @@
     </member>
   </compound>
   <compound kind="struct">
-    <name>lemons::spline::Spline</name>
-    <filename>structlemons_1_1spline_1_1_spline.html</filename>
-    <member kind="function">
-      <type>float</type>
-      <name>getPoint</name>
-      <anchorfile>structlemons_1_1spline_1_1_spline.html</anchorfile>
-      <anchor>ac09dccd5fec27597183151bb595b6a51</anchor>
-      <arglist>(int index) const</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>resize</name>
-      <anchorfile>structlemons_1_1spline_1_1_spline.html</anchorfile>
-      <anchor>a456b6004149fa437f8e5b3562393144b</anchor>
-      <arglist>(int newNumPoints)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>updatePoints</name>
-      <anchorfile>structlemons_1_1spline_1_1_spline.html</anchorfile>
-      <anchor>a7dcdb8a3fbec4fd0e807c0538ff34d1c</anchor>
-      <arglist>(const juce::Rectangle&lt; float &gt; &amp;bounds)</arglist>
-    </member>
-    <member kind="variable">
-      <type>Knots</type>
-      <name>knots</name>
-      <anchorfile>structlemons_1_1spline_1_1_spline.html</anchorfile>
-      <anchor>aa660f86709ba2bc361ffd6873b2af5e9</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>Points</type>
-      <name>points</name>
-      <anchorfile>structlemons_1_1spline_1_1_spline.html</anchorfile>
-      <anchor>a19e04b8203f38adc5c515b9f8d9001d7</anchor>
-      <arglist></arglist>
-    </member>
-  </compound>
-  <compound kind="struct">
     <name>lemons::dsp::osc::Square</name>
     <filename>structlemons_1_1dsp_1_1osc_1_1_square.html</filename>
     <templarg>typename SampleType</templarg>
@@ -21184,8 +20672,8 @@
       <type>void</type>
       <name>reset</name>
       <anchorfile>structlemons_1_1midi_1_1_stateful_routing_processor.html</anchorfile>
-      <anchor>ac9e5be25a4c684a406dd843d6b1266a1</anchor>
-      <arglist>()</arglist>
+      <anchor>ae4dbba7397770ad90d3fb009838a95ee</anchor>
+      <arglist>() final</arglist>
     </member>
     <member kind="function" protection="private" virtualness="virtual">
       <type>virtual void</type>
@@ -23050,45 +22538,6 @@
     </member>
   </compound>
   <compound kind="class">
-    <name>lemons::music::TimeSignature</name>
-    <filename>classlemons_1_1music_1_1_time_signature.html</filename>
-    <member kind="function">
-      <type>constexpr</type>
-      <name>TimeSignature</name>
-      <anchorfile>classlemons_1_1music_1_1_time_signature.html</anchorfile>
-      <anchor>abdc3c9b34419920dea33a5bac53af5f7</anchor>
-      <arglist>(int numBeats=4, int beatKind=4)</arglist>
-    </member>
-    <member kind="function">
-      <type>constexpr bool</type>
-      <name>isDupleMeter</name>
-      <anchorfile>classlemons_1_1music_1_1_time_signature.html</anchorfile>
-      <anchor>aebe8c5d4e26b6a3f40210c0736db2865</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function">
-      <type>constexpr bool</type>
-      <name>isTripleMeter</name>
-      <anchorfile>classlemons_1_1music_1_1_time_signature.html</anchorfile>
-      <anchor>a9636526bdef8e1e86acac6a6ad5ee94e</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function">
-      <type>constexpr bool</type>
-      <name>operator!=</name>
-      <anchorfile>classlemons_1_1music_1_1_time_signature.html</anchorfile>
-      <anchor>a044563fc1c508bd4615a1f447c125593</anchor>
-      <arglist>(const TimeSignature &amp;other) const</arglist>
-    </member>
-    <member kind="function">
-      <type>constexpr bool</type>
-      <name>operator==</name>
-      <anchorfile>classlemons_1_1music_1_1_time_signature.html</anchorfile>
-      <anchor>a83daf515c3105de8c0b60b2172fc90e3</anchor>
-      <arglist>(const TimeSignature &amp;other) const</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
     <name>lemons::gui::components::ToggleableVersionViewer</name>
     <filename>classlemons_1_1gui_1_1components_1_1_toggleable_version_viewer.html</filename>
     <member kind="function">
@@ -23255,18 +22704,18 @@
       <anchor>a0e7e021b4bd12090ddecc145b7e927e4</anchor>
       <arglist>() const final</arglist>
     </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual void</type>
+    <member kind="function">
+      <type>void</type>
       <name>loadFromValueTree</name>
       <anchorfile>classlemons_1_1plugin_1_1_typed_parameter.html</anchorfile>
-      <anchor>a8f610c63d1d36585b39d723f4d94165a</anchor>
+      <anchor>a3cad7c920360ee8ca1f7a73b51b45700</anchor>
       <arglist>(const ValueTree &amp;tree) override</arglist>
     </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual ValueTree</type>
+    <member kind="function">
+      <type>ValueTree</type>
       <name>saveToValueTree</name>
       <anchorfile>classlemons_1_1plugin_1_1_typed_parameter.html</anchorfile>
-      <anchor>ae2c23845527074bb64c601925ee40898</anchor>
+      <anchor>ac2087079685cfc9b667a235aeff321e2</anchor>
       <arglist>() const override</arglist>
     </member>
     <member kind="function">
@@ -23831,18 +23280,18 @@
       <anchor>a0e7e021b4bd12090ddecc145b7e927e4</anchor>
       <arglist>() const final</arglist>
     </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual void</type>
+    <member kind="function">
+      <type>void</type>
       <name>loadFromValueTree</name>
       <anchorfile>classlemons_1_1plugin_1_1_typed_parameter.html</anchorfile>
-      <anchor>a8f610c63d1d36585b39d723f4d94165a</anchor>
+      <anchor>a3cad7c920360ee8ca1f7a73b51b45700</anchor>
       <arglist>(const ValueTree &amp;tree) override</arglist>
     </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual ValueTree</type>
+    <member kind="function">
+      <type>ValueTree</type>
       <name>saveToValueTree</name>
       <anchorfile>classlemons_1_1plugin_1_1_typed_parameter.html</anchorfile>
-      <anchor>ae2c23845527074bb64c601925ee40898</anchor>
+      <anchor>ac2087079685cfc9b667a235aeff321e2</anchor>
       <arglist>() const override</arglist>
     </member>
     <member kind="function">
@@ -25395,7 +24844,6 @@
     <namespace>lemons::ranges</namespace>
     <namespace>lemons::rsa</namespace>
     <namespace>lemons::serializing</namespace>
-    <namespace>lemons::spline</namespace>
     <namespace>lemons::tests</namespace>
     <class kind="class">lemons::ArgParser</class>
     <class kind="struct">lemons::ConstructedArray</class>
@@ -26370,10 +25818,6 @@
   <compound kind="namespace">
     <name>lemons::music</name>
     <filename>namespacelemons_1_1music.html</filename>
-    <class kind="class">lemons::music::Chord</class>
-    <class kind="class">lemons::music::Interval</class>
-    <class kind="class">lemons::music::KeySignature</class>
-    <class kind="class">lemons::music::TimeSignature</class>
     <member kind="function">
       <type>const juce_wchar</type>
       <name>getFlatSymbol</name>
@@ -26899,61 +26343,6 @@
       <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
       <anchor>a994eb15d80d730dac3d8aec7991048de</anchor>
       <arglist>(const juce::AudioChannelSet &amp;set)</arglist>
-    </member>
-  </compound>
-  <compound kind="namespace">
-    <name>lemons::spline</name>
-    <filename>namespacelemons_1_1spline.html</filename>
-    <namespace>lemons::spline::interpolation</namespace>
-    <class kind="class">lemons::spline::Editor</class>
-    <class kind="struct">lemons::spline::Knot</class>
-    <class kind="struct">lemons::spline::Knots</class>
-    <class kind="struct">lemons::spline::Spline</class>
-    <member kind="typedef">
-      <type>juce::Point&lt; float &gt;</type>
-      <name>Point</name>
-      <anchorfile>namespacelemons_1_1spline.html</anchorfile>
-      <anchor>a4815e51376e33169aa821c5b402e1462</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>std::vector&lt; float &gt;</type>
-      <name>Points</name>
-      <anchorfile>namespacelemons_1_1spline.html</anchorfile>
-      <anchor>addc7a93d56f97a7f73b2a53cba567b4e</anchor>
-      <arglist></arglist>
-    </member>
-  </compound>
-  <compound kind="namespace">
-    <name>lemons::spline::interpolation</name>
-    <filename>namespacelemons_1_1spline_1_1interpolation.html</filename>
-    <member kind="function">
-      <type>float</type>
-      <name>hermitCubic</name>
-      <anchorfile>namespacelemons_1_1spline_1_1interpolation.html</anchorfile>
-      <anchor>ade13a7f8e279d2dfef662217dd9a500f</anchor>
-      <arglist>(const Knots &amp;data, float x) noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>float</type>
-      <name>hermitCubic2</name>
-      <anchorfile>namespacelemons_1_1spline_1_1interpolation.html</anchorfile>
-      <anchor>a300030ec6a47046a739e4032c20c2c78</anchor>
-      <arglist>(const Knots &amp;data, float x, float tolerance, int i1) noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>Point</type>
-      <name>lin</name>
-      <anchorfile>namespacelemons_1_1spline_1_1interpolation.html</anchorfile>
-      <anchor>a9894612d36a56455f83cd21a9f677008</anchor>
-      <arglist>(const Point &amp;a, const Point &amp;b, float x) noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>Point</type>
-      <name>nurbs</name>
-      <anchorfile>namespacelemons_1_1spline_1_1interpolation.html</anchorfile>
-      <anchor>a50c25e0f00a4a2947cbcc1218eecbc31</anchor>
-      <arglist>(const Knots &amp;data, float t, const int *k) noexcept</arglist>
     </member>
   </compound>
   <compound kind="namespace">

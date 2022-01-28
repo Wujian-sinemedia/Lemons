@@ -1,7 +1,7 @@
 var searchData=
 [
   ['accelerationchanged_0',['accelerationChanged',['../structlemons_1_1_device_motion_1_1_listener.html#a72b98ddb39c5a2ffdf10acc1d6c933a2',1,'lemons::DeviceMotion::Listener']]],
-  ['add_1',['add',['../structlemons_1_1spline_1_1_knots.html#a8de66874f62a0741ff7254aa7ba7ac86',1,'lemons::spline::Knots::add()'],['../classlemons_1_1plugin_1_1_parameter_list.html#ae12cf36ba3d244458df5e55fed265dd1',1,'lemons::plugin::ParameterList::add()']]],
+  ['add_1',['add',['../classlemons_1_1plugin_1_1_parameter_list.html#ae12cf36ba3d244458df5e55fed265dd1',1,'lemons::plugin::ParameterList']]],
   ['addallto_2',['addAllTo',['../structlemons_1_1gui_1_1components_1_1_component_array.html#aa77ed4338e47c64ab7ecb672ba3b9078',1,'lemons::gui::components::ComponentArray']]],
   ['addargument_3',['addArgument',['../classlemons_1_1_arg_parser.html#ab89c65a21478df97b4716c1d95d50ffa',1,'lemons::ArgParser']]],
   ['addband_4',['addBand',['../classlemons_1_1dsp_1_1_f_x_1_1_e_q.html#a0ee108b89a0976558ee529c4f240a81e',1,'lemons::dsp::FX::EQ::addBand(Band *newFilter)'],['../classlemons_1_1dsp_1_1_f_x_1_1_e_q.html#acdf9e081da88914e8c415e54fcd95b9c',1,'lemons::dsp::FX::EQ::addBand(Args &amp;&amp;... args)']]],

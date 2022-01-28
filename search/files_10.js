@@ -1,10 +1,10 @@
 var searchData=
 [
-  ['templatesynth_2eh_0',['TemplateSynth.h',['../_template_synth_8h.html',1,'']]],
-  ['test_2eh_1',['test.h',['../test_8h.html',1,'']]],
-  ['timbremod_2eh_2',['TimbreMod.h',['../_timbre_mod_8h.html',1,'']]],
-  ['timers_2eh_3',['Timers.h',['../_timers_8h.html',1,'']]],
-  ['timesignature_2eh_4',['TimeSignature.h',['../_time_signature_8h.html',1,'']]],
-  ['translationfiles_2eh_5',['TranslationFiles.h',['../_translation_files_8h.html',1,'']]],
-  ['translations_2eh_6',['translations.h',['../translations_8h.html',1,'']]]
+  ['valuesmoother_2eh_0',['ValueSmoother.h',['../_value_smoother_8h.html',1,'']]],
+  ['variantconversions_2eh_1',['VariantConversions.h',['../_variant_conversions_8h.html',1,'']]],
+  ['velocityhelper_2eh_2',['VelocityHelper.h',['../_velocity_helper_8h.html',1,'']]],
+  ['version_2eh_3',['Version.h',['../_version_8h.html',1,'']]],
+  ['versionbumpprompt_2eh_4',['VersionBumpPrompt.h',['../_version_bump_prompt_8h.html',1,'']]],
+  ['versionviewer_2eh_5',['VersionViewer.h',['../_version_viewer_8h.html',1,'']]],
+  ['voiceallocator_2eh_6',['VoiceAllocator.h',['../_voice_allocator_8h.html',1,'']]]
 ];

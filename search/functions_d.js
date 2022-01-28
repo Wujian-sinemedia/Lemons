@@ -12,6 +12,5 @@ var searchData=
   ['numchannels_9',['numChannels',['../classlemons_1_1dsp_1_1_audio_fifo.html#a4fea99cc444fb7e167422c3fec90bcf2',1,'lemons::dsp::AudioFifo']]],
   ['numprograms_10',['numPrograms',['../structlemons_1_1plugin_1_1_program_manager.html#a39c895c24be13ed4ee75879d6a176d5e',1,'lemons::plugin::ProgramManager']]],
   ['numstoredevents_11',['numStoredEvents',['../classlemons_1_1midi_1_1_midi_f_i_f_o.html#a4727438bccb1dec00612718d7376a8e6',1,'lemons::midi::MidiFIFO']]],
-  ['numstoredsamples_12',['numStoredSamples',['../classlemons_1_1dsp_1_1_audio_and_midi_f_i_f_o.html#a19672646d23236bbba698b5732e3efa6',1,'lemons::dsp::AudioAndMidiFIFO::numStoredSamples()'],['../classlemons_1_1dsp_1_1_audio_fifo.html#a7d5b82e87170b03907c160a89884abf9',1,'lemons::dsp::AudioFifo::numStoredSamples()'],['../classlemons_1_1midi_1_1_midi_f_i_f_o.html#a8e8702257209f923ed595c8b72239c79',1,'lemons::midi::MidiFIFO::numStoredSamples()']]],
-  ['nurbs_13',['nurbs',['../namespacelemons_1_1spline_1_1interpolation.html#a50c25e0f00a4a2947cbcc1218eecbc31',1,'lemons::spline::interpolation']]]
+  ['numstoredsamples_12',['numStoredSamples',['../classlemons_1_1dsp_1_1_audio_and_midi_f_i_f_o.html#a19672646d23236bbba698b5732e3efa6',1,'lemons::dsp::AudioAndMidiFIFO::numStoredSamples()'],['../classlemons_1_1dsp_1_1_audio_fifo.html#a7d5b82e87170b03907c160a89884abf9',1,'lemons::dsp::AudioFifo::numStoredSamples()'],['../classlemons_1_1midi_1_1_midi_f_i_f_o.html#a8e8702257209f923ed595c8b72239c79',1,'lemons::midi::MidiFIFO::numStoredSamples()']]]
 ];
