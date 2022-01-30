@@ -1,6 +1,6 @@
 [general]
 
-ignore=title-trailing-punctuation, body-is-missing, body-first-line-empty
+ignore=title-trailing-punctuation, body-is-missing
 
 fail-without-commits=true
 
