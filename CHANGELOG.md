@@ -1,5 +1,17 @@
 # Lemons changelog
 
+## [1.1.0](http://github.com/benthevining/Lemons/compare/v1.0.3...v1.1.0) (2022-01-30)
+
+
+### Features
+
+* added a precommit hook to paste license header at the top of every file ([a873757](http://github.com/benthevining/Lemons/commit/a87375716c28bbe269cc64ca01ebef36e66a8dfe))
+
+
+### Bug Fixes
+
+* implemented license header precommit hook for C++ source files ([03e7311](http://github.com/benthevining/Lemons/commit/03e731162154279d588b6d018f9ef39153782639))
+
 ### [1.0.3](http://github.com/benthevining/Lemons/compare/v1.0.2...v1.0.3) (2022-01-27)
 
 
