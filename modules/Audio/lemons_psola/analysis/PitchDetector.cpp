@@ -31,7 +31,7 @@ float PitchDetector<SampleType>::detectPitch (const AudioBuffer<SampleType>& inp
 }
 
 template <typename SampleType>
-float PitchDetector<SampleType>::detectPitch (const SampleType* inputAudio, int numSamples)
+float PitchDetector<SampleType>::detectPitch (const SampleType* const inputAudio, int numSamples)
 {
 	const auto period = detectPeriod (inputAudio, numSamples);
 
@@ -48,7 +48,7 @@ float PitchDetector<SampleType>::detectPeriod (const AudioBuffer<SampleType>& in
 }
 
 template <typename SampleType>
-float PitchDetector<SampleType>::detectPeriod (const SampleType* inputAudio, int numSamples)
+float PitchDetector<SampleType>::detectPeriod (const SampleType* const inputAudio, int numSamples)
 {
 	jassert (samplerate > 0.);					  // pitch detector hasn't been prepared before calling this function!
 	jassert (numSamples >= getLatencySamples());  // not enough samples in this frame to do analysis

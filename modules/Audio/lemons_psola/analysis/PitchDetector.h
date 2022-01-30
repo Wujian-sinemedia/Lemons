@@ -56,7 +56,7 @@ public:
 		The caller must ensure that there are at least enough samples in this frame of audio for analysis to be performed; ie, that numSamples is greater than or equal to getLatencySamples().
 		@return The pitch in Hz for this frame of audio, or 0.f if the frame is unpitched.
 	*/
-	[[nodiscard]] float detectPitch (const SampleType* inputAudio, int numSamples);
+	[[nodiscard]] float detectPitch (const SampleType* const inputAudio, int numSamples);
 
 
 	/** Detects the period, in samples, for a frame of audio.
@@ -67,7 +67,7 @@ public:
 	/** Detects the period, in samples, for a frame of audio.
 		@return The period, in samples, of the fundamental frequency for this frame of audio, or 0.f if the frame is unpitched.
 	*/
-	[[nodiscard]] float detectPeriod (const SampleType* inputAudio, int numSamples);
+	[[nodiscard]] float detectPeriod (const SampleType* const inputAudio, int numSamples);
 
 	///@}
 

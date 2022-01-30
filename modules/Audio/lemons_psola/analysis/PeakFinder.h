@@ -48,7 +48,7 @@ public:
 	/** Analyzes a stream of audio and identifies the best set of pitch peaks to use for PSOLA pitch shifting.
 		The heuristics are that the grains should be approximately 2 periods long, with approximately 50% overlap, approximately centered on pitch peaks. This algorithm attempts to maximize all three criteria in the stream of selected peaks. To obtain the actual grains' start and end indices from the list of peak indices, you should do @code peak - period @endcode and @code peak + period @endcode, respectively, because the grains are 2 periods long and centered on the peaks.
 	*/
-	[[nodiscard]] const Array<int>& findPeaks (const SampleType* inputSamples, int numSamples, float period);
+	[[nodiscard]] const Array<int>& findPeaks (const SampleType* const inputSamples, int numSamples, float period);
 
 	/** Prepares the analyzer for a new maximum blocksize. */
 	void prepare (int maxBlocksize);
@@ -61,16 +61,19 @@ public:
 
 private:
 
+	bool operator== (const PeakFinder& other) const = delete;
+	bool operator!= (const PeakFinder& other) const = delete;
+
 	[[nodiscard]] int findNextPeak (int frameStart, int frameEnd, int predictedPeak,
-									const SampleType* inputSamples, int period, int grainSize);
+									const SampleType* const inputSamples, int period, int grainSize);
 
 	void sortSampleIndicesForPeakSearching (int startSample, int endSample, int predictedPeak);
 
-	[[nodiscard]] int getPeakCandidateInRange (const SampleType* inputSamples, int startSample, int endSample, int predictedPeak) const;
+	[[nodiscard]] int getPeakCandidateInRange (const SampleType* const inputSamples, int startSample, int endSample, int predictedPeak) const;
 
-	[[nodiscard]] int choosePeakWithGreatestPower (const SampleType* inputSamples) const;
+	[[nodiscard]] int choosePeakWithGreatestPower (const SampleType* const inputSamples) const;
 
-	[[nodiscard]] int chooseIdealPeakCandidate (const SampleType* inputSamples, int deltaTarget1, int deltaTarget2);
+	[[nodiscard]] int chooseIdealPeakCandidate (const SampleType* const inputSamples, int deltaTarget1, int deltaTarget2);
 
 	void clearAllArrays (bool free = false);
 

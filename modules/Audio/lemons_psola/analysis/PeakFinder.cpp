@@ -13,21 +13,6 @@
  * ======================================================================================
  */
 
-/*
- * ======================================================================================
- *
- *  ██╗     ███████╗███╗   ███╗ ██████╗ ███╗   ██╗███████╗
- *  ██║     ██╔════╝████╗ ████║██╔═══██╗████╗  ██║██╔════╝
- *  ██║     █████╗  ██╔████╔██║██║   ██║██╔██╗ ██║███████╗
- *  ██║     ██╔══╝  ██║╚██╔╝██║██║   ██║██║╚██╗██║╚════██║
- *  ███████╗███████╗██║ ╚═╝ ██║╚██████╔╝██║ ╚████║███████║
- *  ╚══════╝╚══════╝╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝
- *
- *  This file is part of the Lemons open source library and is licensed under the terms of the GNU Public License.
- *
- *  ======================================================================================
- */
-
 namespace lemons::dsp::psola
 {
 
@@ -78,7 +63,7 @@ void PeakFinder<SampleType>::releaseResources()
 }
 
 template <typename SampleType>
-const Array<int>& PeakFinder<SampleType>::findPeaks (const SampleType* inputSamples, int numSamples, float period)
+const Array<int>& PeakFinder<SampleType>::findPeaks (const SampleType* const inputSamples, int numSamples, float period)
 {
 	jassert (period > 0.f && numSamples > 0);
 
@@ -125,16 +110,14 @@ const Array<int>& PeakFinder<SampleType>::findPeaks (const SampleType* inputSamp
 
 	jassert (! peakIndices.isEmpty());
 
-	analysisFrameStart = lastFrameRealEnd - numSamples;
-
-	jassert (analysisFrameStart >= 0);
+	analysisFrameStart = std::max (0, lastFrameRealEnd - numSamples);
 
 	return peakIndices;
 }
 
 template <typename SampleType>
 int PeakFinder<SampleType>::findNextPeak (int frameStart, int frameEnd, int predictedPeak,
-										  const SampleType* inputSamples, int period, int grainSize)
+										  const SampleType* const inputSamples, int period, int grainSize)
 {
 	jassert (predictedPeak >= frameStart && predictedPeak <= frameEnd);
 
@@ -155,9 +138,9 @@ int PeakFinder<SampleType>::findNextPeak (int frameStart, int frameEnd, int pred
 
 	switch (peakCandidates.size())
 	{
-		[[unlikely]] case 1 : return peakCandidates.getUnchecked (0);
+		case 1 : return peakCandidates.getUnchecked (0);
 
-		[[unlikely]] case 2 : return choosePeakWithGreatestPower (inputSamples);
+		case 2 : return choosePeakWithGreatestPower (inputSamples);
 
 		default :
 		{
@@ -173,7 +156,7 @@ int PeakFinder<SampleType>::findNextPeak (int frameStart, int frameEnd, int pred
 
 
 template <typename SampleType>
-int PeakFinder<SampleType>::getPeakCandidateInRange (const SampleType* inputSamples,
+int PeakFinder<SampleType>::getPeakCandidateInRange (const SampleType* const inputSamples,
 													 int startSample, int endSample, int predictedPeak) const
 {
 	const auto starting = [this]
@@ -221,7 +204,7 @@ int PeakFinder<SampleType>::getPeakCandidateInRange (const SampleType* inputSamp
 }
 
 template <typename SampleType>
-int PeakFinder<SampleType>::choosePeakWithGreatestPower (const SampleType* inputSamples) const
+int PeakFinder<SampleType>::choosePeakWithGreatestPower (const SampleType* const inputSamples) const
 {
 	auto strongestPeakIndex = peakCandidates.getUnchecked (0);
 	auto strongestPeak		= std::abs (inputSamples[strongestPeakIndex]);
@@ -242,7 +225,7 @@ int PeakFinder<SampleType>::choosePeakWithGreatestPower (const SampleType* input
 
 
 template <typename SampleType>
-int PeakFinder<SampleType>::chooseIdealPeakCandidate (const SampleType* inputSamples, int deltaTarget1, int deltaTarget2)
+int PeakFinder<SampleType>::chooseIdealPeakCandidate (const SampleType* const inputSamples, int deltaTarget1, int deltaTarget2)
 {
 	candidateDeltas.clearQuick();
 	finalHandful.clearQuick();
@@ -281,7 +264,7 @@ int PeakFinder<SampleType>::chooseIdealPeakCandidate (const SampleType* inputSam
 		finalHandful.add (peakCandidates.getUnchecked (minDeltaData.index));
 
 		// make sure this value won't be chosen again, w/o deleting it from the candidateDeltas array
-		candidateDeltas.set (minDeltaData.index, 10000);
+		candidateDeltas.set (minDeltaData.index, std::numeric_limits<int>::max());
 	}
 
 	jassert (finalHandful.size() == finalHandfulSize && finalHandfulDeltas.size() == finalHandfulSize);

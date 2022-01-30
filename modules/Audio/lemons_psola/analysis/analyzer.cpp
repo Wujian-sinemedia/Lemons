@@ -13,21 +13,6 @@
  * ======================================================================================
  */
 
-/*
- * ======================================================================================
- *
- *  ██╗     ███████╗███╗   ███╗ ██████╗ ███╗   ██╗███████╗
- *  ██║     ██╔════╝████╗ ████║██╔═══██╗████╗  ██║██╔════╝
- *  ██║     █████╗  ██╔████╔██║██║   ██║██╔██╗ ██║███████╗
- *  ██║     ██╔══╝  ██║╚██╔╝██║██║   ██║██║╚██╗██║╚════██║
- *  ███████╗███████╗██║ ╚═╝ ██║╚██████╔╝██║ ╚████║███████║
- *  ╚══════╝╚══════╝╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝
- *
- *  This file is part of the Lemons open source library and is licensed under the terms of the GNU Public License.
- *
- *  ======================================================================================
- */
-
 namespace lemons::dsp::psola
 {
 
@@ -67,7 +52,7 @@ void Analyzer<SampleType>::analyzeInput (const AudioBuffer<SampleType>& inputAud
 }
 
 template <typename SampleType>
-void Analyzer<SampleType>::analyzeInput (const SampleType* inputAudio, int numSamples)
+void Analyzer<SampleType>::analyzeInput (const SampleType* const inputAudio, int numSamples)
 {
 	jassert (samplerate > 0.);
 	jassert (numSamples >= getLatencySamples());
@@ -212,7 +197,7 @@ typename Analyzer<SampleType>::Grain& Analyzer<SampleType>::getClosestGrain (int
 
 	struct GainDistanceData final
 	{
-		void test (Grain* newGrain, int newDistance) noexcept
+		void test (Grain* const newGrain, int newDistance) noexcept
 		{
 			jassert (newGrain != nullptr);
 
@@ -249,17 +234,7 @@ typename Analyzer<SampleType>::Grain& Analyzer<SampleType>::getClosestGrain (int
 	}
 
 	if (before.grain != nullptr)
-	{
-		if (after.grain == nullptr)
-			return *before.grain;
-
-		jassert (currentPeriod > 0.f);
-
-		if (after.distance < before.distance && before.distance > juce::roundToInt (currentPeriod))
-			return *after.grain;
-
 		return *before.grain;
-	}
 
 	jassert (after.grain != nullptr);
 
@@ -363,16 +338,16 @@ SampleType Analyzer<SampleType>::Grain::getSample (int index) const noexcept
 }
 
 template <typename SampleType>
-void Analyzer<SampleType>::Grain::storeNewGrain (const SampleType* origSamples, int startIndex,
-												 const SampleType* windowSamples, int numSamples)
+void Analyzer<SampleType>::Grain::storeNewGrain (const SampleType* const origSamples, int startIndex,
+												 const SampleType* const windowSamples, int numSamples)
 {
 	storeNewGrain (origSamples, startIndex, numSamples, nullptr, 0, windowSamples, numSamples, startIndex);
 }
 
 template <typename SampleType>
-void Analyzer<SampleType>::Grain::storeNewGrain (const SampleType* origSamples1, int startIndex1, int blocksize1,
-												 const SampleType* origSamples2, int blocksize2,
-												 const SampleType* windowSamples, int totalNumSamples,
+void Analyzer<SampleType>::Grain::storeNewGrain (const SampleType* const origSamples1, int startIndex1, int blocksize1,
+												 const SampleType* const origSamples2, int blocksize2,
+												 const SampleType* const windowSamples, int totalNumSamples,
 												 int grainStartIdx)
 {
 	jassert (getReferenceCount() == 0);
@@ -397,9 +372,9 @@ void Analyzer<SampleType>::Grain::storeNewGrain (const SampleType* origSamples1,
 }
 
 template <typename SampleType>
-void Analyzer<SampleType>::Grain::storeNewGrainWithZeroesAtStart (int				numZeroes,
-																  const SampleType* origSamples, int numSamples,
-																  const SampleType* windowSamples, int totalNumSamples, int grainStartIdx)
+void Analyzer<SampleType>::Grain::storeNewGrainWithZeroesAtStart (int					  numZeroes,
+																  const SampleType* const origSamples, int numSamples,
+																  const SampleType* const windowSamples, int totalNumSamples, int grainStartIdx)
 {
 	jassert (getReferenceCount() == 0);
 	jassert (numZeroes > 0 && numSamples > 0);

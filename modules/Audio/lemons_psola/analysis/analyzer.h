@@ -48,7 +48,7 @@ public:
 		Analyzes a frame of audio. This must be called before Shifter::getSamples(), and should be called consistently.
 		The caller must ensure that there are at least enough samples in this frame of audio for analysis to be performed; ie, that numSamples is greater than or equal to getLatencySamples().
 	*/
-	void analyzeInput (const SampleType* inputAudio, int numSamples);
+	void analyzeInput (const SampleType* const inputAudio, int numSamples);
 
 	/** Returns the latency in samples of the PSOLA algorithm. The latency is the same as the latency of the analyzer's internal PitchDetector object, so you can see that documentation for more details.
 		@see setMinInputFreq(), dsp::PitchDetector
@@ -98,15 +98,15 @@ private:
 
 		void newBlockStarting (int last_blocksize) noexcept;
 
-		void storeNewGrain (const SampleType* origSamples, int startIndex, const SampleType* windowSamples, int numSamples);
+		void storeNewGrain (const SampleType* const origSamples, int startIndex, const SampleType* const windowSamples, int numSamples);
 
-		void storeNewGrain (const SampleType* origSamples1, int startIndex1, int blocksize1,
-							const SampleType* origSamples2, int blocksize2,
-							const SampleType* windowSamples, int totalNumSamples, int grainStartIdx);
+		void storeNewGrain (const SampleType* const origSamples1, int startIndex1, int blocksize1,
+							const SampleType* const origSamples2, int blocksize2,
+							const SampleType* const windowSamples, int totalNumSamples, int grainStartIdx);
 
-		void storeNewGrainWithZeroesAtStart (int			   numZeroes,
-											 const SampleType* origSamples, int numSamples,
-											 const SampleType* windowSamples, int totalNumSamples, int grainStartIdx);
+		void storeNewGrainWithZeroesAtStart (int					 numZeroes,
+											 const SampleType* const origSamples, int numSamples,
+											 const SampleType* const windowSamples, int totalNumSamples, int grainStartIdx);
 
 		void reserveSize (int numSamples);
 
