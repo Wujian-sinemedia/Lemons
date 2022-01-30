@@ -14,6 +14,14 @@ repos:
     hooks:
       - id: gitown
 
+  - repo: local
+    hooks:
+      - id: sort-codeowners
+        name: alphabetize codeowners
+        entry: scripts/alphabetize_codeowners.py
+        language: python
+        pass_filenames: false
+
   # precommit configuration meta-checks
   - repo: meta
     hooks:
