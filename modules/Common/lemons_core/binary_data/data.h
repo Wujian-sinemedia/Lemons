@@ -52,9 +52,6 @@ using juce::ValueTree;
  */
 struct Data final
 {
-	/** Creates a default, invalid Data object. */
-	explicit Data() = default;
-
 	/** Creates a Data object referencing a named resource. */
 	explicit Data (const char* fileToFind);
 
@@ -81,6 +78,8 @@ private:
 	const char* data { nullptr };
 
 	int size { 0 };
+
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (Data)
 };
 
 

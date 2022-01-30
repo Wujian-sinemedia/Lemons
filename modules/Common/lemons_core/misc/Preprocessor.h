@@ -14,21 +14,6 @@
  * ======================================================================================
  */
 
-/*
- * ======================================================================================
- *
- *  ██╗     ███████╗███╗   ███╗ ██████╗ ███╗   ██╗███████╗
- *  ██║     ██╔════╝████╗ ████║██╔═══██╗████╗  ██║██╔════╝
- *  ██║     █████╗  ██╔████╔██║██║   ██║██╔██╗ ██║███████╗
- *  ██║     ██╔══╝  ██║╚██╔╝██║██║   ██║██║╚██╗██║╚════██║
- *  ███████╗███████╗██║ ╚═╝ ██║╚██████╔╝██║ ╚████║███████║
- *  ╚══════╝╚══════╝╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝
- *
- *  This file is part of the Lemons open source library and is licensed under the terms of the GNU Public License.
- *
- *  ======================================================================================
- */
-
 #pragma once
 
 #include <list>
@@ -69,7 +54,7 @@ namespace lemons
 	evaluates to a compile-time false value.
  */
 template <class T, template <class...> class Template>
-struct is_specialization : std::false_type
+struct is_specialization final : std::false_type
 {
 };
 
@@ -86,7 +71,7 @@ struct is_specialization : std::false_type
  evaluates to a compile-time false value.
  */
 template <template <class...> class Template, class... Args>
-struct is_specialization<Template<Args...>, Template> : std::true_type
+struct is_specialization<Template<Args...>, Template> final : std::true_type
 {
 };
 
