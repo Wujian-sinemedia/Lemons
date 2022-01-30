@@ -1,3 +1,5 @@
+
+
 #
 # * <@insert_github_username>
 # Each line is a file pattern followed by one or more owners.
@@ -14,6 +16,7 @@
 .gitlint benthevining
 .gitownrc benthevining
 .pre-commit-config.yaml benthevining
+CMakeLists.txt benthevining
 CODEOWNERS benthevining
 modules/Audio/lemons_audio_effects/AudioEffects/AudioEffect.cpp benthevining
 modules/Audio/lemons_audio_effects/dynamics/Compressor.cpp benthevining

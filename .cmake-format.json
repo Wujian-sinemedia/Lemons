@@ -5,39 +5,6 @@
     "output_encoding": "utf-8"
   },
   "format": {
-    "_help_always_wrap": [
-      "A list of command names which should always be wrapped"
-    ],
-    "_help_layout_passes": [
-      "A dictionary mapping layout nodes to a list of wrap",
-      "decisions. See the documentation for more information."
-    ],
-    "_help_max_lines_hwrap": [
-      "If a candidate layout is wrapped horizontally but it exceeds",
-      "this many lines, then reject the layout."
-    ],
-    "_help_max_pargs_hwrap": [
-      "If a positional argument group contains more than this many",
-      "arguments, then force it to a vertical layout."
-    ],
-    "_help_max_prefix_chars": [
-      "If the statement spelling length (including space and",
-      "parenthesis) is larger than the tab width by more than this",
-      "amount, then force reject un-nested layouts."
-    ],
-    "_help_max_rows_cmdline": [
-      "If a cmdline positional group consumes more than this many",
-      "lines without nesting, then invalidate the layout (and nest)"
-    ],
-    "_help_max_subgroups_hwrap": [
-      "If an argument group contains more than this many sub-groups",
-      "(parg or kwarg groups) then force it to a vertical layout."
-    ],
-    "_help_min_prefix_chars": [
-      "If the statement spelling length (including space and",
-      "parenthesis) is smaller than this amount, then force reject",
-      "nested layouts."
-    ],
     "always_wrap": [],
     "autosort": true,
     "command_case": "unchanged",
@@ -54,7 +21,7 @@
     "max_pargs_hwrap": 6,
     "max_prefix_chars": 10,
     "max_rows_cmdline": 2,
-    "max_subgroups_hwrap": 3,
+    "max_subgroups_hwrap": 4,
     "min_prefix_chars": 4,
     "require_valid_layout": false,
     "separate_ctrl_name_with_space": false,

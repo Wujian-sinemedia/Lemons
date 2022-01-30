@@ -53,14 +53,12 @@ function(lemons_configure_plugin_signing)
 			endif()
 
 			add_custom_command (
-				TARGET ${formatTarget}
-				POST_BUILD VERBATIM COMMAND_EXPAND_LISTS
+				TARGET ${formatTarget} POST_BUILD VERBATIM COMMAND_EXPAND_LISTS
 				COMMAND ${CODESIGN} -s - --force "$<TARGET_BUNDLE_DIR:${formatTarget}>"
 				COMMENT "Signing ${formatTarget}...")
 
 			add_custom_command (
-				TARGET ${formatTarget}
-				POST_BUILD VERBATIM COMMAND_EXPAND_LISTS
+				TARGET ${formatTarget} POST_BUILD VERBATIM COMMAND_EXPAND_LISTS
 				COMMAND ${CODESIGN} -verify "$<TARGET_BUNDLE_DIR:${formatTarget}>"
 				COMMENT "Verifying signing of ${formatTarget}...")
 
