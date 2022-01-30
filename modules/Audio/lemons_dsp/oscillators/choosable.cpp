@@ -14,21 +14,6 @@
  * ======================================================================================
  */
 
-/*
- * ======================================================================================
- *
- *  ██╗     ███████╗███╗   ███╗ ██████╗ ███╗   ██╗███████╗
- *  ██║     ██╔════╝████╗ ████║██╔═══██╗████╗  ██║██╔════╝
- *  ██║     █████╗  ██╔████╔██║██║   ██║██╔██╗ ██║███████╗
- *  ██║     ██╔══╝  ██║╚██╔╝██║██║   ██║██║╚██╗██║╚════██║
- *  ███████╗███████╗██║ ╚═╝ ██║╚██████╔╝██║ ╚████║███████║
- *  ╚══════╝╚══════╝╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝
- *
- *  This file is part of the Lemons open source library and is licensed under the terms of the GNU Public License.
- *
- *  ======================================================================================
- */
-
 namespace lemons::dsp::osc
 {
 
@@ -103,8 +88,5 @@ void ChoosableOscillator<SampleType>::setFrequency (float freqHz)
 
 template class ChoosableOscillator<float>;
 template class ChoosableOscillator<double>;
-
-
-LEMONS_CREATE_DEFAULT_ENGINE_FACTORY (ChoosableOscillator, "ChoosableOscillator")
 
 }  // namespace lemons::dsp::osc

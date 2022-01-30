@@ -53,6 +53,8 @@ private:
 	ConstructedArray<InterpolatorType> interpolators;
 
 	AudioBuffer<float> conversionBuffer;  // needed for double version only
+
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AudioFilePlayer)
 };
 
 }  // namespace lemons::dsp

@@ -13,21 +13,6 @@
  * ======================================================================================
  */
 
-/*
- * ======================================================================================
- *
- *  ██╗     ███████╗███╗   ███╗ ██████╗ ███╗   ██╗███████╗
- *  ██║     ██╔════╝████╗ ████║██╔═══██╗████╗  ██║██╔════╝
- *  ██║     █████╗  ██╔████╔██║██║   ██║██╔██╗ ██║███████╗
- *  ██║     ██╔══╝  ██║╚██╔╝██║██║   ██║██║╚██╗██║╚════██║
- *  ███████╗███████╗██║ ╚═╝ ██║╚██████╔╝██║ ╚████║███████║
- *  ╚══════╝╚══════╝╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝
- *
- *  This file is part of the Lemons open source library and is licensed under the terms of the GNU Public License.
- *
- *  ======================================================================================
- */
-
 #pragma once
 
 namespace lemons::dsp
@@ -55,6 +40,8 @@ struct Oscillator : public SampleStream<SampleType>
 	 */
 	struct Phase final
 	{
+		Phase() = default;
+
 		/** Resets the phase, */
 		void resetPhase() noexcept;
 
@@ -70,7 +57,11 @@ struct Oscillator : public SampleStream<SampleType>
 	private:
 
 		SampleType phase { 0 }, increment { 0 };
+
+		JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (Phase)
 	};
+
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (Oscillator)
 };
 
 }  // namespace lemons::dsp

@@ -14,21 +14,6 @@
  * ======================================================================================
  */
 
-/*
- * ======================================================================================
- *
- *  ██╗     ███████╗███╗   ███╗ ██████╗ ███╗   ██╗███████╗
- *  ██║     ██╔════╝████╗ ████║██╔═══██╗████╗  ██║██╔════╝
- *  ██║     █████╗  ██╔████╔██║██║   ██║██╔██╗ ██║███████╗
- *  ██║     ██╔══╝  ██║╚██╔╝██║██║   ██║██║╚██╗██║╚════██║
- *  ███████╗███████╗██║ ╚═╝ ██║╚██████╔╝██║ ╚████║███████║
- *  ╚══════╝╚══════╝╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝
- *
- *  This file is part of the Lemons open source library and is licensed under the terms of the GNU Public License.
- *
- *  ======================================================================================
- */
-
 #pragma once
 
 namespace lemons::dsp
@@ -62,7 +47,7 @@ class MonoStereoConverter final
 public:
 
 	/** Default constructor. */
-	explicit MonoStereoConverter() = default;
+	MonoStereoConverter() = default;
 
 	/** Prepares the converter to process a new maximum blocksize. */
 	void prepare (int blocksize);
@@ -74,19 +59,19 @@ public:
 	[[nodiscard]] StereoReductionMode getStereoReductionMode() const noexcept { return toMonoMode; }
 
 	/** Converts a stereo signal to mono. */
-	void convertStereoToMono (const SampleType* leftIn,
-							  const SampleType* rightIn,
-							  SampleType*		monoOut,
-							  int				numSamples);
+	void convertStereoToMono (const SampleType* const leftIn,
+							  const SampleType* const rightIn,
+							  SampleType* const		  monoOut,
+							  int					  numSamples);
 
 	/** Converts a stereo signal to mono. */
 	void convertStereoToMono (const AudioBuffer<SampleType>& input, AudioBuffer<SampleType>& output);
 
 	/** Converts a mono signal to stereo. */
-	void convertMonoToStereo (const SampleType* monoIn,
-							  SampleType*		leftOut,
-							  SampleType*		rightOut,
-							  int				numSamples);
+	void convertMonoToStereo (const SampleType* const monoIn,
+							  SampleType* const		  leftOut,
+							  SampleType* const		  rightOut,
+							  int					  numSamples);
 
 	/** Converts a mono signal to stereo. */
 	void convertMonoToStereo (const AudioBuffer<SampleType>& input, AudioBuffer<SampleType>& output);
@@ -97,6 +82,8 @@ private:
 	StereoReductionMode toMonoMode { StereoReductionMode::leftOnly };
 
 	AudioBuffer<SampleType> monoStorage;
+
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MonoStereoConverter)
 };
 
 

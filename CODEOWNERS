@@ -25,6 +25,7 @@ modules/Audio/lemons_audio_effects/misc/DryWet.h benthevining
 modules/Audio/lemons_audio_effects/panning/MonoToStereoPanner.cpp benthevining
 modules/Audio/lemons_audio_effects/panning/StereoPanner.cpp benthevining
 modules/Audio/lemons_audio_effects/time/Delay.h benthevining
+modules/Audio/lemons_dsp/engines/AudioEngine.h benthevining
 modules/Audio/lemons_dsp/engines/DspProtection.h benthevining
 modules/Audio/lemons_dsp/engines/DspProtection_tests.cpp benthevining
 modules/Audio/lemons_dsp/engines/EngineChain.cpp benthevining
@@ -46,7 +47,9 @@ modules/Audio/lemons_dsp/oscillators/OscillatorEngine.h benthevining
 modules/Audio/lemons_dsp/oscillators/basic_types.cpp benthevining
 modules/Audio/lemons_dsp/oscillators/basic_types.h benthevining
 modules/Audio/lemons_dsp/oscillators/choosable.cpp benthevining
+modules/Audio/lemons_dsp/oscillators/choosable.h benthevining
 modules/Audio/lemons_dsp/sample_streams/StreamEngine.h benthevining
+modules/Audio/lemons_dsp/sample_streams/WhiteNoiseGenerator.h benthevining
 modules/Audio/lemons_dsp/unit_tests/dsp_test.cpp benthevining
 modules/Audio/lemons_dsp/unit_tests/dsp_test.h benthevining
 modules/Audio/lemons_dsp/util/ValueSmoother.cpp benthevining
@@ -97,6 +100,7 @@ modules/Connectivity/lemons_osc/lemons_osc.cpp benthevining
 modules/Connectivity/lemons_osc/lemons_osc.h benthevining
 modules/Connectivity/lemons_osc/util/util.h benthevining
 modules/GUI/LemonsGUIModules.cmake benthevining
+modules/GUI/lemons_gui/app/DefaultWindow.h benthevining
 modules/GUI/lemons_gui/components/popups/PopupComponent.cpp benthevining
 modules/GUI/lemons_gui/components/popups/SaveToFilePrompt.cpp benthevining
 modules/GUI/lemons_gui/device/DeviceRotation.h benthevining
@@ -146,6 +150,7 @@ util/assets/samples/inst_79.wav benthevining
 util/cmake/modules/config_files/LemonsRunClean.cmake benthevining
 util/cmake/modules/config_files/scripts/install_pips.cmake benthevining
 util/cmake/modules/config_files/scripts/install_win.cmake benthevining
+util/cmake/modules/config_files/scripts/mac_install_homebrew.sh benthevining
 util/cmake/modules/cpack/LemonsDefaultCpackSettings.cmake benthevining
 util/cmake/modules/general/LemonsCmakeDevTools.cmake benthevining
 util/cmake/modules/general/LemonsDefaultProjectSettings.cmake benthevining

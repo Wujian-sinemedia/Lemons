@@ -54,6 +54,8 @@ private:
 	int totalSpreadCents { 0 };
 
 	SampleType lastFrequency { 440. }, samplerate { 44100. };
+
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (DetunableBase)
 };
 
 
@@ -72,6 +74,8 @@ private:
 
 	ConstructedArray<Oscillator<SampleType>> oscs { 1, []()
 													{ return new OscillatorType<SampleType>; } };
+
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (Detunable)
 };
 
 template <typename SampleType>

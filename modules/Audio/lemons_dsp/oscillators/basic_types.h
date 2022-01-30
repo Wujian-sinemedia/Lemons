@@ -14,21 +14,6 @@
  * ======================================================================================
  */
 
-/*
- * ======================================================================================
- *
- *  ██╗     ███████╗███╗   ███╗ ██████╗ ███╗   ██╗███████╗
- *  ██║     ██╔════╝████╗ ████║██╔═══██╗████╗  ██║██╔════╝
- *  ██║     █████╗  ██╔████╔██║██║   ██║██╔██╗ ██║███████╗
- *  ██║     ██╔══╝  ██║╚██╔╝██║██║   ██║██║╚██╗██║╚════██║
- *  ███████╗███████╗██║ ╚═╝ ██║╚██████╔╝██║ ╚████║███████║
- *  ╚══════╝╚══════╝╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝
- *
- *  This file is part of the Lemons open source library and is licensed under the terms of the GNU Public License.
- *
- *  ======================================================================================
- */
-
 #pragma once
 
 namespace lemons::dsp::osc
@@ -71,6 +56,8 @@ private:
 
 	typename Oscillator<SampleType>::Phase phase;
 	SampleType							   freq { 0 };
+
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (Sine)
 };
 
 /*--------------------------------------------------------------------------------------------*/
@@ -98,6 +85,8 @@ private:
 
 	typename Oscillator<SampleType>::Phase phase;
 	SampleType							   freq { 0 };
+
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (Saw)
 };
 
 /*--------------------------------------------------------------------------------------------*/
@@ -131,6 +120,8 @@ private:
 
 	typename Oscillator<SampleType>::Phase phase;
 	SampleType							   freq { 0 };
+
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (Square)
 };
 
 /*--------------------------------------------------------------------------------------------*/
@@ -159,6 +150,8 @@ private:
 	Square<SampleType> square;
 	SampleType		   sum { 1 };
 	SampleType		   freq { 0 };
+
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (Triangle)
 };
 
 }  // namespace lemons::dsp::osc

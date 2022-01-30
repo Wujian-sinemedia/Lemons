@@ -13,21 +13,6 @@
  * ======================================================================================
  */
 
-/*
- * ======================================================================================
- *
- *  ██╗     ███████╗███╗   ███╗ ██████╗ ███╗   ██╗███████╗
- *  ██║     ██╔════╝████╗ ████║██╔═══██╗████╗  ██║██╔════╝
- *  ██║     █████╗  ██╔████╔██║██║   ██║██╔██╗ ██║███████╗
- *  ██║     ██╔══╝  ██║╚██╔╝██║██║   ██║██║╚██╗██║╚════██║
- *  ███████╗███████╗██║ ╚═╝ ██║╚██████╔╝██║ ╚████║███████║
- *  ╚══════╝╚══════╝╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝
- *
- *  This file is part of the Lemons open source library and is licensed under the terms of the GNU Public License.
- *
- *  ======================================================================================
- */
-
 #pragma once
 
 namespace lemons::plugin
@@ -48,7 +33,7 @@ struct PluginMetadata final
 
 	[[nodiscard]] static PluginMetadata fromValueTree (const ValueTree& tree);
 
-	[[nodiscard]] std::unique_ptr<ProcessorBase> createProcessor() const;
+	//	[[nodiscard]] std::unique_ptr<ProcessorBase> createProcessor() const;
 
 	ProcessorAttributes processorAttributes;
 	ParameterLayout		parameterLayout;

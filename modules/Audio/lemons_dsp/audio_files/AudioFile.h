@@ -88,7 +88,7 @@ struct AudioFile final
 
 private:
 
-	explicit AudioFile (juce::AudioFormatReader* reader, const File& f);
+	explicit AudioFile (std::unique_ptr<juce::AudioFormatReader> reader, const File& f);
 
 	AudioBuffer<float>	float_data;
 	AudioBuffer<double> double_data;
@@ -101,6 +101,8 @@ private:
 	String audioFormat;
 
 	juce::StringPairArray metadata;
+
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AudioFile)
 };
 
 }  // namespace lemons::dsp

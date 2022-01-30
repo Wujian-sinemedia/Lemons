@@ -50,6 +50,8 @@ private:
 	{
 		processor.reset();
 	}
+
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MidiProcessorEngine)
 };
 
 }  // namespace lemons::dsp

@@ -33,7 +33,7 @@ void CircularBuffer<SampleType>::storeSamples (const AudioBuffer<SampleType>& sa
 }
 
 template <typename SampleType>
-void CircularBuffer<SampleType>::storeSamples (const SampleType* samples, int numSamples)
+void CircularBuffer<SampleType>::storeSamples (const SampleType* const samples, int numSamples)
 {
 	jassert (buffer.getNumSamples() == fifo.getTotalSize());
 
@@ -67,7 +67,7 @@ void CircularBuffer<SampleType>::getSamples (AudioBuffer<SampleType>& output, in
 }
 
 template <typename SampleType>
-void CircularBuffer<SampleType>::getSamples (SampleType* output, int numSamples)
+void CircularBuffer<SampleType>::getSamples (SampleType* const output, int numSamples)
 {
 	jassert (buffer.getNumSamples() == fifo.getTotalSize());
 

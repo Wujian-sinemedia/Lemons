@@ -14,21 +14,6 @@
  * ======================================================================================
  */
 
-/*
- * ======================================================================================
- *
- *  ██╗     ███████╗███╗   ███╗ ██████╗ ███╗   ██╗███████╗
- *  ██║     ██╔════╝████╗ ████║██╔═══██╗████╗  ██║██╔════╝
- *  ██║     █████╗  ██╔████╔██║██║   ██║██╔██╗ ██║███████╗
- *  ██║     ██╔══╝  ██║╚██╔╝██║██║   ██║██║╚██╗██║╚════██║
- *  ███████╗███████╗██║ ╚═╝ ██║╚██████╔╝██║ ╚████║███████║
- *  ╚══════╝╚══════╝╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝
- *
- *  This file is part of the Lemons open source library and is licensed under the terms of the GNU Public License.
- *
- *  ======================================================================================
- */
-
 #pragma once
 
 #include <juce_audio_basics/juce_audio_basics.h>
@@ -71,7 +56,7 @@ public:
 	/** Stores samples in the buffer.
 		If the buffer's capacity isn't big enough to hold all the passed samples, an assertion will be thrown.
 	*/
-	void storeSamples (const SampleType* samples, int numSamples);
+	void storeSamples (const SampleType* const samples, int numSamples);
 
 	/** Reads samples from the buffer.
 		If you request more samples than are in the buffer, the first section of the output buffer will be filled with zeroes.
@@ -81,7 +66,7 @@ public:
 	/** Reads samples from the buffer.
 		If you request more samples than are in the buffer, the first section of the output buffer will be filled with zeroes.
 	*/
-	void getSamples (SampleType* output, int numSamples);
+	void getSamples (SampleType* const output, int numSamples);
 
 	/** Returns the total capacity of the buffer. */
 	[[nodiscard]] int getCapacity() const noexcept;

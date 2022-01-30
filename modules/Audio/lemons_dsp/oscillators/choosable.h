@@ -14,21 +14,6 @@
  * ======================================================================================
  */
 
-/*
- * ======================================================================================
- *
- *  ██╗     ███████╗███╗   ███╗ ██████╗ ███╗   ██╗███████╗
- *  ██║     ██╔════╝████╗ ████║██╔═══██╗████╗  ██║██╔════╝
- *  ██║     █████╗  ██╔████╔██║██║   ██║██╔██╗ ██║███████╗
- *  ██║     ██╔══╝  ██║╚██╔╝██║██║   ██║██║╚██╗██║╚════██║
- *  ███████╗███████╗██║ ╚═╝ ██║╚██████╔╝██║ ╚████║███████║
- *  ╚══════╝╚══════╝╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝
- *
- *  This file is part of the Lemons open source library and is licensed under the terms of the GNU Public License.
- *
- *  ======================================================================================
- */
-
 #pragma once
 
 
@@ -56,6 +41,8 @@ template <typename SampleType>
 class ChoosableOscillator final : public dsp::Engine<SampleType>
 {
 public:
+
+	ChoosableOscillator() = default;
 
 	/** Sets the type of oscillator that will be used to generate the output. */
 	void setOscType (OscType newType);
@@ -87,6 +74,8 @@ private:
 	Engine<SampleType, SuperSaw> superSaw;
 
 	const std::array<dsp::Engine<SampleType>*, 5> oscillators { &sine, &saw, &square, &triangle, &superSaw };
+
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (ChoosableOscillator)
 };
 
 

@@ -28,6 +28,8 @@ class LatencyEngine : public Engine<SampleType>
 {
 public:
 
+	LatencyEngine() = default;
+
 	/** Returns the latency in samples of the engine. */
 	[[nodiscard]] int reportLatency() const noexcept final;
 
@@ -60,6 +62,8 @@ private:
 	AudioAndMidiFIFO<SampleType> inputFIFO, outputFIFO;
 	AudioBuffer<SampleType>		 inBuffer, outBuffer;
 	MidiBuffer					 chunkMidiBuffer;
+
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (LatencyEngine)
 };
 
 }  // namespace lemons::dsp

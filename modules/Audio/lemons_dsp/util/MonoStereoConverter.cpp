@@ -32,10 +32,10 @@ void MonoStereoConverter<SampleType>::setStereoReductionMode (StereoReductionMod
 
 
 template <typename SampleType>
-void MonoStereoConverter<SampleType>::convertStereoToMono (const SampleType* leftIn,
-														   const SampleType* rightIn,
-														   SampleType*		 monoOut,
-														   int				 numSamples)
+void MonoStereoConverter<SampleType>::convertStereoToMono (const SampleType* const leftIn,
+														   const SampleType* const rightIn,
+														   SampleType* const	   monoOut,
+														   int					   numSamples)
 {
 	using FVO = juce::FloatVectorOperations;
 
@@ -77,10 +77,10 @@ void MonoStereoConverter<SampleType>::convertStereoToMono (const AudioBuffer<Sam
 
 
 template <typename SampleType>
-void MonoStereoConverter<SampleType>::convertMonoToStereo (const SampleType* monoIn,
-														   SampleType*		 leftOut,
-														   SampleType*		 rightOut,
-														   int				 numSamples)
+void MonoStereoConverter<SampleType>::convertMonoToStereo (const SampleType* const monoIn,
+														   SampleType* const	   leftOut,
+														   SampleType* const	   rightOut,
+														   int					   numSamples)
 {
 	using FVO = juce::FloatVectorOperations;
 

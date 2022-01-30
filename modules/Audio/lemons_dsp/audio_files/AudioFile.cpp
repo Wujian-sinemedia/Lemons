@@ -17,34 +17,32 @@ namespace lemons::dsp
 {
 
 AudioFile::AudioFile (const File& audioFile)
-	: AudioFile (formats::getDefaultAudioFormatManager().createReaderFor (audioFile), audioFile)
+	: AudioFile (std::unique_ptr<juce::AudioFormatReader> (formats::getDefaultAudioFormatManager().createReaderFor (audioFile)), audioFile)
 {
 }
 
 AudioFile::AudioFile (std::unique_ptr<juce::InputStream> audioStream)
-	: AudioFile (formats::getDefaultAudioFormatManager().createReaderFor (std::move (audioStream)), {})
+	: AudioFile (std::unique_ptr<juce::AudioFormatReader> (formats::getDefaultAudioFormatManager().createReaderFor (std::move (audioStream))), {})
 {
 }
 
-AudioFile::AudioFile (juce::AudioFormatReader* reader, const juce::File& f)
+AudioFile::AudioFile (std::unique_ptr<juce::AudioFormatReader> reader, const juce::File& f)
 	: file (f)
 {
-	if (reader != nullptr)
+	if (auto* r = reader.get())
 	{
-		audioFormat		= reader->getFormatName();
-		samplerate		= reader->sampleRate;
-		lengthInSamples = static_cast<int> (reader->lengthInSamples);
-		numChannels		= static_cast<int> (reader->numChannels);
-		bitsPerSample	= static_cast<int> (reader->bitsPerSample);
-		metadata		= reader->metadataValues;
+		audioFormat		= r->getFormatName();
+		samplerate		= r->sampleRate;
+		lengthInSamples = static_cast<int> (r->lengthInSamples);
+		numChannels		= static_cast<int> (r->numChannels);
+		bitsPerSample	= static_cast<int> (r->bitsPerSample);
+		metadata		= r->metadataValues;
 
 		if (isValid())
 		{
 			float_data.setSize (numChannels, lengthInSamples);
-			reader->read (&float_data, 0, lengthInSamples, 0, true, numChannels > 1);
+			r->read (&float_data, 0, lengthInSamples, 0, true, numChannels > 1);
 		}
-
-		delete reader;
 	}
 
 	jassert (float_data.getNumChannels() == numChannels);
@@ -145,11 +143,7 @@ namespace lemons::binary
 
 dsp::AudioFile getAudioFile (const String& audioFileName)
 {
-	dsp::AudioFile audio { std::make_unique<juce::MemoryInputStream> (getBlob (audioFileName), false) };
-
-	jassert (audio.isValid());
-
-	return audio;
+	return dsp::AudioFile { std::make_unique<juce::MemoryInputStream> (getBlob (audioFileName), false) };
 }
 
 juce::StringArray getAudioFileNames()

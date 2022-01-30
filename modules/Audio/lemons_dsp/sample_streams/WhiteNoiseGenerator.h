@@ -32,6 +32,8 @@ public:
 private:
 
 	juce::Random rand;
+
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (WhiteNoiseGenerator)
 };
 
 }  // namespace lemons::dsp

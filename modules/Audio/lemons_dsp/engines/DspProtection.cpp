@@ -114,7 +114,4 @@ void Protector<SampleType>::InternalPassthruEngine::renderBlock (const AudioBuff
 template class Protector<float>;
 template class Protector<double>;
 
-
-LEMONS_CREATE_DEFAULT_ENGINE_FACTORY (Protector, "Protection")
-
 }  // namespace lemons::dsp

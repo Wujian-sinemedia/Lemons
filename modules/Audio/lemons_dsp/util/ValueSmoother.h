@@ -38,6 +38,8 @@ struct ValueSmoother final : juce::SmoothedValue<SampleType, juce::ValueSmoothin
 	{
 		set (static_cast<SampleType> (newGain), snapImmediately);
 	}
+
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (ValueSmoother)
 };
 
 }  // namespace lemons

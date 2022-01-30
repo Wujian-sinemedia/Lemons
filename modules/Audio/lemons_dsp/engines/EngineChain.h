@@ -14,21 +14,6 @@
  * ======================================================================================
  */
 
-/*
- * ======================================================================================
- *
- *  ██╗     ███████╗███╗   ███╗ ██████╗ ███╗   ██╗███████╗
- *  ██║     ██╔════╝████╗ ████║██╔═══██╗████╗  ██║██╔════╝
- *  ██║     █████╗  ██╔████╔██║██║   ██║██╔██╗ ██║███████╗
- *  ██║     ██╔══╝  ██║╚██╔╝██║██║   ██║██║╚██╗██║╚════██║
- *  ███████╗███████╗██║ ╚═╝ ██║╚██████╔╝██║ ╚████║███████║
- *  ╚══════╝╚══════╝╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝
- *
- *  This file is part of the Lemons open source library and is licensed under the terms of the GNU Public License.
- *
- *  ======================================================================================
- */
-
 #pragma once
 
 namespace lemons::dsp
@@ -77,6 +62,8 @@ public:
 		std::unique_ptr<Engine<SampleType>> engine;
 		int									index { 0 };
 		bool								bypassed { false };
+
+		JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (Node)
 	};
 
 
@@ -229,6 +216,8 @@ private:
 	[[nodiscard]] int getNextNodeIndex() const;
 
 	juce::OwnedArray<Node> nodes;
+
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (EngineChain)
 };
 
 
