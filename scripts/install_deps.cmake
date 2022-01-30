@@ -1,5 +1,21 @@
 #!/usr/bin/env cmake -P
 
+# SKIP LICENSE INSERTION
+
+# ======================================================================================
+#
+# ██╗     ███████╗███╗   ███╗ ██████╗ ███╗   ██╗███████╗
+# ██║     ██╔════╝████╗ ████║██╔═══██╗████╗  ██║██╔════╝
+# ██║     █████╗  ██╔████╔██║██║   ██║██╔██╗ ██║███████╗
+# ██║     ██╔══╝  ██║╚██╔╝██║██║   ██║██║╚██╗██║╚════██║
+# ███████╗███████╗██║ ╚═╝ ██║╚██████╔╝██║ ╚████║███████║
+# ╚══════╝╚══════╝╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝
+#
+# This file is part of the Lemons open source library and is licensed under the terms of the GNU
+# Public License.
+#
+# ======================================================================================
+
 set (CMAKE_FIND_PACKAGE_PREFER_CONFIG TRUE)
 
 find_package (LemonsCmakeModules REQUIRED PATHS ${CMAKE_CURRENT_LIST_DIR}/../util/cmake/modules)

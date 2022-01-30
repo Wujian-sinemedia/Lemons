@@ -1,8 +1,20 @@
+# ======================================================================================
+#
+#  ██╗     ███████╗███╗   ███╗ ██████╗ ███╗   ██╗███████╗
+#  ██║     ██╔════╝████╗ ████║██╔═══██╗████╗  ██║██╔════╝
+#  ██║     █████╗  ██╔████╔██║██║   ██║██╔██╗ ██║███████╗
+#  ██║     ██╔══╝  ██║╚██╔╝██║██║   ██║██║╚██╗██║╚════██║
+#  ███████╗███████╗██║ ╚═╝ ██║╚██████╔╝██║ ╚████║███████║
+#  ╚══════╝╚══════╝╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝
+#
+#  This file is part of the Lemons open source library and is licensed under the terms of the GNU Public License.
+#
+#  ======================================================================================
+
 # Follow Debian package naming conventions:
-# https://www.debian.org/doc/manuals/debian-faq/ch-pkg_basics.en.html
-# Build version, e.g. name_1.3.2~xenial_amd64 or name_1.3.2-1~xenial_amd64
-# when re-releasing.
-# Note: the ~codename is not part of any standard and could be omitted.
+# https://www.debian.org/doc/manuals/debian-faq/ch-pkg_basics.en.html Build version, e.g.
+# name_1.3.2~xenial_amd64 or name_1.3.2-1~xenial_amd64 when re-releasing. Note: the ~codename is not
+# part of any standard and could be omitted.
 include_guard (GLOBAL)
 
 if(NOT CPACK_DEBIAN_PACKAGE_VERSION)

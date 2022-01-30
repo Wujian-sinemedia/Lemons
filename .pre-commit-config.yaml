@@ -14,14 +14,25 @@ repos:
     hooks:
       - id: gitown
 
-  # alphabetize codeowners file
+  - repo: https://github.com/jumanjihouse/pre-commit-hooks
+    rev: 2.1.5
+    hooks:
+      - id: git-check
+
   - repo: local
     hooks:
+      # alphabetize codeowners file
       - id: sort-codeowners
         name: alphabetize codeowners
         entry: scripts/alphabetize_codeowners.py
         language: python
         files: CODEOWNERS
+      # check shell script syntax
+      - id: check-bash-syntax
+        name: check shell scripts syntax
+        entry: bash -n
+        language: system
+        types: [shell]
 
   # precommit configuration meta-checks
   - repo: meta
@@ -79,6 +90,23 @@ repos:
       - id: check-builtin-literals
       - id: debug-statements
       - id: fix-encoding-pragma
+
+  # license header
+  - repo: https://github.com/Lucas-C/pre-commit-hooks
+    rev: v1.1.10
+    hooks:
+      # - id: insert-license
+      #   name: "Insert license header in C++ source files"
+      #   args: [--license-filepath=util/lemons_header.txt,
+      #          '--comment-style=/*| | */',
+      #          --detect-license-in-X-top-lines=16]
+      #   types_or: [c, c++, objective-c]
+      - id: insert-license
+        name: "Insert license header in CMake, Python, and shell files"
+        args: [--license-filepath=util/lemons_header.txt,
+               --comment-style=#,
+               --detect-license-in-X-top-lines=16]
+        types_or: [cmake, python, shell]
 
   # text and typos
   - repo: https://github.com/sirosen/texthooks
