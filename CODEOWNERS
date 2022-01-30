@@ -74,6 +74,8 @@ modules/Audio/lemons_synth/BasicSynths/TemplateSynth.h benthevining
 modules/Audio/lemons_synth/Synth/Synth.cpp benthevining
 modules/Audio/lemons_synth/Synth/Synth.h benthevining
 modules/Audio/lemons_synth/Synth/helpers/MidiManager.h benthevining
+modules/Audio/lemons_synth/Synth/helpers/PanningManager.h benthevining
+modules/Audio/lemons_synth/Synth/helpers/VoiceAllocator.cpp benthevining
 modules/Audio/lemons_synth/SynthVoice/TimbreMod.h benthevining
 modules/Audio/lemons_synth/lemons_synth.cpp benthevining
 modules/Common/lemons_core/binary_data/translations.h benthevining
@@ -92,6 +94,7 @@ modules/Connectivity/lemons_osc/lemons_osc.cpp benthevining
 modules/Connectivity/lemons_osc/lemons_osc.h benthevining
 modules/Connectivity/lemons_osc/util/util.h benthevining
 modules/GUI/LemonsGUIModules.cmake benthevining
+modules/GUI/lemons_gui/components/popups/SaveToFilePrompt.cpp benthevining
 modules/GUI/lemons_gui/device/DeviceRotation.h benthevining
 modules/GUI/lemons_gui/device/autolock/AutoLock.cpp benthevining
 modules/GUI/lemons_gui/device/gps/GPS_apple.mm benthevining
@@ -100,6 +103,7 @@ modules/GUI/lemons_gui/device/motion/DeviceMotion_android.cpp benthevining
 modules/GUI/lemons_gui/lemons_gui.cpp benthevining
 modules/GUI/lemons_gui/lemons_gui.h benthevining
 modules/GUI/lemons_gui/utilities/CapsLock.cpp benthevining
+modules/GUI/lemons_gui/utilities/colors.h benthevining
 modules/GUI/lemons_gui/utilities/cursor.cpp benthevining
 modules/GUI/lemons_gui/utilities/cursor.h benthevining
 modules/GUI/lemons_spline/lemons_spline.h benthevining
@@ -127,6 +131,7 @@ scripts/lemons_config.json benthevining
 util/CommandLineUtils/RSAKeyGenerator/CMakeLists.txt benthevining
 util/CommandLineUtils/TranslationFileGenerator/CMakeLists.txt benthevining
 util/PluginMetadataEditor/metadata_editor_gui/editor_attributes/EditorAttributeComponent.h benthevining
+util/PluginMetadataEditor/metadata_editor_gui/parameter_layout/ParameterLayoutComponent.cpp benthevining
 util/PluginMetadataEditor/metadata_editor_gui/parameter_layout/ParameterLayoutComponent.h benthevining
 util/PluginMetadataEditor/metadata_editor_gui/processor_attributes/ProcessorAttributeComponent.h benthevining
 util/Templates/plugin/Source/modules/new_dsp/new_dsp.cpp benthevining
