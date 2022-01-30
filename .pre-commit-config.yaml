@@ -2,7 +2,15 @@
 default_language_version:
   python: python3
 
+fail_fast: true
+
 repos:
+
+  # precommit configuration meta-checks
+  - repo: meta
+    hooks:
+      - id: check-hooks-apply
+      - id: check-useless-excludes
 
   # git
   - repo: https://github.com/jorisroovers/gitlint
@@ -13,7 +21,6 @@ repos:
     rev: v0.1.7
     hooks:
       - id: gitown
-
   - repo: https://github.com/jumanjihouse/pre-commit-hooks
     rev: 2.1.5
     hooks:
@@ -33,12 +40,6 @@ repos:
         entry: bash -n
         language: system
         types: [shell]
-
-  # precommit configuration meta-checks
-  - repo: meta
-    hooks:
-      - id: check-hooks-apply
-      - id: check-useless-excludes
 
   # C++ code formatting & linting
   - repo: https://github.com/pocc/pre-commit-hooks
@@ -203,6 +204,7 @@ repos:
     rev: 2.4.0
     hooks:
       - id: editorconfig-checker
+        always_run: true
 
 ci:
   skip: [cppcheck, gitown]
