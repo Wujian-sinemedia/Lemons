@@ -13,6 +13,10 @@ def main():
 	with open(CODEOWNERS, 'r') as f:
 		file_lines = f.readlines()
 
+	# remove empty lines
+	file_lines = list(filter(None, file_lines))
+
+	# sort remaining lines
 	file_lines.sort()
 
 	with open(CODEOWNERS, 'w') as f:

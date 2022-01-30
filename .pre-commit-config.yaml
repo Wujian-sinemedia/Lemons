@@ -21,7 +21,7 @@ repos:
         name: alphabetize codeowners
         entry: scripts/alphabetize_codeowners.py
         language: python
-        pass_filenames: false
+        files: CODEOWNERS
 
   # precommit configuration meta-checks
   - repo: meta
