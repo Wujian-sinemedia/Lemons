@@ -9,7 +9,7 @@
 #
 #  This file is part of the Lemons open source library and is licensed under the terms of the GNU Public License.
 #
-#  ======================================================================================
+# ======================================================================================
 
 # Follow Debian package naming conventions:
 # https://www.debian.org/doc/manuals/debian-faq/ch-pkg_basics.en.html Build version, e.g.

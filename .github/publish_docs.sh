@@ -11,7 +11,7 @@
 #
 #  This file is part of the Lemons open source library and is licensed under the terms of the GNU Public License.
 #
-#  ======================================================================================
+# ======================================================================================
 
 # This script is based on: https://gist.github.com/vidavidorra/548ffbcdae99d752da02
 

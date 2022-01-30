@@ -9,7 +9,7 @@
 #
 #  This file is part of the Lemons open source library and is licensed under the terms of the GNU Public License.
 #
-#  ======================================================================================
+# ======================================================================================
 
 cmake_minimum_required (VERSION 3.21 FATAL_ERROR)
 

@@ -23,11 +23,13 @@ modules/Audio/lemons_audio_effects/dynamics/Compressor.cpp benthevining
 modules/Audio/lemons_audio_effects/dynamics/Limiter.h benthevining
 modules/Audio/lemons_audio_effects/misc/DryWet.h benthevining
 modules/Audio/lemons_audio_effects/panning/MonoToStereoPanner.cpp benthevining
+modules/Audio/lemons_audio_effects/panning/StereoPanner.cpp benthevining
 modules/Audio/lemons_audio_effects/time/Delay.h benthevining
 modules/Audio/lemons_dsp/engines/DspProtection.h benthevining
 modules/Audio/lemons_dsp/engines/DspProtection_tests.cpp benthevining
 modules/Audio/lemons_dsp/engines/EngineChain.cpp benthevining
 modules/Audio/lemons_dsp/engines/EngineChain.h benthevining
+modules/Audio/lemons_dsp/engines/LatencyEngine.cpp benthevining
 modules/Audio/lemons_dsp/engines/LatencyEngine_tests.cpp benthevining
 modules/Audio/lemons_dsp/engines/MidiProcessorEngine.h benthevining
 modules/Audio/lemons_dsp/fifos/AudioAndMidiFIFO_tests.cpp benthevining
@@ -73,6 +75,7 @@ modules/Audio/lemons_psola/resynthesis/shifter.h benthevining
 modules/Audio/lemons_synth/BasicSynths/TemplateSynth.h benthevining
 modules/Audio/lemons_synth/Synth/Synth.cpp benthevining
 modules/Audio/lemons_synth/Synth/Synth.h benthevining
+modules/Audio/lemons_synth/Synth/helpers/MidiManager.cpp benthevining
 modules/Audio/lemons_synth/Synth/helpers/MidiManager.h benthevining
 modules/Audio/lemons_synth/Synth/helpers/PanningManager.h benthevining
 modules/Audio/lemons_synth/Synth/helpers/VoiceAllocator.cpp benthevining
@@ -94,6 +97,7 @@ modules/Connectivity/lemons_osc/lemons_osc.cpp benthevining
 modules/Connectivity/lemons_osc/lemons_osc.h benthevining
 modules/Connectivity/lemons_osc/util/util.h benthevining
 modules/GUI/LemonsGUIModules.cmake benthevining
+modules/GUI/lemons_gui/components/popups/PopupComponent.cpp benthevining
 modules/GUI/lemons_gui/components/popups/SaveToFilePrompt.cpp benthevining
 modules/GUI/lemons_gui/device/DeviceRotation.h benthevining
 modules/GUI/lemons_gui/device/autolock/AutoLock.cpp benthevining
@@ -109,6 +113,7 @@ modules/GUI/lemons_gui/utilities/cursor.h benthevining
 modules/GUI/lemons_spline/lemons_spline.h benthevining
 modules/LemonsAppModules.cmake benthevining
 modules/Plugins/lemons_plugin/hosting/PluginScanning.cpp benthevining
+modules/Plugins/lemons_plugin/lemons_plugin.h benthevining
 modules/Plugins/lemons_plugin/metadata/ParameterTraits.cpp benthevining
 modules/Plugins/lemons_plugin/metadata/ParameterTraits.h benthevining
 modules/Plugins/lemons_plugin/metadata/PluginMetadata.cpp benthevining
@@ -143,12 +148,14 @@ util/cmake/modules/config_files/scripts/install_pips.cmake benthevining
 util/cmake/modules/config_files/scripts/install_win.cmake benthevining
 util/cmake/modules/cpack/LemonsDefaultCpackSettings.cmake benthevining
 util/cmake/modules/general/LemonsCmakeDevTools.cmake benthevining
+util/cmake/modules/general/LemonsDefaultProjectSettings.cmake benthevining
 util/cmake/modules/general/lemons_AggregateTargets.cmake benthevining
 util/cmake/modules/integrations/LemonsAllIntegrations.cmake benthevining
 util/cmake/modules/juce/LemonsAssetsHelpers.cmake benthevining
 util/cmake/modules/juce/LemonsJuceModuleUtilities.cmake benthevining
 util/cmake/modules/platform/scripts/lemons_windows_settings.cmake benthevining
 util/cmake/modules/plugins/AAX/LemonsAAXUtils.cmake benthevining
+util/cmake/toolchains/ios.cmake benthevining
 util/doxygen/CMakeLists.txt benthevining
 util/doxygen/scripts/cmake/process_cmake_modules.py benthevining
 util/doxygen/scripts/main_page.py benthevining
