@@ -36,7 +36,7 @@ repos:
         name: alphabetize codeowners
         entry: scripts/alphabetize_codeowners.py
         language: python
-        pass_filenames: false
+        files: .github/CODEOWNERS
       # check shell script syntax
       - id: check-bash-syntax
         name: check shell scripts syntax
