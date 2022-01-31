@@ -1,5 +1,12 @@
 # Lemons changelog
 
+## [1.2.0](http://github.com/benthevining/Lemons/compare/v1.1.0...v1.2.0) (2022-01-31)
+
+
+### Features
+
+* created code of conduct file ([8c9943c](http://github.com/benthevining/Lemons/commit/8c9943c70611130d623b45cf991df1b4cee48d7e))
+
 ## [1.1.0](http://github.com/benthevining/Lemons/compare/v1.0.3...v1.1.0) (2022-01-30)
 
 
