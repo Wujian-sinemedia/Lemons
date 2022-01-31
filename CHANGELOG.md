@@ -1,5 +1,12 @@
 # Lemons changelog
 
+### [1.2.1](http://github.com/benthevining/Lemons/compare/v1.2.0...v1.2.1) (2022-01-31)
+
+
+### Bug Fixes
+
+* not checking for unparsed CMake args when passing ARGN to another function ([52a3240](http://github.com/benthevining/Lemons/commit/52a3240692abed440e40f30fb897d441e1a4c2a7))
+
 ## [1.2.0](http://github.com/benthevining/Lemons/compare/v1.1.0...v1.2.0) (2022-01-31)
 
 
