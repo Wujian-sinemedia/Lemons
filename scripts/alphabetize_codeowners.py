@@ -21,7 +21,7 @@ def main():
 
 	LEMONS_ROOT = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
 
-	CODEOWNERS = os.path.join(LEMONS_ROOT, 'CODEOWNERS')
+	CODEOWNERS = os.path.join(LEMONS_ROOT, '.github', 'CODEOWNERS')
 
 	with open(CODEOWNERS, 'r') as f:
 		file_lines = f.readlines()

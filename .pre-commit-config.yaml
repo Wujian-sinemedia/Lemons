@@ -19,6 +19,7 @@ repos:
     rev: v0.1.7
     hooks:
       - id: gitown
+        args: [--codeowners_filename=.github/CODEOWNERS]
   - repo: https://github.com/jumanjihouse/pre-commit-hooks
     rev: 2.1.5
     hooks:
@@ -35,7 +36,7 @@ repos:
         name: alphabetize codeowners
         entry: scripts/alphabetize_codeowners.py
         language: python
-        files: CODEOWNERS
+        pass_filenames: false
       # check shell script syntax
       - id: check-bash-syntax
         name: check shell scripts syntax
