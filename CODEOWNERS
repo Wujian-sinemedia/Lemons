@@ -151,7 +151,6 @@ modules/Plugins/lemons_plugin_gui/buttons/Buttons.cpp benthevining
 modules/Plugins/lemons_plugin_gui/buttons/Buttons.h benthevining
 modules/Plugins/lemons_plugin_gui/lemons_plugin_gui.cpp benthevining
 modules/Plugins/lemons_plugin_gui/plugin_library/PluginLibraryComponent.h benthevining
-ning
 scripts/lemons_config.json benthevining
 util/CommandLineUtils/RSAKeyGenerator/CMakeLists.txt benthevining
 util/CommandLineUtils/TranslationFileGenerator/CMakeLists.txt benthevining
