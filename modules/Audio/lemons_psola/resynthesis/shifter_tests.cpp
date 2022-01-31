@@ -42,6 +42,10 @@ private:
 
 			const auto latency = analyzer.setSamplerate (samplerate);
 
+			const auto detectorLatency = detector.setSamplerate (samplerate);
+
+			this->expectEquals (detectorLatency, latency);
+
 			origAudio.setSize (1, latency);
 			shiftedAudio.setSize (1, latency);
 
@@ -61,6 +65,12 @@ private:
 
 				this->expect (! bufferIsSilent (shiftedAudio));
 				this->expect (! buffersAreEqual (origAudio, shiftedAudio));
+
+				detector.reset();
+
+				//                this->expectWithinAbsoluteError (detector.detectPitch (shiftedAudio),
+				//                                                 static_cast<float> (targetPitch),
+				//                                                 20.f);
 			};
 
 			{
@@ -100,6 +110,8 @@ private:
 
 	dsp::psola::Analyzer<SampleType> analyzer;
 	dsp::psola::Shifter<SampleType>	 shifter { analyzer };
+
+	dsp::psola::PitchDetector<SampleType> detector;
 
 	AudioBuffer<SampleType> origAudio, shiftedAudio;
 };

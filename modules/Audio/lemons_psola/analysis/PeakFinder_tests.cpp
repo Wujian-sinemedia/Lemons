@@ -116,7 +116,9 @@ private:
 		 - individual grain onsets are approx 1 period apart
 		 */
 
-		const auto halfPeriod = period / 2;
+		const auto halfPeriod		  = juce::roundToInt (period * 0.5f);
+		const auto threeQuarterPeriod = juce::roundToInt (period * 0.75f);
+		const auto doublePeriod		  = period * 2;
 
 		for (auto i = 0; i < indices.size() - 2; ++i)
 		{
@@ -124,10 +126,10 @@ private:
 			const auto index2 = indices.getUnchecked (i + 1);
 			const auto index3 = indices.getUnchecked (i + 2);
 
-			this->expectWithinAbsoluteError (index3 - index1, period * 2, halfPeriod);
+			this->expectWithinAbsoluteError (index3 - index1, doublePeriod, halfPeriod);
 
 			this->expectWithinAbsoluteError (index2 - index1, period, halfPeriod);
-			this->expectWithinAbsoluteError (index3 - index2, period, halfPeriod);
+			this->expectWithinAbsoluteError (index3 - index2, period, threeQuarterPeriod);
 		}
 	}
 
@@ -147,6 +149,6 @@ private:
 template struct PeakFinderTests<float>;
 template struct PeakFinderTests<double>;
 
-// LEMONS_CREATE_DSP_TEST (PeakFinderTests)
+LEMONS_CREATE_DSP_TEST (PeakFinderTests)
 
 }  // namespace lemons::tests

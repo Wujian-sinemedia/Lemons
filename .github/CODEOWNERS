@@ -71,6 +71,7 @@ modules/Audio/lemons_midi/tuning/mts_client.cpp benthevining
 modules/Audio/lemons_midi/tuning/mts_client.h benthevining
 modules/Audio/lemons_midi/utilities/serializing.h benthevining
 modules/Audio/lemons_psola/analysis/PeakFinder.cpp benthevining
+modules/Audio/lemons_psola/analysis/PeakFinder_tests.cpp benthevining
 modules/Audio/lemons_psola/analysis/PitchDetector.cpp benthevining
 modules/Audio/lemons_psola/analysis/PitchDetector.h benthevining
 modules/Audio/lemons_psola/analysis/analyzer.cpp benthevining
