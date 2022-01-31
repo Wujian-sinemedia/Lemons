@@ -1,5 +1,5 @@
 {
 	"IgnoreDefaults": true,
 	"SpacesAftertabs": true,
-	"Exclude": [".clang-tidy", ".pre-commit-config.yaml", "LICENSE.txt"]
+	"Exclude": [".clang-tidy", ".pre-commit-config.yaml", "LICENSE.txt", "CODE_OF_CONDUCT.md"]
 }

@@ -9,6 +9,7 @@
 # This file is also being managed automatically by the gitown tool.
 .clang-format benthevining
 .clang-tidy benthevining
+.ecrc benthevining
 .gitattributes benthevining
 .github/workflows/test_and_release.yml benthevining
 .github/workflows/tests.yml benthevining
