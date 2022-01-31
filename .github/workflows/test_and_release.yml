@@ -39,7 +39,7 @@ jobs:
           key: ${{ runner.os }}.tests.${{ hashFiles('**/') }}
           restore-keys: ${{ runner.os }}.tests.
 
-      - name: Install deps
+      - name: Install dependencies
         run: cmake -P '${{ github.workspace }}/scripts/install_deps.cmake'
 
       - name: Build and run tests

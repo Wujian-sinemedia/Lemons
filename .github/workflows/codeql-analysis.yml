@@ -3,9 +3,13 @@ name: "CodeQL"
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   schedule:
-    - cron: '25 11 * * 0'
+    - cron: '0 0 * * *'
+
+defaults:
+  run:
+    shell: bash
 
 jobs:
   analyze:
@@ -19,22 +23,32 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        language: [ 'cpp', 'python' ]
+        language: ['cpp', 'python']
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
-    - name: Initialize CodeQL
-      uses: github/codeql-action/init@v1
-      with:
-        languages: ${{ matrix.language }}
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v1
+        with:
+          languages: ${{ matrix.language }}
 
-    - name: Run build
-      if: matrix.language == 'cpp'
-      run: |
-       make init
-       make tests
+      - name: Install dependencies
+        if: matrix.language == 'cpp'
+        run: cmake -P '${{ github.workspace }}/scripts/install_deps.cmake'
 
-    - name: Perform CodeQL Analysis
-      uses: github/codeql-action/analyze@v1
+      - name: Set up cache
+        if: matrix.language == 'cpp'
+        uses: actions/cache@v2
+        with:
+          path: Cache
+          key: ${{ runner.os }}.codeql.${{ hashFiles('**/') }}
+          restore-keys: ${{ runner.os }}.codeql.
+
+      - name: Run build
+        if: matrix.language == 'cpp'
+        run: make tests
+
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v1
