@@ -6,6 +6,8 @@
 [![Docs](https://github.com/benthevining/Lemons/actions/workflows/publish_docs.yml/badge.svg)](https://github.com/benthevining/Lemons/actions/workflows/publish_docs.yml)
 [![pre-commit.ci status](https://results.pre-commit.ci/badge/github/benthevining/Lemons/main.svg)](https://results.pre-commit.ci/latest/github/benthevining/Lemons/main)
 [![semantic-release: conventionalcommits](https://img.shields.io/badge/semantic--release-conventionalcommits-e10079?logo=semantic-release)](https://github.com/semantic-release/semantic-release)
+[![CodeFactor](https://www.codefactor.io/repository/github/benthevining/lemons/badge)](https://www.codefactor.io/repository/github/benthevining/lemons)
+[![CodeQL](https://github.com/benthevining/Lemons/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/benthevining/Lemons/actions/workflows/codeql-analysis.yml)
 
 <!-- editorconfig-checker-disable -->
 <p align="center">
