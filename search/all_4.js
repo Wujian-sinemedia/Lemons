@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['editor_0',['Editor',['../classlemons_1_1plugin_1_1_editor.html#a74ba4497461698b6cc6c9dd013793a51',1,'lemons::plugin::Editor::Editor(ProcessorBase &amp;p, StateType &amp;state, bool resizable=true, bool useDraggableCorner=true, int msBeforeTooltip=700, const Dimensions &amp;defaultInitialSize=Dimensions::getDefault())'],['../classlemons_1_1plugin_1_1_editor.html#aaa0df0a3db39e165dc7a68b306591625',1,'lemons::plugin::Editor::Editor(ProcessorBase &amp;p, StateType &amp;state, const EditorAttributes &amp;attributes)'],['../classlemons_1_1plugin_1_1_editor.html',1,'lemons::plugin::Editor&lt; ContentComponentType, &gt;']]],
+  ['editor_0',['Editor',['../classlemons_1_1plugin_1_1_editor.html#aaa0df0a3db39e165dc7a68b306591625',1,'lemons::plugin::Editor::Editor(ProcessorBase &amp;p, StateType &amp;state, const EditorAttributes &amp;attributes)'],['../classlemons_1_1plugin_1_1_editor.html#a74ba4497461698b6cc6c9dd013793a51',1,'lemons::plugin::Editor::Editor(ProcessorBase &amp;p, StateType &amp;state, bool resizable=true, bool useDraggableCorner=true, int msBeforeTooltip=700, const Dimensions &amp;defaultInitialSize=Dimensions::getDefault())'],['../classlemons_1_1plugin_1_1_editor.html',1,'lemons::plugin::Editor&lt; ContentComponentType, &gt;']]],
   ['editorattributes_1',['editorAttributes',['../classlemons_1_1plugin_1_1_processor.html#a9a0dfc73cdcc69e6919b08ca16dc6a27',1,'lemons::plugin::Processor::editorAttributes()'],['../structlemons_1_1plugin_1_1_plugin_metadata.html#aa59f1484d23cd6e9dba754172d3a12c7',1,'lemons::plugin::PluginMetadata::editorAttributes()']]],
   ['editorattributes_2',['EditorAttributes',['../structlemons_1_1plugin_1_1_editor_attributes.html',1,'lemons::plugin']]],
   ['editorattributes_2eh_3',['EditorAttributes.h',['../_editor_attributes_8h.html',1,'']]],
@@ -30,14 +30,10 @@ var searchData=
   ['engine_3c_20sampletype_2c_20lemons_3a_3adsp_3a_3aosc_3a_3atriangle_20_3e_27',['Engine&lt; SampleType, lemons::dsp::osc::Triangle &gt;',['../classlemons_1_1dsp_1_1osc_1_1_engine.html',1,'lemons::dsp::osc']]],
   ['enginechain_28',['EngineChain',['../classlemons_1_1dsp_1_1_engine_chain.html',1,'lemons::dsp']]],
   ['enginechain_2eh_29',['EngineChain.h',['../_engine_chain_8h.html',1,'']]],
-  ['enginecreator_30',['EngineCreator',['../structlemons_1_1dsp_1_1factory_1_1_engine_creator.html#a76b2b18e8a16194c969b4cc7c3989237',1,'lemons::dsp::factory::EngineCreator::EngineCreator()'],['../structlemons_1_1dsp_1_1factory_1_1_engine_creator.html',1,'lemons::dsp::factory::EngineCreator']]],
-  ['enginelist_31',['EngineList',['../namespacelemons_1_1dsp_1_1factory.html#a99965dfea4bea52ff62ae4604876f38f',1,'lemons::dsp::factory']]],
-  ['engineptr_32',['EnginePtr',['../namespacelemons_1_1dsp_1_1factory.html#a0792dea5bb40b546e8eab459d078c67d',1,'lemons::dsp::factory']]],
-  ['engines_33',['Engines',['../group__audio__engines.html',1,'']]],
-  ['engineset_34',['EngineSet',['../namespacelemons_1_1dsp_1_1factory.html#a502f3af57be546b341a58e9172010316',1,'lemons::dsp::factory']]],
-  ['enginetype_35',['engineType',['../structlemons_1_1plugin_1_1_processor_attributes.html#aca2cf696e5569927edbeae37af9e631d',1,'lemons::plugin::ProcessorAttributes']]],
-  ['eq_36',['EQ',['../classlemons_1_1dsp_1_1_f_x_1_1_e_q.html#a2dcdb60a42bb68a1f447336ee6127d1e',1,'lemons::dsp::FX::EQ::EQ()'],['../classlemons_1_1dsp_1_1_f_x_1_1_e_q.html',1,'lemons::dsp::FX::EQ&lt; SampleType &gt;']]],
-  ['eq_2eh_37',['EQ.h',['../_e_q_8h.html',1,'']]],
-  ['executeunittests_38',['executeUnitTests',['../group__lemons__unit__testing.html#gab1e68eefc1493b062789e0ccc18695ff',1,'lemons::tests']]],
-  ['existsondisk_39',['existsOnDisk',['../structlemons_1_1dsp_1_1_audio_file.html#a050fe18f621b82247d6e43c1049b0c4f',1,'lemons::dsp::AudioFile']]]
+  ['engines_30',['Engines',['../group__audio__engines.html',1,'']]],
+  ['enginetype_31',['engineType',['../structlemons_1_1plugin_1_1_processor_attributes.html#aca2cf696e5569927edbeae37af9e631d',1,'lemons::plugin::ProcessorAttributes']]],
+  ['eq_32',['EQ',['../classlemons_1_1dsp_1_1_f_x_1_1_e_q.html#a2dcdb60a42bb68a1f447336ee6127d1e',1,'lemons::dsp::FX::EQ::EQ()'],['../classlemons_1_1dsp_1_1_f_x_1_1_e_q.html',1,'lemons::dsp::FX::EQ&lt; SampleType &gt;']]],
+  ['eq_2eh_33',['EQ.h',['../_e_q_8h.html',1,'']]],
+  ['executeunittests_34',['executeUnitTests',['../group__lemons__unit__testing.html#gab1e68eefc1493b062789e0ccc18695ff',1,'lemons::tests']]],
+  ['existsondisk_35',['existsOnDisk',['../structlemons_1_1dsp_1_1_audio_file.html#a050fe18f621b82247d6e43c1049b0c4f',1,'lemons::dsp::AudioFile']]]
 ];

@@ -18,6 +18,5 @@ var searchData=
   ['engine_3c_20sampletype_2c_20lemons_3a_3adsp_3a_3aosc_3a_3asquare_20_3e_15',['Engine&lt; SampleType, lemons::dsp::osc::Square &gt;',['../classlemons_1_1dsp_1_1osc_1_1_engine.html',1,'lemons::dsp::osc']]],
   ['engine_3c_20sampletype_2c_20lemons_3a_3adsp_3a_3aosc_3a_3atriangle_20_3e_16',['Engine&lt; SampleType, lemons::dsp::osc::Triangle &gt;',['../classlemons_1_1dsp_1_1osc_1_1_engine.html',1,'lemons::dsp::osc']]],
   ['enginechain_17',['EngineChain',['../classlemons_1_1dsp_1_1_engine_chain.html',1,'lemons::dsp']]],
-  ['enginecreator_18',['EngineCreator',['../structlemons_1_1dsp_1_1factory_1_1_engine_creator.html',1,'lemons::dsp::factory']]],
-  ['eq_19',['EQ',['../classlemons_1_1dsp_1_1_f_x_1_1_e_q.html',1,'lemons::dsp::FX']]]
+  ['eq_18',['EQ',['../classlemons_1_1dsp_1_1_f_x_1_1_e_q.html',1,'lemons::dsp::FX']]]
 ];

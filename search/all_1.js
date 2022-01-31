@@ -29,8 +29,6 @@ var searchData=
   ['busespropertiestovaluetree_26',['busesPropertiesToValueTree',['../classlemons_1_1plugin_1_1_basic_processor.html#a3edb9916845558dde0dbbeb22dcb5fd4',1,'lemons::plugin::BasicProcessor']]],
   ['busproperties_27',['BusProperties',['../classlemons_1_1plugin_1_1_basic_processor.html#a75ed0370c7a3130fbac41ac11ca1f4ef',1,'lemons::plugin::BasicProcessor']]],
   ['buttons_28',['Buttons',['../group__lemons__buttons.html',1,'']]],
-  ['bvbrandflags_29',['BVBrandFlags',['../_b_v_brand_flags.html',1,'']]],
-  ['bvbrandflags_2emd_30',['BVBrandFlags.md',['../_b_v_brand_flags_8md.html',1,'']]],
-  ['bypassedblock_31',['bypassedBlock',['../classlemons_1_1dsp_1_1_synth_base.html#a56641cc1e3f530f450c37855553d403e',1,'lemons::dsp::SynthBase::bypassedBlock()'],['../classlemons_1_1dsp_1_1_f_x_1_1_smoothed_gain.html#a8335b506c3444b98f063652352100d65',1,'lemons::dsp::FX::SmoothedGain::bypassedBlock()'],['../structlemons_1_1dsp_1_1_f_x_1_1_audio_effect.html#a0e2734ec1b7a89c566cbd2fe9b3592c8',1,'lemons::dsp::FX::AudioEffect::bypassedBlock()'],['../classlemons_1_1dsp_1_1_synth_voice_base.html#a41811700a1db4d05074f7e4717201b64',1,'lemons::dsp::SynthVoiceBase::bypassedBlock(int numSamples)']]],
-  ['bypassedblockreceived_32',['bypassedBlockReceived',['../classlemons_1_1dsp_1_1_synth_voice_base.html#acbcf85ba6f732e3ab1cdaf1fe8be49d5',1,'lemons::dsp::SynthVoiceBase']]]
+  ['bypassedblock_29',['bypassedBlock',['../classlemons_1_1dsp_1_1_synth_voice_base.html#a41811700a1db4d05074f7e4717201b64',1,'lemons::dsp::SynthVoiceBase::bypassedBlock()'],['../classlemons_1_1dsp_1_1_synth_base.html#a56641cc1e3f530f450c37855553d403e',1,'lemons::dsp::SynthBase::bypassedBlock()'],['../classlemons_1_1dsp_1_1_f_x_1_1_smoothed_gain.html#a8335b506c3444b98f063652352100d65',1,'lemons::dsp::FX::SmoothedGain::bypassedBlock()'],['../structlemons_1_1dsp_1_1_f_x_1_1_audio_effect.html#a0e2734ec1b7a89c566cbd2fe9b3592c8',1,'lemons::dsp::FX::AudioEffect::bypassedBlock()']]],
+  ['bypassedblockreceived_30',['bypassedBlockReceived',['../classlemons_1_1dsp_1_1_synth_voice_base.html#acbcf85ba6f732e3ab1cdaf1fe8be49d5',1,'lemons::dsp::SynthVoiceBase']]]
 ];

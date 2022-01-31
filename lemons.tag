@@ -225,80 +225,6 @@
     <namespace>lemons::dsp</namespace>
   </compound>
   <compound kind="file">
-    <name>Factory.h</name>
-    <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/Audio/lemons_dsp/engines/</path>
-    <filename>_factory_8h.html</filename>
-    <class kind="struct">lemons::dsp::factory::ArgumentsEngineCreator</class>
-    <class kind="struct">lemons::dsp::factory::DefaultEngineCreator</class>
-    <class kind="struct">lemons::dsp::factory::EngineCreator</class>
-    <namespace>lemons</namespace>
-    <namespace>lemons::dsp</namespace>
-    <namespace>lemons::dsp::factory</namespace>
-    <member kind="define">
-      <type>#define</type>
-      <name>LEMONS_CREATE_ARGUMENT_ENGINE_FACTORY</name>
-      <anchorfile>_factory_8h.html</anchorfile>
-      <anchor>a88c4cfcf23b19ceca7823894774df5a4</anchor>
-      <arglist>(TemplateClassName, typeIDstring,...)</arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>LEMONS_CREATE_DEFAULT_ENGINE_FACTORY</name>
-      <anchorfile>_factory_8h.html</anchorfile>
-      <anchor>addc7cbb6e8561201686730afb1e13a66</anchor>
-      <arglist>(TemplateClassName, typeIDstring)</arglist>
-    </member>
-    <member kind="typedef">
-      <type>std::function&lt; EnginePtr&lt; SampleType &gt;()&gt;</type>
-      <name>CreationFunc</name>
-      <anchorfile>namespacelemons_1_1dsp_1_1factory.html</anchorfile>
-      <anchor>ac9747582d88cba67e802e185e46957ca</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>juce::StringArray</type>
-      <name>EngineList</name>
-      <anchorfile>namespacelemons_1_1dsp_1_1factory.html</anchorfile>
-      <anchor>a99965dfea4bea52ff62ae4604876f38f</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>std::unique_ptr&lt; Engine&lt; SampleType &gt; &gt;</type>
-      <name>EnginePtr</name>
-      <anchorfile>namespacelemons_1_1dsp_1_1factory.html</anchorfile>
-      <anchor>a0792dea5bb40b546e8eab459d078c67d</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>juce::OwnedArray&lt; Engine&lt; SampleType &gt; &gt;</type>
-      <name>EngineSet</name>
-      <anchorfile>namespacelemons_1_1dsp_1_1factory.html</anchorfile>
-      <anchor>a502f3af57be546b341a58e9172010316</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="function">
-      <type>EnginePtr&lt; SampleType &gt;</type>
-      <name>createEngine</name>
-      <anchorfile>namespacelemons_1_1dsp_1_1factory.html</anchorfile>
-      <anchor>a673d713149bad1b3eadb9123d510912f</anchor>
-      <arglist>(const String &amp;typeID) noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>EngineSet&lt; SampleType &gt;</type>
-      <name>getEngineSet</name>
-      <anchorfile>namespacelemons_1_1dsp_1_1factory.html</anchorfile>
-      <anchor>a7ca17e9a13c09521aef69de53406d70c</anchor>
-      <arglist>(const EngineList &amp;list)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>registerEngine</name>
-      <anchorfile>namespacelemons_1_1dsp_1_1factory.html</anchorfile>
-      <anchor>a537dfb56467f1c9be4a39b3714f1da82</anchor>
-      <arglist>(CreationFunc&lt; SampleType &gt;, const String &amp;typeID)</arglist>
-    </member>
-  </compound>
-  <compound kind="file">
     <name>LatencyEngine.h</name>
     <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/Audio/lemons_dsp/engines/</path>
     <filename>_latency_engine_8h.html</filename>
@@ -406,7 +332,6 @@
     <includes id="_audio_engine_8h" name="AudioEngine.h" local="yes" imported="no">engines/AudioEngine.h</includes>
     <includes id="_latency_engine_8h" name="LatencyEngine.h" local="yes" imported="no">engines/LatencyEngine.h</includes>
     <includes id="_midi_processor_engine_8h" name="MidiProcessorEngine.h" local="yes" imported="no">engines/MidiProcessorEngine.h</includes>
-    <includes id="_factory_8h" name="Factory.h" local="yes" imported="no">engines/Factory.h</includes>
     <includes id="_dsp_protection_8h" name="DspProtection.h" local="yes" imported="no">engines/DspProtection.h</includes>
     <includes id="_engine_chain_8h" name="EngineChain.h" local="yes" imported="no">engines/EngineChain.h</includes>
     <includes id="_sample_stream_8h" name="SampleStream.h" local="yes" imported="no">sample_streams/SampleStream.h</includes>
@@ -1118,114 +1043,9 @@
     <namespace>lemons::dsp::synth</namespace>
   </compound>
   <compound kind="file">
-    <name>AllLemonsModules.md</name>
-    <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/CMake/</path>
-    <filename>_all_lemons_modules_8md.html</filename>
-  </compound>
-  <compound kind="file">
-    <name>BVBrandFlags.md</name>
-    <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/CMake/</path>
-    <filename>_b_v_brand_flags_8md.html</filename>
-  </compound>
-  <compound kind="file">
     <name>CMakeModules.md</name>
     <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/CMake/</path>
     <filename>_c_make_modules_8md.html</filename>
-  </compound>
-  <compound kind="file">
-    <name>LemonsAAXUtils.md</name>
-    <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/CMake/</path>
-    <filename>_lemons_a_a_x_utils_8md.html</filename>
-  </compound>
-  <compound kind="file">
-    <name>LemonsAppModules.md</name>
-    <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/CMake/</path>
-    <filename>_lemons_app_modules_8md.html</filename>
-  </compound>
-  <compound kind="file">
-    <name>LemonsAppUtilities.md</name>
-    <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/CMake/</path>
-    <filename>_lemons_app_utilities_8md.html</filename>
-  </compound>
-  <compound kind="file">
-    <name>LemonsAssetsHelpers.md</name>
-    <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/CMake/</path>
-    <filename>_lemons_assets_helpers_8md.html</filename>
-  </compound>
-  <compound kind="file">
-    <name>LemonsAudioModules.md</name>
-    <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/CMake/</path>
-    <filename>_lemons_audio_modules_8md.html</filename>
-  </compound>
-  <compound kind="file">
-    <name>LemonsCcache.md</name>
-    <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/CMake/</path>
-    <filename>_lemons_ccache_8md.html</filename>
-  </compound>
-  <compound kind="file">
-    <name>LemonsCommonModules.md</name>
-    <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/CMake/</path>
-    <filename>_lemons_common_modules_8md.html</filename>
-  </compound>
-  <compound kind="file">
-    <name>LemonsConnectivityModules.md</name>
-    <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/CMake/</path>
-    <filename>_lemons_connectivity_modules_8md.html</filename>
-  </compound>
-  <compound kind="file">
-    <name>LemonsDefaultCpackSettings.md</name>
-    <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/CMake/</path>
-    <filename>_lemons_default_cpack_settings_8md.html</filename>
-  </compound>
-  <compound kind="file">
-    <name>LemonsDefaultPlatformSettings.md</name>
-    <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/CMake/</path>
-    <filename>_lemons_default_platform_settings_8md.html</filename>
-  </compound>
-  <compound kind="file">
-    <name>LemonsFileUtils.md</name>
-    <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/CMake/</path>
-    <filename>_lemons_file_utils_8md.html</filename>
-  </compound>
-  <compound kind="file">
-    <name>LemonsGetCPM.md</name>
-    <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/CMake/</path>
-    <filename>_lemons_get_c_p_m_8md.html</filename>
-  </compound>
-  <compound kind="file">
-    <name>LemonsGUIModules.md</name>
-    <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/CMake/</path>
-    <filename>_lemons_g_u_i_modules_8md.html</filename>
-  </compound>
-  <compound kind="file">
-    <name>LemonsJuceModuleUtilities.md</name>
-    <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/CMake/</path>
-    <filename>_lemons_juce_module_utilities_8md.html</filename>
-  </compound>
-  <compound kind="file">
-    <name>LemonsJuceUtilities.md</name>
-    <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/CMake/</path>
-    <filename>_lemons_juce_utilities_8md.html</filename>
-  </compound>
-  <compound kind="file">
-    <name>LemonsPluginModules.md</name>
-    <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/CMake/</path>
-    <filename>_lemons_plugin_modules_8md.html</filename>
-  </compound>
-  <compound kind="file">
-    <name>LemonsPluginUtilities.md</name>
-    <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/CMake/</path>
-    <filename>_lemons_plugin_utilities_8md.html</filename>
-  </compound>
-  <compound kind="file">
-    <name>LemonsSetDefaultCpackGenerator.md</name>
-    <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/CMake/</path>
-    <filename>_lemons_set_default_cpack_generator_8md.html</filename>
-  </compound>
-  <compound kind="file">
-    <name>LinuxLSBInfo.md</name>
-    <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/CMake/</path>
-    <filename>_linux_l_s_b_info_8md.html</filename>
   </compound>
   <compound kind="file">
     <name>data.h</name>
@@ -3260,8 +3080,8 @@
       <type>void</type>
       <name>analyzeInput</name>
       <anchorfile>classlemons_1_1dsp_1_1psola_1_1_analyzer.html</anchorfile>
-      <anchor>ab78f564ad845afb011e82a70c041409f</anchor>
-      <arglist>(const SampleType *inputAudio, int numSamples)</arglist>
+      <anchor>acfa170d3777db55b5915b35fd39fb689</anchor>
+      <arglist>(const SampleType *const inputAudio, int numSamples)</arglist>
     </member>
     <member kind="function">
       <type>int</type>
@@ -3378,20 +3198,6 @@
       <anchorfile>classlemons_1_1_arg_parser.html</anchorfile>
       <anchor>ae0d629aee36d8a80943f8b4d0cf4849a</anchor>
       <arglist>() const</arglist>
-    </member>
-  </compound>
-  <compound kind="struct">
-    <name>lemons::dsp::factory::ArgumentsEngineCreator</name>
-    <filename>structlemons_1_1dsp_1_1factory_1_1_arguments_engine_creator.html</filename>
-    <templarg>template&lt; typename SampleType &gt; class EngineType</templarg>
-    <templarg>typename... Args</templarg>
-    <base>lemons::dsp::factory::EngineCreator</base>
-    <member kind="function">
-      <type></type>
-      <name>ArgumentsEngineCreator</name>
-      <anchorfile>structlemons_1_1dsp_1_1factory_1_1_arguments_engine_creator.html</anchorfile>
-      <anchor>aa2c8063b4f4c02d34c16724f8a417410</anchor>
-      <arglist>(const String &amp;typeIDtoUse, Args &amp;&amp;... args)</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -5117,6 +4923,13 @@
       <arglist></arglist>
     </member>
     <member kind="function">
+      <type></type>
+      <name>ChoosableOscillator</name>
+      <anchorfile>classlemons_1_1dsp_1_1osc_1_1_choosable_oscillator.html</anchorfile>
+      <anchor>ac445772e410297fd1db99d78dcf8e7a2</anchor>
+      <arglist>()=default</arglist>
+    </member>
+    <member kind="function">
       <type>int</type>
       <name>getBlocksize</name>
       <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
@@ -5354,8 +5167,8 @@
       <type>void</type>
       <name>getSamples</name>
       <anchorfile>classlemons_1_1dsp_1_1_circular_buffer.html</anchorfile>
-      <anchor>a596b725d5dcfc529a1c7273630bf9ed3</anchor>
-      <arglist>(SampleType *output, int numSamples)</arglist>
+      <anchor>a607237c19055906684f672615f15c21a</anchor>
+      <arglist>(SampleType *const output, int numSamples)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -5375,8 +5188,8 @@
       <type>void</type>
       <name>storeSamples</name>
       <anchorfile>classlemons_1_1dsp_1_1_circular_buffer.html</anchorfile>
-      <anchor>ace39516126a8df18306ac337d29d9321</anchor>
-      <arglist>(const SampleType *samples, int numSamples)</arglist>
+      <anchor>abe5324c65dfbb09f3ed0e8f753498567</anchor>
+      <arglist>(const SampleType *const samples, int numSamples)</arglist>
     </member>
   </compound>
   <compound kind="struct">
@@ -5873,13 +5686,6 @@
       <type></type>
       <name>Data</name>
       <anchorfile>structlemons_1_1binary_1_1_data.html</anchorfile>
-      <anchor>abfc233b46701a09cef8a5fc3f78ccdb2</anchor>
-      <arglist>()=default</arglist>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>Data</name>
-      <anchorfile>structlemons_1_1binary_1_1_data.html</anchorfile>
       <anchor>a0af5ae896bfa370326b1d54a7096f5a0</anchor>
       <arglist>(const char *fileToFind)</arglist>
     </member>
@@ -6028,20 +5834,6 @@
       <anchorfile>classlemons_1_1dsp_1_1_f_x_1_1_de_esser.html</anchorfile>
       <anchor>a854f9f01f2bbd7e6afda78a5ba2a7483</anchor>
       <arglist>(float newThresh_dB)</arglist>
-    </member>
-  </compound>
-  <compound kind="struct">
-    <name>lemons::dsp::factory::DefaultEngineCreator</name>
-    <filename>structlemons_1_1dsp_1_1factory_1_1_default_engine_creator.html</filename>
-    <templarg>template&lt; typename SampleType &gt; class EngineType</templarg>
-    <templarg>LEMONS_MUST_INHERIT_FROM(EngineType&lt; float &gt;, Engine&lt; float &gt;)</templarg>
-    <base>lemons::dsp::factory::EngineCreator</base>
-    <member kind="function">
-      <type></type>
-      <name>DefaultEngineCreator</name>
-      <anchorfile>structlemons_1_1dsp_1_1factory_1_1_default_engine_creator.html</anchorfile>
-      <anchor>aaa27fe44bb84e4756a6087b8743040d9</anchor>
-      <arglist>(const String &amp;typeIDtoUse)</arglist>
     </member>
   </compound>
   <compound kind="struct">
@@ -7635,24 +7427,6 @@
       <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
       <anchor>adfb2f088baaa0e07efa7bf794918d831</anchor>
       <arglist>(const AudioBuffer&lt; SampleType &gt; &amp;input, AudioBuffer&lt; SampleType &gt; &amp;output, bool isBypassed=false)</arglist>
-    </member>
-  </compound>
-  <compound kind="struct">
-    <name>lemons::dsp::factory::EngineCreator</name>
-    <filename>structlemons_1_1dsp_1_1factory_1_1_engine_creator.html</filename>
-    <member kind="function">
-      <type></type>
-      <name>EngineCreator</name>
-      <anchorfile>structlemons_1_1dsp_1_1factory_1_1_engine_creator.html</anchorfile>
-      <anchor>a76b2b18e8a16194c969b4cc7c3989237</anchor>
-      <arglist>(const CreationFunc&lt; float &gt; &amp;floatFunc, const CreationFunc&lt; double &gt; &amp;doubleFunc, const String &amp;typeID)</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual</type>
-      <name>~EngineCreator</name>
-      <anchorfile>structlemons_1_1dsp_1_1factory_1_1_engine_creator.html</anchorfile>
-      <anchor>a9537041ba8edf2e13e6887eb3a9fadfd</anchor>
-      <arglist>()=default</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -10788,6 +10562,13 @@
       <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
       <anchor>a8c824f87e190d825154aaa919925f40f</anchor>
       <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>LatencyEngine</name>
+      <anchorfile>classlemons_1_1dsp_1_1_latency_engine.html</anchorfile>
+      <anchor>afca7d5cc1e42a97e7d99709c8f1cdc16</anchor>
+      <arglist>()=default</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -14419,8 +14200,8 @@
       <type>void</type>
       <name>convertMonoToStereo</name>
       <anchorfile>classlemons_1_1dsp_1_1_mono_stereo_converter.html</anchorfile>
-      <anchor>a3cdb7b92e421653a74b28f405d69bff5</anchor>
-      <arglist>(const SampleType *monoIn, SampleType *leftOut, SampleType *rightOut, int numSamples)</arglist>
+      <anchor>a4bd99178ccfbff614ed25f2aea648c7e</anchor>
+      <arglist>(const SampleType *const monoIn, SampleType *const leftOut, SampleType *const rightOut, int numSamples)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -14433,8 +14214,8 @@
       <type>void</type>
       <name>convertStereoToMono</name>
       <anchorfile>classlemons_1_1dsp_1_1_mono_stereo_converter.html</anchorfile>
-      <anchor>acd2f6a6c9a82ebab76b55608db724f93</anchor>
-      <arglist>(const SampleType *leftIn, const SampleType *rightIn, SampleType *monoOut, int numSamples)</arglist>
+      <anchor>ad09a4c7158fcac2de82aa352fb96f3b1</anchor>
+      <arglist>(const SampleType *const leftIn, const SampleType *const rightIn, SampleType *const monoOut, int numSamples)</arglist>
     </member>
     <member kind="function">
       <type>StereoReductionMode</type>
@@ -17076,6 +16857,13 @@
     <name>lemons::dsp::Oscillator::Phase</name>
     <filename>structlemons_1_1dsp_1_1_oscillator_1_1_phase.html</filename>
     <member kind="function">
+      <type></type>
+      <name>Phase</name>
+      <anchorfile>structlemons_1_1dsp_1_1_oscillator_1_1_phase.html</anchorfile>
+      <anchor>a0316b1ab9da5a47a08fdcb4e2c60c925</anchor>
+      <arglist>()=default</arglist>
+    </member>
+    <member kind="function">
       <type>SampleType</type>
       <name>getIncrement</name>
       <anchorfile>structlemons_1_1dsp_1_1_oscillator_1_1_phase.html</anchorfile>
@@ -17235,8 +17023,8 @@
       <type>float</type>
       <name>detectPitch</name>
       <anchorfile>classlemons_1_1dsp_1_1psola_1_1_pitch_detector.html</anchorfile>
-      <anchor>a320898bbb2e794a79f6d6c404361cf26</anchor>
-      <arglist>(const SampleType *inputAudio, int numSamples)</arglist>
+      <anchor>a01463dc3d3ba7817cf0a1e389ff4806a</anchor>
+      <arglist>(const SampleType *const inputAudio, int numSamples)</arglist>
     </member>
     <member kind="function">
       <type>float</type>
@@ -17249,8 +17037,8 @@
       <type>float</type>
       <name>detectPeriod</name>
       <anchorfile>classlemons_1_1dsp_1_1psola_1_1_pitch_detector.html</anchorfile>
-      <anchor>acea2f068bc8c66428655733daaecf981</anchor>
-      <arglist>(const SampleType *inputAudio, int numSamples)</arglist>
+      <anchor>a388f3a28ad1335a9ce44fad7001a0933</anchor>
+      <arglist>(const SampleType *const inputAudio, int numSamples)</arglist>
     </member>
     <member kind="function">
       <type>float</type>
@@ -17263,8 +17051,8 @@
       <type>float</type>
       <name>detectPitch</name>
       <anchorfile>classlemons_1_1dsp_1_1psola_1_1_pitch_detector.html</anchorfile>
-      <anchor>a320898bbb2e794a79f6d6c404361cf26</anchor>
-      <arglist>(const SampleType *inputAudio, int numSamples)</arglist>
+      <anchor>a01463dc3d3ba7817cf0a1e389ff4806a</anchor>
+      <arglist>(const SampleType *const inputAudio, int numSamples)</arglist>
     </member>
     <member kind="function">
       <type>float</type>
@@ -17277,8 +17065,8 @@
       <type>float</type>
       <name>detectPeriod</name>
       <anchorfile>classlemons_1_1dsp_1_1psola_1_1_pitch_detector.html</anchorfile>
-      <anchor>acea2f068bc8c66428655733daaecf981</anchor>
-      <arglist>(const SampleType *inputAudio, int numSamples)</arglist>
+      <anchor>a388f3a28ad1335a9ce44fad7001a0933</anchor>
+      <arglist>(const SampleType *const inputAudio, int numSamples)</arglist>
     </member>
   </compound>
   <compound kind="struct">
@@ -17411,13 +17199,6 @@
       <anchorfile>structlemons_1_1plugin_1_1_plugin_metadata.html</anchorfile>
       <anchor>ad773406bb450eff5e1a113d638bff8b1</anchor>
       <arglist>(const ProcessorAttributes &amp;processorAttributesToUse, const ParameterLayout &amp;parameterLayoutToUse, const EditorAttributes &amp;editorAttributesToUse, const Version &amp;versionToUse=Version::projectVersion())</arglist>
-    </member>
-    <member kind="function">
-      <type>std::unique_ptr&lt; ProcessorBase &gt;</type>
-      <name>createProcessor</name>
-      <anchorfile>structlemons_1_1plugin_1_1_plugin_metadata.html</anchorfile>
-      <anchor>a12c930d9cafa768a33a6348f861e3371</anchor>
-      <arglist>() const</arglist>
     </member>
     <member kind="function">
       <type>ValueTree</type>
@@ -25008,7 +24789,6 @@
     <name>lemons::dsp</name>
     <filename>namespacelemons_1_1dsp.html</filename>
     <namespace>lemons::dsp::buffers</namespace>
-    <namespace>lemons::dsp::factory</namespace>
     <namespace>lemons::dsp::filters</namespace>
     <namespace>lemons::dsp::formats</namespace>
     <namespace>lemons::dsp::FX</namespace>
@@ -25085,62 +24865,6 @@
       <anchorfile>group__lemons__audio__buffers.html</anchorfile>
       <anchor>ga331071a0a2e71744a995d3a4e346b731</anchor>
       <arglist>(AudioBuffer&lt; SampleType &gt; &amp;bufferToAlias, int startSample, int numSamples, int numChannels=-1, int channelOffset=0)</arglist>
-    </member>
-  </compound>
-  <compound kind="namespace">
-    <name>lemons::dsp::factory</name>
-    <filename>namespacelemons_1_1dsp_1_1factory.html</filename>
-    <class kind="struct">lemons::dsp::factory::ArgumentsEngineCreator</class>
-    <class kind="struct">lemons::dsp::factory::DefaultEngineCreator</class>
-    <class kind="struct">lemons::dsp::factory::EngineCreator</class>
-    <member kind="typedef">
-      <type>std::function&lt; EnginePtr&lt; SampleType &gt;()&gt;</type>
-      <name>CreationFunc</name>
-      <anchorfile>namespacelemons_1_1dsp_1_1factory.html</anchorfile>
-      <anchor>ac9747582d88cba67e802e185e46957ca</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>juce::StringArray</type>
-      <name>EngineList</name>
-      <anchorfile>namespacelemons_1_1dsp_1_1factory.html</anchorfile>
-      <anchor>a99965dfea4bea52ff62ae4604876f38f</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>std::unique_ptr&lt; Engine&lt; SampleType &gt; &gt;</type>
-      <name>EnginePtr</name>
-      <anchorfile>namespacelemons_1_1dsp_1_1factory.html</anchorfile>
-      <anchor>a0792dea5bb40b546e8eab459d078c67d</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>juce::OwnedArray&lt; Engine&lt; SampleType &gt; &gt;</type>
-      <name>EngineSet</name>
-      <anchorfile>namespacelemons_1_1dsp_1_1factory.html</anchorfile>
-      <anchor>a502f3af57be546b341a58e9172010316</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="function">
-      <type>EnginePtr&lt; SampleType &gt;</type>
-      <name>createEngine</name>
-      <anchorfile>namespacelemons_1_1dsp_1_1factory.html</anchorfile>
-      <anchor>a673d713149bad1b3eadb9123d510912f</anchor>
-      <arglist>(const String &amp;typeID) noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>EngineSet&lt; SampleType &gt;</type>
-      <name>getEngineSet</name>
-      <anchorfile>namespacelemons_1_1dsp_1_1factory.html</anchorfile>
-      <anchor>a7ca17e9a13c09521aef69de53406d70c</anchor>
-      <arglist>(const EngineList &amp;list)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>registerEngine</name>
-      <anchorfile>namespacelemons_1_1dsp_1_1factory.html</anchorfile>
-      <anchor>a537dfb56467f1c9be4a39b3714f1da82</anchor>
-      <arglist>(CreationFunc&lt; SampleType &gt;, const String &amp;typeID)</arglist>
     </member>
   </compound>
   <compound kind="namespace">
@@ -27651,140 +27375,11 @@
     <subgroup>plugin_state</subgroup>
   </compound>
   <compound kind="page">
-    <name>AllLemonsModules</name>
-    <title>AllLemonsModules</title>
-    <filename>_all_lemons_modules.html</filename>
-    <docanchor file="_all_lemons_modules.html">md_build_CMake_AllLemonsModules</docanchor>
-  </compound>
-  <compound kind="page">
-    <name>BVBrandFlags</name>
-    <title>BVBrandFlags</title>
-    <filename>_b_v_brand_flags.html</filename>
-    <docanchor file="_b_v_brand_flags.html">md_build_CMake_BVBrandFlags</docanchor>
-  </compound>
-  <compound kind="page">
     <name>CMake_API</name>
     <title>Lemons CMake API</title>
     <filename>_c_make__a_p_i.html</filename>
     <docanchor file="_c_make__a_p_i.html">md_build_CMake_CMakeModules</docanchor>
     <docanchor file="_c_make__a_p_i.html" title="CMake modules">CMake_modules</docanchor>
-  </compound>
-  <compound kind="page">
-    <name>LemonsAAXUtils</name>
-    <title>LemonsAAXUtils</title>
-    <filename>_lemons_a_a_x_utils.html</filename>
-    <docanchor file="_lemons_a_a_x_utils.html">md_build_CMake_LemonsAAXUtils</docanchor>
-    <docanchor file="_lemons_a_a_x_utils.html" title="lemons_configure_aax_plugin">lemons_configure_aax_plugin</docanchor>
-  </compound>
-  <compound kind="page">
-    <name>LemonsAppModules</name>
-    <title>LemonsAppModules</title>
-    <filename>_lemons_app_modules.html</filename>
-    <docanchor file="_lemons_app_modules.html">md_build_CMake_LemonsAppModules</docanchor>
-  </compound>
-  <compound kind="page">
-    <name>LemonsAppUtilities</name>
-    <title>LemonsAppUtilities</title>
-    <filename>_lemons_app_utilities.html</filename>
-    <docanchor file="_lemons_app_utilities.html">md_build_CMake_LemonsAppUtilities</docanchor>
-  </compound>
-  <compound kind="page">
-    <name>LemonsAssetsHelpers</name>
-    <title>LemonsAssetsHelpers</title>
-    <filename>_lemons_assets_helpers.html</filename>
-    <docanchor file="_lemons_assets_helpers.html">md_build_CMake_LemonsAssetsHelpers</docanchor>
-    <docanchor file="_lemons_assets_helpers.html" title="lemons_add_resources_folder">lemons_add_resources_folder</docanchor>
-  </compound>
-  <compound kind="page">
-    <name>LemonsAudioModules</name>
-    <title>LemonsAudioModules</title>
-    <filename>_lemons_audio_modules.html</filename>
-    <docanchor file="_lemons_audio_modules.html">md_build_CMake_LemonsAudioModules</docanchor>
-  </compound>
-  <compound kind="page">
-    <name>LemonsCcache</name>
-    <title>LemonsCcache</title>
-    <filename>_lemons_ccache.html</filename>
-    <docanchor file="_lemons_ccache.html">md_build_CMake_LemonsCcache</docanchor>
-  </compound>
-  <compound kind="page">
-    <name>LemonsCommonModules</name>
-    <title>LemonsCommonModules</title>
-    <filename>_lemons_common_modules.html</filename>
-    <docanchor file="_lemons_common_modules.html">md_build_CMake_LemonsCommonModules</docanchor>
-  </compound>
-  <compound kind="page">
-    <name>LemonsConnectivityModules</name>
-    <title>LemonsConnectivityModules</title>
-    <filename>_lemons_connectivity_modules.html</filename>
-    <docanchor file="_lemons_connectivity_modules.html">md_build_CMake_LemonsConnectivityModules</docanchor>
-  </compound>
-  <compound kind="page">
-    <name>LemonsDefaultCpackSettings</name>
-    <title>LemonsDefaultCpackSettings</title>
-    <filename>_lemons_default_cpack_settings.html</filename>
-    <docanchor file="_lemons_default_cpack_settings.html">md_build_CMake_LemonsDefaultCpackSettings</docanchor>
-  </compound>
-  <compound kind="page">
-    <name>LemonsDefaultPlatformSettings</name>
-    <title>LemonsDefaultPlatformSettings</title>
-    <filename>_lemons_default_platform_settings.html</filename>
-    <docanchor file="_lemons_default_platform_settings.html">md_build_CMake_LemonsDefaultPlatformSettings</docanchor>
-  </compound>
-  <compound kind="page">
-    <name>LemonsFileUtils</name>
-    <title>LemonsFileUtils</title>
-    <filename>_lemons_file_utils.html</filename>
-    <docanchor file="_lemons_file_utils.html">md_build_CMake_LemonsFileUtils</docanchor>
-  </compound>
-  <compound kind="page">
-    <name>LemonsGetCPM</name>
-    <title>LemonsGetCPM</title>
-    <filename>_lemons_get_c_p_m.html</filename>
-    <docanchor file="_lemons_get_c_p_m.html">md_build_CMake_LemonsGetCPM</docanchor>
-  </compound>
-  <compound kind="page">
-    <name>LemonsGUIModules</name>
-    <title>LemonsGUIModules</title>
-    <filename>_lemons_g_u_i_modules.html</filename>
-    <docanchor file="_lemons_g_u_i_modules.html">md_build_CMake_LemonsGUIModules</docanchor>
-  </compound>
-  <compound kind="page">
-    <name>LemonsJuceModuleUtilities</name>
-    <title>LemonsJuceModuleUtilities</title>
-    <filename>_lemons_juce_module_utilities.html</filename>
-    <docanchor file="_lemons_juce_module_utilities.html">md_build_CMake_LemonsJuceModuleUtilities</docanchor>
-  </compound>
-  <compound kind="page">
-    <name>LemonsJuceUtilities</name>
-    <title>LemonsJuceUtilities</title>
-    <filename>_lemons_juce_utilities.html</filename>
-    <docanchor file="_lemons_juce_utilities.html">md_build_CMake_LemonsJuceUtilities</docanchor>
-    <docanchor file="_lemons_juce_utilities.html" title="lemons_configure_juce_target">lemons_configure_juce_target</docanchor>
-  </compound>
-  <compound kind="page">
-    <name>LemonsPluginModules</name>
-    <title>LemonsPluginModules</title>
-    <filename>_lemons_plugin_modules.html</filename>
-    <docanchor file="_lemons_plugin_modules.html">md_build_CMake_LemonsPluginModules</docanchor>
-  </compound>
-  <compound kind="page">
-    <name>LemonsPluginUtilities</name>
-    <title>LemonsPluginUtilities</title>
-    <filename>_lemons_plugin_utilities.html</filename>
-    <docanchor file="_lemons_plugin_utilities.html">md_build_CMake_LemonsPluginUtilities</docanchor>
-  </compound>
-  <compound kind="page">
-    <name>LemonsSetDefaultCpackGenerator</name>
-    <title>LemonsSetDefaultCpackGenerator</title>
-    <filename>_lemons_set_default_cpack_generator.html</filename>
-    <docanchor file="_lemons_set_default_cpack_generator.html">md_build_CMake_LemonsSetDefaultCpackGenerator</docanchor>
-  </compound>
-  <compound kind="page">
-    <name>LinuxLSBInfo</name>
-    <title>LinuxLSBInfo</title>
-    <filename>_linux_l_s_b_info.html</filename>
-    <docanchor file="_linux_l_s_b_info.html">md_build_CMake_LinuxLSBInfo</docanchor>
   </compound>
   <compound kind="page">
     <name>index</name>

@@ -1,7 +1,8 @@
 var searchData=
 [
-  ['objectcreationfunction_0',['ObjectCreationFunction',['../structlemons_1_1_constructed_array.html#a36ef6faf6ae33e0cfc133d4a584addb2',1,'lemons::ConstructedArray']]],
-  ['orientation_1',['Orientation',['../structlemons_1_1_device_rotation.html#a693951b64b01d378a1d19199fbaced2e',1,'lemons::DeviceRotation']]],
-  ['osc_2',['Osc',['../structlemons_1_1plugin_1_1_l_f_o.html#a47b72909f6b14e0773810a4d3bed5ee0',1,'lemons::plugin::LFO']]],
-  ['oscillator_3',['Oscillator',['../namespacelemons_1_1dsp_1_1osc.html#af60c8bbc11cfce575ed6ca2e4151a870',1,'lemons::dsp::osc']]]
+  ['parametercategory_0',['ParameterCategory',['../namespacelemons_1_1plugin.html#a51ca8f18230a5ec3ac9188906661ccaf',1,'lemons::plugin']]],
+  ['parameterrange_1',['ParameterRange',['../namespacelemons_1_1ranges.html#a42cb4d3285a4ef46746069e4fd4a5e2d',1,'lemons::ranges::ParameterRange()'],['../namespacelemons_1_1plugin.html#a4f24a56f1ec406c72c9fb4d631c4a7c1',1,'lemons::plugin::ParameterRange()']]],
+  ['parameterstate_2',['ParameterState',['../structlemons_1_1plugin_1_1_processor_holder.html#a7809bb749782bf4a6ade6451e7217f54',1,'lemons::plugin::ProcessorHolder']]],
+  ['parametervaluetype_3',['ParameterValueType',['../classlemons_1_1plugin_1_1_typed_parameter.html#a6f8016538f76d7bc5ca09f56604152f0',1,'lemons::plugin::TypedParameter']]],
+  ['processorholder_4',['ProcessorHolder',['../structlemons_1_1tests_1_1_audio_processor_test_base.html#a522421ccd4232df183993cd8f2c0484e',1,'lemons::tests::AudioProcessorTestBase']]]
 ];

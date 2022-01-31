@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['floatparameter_0',['FloatParameter',['../group__fundamental__parameter__types.html#ga6aa457b145fb2649ae90850e6ea7a18c',1,'lemons::plugin']]]
+  ['intparameter_0',['IntParameter',['../group__fundamental__parameter__types.html#ga7d5746e33dadd4d351de50a915c6ed49',1,'lemons::plugin']]]
 ];

@@ -80,9 +80,6 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:abfc233b46701a09cef8a5fc3f78ccdb2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1binary_1_1_data.html#abfc233b46701a09cef8a5fc3f78ccdb2">Data</a> ()=default</td></tr>
-<tr class="memdesc:abfc233b46701a09cef8a5fc3f78ccdb2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a default, invalid <a class="el" href="structlemons_1_1binary_1_1_data.html" title="Represents a wrapper around some data contained in a juce BinaryData target.">Data</a> object.  <a href="structlemons_1_1binary_1_1_data.html#abfc233b46701a09cef8a5fc3f78ccdb2">More...</a><br /></td></tr>
-<tr class="separator:abfc233b46701a09cef8a5fc3f78ccdb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0af5ae896bfa370326b1d54a7096f5a0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1binary_1_1_data.html#a0af5ae896bfa370326b1d54a7096f5a0">Data</a> (const char *fileToFind)</td></tr>
 <tr class="memdesc:a0af5ae896bfa370326b1d54a7096f5a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a <a class="el" href="structlemons_1_1binary_1_1_data.html" title="Represents a wrapper around some data contained in a juce BinaryData target.">Data</a> object referencing a named resource.  <a href="structlemons_1_1binary_1_1_data.html#a0af5ae896bfa370326b1d54a7096f5a0">More...</a><br /></td></tr>
 <tr class="separator:a0af5ae896bfa370326b1d54a7096f5a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -108,46 +105,19 @@ Public Member Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Represents a wrapper around some data contained in a juce BinaryData target. </p>
 <p >Simply provide the filename and this object will load the data contained by the named resource, if it can be located. </p><dl class="section attention"><dt>Attention</dt><dd>Be sure to check <a class="el" href="structlemons_1_1binary_1_1_data.html#a2fe4061a2be0d157f44ecf92db65cd01" title="Returns true if the requested data has been loaded successfully from the binary data target.">isValid()</a> before attempting to use the data! <br  />
-For example: <div class="fragment"><div class="line"><a class="code hl_function" href="structlemons_1_1binary_1_1_data.html#abfc233b46701a09cef8a5fc3f78ccdb2">Data</a> data {<span class="stringliteral">&quot;MyAudioFile.wav&quot;</span>};</div>
+For example: <div class="fragment"><div class="line"><a class="code hl_function" href="structlemons_1_1binary_1_1_data.html#a0af5ae896bfa370326b1d54a7096f5a0">Data</a> data {<span class="stringliteral">&quot;MyAudioFile.wav&quot;</span>};</div>
 <div class="line"> </div>
 <div class="line"><span class="keywordflow">if</span> (data.isValid())</div>
 <div class="line">    doSomethingWithData (data.data, data.size);</div>
-<div class="ttc" id="astructlemons_1_1binary_1_1_data_html_abfc233b46701a09cef8a5fc3f78ccdb2"><div class="ttname"><a href="structlemons_1_1binary_1_1_data.html#abfc233b46701a09cef8a5fc3f78ccdb2">lemons::binary::Data::Data</a></div><div class="ttdeci">Data()=default</div><div class="ttdoc">Creates a default, invalid Data object.</div></div>
+<div class="ttc" id="astructlemons_1_1binary_1_1_data_html_a0af5ae896bfa370326b1d54a7096f5a0"><div class="ttname"><a href="structlemons_1_1binary_1_1_data.html#a0af5ae896bfa370326b1d54a7096f5a0">lemons::binary::Data::Data</a></div><div class="ttdeci">Data(const char *fileToFind)</div><div class="ttdoc">Creates a Data object referencing a named resource.</div></div>
 </div><!-- fragment --> If your project doesn't define the LEMONS_HAS_BINARY_DATA macro to 1, every <a class="el" href="structlemons_1_1binary_1_1_data.html" title="Represents a wrapper around some data contained in a juce BinaryData target.">Data</a> object you create will be invalid. <br  />
  To easily access binary data converted into higher level types, several free functions are provided in this namespace. These methods all throw assertions if the data cannot be loaded. <br  />
 For example: <div class="fragment"><div class="line"><span class="keyword">auto</span> image = <a class="code hl_function" href="group__lemons__binary.html#ga0695d683400b6eb86c0198bd13ee8f62">binary::getImage</a> (<span class="stringliteral">&quot;myImage.jpg&quot;</span>);</div>
 <div class="ttc" id="agroup__lemons__binary_html_ga0695d683400b6eb86c0198bd13ee8f62"><div class="ttname"><a href="group__lemons__binary.html#ga0695d683400b6eb86c0198bd13ee8f62">lemons::binary::getImage</a></div><div class="ttdeci">juce::Image getImage(const String &amp;imageFileName)</div><div class="ttdoc">Returns an image object from an image file in the BinaryData target.</div></div>
 </div><!-- fragment --> </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="abfc233b46701a09cef8a5fc3f78ccdb2" name="abfc233b46701a09cef8a5fc3f78ccdb2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abfc233b46701a09cef8a5fc3f78ccdb2">&#9670;&nbsp;</a></span>Data() <span class="overload">[1/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">lemons::binary::Data::Data </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">explicit</span><span class="mlabel">default</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Creates a default, invalid <a class="el" href="structlemons_1_1binary_1_1_data.html" title="Represents a wrapper around some data contained in a juce BinaryData target.">Data</a> object. </p>
-
-</div>
-</div>
 <a id="a0af5ae896bfa370326b1d54a7096f5a0" name="a0af5ae896bfa370326b1d54a7096f5a0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0af5ae896bfa370326b1d54a7096f5a0">&#9670;&nbsp;</a></span>Data() <span class="overload">[2/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a0af5ae896bfa370326b1d54a7096f5a0">&#9670;&nbsp;</a></span>Data() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -175,7 +145,7 @@ For example: <div class="fragment"><div class="line"><span class="keyword">auto<
 </div>
 </div>
 <a id="ad54a181f5bbc3e4b45e8a22f67806dfd" name="ad54a181f5bbc3e4b45e8a22f67806dfd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad54a181f5bbc3e4b45e8a22f67806dfd">&#9670;&nbsp;</a></span>Data() <span class="overload">[3/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ad54a181f5bbc3e4b45e8a22f67806dfd">&#9670;&nbsp;</a></span>Data() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -329,7 +299,7 @@ For example: <div class="fragment"><div class="line"><span class="keyword">auto<
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jan 30 2022 00:48:17 for Lemons by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3
+Generated on Mon Jan 31 2022 00:47:27 for Lemons by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3
 </small></address>
 </body>
 </html>

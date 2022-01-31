@@ -87,9 +87,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a10566f08a66c3be09e9aebe39beb4e2d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1psola_1_1_analyzer.html#a10566f08a66c3be09e9aebe39beb4e2d">analyzeInput</a> (const <a class="el" href="namespacelemons_1_1dsp_1_1psola.html#a48a7db1db3b14d8c76aa494371dd0287">AudioBuffer</a>&lt; SampleType &gt; &amp;inputAudio)</td></tr>
 <tr class="memdesc:a10566f08a66c3be09e9aebe39beb4e2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Analyzes a frame of audio.  <a href="classlemons_1_1dsp_1_1psola_1_1_analyzer.html#a10566f08a66c3be09e9aebe39beb4e2d">More...</a><br /></td></tr>
 <tr class="separator:a10566f08a66c3be09e9aebe39beb4e2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab78f564ad845afb011e82a70c041409f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1psola_1_1_analyzer.html#ab78f564ad845afb011e82a70c041409f">analyzeInput</a> (const SampleType *inputAudio, int numSamples)</td></tr>
-<tr class="memdesc:ab78f564ad845afb011e82a70c041409f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Analyzes a frame of audio.  <a href="classlemons_1_1dsp_1_1psola_1_1_analyzer.html#ab78f564ad845afb011e82a70c041409f">More...</a><br /></td></tr>
-<tr class="separator:ab78f564ad845afb011e82a70c041409f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acfa170d3777db55b5915b35fd39fb689"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1psola_1_1_analyzer.html#acfa170d3777db55b5915b35fd39fb689">analyzeInput</a> (const SampleType *const inputAudio, int numSamples)</td></tr>
+<tr class="memdesc:acfa170d3777db55b5915b35fd39fb689"><td class="mdescLeft">&#160;</td><td class="mdescRight">Analyzes a frame of audio.  <a href="classlemons_1_1dsp_1_1psola_1_1_analyzer.html#acfa170d3777db55b5915b35fd39fb689">More...</a><br /></td></tr>
+<tr class="separator:acfa170d3777db55b5915b35fd39fb689"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad1fd9048060c1e09d1b7805a0cbd4a13"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1psola_1_1_analyzer.html#ad1fd9048060c1e09d1b7805a0cbd4a13">getLastInputPitch</a> () const noexcept</td></tr>
 <tr class="memdesc:ad1fd9048060c1e09d1b7805a0cbd4a13"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the last input pitch, in Hz, that the analyzer detected, or 0 if the last frame was unpitched or no audio has been analyzed yet.  <a href="classlemons_1_1dsp_1_1psola_1_1_analyzer.html#ad1fd9048060c1e09d1b7805a0cbd4a13">More...</a><br /></td></tr>
 <tr class="separator:ad1fd9048060c1e09d1b7805a0cbd4a13"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -169,8 +169,8 @@ template&lt;typename SampleType &gt; </div>
 
 </div>
 </div>
-<a id="ab78f564ad845afb011e82a70c041409f" name="ab78f564ad845afb011e82a70c041409f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab78f564ad845afb011e82a70c041409f">&#9670;&nbsp;</a></span>analyzeInput() <span class="overload">[2/2]</span></h2>
+<a id="acfa170d3777db55b5915b35fd39fb689" name="acfa170d3777db55b5915b35fd39fb689"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acfa170d3777db55b5915b35fd39fb689">&#9670;&nbsp;</a></span>analyzeInput() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -180,7 +180,7 @@ template&lt;typename SampleType &gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="classlemons_1_1dsp_1_1psola_1_1_analyzer.html">lemons::dsp::psola::Analyzer</a>&lt; SampleType &gt;::analyzeInput </td>
           <td>(</td>
-          <td class="paramtype">const SampleType *&#160;</td>
+          <td class="paramtype">const SampleType *const&#160;</td>
           <td class="paramname"><em>inputAudio</em>, </td>
         </tr>
         <tr>
@@ -357,7 +357,7 @@ template&lt;typename SampleType &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jan 30 2022 00:48:21 for Lemons by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3
+Generated on Mon Jan 31 2022 00:47:28 for Lemons by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3
 </small></address>
 </body>
 </html>
