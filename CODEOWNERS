@@ -85,6 +85,7 @@ modules/Audio/lemons_synth/Synth/helpers/PanningManager.h benthevining
 modules/Audio/lemons_synth/Synth/helpers/VoiceAllocator.cpp benthevining
 modules/Audio/lemons_synth/SynthVoice/TimbreMod.h benthevining
 modules/Audio/lemons_synth/lemons_synth.cpp benthevining
+modules/Audio/lemons_synth/lemons_synth.h benthevining
 modules/Common/lemons_core/binary_data/translations.h benthevining
 modules/Common/lemons_core/lemons_core.h benthevining
 modules/Common/lemons_core/localization/languages.cpp benthevining
@@ -129,8 +130,10 @@ modules/Plugins/lemons_plugin/metadata/ParameterTraits.h benthevining
 modules/Plugins/lemons_plugin/metadata/PluginMetadata.cpp benthevining
 modules/Plugins/lemons_plugin/parameters/Parameter.cpp benthevining
 modules/Plugins/lemons_plugin/parameters/Parameter.h benthevining
+modules/Plugins/lemons_plugin/parameters/parameter_tests.cpp benthevining
 modules/Plugins/lemons_plugin/parameters/types/MetaParameter.cpp benthevining
 modules/Plugins/lemons_plugin/parameters/types/MetaParameter.h benthevining
+modules/Plugins/lemons_plugin/parameters/types/MeterParameter.cpp benthevining
 modules/Plugins/lemons_plugin/parameters/types/Specializations.h benthevining
 modules/Plugins/lemons_plugin/parameters/utils/detail.h benthevining
 modules/Plugins/lemons_plugin/processors/ProcessorBase.h benthevining
@@ -143,6 +146,7 @@ modules/Plugins/lemons_plugin_gui/buttons/Buttons.cpp benthevining
 modules/Plugins/lemons_plugin_gui/buttons/Buttons.h benthevining
 modules/Plugins/lemons_plugin_gui/lemons_plugin_gui.cpp benthevining
 modules/Plugins/lemons_plugin_gui/plugin_library/PluginLibraryComponent.h benthevining
+ning
 scripts/lemons_config.json benthevining
 util/CommandLineUtils/RSAKeyGenerator/CMakeLists.txt benthevining
 util/CommandLineUtils/TranslationFileGenerator/CMakeLists.txt benthevining
