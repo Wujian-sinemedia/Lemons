@@ -12,6 +12,7 @@
 .ecrc benthevining
 .gitattributes benthevining
 .github/CODEOWNERS benthevining
+.github/FUNDING.yml benthevining
 .github/ISSUE_TEMPLATE/config.yml benthevining
 .github/workflows/test_and_release.yml benthevining
 .github/workflows/tests.yml benthevining
