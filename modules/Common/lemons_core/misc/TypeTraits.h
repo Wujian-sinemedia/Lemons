@@ -16,9 +16,12 @@
 
 #pragma once
 
-#include <list>
-#include <type_traits>
-#include <vector>
+#include <juce_core/juce_core.h>
+
+#if ! JUCE_WINDOWS
+#	include <cxxabi.h>
+#endif
+
 
 /** @defgroup lemons_core lemons_core
 	@ingroup Common
@@ -40,6 +43,8 @@
 
 namespace lemons
 {
+
+using juce::String;
 
 /** @ingroup lemons_core
 	Utility struct that evaluates to std::true_type if the given class specializes the given template, and false otherwise.
@@ -77,6 +82,35 @@ struct is_specialization<Template<Args...>, Template> final : std::true_type
 
 static_assert (is_specialization<std::vector<int>, std::vector>(), "is_specialization test");
 static_assert (! is_specialization<std::vector<int>, std::list>(), "is_specialization test");
+
+template <typename ObjectType>
+[[nodiscard]] String getDemangledTypeName (ObjectType& object)
+{
+#if JUCE_MINGW
+	return {};
+#elif JUCE_WINDOWS
+	const auto res = String (typeid (object).name());
+
+	if (res.startsWith ("class "))
+		return res.substring (6);
+
+	if (res.startsWith ("struct "))
+		return res.substring (7);
+
+	return res;
+#else
+	int status = 0;
+	if (auto* demangled = abi::__cxa_demangle (typeid (object).name(), nullptr, nullptr, &status))
+	{
+		const auto res = String (demangled);
+		free (demangled);
+
+		return res;
+	}
+
+	return {};
+#endif
+}
 
 }  // namespace lemons
 

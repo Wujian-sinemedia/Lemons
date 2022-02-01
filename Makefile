@@ -115,7 +115,7 @@ init:  ## Initializes the Lemons workspace and installs all dependencies
 
 
 pc:  ## Runs all pre-commit hooks over all files
-	@cd $(LEMONS_ROOT) && $(PRECOMMIT) run --all-files
+	@cd $(LEMONS_ROOT) && git add . && $(PRECOMMIT) run --all-files
 
 
 .PHONY: $(shell grep -E '^[a-zA-Z_-]+:.*?\#\# .*$$' $(THIS_MAKEFILE) | sed 's/:.*/\ /' | tr '\n' ' ')

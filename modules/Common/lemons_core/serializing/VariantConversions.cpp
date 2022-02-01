@@ -61,6 +61,16 @@ var VariantConverter<DynamicObject>::toVar (const DynamicObject& d)
 	return { clone.clone().get() };
 }
 
+File VariantConverter<File>::fromVar (const var& v)
+{
+	return { v.toString() };
+}
+
+var VariantConverter<File>::toVar (const File& f)
+{
+	return { f.getFullPathName() };
+}
+
 Identifier VariantConverter<Identifier>::fromVar (const var& v)
 {
 	return { v.toString() };

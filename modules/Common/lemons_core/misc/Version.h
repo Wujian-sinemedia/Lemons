@@ -16,8 +16,6 @@
 
 #pragma once
 
-#include <juce_core/juce_core.h>
-
 #ifndef LEMONS_VERSION_MAJOR
 #	define LEMONS_VERSION_MAJOR 0
 #endif
@@ -44,8 +42,6 @@
 
 namespace lemons
 {
-
-using juce::String;
 
 /** @ingroup lemons_core
 	A class that represents a version of something, with major, minor, and patch numbers.

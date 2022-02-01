@@ -29,6 +29,8 @@
  license:            GPL-3.0
  minimumCppStandard: 17
  dependencies:       juce_data_structures juce_cryptography juce_graphics
+ OSXFrameworks:      SystemConfiguration
+ iOSFrameworks:      SystemConfiguration
 
  END_JUCE_MODULE_DECLARATION
 
@@ -63,7 +65,7 @@
 /*=======================================================================*/
 
 
-#include "misc/Preprocessor.h"
+#include "misc/TypeTraits.h"
 
 #include "misc/Version.h"
 #include "misc/Dimensions.h"

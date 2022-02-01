@@ -130,6 +130,13 @@ struct VariantConverter<Colour>
 };
 
 template <>
+struct VariantConverter<Font>
+{
+	static Font fromVar (const var& v);
+	static var	toVar (const Font& f);
+};
+
+template <>
 struct VariantConverter<Image>
 {
 	static Image fromVar (const var& v);

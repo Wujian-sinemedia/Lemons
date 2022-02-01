@@ -34,4 +34,18 @@ struct VariantConverter<OSCAddress>
 	static var		  toVar (const OSCAddress& p);
 };
 
+template <>
+struct VariantConverter<OSCColour>
+{
+	static OSCColour fromVar (const var& v);
+	static var		 toVar (const OSCColour& c);
+};
+
+template <>
+struct VariantConverter<OSCArgument>
+{
+	static OSCArgument fromVar (const var& v);
+	static var		   toVar (const OSCArgument& a);
+};
+
 }  // namespace juce

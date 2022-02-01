@@ -40,6 +40,13 @@ struct VariantConverter<DynamicObject>
 };
 
 template <>
+struct VariantConverter<File>
+{
+	static File fromVar (const var& v);
+	static var	toVar (const File& f);
+};
+
+template <>
 struct VariantConverter<Identifier>
 {
 	static Identifier fromVar (const var& v);
