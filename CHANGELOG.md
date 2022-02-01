@@ -1,5 +1,12 @@
 # Lemons changelog
 
+## [1.3.0](http://github.com/benthevining/Lemons/compare/v1.2.1...v1.3.0) (2022-02-01)
+
+
+### Features
+
+* added serializing functions to OSC module ([300cac5](http://github.com/benthevining/Lemons/commit/300cac518927826f4f3855c80375113a48f2af0f))
+
 ### [1.2.1](http://github.com/benthevining/Lemons/compare/v1.2.0...v1.2.1) (2022-01-31)
 
 
