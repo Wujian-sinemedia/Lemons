@@ -1,4 +1,3 @@
-
 /*
  * ======================================================================================
  *
@@ -16,24 +15,23 @@
 
 #pragma once
 
-/*-------------------------------------------------------------------------------------
+#include <juce_osc/juce_osc.h>
 
- BEGIN_JUCE_MODULE_DECLARATION
+namespace juce
+{
 
- ID:                 lemons_osc
- vendor:             Lemons
- version:            0.0.1
- name:               lemons_osc
- description:        Utilities for working with OSC messages
- website:            http://benthevining.github.io/Lemons/
- license:            GPL-3.0
- minimumCppStandard: 17
- dependencies:       lemons_core juce_osc
+template <>
+struct VariantConverter<OSCAddressPattern>
+{
+	static OSCAddressPattern fromVar (const var& v);
+	static var				 toVar (const OSCAddressPattern& p);
+};
 
- END_JUCE_MODULE_DECLARATION
+template <>
+struct VariantConverter<OSCAddress>
+{
+	static OSCAddress fromVar (const var& v);
+	static var		  toVar (const OSCAddress& p);
+};
 
- -------------------------------------------------------------------------------------*/
-
-
-#include "util/util.h"
-#include "util/serializing.h"
+}  // namespace juce

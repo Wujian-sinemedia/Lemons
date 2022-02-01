@@ -74,6 +74,7 @@ modules/Audio/lemons_psola/analysis/PeakFinder.cpp benthevining
 modules/Audio/lemons_psola/analysis/PeakFinder_tests.cpp benthevining
 modules/Audio/lemons_psola/analysis/PitchDetector.cpp benthevining
 modules/Audio/lemons_psola/analysis/PitchDetector.h benthevining
+modules/Audio/lemons_psola/analysis/PitchDetector_tests.cpp benthevining
 modules/Audio/lemons_psola/analysis/analyzer.cpp benthevining
 modules/Audio/lemons_psola/lemons_psola.cpp benthevining
 modules/Audio/lemons_psola/resynthesis/IntervalShifter.h benthevining
@@ -100,11 +101,13 @@ modules/Common/lemons_core/misc/Preprocessor.h benthevining
 modules/Common/lemons_core/misc/Version.h benthevining
 modules/Common/lemons_core/misc/rsa.h benthevining
 modules/Common/lemons_core/serializing/VariantConversions.cpp benthevining
+modules/Common/lemons_core/serializing/VariantConversions_tests.cpp benthevining
 modules/Common/lemons_core/unit_tests/runner.cpp benthevining
 modules/Common/lemons_core/unit_tests/runner.h benthevining
 modules/Common/lemons_core/unit_tests/test.cpp benthevining
 modules/Common/lemons_core/unit_tests/test.h benthevining
 modules/Common/lemons_musicology/lemons_musicology.cpp benthevining
+modules/Connectivity/LemonsConnectivityModules.cmake benthevining
 modules/Connectivity/lemons_osc/lemons_osc.cpp benthevining
 modules/Connectivity/lemons_osc/lemons_osc.h benthevining
 modules/Connectivity/lemons_osc/util/util.h benthevining
@@ -164,6 +167,7 @@ util/PluginMetadataEditor/metadata_editor_gui/parameter_layout/ParameterLayoutCo
 util/PluginMetadataEditor/metadata_editor_gui/processor_attributes/ProcessorAttributeComponent.h benthevining
 util/Templates/plugin/Source/modules/new_dsp/new_dsp.cpp benthevining
 util/Templates/plugin/Source/modules/new_gui/new_gui.cpp benthevining
+util/Templates/plugin/Source/modules/new_state/state/Parameters.h benthevining
 util/Templates/plugin/Source/modules/new_state/state/State.cpp benthevining
 util/assets/deke.png benthevining
 util/assets/lemons.jpg benthevining

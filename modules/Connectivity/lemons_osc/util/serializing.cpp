@@ -1,4 +1,3 @@
-
 /*
  * ======================================================================================
  *
@@ -14,26 +13,28 @@
  * ======================================================================================
  */
 
-#pragma once
+namespace juce
+{
 
-/*-------------------------------------------------------------------------------------
+OSCAddressPattern VariantConverter<OSCAddressPattern>::fromVar (const var& v)
+{
+	return { v.toString() };
+}
 
- BEGIN_JUCE_MODULE_DECLARATION
-
- ID:                 lemons_osc
- vendor:             Lemons
- version:            0.0.1
- name:               lemons_osc
- description:        Utilities for working with OSC messages
- website:            http://benthevining.github.io/Lemons/
- license:            GPL-3.0
- minimumCppStandard: 17
- dependencies:       lemons_core juce_osc
-
- END_JUCE_MODULE_DECLARATION
-
- -------------------------------------------------------------------------------------*/
+var VariantConverter<OSCAddressPattern>::toVar (const OSCAddressPattern& p)
+{
+	return { p.toString() };
+}
 
 
-#include "util/util.h"
-#include "util/serializing.h"
+OSCAddress VariantConverter<OSCAddress>::fromVar (const var& v)
+{
+	return { v.toString() };
+}
+
+var VariantConverter<OSCAddress>::toVar (const OSCAddress& p)
+{
+	return { p.toString() };
+}
+
+}  // namespace juce
