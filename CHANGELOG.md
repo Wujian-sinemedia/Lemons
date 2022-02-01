@@ -1,5 +1,12 @@
 # Lemons changelog
 
+## [1.4.0](http://github.com/benthevining/Lemons/compare/v1.3.0...v1.4.0) (2022-02-01)
+
+
+### Features
+
+* added a few more variant conversions ([c06c277](http://github.com/benthevining/Lemons/commit/c06c277d2dc722c6769be5d539dd344bb10dc7b1))
+
 ## [1.3.0](http://github.com/benthevining/Lemons/compare/v1.2.1...v1.3.0) (2022-02-01)
 
 
