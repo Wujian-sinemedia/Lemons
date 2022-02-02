@@ -31,6 +31,7 @@ modules/Audio/lemons_audio_effects/misc/Reverb.cpp benthevining
 modules/Audio/lemons_audio_effects/panning/MonoToStereoPanner.cpp benthevining
 modules/Audio/lemons_audio_effects/panning/StereoPanner.cpp benthevining
 modules/Audio/lemons_audio_effects/time/Delay.h benthevining
+modules/Audio/lemons_dsp/audio_files/AudioFile.cpp benthevining
 modules/Audio/lemons_dsp/engines/AudioEngine.h benthevining
 modules/Audio/lemons_dsp/engines/AudioEngine_tests.cpp benthevining
 modules/Audio/lemons_dsp/engines/DspProtection.h benthevining

@@ -103,9 +103,11 @@ private:
 
 	using DataPtr = juce::ReferenceCountedObjectPtr<AudioFileData>;
 
+	using FormatReaderPtr = std::unique_ptr<juce::AudioFormatReader>;
+
 	struct AudioFileData final : public juce::ReferenceCountedObject
 	{
-		explicit AudioFileData (std::unique_ptr<juce::AudioFormatReader> reader, const File& f);
+		explicit AudioFileData (FormatReaderPtr reader, const File& f);
 
 		[[nodiscard]] bool isValid() const noexcept;
 
@@ -135,7 +137,7 @@ private:
 		JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AudioFileData)
 	};
 
-	explicit AudioFile (std::unique_ptr<juce::AudioFormatReader> reader, const File& f);
+	explicit AudioFile (FormatReaderPtr reader, const File& f);
 
 	DataPtr data;
 

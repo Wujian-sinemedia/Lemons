@@ -16,9 +16,6 @@
 namespace lemons::dsp
 {
 
-using FormatReaderPtr = std::unique_ptr<juce::AudioFormatReader>;
-
-
 AudioFile::AudioFileData::AudioFileData (FormatReaderPtr reader, const File& f)
 	: file (f)
 {
