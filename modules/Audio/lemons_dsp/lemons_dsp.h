@@ -80,4 +80,5 @@ END_JUCE_MODULE_DECLARATION
 #include "util/MonoStereoConverter.h"
 
 #include "audio_files/AudioFile.h"
+#include "audio_files/AudioFileCache.h"
 #include "audio_files/AudioFilePlayer.h"

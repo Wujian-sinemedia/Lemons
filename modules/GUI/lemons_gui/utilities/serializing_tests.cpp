@@ -49,7 +49,7 @@ private:
 
 				const auto imageNames_ = binary::getImageFileNames();
 
-				expect (imageNames_.size() == imageNames.size());
+				expectEquals (imageNames_.size(), imageNames.size());
 
 				for (const auto& name : imageNames)
 					expect (imageNames_.contains (name));

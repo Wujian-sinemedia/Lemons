@@ -44,10 +44,23 @@ private:
 			const auto& floatData = file.getData<float>();
 
 			expect (! bufferIsSilent (floatData));
+			expectEquals (floatData.getNumSamples(), file.getNumSamples());
+			expectEquals (floatData.getNumChannels(), file.getNumChannels());
 
 			const auto& doubleData = file.getData<double>();
 
 			expect (! bufferIsSilent (doubleData));
+			expectEquals (doubleData.getNumSamples(), file.getNumSamples());
+			expectEquals (doubleData.getNumChannels(), file.getNumChannels());
+
+			auto file2 = binary::getAudioFile (filename);
+
+			expectGreaterThan (file.getReferenceCount(), 1);
+
+			file2.duplicateIfShared();
+
+			expect (buffersAreEqual (floatData, file2.getData<float>()));
+			expect (buffersAreEqual (doubleData, file2.getData<double>()));
 		}
 
 		{
@@ -55,7 +68,7 @@ private:
 
 			const auto audioNames_ = binary::getAudioFileNames();
 
-			expect (audioNames_.size() == audioNames.size());
+			expectEquals (audioNames_.size(), audioNames.size());
 
 			for (const auto& name : audioNames)
 				expect (audioNames_.contains (name));

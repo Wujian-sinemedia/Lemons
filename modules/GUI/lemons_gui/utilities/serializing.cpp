@@ -129,7 +129,9 @@ juce::Image getImage (const String& imageFileName)
 {
 	const Data d { imageFileName };
 
+#if LEMONS_HAS_BINARY_DATA
 	jassert (d.isValid());
+#endif
 
 	return juce::ImageCache::getFromMemory (d.getData(), d.getSize());
 }
@@ -158,9 +160,7 @@ juce::StringArray getImageFileNames()
 
 std::unique_ptr<juce::CustomTypeface> getFont (const String& fontFileName)
 {
-	const auto block = getBlob (fontFileName);
-
-	juce::MemoryInputStream is { block, false };
+	juce::MemoryInputStream is { getBlob (fontFileName), false };
 
 	return std::make_unique<juce::CustomTypeface> (is);
 }

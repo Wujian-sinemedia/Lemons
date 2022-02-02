@@ -16,20 +16,13 @@
 namespace lemons::dsp
 {
 
-AudioFile::AudioFile (const File& audioFile)
-	: AudioFile (std::unique_ptr<juce::AudioFormatReader> (formats::getDefaultAudioFormatManager().createReaderFor (audioFile)), audioFile)
-{
-}
+using FormatReaderPtr = std::unique_ptr<juce::AudioFormatReader>;
 
-AudioFile::AudioFile (std::unique_ptr<juce::InputStream> audioStream)
-	: AudioFile (std::unique_ptr<juce::AudioFormatReader> (formats::getDefaultAudioFormatManager().createReaderFor (std::move (audioStream))), {})
-{
-}
 
-AudioFile::AudioFile (std::unique_ptr<juce::AudioFormatReader> reader, const juce::File& f)
+AudioFile::AudioFileData::AudioFileData (FormatReaderPtr reader, const File& f)
 	: file (f)
 {
-	if (auto* r = reader.get())
+	if (const auto* r = reader.get())
 	{
 		audioFormat		= r->getFormatName();
 		samplerate		= r->sampleRate;
@@ -41,7 +34,7 @@ AudioFile::AudioFile (std::unique_ptr<juce::AudioFormatReader> reader, const juc
 		if (isValid())
 		{
 			float_data.setSize (numChannels, lengthInSamples);
-			r->read (&float_data, 0, lengthInSamples, 0, true, numChannels > 1);
+			reader->read (&float_data, 0, lengthInSamples, 0, true, numChannels > 1);
 		}
 	}
 
@@ -49,8 +42,13 @@ AudioFile::AudioFile (std::unique_ptr<juce::AudioFormatReader> reader, const juc
 	jassert (float_data.getNumSamples() == lengthInSamples);
 }
 
+bool AudioFile::AudioFileData::isValid() const noexcept
+{
+	return samplerate > 0. && lengthInSamples > 0 && numChannels > 0;
+}
+
 template <>
-const AudioBuffer<float>& AudioFile::getData()
+const AudioBuffer<float>& AudioFile::AudioFileData::getData()
 {
 	jassert (float_data.getNumChannels() == numChannels);
 	jassert (float_data.getNumSamples() == lengthInSamples);
@@ -59,11 +57,11 @@ const AudioBuffer<float>& AudioFile::getData()
 }
 
 template <>
-const AudioBuffer<double>& AudioFile::getData()
+const AudioBuffer<double>& AudioFile::AudioFileData::getData()
 {
 	if (isValid())
 		if (double_data.getNumSamples() != lengthInSamples || double_data.getNumChannels() != numChannels)
-			double_data.makeCopyOf (float_data);
+			double_data.makeCopyOf (getData<float>());
 
 	jassert (double_data.getNumChannels() == numChannels);
 	jassert (double_data.getNumSamples() == lengthInSamples);
@@ -71,7 +69,7 @@ const AudioBuffer<double>& AudioFile::getData()
 	return double_data;
 }
 
-double AudioFile::getLengthInSeconds() const noexcept
+double AudioFile::AudioFileData::getLengthInSeconds() const noexcept
 {
 	if (samplerate > 0.)
 		return static_cast<double> (lengthInSamples) / samplerate;
@@ -79,49 +77,161 @@ double AudioFile::getLengthInSeconds() const noexcept
 	return 0.;
 }
 
+AudioFile::DataPtr AudioFile::AudioFileData::clone() const
+{
+	jassert (getReferenceCount() > 0);
+
+	auto* newData = new AudioFileData;
+
+	newData->samplerate		 = samplerate;
+	newData->lengthInSamples = lengthInSamples;
+	newData->numChannels	 = numChannels;
+	newData->bitsPerSample	 = bitsPerSample;
+	newData->file			 = file;
+	newData->audioFormat	 = audioFormat;
+	newData->metadata		 = metadata;
+	newData->float_data		 = float_data;
+	newData->double_data	 = double_data;
+
+	return { *newData };
+}
+
+/*----------------------------------------------------------------------------------------------------------------------*/
+
+AudioFile::AudioFile (const File& audioFile)
+	: AudioFile (FormatReaderPtr (formats::getDefaultAudioFormatManager().createReaderFor (audioFile)), audioFile)
+{
+}
+
+AudioFile::AudioFile (std::unique_ptr<juce::InputStream> audioStream)
+	: AudioFile (FormatReaderPtr (formats::getDefaultAudioFormatManager().createReaderFor (std::move (audioStream))), {})
+{
+}
+
+AudioFile::AudioFile (FormatReaderPtr reader, const juce::File& f)
+	: data (new AudioFileData (std::move (reader), f))
+{
+}
+
+AudioFile::AudioFile (const AudioFile& other) noexcept
+	: data (other.data)
+{
+}
+
+AudioFile::AudioFile (AudioFile&& other) noexcept
+	: data (std::move (other.data))
+{
+}
+
+int AudioFile::getReferenceCount() const noexcept
+{
+	if (data == nullptr)
+		return 0;
+
+	return data->getReferenceCount();
+}
+
+bool AudioFile::duplicateIfShared()
+{
+	if (getReferenceCount() > 1)
+	{
+		data = data->clone();
+		return true;
+	}
+
+	return false;
+}
+
+template <typename SampleType>
+const AudioBuffer<SampleType>& AudioFile::getData()
+{
+	if (data == nullptr)
+		jassertfalse;
+
+	return data->getData<SampleType>();
+}
+
+template const AudioBuffer<float>&	AudioFile::getData();
+template const AudioBuffer<double>& AudioFile::getData();
+
+double AudioFile::getLengthInSeconds() const noexcept
+{
+	if (data == nullptr)
+		return 0.;
+
+	return data->getLengthInSeconds();
+}
+
 bool AudioFile::isValid() const noexcept
 {
-	return samplerate > 0. && lengthInSamples > 0 && numChannels > 0;
+	if (data == nullptr)
+		return false;
+
+	return data->isValid();
 }
 
 bool AudioFile::existsOnDisk() const noexcept
 {
-	return file.existsAsFile();
+	if (data == nullptr)
+		return false;
+
+	return data->file.existsAsFile();
 }
 
 double AudioFile::getSamplerate() const noexcept
 {
-	return samplerate;
+	if (data == nullptr)
+		return 0.;
+
+	return data->samplerate;
 }
 
 int AudioFile::getNumSamples() const noexcept
 {
-	return lengthInSamples;
+	if (data == nullptr)
+		return 0;
+
+	return data->lengthInSamples;
 }
 
 int AudioFile::getNumChannels() const noexcept
 {
-	return numChannels;
+	if (data == nullptr)
+		return 0;
+
+	return data->numChannels;
 }
 
 int AudioFile::getBitsPerSample() const noexcept
 {
-	return bitsPerSample;
+	if (data == nullptr)
+		return 0;
+
+	return data->bitsPerSample;
 }
 
 File AudioFile::getFile() const noexcept
 {
-	return file;
+	if (data == nullptr)
+		return {};
+
+	return data->file;
 }
 
 String AudioFile::getFormatName() const noexcept
 {
-	return audioFormat;
+	if (data == nullptr)
+		return {};
+
+	return data->audioFormat;
 }
 
 juce::AudioFormat* AudioFile::getAudioFormat() const
 {
-	auto* format = formats::getNamedFormat (audioFormat);
+	if (data == nullptr)
+		return nullptr;
+
+	auto* format = formats::getNamedFormat (data->audioFormat);
 
 	jassert (format != nullptr);
 
@@ -130,7 +240,10 @@ juce::AudioFormat* AudioFile::getAudioFormat() const
 
 const juce::StringPairArray& AudioFile::getMetadata() const noexcept
 {
-	return metadata;
+	if (data == nullptr)
+		jassertfalse;
+
+	return data->metadata;
 }
 
 }  // namespace lemons::dsp
@@ -143,7 +256,13 @@ namespace lemons::binary
 
 dsp::AudioFile getAudioFile (const String& audioFileName)
 {
-	return dsp::AudioFile { std::make_unique<juce::MemoryInputStream> (getBlob (audioFileName), false) };
+	const Data d { audioFileName };
+
+#if LEMONS_HAS_BINARY_DATA
+	jassert (d.isValid());
+#endif
+
+	return dsp::AudioFileCache::getFromMemory (d.getData(), d.getSize());
 }
 
 juce::StringArray getAudioFileNames()

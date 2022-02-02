@@ -36,11 +36,18 @@ using juce::String;
  */
 struct AudioFile final
 {
+	/** Creates an invalid audio file. */
+	AudioFile() = default;
+
 	/** Creates an AudioFile from a file on disk. */
 	explicit AudioFile (const File& audioFile);
 
 	/** Creates an AudioFile from any kind of input stream. */
 	explicit AudioFile (std::unique_ptr<juce::InputStream> audioStream);
+
+	AudioFile (const AudioFile& other) noexcept;
+
+	AudioFile (AudioFile&& other) noexcept;
 
 	/** Returns the length in seconds of the entire audio file at its original samplerate. */
 	[[nodiscard]] double getLengthInSeconds() const noexcept;
@@ -86,23 +93,53 @@ struct AudioFile final
 	/** Returns the audio file's metadata values. */
 	[[nodiscard]] const juce::StringPairArray& getMetadata() const noexcept;
 
+	[[nodiscard]] int getReferenceCount() const noexcept;
+
+	bool duplicateIfShared();
+
 private:
+
+	struct AudioFileData;
+
+	using DataPtr = juce::ReferenceCountedObjectPtr<AudioFileData>;
+
+	struct AudioFileData final : public juce::ReferenceCountedObject
+	{
+		explicit AudioFileData (std::unique_ptr<juce::AudioFormatReader> reader, const File& f);
+
+		[[nodiscard]] bool isValid() const noexcept;
+
+		template <typename SampleType>
+		[[nodiscard]] const AudioBuffer<SampleType>& getData();
+
+		[[nodiscard]] double getLengthInSeconds() const noexcept;
+
+		[[nodiscard]] DataPtr clone() const;
+
+		double samplerate { 0. };
+		int	   lengthInSamples { 0 }, numChannels { 0 }, bitsPerSample { 0 };
+
+		File file;
+
+		String audioFormat;
+
+		juce::StringPairArray metadata;
+
+	private:
+
+		AudioFileData() = default;
+
+		AudioBuffer<float>	float_data;
+		AudioBuffer<double> double_data;
+
+		JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AudioFileData)
+	};
 
 	explicit AudioFile (std::unique_ptr<juce::AudioFormatReader> reader, const File& f);
 
-	AudioBuffer<float>	float_data;
-	AudioBuffer<double> double_data;
+	DataPtr data;
 
-	double samplerate { 0. };
-	int	   lengthInSamples { 0 }, numChannels { 0 }, bitsPerSample { 0 };
-
-	File file;
-
-	String audioFormat;
-
-	juce::StringPairArray metadata;
-
-	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AudioFile)
+	JUCE_LEAK_DETECTOR (AudioFile)
 };
 
 }  // namespace lemons::dsp

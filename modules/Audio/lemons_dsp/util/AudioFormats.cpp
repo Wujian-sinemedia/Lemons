@@ -18,11 +18,11 @@ namespace lemons::dsp::formats
 
 juce::AudioFormatManager& getDefaultAudioFormatManager()
 {
-	struct DefaultAudioFormats : public juce::AudioFormatManager
+	struct DefaultAudioFormats final : public juce::AudioFormatManager
 	{
 		DefaultAudioFormats()
 		{
-			this->registerBasicFormats();
+			registerBasicFormats();
 		}
 	};
 

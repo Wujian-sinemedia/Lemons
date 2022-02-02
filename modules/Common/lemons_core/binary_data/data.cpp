@@ -116,7 +116,9 @@ MemoryBlock getBlob (const String& filename)
 {
 	const Data d { filename };
 
+#if LEMONS_HAS_BINARY_DATA
 	jassert (d.isValid());
+#endif
 
 	return d.getAsMemoryBlock();
 }
@@ -136,7 +138,9 @@ String getString (const String& textFileName)
 {
 	const Data d { textFileName };
 
+#if LEMONS_HAS_BINARY_DATA
 	jassert (d.isValid());
+#endif
 
 	return d.getAsString();
 }

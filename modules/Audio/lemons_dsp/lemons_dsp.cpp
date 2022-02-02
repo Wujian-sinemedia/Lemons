@@ -48,6 +48,7 @@
 #include "oscillators/choosable.cpp"
 
 #include "audio_files/AudioFile.cpp"
+#include "audio_files/AudioFileCache.cpp"
 #include "audio_files/AudioFilePlayer.cpp"
 
 #if LEMONS_UNIT_TESTS
