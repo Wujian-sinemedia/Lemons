@@ -1198,7 +1198,7 @@
     <name>lemons_core.h</name>
     <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/Common/lemons_core/</path>
     <filename>lemons__core_8h.html</filename>
-    <includes id="_preprocessor_8h" name="Preprocessor.h" local="yes" imported="no">misc/Preprocessor.h</includes>
+    <includes id="_type_traits_8h" name="TypeTraits.h" local="yes" imported="no">misc/TypeTraits.h</includes>
     <includes id="_version_8h" name="Version.h" local="yes" imported="no">misc/Version.h</includes>
     <includes id="_dimensions_8h" name="Dimensions.h" local="yes" imported="no">misc/Dimensions.h</includes>
     <includes id="_constructed_array_8h" name="ConstructedArray.h" local="yes" imported="no">misc/ConstructedArray.h</includes>
@@ -1457,28 +1457,6 @@
     <namespace>lemons</namespace>
   </compound>
   <compound kind="file">
-    <name>Preprocessor.h</name>
-    <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/Common/lemons_core/misc/</path>
-    <filename>_preprocessor_8h.html</filename>
-    <class kind="struct">lemons::is_specialization</class>
-    <class kind="struct">lemons::is_specialization&lt; Template&lt; Args... &gt;, Template &gt;</class>
-    <namespace>lemons</namespace>
-    <member kind="define">
-      <type>#define</type>
-      <name>LEMONS_MUST_BE_SPECIALIZATION</name>
-      <anchorfile>group__lemons__core.html</anchorfile>
-      <anchor>ga89cf7df0319b16fb00f65e1b82ac3a33</anchor>
-      <arglist>(classToTest, requiredTemplate)</arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>LEMONS_MUST_INHERIT_FROM</name>
-      <anchorfile>group__lemons__core.html</anchorfile>
-      <anchor>ga4be31aa0be590eae843d1a0be27e95a8</anchor>
-      <arglist>(classToTest, requiredBaseClass)</arglist>
-    </member>
-  </compound>
-  <compound kind="file">
     <name>rsa.h</name>
     <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/Common/lemons_core/misc/</path>
     <filename>rsa_8h.html</filename>
@@ -1531,6 +1509,35 @@
     <namespace>lemons::events</namespace>
   </compound>
   <compound kind="file">
+    <name>TypeTraits.h</name>
+    <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/Common/lemons_core/misc/</path>
+    <filename>_type_traits_8h.html</filename>
+    <class kind="struct">lemons::is_specialization</class>
+    <class kind="struct">lemons::is_specialization&lt; Template&lt; Args... &gt;, Template &gt;</class>
+    <namespace>lemons</namespace>
+    <member kind="define">
+      <type>#define</type>
+      <name>LEMONS_MUST_BE_SPECIALIZATION</name>
+      <anchorfile>group__lemons__core.html</anchorfile>
+      <anchor>ga89cf7df0319b16fb00f65e1b82ac3a33</anchor>
+      <arglist>(classToTest, requiredTemplate)</arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>LEMONS_MUST_INHERIT_FROM</name>
+      <anchorfile>group__lemons__core.html</anchorfile>
+      <anchor>ga4be31aa0be590eae843d1a0be27e95a8</anchor>
+      <arglist>(classToTest, requiredBaseClass)</arglist>
+    </member>
+    <member kind="function">
+      <type>String</type>
+      <name>getDemangledTypeName</name>
+      <anchorfile>namespacelemons.html</anchorfile>
+      <anchor>adbda02dc0eae2218ae26d6544bd673e8</anchor>
+      <arglist>(ObjectType &amp;object)</arglist>
+    </member>
+  </compound>
+  <compound kind="file">
     <name>Version.h</name>
     <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/Common/lemons_core/misc/</path>
     <filename>_version_8h.html</filename>
@@ -1578,6 +1585,157 @@
       <anchor>a537f07f6a8c6eb77ec4b1a2ab925f6c3</anchor>
       <arglist></arglist>
     </member>
+  </compound>
+  <compound kind="file">
+    <name>VariantConversions.h</name>
+    <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/Common/lemons_core/serializing/</path>
+    <filename>_variant_conversions_8h.html</filename>
+    <class kind="struct">juce::VariantConverter&lt; BigInteger &gt;</class>
+    <class kind="struct">juce::VariantConverter&lt; DynamicObject &gt;</class>
+    <class kind="struct">juce::VariantConverter&lt; File &gt;</class>
+    <class kind="struct">juce::VariantConverter&lt; Identifier &gt;</class>
+    <class kind="struct">juce::VariantConverter&lt; IPAddress &gt;</class>
+    <class kind="struct">juce::VariantConverter&lt; lemons::Dimensions &gt;</class>
+    <class kind="struct">juce::VariantConverter&lt; lemons::Version &gt;</class>
+    <class kind="struct">juce::VariantConverter&lt; MACAddress &gt;</class>
+    <class kind="struct">juce::VariantConverter&lt; MemoryBlock &gt;</class>
+    <class kind="struct">juce::VariantConverter&lt; NamedValueSet &gt;</class>
+    <class kind="struct">juce::VariantConverter&lt; PropertySet &gt;</class>
+    <class kind="struct">juce::VariantConverter&lt; RelativeTime &gt;</class>
+    <class kind="struct">juce::VariantConverter&lt; StringArray &gt;</class>
+    <class kind="struct">juce::VariantConverter&lt; StringPairArray &gt;</class>
+    <class kind="struct">juce::VariantConverter&lt; Time &gt;</class>
+    <class kind="struct">juce::VariantConverter&lt; URL &gt;</class>
+    <class kind="struct">juce::VariantConverter&lt; Uuid &gt;</class>
+    <class kind="struct">juce::VariantConverter&lt; ValueTree &gt;</class>
+    <class kind="struct">juce::VariantConverter&lt; XmlElement &gt;</class>
+    <namespace>juce</namespace>
+  </compound>
+  <compound kind="file">
+    <name>runner.h</name>
+    <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/Common/lemons_core/unit_tests/</path>
+    <filename>runner_8h.html</filename>
+    <class kind="class">lemons::tests::Runner</class>
+    <namespace>lemons</namespace>
+    <namespace>lemons::tests</namespace>
+    <member kind="function">
+      <type>bool</type>
+      <name>executeUnitTests</name>
+      <anchorfile>group__lemons__unit__testing.html</anchorfile>
+      <anchor>gab1e68eefc1493b062789e0ccc18695ff</anchor>
+      <arglist>(Intensity intensityLevel=Intensity::Medium, const File &amp;logOutput={}, juce::int64 seed=juce::Random::getSystemRandom().nextInt64(), const String &amp;singleTestName={}, const String &amp;categoryName={}, bool rerunFailed=false)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::UnitTest *</type>
+      <name>getUnitTestWithName</name>
+      <anchorfile>namespacelemons_1_1tests.html</anchorfile>
+      <anchor>a9b5e72c73437319b86eac14ffd2fd572</anchor>
+      <arglist>(const String &amp;name)</arglist>
+    </member>
+  </compound>
+  <compound kind="file">
+    <name>test.h</name>
+    <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/Common/lemons_core/unit_tests/</path>
+    <filename>test_8h.html</filename>
+    <class kind="struct">lemons::tests::CoreTest</class>
+    <class kind="struct">lemons::tests::Test::Subtest</class>
+    <class kind="class">lemons::tests::Test</class>
+    <namespace>lemons</namespace>
+    <namespace>lemons::tests</namespace>
+    <member kind="enumeration">
+      <type></type>
+      <name>Intensity</name>
+      <anchorfile>group__lemons__unit__testing.html</anchorfile>
+      <anchor>gabe71616eeadecd56537dd9a10376223c</anchor>
+      <arglist></arglist>
+      <enumvalue file="group__lemons__unit__testing.html" anchor="ggabe71616eeadecd56537dd9a10376223ca28d0edd045e05cf5af64e35ae0c4c6ef">Low</enumvalue>
+      <enumvalue file="group__lemons__unit__testing.html" anchor="ggabe71616eeadecd56537dd9a10376223ca87f8a6ab85c9ced3702b4ea641ad4bb5">Medium</enumvalue>
+      <enumvalue file="group__lemons__unit__testing.html" anchor="ggabe71616eeadecd56537dd9a10376223ca655d20c1ca69519ca647684edbb2db35">High</enumvalue>
+    </member>
+  </compound>
+  <compound kind="file">
+    <name>lemons_musicology.h</name>
+    <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/Common/lemons_musicology/</path>
+    <filename>lemons__musicology_8h.html</filename>
+    <includes id="_string_functions_8h" name="StringFunctions.h" local="yes" imported="no">util/StringFunctions.h</includes>
+  </compound>
+  <compound kind="file">
+    <name>StringFunctions.h</name>
+    <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/Common/lemons_musicology/util/</path>
+    <filename>_string_functions_8h.html</filename>
+    <includes id="lemons__core_8h" name="lemons_core.h" local="no" imported="no">lemons_core/lemons_core.h</includes>
+    <namespace>lemons</namespace>
+    <namespace>lemons::music</namespace>
+    <member kind="function">
+      <type>const juce_wchar</type>
+      <name>getFlatSymbol</name>
+      <anchorfile>namespacelemons_1_1music.html</anchorfile>
+      <anchor>a860774b3ef81a533bb864523c7120468</anchor>
+      <arglist>() noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>const juce_wchar</type>
+      <name>getNaturalSymbol</name>
+      <anchorfile>namespacelemons_1_1music.html</anchorfile>
+      <anchor>a3d330b3b78bbbe724679f7b0e21fd398</anchor>
+      <arglist>() noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>const juce_wchar</type>
+      <name>getSharpSymbol</name>
+      <anchorfile>namespacelemons_1_1music.html</anchorfile>
+      <anchor>a0dc54b6381e41c428b72d6792fd19778</anchor>
+      <arglist>() noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>String</type>
+      <name>midiPanIntToString</name>
+      <anchorfile>namespacelemons_1_1music.html</anchorfile>
+      <anchor>a2a655169484800e4bff42f49fb51b643</anchor>
+      <arglist>(int midiPan) noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>midiPanStringToInt</name>
+      <anchorfile>namespacelemons_1_1music.html</anchorfile>
+      <anchor>ae109162822cee8002867ab164fce1905</anchor>
+      <arglist>(const String &amp;string) noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>String</type>
+      <name>pitchClassToString</name>
+      <anchorfile>namespacelemons_1_1music.html</anchorfile>
+      <anchor>a24e7bde0524b225883f031c887db9fb4</anchor>
+      <arglist>(int pitchClass, bool asSharps=true) noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>String</type>
+      <name>pitchToString</name>
+      <anchorfile>namespacelemons_1_1music.html</anchorfile>
+      <anchor>a5804ae9d6aaefcb24f65bdf38e8a1832</anchor>
+      <arglist>(int midiNoteNumber, bool asSharps=true) noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>stringToPitch</name>
+      <anchorfile>namespacelemons_1_1music.html</anchorfile>
+      <anchor>ac8e2cb0708990e7bc8c175b72c176540</anchor>
+      <arglist>(const String &amp;string) noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>stringToPitchClass</name>
+      <anchorfile>namespacelemons_1_1music.html</anchorfile>
+      <anchor>a3311159f9fd29afa5a7b238b0e361ce4</anchor>
+      <arglist>(const String &amp;pitchClassName) noexcept</arglist>
+    </member>
+  </compound>
+  <compound kind="file">
+    <name>lemons_osc.h</name>
+    <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/Connectivity/lemons_osc/</path>
+    <filename>lemons__osc_8h.html</filename>
+    <includes id="_connectivity_2lemons__osc_2util_2util_8h" name="Connectivity/lemons_osc/util/util.h" local="yes" imported="no">util/util.h</includes>
+    <includes id="_connectivity_2lemons__osc_2util_2serializing_8h" name="Connectivity/lemons_osc/util/serializing.h" local="yes" imported="no">util/serializing.h</includes>
   </compound>
   <compound kind="file">
     <name>Audio/lemons_dsp/util/serializing.h</name>
@@ -1810,11 +1968,22 @@
     </member>
   </compound>
   <compound kind="file">
+    <name>Connectivity/lemons_osc/util/serializing.h</name>
+    <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/Connectivity/lemons_osc/util/</path>
+    <filename>_connectivity_2lemons__osc_2util_2serializing_8h.html</filename>
+    <class kind="struct">juce::VariantConverter&lt; OSCAddress &gt;</class>
+    <class kind="struct">juce::VariantConverter&lt; OSCAddressPattern &gt;</class>
+    <class kind="struct">juce::VariantConverter&lt; OSCArgument &gt;</class>
+    <class kind="struct">juce::VariantConverter&lt; OSCColour &gt;</class>
+    <namespace>juce</namespace>
+  </compound>
+  <compound kind="file">
     <name>GUI/lemons_gui/utilities/serializing.h</name>
     <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/GUI/lemons_gui/utilities/</path>
     <filename>_g_u_i_2lemons__gui_2utilities_2serializing_8h.html</filename>
     <includes id="lemons__core_8h" name="lemons_core.h" local="no" imported="no">lemons_core/lemons_core.h</includes>
     <class kind="struct">juce::VariantConverter&lt; Colour &gt;</class>
+    <class kind="struct">juce::VariantConverter&lt; Font &gt;</class>
     <class kind="struct">juce::VariantConverter&lt; Image &gt;</class>
     <class kind="struct">juce::VariantConverter&lt; Justification &gt;</class>
     <namespace>juce</namespace>
@@ -1906,155 +2075,6 @@
       <anchor>ga90c99721b94a9923e469d43f6f004bff</anchor>
       <arglist>(const Image &amp;image, const File &amp;file)</arglist>
     </member>
-  </compound>
-  <compound kind="file">
-    <name>VariantConversions.h</name>
-    <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/Common/lemons_core/serializing/</path>
-    <filename>_variant_conversions_8h.html</filename>
-    <class kind="struct">juce::VariantConverter&lt; BigInteger &gt;</class>
-    <class kind="struct">juce::VariantConverter&lt; DynamicObject &gt;</class>
-    <class kind="struct">juce::VariantConverter&lt; Identifier &gt;</class>
-    <class kind="struct">juce::VariantConverter&lt; IPAddress &gt;</class>
-    <class kind="struct">juce::VariantConverter&lt; lemons::Dimensions &gt;</class>
-    <class kind="struct">juce::VariantConverter&lt; lemons::Version &gt;</class>
-    <class kind="struct">juce::VariantConverter&lt; MACAddress &gt;</class>
-    <class kind="struct">juce::VariantConverter&lt; MemoryBlock &gt;</class>
-    <class kind="struct">juce::VariantConverter&lt; NamedValueSet &gt;</class>
-    <class kind="struct">juce::VariantConverter&lt; PropertySet &gt;</class>
-    <class kind="struct">juce::VariantConverter&lt; RelativeTime &gt;</class>
-    <class kind="struct">juce::VariantConverter&lt; StringArray &gt;</class>
-    <class kind="struct">juce::VariantConverter&lt; StringPairArray &gt;</class>
-    <class kind="struct">juce::VariantConverter&lt; Time &gt;</class>
-    <class kind="struct">juce::VariantConverter&lt; URL &gt;</class>
-    <class kind="struct">juce::VariantConverter&lt; Uuid &gt;</class>
-    <class kind="struct">juce::VariantConverter&lt; ValueTree &gt;</class>
-    <class kind="struct">juce::VariantConverter&lt; XmlElement &gt;</class>
-    <namespace>juce</namespace>
-  </compound>
-  <compound kind="file">
-    <name>runner.h</name>
-    <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/Common/lemons_core/unit_tests/</path>
-    <filename>runner_8h.html</filename>
-    <class kind="class">lemons::tests::Runner</class>
-    <namespace>lemons</namespace>
-    <namespace>lemons::tests</namespace>
-    <member kind="function">
-      <type>bool</type>
-      <name>executeUnitTests</name>
-      <anchorfile>group__lemons__unit__testing.html</anchorfile>
-      <anchor>gab1e68eefc1493b062789e0ccc18695ff</anchor>
-      <arglist>(Intensity intensityLevel=Intensity::Medium, const File &amp;logOutput={}, juce::int64 seed=juce::Random::getSystemRandom().nextInt64(), const String &amp;singleTestName={}, const String &amp;categoryName={}, bool rerunFailed=false)</arglist>
-    </member>
-    <member kind="function">
-      <type>juce::UnitTest *</type>
-      <name>getUnitTestWithName</name>
-      <anchorfile>namespacelemons_1_1tests.html</anchorfile>
-      <anchor>a9b5e72c73437319b86eac14ffd2fd572</anchor>
-      <arglist>(const String &amp;name)</arglist>
-    </member>
-  </compound>
-  <compound kind="file">
-    <name>test.h</name>
-    <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/Common/lemons_core/unit_tests/</path>
-    <filename>test_8h.html</filename>
-    <class kind="struct">lemons::tests::CoreTest</class>
-    <class kind="struct">lemons::tests::Test::Subtest</class>
-    <class kind="class">lemons::tests::Test</class>
-    <namespace>lemons</namespace>
-    <namespace>lemons::tests</namespace>
-    <member kind="enumeration">
-      <type></type>
-      <name>Intensity</name>
-      <anchorfile>group__lemons__unit__testing.html</anchorfile>
-      <anchor>gabe71616eeadecd56537dd9a10376223c</anchor>
-      <arglist></arglist>
-      <enumvalue file="group__lemons__unit__testing.html" anchor="ggabe71616eeadecd56537dd9a10376223ca28d0edd045e05cf5af64e35ae0c4c6ef">Low</enumvalue>
-      <enumvalue file="group__lemons__unit__testing.html" anchor="ggabe71616eeadecd56537dd9a10376223ca87f8a6ab85c9ced3702b4ea641ad4bb5">Medium</enumvalue>
-      <enumvalue file="group__lemons__unit__testing.html" anchor="ggabe71616eeadecd56537dd9a10376223ca655d20c1ca69519ca647684edbb2db35">High</enumvalue>
-    </member>
-  </compound>
-  <compound kind="file">
-    <name>lemons_musicology.h</name>
-    <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/Common/lemons_musicology/</path>
-    <filename>lemons__musicology_8h.html</filename>
-    <includes id="_string_functions_8h" name="StringFunctions.h" local="yes" imported="no">util/StringFunctions.h</includes>
-  </compound>
-  <compound kind="file">
-    <name>StringFunctions.h</name>
-    <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/Common/lemons_musicology/util/</path>
-    <filename>_string_functions_8h.html</filename>
-    <includes id="lemons__core_8h" name="lemons_core.h" local="no" imported="no">lemons_core/lemons_core.h</includes>
-    <namespace>lemons</namespace>
-    <namespace>lemons::music</namespace>
-    <member kind="function">
-      <type>const juce_wchar</type>
-      <name>getFlatSymbol</name>
-      <anchorfile>namespacelemons_1_1music.html</anchorfile>
-      <anchor>a860774b3ef81a533bb864523c7120468</anchor>
-      <arglist>() noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>const juce_wchar</type>
-      <name>getNaturalSymbol</name>
-      <anchorfile>namespacelemons_1_1music.html</anchorfile>
-      <anchor>a3d330b3b78bbbe724679f7b0e21fd398</anchor>
-      <arglist>() noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>const juce_wchar</type>
-      <name>getSharpSymbol</name>
-      <anchorfile>namespacelemons_1_1music.html</anchorfile>
-      <anchor>a0dc54b6381e41c428b72d6792fd19778</anchor>
-      <arglist>() noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>String</type>
-      <name>midiPanIntToString</name>
-      <anchorfile>namespacelemons_1_1music.html</anchorfile>
-      <anchor>a2a655169484800e4bff42f49fb51b643</anchor>
-      <arglist>(int midiPan) noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>int</type>
-      <name>midiPanStringToInt</name>
-      <anchorfile>namespacelemons_1_1music.html</anchorfile>
-      <anchor>ae109162822cee8002867ab164fce1905</anchor>
-      <arglist>(const String &amp;string) noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>String</type>
-      <name>pitchClassToString</name>
-      <anchorfile>namespacelemons_1_1music.html</anchorfile>
-      <anchor>a24e7bde0524b225883f031c887db9fb4</anchor>
-      <arglist>(int pitchClass, bool asSharps=true) noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>String</type>
-      <name>pitchToString</name>
-      <anchorfile>namespacelemons_1_1music.html</anchorfile>
-      <anchor>a5804ae9d6aaefcb24f65bdf38e8a1832</anchor>
-      <arglist>(int midiNoteNumber, bool asSharps=true) noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>int</type>
-      <name>stringToPitch</name>
-      <anchorfile>namespacelemons_1_1music.html</anchorfile>
-      <anchor>ac8e2cb0708990e7bc8c175b72c176540</anchor>
-      <arglist>(const String &amp;string) noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>int</type>
-      <name>stringToPitchClass</name>
-      <anchorfile>namespacelemons_1_1music.html</anchorfile>
-      <anchor>a3311159f9fd29afa5a7b238b0e361ce4</anchor>
-      <arglist>(const String &amp;pitchClassName) noexcept</arglist>
-    </member>
-  </compound>
-  <compound kind="file">
-    <name>lemons_osc.h</name>
-    <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/Connectivity/lemons_osc/</path>
-    <filename>lemons__osc_8h.html</filename>
-    <includes id="_connectivity_2lemons__osc_2util_2util_8h" name="Connectivity/lemons_osc/util/util.h" local="yes" imported="no">util/util.h</includes>
   </compound>
   <compound kind="file">
     <name>Connectivity/lemons_osc/util/util.h</name>
@@ -23839,6 +23859,42 @@
     </member>
   </compound>
   <compound kind="struct">
+    <name>juce::VariantConverter&lt; File &gt;</name>
+    <filename>structjuce_1_1_variant_converter_3_01_file_01_4.html</filename>
+    <member kind="function" static="yes">
+      <type>static File</type>
+      <name>fromVar</name>
+      <anchorfile>structjuce_1_1_variant_converter_3_01_file_01_4.html</anchorfile>
+      <anchor>a1d1aa42aef5c76f7acce32cd3957aedd</anchor>
+      <arglist>(const var &amp;v)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static var</type>
+      <name>toVar</name>
+      <anchorfile>structjuce_1_1_variant_converter_3_01_file_01_4.html</anchorfile>
+      <anchor>aa1ecf8c7951294869041a4ea5c0aab1f</anchor>
+      <arglist>(const File &amp;f)</arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>juce::VariantConverter&lt; Font &gt;</name>
+    <filename>structjuce_1_1_variant_converter_3_01_font_01_4.html</filename>
+    <member kind="function" static="yes">
+      <type>static Font</type>
+      <name>fromVar</name>
+      <anchorfile>structjuce_1_1_variant_converter_3_01_font_01_4.html</anchorfile>
+      <anchor>a0ef6268a00dda935ed5bf96ef3215b34</anchor>
+      <arglist>(const var &amp;v)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static var</type>
+      <name>toVar</name>
+      <anchorfile>structjuce_1_1_variant_converter_3_01_font_01_4.html</anchorfile>
+      <anchor>a4ea2d16e3a880e4035b6cb67ad0e6f0a</anchor>
+      <arglist>(const Font &amp;f)</arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
     <name>juce::VariantConverter&lt; Identifier &gt;</name>
     <filename>structjuce_1_1_variant_converter_3_01_identifier_01_4.html</filename>
     <member kind="function" static="yes">
@@ -24052,6 +24108,78 @@
       <anchorfile>structjuce_1_1_variant_converter_3_01_named_value_set_01_4.html</anchorfile>
       <anchor>a93d7f9f7df4ced369cbbdf4383416bd4</anchor>
       <arglist>(const NamedValueSet &amp;s)</arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>juce::VariantConverter&lt; OSCAddress &gt;</name>
+    <filename>structjuce_1_1_variant_converter_3_01_o_s_c_address_01_4.html</filename>
+    <member kind="function" static="yes">
+      <type>static OSCAddress</type>
+      <name>fromVar</name>
+      <anchorfile>structjuce_1_1_variant_converter_3_01_o_s_c_address_01_4.html</anchorfile>
+      <anchor>a8ba36d843ce8a0a49a64973add9b81b4</anchor>
+      <arglist>(const var &amp;v)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static var</type>
+      <name>toVar</name>
+      <anchorfile>structjuce_1_1_variant_converter_3_01_o_s_c_address_01_4.html</anchorfile>
+      <anchor>a998fe9f04e8525ab45fc6b953dedef2e</anchor>
+      <arglist>(const OSCAddress &amp;p)</arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>juce::VariantConverter&lt; OSCAddressPattern &gt;</name>
+    <filename>structjuce_1_1_variant_converter_3_01_o_s_c_address_pattern_01_4.html</filename>
+    <member kind="function" static="yes">
+      <type>static OSCAddressPattern</type>
+      <name>fromVar</name>
+      <anchorfile>structjuce_1_1_variant_converter_3_01_o_s_c_address_pattern_01_4.html</anchorfile>
+      <anchor>afae46a8f9d83f2bcad75e794c3923cbf</anchor>
+      <arglist>(const var &amp;v)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static var</type>
+      <name>toVar</name>
+      <anchorfile>structjuce_1_1_variant_converter_3_01_o_s_c_address_pattern_01_4.html</anchorfile>
+      <anchor>a3ed11163efc227a64b72e6cb7491171c</anchor>
+      <arglist>(const OSCAddressPattern &amp;p)</arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>juce::VariantConverter&lt; OSCArgument &gt;</name>
+    <filename>structjuce_1_1_variant_converter_3_01_o_s_c_argument_01_4.html</filename>
+    <member kind="function" static="yes">
+      <type>static OSCArgument</type>
+      <name>fromVar</name>
+      <anchorfile>structjuce_1_1_variant_converter_3_01_o_s_c_argument_01_4.html</anchorfile>
+      <anchor>ade70106fa09339c4a64dd6e491ce589c</anchor>
+      <arglist>(const var &amp;v)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static var</type>
+      <name>toVar</name>
+      <anchorfile>structjuce_1_1_variant_converter_3_01_o_s_c_argument_01_4.html</anchorfile>
+      <anchor>a05f1d22e1f889e315de6f683659c338b</anchor>
+      <arglist>(const OSCArgument &amp;a)</arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>juce::VariantConverter&lt; OSCColour &gt;</name>
+    <filename>structjuce_1_1_variant_converter_3_01_o_s_c_colour_01_4.html</filename>
+    <member kind="function" static="yes">
+      <type>static OSCColour</type>
+      <name>fromVar</name>
+      <anchorfile>structjuce_1_1_variant_converter_3_01_o_s_c_colour_01_4.html</anchorfile>
+      <anchor>a81cc01ba28f405cf1945bb42d786485b</anchor>
+      <arglist>(const var &amp;v)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static var</type>
+      <name>toVar</name>
+      <anchorfile>structjuce_1_1_variant_converter_3_01_o_s_c_colour_01_4.html</anchorfile>
+      <anchor>a32544c49735165ee1b98b88124757a39</anchor>
+      <arglist>(const OSCColour &amp;c)</arglist>
     </member>
   </compound>
   <compound kind="struct">
@@ -24584,6 +24712,8 @@
     <class kind="struct">juce::VariantConverter&lt; BigInteger &gt;</class>
     <class kind="struct">juce::VariantConverter&lt; Colour &gt;</class>
     <class kind="struct">juce::VariantConverter&lt; DynamicObject &gt;</class>
+    <class kind="struct">juce::VariantConverter&lt; File &gt;</class>
+    <class kind="struct">juce::VariantConverter&lt; Font &gt;</class>
     <class kind="struct">juce::VariantConverter&lt; Identifier &gt;</class>
     <class kind="struct">juce::VariantConverter&lt; Image &gt;</class>
     <class kind="struct">juce::VariantConverter&lt; IPAddress &gt;</class>
@@ -24596,6 +24726,10 @@
     <class kind="struct">juce::VariantConverter&lt; MidiFile &gt;</class>
     <class kind="struct">juce::VariantConverter&lt; MidiMessage &gt;</class>
     <class kind="struct">juce::VariantConverter&lt; NamedValueSet &gt;</class>
+    <class kind="struct">juce::VariantConverter&lt; OSCAddress &gt;</class>
+    <class kind="struct">juce::VariantConverter&lt; OSCAddressPattern &gt;</class>
+    <class kind="struct">juce::VariantConverter&lt; OSCArgument &gt;</class>
+    <class kind="struct">juce::VariantConverter&lt; OSCColour &gt;</class>
     <class kind="struct">juce::VariantConverter&lt; PluginDescription &gt;</class>
     <class kind="struct">juce::VariantConverter&lt; PropertySet &gt;</class>
     <class kind="struct">juce::VariantConverter&lt; RelativeTime &gt;</class>
@@ -24639,6 +24773,13 @@
     <class kind="struct">lemons::is_specialization&lt; Template&lt; Args... &gt;, Template &gt;</class>
     <class kind="struct">lemons::ValueSmoother</class>
     <class kind="struct">lemons::Version</class>
+    <member kind="function">
+      <type>String</type>
+      <name>getDemangledTypeName</name>
+      <anchorfile>namespacelemons.html</anchorfile>
+      <anchor>adbda02dc0eae2218ae26d6544bd673e8</anchor>
+      <arglist>(ObjectType &amp;object)</arglist>
+    </member>
     <member kind="function">
       <type>void</type>
       <name>setAutoLockEnabled</name>

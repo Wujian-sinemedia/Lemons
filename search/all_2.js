@@ -23,7 +23,7 @@ var searchData=
   ['choppingprocessor_3c_20float_20_3e_20',['ChoppingProcessor&lt; float &gt;',['../classlemons_1_1midi_1_1_chopping_processor.html',1,'lemons::midi']]],
   ['circularbuffer_21',['CircularBuffer',['../classlemons_1_1dsp_1_1_circular_buffer.html#aca6df4548eb22d4b4da46f82af22eca5',1,'lemons::dsp::CircularBuffer::CircularBuffer()'],['../classlemons_1_1dsp_1_1_circular_buffer.html',1,'lemons::dsp::CircularBuffer&lt; SampleType &gt;']]],
   ['circularbuffer_2eh_22',['CircularBuffer.h',['../_circular_buffer_8h.html',1,'']]],
-  ['clear_23',['clear',['../classlemons_1_1dsp_1_1_audio_and_midi_f_i_f_o.html#accae61ae119545e5c3d9abfeffe4f210',1,'lemons::dsp::AudioAndMidiFIFO::clear()'],['../classlemons_1_1midi_1_1_midi_f_i_f_o.html#a6297ecd6facbad49eada8e7e5cdb32dd',1,'lemons::midi::MidiFIFO::clear()'],['../classlemons_1_1dsp_1_1_circular_buffer.html#a6b944eb98905fe60288dc95e6ec2bd1d',1,'lemons::dsp::CircularBuffer::clear()'],['../classlemons_1_1dsp_1_1_audio_fifo.html#ab015adaedd4d13691b83ad22fcd3e587',1,'lemons::dsp::AudioFifo::clear()']]],
+  ['clear_23',['clear',['../classlemons_1_1midi_1_1_midi_f_i_f_o.html#a6297ecd6facbad49eada8e7e5cdb32dd',1,'lemons::midi::MidiFIFO::clear()'],['../classlemons_1_1dsp_1_1_circular_buffer.html#a6b944eb98905fe60288dc95e6ec2bd1d',1,'lemons::dsp::CircularBuffer::clear()'],['../classlemons_1_1dsp_1_1_audio_fifo.html#ab015adaedd4d13691b83ad22fcd3e587',1,'lemons::dsp::AudioFifo::clear()'],['../classlemons_1_1dsp_1_1_audio_and_midi_f_i_f_o.html#accae61ae119545e5c3d9abfeffe4f210',1,'lemons::dsp::AudioAndMidiFIFO::clear()']]],
   ['close_24',['close',['../classlemons_1_1gui_1_1components_1_1_popup_component_base.html#ab38b35efeca30d44e4c06b0f714ebbed',1,'lemons::gui::components::PopupComponentBase']]],
   ['cmakemodules_2emd_25',['CMakeModules.md',['../_c_make_modules_8md.html',1,'']]],
   ['coeffecients_2eh_26',['Coeffecients.h',['../_coeffecients_8h.html',1,'']]],
@@ -78,7 +78,7 @@ var searchData=
   ['copy_75',['copy',['../group__lemons__audio__buffers.html#gaa8f6c7a0fdfc0981f44b3dfa291cc2ee',1,'lemons::dsp::buffers']]],
   ['copyrangeofmidibuffer_76',['copyRangeOfMidiBuffer',['../group__lemons__midi.html#ga98b403cf67be59389bdcae888bdb4a6a',1,'lemons::midi']]],
   ['coretest_77',['CoreTest',['../structlemons_1_1tests_1_1_core_test.html#a00909d8432df5dd6ddc64b54b0b26192',1,'lemons::tests::CoreTest::CoreTest()'],['../structlemons_1_1tests_1_1_core_test.html',1,'lemons::tests::CoreTest']]],
-  ['create_78',['create',['../structlemons_1_1gui_1_1components_1_1_optional_component.html#a6fc286100acfd31d4e4d230fc2971444',1,'lemons::gui::components::OptionalComponent::create()'],['../structlemons_1_1gui_1_1components_1_1_swappable_component.html#a9c95991bbed8bd08753526b9be745436',1,'lemons::gui::components::SwappableComponent::create()'],['../namespacelemons_1_1ranges.html#ac23d6074a044f90834132b6145b19a83',1,'lemons::ranges::create()'],['../classlemons_1_1gui_1_1components_1_1_popup.html#a0c316e9cd6017541e0a95cb51d21f3f1',1,'lemons::gui::components::Popup::create()']]],
+  ['create_78',['create',['../namespacelemons_1_1ranges.html#ac23d6074a044f90834132b6145b19a83',1,'lemons::ranges::create()'],['../structlemons_1_1gui_1_1components_1_1_optional_component.html#a6fc286100acfd31d4e4d230fc2971444',1,'lemons::gui::components::OptionalComponent::create()'],['../structlemons_1_1gui_1_1components_1_1_swappable_component.html#a9c95991bbed8bd08753526b9be745436',1,'lemons::gui::components::SwappableComponent::create()'],['../classlemons_1_1gui_1_1components_1_1_popup.html#a0c316e9cd6017541e0a95cb51d21f3f1',1,'lemons::gui::components::Popup::create()']]],
   ['createandaddnode_79',['createAndAddNode',['../classlemons_1_1dsp_1_1_engine_chain.html#a5a692a3b24091dea402992b508f12879',1,'lemons::dsp::EngineChain']]],
   ['createandaddnodeafter_80',['createAndAddNodeAfter',['../classlemons_1_1dsp_1_1_engine_chain.html#a0dc43baca85fee78ed6d939af71fdfe5',1,'lemons::dsp::EngineChain']]],
   ['createandaddnodebefore_81',['createAndAddNodeBefore',['../classlemons_1_1dsp_1_1_engine_chain.html#a236aafff5f3dc359f77941627bfe8cc8',1,'lemons::dsp::EngineChain']]],
@@ -100,6 +100,6 @@ var searchData=
   ['createprocessorforengine_97',['createProcessorForEngine',['../group__lemons__plugin__processors.html#ga9d8f98b59b79feb0bbbf9ea3d9289f07',1,'lemons::plugin']]],
   ['createvoice_98',['createVoice',['../structlemons_1_1dsp_1_1_template_synth.html#a05121b7e98d8185151f65f30888e0dc3',1,'lemons::dsp::TemplateSynth::createVoice()'],['../classlemons_1_1dsp_1_1_synth_base.html#a30ef35dd86893ed3ab837b7425eed82f',1,'lemons::dsp::SynthBase::createVoice()']]],
   ['cursor_2eh_99',['cursor.h',['../cursor_8h.html',1,'']]],
-  ['serializing_2eh_100',['serializing.h',['../_common_2lemons__core_2serializing_2serializing_8h.html',1,'']]],
+  ['serializing_2eh_100',['serializing.h',['../_common_2lemons__core_2serializing_2serializing_8h.html',1,'(Global Namespace)'],['../_connectivity_2lemons__osc_2util_2serializing_8h.html',1,'(Global Namespace)']]],
   ['util_2eh_101',['util.h',['../_connectivity_2lemons__osc_2util_2util_8h.html',1,'']]]
 ];
