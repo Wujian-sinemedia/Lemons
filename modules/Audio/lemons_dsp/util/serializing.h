@@ -98,17 +98,17 @@ namespace juce
 {
 
 template <>
-struct VariantConverter<AudioChannelSet>
+struct VariantConverter<AudioChannelSet> final
 {
-	static AudioChannelSet fromVar (const var& v);
-	static var			   toVar (const AudioChannelSet& s);
+	[[nodiscard]] static AudioChannelSet fromVar (const var& v);
+	[[nodiscard]] static var			 toVar (const AudioChannelSet& s);
 };
 
 template <>
-struct VariantConverter<ADSR::Parameters>
+struct VariantConverter<ADSR::Parameters> final
 {
-	static ADSR::Parameters fromVar (const var& v);
-	static var				toVar (const ADSR::Parameters& p);
+	[[nodiscard]] static ADSR::Parameters fromVar (const var& v);
+	[[nodiscard]] static var			  toVar (const ADSR::Parameters& p);
 
 private:
 
@@ -119,17 +119,17 @@ private:
 };
 
 template <>
-struct VariantConverter<AudioBuffer<float>>
+struct VariantConverter<AudioBuffer<float>> final
 {
-	static AudioBuffer<float> fromVar (const var& v);
-	static var				  toVar (const AudioBuffer<float>& b);
+	[[nodiscard]] static AudioBuffer<float> fromVar (const var& v);
+	[[nodiscard]] static var				toVar (const AudioBuffer<float>& b);
 };
 
 template <>
-struct VariantConverter<AudioBuffer<double>>
+struct VariantConverter<AudioBuffer<double>> final
 {
-	static AudioBuffer<double> fromVar (const var& v);
-	static var				   toVar (const AudioBuffer<double>& b);
+	[[nodiscard]] static AudioBuffer<double> fromVar (const var& v);
+	[[nodiscard]] static var				 toVar (const AudioBuffer<double>& b);
 };
 
 }  // namespace juce

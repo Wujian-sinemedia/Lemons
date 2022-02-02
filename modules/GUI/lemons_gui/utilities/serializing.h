@@ -123,17 +123,17 @@ namespace juce
 {
 
 template <>
-struct VariantConverter<Colour>
+struct VariantConverter<Colour> final
 {
-	static Colour fromVar (const var& v);
-	static var	  toVar (const Colour& c);
+	[[nodiscard]] static Colour fromVar (const var& v);
+	[[nodiscard]] static var	toVar (const Colour& c);
 };
 
 template <>
-struct VariantConverter<Font>
+struct VariantConverter<Font> final
 {
-	static Font fromVar (const var& v);
-	static var	toVar (const Font& f);
+	[[nodiscard]] static Font fromVar (const var& v);
+	[[nodiscard]] static var  toVar (const Font& f);
 
 private:
 
@@ -145,24 +145,119 @@ private:
 };
 
 template <>
-struct VariantConverter<Image>
+struct VariantConverter<Image> final
 {
-	static Image fromVar (const var& v);
-	static var	 toVar (const Image& i);
+	[[nodiscard]] static Image fromVar (const var& v);
+	[[nodiscard]] static var   toVar (const Image& i);
 };
 
 template <>
-struct VariantConverter<Justification>
+struct VariantConverter<Justification> final
 {
-	static Justification fromVar (const var& v);
-	static var			 toVar (const Justification& j);
+	[[nodiscard]] static Justification fromVar (const var& v);
+	[[nodiscard]] static var		   toVar (const Justification& j);
 };
 
 template <>
-struct VariantConverter<RectanglePlacement>
+struct VariantConverter<RectanglePlacement> final
 {
-	static RectanglePlacement fromVar (const var& v);
-	static var				  toVar (const RectanglePlacement& r);
+	[[nodiscard]] static RectanglePlacement fromVar (const var& v);
+	[[nodiscard]] static var				toVar (const RectanglePlacement& r);
 };
+
+#define LEMONS_CREATE_POINT_CONVERTER(Type)                          \
+	template <>                                                      \
+	struct VariantConverter<Point<Type>> final                       \
+	{                                                                \
+		using Converter = lemons::serializing::ArrayConverter<Type>; \
+		[[nodiscard]] static Point<Type> fromVar (const var& v)      \
+		{                                                            \
+			const auto arr = Converter::fromVar (v);                 \
+			return { arr[0], arr[1] };                               \
+		}                                                            \
+		[[nodiscard]] static var toVar (const Point<Type>& p)        \
+		{                                                            \
+			return Converter::toVar ({ p.x, p.y });                  \
+		}                                                            \
+	};
+
+LEMONS_CREATE_POINT_CONVERTER (int)
+LEMONS_CREATE_POINT_CONVERTER (float)
+LEMONS_CREATE_POINT_CONVERTER (double)
+
+#undef LEMONS_CREATE_POINT_CONVERTER
+
+
+#define LEMONS_CREATE_RECT_CONVERTER(Type)                                                 \
+	template <>                                                                            \
+	struct VariantConverter<Rectangle<Type>> final                                         \
+	{                                                                                      \
+		using Converter = lemons::serializing::ArrayConverter<Type>;                       \
+		[[nodiscard]] static Rectangle<Type> fromVar (const var& v)                        \
+		{                                                                                  \
+			const auto arr = Converter::fromVar (v);                                       \
+			return { arr[0], arr[1], arr[2], arr[3] };                                     \
+		}                                                                                  \
+		[[nodiscard]] static var toVar (const Rectangle<Type>& r)                          \
+		{                                                                                  \
+			return Converter::toVar ({ r.getX(), r.getY(), r.getWidth(), r.getHeight() }); \
+		}                                                                                  \
+	};
+
+LEMONS_CREATE_RECT_CONVERTER (int)
+LEMONS_CREATE_RECT_CONVERTER (float)
+LEMONS_CREATE_RECT_CONVERTER (double)
+
+#undef LEMONS_CREATE_RECT_CONVERTER
+
+
+#define LEMONS_CREATE_LINE_CONVERTER(Type)                                                        \
+	template <>                                                                                   \
+	struct VariantConverter<Line<Type>> final                                                     \
+	{                                                                                             \
+		using Converter = lemons::serializing::ArrayConverter<Type>;                              \
+		[[nodiscard]] static Line<Type> fromVar (const var& v)                                    \
+		{                                                                                         \
+			const auto arr = Converter::fromVar (v);                                              \
+			return { arr[0], arr[1], arr[2], arr[3] };                                            \
+		}                                                                                         \
+		[[nodiscard]] static var toVar (const Line<Type>& l)                                      \
+		{                                                                                         \
+			return Converter::toVar ({ l.getStartX(), l.getStartY(), l.getEndX(), l.getEndX() }); \
+		}                                                                                         \
+	};
+
+LEMONS_CREATE_LINE_CONVERTER (int)
+LEMONS_CREATE_LINE_CONVERTER (float)
+LEMONS_CREATE_LINE_CONVERTER (double)
+
+#undef LEMONS_CREATE_LINE_CONVERTER
+
+
+#define LEMONS_CREATE_PARALLELOGRAM_CONVERTER(Type)                                                                             \
+	template <>                                                                                                                 \
+	struct VariantConverter<Parallelogram<Type>> final                                                                          \
+	{                                                                                                                           \
+		using Converter = lemons::serializing::ArrayConverter<Type>;                                                            \
+		[[nodiscard]] static Parallelogram<Type> fromVar (const var& v)                                                         \
+		{                                                                                                                       \
+			const auto arr = Converter::fromVar (v);                                                                            \
+			return {                                                                                                            \
+				{arr[0],  arr[1]},                                                                                             \
+				{ arr[2], arr[3]},                                                                                             \
+				{ arr[4], arr[5]}                                                                                              \
+			};                                                                                                                  \
+		}                                                                                                                       \
+		[[nodiscard]] static var toVar (const Parallelogram<Type>& p)                                                           \
+		{                                                                                                                       \
+			return Converter::toVar ({ p.topLeft.x, p.topLeft.y, p.topRight.x, p.topRight.y, p.bottomLeft.x, p.bottomLeft.y }); \
+		}                                                                                                                       \
+	};
+
+LEMONS_CREATE_PARALLELOGRAM_CONVERTER (int)
+LEMONS_CREATE_PARALLELOGRAM_CONVERTER (float)
+LEMONS_CREATE_PARALLELOGRAM_CONVERTER (double)
+
+#undef LEMONS_CREATE_PARALLELOGRAM_CONVERTER
 
 }  // namespace juce

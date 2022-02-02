@@ -128,24 +128,24 @@ namespace juce
 {
 
 template <>
-struct VariantConverter<MidiBuffer>
+struct VariantConverter<MidiBuffer> final
 {
-	static MidiBuffer fromVar (const var& v);
-	static var		  toVar (const MidiBuffer& b);
+	[[nodiscard]] static MidiBuffer fromVar (const var& v);
+	[[nodiscard]] static var		toVar (const MidiBuffer& b);
 };
 
 template <>
-struct VariantConverter<MidiFile>
+struct VariantConverter<MidiFile> final
 {
-	static MidiFile fromVar (const var& v);
-	static var		toVar (const MidiFile& f);
+	[[nodiscard]] static MidiFile fromVar (const var& v);
+	[[nodiscard]] static var	  toVar (const MidiFile& f);
 };
 
 template <>
-struct VariantConverter<MidiMessage>
+struct VariantConverter<MidiMessage> final
 {
-	static MidiMessage fromVar (const var& v);
-	static var		   toVar (const MidiMessage& m);
+	[[nodiscard]] static MidiMessage fromVar (const var& v);
+	[[nodiscard]] static var		 toVar (const MidiMessage& m);
 
 private:
 

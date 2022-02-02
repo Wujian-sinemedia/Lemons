@@ -21,38 +21,38 @@ namespace juce
 {
 
 template <>
-struct VariantConverter<OSCAddressPattern>
+struct VariantConverter<OSCAddressPattern> final
 {
-	static OSCAddressPattern fromVar (const var& v);
-	static var				 toVar (const OSCAddressPattern& p);
+	[[nodiscard]] static OSCAddressPattern fromVar (const var& v);
+	[[nodiscard]] static var			   toVar (const OSCAddressPattern& p);
 };
 
 template <>
-struct VariantConverter<OSCAddress>
+struct VariantConverter<OSCAddress> final
 {
-	static OSCAddress fromVar (const var& v);
-	static var		  toVar (const OSCAddress& p);
+	[[nodiscard]] static OSCAddress fromVar (const var& v);
+	[[nodiscard]] static var		toVar (const OSCAddress& p);
 };
 
 template <>
-struct VariantConverter<OSCColour>
+struct VariantConverter<OSCColour> final
 {
-	static OSCColour fromVar (const var& v);
-	static var		 toVar (const OSCColour& c);
+	[[nodiscard]] static OSCColour fromVar (const var& v);
+	[[nodiscard]] static var	   toVar (const OSCColour& c);
 };
 
 template <>
-struct VariantConverter<OSCTimeTag>
+struct VariantConverter<OSCTimeTag> final
 {
-	static OSCTimeTag fromVar (const var& v);
-	static var		  toVar (const OSCTimeTag& t);
+	[[nodiscard]] static OSCTimeTag fromVar (const var& v);
+	[[nodiscard]] static var		toVar (const OSCTimeTag& t);
 };
 
 template <>
-struct VariantConverter<OSCArgument>
+struct VariantConverter<OSCArgument> final
 {
-	static OSCArgument fromVar (const var& v);
-	static var		   toVar (const OSCArgument& a);
+	[[nodiscard]] static OSCArgument fromVar (const var& v);
+	[[nodiscard]] static var		 toVar (const OSCArgument& a);
 
 private:
 

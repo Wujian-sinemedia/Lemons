@@ -60,6 +60,7 @@ modules/Audio/lemons_dsp/unit_tests/dsp_test.h benthevining
 modules/Audio/lemons_dsp/util/ValueSmoother.cpp benthevining
 modules/Audio/lemons_dsp/util/ValueSmoother.h benthevining
 modules/Audio/lemons_dsp/util/serializing.cpp benthevining
+modules/Audio/lemons_dsp/util/serializing.h benthevining
 modules/Audio/lemons_dsp/util/serializing_tests.cpp benthevining
 modules/Audio/lemons_midi/lemons_midi.cpp benthevining
 modules/Audio/lemons_midi/processors/MidiChoppingProcessor.cpp benthevining
