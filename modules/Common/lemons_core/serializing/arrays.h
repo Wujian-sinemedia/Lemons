@@ -15,49 +15,42 @@
 
 #pragma once
 
-#include <juce_osc/juce_osc.h>
-
-namespace juce
+namespace lemons::serializing
 {
 
-template <>
-struct VariantConverter<OSCAddressPattern>
+template <typename ElementType>
+struct ArrayConverter
 {
-	static OSCAddressPattern fromVar (const var& v);
-	static var				 toVar (const OSCAddressPattern& p);
+	static juce::Array<ElementType> fromVar (const juce::var& v)
+	{
+		if (const auto* arr = v.getArray())
+		{
+			juce::Array<ElementType> array;
+
+			array.ensureStorageAllocated (arr->size());
+
+			for (const auto& element : *arr)
+				array.add (juce::VariantConverter<ElementType>::fromVar (element));
+
+			return array;
+		}
+
+		jassertfalse;
+
+		return {};
+	}
+
+	static juce::var toVar (const juce::Array<ElementType>& a)
+	{
+		juce::Array<juce::var> array;
+
+		array.ensureStorageAllocated (a.size());
+
+		for (const auto& element : a)
+			array.add (juce::VariantConverter<ElementType>::toVar (element));
+
+		return { array };
+	}
 };
 
-template <>
-struct VariantConverter<OSCAddress>
-{
-	static OSCAddress fromVar (const var& v);
-	static var		  toVar (const OSCAddress& p);
-};
-
-template <>
-struct VariantConverter<OSCColour>
-{
-	static OSCColour fromVar (const var& v);
-	static var		 toVar (const OSCColour& c);
-};
-
-template <>
-struct VariantConverter<OSCTimeTag>
-{
-	static OSCTimeTag fromVar (const var& v);
-	static var		  toVar (const OSCTimeTag& t);
-};
-
-template <>
-struct VariantConverter<OSCArgument>
-{
-	static OSCArgument fromVar (const var& v);
-	static var		   toVar (const OSCArgument& a);
-
-private:
-
-	static constexpr auto CONTENT_PROP = "content";
-	static constexpr auto TYPE_PROP	   = "type";
-};
-
-}  // namespace juce
+}  // namespace lemons::serializing

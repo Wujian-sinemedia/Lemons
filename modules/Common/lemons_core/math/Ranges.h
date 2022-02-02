@@ -52,3 +52,28 @@ template <typename ValueType>
 [[nodiscard]] Range<ValueType> fromValueTree (const ValueTree& tree);
 
 }  // namespace lemons::ranges
+
+namespace juce
+{
+
+#define LEMONS_CREATE_NORM_RANGE_CONVERTER(Type)                                                   \
+	template <>                                                                                    \
+	struct VariantConverter<NormalisableRange<Type>>                                               \
+	{                                                                                              \
+		static NormalisableRange<Type> fromVar (const var& v)                                      \
+		{                                                                                          \
+			return lemons::ranges::fromValueTree<Type> (VariantConverter<ValueTree>::fromVar (v)); \
+		}                                                                                          \
+		static var toVar (const NormalisableRange<Type>& r)                                        \
+		{                                                                                          \
+			return VariantConverter<ValueTree>::toVar (lemons::ranges::toValueTree (r));           \
+		}                                                                                          \
+	};
+
+LEMONS_CREATE_NORM_RANGE_CONVERTER (float)
+LEMONS_CREATE_NORM_RANGE_CONVERTER (int)
+LEMONS_CREATE_NORM_RANGE_CONVERTER (double)
+
+#undef LEMONS_CREATE_NORM_RANGE_CONVERTER
+
+}  // namespace juce

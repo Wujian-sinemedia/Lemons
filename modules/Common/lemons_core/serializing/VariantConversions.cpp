@@ -83,8 +83,7 @@ var VariantConverter<Identifier>::toVar (const Identifier& i)
 
 IPAddress VariantConverter<IPAddress>::fromVar (const var& v)
 {
-	IPAddress a { v.toString() };
-	return a;
+	return IPAddress { v.toString() };
 }
 
 var VariantConverter<IPAddress>::toVar (const IPAddress& a)
@@ -94,8 +93,7 @@ var VariantConverter<IPAddress>::toVar (const IPAddress& a)
 
 MACAddress VariantConverter<MACAddress>::fromVar (const var& v)
 {
-	MACAddress a { v.toString() };
-	return a;
+	return MACAddress { v.toString() };
 }
 
 var VariantConverter<MACAddress>::toVar (const MACAddress& a)
@@ -155,6 +153,16 @@ var VariantConverter<RelativeTime>::toVar (const RelativeTime& t)
 	return { t.inMilliseconds() };
 }
 
+Random VariantConverter<Random>::fromVar (const var& v)
+{
+	return Random { (int64) v };  // NOLINT
+}
+
+var VariantConverter<Random>::toVar (const Random& r)
+{
+	return { r.getSeed() };
+}
+
 StringArray VariantConverter<StringArray>::fromVar (const var& v)
 {
 	StringArray arr;
@@ -207,8 +215,7 @@ var VariantConverter<StringPairArray>::toVar (const StringPairArray& a)
 
 Time VariantConverter<Time>::fromVar (const var& v)
 {
-	Time t { (int64) v };  // NOLINT
-	return t;
+	return Time { (int64) v };	// NOLINT
 }
 
 var VariantConverter<Time>::toVar (const Time& t)
@@ -244,6 +251,18 @@ XmlElement VariantConverter<XmlElement>::fromVar (const var& v)
 var VariantConverter<XmlElement>::toVar (const XmlElement& e)
 {
 	return { e.toString() };
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------*/
+
+std::string VariantConverter<std::string>::fromVar (const var& v)
+{
+	return v.toString().toStdString();
+}
+
+var VariantConverter<std::string>::toVar (const std::string& s)
+{
+	return { String (s) };
 }
 
 /*---------------------------------------------------------------------------------------------------------------------------------*/

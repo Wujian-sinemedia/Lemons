@@ -134,6 +134,14 @@ struct VariantConverter<Font>
 {
 	static Font fromVar (const var& v);
 	static var	toVar (const Font& f);
+
+private:
+
+	static constexpr auto NAME_PROP					= "Name";
+	static constexpr auto STYLE_FLAGS_PROP			= "Style_flags";
+	static constexpr auto HEIGHT_PROP				= "Height";
+	static constexpr auto HORIZONTAL_SCALE_PROP		= "Horizontal_scale";
+	static constexpr auto EXTRA_KERNING_FACTOR_PROP = "Extra_kerning_factor";
 };
 
 template <>
@@ -148,6 +156,13 @@ struct VariantConverter<Justification>
 {
 	static Justification fromVar (const var& v);
 	static var			 toVar (const Justification& j);
+};
+
+template <>
+struct VariantConverter<RectanglePlacement>
+{
+	static RectanglePlacement fromVar (const var& v);
+	static var				  toVar (const RectanglePlacement& r);
 };
 
 }  // namespace juce

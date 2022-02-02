@@ -90,6 +90,13 @@ struct VariantConverter<PropertySet>
 };
 
 template <>
+struct VariantConverter<Random>
+{
+	static Random fromVar (const var& v);
+	static var	  toVar (const Random& r);
+};
+
+template <>
 struct VariantConverter<RelativeTime>
 {
 	static RelativeTime fromVar (const var& v);
@@ -142,6 +149,7 @@ private:
 	static constexpr auto NAME_PROP		= "_name";
 	static constexpr auto CHILDREN_PROP = "_children";
 	static constexpr auto BASE64_PROP	= "_base64:";
+	static constexpr auto ARRAY_PROP	= "_array:";
 };
 
 template <>
@@ -151,6 +159,14 @@ struct VariantConverter<XmlElement>
 	static var		  toVar (const XmlElement& e);
 };
 
+/*---------------------------------------------------------------------------------------------------------------------------------*/
+
+template <>
+struct VariantConverter<std::string>
+{
+	static std::string fromVar (const var& v);
+	static var		   toVar (const std::string& s);
+};
 
 /*---------------------------------------------------------------------------------------------------------------------------------*/
 

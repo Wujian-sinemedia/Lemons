@@ -184,32 +184,26 @@ var VariantConverter<Colour>::toVar (const Colour& c)
 	return { c.toString() };
 }
 
-static constexpr auto font_typeface_name_prop		 = "Typeface_name";
-static constexpr auto font_style_flags_prop			 = "Style_flags";
-static constexpr auto font_height_prop				 = "Height";
-static constexpr auto font_horizontal_scale_prop	 = "Horizontal_scale";
-static constexpr auto font_extra_kerning_factor_prop = "Extra_kerning_factor";
-
 Font VariantConverter<Font>::fromVar (const var& v)
 {
 	Font f;
 
 	if (const auto* obj = v.getDynamicObject())
 	{
-		if (obj->hasProperty (font_typeface_name_prop))
-			f.setTypefaceName (obj->getProperty (font_typeface_name_prop).toString());
+		if (obj->hasProperty (NAME_PROP))
+			f.setTypefaceName (obj->getProperty (NAME_PROP).toString());
 
-		if (obj->hasProperty (font_style_flags_prop))
-			f.setStyleFlags ((int) obj->getProperty (font_style_flags_prop));  // NOLINT
+		if (obj->hasProperty (STYLE_FLAGS_PROP))
+			f.setStyleFlags ((int) obj->getProperty (STYLE_FLAGS_PROP));  // NOLINT
 
-		if (obj->hasProperty (font_height_prop))
-			f.setHeight ((float) obj->getProperty (font_height_prop));	// NOLINT
+		if (obj->hasProperty (HEIGHT_PROP))
+			f.setHeight ((float) obj->getProperty (HEIGHT_PROP));  // NOLINT
 
-		if (obj->hasProperty (font_horizontal_scale_prop))
-			f.setHorizontalScale ((float) obj->getProperty (font_horizontal_scale_prop));  // NOLINT
+		if (obj->hasProperty (HORIZONTAL_SCALE_PROP))
+			f.setHorizontalScale ((float) obj->getProperty (HORIZONTAL_SCALE_PROP));  // NOLINT
 
-		if (obj->hasProperty (font_extra_kerning_factor_prop))
-			f.setExtraKerningFactor ((float) obj->getProperty (font_extra_kerning_factor_prop));  // NOLINT
+		if (obj->hasProperty (EXTRA_KERNING_FACTOR_PROP))
+			f.setExtraKerningFactor ((float) obj->getProperty (EXTRA_KERNING_FACTOR_PROP));	 // NOLINT
 	}
 
 	return f;
@@ -219,11 +213,11 @@ var VariantConverter<Font>::toVar (const Font& f)
 {
 	DynamicObject obj;
 
-	obj.setProperty (font_typeface_name_prop, f.getTypefaceName());
-	obj.setProperty (font_style_flags_prop, f.getStyleFlags());
-	obj.setProperty (font_height_prop, f.getHeight());
-	obj.setProperty (font_horizontal_scale_prop, f.getHorizontalScale());
-	obj.setProperty (font_extra_kerning_factor_prop, f.getExtraKerningFactor());
+	obj.setProperty (NAME_PROP, f.getTypefaceName());
+	obj.setProperty (STYLE_FLAGS_PROP, f.getStyleFlags());
+	obj.setProperty (HEIGHT_PROP, f.getHeight());
+	obj.setProperty (HORIZONTAL_SCALE_PROP, f.getHorizontalScale());
+	obj.setProperty (EXTRA_KERNING_FACTOR_PROP, f.getExtraKerningFactor());
 
 	return { obj.clone().get() };
 }
@@ -246,6 +240,16 @@ Justification VariantConverter<Justification>::fromVar (const var& v)
 var VariantConverter<Justification>::toVar (const Justification& j)
 {
 	return { j.getFlags() };
+}
+
+RectanglePlacement VariantConverter<RectanglePlacement>::fromVar (const var& v)
+{
+	return { (int) v };	 // NOLINT
+}
+
+var VariantConverter<RectanglePlacement>::toVar (const RectanglePlacement& r)
+{
+	return { r.getFlags() };
 }
 
 }  // namespace juce

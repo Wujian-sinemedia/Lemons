@@ -83,6 +83,7 @@
 #include "binary_data/translations.h"
 
 #include "serializing/serializing.h"
+#include "serializing/arrays.h"
 #include "serializing/VariantConversions.h"
 
 #include "localization/languages.h"
