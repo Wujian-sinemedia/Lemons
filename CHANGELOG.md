@@ -1,5 +1,12 @@
 # Lemons changelog
 
+## [1.5.0](http://github.com/benthevining/Lemons/compare/v1.4.0...v1.5.0) (2022-02-02)
+
+
+### Features
+
+* implemented an audio file cache ([e2812bf](http://github.com/benthevining/Lemons/commit/e2812bf709498ad53cae013d008773608f826e22))
+
 ## [1.4.0](http://github.com/benthevining/Lemons/compare/v1.3.0...v1.4.0) (2022-02-01)
 
 
