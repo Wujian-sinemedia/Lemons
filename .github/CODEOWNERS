@@ -32,6 +32,7 @@ modules/Audio/lemons_audio_effects/panning/MonoToStereoPanner.cpp benthevining
 modules/Audio/lemons_audio_effects/panning/StereoPanner.cpp benthevining
 modules/Audio/lemons_audio_effects/time/Delay.h benthevining
 modules/Audio/lemons_dsp/audio_files/AudioFile.cpp benthevining
+modules/Audio/lemons_dsp/engines/AudioEngine.cpp benthevining
 modules/Audio/lemons_dsp/engines/AudioEngine.h benthevining
 modules/Audio/lemons_dsp/engines/AudioEngine_tests.cpp benthevining
 modules/Audio/lemons_dsp/engines/DspProtection.h benthevining
@@ -62,6 +63,7 @@ modules/Audio/lemons_dsp/sample_streams/WhiteNoiseGenerator.h benthevining
 modules/Audio/lemons_dsp/unit_tests/dsp_test.cpp benthevining
 modules/Audio/lemons_dsp/unit_tests/dsp_test.h benthevining
 modules/Audio/lemons_dsp/util/AudioFormats.cpp benthevining
+modules/Audio/lemons_dsp/util/MonoStereoConverter_tests.cpp benthevining
 modules/Audio/lemons_dsp/util/ValueSmoother.cpp benthevining
 modules/Audio/lemons_dsp/util/ValueSmoother.h benthevining
 modules/Audio/lemons_dsp/util/serializing.cpp benthevining
@@ -134,6 +136,7 @@ modules/GUI/lemons_gui/components/popups/VersionBumpPrompt.h benthevining
 modules/GUI/lemons_gui/device/DeviceRotation.h benthevining
 modules/GUI/lemons_gui/device/autolock/AutoLock.cpp benthevining
 modules/GUI/lemons_gui/device/autolock/AutoLock.h benthevining
+modules/GUI/lemons_gui/device/gps/GPS.cpp benthevining
 modules/GUI/lemons_gui/device/gps/GPS_apple.mm benthevining
 modules/GUI/lemons_gui/device/gps/GPS_windows.cpp benthevining
 modules/GUI/lemons_gui/device/motion/DeviceMotion_android.cpp benthevining
@@ -155,6 +158,7 @@ modules/Plugins/lemons_plugin/metadata/EditorAttributes.h benthevining
 modules/Plugins/lemons_plugin/metadata/ParameterTraits.cpp benthevining
 modules/Plugins/lemons_plugin/metadata/ParameterTraits.h benthevining
 modules/Plugins/lemons_plugin/metadata/PluginMetadata.cpp benthevining
+modules/Plugins/lemons_plugin/parameters/ModulationManager/ModulationManager.cpp benthevining
 modules/Plugins/lemons_plugin/parameters/Parameter.cpp benthevining
 modules/Plugins/lemons_plugin/parameters/Parameter.h benthevining
 modules/Plugins/lemons_plugin/parameters/parameter_tests.cpp benthevining

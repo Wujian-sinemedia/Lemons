@@ -18,6 +18,9 @@
 namespace lemons::osc
 {
 
-[[nodiscard]] bool isValidPort (int port);
-
+[[nodiscard]] constexpr bool isValidPort (int port)
+{
+	return port > 0 && port < 65536;
 }
+
+}  // namespace lemons::osc
