@@ -131,6 +131,7 @@ modules/GUI/lemons_gui/app/DefaultWindow.cpp benthevining
 modules/GUI/lemons_gui/app/DefaultWindow.h benthevining
 modules/GUI/lemons_gui/components/Label.cpp benthevining
 modules/GUI/lemons_gui/components/popups/PopupComponent.cpp benthevining
+modules/GUI/lemons_gui/components/popups/PopupComponent.h benthevining
 modules/GUI/lemons_gui/components/popups/SaveToFilePrompt.cpp benthevining
 modules/GUI/lemons_gui/components/popups/VersionBumpPrompt.h benthevining
 modules/GUI/lemons_gui/device/DeviceRotation.h benthevining
