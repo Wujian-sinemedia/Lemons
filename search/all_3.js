@@ -39,5 +39,6 @@ var searchData=
   ['dsp_5ftest_2eh_36',['dsp_test.h',['../dsp__test_8h.html',1,'']]],
   ['dsp_5futils_2eh_37',['dsp_utils.h',['../dsp__utils_8h.html',1,'']]],
   ['dspprotection_2eh_38',['DspProtection.h',['../_dsp_protection_8h.html',1,'']]],
-  ['dsptest_39',['DspTest',['../structlemons_1_1tests_1_1_dsp_test.html#a047ba8d4fa52f504feceebef695bf198',1,'lemons::tests::DspTest::DspTest()'],['../structlemons_1_1tests_1_1_all_oscillators_test.html#a047ba8d4fa52f504feceebef695bf198',1,'lemons::tests::AllOscillatorsTest::DspTest()'],['../structlemons_1_1tests_1_1_dsp_test.html',1,'lemons::tests::DspTest']]]
+  ['dsptest_39',['DspTest',['../structlemons_1_1tests_1_1_dsp_test.html#a047ba8d4fa52f504feceebef695bf198',1,'lemons::tests::DspTest::DspTest()'],['../structlemons_1_1tests_1_1_all_oscillators_test.html#a047ba8d4fa52f504feceebef695bf198',1,'lemons::tests::AllOscillatorsTest::DspTest()'],['../structlemons_1_1tests_1_1_dsp_test.html',1,'lemons::tests::DspTest']]],
+  ['duplicateifshared_40',['duplicateIfShared',['../structlemons_1_1dsp_1_1_audio_file.html#a0890c9bbcfc9dc92eade60cf2bab4d4f',1,'lemons::dsp::AudioFile']]]
 ];

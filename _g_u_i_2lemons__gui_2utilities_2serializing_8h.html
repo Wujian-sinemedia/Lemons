@@ -71,6 +71,7 @@ $(function() {
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a> &#124;
+<a href="#define-members">Macros</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle"><div class="title">GUI/lemons_gui/utilities/serializing.h File Reference</div></div>
 </div><!--header-->
@@ -86,6 +87,8 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjuce_1_1_variant_converter_3_01_justification_01_4.html">juce::VariantConverter&lt; Justification &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjuce_1_1_variant_converter_3_01_rectangle_placement_01_4.html">juce::VariantConverter&lt; RectanglePlacement &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
 Namespaces</h2></td></tr>
@@ -99,6 +102,17 @@ Namespaces</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:namespacelemons_1_1serializing"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html">lemons::serializing</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:ae90598cb8e8f197f55e0c771ed25fdca"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_g_u_i_2lemons__gui_2utilities_2serializing_8h.html#ae90598cb8e8f197f55e0c771ed25fdca">LEMONS_CREATE_LINE_CONVERTER</a>(Type)</td></tr>
+<tr class="separator:ae90598cb8e8f197f55e0c771ed25fdca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4fa9a365e84382a969431b134b392945"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_g_u_i_2lemons__gui_2utilities_2serializing_8h.html#a4fa9a365e84382a969431b134b392945">LEMONS_CREATE_PARALLELOGRAM_CONVERTER</a>(Type)</td></tr>
+<tr class="separator:a4fa9a365e84382a969431b134b392945"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adff4be798a5fc66a836ce7f07e1847c4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_g_u_i_2lemons__gui_2utilities_2serializing_8h.html#adff4be798a5fc66a836ce7f07e1847c4">LEMONS_CREATE_POINT_CONVERTER</a>(Type)</td></tr>
+<tr class="separator:adff4be798a5fc66a836ce7f07e1847c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae322d29846e4932261e2c56635f06b9a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_g_u_i_2lemons__gui_2utilities_2serializing_8h.html#ae322d29846e4932261e2c56635f06b9a">LEMONS_CREATE_RECT_CONVERTER</a>(Type)</td></tr>
+<tr class="separator:ae322d29846e4932261e2c56635f06b9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
@@ -135,10 +149,144 @@ Functions</h2></td></tr>
 <tr class="memdesc:ga90c99721b94a9923e469d43f6f004bff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Saves an Image to a File.  <a href="group__lemons__files.html#ga90c99721b94a9923e469d43f6f004bff">More...</a><br /></td></tr>
 <tr class="separator:ga90c99721b94a9923e469d43f6f004bff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="ae90598cb8e8f197f55e0c771ed25fdca" name="ae90598cb8e8f197f55e0c771ed25fdca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae90598cb8e8f197f55e0c771ed25fdca">&#9670;&nbsp;</a></span>LEMONS_CREATE_LINE_CONVERTER</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LEMONS_CREATE_LINE_CONVERTER</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">Type</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">    <span class="keyword">template</span> &lt;&gt;                                                                                   \</div>
+<div class="line">    struct VariantConverter&lt;Line&lt;Type&gt;&gt; <span class="keyword">final</span>                                                     \</div>
+<div class="line">    {                                                                                             \</div>
+<div class="line">        using Converter = <a class="code hl_struct" href="structlemons_1_1serializing_1_1_array_converter.html">lemons::serializing::ArrayConverter&lt;Type&gt;</a>;                              \</div>
+<div class="line">        [[nodiscard]] <span class="keyword">static</span> Line&lt;Type&gt; fromVar (<span class="keyword">const</span> var&amp; v)                                    \</div>
+<div class="line">        {                                                                                         \</div>
+<div class="line">            const <span class="keyword">auto</span> arr = Converter::fromVar (v);                                              \</div>
+<div class="line">            return { arr[0], arr[1], arr[2], arr[3] };                                            \</div>
+<div class="line">        }                                                                                         \</div>
+<div class="line">        [[nodiscard]] <span class="keyword">static</span> var toVar (<span class="keyword">const</span> Line&lt;Type&gt;&amp; l)                                      \</div>
+<div class="line">        {                                                                                         \</div>
+<div class="line">            return Converter::toVar ({ l.getStartX(), l.getStartY(), l.getEndX(), l.getEndX() }); \</div>
+<div class="line">        }                                                                                         \</div>
+<div class="line">    };</div>
+<div class="ttc" id="astructlemons_1_1serializing_1_1_array_converter_html"><div class="ttname"><a href="structlemons_1_1serializing_1_1_array_converter.html">lemons::serializing::ArrayConverter</a></div><div class="ttdef"><b>Definition:</b> arrays.h:23</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a4fa9a365e84382a969431b134b392945" name="a4fa9a365e84382a969431b134b392945"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4fa9a365e84382a969431b134b392945">&#9670;&nbsp;</a></span>LEMONS_CREATE_PARALLELOGRAM_CONVERTER</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LEMONS_CREATE_PARALLELOGRAM_CONVERTER</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">Type</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">    <span class="keyword">template</span> &lt;&gt;                                                                                                                 \</div>
+<div class="line">    struct VariantConverter&lt;Parallelogram&lt;Type&gt;&gt; <span class="keyword">final</span>                                                                          \</div>
+<div class="line">    {                                                                                                                           \</div>
+<div class="line">        using Converter = <a class="code hl_struct" href="structlemons_1_1serializing_1_1_array_converter.html">lemons::serializing::ArrayConverter&lt;Type&gt;</a>;                                                            \</div>
+<div class="line">        [[nodiscard]] <span class="keyword">static</span> Parallelogram&lt;Type&gt; fromVar (<span class="keyword">const</span> var&amp; v)                                                         \</div>
+<div class="line">        {                                                                                                                       \</div>
+<div class="line">            const <span class="keyword">auto</span> arr = Converter::fromVar (v);                                                                            \</div>
+<div class="line">            return {                                                                                                            \</div>
+<div class="line">                {arr[0],  arr[1]},                                                                                             \</div>
+<div class="line">                { arr[2], arr[3]},                                                                                             \</div>
+<div class="line">                { arr[4], arr[5]}                                                                                              \</div>
+<div class="line">            };                                                                                                                  \</div>
+<div class="line">        }                                                                                                                       \</div>
+<div class="line">        [[nodiscard]] <span class="keyword">static</span> var toVar (<span class="keyword">const</span> Parallelogram&lt;Type&gt;&amp; p)                                                           \</div>
+<div class="line">        {                                                                                                                       \</div>
+<div class="line">            return Converter::toVar ({ p.topLeft.x, p.topLeft.y, p.topRight.x, p.topRight.y, p.bottomLeft.x, p.bottomLeft.y }); \</div>
+<div class="line">        }                                                                                                                       \</div>
+<div class="line">    };</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="adff4be798a5fc66a836ce7f07e1847c4" name="adff4be798a5fc66a836ce7f07e1847c4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adff4be798a5fc66a836ce7f07e1847c4">&#9670;&nbsp;</a></span>LEMONS_CREATE_POINT_CONVERTER</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LEMONS_CREATE_POINT_CONVERTER</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">Type</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">    <span class="keyword">template</span> &lt;&gt;                                                      \</div>
+<div class="line">    struct VariantConverter&lt;Point&lt;Type&gt;&gt; <span class="keyword">final</span>                       \</div>
+<div class="line">    {                                                                \</div>
+<div class="line">        using Converter = <a class="code hl_struct" href="structlemons_1_1serializing_1_1_array_converter.html">lemons::serializing::ArrayConverter&lt;Type&gt;</a>; \</div>
+<div class="line">        [[nodiscard]] <span class="keyword">static</span> Point&lt;Type&gt; fromVar (<span class="keyword">const</span> var&amp; v)      \</div>
+<div class="line">        {                                                            \</div>
+<div class="line">            const <span class="keyword">auto</span> arr = Converter::fromVar (v);                 \</div>
+<div class="line">            return { arr[0], arr[1] };                               \</div>
+<div class="line">        }                                                            \</div>
+<div class="line">        [[nodiscard]] <span class="keyword">static</span> var toVar (<span class="keyword">const</span> Point&lt;Type&gt;&amp; p)        \</div>
+<div class="line">        {                                                            \</div>
+<div class="line">            return Converter::toVar ({ p.x, p.y });                  \</div>
+<div class="line">        }                                                            \</div>
+<div class="line">    };</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="ae322d29846e4932261e2c56635f06b9a" name="ae322d29846e4932261e2c56635f06b9a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae322d29846e4932261e2c56635f06b9a">&#9670;&nbsp;</a></span>LEMONS_CREATE_RECT_CONVERTER</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LEMONS_CREATE_RECT_CONVERTER</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">Type</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">    <span class="keyword">template</span> &lt;&gt;                                                                            \</div>
+<div class="line">    struct VariantConverter&lt;Rectangle&lt;Type&gt;&gt; <span class="keyword">final</span>                                         \</div>
+<div class="line">    {                                                                                      \</div>
+<div class="line">        using Converter = <a class="code hl_struct" href="structlemons_1_1serializing_1_1_array_converter.html">lemons::serializing::ArrayConverter&lt;Type&gt;</a>;                       \</div>
+<div class="line">        [[nodiscard]] <span class="keyword">static</span> Rectangle&lt;Type&gt; fromVar (<span class="keyword">const</span> var&amp; v)                        \</div>
+<div class="line">        {                                                                                  \</div>
+<div class="line">            const <span class="keyword">auto</span> arr = Converter::fromVar (v);                                       \</div>
+<div class="line">            return { arr[0], arr[1], arr[2], arr[3] };                                     \</div>
+<div class="line">        }                                                                                  \</div>
+<div class="line">        [[nodiscard]] <span class="keyword">static</span> var toVar (<span class="keyword">const</span> Rectangle&lt;Type&gt;&amp; r)                          \</div>
+<div class="line">        {                                                                                  \</div>
+<div class="line">            return Converter::toVar ({ r.getX(), r.getY(), r.getWidth(), r.getHeight() }); \</div>
+<div class="line">        }                                                                                  \</div>
+<div class="line">    };</div>
+</div><!-- fragment -->
+</div>
+</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Feb 2 2022 00:47:17 for Lemons by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3
+Generated on Thu Feb 3 2022 00:47:05 for Lemons by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3
 </small></address>
 </body>
 </html>

@@ -191,6 +191,14 @@
     </member>
   </compound>
   <compound kind="file">
+    <name>AudioFileCache.h</name>
+    <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/Audio/lemons_dsp/audio_files/</path>
+    <filename>_audio_file_cache_8h.html</filename>
+    <class kind="class">lemons::dsp::AudioFileCache</class>
+    <namespace>lemons</namespace>
+    <namespace>lemons::dsp</namespace>
+  </compound>
+  <compound kind="file">
     <name>AudioFilePlayer.h</name>
     <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/Audio/lemons_dsp/audio_files/</path>
     <filename>_audio_file_player_8h.html</filename>
@@ -350,6 +358,7 @@
     <includes id="_buffer_utils_8h" name="BufferUtils.h" local="yes" imported="no">util/BufferUtils.h</includes>
     <includes id="_mono_stereo_converter_8h" name="MonoStereoConverter.h" local="yes" imported="no">util/MonoStereoConverter.h</includes>
     <includes id="_audio_file_8h" name="AudioFile.h" local="yes" imported="no">audio_files/AudioFile.h</includes>
+    <includes id="_audio_file_cache_8h" name="AudioFileCache.h" local="yes" imported="no">audio_files/AudioFileCache.h</includes>
     <includes id="_audio_file_player_8h" name="AudioFilePlayer.h" local="yes" imported="no">audio_files/AudioFilePlayer.h</includes>
     <member kind="define">
       <type>#define</type>
@@ -1211,6 +1220,7 @@
     <includes id="data_8h" name="data.h" local="yes" imported="no">binary_data/data.h</includes>
     <includes id="translations_8h" name="translations.h" local="yes" imported="no">binary_data/translations.h</includes>
     <includes id="_common_2lemons__core_2serializing_2serializing_8h" name="Common/lemons_core/serializing/serializing.h" local="yes" imported="no">serializing/serializing.h</includes>
+    <includes id="arrays_8h" name="arrays.h" local="yes" imported="no">serializing/arrays.h</includes>
     <includes id="_variant_conversions_8h" name="VariantConversions.h" local="yes" imported="no">serializing/VariantConversions.h</includes>
     <includes id="languages_8h" name="languages.h" local="yes" imported="no">localization/languages.h</includes>
     <includes id="_translation_files_8h" name="TranslationFiles.h" local="yes" imported="no">localization/TranslationFiles.h</includes>
@@ -1390,8 +1400,23 @@
     <name>Ranges.h</name>
     <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/Common/lemons_core/math/</path>
     <filename>_ranges_8h.html</filename>
+    <namespace>juce</namespace>
     <namespace>lemons</namespace>
     <namespace>lemons::ranges</namespace>
+    <member kind="define">
+      <type>#define</type>
+      <name>LEMONS_CREATE_NORM_RANGE_CONVERTER</name>
+      <anchorfile>_ranges_8h.html</anchorfile>
+      <anchor>a3995eca2c6212bfa5e57918025859ed1</anchor>
+      <arglist>(Type)</arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>LEMONS_CREATE_RANGE_CONVERTER</name>
+      <anchorfile>_ranges_8h.html</anchorfile>
+      <anchor>afe8fccf2d150d2a6c9a7c7a50cb080d8</anchor>
+      <arglist>(Type)</arglist>
+    </member>
     <member kind="typedef">
       <type>Range&lt; float &gt;</type>
       <name>ParameterRange</name>
@@ -1587,6 +1612,17 @@
     </member>
   </compound>
   <compound kind="file">
+    <name>arrays.h</name>
+    <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/Common/lemons_core/serializing/</path>
+    <filename>arrays_8h.html</filename>
+    <class kind="struct">lemons::serializing::ArrayConverter</class>
+    <class kind="struct">lemons::serializing::OwnedArrayConverter</class>
+    <class kind="struct">lemons::serializing::StdArrayConverter</class>
+    <class kind="struct">lemons::serializing::VectorConverter</class>
+    <namespace>lemons</namespace>
+    <namespace>lemons::serializing</namespace>
+  </compound>
+  <compound kind="file">
     <name>VariantConversions.h</name>
     <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/Common/lemons_core/serializing/</path>
     <filename>_variant_conversions_8h.html</filename>
@@ -1601,7 +1637,9 @@
     <class kind="struct">juce::VariantConverter&lt; MemoryBlock &gt;</class>
     <class kind="struct">juce::VariantConverter&lt; NamedValueSet &gt;</class>
     <class kind="struct">juce::VariantConverter&lt; PropertySet &gt;</class>
+    <class kind="struct">juce::VariantConverter&lt; Random &gt;</class>
     <class kind="struct">juce::VariantConverter&lt; RelativeTime &gt;</class>
+    <class kind="struct">juce::VariantConverter&lt; std::string &gt;</class>
     <class kind="struct">juce::VariantConverter&lt; StringArray &gt;</class>
     <class kind="struct">juce::VariantConverter&lt; StringPairArray &gt;</class>
     <class kind="struct">juce::VariantConverter&lt; Time &gt;</class>
@@ -1975,6 +2013,7 @@
     <class kind="struct">juce::VariantConverter&lt; OSCAddressPattern &gt;</class>
     <class kind="struct">juce::VariantConverter&lt; OSCArgument &gt;</class>
     <class kind="struct">juce::VariantConverter&lt; OSCColour &gt;</class>
+    <class kind="struct">juce::VariantConverter&lt; OSCTimeTag &gt;</class>
     <namespace>juce</namespace>
   </compound>
   <compound kind="file">
@@ -1986,11 +2025,40 @@
     <class kind="struct">juce::VariantConverter&lt; Font &gt;</class>
     <class kind="struct">juce::VariantConverter&lt; Image &gt;</class>
     <class kind="struct">juce::VariantConverter&lt; Justification &gt;</class>
+    <class kind="struct">juce::VariantConverter&lt; RectanglePlacement &gt;</class>
     <namespace>juce</namespace>
     <namespace>lemons</namespace>
     <namespace>lemons::binary</namespace>
     <namespace>lemons::files</namespace>
     <namespace>lemons::serializing</namespace>
+    <member kind="define">
+      <type>#define</type>
+      <name>LEMONS_CREATE_LINE_CONVERTER</name>
+      <anchorfile>_g_u_i_2lemons__gui_2utilities_2serializing_8h.html</anchorfile>
+      <anchor>ae90598cb8e8f197f55e0c771ed25fdca</anchor>
+      <arglist>(Type)</arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>LEMONS_CREATE_PARALLELOGRAM_CONVERTER</name>
+      <anchorfile>_g_u_i_2lemons__gui_2utilities_2serializing_8h.html</anchorfile>
+      <anchor>a4fa9a365e84382a969431b134b392945</anchor>
+      <arglist>(Type)</arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>LEMONS_CREATE_POINT_CONVERTER</name>
+      <anchorfile>_g_u_i_2lemons__gui_2utilities_2serializing_8h.html</anchorfile>
+      <anchor>adff4be798a5fc66a836ce7f07e1847c4</anchor>
+      <arglist>(Type)</arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>LEMONS_CREATE_RECT_CONVERTER</name>
+      <anchorfile>_g_u_i_2lemons__gui_2utilities_2serializing_8h.html</anchorfile>
+      <anchor>ae322d29846e4932261e2c56635f06b9a</anchor>
+      <arglist>(Type)</arglist>
+    </member>
     <member kind="function">
       <type>std::unique_ptr&lt; juce::CustomTypeface &gt;</type>
       <name>fontFromBinary</name>
@@ -3220,6 +3288,25 @@
       <arglist>() const</arglist>
     </member>
   </compound>
+  <compound kind="struct">
+    <name>lemons::serializing::ArrayConverter</name>
+    <filename>structlemons_1_1serializing_1_1_array_converter.html</filename>
+    <templarg>typename ElementType</templarg>
+    <member kind="function" static="yes">
+      <type>static juce::Array&lt; ElementType &gt;</type>
+      <name>fromVar</name>
+      <anchorfile>structlemons_1_1serializing_1_1_array_converter.html</anchorfile>
+      <anchor>a12aa68d580efe0ce44351619eb47928b</anchor>
+      <arglist>(const juce::var &amp;v)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static juce::var</type>
+      <name>toVar</name>
+      <anchorfile>structlemons_1_1serializing_1_1_array_converter.html</anchorfile>
+      <anchor>a26fdb93f47c7e4d911bd642a1a1c725f</anchor>
+      <arglist>(const juce::Array&lt; ElementType &gt; &amp;a)</arglist>
+    </member>
+  </compound>
   <compound kind="class">
     <name>lemons::dsp::AudioAndMidiFIFO</name>
     <filename>classlemons_1_1dsp_1_1_audio_and_midi_f_i_f_o.html</filename>
@@ -3361,6 +3448,27 @@
       <type></type>
       <name>AudioFile</name>
       <anchorfile>structlemons_1_1dsp_1_1_audio_file.html</anchorfile>
+      <anchor>a4ebb02225b8c234bef283dc5ce1838b7</anchor>
+      <arglist>()=default</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>AudioFile</name>
+      <anchorfile>structlemons_1_1dsp_1_1_audio_file.html</anchorfile>
+      <anchor>a5f2ced1537ec8b9c35ad5d0328ab527c</anchor>
+      <arglist>(AudioFile &amp;&amp;other) noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>AudioFile</name>
+      <anchorfile>structlemons_1_1dsp_1_1_audio_file.html</anchorfile>
+      <anchor>ad4a151746094eeecd305810ed89e1da9</anchor>
+      <arglist>(const AudioFile &amp;other) noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>AudioFile</name>
+      <anchorfile>structlemons_1_1dsp_1_1_audio_file.html</anchorfile>
       <anchor>a9726d251d2362a5c4d20373b0e0398bf</anchor>
       <arglist>(const File &amp;audioFile)</arglist>
     </member>
@@ -3370,6 +3478,13 @@
       <anchorfile>structlemons_1_1dsp_1_1_audio_file.html</anchorfile>
       <anchor>a2ac74d48c763f5e95820ea6b70f2557e</anchor>
       <arglist>(std::unique_ptr&lt; juce::InputStream &gt; audioStream)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>duplicateIfShared</name>
+      <anchorfile>structlemons_1_1dsp_1_1_audio_file.html</anchorfile>
+      <anchor>a0890c9bbcfc9dc92eade60cf2bab4d4f</anchor>
+      <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
@@ -3442,6 +3557,13 @@
       <arglist>() const noexcept</arglist>
     </member>
     <member kind="function">
+      <type>int</type>
+      <name>getReferenceCount</name>
+      <anchorfile>structlemons_1_1dsp_1_1_audio_file.html</anchorfile>
+      <anchor>ad29d95f910b9082ff669efb1e587aa27</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="function">
       <type>double</type>
       <name>getSamplerate</name>
       <anchorfile>structlemons_1_1dsp_1_1_audio_file.html</anchorfile>
@@ -3454,6 +3576,38 @@
       <anchorfile>structlemons_1_1dsp_1_1_audio_file.html</anchorfile>
       <anchor>a0271747b986c358e9f4f31797c04aa89</anchor>
       <arglist>() const noexcept</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>lemons::dsp::AudioFileCache</name>
+    <filename>classlemons_1_1dsp_1_1_audio_file_cache.html</filename>
+    <member kind="function" static="yes">
+      <type>static AudioFile</type>
+      <name>getFromFile</name>
+      <anchorfile>classlemons_1_1dsp_1_1_audio_file_cache.html</anchorfile>
+      <anchor>adfc61a4fc69d2a225c9e620f9c793313</anchor>
+      <arglist>(const File &amp;file)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static AudioFile</type>
+      <name>getFromMemory</name>
+      <anchorfile>classlemons_1_1dsp_1_1_audio_file_cache.html</anchorfile>
+      <anchor>a4b7fec077662ae58067f87dcdfba4edd</anchor>
+      <arglist>(const void *data, int dataSize)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static void</type>
+      <name>releaseUnusedFiles</name>
+      <anchorfile>classlemons_1_1dsp_1_1_audio_file_cache.html</anchorfile>
+      <anchor>ae4ecda1dc1d430a4c787f44f57844b12</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static void</type>
+      <name>setCacheTimeout</name>
+      <anchorfile>classlemons_1_1dsp_1_1_audio_file_cache.html</anchorfile>
+      <anchor>acf5f27bc7751d8dcb08c03b16e8d743c</anchor>
+      <arglist>(int ms)</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -15418,6 +15572,25 @@
       <arglist>(bool shouldGlide)</arglist>
     </member>
   </compound>
+  <compound kind="struct">
+    <name>lemons::serializing::OwnedArrayConverter</name>
+    <filename>structlemons_1_1serializing_1_1_owned_array_converter.html</filename>
+    <templarg>typename ElementType</templarg>
+    <member kind="function" static="yes">
+      <type>static void</type>
+      <name>fromVar</name>
+      <anchorfile>structlemons_1_1serializing_1_1_owned_array_converter.html</anchorfile>
+      <anchor>a614f005bbf84e2d60180ad5100fc21d6</anchor>
+      <arglist>(const juce::var &amp;v, juce::OwnedArray&lt; ElementType &gt; &amp;a)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static juce::var</type>
+      <name>toVar</name>
+      <anchorfile>structlemons_1_1serializing_1_1_owned_array_converter.html</anchorfile>
+      <anchor>af61ba5b12c400f8f9a96540a29935292</anchor>
+      <arglist>(const juce::OwnedArray&lt; ElementType &gt; &amp;a)</arglist>
+    </member>
+  </compound>
   <compound kind="class">
     <name>lemons::dsp::FX::PannerBase</name>
     <filename>classlemons_1_1dsp_1_1_f_x_1_1_panner_base.html</filename>
@@ -20523,6 +20696,26 @@
       <arglist>(bool shouldBeVertical)</arglist>
     </member>
   </compound>
+  <compound kind="struct">
+    <name>lemons::serializing::StdArrayConverter</name>
+    <filename>structlemons_1_1serializing_1_1_std_array_converter.html</filename>
+    <templarg>typename ElementType</templarg>
+    <templarg>size_t NumElements</templarg>
+    <member kind="function" static="yes">
+      <type>static std::array&lt; ElementType, NumElements &gt;</type>
+      <name>fromVar</name>
+      <anchorfile>structlemons_1_1serializing_1_1_std_array_converter.html</anchorfile>
+      <anchor>ae08e18c6aac18a2242a84df35bcc816b</anchor>
+      <arglist>(const juce::var &amp;v)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static juce::var</type>
+      <name>toVar</name>
+      <anchorfile>structlemons_1_1serializing_1_1_std_array_converter.html</anchorfile>
+      <anchor>a5b792e71ef07dc40cc9888b3032b0348</anchor>
+      <arglist>(const std::array&lt; ElementType, NumElements &gt; &amp;a)</arglist>
+    </member>
+  </compound>
   <compound kind="class">
     <name>lemons::dsp::FX::StereoPanner</name>
     <filename>classlemons_1_1dsp_1_1_f_x_1_1_stereo_panner.html</filename>
@@ -24183,6 +24376,24 @@
     </member>
   </compound>
   <compound kind="struct">
+    <name>juce::VariantConverter&lt; OSCTimeTag &gt;</name>
+    <filename>structjuce_1_1_variant_converter_3_01_o_s_c_time_tag_01_4.html</filename>
+    <member kind="function" static="yes">
+      <type>static OSCTimeTag</type>
+      <name>fromVar</name>
+      <anchorfile>structjuce_1_1_variant_converter_3_01_o_s_c_time_tag_01_4.html</anchorfile>
+      <anchor>a6dddaa539023a714517e994622fdb616</anchor>
+      <arglist>(const var &amp;v)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static var</type>
+      <name>toVar</name>
+      <anchorfile>structjuce_1_1_variant_converter_3_01_o_s_c_time_tag_01_4.html</anchorfile>
+      <anchor>a68411ccbb42ad5ac6fe5495690763260</anchor>
+      <arglist>(const OSCTimeTag &amp;t)</arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
     <name>juce::VariantConverter&lt; PluginDescription &gt;</name>
     <filename>structjuce_1_1_variant_converter_3_01_plugin_description_01_4.html</filename>
     <member kind="function" static="yes">
@@ -24219,6 +24430,42 @@
     </member>
   </compound>
   <compound kind="struct">
+    <name>juce::VariantConverter&lt; Random &gt;</name>
+    <filename>structjuce_1_1_variant_converter_3_01_random_01_4.html</filename>
+    <member kind="function" static="yes">
+      <type>static Random</type>
+      <name>fromVar</name>
+      <anchorfile>structjuce_1_1_variant_converter_3_01_random_01_4.html</anchorfile>
+      <anchor>afd7b61866af71c27ad4229c15b5d430a</anchor>
+      <arglist>(const var &amp;v)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static var</type>
+      <name>toVar</name>
+      <anchorfile>structjuce_1_1_variant_converter_3_01_random_01_4.html</anchorfile>
+      <anchor>acdfcf571302cf56fd4e9660461ebd4bf</anchor>
+      <arglist>(const Random &amp;r)</arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>juce::VariantConverter&lt; RectanglePlacement &gt;</name>
+    <filename>structjuce_1_1_variant_converter_3_01_rectangle_placement_01_4.html</filename>
+    <member kind="function" static="yes">
+      <type>static RectanglePlacement</type>
+      <name>fromVar</name>
+      <anchorfile>structjuce_1_1_variant_converter_3_01_rectangle_placement_01_4.html</anchorfile>
+      <anchor>ae694c41093a6fdd34b91a79c155fe97c</anchor>
+      <arglist>(const var &amp;v)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static var</type>
+      <name>toVar</name>
+      <anchorfile>structjuce_1_1_variant_converter_3_01_rectangle_placement_01_4.html</anchorfile>
+      <anchor>a17dea789547ce91f50e327aa66380eb5</anchor>
+      <arglist>(const RectanglePlacement &amp;r)</arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
     <name>juce::VariantConverter&lt; RelativeTime &gt;</name>
     <filename>structjuce_1_1_variant_converter_3_01_relative_time_01_4.html</filename>
     <member kind="function" static="yes">
@@ -24252,6 +24499,24 @@
       <anchorfile>structjuce_1_1_variant_converter_3_01_r_s_a_key_01_4.html</anchorfile>
       <anchor>ad69367329f97b5d77c331cf47b7478a9</anchor>
       <arglist>(const RSAKey &amp;k)</arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>juce::VariantConverter&lt; std::string &gt;</name>
+    <filename>structjuce_1_1_variant_converter_3_01std_1_1string_01_4.html</filename>
+    <member kind="function" static="yes">
+      <type>static std::string</type>
+      <name>fromVar</name>
+      <anchorfile>structjuce_1_1_variant_converter_3_01std_1_1string_01_4.html</anchorfile>
+      <anchor>a8998adf5480dea58c55b012ebc31fbf4</anchor>
+      <arglist>(const var &amp;v)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static var</type>
+      <name>toVar</name>
+      <anchorfile>structjuce_1_1_variant_converter_3_01std_1_1string_01_4.html</anchorfile>
+      <anchor>a9c9daeb57de878f0a312045c14949177</anchor>
+      <arglist>(const std::string &amp;s)</arglist>
     </member>
   </compound>
   <compound kind="struct">
@@ -24378,6 +24643,25 @@
       <anchorfile>structjuce_1_1_variant_converter_3_01_xml_element_01_4.html</anchorfile>
       <anchor>a91c21c63de86831f34a556e7238c0064</anchor>
       <arglist>(const XmlElement &amp;e)</arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>lemons::serializing::VectorConverter</name>
+    <filename>structlemons_1_1serializing_1_1_vector_converter.html</filename>
+    <templarg>typename ElementType</templarg>
+    <member kind="function" static="yes">
+      <type>static std::vector&lt; ElementType &gt;</type>
+      <name>fromVar</name>
+      <anchorfile>structlemons_1_1serializing_1_1_vector_converter.html</anchorfile>
+      <anchor>ae08c741b48f26e3687cfb47a11ffd79e</anchor>
+      <arglist>(const juce::var &amp;v)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static juce::var</type>
+      <name>toVar</name>
+      <anchorfile>structlemons_1_1serializing_1_1_vector_converter.html</anchorfile>
+      <anchor>a80132ec31ebc433944d4676e99ecd7af</anchor>
+      <arglist>(const std::vector&lt; ElementType &gt; &amp;v)</arglist>
     </member>
   </compound>
   <compound kind="struct">
@@ -24730,10 +25014,14 @@
     <class kind="struct">juce::VariantConverter&lt; OSCAddressPattern &gt;</class>
     <class kind="struct">juce::VariantConverter&lt; OSCArgument &gt;</class>
     <class kind="struct">juce::VariantConverter&lt; OSCColour &gt;</class>
+    <class kind="struct">juce::VariantConverter&lt; OSCTimeTag &gt;</class>
     <class kind="struct">juce::VariantConverter&lt; PluginDescription &gt;</class>
     <class kind="struct">juce::VariantConverter&lt; PropertySet &gt;</class>
+    <class kind="struct">juce::VariantConverter&lt; Random &gt;</class>
+    <class kind="struct">juce::VariantConverter&lt; RectanglePlacement &gt;</class>
     <class kind="struct">juce::VariantConverter&lt; RelativeTime &gt;</class>
     <class kind="struct">juce::VariantConverter&lt; RSAKey &gt;</class>
+    <class kind="struct">juce::VariantConverter&lt; std::string &gt;</class>
     <class kind="struct">juce::VariantConverter&lt; StringArray &gt;</class>
     <class kind="struct">juce::VariantConverter&lt; StringPairArray &gt;</class>
     <class kind="struct">juce::VariantConverter&lt; Time &gt;</class>
@@ -24939,6 +25227,7 @@
     <class kind="class">lemons::dsp::AudioAndMidiFIFO</class>
     <class kind="class">lemons::dsp::AudioFifo</class>
     <class kind="struct">lemons::dsp::AudioFile</class>
+    <class kind="class">lemons::dsp::AudioFileCache</class>
     <class kind="class">lemons::dsp::AudioFilePlayer</class>
     <class kind="class">lemons::dsp::BuiltEngineChain</class>
     <class kind="class">lemons::dsp::CircularBuffer</class>
@@ -26076,6 +26365,10 @@
   <compound kind="namespace">
     <name>lemons::serializing</name>
     <filename>namespacelemons_1_1serializing.html</filename>
+    <class kind="struct">lemons::serializing::ArrayConverter</class>
+    <class kind="struct">lemons::serializing::OwnedArrayConverter</class>
+    <class kind="struct">lemons::serializing::StdArrayConverter</class>
+    <class kind="struct">lemons::serializing::VectorConverter</class>
     <member kind="typedef">
       <type>juce::AudioBuffer&lt; SampleType &gt;</type>
       <name>AudioBuffer</name>

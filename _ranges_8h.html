@@ -70,6 +70,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#namespaces">Namespaces</a> &#124;
+<a href="#define-members">Macros</a> &#124;
 <a href="#typedef-members">Typedefs</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle"><div class="title">Ranges.h File Reference</div></div>
@@ -78,10 +79,19 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
 Namespaces</h2></td></tr>
+<tr class="memitem:namespacejuce"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejuce.html">juce</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:namespacelemons"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons.html">lemons</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:namespacelemons_1_1ranges"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1ranges.html">lemons::ranges</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a3995eca2c6212bfa5e57918025859ed1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_ranges_8h.html#a3995eca2c6212bfa5e57918025859ed1">LEMONS_CREATE_NORM_RANGE_CONVERTER</a>(Type)</td></tr>
+<tr class="separator:a3995eca2c6212bfa5e57918025859ed1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe8fccf2d150d2a6c9a7c7a50cb080d8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_ranges_8h.html#afe8fccf2d150d2a6c9a7c7a50cb080d8">LEMONS_CREATE_RANGE_CONVERTER</a>(Type)</td></tr>
+<tr class="separator:afe8fccf2d150d2a6c9a7c7a50cb080d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Typedefs</h2></td></tr>
@@ -105,10 +115,75 @@ Functions</h2></td></tr>
 <tr class="memitem:ga3d8f520003440966229ea2a6dd4b0e7b"><td class="memTemplItemLeft" align="right" valign="top">ValueTree&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__lemons__serializing.html#ga3d8f520003440966229ea2a6dd4b0e7b">lemons::ranges::toValueTree</a> (const Range&lt; ValueType &gt; &amp;range)</td></tr>
 <tr class="separator:ga3d8f520003440966229ea2a6dd4b0e7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="a3995eca2c6212bfa5e57918025859ed1" name="a3995eca2c6212bfa5e57918025859ed1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3995eca2c6212bfa5e57918025859ed1">&#9670;&nbsp;</a></span>LEMONS_CREATE_NORM_RANGE_CONVERTER</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LEMONS_CREATE_NORM_RANGE_CONVERTER</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">Type</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">    <span class="keyword">template</span> &lt;&gt;                                                                                    \</div>
+<div class="line">    struct VariantConverter&lt;NormalisableRange&lt;Type&gt;&gt; <span class="keyword">final</span>                                         \</div>
+<div class="line">    {                                                                                              \</div>
+<div class="line">        [[nodiscard]] <span class="keyword">static</span> NormalisableRange&lt;Type&gt; fromVar (<span class="keyword">const</span> var&amp; v)                        \</div>
+<div class="line">        {                                                                                          \</div>
+<div class="line">            return lemons::ranges::fromValueTree&lt;Type&gt; (VariantConverter&lt;ValueTree&gt;::fromVar (v)); \</div>
+<div class="line">        }                                                                                          \</div>
+<div class="line">        [[nodiscard]] <span class="keyword">static</span> var toVar (<span class="keyword">const</span> NormalisableRange&lt;Type&gt;&amp; r)                          \</div>
+<div class="line">        {                                                                                          \</div>
+<div class="line">            return VariantConverter&lt;ValueTree&gt;::toVar (<a class="code hl_function" href="group__lemons__serializing.html#ga3d8f520003440966229ea2a6dd4b0e7b">lemons::ranges::toValueTree</a> (r));           \</div>
+<div class="line">        }                                                                                          \</div>
+<div class="line">    };</div>
+<div class="ttc" id="agroup__lemons__serializing_html_ga3d8f520003440966229ea2a6dd4b0e7b"><div class="ttname"><a href="group__lemons__serializing.html#ga3d8f520003440966229ea2a6dd4b0e7b">lemons::ranges::toValueTree</a></div><div class="ttdeci">ValueTree toValueTree(const Range&lt; ValueType &gt; &amp;range)</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="afe8fccf2d150d2a6c9a7c7a50cb080d8" name="afe8fccf2d150d2a6c9a7c7a50cb080d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe8fccf2d150d2a6c9a7c7a50cb080d8">&#9670;&nbsp;</a></span>LEMONS_CREATE_RANGE_CONVERTER</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LEMONS_CREATE_RANGE_CONVERTER</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">Type</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">    <span class="keyword">template</span> &lt;&gt;                                                      \</div>
+<div class="line">    struct VariantConverter&lt;Range&lt;Type&gt;&gt; <span class="keyword">final</span>                       \</div>
+<div class="line">    {                                                                \</div>
+<div class="line">        using Converter = <a class="code hl_struct" href="structlemons_1_1serializing_1_1_array_converter.html">lemons::serializing::ArrayConverter&lt;Type&gt;</a>; \</div>
+<div class="line">        [[nodiscard]] <span class="keyword">static</span> Range&lt;Type&gt; fromVar (<span class="keyword">const</span> var&amp; v)      \</div>
+<div class="line">        {                                                            \</div>
+<div class="line">            const <span class="keyword">auto</span> arr = Converter::fromVar (v);                 \</div>
+<div class="line">            return { arr[0], arr[1] };                               \</div>
+<div class="line">        }                                                            \</div>
+<div class="line">        [[nodiscard]] <span class="keyword">static</span> var toVar (<span class="keyword">const</span> Range&lt;Type&gt;&amp; r)        \</div>
+<div class="line">        {                                                            \</div>
+<div class="line">            return Converter::toVar ({ r.getStart(), r.getEnd() });  \</div>
+<div class="line">        }                                                            \</div>
+<div class="line">    };</div>
+<div class="ttc" id="astructlemons_1_1serializing_1_1_array_converter_html"><div class="ttname"><a href="structlemons_1_1serializing_1_1_array_converter.html">lemons::serializing::ArrayConverter</a></div><div class="ttdef"><b>Definition:</b> arrays.h:23</div></div>
+</div><!-- fragment -->
+</div>
+</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Feb 2 2022 00:47:17 for Lemons by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3
+Generated on Thu Feb 3 2022 00:47:05 for Lemons by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3
 </small></address>
 </body>
 </html>
