@@ -1,5 +1,12 @@
 # Lemons changelog
 
+### [1.5.1](http://github.com/benthevining/Lemons/compare/v1.5.0...v1.5.1) (2022-02-04)
+
+
+### Bug Fixes
+
+* alphabetizing modules list in readme ([7cca1b9](http://github.com/benthevining/Lemons/commit/7cca1b9c33ff867b1b99ba3bce64337da1d87638))
+
 ## [1.5.0](http://github.com/benthevining/Lemons/compare/v1.4.0...v1.5.0) (2022-02-02)
 
 
