@@ -49,23 +49,23 @@ Contributing is welcome and appreciated! *(Or feel free to just make feature sug
 
 <!-- markdownlint-disable -->
 Here's a list of the juce modules in this repository:
+- Audio
+	- lemons_audio_effects
+	- lemons_dsp
+	- lemons_midi
+	- lemons_psola
+	- lemons_synth
+- Common
+	- lemons_core
+	- lemons_musicology
 - Connectivity
-	- lemons_osc
 	- lemons_dmx
+	- lemons_osc
+- GUI
+	- lemons_gui
 - Plugins
 	- lemons_plugin
 	- lemons_plugin_gui
-- Common
-	- lemons_musicology
-	- lemons_core
-- Audio
-	- lemons_synth
-	- lemons_psola
-	- lemons_dsp
-	- lemons_audio_effects
-	- lemons_midi
-- GUI
-	- lemons_gui
 
 ---
 <!-- markdownlint-enable -->

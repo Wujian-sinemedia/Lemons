@@ -26,7 +26,9 @@ def main():
 
 	module_readme_lines = []
 
-	for dirname in os.listdir(MODULES_DIR):
+	module_category_dirs = os.listdir(MODULES_DIR)
+	module_category_dirs.sort()
+	for dirname in module_category_dirs:
 		dirpath = os.path.join(MODULES_DIR, dirname)
 
 		if not os.path.isdir(dirpath):
@@ -34,7 +36,9 @@ def main():
 
 		module_readme_lines.append(f'- {dirname}\n')
 
-		for module_dirname in os.listdir(dirpath):
+		module_dirs = os.listdir(dirpath)
+		module_dirs.sort()
+		for module_dirname in module_dirs:
 			module_dirpath = os.path.join(dirpath, module_dirname)
 
 			if not os.path.isdir(module_dirpath):
