@@ -72,6 +72,7 @@
 #include "misc/ConstructedArray.h"
 #include "misc/Timers.h"
 #include "misc/rsa.h"
+#include "misc/Threading.h"
 
 #include "unit_tests/test.h"
 #include "unit_tests/runner.h"

@@ -84,7 +84,7 @@ static_assert (is_specialization<std::vector<int>, std::vector>(), "is_specializ
 static_assert (! is_specialization<std::vector<int>, std::list>(), "is_specialization test");
 
 template <typename ObjectType>
-[[nodiscard]] String getDemangledTypeName (ObjectType& object)
+[[nodiscard]] String getDemangledTypeName (const ObjectType& object)
 {
 #if JUCE_MINGW
 	return {};
@@ -111,6 +111,16 @@ template <typename ObjectType>
 	return {};
 #endif
 }
+
+template <typename ObjectType>
+[[nodiscard]] String getDemangledName (const ObjectType* c)
+{
+	if (c != nullptr)
+		return getDemangledName (*c);
+
+	return "nullptr";
+}
+
 
 }  // namespace lemons
 

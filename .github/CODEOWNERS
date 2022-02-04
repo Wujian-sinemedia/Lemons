@@ -204,6 +204,7 @@ util/cmake/modules/general/LemonsCmakeDevTools.cmake benthevining
 util/cmake/modules/general/LemonsDefaultProjectSettings.cmake benthevining
 util/cmake/modules/general/lemons_AggregateTargets.cmake benthevining
 util/cmake/modules/integrations/LemonsAllIntegrations.cmake benthevining
+util/cmake/modules/integrations/LemonsCcache.cmake benthevining
 util/cmake/modules/juce/LemonsAssetsHelpers.cmake benthevining
 util/cmake/modules/juce/LemonsJuceModuleUtilities.cmake benthevining
 util/cmake/modules/platform/scripts/lemons_windows_settings.cmake benthevining
