@@ -43,6 +43,13 @@ repos:
         entry: bash -n
         language: system
         types: [shell]
+      # list modules in readme
+      - id: list-modules-in-readme
+        name: list modules in readme
+        entry: scripts/list_modules_in_readme.py
+        language: python
+        pass_filenames: false
+        always_run: true
 
   # C++ code formatting & linting
   - repo: https://github.com/pocc/pre-commit-hooks

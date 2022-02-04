@@ -108,7 +108,7 @@ wipe:  ## Wipes the persistent cache of fetched dependencies and ccache artifact
 
 
 init:  ## Initializes the Lemons workspace and installs all dependencies
-	@chmod +x $(SCRIPTS_DIR)/clean.cmake $(SCRIPTS_DIR)/install_deps.cmake $(SCRIPTS_DIR)/alphabetize_codeowners.py
+	@chmod +x $(SCRIPTS_DIR)/clean.cmake $(SCRIPTS_DIR)/install_deps.cmake $(SCRIPTS_DIR)/alphabetize_codeowners.py $(SCRIPTS_DIR)/list_modules_in_readme.py
 	$(CMAKE) -P $(SCRIPTS_DIR)/install_deps.cmake
 	@cd $(LEMONS_ROOT) && $(PRECOMMIT) install --install-hooks --overwrite
 	@cd $(LEMONS_ROOT) && $(PRECOMMIT) install --install-hooks --overwrite --hook-type commit-msg

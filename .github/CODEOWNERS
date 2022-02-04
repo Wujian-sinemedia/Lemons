@@ -28,6 +28,7 @@ modules/Audio/lemons_audio_effects/dynamics/Limiter.h benthevining
 modules/Audio/lemons_audio_effects/lemons_audio_effects.cpp benthevining
 modules/Audio/lemons_audio_effects/misc/DryWet.h benthevining
 modules/Audio/lemons_audio_effects/misc/Reverb.cpp benthevining
+modules/Audio/lemons_audio_effects/misc/Saturation.cpp benthevining
 modules/Audio/lemons_audio_effects/panning/MonoToStereoPanner.cpp benthevining
 modules/Audio/lemons_audio_effects/panning/StereoPanner.cpp benthevining
 modules/Audio/lemons_audio_effects/time/Delay.h benthevining
@@ -79,6 +80,7 @@ modules/Audio/lemons_midi/tuning/PitchbendTracker.cpp benthevining
 modules/Audio/lemons_midi/tuning/PitchbendTracker.h benthevining
 modules/Audio/lemons_midi/tuning/mts_client.cpp benthevining
 modules/Audio/lemons_midi/tuning/mts_client.h benthevining
+modules/Audio/lemons_midi/utilities/VelocityHelper.cpp benthevining
 modules/Audio/lemons_midi/utilities/serializing.h benthevining
 modules/Audio/lemons_psola/analysis/PeakFinder.cpp benthevining
 modules/Audio/lemons_psola/analysis/PeakFinder.h benthevining
@@ -116,6 +118,7 @@ modules/Common/lemons_core/serializing/ValueTrees.cpp benthevining
 modules/Common/lemons_core/serializing/VariantConversions.cpp benthevining
 modules/Common/lemons_core/serializing/VariantConversions.h benthevining
 modules/Common/lemons_core/serializing/VariantConversions_tests.cpp benthevining
+modules/Common/lemons_core/serializing/arrays.h benthevining
 modules/Common/lemons_core/unit_tests/runner.cpp benthevining
 modules/Common/lemons_core/unit_tests/runner.h benthevining
 modules/Common/lemons_core/unit_tests/test.cpp benthevining
@@ -159,6 +162,7 @@ modules/Plugins/lemons_plugin/metadata/EditorAttributes.h benthevining
 modules/Plugins/lemons_plugin/metadata/ParameterTraits.cpp benthevining
 modules/Plugins/lemons_plugin/metadata/ParameterTraits.h benthevining
 modules/Plugins/lemons_plugin/metadata/PluginMetadata.cpp benthevining
+modules/Plugins/lemons_plugin/metadata/ProcessorAttributes.cpp benthevining
 modules/Plugins/lemons_plugin/parameters/ModulationManager/ModulationManager.cpp benthevining
 modules/Plugins/lemons_plugin/parameters/Parameter.cpp benthevining
 modules/Plugins/lemons_plugin/parameters/Parameter.h benthevining
@@ -216,3 +220,5 @@ util/doxygen/main_page.md benthevining
 util/doxygen/scripts/cmake/process_cmake_modules.py benthevining
 util/doxygen/scripts/main_page.py benthevining
 util/doxygen/scripts/process_juce_modules.py benthevining
+util/tests/CMakeLists.txt benthevining
+util/tests/CompileModulesIndividually/ModuleTestMain.cpp benthevining

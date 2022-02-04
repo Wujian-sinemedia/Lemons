@@ -1,3 +1,4 @@
+<!-- markdownlint-disable MD013 -->
 # Lemons
 
 [![Test and release](https://github.com/benthevining/Lemons/actions/workflows/test_and_release.yml/badge.svg)](https://github.com/benthevining/Lemons/actions/workflows/test_and_release.yml)
@@ -44,6 +45,32 @@ Contributing is welcome and appreciated! *(Or feel free to just make feature sug
 
 ---
 
+## What's here
+
+<!-- markdownlint-disable -->
+Here's a list of the juce modules in this repository:
+- Connectivity
+	- lemons_osc
+	- lemons_dmx
+- Plugins
+	- lemons_plugin
+	- lemons_plugin_gui
+- Common
+	- lemons_musicology
+	- lemons_core
+- Audio
+	- lemons_synth
+	- lemons_psola
+	- lemons_dsp
+	- lemons_audio_effects
+	- lemons_midi
+- GUI
+	- lemons_gui
+
+---
+<!-- markdownlint-enable -->
+<!-- markdownlint-disable MD013 -->
+
 ## Building
 
 It's recommended to build with CMake. You could manually add the desired modules to a Projucer project, but CMake is a much better build system. Lemons contains several useful CMake scripts that should make getting things running fairly painless...
@@ -60,9 +87,9 @@ Adding Lemons with CPM.cmake looks like this:
 include (CPM.cmake)
 
 CPMAddPackage (
-		NAME Lemons
-		GIT_REPOSITORY https://github.com/benthevining/Lemons.git
-		GIT_TAG origin/main)
+ NAME Lemons
+ GIT_REPOSITORY https://github.com/benthevining/Lemons.git
+ GIT_TAG origin/main)
 ```
 
 ### A note about adding JUCE
@@ -87,36 +114,12 @@ addSubdirectory (GetLemons)
 
 What this will do is:
 
-* Either fetch the CPM.cmake script from the github repository and cache it for future use; ***or*** include the previously-cached version if it can be found
-* Include the Lemons repository using CPM.cmake
+- Either fetch the CPM.cmake script from the github repository and cache it for future use; ***or*** include the previously-cached version if it can be found
+- Include the Lemons repository using CPM.cmake
 
 You can check out the GetLemons repo's ReadMe for more details.
 
 For an example of a project repo that uses this configuration, see [Imogen's CMakeLists.txt](https://github.com/benthevining/imogen/blob/main/CMakeLists.txt).
-
----
-
-## Integrations
-
-When you add the Lemons subdirectory in your CMake (or GetLemons), my cmake scripts will automatically configure several integrations, if the respective programs can be found on your computer. If they can't be found, cmake will not install anything at configure time. See the section below on installing dependencies and integrations.
-
-### Ccache
-
-My cmake scripts will automatically configure your build to use [ccache](https://ccache.dev/) as the compiler launcher, if the ccache program can be located on your machine. This will drastically speed up consecutive builds! Ccache works by detecting if the same compilation is being repeated, and if so, reusing the old output. For an example of a GithubActions workflow that utilizes a persistent cache, see [here](https://github.com/benthevining/dev_workspace/blob/main/.github/workflows/Build.yml).
-
-### Clang-format
-
-If clang-format is found at configure time, my cmake scripts will automatically add a target to your project called *ClangFormat*, that will recursively run clang-format on all nested subdirectories within your source tree. For this to work, before adding Lemons in your CMake, set the variable *LEMONS_TOPLEVEL_DIR* to the absolute path of your top-level source directory.
-
-### Clang-tidy
-
-(in progress...)
-
----
-
-## Example dev environment
-
-For an example of how you can integrate several project repos of this nature side-by-side in a "super-repo", check out my [dev_workspace repo](https://github.com/benthevining/dev_workspace) -- this is the only repo I have to clone onto a dev machine in order to work on all my projects, and I only have to have one copy of Lemons and JUCE on my machine, which every project repo will reference.
 
 ---
 
