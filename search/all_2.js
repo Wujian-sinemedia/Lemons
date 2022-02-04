@@ -76,7 +76,7 @@ var searchData=
   ['copy_73',['copy',['../group__lemons__audio__buffers.html#gaa8f6c7a0fdfc0981f44b3dfa291cc2ee',1,'lemons::dsp::buffers']]],
   ['copyrangeofmidibuffer_74',['copyRangeOfMidiBuffer',['../group__lemons__midi.html#ga98b403cf67be59389bdcae888bdb4a6a',1,'lemons::midi']]],
   ['coretest_75',['CoreTest',['../structlemons_1_1tests_1_1_core_test.html#a00909d8432df5dd6ddc64b54b0b26192',1,'lemons::tests::CoreTest::CoreTest()'],['../structlemons_1_1tests_1_1_core_test.html',1,'lemons::tests::CoreTest']]],
-  ['create_76',['create',['../namespacelemons_1_1ranges.html#ac23d6074a044f90834132b6145b19a83',1,'lemons::ranges::create()'],['../structlemons_1_1gui_1_1components_1_1_optional_component.html#a6fc286100acfd31d4e4d230fc2971444',1,'lemons::gui::components::OptionalComponent::create()'],['../structlemons_1_1gui_1_1components_1_1_swappable_component.html#a9c95991bbed8bd08753526b9be745436',1,'lemons::gui::components::SwappableComponent::create()'],['../classlemons_1_1gui_1_1components_1_1_popup.html#a0c316e9cd6017541e0a95cb51d21f3f1',1,'lemons::gui::components::Popup::create()']]],
+  ['create_76',['create',['../structlemons_1_1gui_1_1components_1_1_swappable_component.html#a9c95991bbed8bd08753526b9be745436',1,'lemons::gui::components::SwappableComponent::create()'],['../namespacelemons_1_1ranges.html#ac23d6074a044f90834132b6145b19a83',1,'lemons::ranges::create()'],['../structlemons_1_1gui_1_1components_1_1_optional_component.html#a6fc286100acfd31d4e4d230fc2971444',1,'lemons::gui::components::OptionalComponent::create()'],['../classlemons_1_1gui_1_1components_1_1_popup.html#a0c316e9cd6017541e0a95cb51d21f3f1',1,'lemons::gui::components::Popup::create()']]],
   ['createandaddnode_77',['createAndAddNode',['../classlemons_1_1dsp_1_1_engine_chain.html#a5a692a3b24091dea402992b508f12879',1,'lemons::dsp::EngineChain']]],
   ['createandaddnodeafter_78',['createAndAddNodeAfter',['../classlemons_1_1dsp_1_1_engine_chain.html#a0dc43baca85fee78ed6d939af71fdfe5',1,'lemons::dsp::EngineChain']]],
   ['createandaddnodebefore_79',['createAndAddNodeBefore',['../classlemons_1_1dsp_1_1_engine_chain.html#a236aafff5f3dc359f77941627bfe8cc8',1,'lemons::dsp::EngineChain']]],
@@ -99,5 +99,5 @@ var searchData=
   ['createvoice_96',['createVoice',['../structlemons_1_1dsp_1_1_template_synth.html#a05121b7e98d8185151f65f30888e0dc3',1,'lemons::dsp::TemplateSynth::createVoice()'],['../classlemons_1_1dsp_1_1_synth_base.html#a30ef35dd86893ed3ab837b7425eed82f',1,'lemons::dsp::SynthBase::createVoice()']]],
   ['cursor_2eh_97',['cursor.h',['../cursor_8h.html',1,'']]],
   ['serializing_2eh_98',['serializing.h',['../_common_2lemons__core_2serializing_2serializing_8h.html',1,'(Global Namespace)'],['../_connectivity_2lemons__osc_2util_2serializing_8h.html',1,'(Global Namespace)']]],
-  ['util_2eh_99',['util.h',['../_connectivity_2lemons__osc_2util_2util_8h.html',1,'']]]
+  ['util_2eh_99',['util.h',['../_connectivity_2lemons__dmx_2util_2util_8h.html',1,'(Global Namespace)'],['../_connectivity_2lemons__osc_2util_2util_8h.html',1,'(Global Namespace)']]]
 ];

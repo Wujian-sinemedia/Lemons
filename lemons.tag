@@ -1769,6 +1769,12 @@
     </member>
   </compound>
   <compound kind="file">
+    <name>lemons_dmx.h</name>
+    <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/Connectivity/lemons_dmx/</path>
+    <filename>lemons__dmx_8h.html</filename>
+    <includes id="_connectivity_2lemons__dmx_2util_2util_8h" name="Connectivity/lemons_dmx/util/util.h" local="yes" imported="no">util/util.h</includes>
+  </compound>
+  <compound kind="file">
     <name>lemons_osc.h</name>
     <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/Connectivity/lemons_osc/</path>
     <filename>lemons__osc_8h.html</filename>
@@ -2145,16 +2151,37 @@
     </member>
   </compound>
   <compound kind="file">
+    <name>Connectivity/lemons_dmx/util/util.h</name>
+    <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/Connectivity/lemons_dmx/util/</path>
+    <filename>_connectivity_2lemons__dmx_2util_2util_8h.html</filename>
+    <namespace>lemons</namespace>
+    <namespace>lemons::dmx</namespace>
+    <member kind="function">
+      <type>constexpr bool</type>
+      <name>isValidChannel</name>
+      <anchorfile>namespacelemons_1_1dmx.html</anchorfile>
+      <anchor>a5c09e0d1bff95f98322a293a8f47f9ad</anchor>
+      <arglist>(int channel)</arglist>
+    </member>
+    <member kind="function">
+      <type>constexpr bool</type>
+      <name>isValidChannelValue</name>
+      <anchorfile>namespacelemons_1_1dmx.html</anchorfile>
+      <anchor>af536e3dc7eb2db1132bfb809e2426ea5</anchor>
+      <arglist>(int value)</arglist>
+    </member>
+  </compound>
+  <compound kind="file">
     <name>Connectivity/lemons_osc/util/util.h</name>
     <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/Connectivity/lemons_osc/util/</path>
     <filename>_connectivity_2lemons__osc_2util_2util_8h.html</filename>
     <namespace>lemons</namespace>
     <namespace>lemons::osc</namespace>
     <member kind="function">
-      <type>bool</type>
+      <type>constexpr bool</type>
       <name>isValidPort</name>
       <anchorfile>namespacelemons_1_1osc.html</anchorfile>
-      <anchor>a6324b7632f680201d7b15fdef0811fc9</anchor>
+      <anchor>aec1ce08b4c820a7c77e047357199bfc9</anchor>
       <arglist>(int port)</arglist>
     </member>
   </compound>
@@ -25034,6 +25061,7 @@
     <name>lemons</name>
     <filename>namespacelemons.html</filename>
     <namespace>lemons::binary</namespace>
+    <namespace>lemons::dmx</namespace>
     <namespace>lemons::dsp</namespace>
     <namespace>lemons::events</namespace>
     <namespace>lemons::files</namespace>
@@ -25212,6 +25240,24 @@
       <anchorfile>group__lemons__binary.html</anchorfile>
       <anchor>ga45e0f639b83a42ca3121fdff8dcdcb70</anchor>
       <arglist>() noexcept</arglist>
+    </member>
+  </compound>
+  <compound kind="namespace">
+    <name>lemons::dmx</name>
+    <filename>namespacelemons_1_1dmx.html</filename>
+    <member kind="function">
+      <type>constexpr bool</type>
+      <name>isValidChannel</name>
+      <anchorfile>namespacelemons_1_1dmx.html</anchorfile>
+      <anchor>a5c09e0d1bff95f98322a293a8f47f9ad</anchor>
+      <arglist>(int channel)</arglist>
+    </member>
+    <member kind="function">
+      <type>constexpr bool</type>
+      <name>isValidChannelValue</name>
+      <anchorfile>namespacelemons_1_1dmx.html</anchorfile>
+      <anchor>af536e3dc7eb2db1132bfb809e2426ea5</anchor>
+      <arglist>(int value)</arglist>
     </member>
   </compound>
   <compound kind="namespace">
@@ -26040,10 +26086,10 @@
     <name>lemons::osc</name>
     <filename>namespacelemons_1_1osc.html</filename>
     <member kind="function">
-      <type>bool</type>
+      <type>constexpr bool</type>
       <name>isValidPort</name>
       <anchorfile>namespacelemons_1_1osc.html</anchorfile>
-      <anchor>a6324b7632f680201d7b15fdef0811fc9</anchor>
+      <anchor>aec1ce08b4c820a7c77e047357199bfc9</anchor>
       <arglist>(int port)</arglist>
     </member>
   </compound>
