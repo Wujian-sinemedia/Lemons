@@ -20,10 +20,6 @@ repos:
     hooks:
       - id: gitown
         args: [--codeowners_filename=.github/CODEOWNERS]
-  - repo: https://github.com/jumanjihouse/pre-commit-hooks
-    rev: 2.1.5
-    hooks:
-      - id: git-check
   - repo: https://github.com/mattlqx/pre-commit-sign
     rev: v1.1.3
     hooks:
@@ -31,25 +27,22 @@ repos:
 
   - repo: local
     hooks:
-      # alphabetize codeowners file
       - id: sort-codeowners
         name: alphabetize codeowners
         entry: scripts/alphabetize_codeowners.py
         language: python
         files: .github/CODEOWNERS
-      # check shell script syntax
-      - id: check-bash-syntax
-        name: check shell scripts syntax
-        entry: bash -n
-        language: system
-        types: [shell]
-      # list modules in readme
       - id: list-modules-in-readme
         name: list modules in readme
         entry: scripts/list_modules_in_readme.py
         language: python
         pass_filenames: false
         always_run: true
+      - id: check-bash-syntax
+        name: check shell scripts syntax
+        entry: bash -n
+        language: system
+        types: [shell]
 
   # C++ code formatting & linting
   - repo: https://github.com/pocc/pre-commit-hooks
@@ -81,7 +74,7 @@ repos:
 
       # general
       - id: check-added-large-files
-        args: [--maxkb=2000]
+        args: [--maxkb=500]
       - id: check-case-conflict
       - id: check-merge-conflict
       - id: end-of-file-fixer
@@ -179,18 +172,10 @@ repos:
     rev: v1.4
     hooks:
       - id: autoflake
-  - repo: https://github.com/hadialqattan/pycln
-    rev: v1.1.0
-    hooks:
-      - id: pycln
   - repo: https://github.com/MarcoGorelli/absolufy-imports
     rev: v0.3.1
     hooks:
       - id: absolufy-imports
-  - repo: https://github.com/PyCQA/bandit
-    rev: 1.7.2
-    hooks:
-      - id: bandit
   - repo: https://github.com/PyCQA/isort
     rev: 5.10.1
     hooks:
