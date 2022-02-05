@@ -157,6 +157,7 @@ modules/GUI/lemons_gui/utilities/serializing.cpp benthevining
 modules/GUI/lemons_gui/utilities/util.h benthevining
 modules/GUI/lemons_spline/lemons_spline.h benthevining
 modules/LemonsAppModules.cmake benthevining
+modules/Plugins/LemonsPluginModules.cmake benthevining
 modules/Plugins/lemons_plugin/hosting/PluginScanning.cpp benthevining
 modules/Plugins/lemons_plugin/hosting/ProcessorEngine.h benthevining
 modules/Plugins/lemons_plugin/lemons_plugin.h benthevining
