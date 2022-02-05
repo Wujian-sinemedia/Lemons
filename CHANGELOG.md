@@ -1,5 +1,12 @@
 # Lemons changelog
 
+### [1.6.1](http://github.com/benthevining/Lemons/compare/v1.6.0...v1.6.1) (2022-02-05)
+
+
+### Bug Fixes
+
+* added LemonsGUIModules dependency to LemonsPluginModules ([4e1909d](http://github.com/benthevining/Lemons/commit/4e1909d825e62c298d7b4fe62f73dfe675d3cdf8))
+
 ## [1.6.0](http://github.com/benthevining/Lemons/compare/v1.5.1...v1.6.0) (2022-02-05)
 
 
