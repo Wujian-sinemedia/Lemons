@@ -145,12 +145,14 @@ modules/GUI/lemons_gui/device/DeviceRotation.h benthevining
 modules/GUI/lemons_gui/device/autolock/AutoLock.cpp benthevining
 modules/GUI/lemons_gui/device/autolock/AutoLock.h benthevining
 modules/GUI/lemons_gui/device/gps/GPS.cpp benthevining
+modules/GUI/lemons_gui/device/gps/GPS.h benthevining
 modules/GUI/lemons_gui/device/gps/GPS_apple.mm benthevining
 modules/GUI/lemons_gui/device/gps/GPS_windows.cpp benthevining
 modules/GUI/lemons_gui/device/motion/DeviceMotion_android.cpp benthevining
 modules/GUI/lemons_gui/device/motion/DeviceMotion_ios.mm benthevining
 modules/GUI/lemons_gui/lemons_gui.cpp benthevining
 modules/GUI/lemons_gui/lemons_gui.h benthevining
+modules/GUI/lemons_gui/lemons_gui.mm benthevining
 modules/GUI/lemons_gui/utilities/CapsLock.cpp benthevining
 modules/GUI/lemons_gui/utilities/colors.h benthevining
 modules/GUI/lemons_gui/utilities/cursor.cpp benthevining
@@ -235,6 +237,7 @@ util/cmake/modules/plugins/AAX/LemonsCreateAAXSDKTarget.cmake benthevining
 util/cmake/modules/plugins/LemonsAddPrivateSDKs.cmake benthevining
 util/cmake/toolchains/ios.cmake benthevining
 util/doxygen/CMakeLists.txt benthevining
+util/doxygen/Doxyfile benthevining
 util/doxygen/main_page.md benthevining
 util/doxygen/scripts/cmake/process_cmake_modules.py benthevining
 util/doxygen/scripts/main_page.py benthevining
