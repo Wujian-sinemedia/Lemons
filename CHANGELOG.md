@@ -1,5 +1,12 @@
 # Lemons changelog
 
+## [1.8.0](http://github.com/benthevining/Lemons/compare/v1.7.0...v1.8.0) (2022-02-05)
+
+
+### Features
+
+* added DSP windowing functions ([54a9026](http://github.com/benthevining/Lemons/commit/54a90266d41a0df576b037b6b6f601d94f83e6ee))
+
 ## [1.7.0](http://github.com/benthevining/Lemons/compare/v1.6.1...v1.7.0) (2022-02-05)
 
 
