@@ -1,5 +1,12 @@
 # Lemons changelog
 
+## [1.7.0](http://github.com/benthevining/Lemons/compare/v1.6.1...v1.7.0) (2022-02-05)
+
+
+### Features
+
+* added a fraction class ([3084165](http://github.com/benthevining/Lemons/commit/3084165cf6ab27a0d4a077fb7f6dcabbf0fbfabb))
+
 ### [1.6.1](http://github.com/benthevining/Lemons/compare/v1.6.0...v1.6.1) (2022-02-05)
 
 
