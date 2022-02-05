@@ -69,6 +69,37 @@ $(function() {
 <div class="contents">
 <div class="textblock"><p ><a class="anchor" id="md_build_main_page"></a> The source code repository itself can be found <a href="https://github.com/benthevining/Lemons" target="_blank">here</a>.</p>
 <hr  />
+<h1>What's here</h1>
+<p >Here's a list of the juce modules in this repository:</p><ul>
+<li>Audio<ul>
+<li>lemons_audio_effects</li>
+<li>lemons_dsp</li>
+<li>lemons_midi</li>
+<li>lemons_psola</li>
+<li>lemons_synth</li>
+</ul>
+</li>
+<li>Common<ul>
+<li>lemons_core</li>
+<li>lemons_musicology</li>
+</ul>
+</li>
+<li>Connectivity<ul>
+<li>lemons_dmx</li>
+<li>lemons_osc</li>
+</ul>
+</li>
+<li>GUI<ul>
+<li>lemons_gui</li>
+</ul>
+</li>
+<li>Plugins<ul>
+<li>lemons_plugin</li>
+<li>lemons_plugin_gui</li>
+</ul>
+</li>
+</ul>
+<hr  />
 <h1>Building</h1>
 <p >It's recommended to build with CMake. You could manually add the desired modules to a Projucer project, but CMake is a much better build system. Lemons contains several useful CMake scripts that should make getting things running fairly painless...</p>
 <p >The full CMake API reference can be found <a href="https://benthevining.github.io/Lemons/cmake_api.html" target="_blank">here</a>.</p>
@@ -78,9 +109,9 @@ $(function() {
 <div class="fragment"><div class="line">include (CPM.cmake)</div>
 <div class="line"> </div>
 <div class="line">CPMAddPackage (</div>
-<div class="line">        NAME Lemons</div>
-<div class="line">        GIT_REPOSITORY https://github.com/benthevining/Lemons.git</div>
-<div class="line">        GIT_TAG origin/main)</div>
+<div class="line"> NAME Lemons</div>
+<div class="line"> GIT_REPOSITORY https://github.com/benthevining/Lemons.git</div>
+<div class="line"> GIT_TAG origin/main)</div>
 </div><!-- fragment --><h2>A note about adding JUCE</h2>
 <p >Internally, Lemons's cmake scripts <a href="https://github.com/benthevining/Lemons/blob/main/util/cmake/modules/general/LemonsJuceUtilities.cmake" target="_blank">add JUCE like this</a>, using CPM.cmake. JUCE will automatically be fetched for you at configure time &ndash; but, if you'd like to reference another local copy of JUCE, you can set this variable before adding the Lemons package:</p>
 <div class="fragment"><div class="line">set (CPM_JUCE_SOURCE /absolute/path/to/your/copy/of/juce)</div>
@@ -97,18 +128,6 @@ $(function() {
 <p >You can check out the GetLemons repo's ReadMe for more details.</p>
 <p >For an example of a project repo that uses this configuration, see <a href="https://github.com/benthevining/imogen/blob/main/CMakeLists.txt" target="_blank">Imogen's CMakeLists.txt</a>.</p>
 <hr  />
-<h1>Integrations</h1>
-<p >When you add the Lemons subdirectory in your CMake (or GetLemons), my cmake scripts will automatically configure several integrations, if the respective programs can be found on your computer. If they can't be found, cmake will not install anything at configure time. See the section below on installing dependencies and integrations.</p>
-<h2>Ccache</h2>
-<p >My cmake scripts will automatically configure your build to use <a href="https://ccache.dev/" target="_blank">ccache</a> as the compiler launcher, if the ccache program can be located on your machine. This will drastically speed up consecutive builds! Ccache works by detecting if the same compilation is being repeated, and if so, reusing the old output. For an example of a GithubActions workflow that utilizes a persistent cache, see <a href="https://github.com/benthevining/dev_workspace/blob/main/.github/workflows/Build.yml" target="_blank">here</a>.</p>
-<h2>Clang-format</h2>
-<p >If clang-format is found at configure time, my cmake scripts will automatically add a target to your project called <em>ClangFormat</em>, that will recursively run clang-format on all nested subdirectories within your source tree. For this to work, before adding Lemons in your CMake, set the variable <em>LEMONS_TOPLEVEL_DIR</em> to the absolute path of your top-level source directory.</p>
-<h2>Clang-tidy</h2>
-<p >(in progress...)</p>
-<hr  />
-<h1>Example dev environment</h1>
-<p >For an example of how you can integrate several project repos of this nature side-by-side in a "super-repo", check out my <a href="https://github.com/benthevining/dev_workspace" target="_blank">dev_workspace repo</a> &ndash; this is the only repo I have to clone onto a dev machine in order to work on all my projects, and I only have to have one copy of Lemons and JUCE on my machine, which every project repo will reference.</p>
-<hr  />
 <h1>Licensing</h1>
 <p >This repository is licensed with the GNU General Public License. This means that any projects using this repository's code <em><b>must also themselves be open-source and licensed under the GPL.</b></em></p>
 <p >For inquiries about exemptions for commercial usage, please email me at <a href="#" onclick="location.href='mai'+'lto:'+'ben'+'.t'+'he.'+'vi'+'nin'+'g@'+'gma'+'il'+'.co'+'m'; return false;">ben.t<span class="obfuscator">.nosp@m.</span>he.v<span class="obfuscator">.nosp@m.</span>ining<span class="obfuscator">.nosp@m.</span>@gma<span class="obfuscator">.nosp@m.</span>il.co<span class="obfuscator">.nosp@m.</span>m</a>.</p>
@@ -118,7 +137,7 @@ $(function() {
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Feb 4 2022 00:46:30 for Lemons by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3
+Generated on Sat Feb 5 2022 00:43:16 for Lemons by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3
 </small></address>
 </body>
 </html>

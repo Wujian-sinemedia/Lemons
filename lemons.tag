@@ -1213,6 +1213,7 @@
     <includes id="_constructed_array_8h" name="ConstructedArray.h" local="yes" imported="no">misc/ConstructedArray.h</includes>
     <includes id="_timers_8h" name="Timers.h" local="yes" imported="no">misc/Timers.h</includes>
     <includes id="rsa_8h" name="rsa.h" local="yes" imported="no">misc/rsa.h</includes>
+    <includes id="_threading_8h" name="Threading.h" local="yes" imported="no">misc/Threading.h</includes>
     <includes id="test_8h" name="test.h" local="yes" imported="no">unit_tests/test.h</includes>
     <includes id="runner_8h" name="runner.h" local="yes" imported="no">unit_tests/runner.h</includes>
     <includes id="_file_utilities_8h" name="FileUtilities.h" local="yes" imported="no">files/FileUtilities.h</includes>
@@ -1526,6 +1527,19 @@
     </member>
   </compound>
   <compound kind="file">
+    <name>Threading.h</name>
+    <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/Common/lemons_core/misc/</path>
+    <filename>_threading_8h.html</filename>
+    <namespace>lemons</namespace>
+    <member kind="function">
+      <type>void</type>
+      <name>multiThreadedFor</name>
+      <anchorfile>namespacelemons.html</anchorfile>
+      <anchor>aec8d86f9d3c52fd49c0093bca2710a18</anchor>
+      <arglist>(T start, T end, T interval, juce::ThreadPool *threadPool, std::function&lt; void(T idx)&gt; &amp;&amp;callback)</arglist>
+    </member>
+  </compound>
+  <compound kind="file">
     <name>Timers.h</name>
     <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/Common/lemons_core/misc/</path>
     <filename>_timers_8h.html</filename>
@@ -1556,10 +1570,17 @@
     </member>
     <member kind="function">
       <type>String</type>
+      <name>getDemangledName</name>
+      <anchorfile>namespacelemons.html</anchorfile>
+      <anchor>ab1901a2a73a18d7de9f07f59d9947615</anchor>
+      <arglist>(const ObjectType *c)</arglist>
+    </member>
+    <member kind="function">
+      <type>String</type>
       <name>getDemangledTypeName</name>
       <anchorfile>namespacelemons.html</anchorfile>
-      <anchor>adbda02dc0eae2218ae26d6544bd673e8</anchor>
-      <arglist>(ObjectType &amp;object)</arglist>
+      <anchor>a2e75083509089d33e4b6fcbb95a8d947</anchor>
+      <arglist>(const ObjectType &amp;object)</arglist>
     </member>
   </compound>
   <compound kind="file">
@@ -25091,10 +25112,24 @@
     <class kind="struct">lemons::Version</class>
     <member kind="function">
       <type>String</type>
+      <name>getDemangledName</name>
+      <anchorfile>namespacelemons.html</anchorfile>
+      <anchor>ab1901a2a73a18d7de9f07f59d9947615</anchor>
+      <arglist>(const ObjectType *c)</arglist>
+    </member>
+    <member kind="function">
+      <type>String</type>
       <name>getDemangledTypeName</name>
       <anchorfile>namespacelemons.html</anchorfile>
-      <anchor>adbda02dc0eae2218ae26d6544bd673e8</anchor>
-      <arglist>(ObjectType &amp;object)</arglist>
+      <anchor>a2e75083509089d33e4b6fcbb95a8d947</anchor>
+      <arglist>(const ObjectType &amp;object)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>multiThreadedFor</name>
+      <anchorfile>namespacelemons.html</anchorfile>
+      <anchor>aec8d86f9d3c52fd49c0093bca2710a18</anchor>
+      <arglist>(T start, T end, T interval, juce::ThreadPool *threadPool, std::function&lt; void(T idx)&gt; &amp;&amp;callback)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
