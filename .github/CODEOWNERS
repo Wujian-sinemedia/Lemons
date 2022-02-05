@@ -113,6 +113,7 @@ modules/Common/lemons_core/localization/languages.cpp benthevining
 modules/Common/lemons_core/misc/ArgParser.cpp benthevining
 modules/Common/lemons_core/misc/ArgParser.h benthevining
 modules/Common/lemons_core/misc/Preprocessor.h benthevining
+modules/Common/lemons_core/misc/StringUtils.h benthevining
 modules/Common/lemons_core/misc/TypeTraits.h benthevining
 modules/Common/lemons_core/misc/Version.h benthevining
 modules/Common/lemons_core/misc/rsa.h benthevining
@@ -138,6 +139,7 @@ modules/GUI/lemons_gui/components/Label.cpp benthevining
 modules/GUI/lemons_gui/components/popups/PopupComponent.cpp benthevining
 modules/GUI/lemons_gui/components/popups/PopupComponent.h benthevining
 modules/GUI/lemons_gui/components/popups/SaveToFilePrompt.cpp benthevining
+modules/GUI/lemons_gui/components/popups/SaveToFilePrompt.h benthevining
 modules/GUI/lemons_gui/components/popups/VersionBumpPrompt.h benthevining
 modules/GUI/lemons_gui/device/DeviceRotation.h benthevining
 modules/GUI/lemons_gui/device/autolock/AutoLock.cpp benthevining
@@ -186,6 +188,7 @@ modules/Plugins/lemons_plugin_gui/PresetBar/StateToggleButtons.h benthevining
 modules/Plugins/lemons_plugin_gui/buttons/Buttons.cpp benthevining
 modules/Plugins/lemons_plugin_gui/buttons/Buttons.h benthevining
 modules/Plugins/lemons_plugin_gui/lemons_plugin_gui.cpp benthevining
+modules/Plugins/lemons_plugin_gui/parameters/ParameterMidiMappings.h benthevining
 modules/Plugins/lemons_plugin_gui/plugin_library/PluginLibraryComponent.h benthevining
 scripts/lemons_config.json benthevining
 util/CommandLineUtils/RSAKeyGenerator/CMakeLists.txt benthevining

@@ -74,6 +74,7 @@
 #include "misc/Timers.h"
 #include "misc/rsa.h"
 #include "misc/Threading.h"
+#include "misc/ArgParser.h"
 
 #include "unit_tests/test.h"
 #include "unit_tests/runner.h"
@@ -93,4 +94,4 @@
 
 #include "math/Ranges.h"
 #include "math/mathHelpers.h"
-#include "misc/ArgParser.h"
+#include "math/Fraction.h"
