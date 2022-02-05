@@ -64,13 +64,9 @@ String ArgParser::operator[] (const String& argOrFlags) const
 	if (argList.containsOption (argOrFlags))
 		return argList.getValueForOption (argOrFlags);
 
-	if (auto res = std::find_if (args.begin(), args.end(),
-								 [&argOrFlags] (const Argument& arg)
-								 { return arg.argOrFlags == argOrFlags; });
-		res != args.end())
-		return res->defaultValue;
-
-	return {};
+	return contains_or_default<Argument> (args, [&argOrFlags] (const Argument& arg)
+										  { return arg.argOrFlags == argOrFlags; })
+		.defaultValue;
 }
 
 File ArgParser::getFilepathForOption (const String& argOrFlags) const

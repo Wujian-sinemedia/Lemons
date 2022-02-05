@@ -16,6 +16,7 @@
 
 #include "lemons_core.h"
 
+#include "misc/StringUtils.cpp"
 #include "misc/ArgParser.cpp"
 #include "misc/Dimensions.cpp"
 #include "misc/Version.cpp"

@@ -14,20 +14,6 @@
  * ======================================================================================
  */
 
-/*
- * ======================================================================================
- *
- *  ██╗     ███████╗███╗   ███╗ ██████╗ ███╗   ██╗███████╗
- *  ██║     ██╔════╝████╗ ████║██╔═══██╗████╗  ██║██╔════╝
- *  ██║     █████╗  ██╔████╔██║██║   ██║██╔██╗ ██║███████╗
- *  ██║     ██╔══╝  ██║╚██╔╝██║██║   ██║██║╚██╗██║╚════██║
- *  ███████╗███████╗██║ ╚═╝ ██║╚██████╔╝██║ ╚████║███████║
- *  ╚══════╝╚══════╝╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝
- *
- *  This file is part of the Lemons open source library and is licensed under the terms of the GNU Public License.
- *
- *  ======================================================================================
- */
 
 namespace lemons::dsp
 {
@@ -245,12 +231,9 @@ void SynthBase<SampleType>::numVoicesChanged()
 template <typename SampleType>
 SynthVoiceBase<SampleType>* SynthBase<SampleType>::getVoicePlayingNote (int midiPitch) const
 {
-	auto it = std::find_if (voices.begin(),
-							voices.end(),
-							[&midiPitch] (SynthVoiceBase<SampleType>* voice)
-							{ return voice->isVoiceActive() && voice->getCurrentlyPlayingNote() == midiPitch; });
-
-	return it != voices.end() ? *it : nullptr;
+	return contains_or_null<Voice> (voices,
+									[&midiPitch] (SynthVoiceBase<SampleType>* voice)
+									{ return voice->isVoiceActive() && voice->getCurrentlyPlayingNote() == midiPitch; });
 }
 
 

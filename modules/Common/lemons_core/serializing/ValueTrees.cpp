@@ -28,8 +28,8 @@ ValueTree VariantConverter<ValueTree>::fromVar (const var& obj)
 				if (const auto childTree = fromVar (child); childTree.isValid())
 					tree.appendChild (childTree, nullptr);
 
-		const auto base64PropLen = static_cast<int> (std::strlen (BASE64_PROP));
-		const auto arrayPropLen	 = static_cast<int> (std::strlen (ARRAY_PROP));
+		const auto base64PropLen = lemons::cstring::length (BASE64_PROP);
+		const auto arrayPropLen	 = lemons::cstring::length (ARRAY_PROP);
 
 		for (const auto& itr : dobj->getProperties())
 		{

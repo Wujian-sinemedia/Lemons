@@ -66,7 +66,8 @@
 
 
 #include "misc/TypeTraits.h"
-
+#include "misc/Algorithm.h"
+#include "misc/StringUtils.h"
 #include "misc/Version.h"
 #include "misc/Dimensions.h"
 #include "misc/ConstructedArray.h"

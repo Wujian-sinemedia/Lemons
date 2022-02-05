@@ -13,46 +13,17 @@
  * ======================================================================================
  */
 
-#pragma once
-
-namespace lemons
+namespace lemons::cstring
 {
 
-template <typename T>
-void multiThreadedFor (T start, T end, T interval, juce::ThreadPool* threadPool, std::function<void (T idx)>&& callback)
+bool areSame (const char* string1, const char* string2)
 {
-	if (threadPool == nullptr)
-	{
-		for (auto i = start; i < end; i += interval)
-			callback (i);
-
-		return;
-	}
-
-	const auto num = threadPool->getNumThreads();
-
-	juce::WaitableEvent wait;
-	std::atomic<int>	threadsRunning { num };
-
-	for (auto i = 0; i < num; i++)
-	{
-		threadPool->addJob ([i, &callback, &wait, &threadsRunning, start, end, interval, num]
-							{
-			for (auto j = start + interval * i; j < end; j += interval * num)
-				callback (j);
-
-			if (--threadsRunning == 0)
-				wait.signal(); });
-	}
-
-	wait.wait();
+	return std::strcmp (string1, string2) == 0;
 }
 
-
-template <typename T>
-[[nodiscard]] constexpr bool atomicIsLockFree()
+int length (const char* string)
 {
-	return std::atomic<T>::is_always_lock_free;
+	return static_cast<int> (std::strlen (string));
 }
 
-}  // namespace lemons
+}  // namespace lemons::cstring

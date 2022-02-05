@@ -30,9 +30,9 @@ Data::Data (const char* fileToFind)
 
 		for (int index = 0; index < namedResourceListSize; ++index)
 		{
-			const auto binaryName = namedResourceList[index];
+			const auto* binaryName = namedResourceList[index];
 
-			if (std::strcmp (getNamedResourceOriginalFilename (binaryName), fileToFind) == 0)
+			if (cstring::areSame (getNamedResourceOriginalFilename (binaryName), fileToFind))
 				return getNamedResource (binaryName, size);
 		}
 

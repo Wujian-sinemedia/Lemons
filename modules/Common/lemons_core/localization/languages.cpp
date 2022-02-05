@@ -449,39 +449,27 @@ struct KnownLanguages final
 	{
 		jassert (name.isNotEmpty());
 
-		if (auto res = std::find_if (languages.begin(), languages.end(),
-									 [&name] (const LanguageData& lang)
-									 { return lang.languageName == name; });
-			res != languages.end())
-			return *res;
-
-		return {};
+		return contains_or_default<LanguageData> (languages,
+												  [&name] (const LanguageData& lang)
+												  { return lang.languageName == name; });
 	}
 
 	[[nodiscard]] const LanguageData getDataForISO639_1 (const String& code) const
 	{
 		jassert (code.length() == 2);
 
-		if (auto res = std::find_if (languages.begin(), languages.end(),
-									 [&code] (const LanguageData& lang)
-									 { return lang.ISO639_1 == code; });
-			res != languages.end())
-			return *res;
-
-		return {};
+		return contains_or_default<LanguageData> (languages,
+												  [&code] (const LanguageData& lang)
+												  { return lang.ISO639_1 == code; });
 	}
 
 	[[nodiscard]] const LanguageData getDataForISO639_2 (const String& code) const
 	{
 		jassert (code.length() == 3);
 
-		if (auto res = std::find_if (languages.begin(), languages.end(),
-									 [&code] (const LanguageData& lang)
-									 { return lang.ISO639_2 == code; });
-			res != languages.end())
-			return *res;
-
-		return {};
+		return contains_or_default<LanguageData> (languages,
+												  [&code] (const LanguageData& lang)
+												  { return lang.ISO639_2 == code; });
 	}
 
 	[[nodiscard]] StringArray getLanguageNamesForCountryCode (const String& code) const

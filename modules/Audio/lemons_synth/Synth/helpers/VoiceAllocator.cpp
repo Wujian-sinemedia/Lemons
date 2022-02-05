@@ -121,17 +121,15 @@ SynthVoiceBase<SampleType>* VoiceAllocator<SampleType>::findVoiceToSteal()
 	if (top == low)	 // Eliminate pathological cases (ie: only 1 note playing): we always give precedence to the lowest note(s)
 		top = nullptr;
 
-	if (auto res = std::find_if (usableVoices.begin(), usableVoices.end(),
-								 [low, top] (Voice* v)
-								 { return voice != low && voice != top && ! voice->isKeyDown() });
-		res != usableVoices.end())
-		return *res;
+	if (auto* voice = contains_or_null<Voice> (usableVoices,
+											   [low, top] (Voice* v)
+											   { return v != low && v != top && ! v->isKeyDown() }))
+		return *voice;
 
-	if (auto res = std::find_if (usableVoices.begin(), usableVoices.end(),
-								 [low, top] (Voice* v)
-								 { return voice != low && voice != top });
-		res != usableVoices.end())
-		return *res;
+	if (auto* voice = contains_or_null<Voice> (usableVoices,
+											   [low, top] (Voice* v)
+											   { return v != low && v != top }))
+		return *voice;
 
 	// only protected top & bottom voices are left now - time to use the pedal pitch & descant voices...
 
