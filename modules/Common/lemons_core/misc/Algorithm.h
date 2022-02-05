@@ -15,7 +15,7 @@
 
 #pragma once
 
-namespace lemons
+namespace lemons::alg
 {
 
 template <class ContainerType, class T>
@@ -64,4 +64,10 @@ template <class T, class ContainerType, class UnaryPredicate>
 	return *res;
 }
 
-}  // namespace lemons
+template <class ContainerType, class UnaryPredicate>
+[[nodiscard]] constexpr int num_of (const ContainerType& container, UnaryPredicate p)
+{
+	return static_cast<int> (std::count_if (container.begin(), container.end(), p));
+}
+
+}  // namespace lemons::alg

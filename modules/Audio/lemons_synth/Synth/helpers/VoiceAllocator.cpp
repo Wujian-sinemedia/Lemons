@@ -14,21 +14,6 @@
  * ======================================================================================
  */
 
-/*
- * ======================================================================================
- *
- *  ██╗     ███████╗███╗   ███╗ ██████╗ ███╗   ██╗███████╗
- *  ██║     ██╔════╝████╗ ████║██╔═══██╗████╗  ██║██╔════╝
- *  ██║     █████╗  ██╔████╔██║██║   ██║██╔██╗ ██║███████╗
- *  ██║     ██╔══╝  ██║╚██╔╝██║██║   ██║██║╚██╗██║╚════██║
- *  ███████╗███████╗██║ ╚═╝ ██║╚██████╔╝██║ ╚████║███████║
- *  ╚══════╝╚══════╝╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝
- *
- *  This file is part of the Lemons open source library and is licensed under the terms of the GNU Public License.
- *
- *  ======================================================================================
- */
-
 namespace lemons::dsp::synth
 {
 template <typename SampleType>
@@ -121,14 +106,14 @@ SynthVoiceBase<SampleType>* VoiceAllocator<SampleType>::findVoiceToSteal()
 	if (top == low)	 // Eliminate pathological cases (ie: only 1 note playing): we always give precedence to the lowest note(s)
 		top = nullptr;
 
-	if (auto* voice = contains_or_null<Voice> (usableVoices,
-											   [low, top] (Voice* v)
-											   { return v != low && v != top && ! v->isKeyDown() }))
+	if (auto* voice = alg::contains_or_null<Voice> (usableVoices,
+													[low, top] (Voice* v)
+													{ return v != low && v != top && ! v->isKeyDown() }))
 		return *voice;
 
-	if (auto* voice = contains_or_null<Voice> (usableVoices,
-											   [low, top] (Voice* v)
-											   { return v != low && v != top }))
+	if (auto* voice = alg::contains_or_null<Voice> (usableVoices,
+													[low, top] (Voice* v)
+													{ return v != low && v != top }))
 		return *voice;
 
 	// only protected top & bottom voices are left now - time to use the pedal pitch & descant voices...

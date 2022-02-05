@@ -449,27 +449,27 @@ struct KnownLanguages final
 	{
 		jassert (name.isNotEmpty());
 
-		return contains_or_default<LanguageData> (languages,
-												  [&name] (const LanguageData& lang)
-												  { return lang.languageName == name; });
+		return alg::contains_or_default<LanguageData> (languages,
+													   [&name] (const LanguageData& lang)
+													   { return lang.languageName == name; });
 	}
 
 	[[nodiscard]] const LanguageData getDataForISO639_1 (const String& code) const
 	{
 		jassert (code.length() == 2);
 
-		return contains_or_default<LanguageData> (languages,
-												  [&code] (const LanguageData& lang)
-												  { return lang.ISO639_1 == code; });
+		return alg::contains_or_default<LanguageData> (languages,
+													   [&code] (const LanguageData& lang)
+													   { return lang.ISO639_1 == code; });
 	}
 
 	[[nodiscard]] const LanguageData getDataForISO639_2 (const String& code) const
 	{
 		jassert (code.length() == 3);
 
-		return contains_or_default<LanguageData> (languages,
-												  [&code] (const LanguageData& lang)
-												  { return lang.ISO639_2 == code; });
+		return alg::contains_or_default<LanguageData> (languages,
+													   [&code] (const LanguageData& lang)
+													   { return lang.ISO639_2 == code; });
 	}
 
 	[[nodiscard]] StringArray getLanguageNamesForCountryCode (const String& code) const

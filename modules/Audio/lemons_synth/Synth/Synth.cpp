@@ -231,9 +231,9 @@ void SynthBase<SampleType>::numVoicesChanged()
 template <typename SampleType>
 SynthVoiceBase<SampleType>* SynthBase<SampleType>::getVoicePlayingNote (int midiPitch) const
 {
-	return contains_or_null<Voice> (voices,
-									[&midiPitch] (SynthVoiceBase<SampleType>* voice)
-									{ return voice->isVoiceActive() && voice->getCurrentlyPlayingNote() == midiPitch; });
+	return alg::contains_or_null<Voice> (voices,
+										 [&midiPitch] (SynthVoiceBase<SampleType>* voice)
+										 { return voice->isVoiceActive() && voice->getCurrentlyPlayingNote() == midiPitch; });
 }
 
 
@@ -244,9 +244,9 @@ SynthVoiceBase<SampleType>* SynthBase<SampleType>::getVoicePlayingNote (int midi
 template <typename SampleType>
 int SynthBase<SampleType>::getNumActiveVoices() const
 {
-	return static_cast<int> (
-		std::count_if (voices.begin(), voices.end(), [] (SynthVoiceBase<SampleType>* voice)
-					   { return voice->isVoiceActive(); }));
+	return alg::num_of (voices,
+						[] (Voice* voice)
+						{ return voice->isVoiceActive(); });
 }
 
 

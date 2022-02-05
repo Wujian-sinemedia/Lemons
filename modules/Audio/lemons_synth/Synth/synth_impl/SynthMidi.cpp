@@ -362,14 +362,12 @@ void SynthBase<SampleType>::turnOffList (const juce::Array<int>& toTurnOff, floa
 template <typename SampleType>
 bool SynthBase<SampleType>::isPitchActive (int midiPitch, bool countRingingButReleased, bool countKeyUpNotes) const
 {
-	for (auto* voice : voices)
-		if ((voice->isVoiceActive() && voice->getCurrentlyPlayingNote() == midiPitch) && (countRingingButReleased || ! voice->isPlayingButReleased())
-			&& (countKeyUpNotes || voice->isKeyDown()))
-		{
-			return true;
-		}
-
-	return false;
+	return alg::contains_if (voices,
+							 [midiPitch, countKeyUpNotes, countRingingButReleased] (Voice* voice)
+							 {
+								 return (voice->isVoiceActive() && voice->getCurrentlyPlayingNote() == midiPitch) && (countRingingButReleased || ! voice->isPlayingButReleased())
+									 && (countKeyUpNotes || voice->isKeyDown())
+							 });
 }
 
 

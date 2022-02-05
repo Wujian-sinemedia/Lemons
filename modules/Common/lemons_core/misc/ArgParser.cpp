@@ -64,8 +64,8 @@ String ArgParser::operator[] (const String& argOrFlags) const
 	if (argList.containsOption (argOrFlags))
 		return argList.getValueForOption (argOrFlags);
 
-	return contains_or_default<Argument> (args, [&argOrFlags] (const Argument& arg)
-										  { return arg.argOrFlags == argOrFlags; })
+	return alg::contains_or_default<Argument> (args, [&argOrFlags] (const Argument& arg)
+											   { return arg.argOrFlags == argOrFlags; })
 		.defaultValue;
 }
 
