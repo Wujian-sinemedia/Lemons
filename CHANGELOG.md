@@ -1,5 +1,12 @@
 # Lemons changelog
 
+## [1.6.0](http://github.com/benthevining/Lemons/compare/v1.5.1...v1.6.0) (2022-02-05)
+
+
+### Features
+
+* added algorithm helpers ([b33f7f2](http://github.com/benthevining/Lemons/commit/b33f7f2bae506a733ee864e8f0c06cb37136da81))
+
 ### [1.5.1](http://github.com/benthevining/Lemons/compare/v1.5.0...v1.5.1) (2022-02-04)
 
 
