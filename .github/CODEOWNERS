@@ -68,6 +68,7 @@ modules/Audio/lemons_dsp/unit_tests/dsp_test.h benthevining
 modules/Audio/lemons_dsp/util/AudioFormats.cpp benthevining
 modules/Audio/lemons_dsp/util/BufferUtils.cpp benthevining
 modules/Audio/lemons_dsp/util/MonoStereoConverter_tests.cpp benthevining
+modules/Audio/lemons_dsp/util/RealtimeTypeTraits.h benthevining
 modules/Audio/lemons_dsp/util/ValueSmoother.cpp benthevining
 modules/Audio/lemons_dsp/util/ValueSmoother.h benthevining
 modules/Audio/lemons_dsp/util/serializing.cpp benthevining
