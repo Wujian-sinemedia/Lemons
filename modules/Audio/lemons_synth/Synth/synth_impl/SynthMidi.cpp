@@ -363,7 +363,7 @@ template <typename SampleType>
 bool SynthBase<SampleType>::isPitchActive (int midiPitch, bool countRingingButReleased, bool countKeyUpNotes) const
 {
 	return alg::contains_if (voices,
-							 [midiPitch, countKeyUpNotes, countRingingButReleased] (Voice* voice)
+							 [midiPitch, countKeyUpNotes, countRingingButReleased] (const Voice* voice)
 							 {
 								 return (voice->isVoiceActive() && voice->getCurrentlyPlayingNote() == midiPitch) && (countRingingButReleased || ! voice->isPlayingButReleased())
 									 && (countKeyUpNotes || voice->isKeyDown())

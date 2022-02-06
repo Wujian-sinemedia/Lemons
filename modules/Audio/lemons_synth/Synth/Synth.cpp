@@ -232,7 +232,7 @@ template <typename SampleType>
 SynthVoiceBase<SampleType>* SynthBase<SampleType>::getVoicePlayingNote (int midiPitch) const
 {
 	return alg::contains_or_null<Voice> (voices,
-										 [&midiPitch] (SynthVoiceBase<SampleType>* voice)
+										 [&midiPitch] (const Voice* voice)
 										 { return voice->isVoiceActive() && voice->getCurrentlyPlayingNote() == midiPitch; });
 }
 
@@ -245,7 +245,7 @@ template <typename SampleType>
 int SynthBase<SampleType>::getNumActiveVoices() const
 {
 	return alg::num_of (voices,
-						[] (Voice* voice)
+						[] (const Voice* voice)
 						{ return voice->isVoiceActive(); });
 }
 

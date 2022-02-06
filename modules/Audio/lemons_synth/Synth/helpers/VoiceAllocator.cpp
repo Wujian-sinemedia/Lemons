@@ -107,12 +107,12 @@ SynthVoiceBase<SampleType>* VoiceAllocator<SampleType>::findVoiceToSteal()
 		top = nullptr;
 
 	if (auto* voice = alg::contains_or_null<Voice> (usableVoices,
-													[low, top] (Voice* v)
+													[low, top] (const Voice* v)
 													{ return v != low && v != top && ! v->isKeyDown() }))
 		return *voice;
 
 	if (auto* voice = alg::contains_or_null<Voice> (usableVoices,
-													[low, top] (Voice* v)
+													[low, top] (const Voice* v)
 													{ return v != low && v != top }))
 		return *voice;
 

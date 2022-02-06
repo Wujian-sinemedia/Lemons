@@ -106,6 +106,7 @@ modules/Audio/lemons_synth/Synth/helpers/MidiManager.cpp benthevining
 modules/Audio/lemons_synth/Synth/helpers/MidiManager.h benthevining
 modules/Audio/lemons_synth/Synth/helpers/PanningManager.h benthevining
 modules/Audio/lemons_synth/Synth/helpers/VoiceAllocator.cpp benthevining
+modules/Audio/lemons_synth/Synth/synth_impl/SynthMidi.cpp benthevining
 modules/Audio/lemons_synth/SynthVoice/TimbreMod.h benthevining
 modules/Audio/lemons_synth/lemons_synth.cpp benthevining
 modules/Audio/lemons_synth/lemons_synth.h benthevining
@@ -115,6 +116,7 @@ modules/Common/lemons_core/localization/languages.cpp benthevining
 modules/Common/lemons_core/misc/Algorithm.h benthevining
 modules/Common/lemons_core/misc/ArgParser.cpp benthevining
 modules/Common/lemons_core/misc/ArgParser.h benthevining
+modules/Common/lemons_core/misc/ConstructedArray.h benthevining
 modules/Common/lemons_core/misc/Dimensions.cpp benthevining
 modules/Common/lemons_core/misc/Preprocessor.h benthevining
 modules/Common/lemons_core/misc/StringUtils.h benthevining

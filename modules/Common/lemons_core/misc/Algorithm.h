@@ -81,4 +81,17 @@ template <class ContainerType, class UnaryPredicate>
 	return static_cast<int> (std::count_if (container.begin(), container.end(), std::move (p)));
 }
 
+template <class T, class ContainerType, class UnaryPredicate, class UnaryFunc1, class UnaryFunc2>
+constexpr void call_or (const ContainerType& container, UnaryPredicate&& p, UnaryFunc1&& f1, UnaryFunc2&& f2)
+{
+	std::for_each (container.begin(), container.end(),
+				   [pred = std::move (p), yesFunc = std::move (f1), noFunc = std::move (f2)] (const T& obj)
+				   {
+					   if (pred (obj))
+						   yesFunc (obj);
+					   else
+						   noFunc (obj);
+				   });
+}
+
 }  // namespace lemons::alg

@@ -69,10 +69,10 @@ struct ConstructedArray final
 	}
 
 	/** Calls a function with each object in the array. */
-	void for_each (std::function<void (ObjectType&)> func) const
+	template <class UnaryFunction>
+	void for_each (UnaryFunction&& func) const
 	{
-		for (auto* obj : array)
-			func (*obj);
+		std::for_each (array.begin(), array.end(), std::move (func));
 	}
 
 	/** Adds a single object to the end of the array, and returns a reference to it. */
