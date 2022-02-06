@@ -114,6 +114,7 @@ modules/Common/lemons_core/localization/languages.cpp benthevining
 modules/Common/lemons_core/misc/Algorithm.h benthevining
 modules/Common/lemons_core/misc/ArgParser.cpp benthevining
 modules/Common/lemons_core/misc/ArgParser.h benthevining
+modules/Common/lemons_core/misc/Dimensions.cpp benthevining
 modules/Common/lemons_core/misc/Preprocessor.h benthevining
 modules/Common/lemons_core/misc/StringUtils.h benthevining
 modules/Common/lemons_core/misc/Threading.h benthevining
@@ -173,6 +174,7 @@ modules/Plugins/lemons_plugin/metadata/ParameterTraits.cpp benthevining
 modules/Plugins/lemons_plugin/metadata/ParameterTraits.h benthevining
 modules/Plugins/lemons_plugin/metadata/PluginMetadata.cpp benthevining
 modules/Plugins/lemons_plugin/metadata/ProcessorAttributes.cpp benthevining
+modules/Plugins/lemons_plugin/parameters/ModulationManager/LFO.cpp benthevining
 modules/Plugins/lemons_plugin/parameters/ModulationManager/ModulationManager.cpp benthevining
 modules/Plugins/lemons_plugin/parameters/Parameter.cpp benthevining
 modules/Plugins/lemons_plugin/parameters/Parameter.h benthevining
@@ -201,6 +203,7 @@ util/CommandLineUtils/TranslationFileGenerator/CMakeLists.txt benthevining
 util/CommandLineUtils/TranslationFileGenerator/Main.cpp benthevining
 util/PluginMetadataEditor/metadata_editor_gui/document/Document.h benthevining
 util/PluginMetadataEditor/metadata_editor_gui/editor_attributes/EditorAttributeComponent.h benthevining
+util/PluginMetadataEditor/metadata_editor_gui/metadata_editor_gui.cpp benthevining
 util/PluginMetadataEditor/metadata_editor_gui/metadata_editor_gui.h benthevining
 util/PluginMetadataEditor/metadata_editor_gui/parameter_layout/ParameterLayoutComponent.cpp benthevining
 util/PluginMetadataEditor/metadata_editor_gui/parameter_layout/ParameterLayoutComponent.h benthevining

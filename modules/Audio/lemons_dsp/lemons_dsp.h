@@ -79,6 +79,7 @@ END_JUCE_MODULE_DECLARATION
 #include "util/BufferUtils.h"
 #include "util/MonoStereoConverter.h"
 #include "util/Windowing.h"
+#include "util/RealtimeTypeTraits.h"
 
 #include "audio_files/AudioFile.h"
 #include "audio_files/AudioFileCache.h"

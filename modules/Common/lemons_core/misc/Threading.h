@@ -50,11 +50,4 @@ void multiThreadedFor (std::function<void (T idx)>&& callback,
 	wait.wait();
 }
 
-
-template <typename T>
-[[nodiscard]] constexpr bool atomicIsLockFree()
-{
-	return std::atomic<T>::is_always_lock_free;
-}
-
 }  // namespace lemons
