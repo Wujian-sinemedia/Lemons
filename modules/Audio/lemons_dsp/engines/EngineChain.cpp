@@ -60,7 +60,7 @@ template <typename SampleType>
 typename EngineChain<SampleType>::Node* EngineChain<SampleType>::getNode (int index)
 {
 	return alg::contains_or_null<Node> (nodes,
-										[index] (Node* n)
+										[index] (const Node* n)
 										{ return n->index == index; });
 }
 
@@ -68,7 +68,7 @@ template <typename SampleType>
 const typename EngineChain<SampleType>::Node* EngineChain<SampleType>::getNode (int index) const
 {
 	return alg::contains_or_null<Node> (nodes,
-										[index] (Node* n)
+										[index] (const Node* n)
 										{ return n->index == index; });
 }
 

@@ -54,7 +54,7 @@ MidiBuffer midiBufferFromFile (const MidiFile& file, int trackToRead)
 {
 	MidiBuffer buffer;
 
-	const auto addEventsFromTrack = [&buffer, &file] (int trackNum)
+	auto addEventsFromTrack = [&buffer, &file] (int trackNum)
 	{
 		if (const auto* track = file.getTrack (trackNum))
 		{

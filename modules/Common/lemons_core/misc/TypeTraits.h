@@ -113,10 +113,10 @@ template <typename ObjectType>
 }
 
 template <typename ObjectType>
-[[nodiscard]] String getDemangledName (const ObjectType* c)
+[[nodiscard]] String getDemangledTypeName (const ObjectType* c)
 {
 	if (c != nullptr)
-		return getDemangledName (*c);
+		return getDemangledName (*c) + " pointer";
 
 	return "nullptr";
 }

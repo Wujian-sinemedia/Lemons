@@ -33,11 +33,9 @@ juce::AudioFormatManager& getDefaultAudioFormatManager()
 
 juce::AudioFormat* getNamedFormat (const String& name)
 {
-	for (auto* format : getDefaultAudioFormatManager())
-		if (format->getFormatName() == name)
-			return format;
-
-	return nullptr;
+	return alg::contains_or_null<juce::AudioFormat> (getDefaultAudioFormatManager(),
+													 [&name] (const juce::AudioFormat* f)
+													 { return f->getFormatName() == name; });
 }
 
 juce::StringArray getValidFormatNames()

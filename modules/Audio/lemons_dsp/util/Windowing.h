@@ -103,4 +103,12 @@ void applyWindow (ValueType* const inputSamples, int numSamples, const Windowing
 		inputSamples[i] *= func (numSamples, i);
 }
 
+template <typename ValueType>
+void applyWindowAndCopy (const ValueType* const inputSamples, ValueType* const outputSamples,
+						 int numSamples, const WindowingFunction<ValueType>& func)
+{
+	for (auto i = 0; i < numSamples; ++i)
+		outputSamples[i] = inputSamples[i] * func (numSamples, i);
+}
+
 }  // namespace lemons::dsp::windowing

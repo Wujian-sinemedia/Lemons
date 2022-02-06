@@ -64,8 +64,7 @@ int AudioFifo<SampleType>::numStoredSamples() const noexcept
 	auto num = buffers[0]->getNumStoredSamples();
 
 	for (const auto* buffer : buffers)
-		if (buffer->getNumStoredSamples() > num)
-			num = buffer->getNumStoredSamples();
+		num = std::max (num, buffer->getNumStoredSamples());
 
 	return num;
 }

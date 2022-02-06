@@ -66,6 +66,7 @@ modules/Audio/lemons_dsp/sample_streams/WhiteNoiseGenerator.h benthevining
 modules/Audio/lemons_dsp/unit_tests/dsp_test.cpp benthevining
 modules/Audio/lemons_dsp/unit_tests/dsp_test.h benthevining
 modules/Audio/lemons_dsp/util/AudioFormats.cpp benthevining
+modules/Audio/lemons_dsp/util/BufferUtils.cpp benthevining
 modules/Audio/lemons_dsp/util/MonoStereoConverter_tests.cpp benthevining
 modules/Audio/lemons_dsp/util/ValueSmoother.cpp benthevining
 modules/Audio/lemons_dsp/util/ValueSmoother.h benthevining
@@ -110,10 +111,12 @@ modules/Audio/lemons_synth/lemons_synth.h benthevining
 modules/Common/lemons_core/binary_data/translations.h benthevining
 modules/Common/lemons_core/lemons_core.h benthevining
 modules/Common/lemons_core/localization/languages.cpp benthevining
+modules/Common/lemons_core/misc/Algorithm.h benthevining
 modules/Common/lemons_core/misc/ArgParser.cpp benthevining
 modules/Common/lemons_core/misc/ArgParser.h benthevining
 modules/Common/lemons_core/misc/Preprocessor.h benthevining
 modules/Common/lemons_core/misc/StringUtils.h benthevining
+modules/Common/lemons_core/misc/Threading.h benthevining
 modules/Common/lemons_core/misc/TypeTraits.h benthevining
 modules/Common/lemons_core/misc/Version.h benthevining
 modules/Common/lemons_core/misc/rsa.h benthevining

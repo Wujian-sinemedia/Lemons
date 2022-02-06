@@ -38,7 +38,7 @@ bool ChoppingProcessor<SampleType>::shouldChopAroundMidiMessage (const MidiMessa
 template <typename SampleType>
 void ChoppingProcessor<SampleType>::process (AudioBuffer<SampleType>& audio, MidiBuffer& midi)
 {
-	const auto findNextMessageToChopAround = [this, &midi] (juce::MidiBufferIterator it) -> juce::MidiBufferIterator
+	auto findNextMessageToChopAround = [this, &midi] (juce::MidiBufferIterator it) -> juce::MidiBufferIterator
 	{
 		for (; it != midi.cend(); ++it)
 			if (shouldChopAroundMidiMessage ((*it).getMessage()))

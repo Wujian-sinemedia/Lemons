@@ -64,7 +64,6 @@ AudioBuffer<SampleType> getAliasBuffer (AudioBuffer<SampleType>& bufferToAlias,
 
 	jassert (numChannels > 0);
 	jassert (numSamples >= 0);
-
 	jassert (numChannels <= bufferToAlias.getNumChannels());
 	jassert (numSamples <= bufferToAlias.getNumSamples());
 

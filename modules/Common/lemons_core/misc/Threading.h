@@ -18,8 +18,10 @@
 namespace lemons
 {
 
-template <typename T>
-void multiThreadedFor (T start, T end, T interval, juce::ThreadPool* threadPool, std::function<void (T idx)>&& callback)
+template <typename T = int>
+void multiThreadedFor (std::function<void (T idx)>&& callback,
+					   T start, T end, T interval = 1,
+					   juce::ThreadPool* threadPool = nullptr)
 {
 	if (threadPool == nullptr)
 	{
