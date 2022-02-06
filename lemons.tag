@@ -357,6 +357,7 @@
     <includes id="_value_smoother_8h" name="ValueSmoother.h" local="yes" imported="no">util/ValueSmoother.h</includes>
     <includes id="_buffer_utils_8h" name="BufferUtils.h" local="yes" imported="no">util/BufferUtils.h</includes>
     <includes id="_mono_stereo_converter_8h" name="MonoStereoConverter.h" local="yes" imported="no">util/MonoStereoConverter.h</includes>
+    <includes id="_windowing_8h" name="Windowing.h" local="yes" imported="no">util/Windowing.h</includes>
     <includes id="_audio_file_8h" name="AudioFile.h" local="yes" imported="no">audio_files/AudioFile.h</includes>
     <includes id="_audio_file_cache_8h" name="AudioFileCache.h" local="yes" imported="no">audio_files/AudioFileCache.h</includes>
     <includes id="_audio_file_player_8h" name="AudioFilePlayer.h" local="yes" imported="no">audio_files/AudioFilePlayer.h</includes>
@@ -685,6 +686,43 @@
     <filename>_value_smoother_8h.html</filename>
     <class kind="struct">lemons::ValueSmoother</class>
     <namespace>lemons</namespace>
+  </compound>
+  <compound kind="file">
+    <name>Windowing.h</name>
+    <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/Audio/lemons_dsp/util/</path>
+    <filename>_windowing_8h.html</filename>
+    <namespace>lemons</namespace>
+    <namespace>lemons::dsp</namespace>
+    <namespace>lemons::dsp::windowing</namespace>
+    <namespace>lemons::dsp::windowing::detail</namespace>
+    <member kind="typedef">
+      <type>std::function&lt; ValueType(int, int)&gt;</type>
+      <name>WindowingFunction</name>
+      <anchorfile>namespacelemons_1_1dsp_1_1windowing.html</anchorfile>
+      <anchor>a98e88624f88e91cb2d121ee446cc48fa</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>applyWindow</name>
+      <anchorfile>namespacelemons_1_1dsp_1_1windowing.html</anchorfile>
+      <anchor>a823758f43b0d1f5cb9f2a50956db8cce</anchor>
+      <arglist>(ValueType *const inputSamples, int numSamples, const WindowingFunction&lt; ValueType &gt; &amp;func)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>makeWindow</name>
+      <anchorfile>namespacelemons_1_1dsp_1_1windowing.html</anchorfile>
+      <anchor>a0ecab844dfe229c1414511ed431bfb37</anchor>
+      <arglist>(ValueType *const windowOut, int windowSize, const WindowingFunction&lt; ValueType &gt; &amp;func)</arglist>
+    </member>
+    <member kind="function">
+      <type>ValueType</type>
+      <name>ncos</name>
+      <anchorfile>namespacelemons_1_1dsp_1_1windowing_1_1detail.html</anchorfile>
+      <anchor>aecb960ab63298404bc5d6464168ce1f9</anchor>
+      <arglist>(int order, int i, int size) noexcept</arglist>
+    </member>
   </compound>
   <compound kind="file">
     <name>lemons_midi.h</name>
@@ -1208,12 +1246,15 @@
     <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/Common/lemons_core/</path>
     <filename>lemons__core_8h.html</filename>
     <includes id="_type_traits_8h" name="TypeTraits.h" local="yes" imported="no">misc/TypeTraits.h</includes>
+    <includes id="_algorithm_8h" name="Algorithm.h" local="yes" imported="no">misc/Algorithm.h</includes>
+    <includes id="_string_utils_8h" name="StringUtils.h" local="yes" imported="no">misc/StringUtils.h</includes>
     <includes id="_version_8h" name="Version.h" local="yes" imported="no">misc/Version.h</includes>
     <includes id="_dimensions_8h" name="Dimensions.h" local="yes" imported="no">misc/Dimensions.h</includes>
     <includes id="_constructed_array_8h" name="ConstructedArray.h" local="yes" imported="no">misc/ConstructedArray.h</includes>
     <includes id="_timers_8h" name="Timers.h" local="yes" imported="no">misc/Timers.h</includes>
     <includes id="rsa_8h" name="rsa.h" local="yes" imported="no">misc/rsa.h</includes>
     <includes id="_threading_8h" name="Threading.h" local="yes" imported="no">misc/Threading.h</includes>
+    <includes id="_arg_parser_8h" name="ArgParser.h" local="yes" imported="no">misc/ArgParser.h</includes>
     <includes id="test_8h" name="test.h" local="yes" imported="no">unit_tests/test.h</includes>
     <includes id="runner_8h" name="runner.h" local="yes" imported="no">unit_tests/runner.h</includes>
     <includes id="_file_utilities_8h" name="FileUtilities.h" local="yes" imported="no">files/FileUtilities.h</includes>
@@ -1227,7 +1268,7 @@
     <includes id="_translation_files_8h" name="TranslationFiles.h" local="yes" imported="no">localization/TranslationFiles.h</includes>
     <includes id="_ranges_8h" name="Ranges.h" local="yes" imported="no">math/Ranges.h</includes>
     <includes id="math_helpers_8h" name="mathHelpers.h" local="yes" imported="no">math/mathHelpers.h</includes>
-    <includes id="_arg_parser_8h" name="ArgParser.h" local="yes" imported="no">misc/ArgParser.h</includes>
+    <includes id="_fraction_8h" name="Fraction.h" local="yes" imported="no">math/Fraction.h</includes>
     <member kind="define">
       <type>#define</type>
       <name>LEMONS_HAS_BINARY_DATA</name>
@@ -1333,6 +1374,14 @@
       <anchor>acbae708a4be6cab2552dafbd19ab2598</anchor>
       <arglist>(const String &amp;language, bool languageName=true)</arglist>
     </member>
+  </compound>
+  <compound kind="file">
+    <name>Fraction.h</name>
+    <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/Common/lemons_core/math/</path>
+    <filename>_fraction_8h.html</filename>
+    <class kind="struct">lemons::math::Fraction</class>
+    <namespace>lemons</namespace>
+    <namespace>lemons::math</namespace>
   </compound>
   <compound kind="file">
     <name>mathHelpers.h</name>
@@ -1462,6 +1511,55 @@
     </member>
   </compound>
   <compound kind="file">
+    <name>Algorithm.h</name>
+    <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/Common/lemons_core/misc/</path>
+    <filename>_algorithm_8h.html</filename>
+    <namespace>lemons</namespace>
+    <namespace>lemons::alg</namespace>
+    <member kind="function">
+      <type>constexpr bool</type>
+      <name>contains</name>
+      <anchorfile>namespacelemons_1_1alg.html</anchorfile>
+      <anchor>a1f0318fa7bccd9e581271f7a2708dd17</anchor>
+      <arglist>(const ContainerType &amp;container, const T &amp;value)</arglist>
+    </member>
+    <member kind="function">
+      <type>constexpr bool</type>
+      <name>contains_if</name>
+      <anchorfile>namespacelemons_1_1alg.html</anchorfile>
+      <anchor>a9ba81f050767be5183e403e287981132</anchor>
+      <arglist>(const ContainerType &amp;container, UnaryPredicate p)</arglist>
+    </member>
+    <member kind="function">
+      <type>constexpr T &amp;</type>
+      <name>contains_or</name>
+      <anchorfile>namespacelemons_1_1alg.html</anchorfile>
+      <anchor>a45df0f36f931a895b408382c0bbd0fe7</anchor>
+      <arglist>(const ContainerType &amp;container, T &amp;defaultValue, UnaryPredicate p)</arglist>
+    </member>
+    <member kind="function">
+      <type>constexpr T</type>
+      <name>contains_or_default</name>
+      <anchorfile>namespacelemons_1_1alg.html</anchorfile>
+      <anchor>a2fbd7283a3ee24d38839ef2f3a2d08c9</anchor>
+      <arglist>(const ContainerType &amp;container, UnaryPredicate p)</arglist>
+    </member>
+    <member kind="function">
+      <type>constexpr T *</type>
+      <name>contains_or_null</name>
+      <anchorfile>namespacelemons_1_1alg.html</anchorfile>
+      <anchor>a4b1caebd7e8a2acfe495c7191b2de58c</anchor>
+      <arglist>(const ContainerType &amp;container, UnaryPredicate p)</arglist>
+    </member>
+    <member kind="function">
+      <type>constexpr int</type>
+      <name>num_of</name>
+      <anchorfile>namespacelemons_1_1alg.html</anchorfile>
+      <anchor>ac0607385c1b0bfc5368f1bdcb4e3f285</anchor>
+      <arglist>(const ContainerType &amp;container, UnaryPredicate p)</arglist>
+    </member>
+  </compound>
+  <compound kind="file">
     <name>ArgParser.h</name>
     <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/Common/lemons_core/misc/</path>
     <filename>_arg_parser_8h.html</filename>
@@ -1527,10 +1625,38 @@
     </member>
   </compound>
   <compound kind="file">
+    <name>StringUtils.h</name>
+    <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/Common/lemons_core/misc/</path>
+    <filename>_string_utils_8h.html</filename>
+    <namespace>lemons</namespace>
+    <namespace>lemons::cstring</namespace>
+    <member kind="function">
+      <type>bool</type>
+      <name>areSame</name>
+      <anchorfile>namespacelemons_1_1cstring.html</anchorfile>
+      <anchor>a08c465eb78204866f74fc900232a8a9f</anchor>
+      <arglist>(const char *string1, const char *string2)</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>length</name>
+      <anchorfile>namespacelemons_1_1cstring.html</anchorfile>
+      <anchor>a257c056b9043895b26182f83abc40ad6</anchor>
+      <arglist>(const char *string)</arglist>
+    </member>
+  </compound>
+  <compound kind="file">
     <name>Threading.h</name>
     <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/Common/lemons_core/misc/</path>
     <filename>_threading_8h.html</filename>
     <namespace>lemons</namespace>
+    <member kind="function">
+      <type>constexpr bool</type>
+      <name>atomicIsLockFree</name>
+      <anchorfile>namespacelemons.html</anchorfile>
+      <anchor>a928235c83ffb3c67b20ab431a04efd29</anchor>
+      <arglist>()</arglist>
+    </member>
     <member kind="function">
       <type>void</type>
       <name>multiThreadedFor</name>
@@ -8508,6 +8634,88 @@
       <name>param</name>
       <anchorfile>classlemons_1_1gui_1_1components_1_1_float_slider.html</anchorfile>
       <anchor>a0bc4c1fb4461164fdddf9003e0968e62</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>lemons::math::Fraction</name>
+    <filename>structlemons_1_1math_1_1_fraction.html</filename>
+    <templarg>typename ValueType</templarg>
+    <member kind="function">
+      <type>constexpr</type>
+      <name>Fraction</name>
+      <anchorfile>structlemons_1_1math_1_1_fraction.html</anchorfile>
+      <anchor>a5306ffe0e821ec1ff7c2b8bba5cce9db</anchor>
+      <arglist>(const Fraction&lt; T &gt; &amp;other) noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>constexpr</type>
+      <name>Fraction</name>
+      <anchorfile>structlemons_1_1math_1_1_fraction.html</anchorfile>
+      <anchor>ab4baa09f07a2c8493326b309b6fd6e59</anchor>
+      <arglist>(ValueType num, ValueType denom) noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>constexpr</type>
+      <name>operator double</name>
+      <anchorfile>structlemons_1_1math_1_1_fraction.html</anchorfile>
+      <anchor>a64157d5eedfe6be9c9c774f52b67f26d</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>constexpr</type>
+      <name>operator float</name>
+      <anchorfile>structlemons_1_1math_1_1_fraction.html</anchorfile>
+      <anchor>aa09e588a9ee78e9c6ed219d8dc69f732</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>constexpr bool</type>
+      <name>operator!=</name>
+      <anchorfile>structlemons_1_1math_1_1_fraction.html</anchorfile>
+      <anchor>a3212d307ce231fcc519a41721b6332a9</anchor>
+      <arglist>(const Fraction &amp;other) const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>constexpr bool</type>
+      <name>operator&lt;</name>
+      <anchorfile>structlemons_1_1math_1_1_fraction.html</anchorfile>
+      <anchor>a69ce72b95cfb5adfd0eee3c0cbf7081d</anchor>
+      <arglist>(const Fraction &amp;other) const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>constexpr Fraction &amp;</type>
+      <name>operator=</name>
+      <anchorfile>structlemons_1_1math_1_1_fraction.html</anchorfile>
+      <anchor>acf552a6f6a583fea763289ed9118d9a5</anchor>
+      <arglist>(const Fraction&lt; T &gt; &amp;other) noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>constexpr bool</type>
+      <name>operator==</name>
+      <anchorfile>structlemons_1_1math_1_1_fraction.html</anchorfile>
+      <anchor>a7e99259dd5caf2fdfc16716bb262a378</anchor>
+      <arglist>(const Fraction &amp;other) const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>constexpr bool</type>
+      <name>operator&gt;</name>
+      <anchorfile>structlemons_1_1math_1_1_fraction.html</anchorfile>
+      <anchor>a7def79e2843bcbf0a817112db07b8ae4</anchor>
+      <arglist>(const Fraction &amp;other) const noexcept</arglist>
+    </member>
+    <member kind="variable">
+      <type>ValueType</type>
+      <name>denominator</name>
+      <anchorfile>structlemons_1_1math_1_1_fraction.html</anchorfile>
+      <anchor>a2a89505f54b0769f506cee2bcd905f47</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>ValueType</type>
+      <name>numerator</name>
+      <anchorfile>structlemons_1_1math_1_1_fraction.html</anchorfile>
+      <anchor>a1ea5587636b3666c0abca49a874fcf3a</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -25081,7 +25289,9 @@
   <compound kind="namespace">
     <name>lemons</name>
     <filename>namespacelemons.html</filename>
+    <namespace>lemons::alg</namespace>
     <namespace>lemons::binary</namespace>
+    <namespace>lemons::cstring</namespace>
     <namespace>lemons::dmx</namespace>
     <namespace>lemons::dsp</namespace>
     <namespace>lemons::events</namespace>
@@ -25111,6 +25321,13 @@
     <class kind="struct">lemons::ValueSmoother</class>
     <class kind="struct">lemons::Version</class>
     <member kind="function">
+      <type>constexpr bool</type>
+      <name>atomicIsLockFree</name>
+      <anchorfile>namespacelemons.html</anchorfile>
+      <anchor>a928235c83ffb3c67b20ab431a04efd29</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
       <type>String</type>
       <name>getDemangledName</name>
       <anchorfile>namespacelemons.html</anchorfile>
@@ -25137,6 +25354,52 @@
       <anchorfile>group__lemons__device.html</anchorfile>
       <anchor>ga5a5b2cd2a233eba3e8638e95c1f3798c</anchor>
       <arglist>(bool shouldBeEnabled)</arglist>
+    </member>
+  </compound>
+  <compound kind="namespace">
+    <name>lemons::alg</name>
+    <filename>namespacelemons_1_1alg.html</filename>
+    <member kind="function">
+      <type>constexpr bool</type>
+      <name>contains</name>
+      <anchorfile>namespacelemons_1_1alg.html</anchorfile>
+      <anchor>a1f0318fa7bccd9e581271f7a2708dd17</anchor>
+      <arglist>(const ContainerType &amp;container, const T &amp;value)</arglist>
+    </member>
+    <member kind="function">
+      <type>constexpr bool</type>
+      <name>contains_if</name>
+      <anchorfile>namespacelemons_1_1alg.html</anchorfile>
+      <anchor>a9ba81f050767be5183e403e287981132</anchor>
+      <arglist>(const ContainerType &amp;container, UnaryPredicate p)</arglist>
+    </member>
+    <member kind="function">
+      <type>constexpr T &amp;</type>
+      <name>contains_or</name>
+      <anchorfile>namespacelemons_1_1alg.html</anchorfile>
+      <anchor>a45df0f36f931a895b408382c0bbd0fe7</anchor>
+      <arglist>(const ContainerType &amp;container, T &amp;defaultValue, UnaryPredicate p)</arglist>
+    </member>
+    <member kind="function">
+      <type>constexpr T</type>
+      <name>contains_or_default</name>
+      <anchorfile>namespacelemons_1_1alg.html</anchorfile>
+      <anchor>a2fbd7283a3ee24d38839ef2f3a2d08c9</anchor>
+      <arglist>(const ContainerType &amp;container, UnaryPredicate p)</arglist>
+    </member>
+    <member kind="function">
+      <type>constexpr T *</type>
+      <name>contains_or_null</name>
+      <anchorfile>namespacelemons_1_1alg.html</anchorfile>
+      <anchor>a4b1caebd7e8a2acfe495c7191b2de58c</anchor>
+      <arglist>(const ContainerType &amp;container, UnaryPredicate p)</arglist>
+    </member>
+    <member kind="function">
+      <type>constexpr int</type>
+      <name>num_of</name>
+      <anchorfile>namespacelemons_1_1alg.html</anchorfile>
+      <anchor>ac0607385c1b0bfc5368f1bdcb4e3f285</anchor>
+      <arglist>(const ContainerType &amp;container, UnaryPredicate p)</arglist>
     </member>
   </compound>
   <compound kind="namespace">
@@ -25278,6 +25541,24 @@
     </member>
   </compound>
   <compound kind="namespace">
+    <name>lemons::cstring</name>
+    <filename>namespacelemons_1_1cstring.html</filename>
+    <member kind="function">
+      <type>bool</type>
+      <name>areSame</name>
+      <anchorfile>namespacelemons_1_1cstring.html</anchorfile>
+      <anchor>a08c465eb78204866f74fc900232a8a9f</anchor>
+      <arglist>(const char *string1, const char *string2)</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>length</name>
+      <anchorfile>namespacelemons_1_1cstring.html</anchorfile>
+      <anchor>a257c056b9043895b26182f83abc40ad6</anchor>
+      <arglist>(const char *string)</arglist>
+    </member>
+  </compound>
+  <compound kind="namespace">
     <name>lemons::dmx</name>
     <filename>namespacelemons_1_1dmx.html</filename>
     <member kind="function">
@@ -25305,6 +25586,7 @@
     <namespace>lemons::dsp::osc</namespace>
     <namespace>lemons::dsp::psola</namespace>
     <namespace>lemons::dsp::synth</namespace>
+    <namespace>lemons::dsp::windowing</namespace>
     <class kind="class">lemons::dsp::AudioAndMidiFIFO</class>
     <class kind="class">lemons::dsp::AudioFifo</class>
     <class kind="struct">lemons::dsp::AudioFile</class>
@@ -25580,6 +25862,43 @@
       <anchorfile>namespacelemons_1_1dsp_1_1synth.html</anchorfile>
       <anchor>a7f1ef90930175f151eb6aba9b52aacd1</anchor>
       <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="namespace">
+    <name>lemons::dsp::windowing</name>
+    <filename>namespacelemons_1_1dsp_1_1windowing.html</filename>
+    <namespace>lemons::dsp::windowing::detail</namespace>
+    <member kind="typedef">
+      <type>std::function&lt; ValueType(int, int)&gt;</type>
+      <name>WindowingFunction</name>
+      <anchorfile>namespacelemons_1_1dsp_1_1windowing.html</anchorfile>
+      <anchor>a98e88624f88e91cb2d121ee446cc48fa</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>applyWindow</name>
+      <anchorfile>namespacelemons_1_1dsp_1_1windowing.html</anchorfile>
+      <anchor>a823758f43b0d1f5cb9f2a50956db8cce</anchor>
+      <arglist>(ValueType *const inputSamples, int numSamples, const WindowingFunction&lt; ValueType &gt; &amp;func)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>makeWindow</name>
+      <anchorfile>namespacelemons_1_1dsp_1_1windowing.html</anchorfile>
+      <anchor>a0ecab844dfe229c1414511ed431bfb37</anchor>
+      <arglist>(ValueType *const windowOut, int windowSize, const WindowingFunction&lt; ValueType &gt; &amp;func)</arglist>
+    </member>
+  </compound>
+  <compound kind="namespace">
+    <name>lemons::dsp::windowing::detail</name>
+    <filename>namespacelemons_1_1dsp_1_1windowing_1_1detail.html</filename>
+    <member kind="function">
+      <type>ValueType</type>
+      <name>ncos</name>
+      <anchorfile>namespacelemons_1_1dsp_1_1windowing_1_1detail.html</anchorfile>
+      <anchor>aecb960ab63298404bc5d6464168ce1f9</anchor>
+      <arglist>(int order, int i, int size) noexcept</arglist>
     </member>
   </compound>
   <compound kind="namespace">
@@ -25951,6 +26270,7 @@
   <compound kind="namespace">
     <name>lemons::math</name>
     <filename>namespacelemons_1_1math.html</filename>
+    <class kind="struct">lemons::math::Fraction</class>
     <member kind="function">
       <type>PeriodType</type>
       <name>freqFromPeriod</name>
