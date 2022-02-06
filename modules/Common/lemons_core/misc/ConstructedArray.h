@@ -69,7 +69,7 @@ struct ConstructedArray final
 	}
 
 	/** Calls a function with each object in the array. */
-	void for_each (std::function<void (ObjectType&)> func)
+	void for_each (std::function<void (ObjectType&)> func) const
 	{
 		for (auto* obj : array)
 			func (*obj);

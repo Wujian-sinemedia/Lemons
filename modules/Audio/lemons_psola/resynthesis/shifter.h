@@ -102,7 +102,7 @@ private:
 
 	int samplesToNextGrain { 0 }, placeInBlock { 0 }, targetPitchHz { 0 };
 
-	juce::OwnedArray<Grain> grains;
+	ConstructedArray<Grain> grains;
 
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (Shifter)
 };

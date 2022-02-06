@@ -16,24 +16,6 @@
 namespace lemons
 {
 
-void Version::bumpMajor() noexcept
-{
-	++major;
-	minor = 0;
-	patch = 0;
-}
-
-void Version::bumpMinor() noexcept
-{
-	++minor;
-	patch = 0;
-}
-
-void Version::bumpPatch() noexcept
-{
-	++patch;
-}
-
 String Version::toString() const noexcept
 {
 	return String (major) + "." + String (minor) + "." + String (patch);

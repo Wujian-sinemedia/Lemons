@@ -163,7 +163,7 @@ typename Analyzer<SampleType>::Grain& Analyzer<SampleType>::getGrainToStoreIn()
 
 	jassertfalse;
 
-	return *grains.add (new Grain);
+	return grains.append();
 }
 
 template <typename SampleType>
@@ -192,7 +192,7 @@ inline void Analyzer<SampleType>::makeWindow (int size)
 template <typename SampleType>
 typename Analyzer<SampleType>::Grain& Analyzer<SampleType>::getClosestGrain (int placeInBlock) const
 {
-	jassert (! grains.isEmpty());
+	jassert (! grains->isEmpty());
 	jassert (placeInBlock >= 0);
 
 	struct GainDistanceData final
@@ -283,8 +283,7 @@ inline int Analyzer<SampleType>::latencyChanged()
 
 	prevFrame.setSize (1, latency, true, true, true);
 
-	while (grains.size() < latency / 2)
-		grains.add (new Grain);
+	grains.resize (latency / 2);
 
 	for (auto* grain : grains)
 		grain->reserveSize (latency);
@@ -322,7 +321,7 @@ void Analyzer<SampleType>::releaseResources()
 
 	prevFrame.setSize (0, 0);
 
-	grains.clear();
+	grains->clear();
 	window.clear();
 	incompleteGrainsFromLastFrame.clear();
 }

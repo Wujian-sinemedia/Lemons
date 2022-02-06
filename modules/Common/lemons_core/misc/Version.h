@@ -49,10 +49,10 @@ namespace lemons
 struct Version final
 {
 	/** Creates a default Version object with the value 0.0.1. */
-	constexpr explicit Version() = default;
+	constexpr explicit Version() noexcept = default;
 
 	/** Creates a Version object with a specified value. */
-	constexpr explicit Version (int maj, int min, int p)
+	constexpr explicit Version (int maj, int min, int p) noexcept
 		: major (maj), minor (min), patch (p)
 	{
 	}
@@ -108,13 +108,25 @@ struct Version final
 	}
 
 	/** Increments the major value and sets minor and patch to 0. */
-	void bumpMajor() noexcept;
+	constexpr void bumpMajor() noexcept
+	{
+		++major;
+		minor = 0;
+		patch = 0;
+	}
 
 	/** Increments the minor value and sets patch to 0. */
-	void bumpMinor() noexcept;
+	constexpr void bumpMinor() noexcept
+	{
+		++minor;
+		patch = 0;
+	}
 
 	/** Increments the patch value. */
-	void bumpPatch() noexcept;
+	constexpr void bumpPatch() noexcept
+	{
+		++patch;
+	}
 
 	/** Returns the major version number. */
 	[[nodiscard]] constexpr int getMajor() const noexcept

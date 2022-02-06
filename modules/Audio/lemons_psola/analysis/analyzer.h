@@ -132,7 +132,7 @@ private:
 
 	Array<SampleType> window;
 
-	juce::OwnedArray<Grain> grains;
+	ConstructedArray<Grain> grains;
 
 	int lastBlocksize { 0 }, lastFrameGrainSize { 0 };
 

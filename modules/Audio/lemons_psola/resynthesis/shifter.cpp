@@ -99,7 +99,7 @@ typename Shifter<SampleType>::Grain& Shifter<SampleType>::getGrainToStart()
 
 	jassertfalse;
 
-	return *grains.add (new Grain);
+	return grains.append();
 }
 
 template <typename SampleType>
@@ -112,8 +112,7 @@ void Shifter<SampleType>::samplerateChanged() noexcept
 template <typename SampleType>
 void Shifter<SampleType>::latencyChanged (int newLatency)
 {
-	while (grains.size() < newLatency / 2)
-		grains.add (new Grain);
+	grains.resize (newLatency / 2);
 }
 
 template <typename SampleType>
@@ -130,7 +129,7 @@ void Shifter<SampleType>::reset() noexcept
 template <typename SampleType>
 void Shifter<SampleType>::releaseResources()
 {
-	grains.clear();
+	grains->clear();
 
 	samplesToNextGrain = 0;
 	targetPeriod	   = 0.f;
