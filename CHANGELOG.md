@@ -1,5 +1,17 @@
 # Lemons changelog
 
+## [1.9.0](http://github.com/benthevining/Lemons/compare/v1.8.0...v1.9.0) (2022-02-06)
+
+
+### Features
+
+* added realtime type traits ([749eaa9](http://github.com/benthevining/Lemons/commit/749eaa9959177fdc255826a81a73de7f6b43bde9))
+
+
+### Bug Fixes
+
+* including STL headers from realtime traits header ([55d0dad](http://github.com/benthevining/Lemons/commit/55d0dad28eff071c6b1da233c22cecc182b2b340))
+
 ## [1.8.0](http://github.com/benthevining/Lemons/compare/v1.7.0...v1.8.0) (2022-02-05)
 
 
