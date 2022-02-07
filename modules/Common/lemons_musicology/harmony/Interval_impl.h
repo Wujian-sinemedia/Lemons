@@ -192,7 +192,7 @@ constexpr Interval& Interval::operator--() noexcept
 		--kind;
 
 		if (intervalIsPerfectKind())
-			quality = Quality::Perfect;	 // ??
+			quality = Quality::Perfect;
 		else
 			quality = Quality::Minor;
 	};

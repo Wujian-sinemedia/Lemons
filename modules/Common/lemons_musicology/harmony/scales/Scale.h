@@ -21,7 +21,10 @@ namespace lemons::music
 /*
  - pentatonic
  - octatonic
+ - whole tone
  - chromatic
+ - neapolitan
+ - blues scale
  */
 
 struct Scale

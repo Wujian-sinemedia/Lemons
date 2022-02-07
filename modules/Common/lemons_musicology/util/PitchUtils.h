@@ -13,59 +13,30 @@
  * ======================================================================================
  */
 
+#pragma once
+
+
 namespace lemons::music
 {
 
-Pitch::Pitch (const String& pitchString) noexcept
-	: midiPitch (static_cast<double> (stringToPitch (pitchString)))
+constexpr bool isValidPitchClass (int pitchClass)
 {
+	return pitchClass >= 0 && pitchClass <= 11;
 }
 
-bool Pitch::approximatelyEqual (const Pitch& other) const noexcept
+constexpr int makeValidPitchClass (int pitchClass)
 {
-	return juce::roundToInt (midiPitch) == juce::roundToInt (other.midiPitch);
+	return pitchClass % 12;
 }
 
-double Pitch::getFreqHz() const noexcept
+constexpr int octaveNumberOfMidiNote (int midiNote)
 {
-	return math::midiToFreq (midiPitch);
+	return midiNote / 12 - 1;
 }
 
-int Pitch::getRoundedFreqHz() const noexcept
+constexpr int lowestNoteOfMidiOctave (int octaveNumber)
 {
-	return juce::roundToInt (getFreqHz());
-}
-
-int Pitch::getRoundedMidiPitch() const noexcept
-{
-	return juce::roundToInt (midiPitch);
-}
-
-int Pitch::getPitchClass() const noexcept
-{
-	return makeValidPitchClass (juce::roundToInt (midiPitch));
-}
-
-int Pitch::getOctaveNumber() const noexcept
-{
-	return octaveNumberOfMidiNote (juce::roundToInt (midiPitch));
-}
-
-bool Pitch::isBlackKey() const noexcept
-{
-	const auto pitchClass = getPitchClass();
-
-	return pitchClass == 1 || pitchClass == 3 || pitchClass == 6 || pitchClass == 8 || pitchClass == 10;
-}
-
-bool Pitch::isWhiteKey() const noexcept
-{
-	return ! isBlackKey();
-}
-
-String Pitch::toString() const noexcept
-{
-	return pitchToString (juce::roundToInt (midiPitch));
+	return (octaveNumber + 1) * 12;
 }
 
 }  // namespace lemons::music

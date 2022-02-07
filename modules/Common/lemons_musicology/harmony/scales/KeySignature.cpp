@@ -29,19 +29,9 @@ KeySignature KeySignature::fromStringDescription (const String& description)
 		return Type::NaturalMinor;
 	}();
 
-	const auto rootDesc = description.upToFirstOccurrenceOf (" ", false, false).trim();
+	const auto root = stringToPitchClass (description.upToFirstOccurrenceOf (" ", false, false).trim());
 
-	const auto root = stringToPitchClass (rootDesc);
-
-	if (rootDesc.endsWithChar (getSharpSymbol()) || rootDesc.endsWithChar ('#'))
-		return KeySignature { type, true, root };
-
-	if (rootDesc.endsWithChar (getFlatSymbol()) || (rootDesc.endsWithChar ('b') && rootDesc.length() > 1))
-		return KeySignature { type, false, root };
-
-	const auto use_sharps = root == 2 || root == 4 || root == 7 || root == 9 || root == 11;
-
-	return KeySignature { type, use_sharps, root };
+	return KeySignature { type, root };
 }
 
 String KeySignature::getRootAsString() const noexcept
@@ -199,22 +189,14 @@ KeySignature KeySignature::getParallelKey() const noexcept
 
 bool KeySignature::isParallelKeyOf (const KeySignature& other) const noexcept
 {
-	const auto oppositeTonality = [t1 = type, t2 = other.type]
-	{
-		if (t1 == Type::Major)
-			return t2 != Type::Major;
-
-		return t2 == Type::Major;
-	}();
-
-	return oppositeTonality && isFlat == other.isFlat && getPitchClassOfRoot() == other.getPitchClassOfRoot();
+	return hasOppositeTonality (other) && isFlat == other.isFlat && getPitchClassOfRoot() == other.getPitchClassOfRoot();
 }
 
 KeySignature KeySignature::getDominantKey() const noexcept
 {
-	const auto dominant = (getPitchClassOfRoot() + 7) % 12;
+	const auto dominant = makeValidPitchClass (getPitchClassOfRoot() + 7);
 
-	return KeySignature { Type::Major, ! isFlat, dominant };
+	return KeySignature { Type::Major, dominant };
 }
 
 bool KeySignature::isDominantKeyOf (const KeySignature& other) const noexcept
@@ -222,23 +204,14 @@ bool KeySignature::isDominantKeyOf (const KeySignature& other) const noexcept
 	if (type != Type::Major)
 		return false;
 
-	if (isFlat != other.isFlat)
-		return false;
-
-	const auto expectedRoot = (other.getPitchClassOfRoot() + 7) % 12;
-
-	return getPitchClassOfRoot() == expectedRoot;
+	return getPitchClassOfRoot() == makeValidPitchClass (other.getPitchClassOfRoot() + 7);
 }
 
 int KeySignature::getPitchClassOfScaleDegree (int scaleDegree) const noexcept
 {
 	scaleDegree %= 8;
 
-	jassert (scaleDegree >= 0 && scaleDegree <= 8);
-
-	const auto pitchClass = getPitchClassOfRoot() + scaleDegree;
-
-	return pitchClass % 12;
+	return makeValidPitchClass (getPitchClassOfRoot() + scaleDegree);
 }
 
 }  // namespace lemons::music

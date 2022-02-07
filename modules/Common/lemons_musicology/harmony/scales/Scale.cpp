@@ -43,31 +43,25 @@ bool Scale::containsPitch (const Pitch& pitch) const
 
 bool Scale::containsPitch (int midiNoteNumber) const
 {
-	return containsPitchClass (midiNoteNumber % 12);
+	return containsPitchClass (midiNoteNumber);
 }
 
 bool Scale::containsPitchClass (int pitchClass) const
 {
-	jassert (pitchClass >= 0 && pitchClass <= 11);
+	pitchClass = makeValidPitchClass (pitchClass);
 
 	const auto root = getPitchClassOfRoot();
 
-	for (const auto interval : getIntervalsAsSemitones())
-	{
-		const auto degreeClass = (root + interval) % 12;
-
-		if (degreeClass == pitchClass)
-			return true;
-	}
-
-	return false;
+	return alg::contains_if (getIntervalsAsSemitones(),
+							 [pitchClass, root] (int interval)
+							 { return pitchClass == makeValidPitchClass (root + interval); });
 }
 
 juce::Array<int> Scale::getPitchClasses() const
 {
 	juce::Array<int> pitchClasses;
 
-	for (int i = 0; i <= 11; ++i)
+	for (auto i = 0; i <= 11; ++i)
 		if (containsPitchClass (i))
 			pitchClasses.add (i);
 
@@ -78,7 +72,7 @@ juce::Array<Pitch> Scale::getPitches (int octaveNumber) const
 {
 	const auto startingNote = [this, octaveNumber]
 	{
-		auto starting = (octaveNumber + 1) * 12;
+		auto starting = lowestNoteOfMidiOctave (octaveNumber);
 
 		while (! containsPitch (starting))
 			++starting;
@@ -130,7 +124,7 @@ juce::Array<Pitch> Scale::getPitches (int lowestMidiNote, int highestMidiNote) c
 
 Pitch Scale::getRoot (int octaveNumber) const noexcept
 {
-	const auto octaveStart = (octaveNumber + 1) * 12;
+	const auto octaveStart = lowestNoteOfMidiOctave (octaveNumber);
 
 	return Pitch { octaveStart + getPitchClassOfRoot() };
 }

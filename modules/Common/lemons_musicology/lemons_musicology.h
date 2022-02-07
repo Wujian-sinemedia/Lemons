@@ -34,6 +34,7 @@
  -------------------------------------------------------------------------------------*/
 
 
+#include "util/PitchUtils.h"
 #include "util/StringFunctions.h"
 
 #include "harmony/Pitch.h"

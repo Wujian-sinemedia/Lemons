@@ -40,7 +40,7 @@ int stringToPitchClass (const String& string) noexcept
 
 	const auto numChars = pitchClassName.length();
 
-	auto pitchClass = [&]() -> int
+	auto pitchClass = [numChars, &pitchClassName]()
 	{
 		if (numChars > 0)
 		{
@@ -55,7 +55,6 @@ int stringToPitchClass (const String& string) noexcept
 				case 'g' : return 7;
 				case 'a' : return 9;
 				case 'b' : return 11;
-				default : return -1;
 			}
 		}
 
@@ -70,11 +69,9 @@ int stringToPitchClass (const String& string) noexcept
 			++pitchClass;
 		else if (sharpOrFlat == getFlatSymbol() || sharpOrFlat == 'b')
 			--pitchClass;
-
-		pitchClass %= 12;
 	}
 
-	return pitchClass;
+	return makeValidPitchClass (pitchClass);
 }
 
 
@@ -88,9 +85,7 @@ static const char* const flatNoteNames[] = {
 
 String pitchClassToString (int pitchClass, bool asSharps) noexcept
 {
-	pitchClass %= 12;
-
-	jassert (pitchClass >= 0 && pitchClass <= 11);
+	pitchClass = makeValidPitchClass (pitchClass);
 
 	if (asSharps)
 		return sharpNoteNames[pitchClass];
@@ -103,9 +98,9 @@ String pitchToString (int midiNoteNumber, bool asSharps) noexcept
 {
 	jassert (midiNoteNumber >= 0 && midiNoteNumber <= 127);
 
-	const auto noteName = pitchClassToString (midiNoteNumber % 12, asSharps);
+	const auto noteName = pitchClassToString (makeValidPitchClass (midiNoteNumber), asSharps);
 
-	const auto octave = midiNoteNumber / 12 - 1;
+	const auto octave = octaveNumberOfMidiNote (midiNoteNumber);
 
 	return noteName + String (octave);
 }
@@ -116,7 +111,7 @@ int stringToPitch (const String& string) noexcept
 
 	const auto pitchClass = stringToPitchClass (string);
 
-	if (pitchClass < 0)
+	if (! isValidPitchClass (pitchClass))
 		return -1;
 
 	const auto octave = string.retainCharacters ("0123456789").getIntValue();

@@ -98,6 +98,8 @@ private:
 
 	[[nodiscard]] static constexpr bool rootHasEnharmonicKey (int root) noexcept;
 
+	[[nodiscard]] constexpr bool hasOppositeTonality (const KeySignature& other) const noexcept;
+
 	int numAccidentals { 0 };
 
 	bool isFlat { false };

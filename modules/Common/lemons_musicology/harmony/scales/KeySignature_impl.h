@@ -21,7 +21,7 @@ namespace lemons::music
 constexpr KeySignature::KeySignature (Type typeToUse, bool isSharps, int pitchClassOfRoot) noexcept
 	: type (typeToUse), isFlat (! isSharps)
 {
-	pitchClassOfRoot %= 12;
+	pitchClassOfRoot = makeValidPitchClass (pitchClassOfRoot);
 
 	struct MajorMinorPair final
 	{
@@ -104,15 +104,15 @@ constexpr KeySignature::KeySignature (const KeySignature& other) noexcept
 
 constexpr bool KeySignature::isRelativeKeyOf (const KeySignature& other) const noexcept
 {
-	const auto oppositeTonality = [t1 = type, t2 = other.type]
-	{
-		if (t1 == Type::Major)
-			return t2 != Type::Major;
+	return hasOppositeTonality (other) && numAccidentals == other.numAccidentals && isFlat == other.isFlat;
+}
 
-		return t2 == Type::Major;
-	}();
+constexpr bool KeySignature::hasOppositeTonality (const KeySignature& other) const noexcept
+{
+	if (type == Type::Major)
+		return other.type != Type::Major;
 
-	return oppositeTonality && numAccidentals == other.numAccidentals && isFlat == other.isFlat;
+	return other.type == Type::Major;
 }
 
 constexpr bool KeySignature::rootHasEnharmonicKey (int root) noexcept
