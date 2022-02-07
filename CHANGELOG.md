@@ -1,5 +1,13 @@
 # Lemons changelog
 
+## [1.11.0](http://github.com/benthevining/Lemons/compare/v1.10.0...v1.11.0) (2022-02-07)
+
+
+### Features
+
+* added a function to get an interval's inverse ([698fb2e](http://github.com/benthevining/Lemons/commit/698fb2efd941d8c683836eb7d7c45435cb1d48e1))
+* added a scale base class, and a mode class ([91f1b9b](http://github.com/benthevining/Lemons/commit/91f1b9bfbda621bf5a771d2aa4f458c2c1b376f1))
+
 ## [1.10.0](http://github.com/benthevining/Lemons/compare/v1.9.0...v1.10.0) (2022-02-07)
 
 
