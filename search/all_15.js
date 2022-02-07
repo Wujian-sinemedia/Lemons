@@ -57,7 +57,7 @@ var searchData=
   ['velocityhelper_2eh_54',['VelocityHelper.h',['../_velocity_helper_8h.html',1,'']]],
   ['version_55',['Version',['../structlemons_1_1_version.html',1,'lemons']]],
   ['version_56',['version',['../structlemons_1_1plugin_1_1_plugin_metadata.html#a7c5df557761ecaac8161c969c0a57c4e',1,'lemons::plugin::PluginMetadata']]],
-  ['version_57',['Version',['../structlemons_1_1_version.html#afae79708babdd5845257f743b2abb91b',1,'lemons::Version::Version()=default'],['../structlemons_1_1_version.html#a9c4c37f17104c344004e040b99fa3668',1,'lemons::Version::Version(int maj, int min, int p)']]],
+  ['version_57',['Version',['../structlemons_1_1_version.html#a94b1e73b1f4f0ce898dcbceceef174fa',1,'lemons::Version::Version() noexcept=default'],['../structlemons_1_1_version.html#a08ce66b6de8f10e3e9599732c84e9822',1,'lemons::Version::Version(int maj, int min, int p) noexcept']]],
   ['version_2eh_58',['Version.h',['../_version_8h.html',1,'']]],
   ['versionbumpprompt_59',['VersionBumpPrompt',['../classlemons_1_1gui_1_1components_1_1_version_bump_prompt.html',1,'lemons::gui::components::VersionBumpPrompt'],['../classlemons_1_1gui_1_1components_1_1_version_bump_prompt.html#ad0be92d82456635ab906be49e11c92ca',1,'lemons::gui::components::VersionBumpPrompt::VersionBumpPrompt(Version &amp;versionToUse, std::function&lt; void()&gt; toClose)'],['../classlemons_1_1gui_1_1components_1_1_version_bump_prompt.html#a34091643c1df9a9552ff1ee0e1aabe6c',1,'lemons::gui::components::VersionBumpPrompt::VersionBumpPrompt(Version &amp;versionToUse, std::unique_ptr&lt; PopupComponentBase &gt; &amp;holder)']]],
   ['versionbumpprompt_2eh_60',['VersionBumpPrompt.h',['../_version_bump_prompt_8h.html',1,'']]],

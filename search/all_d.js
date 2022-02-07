@@ -13,7 +13,7 @@ var searchData=
   ['nosamplesareclipping_10',['noSamplesAreClipping',['../group__lemons__dsp__unit__tests.html#ga91d1e7095657d0593a3baba099b5ed36',1,'lemons::tests']]],
   ['notch_11',['Notch',['../namespacelemons_1_1dsp_1_1_f_x.html#a2a75c0c88cd8cbd576add3c0d4db1d14aa70ec028ca3f03d3bf0f8016f8c072a3',1,'lemons::dsp::FX']]],
   ['notecleared_12',['noteCleared',['../classlemons_1_1dsp_1_1_synth_voice_base.html#ac6f8d7ef8ea554d84807f66996eeab2a',1,'lemons::dsp::SynthVoiceBase']]],
-  ['num_5fof_13',['num_of',['../namespacelemons_1_1alg.html#ac0607385c1b0bfc5368f1bdcb4e3f285',1,'lemons::alg']]],
+  ['num_5fof_13',['num_of',['../namespacelemons_1_1alg.html#a84d35683f4150bd67f0d1c6b2199fbf2',1,'lemons::alg']]],
   ['numberiseven_14',['numberIsEven',['../group__lemons__math.html#ga7b8815e02637942415c8e71fdd58453f',1,'lemons::math']]],
   ['numchannels_15',['numChannels',['../classlemons_1_1dsp_1_1_audio_fifo.html#a4fea99cc444fb7e167422c3fec90bcf2',1,'lemons::dsp::AudioFifo']]],
   ['numerator_16',['numerator',['../structlemons_1_1math_1_1_fraction.html#a1ea5587636b3666c0abca49a874fcf3a',1,'lemons::math::Fraction']]],

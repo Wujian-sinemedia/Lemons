@@ -6,7 +6,7 @@ var searchData=
   ['colors_3',['colors',['../namespacelemons_1_1gui_1_1colors.html',1,'lemons::gui']]],
   ['components_4',['components',['../namespacelemons_1_1gui_1_1components.html',1,'lemons::gui']]],
   ['cstring_5',['cstring',['../namespacelemons_1_1cstring.html',1,'lemons']]],
-  ['detail_6',['detail',['../namespacelemons_1_1dsp_1_1windowing_1_1detail.html',1,'lemons::dsp::windowing::detail'],['../namespacelemons_1_1plugin_1_1detail.html',1,'lemons::plugin::detail']]],
+  ['detail_6',['detail',['../namespacelemons_1_1dsp_1_1detail.html',1,'lemons::dsp::detail'],['../namespacelemons_1_1dsp_1_1windowing_1_1detail.html',1,'lemons::dsp::windowing::detail'],['../namespacelemons_1_1plugin_1_1detail.html',1,'lemons::plugin::detail']]],
   ['dmx_7',['dmx',['../namespacelemons_1_1dmx.html',1,'lemons']]],
   ['dsp_8',['dsp',['../namespacelemons_1_1dsp.html',1,'lemons']]],
   ['events_9',['events',['../namespacelemons_1_1events.html',1,'lemons']]],

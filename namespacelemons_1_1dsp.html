@@ -72,7 +72,8 @@ $(function() {
 <a href="#namespaces">Namespaces</a> &#124;
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#typedef-members">Typedefs</a> &#124;
-<a href="#enum-members">Enumerations</a>  </div>
+<a href="#enum-members">Enumerations</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle"><div class="title">lemons::dsp Namespace Reference</div></div>
 </div><!--header-->
 <div class="contents">
@@ -80,6 +81,8 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
 Namespaces</h2></td></tr>
 <tr class="memitem:namespacelemons_1_1dsp_1_1buffers"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1dsp_1_1buffers.html">buffers</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:namespacelemons_1_1dsp_1_1detail"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1dsp_1_1detail.html">detail</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:namespacelemons_1_1dsp_1_1filters"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1dsp_1_1filters.html">filters</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -123,6 +126,14 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1_engine_chain.html">EngineChain</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A kind of engine that contains a chain of other <a class="el" href="classlemons_1_1dsp_1_1_engine.html" title="Base class for an audio engine.">Engine</a> objects.  <a href="classlemons_1_1dsp_1_1_engine_chain.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1dsp_1_1is__realtime__copy__assignable.html">is_realtime_copy_assignable</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1dsp_1_1is__realtime__copy__constructable.html">is_realtime_copy_constructable</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1dsp_1_1is__realtime__move__assignable.html">is_realtime_move_assignable</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1dsp_1_1is__realtime__move__constructable.html">is_realtime_move_constructable</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1_lambda_synth.html">LambdaSynth</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -177,6 +188,12 @@ Enumerations</h2></td></tr>
  }</td></tr>
 <tr class="memdesc:gaaf020aad6edbe51634e978b1d97a37e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">An enum used to describe how a MonoStereoConverter will convert stereo signals to mono.  <a href="group__lemons__stereo__conversion.html#gaaf020aad6edbe51634e978b1d97a37e2">More...</a><br /></td></tr>
 <tr class="separator:gaaf020aad6edbe51634e978b1d97a37e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a27efdda8edfde71d782f6062703e7095"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a27efdda8edfde71d782f6062703e7095"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1dsp.html#a27efdda8edfde71d782f6062703e7095">atomicIsLockFree</a> ()</td></tr>
+<tr class="separator:a27efdda8edfde71d782f6062703e7095"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Typedef Documentation</h2>
 <a id="afbf63004526f79ec914e0c85dbeea273" name="afbf63004526f79ec914e0c85dbeea273"></a>
@@ -211,10 +228,38 @@ template&lt;typename SampleType &gt; </div>
 
 </div>
 </div>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="a27efdda8edfde71d782f6062703e7095" name="a27efdda8edfde71d782f6062703e7095"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a27efdda8edfde71d782f6062703e7095">&#9670;&nbsp;</a></span>atomicIsLockFree()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr bool lemons::dsp::atomicIsLockFree </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Feb 6 2022 00:54:28 for Lemons by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3
+Generated on Mon Feb 7 2022 00:47:06 for Lemons by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3
 </small></address>
 </body>
 </html>

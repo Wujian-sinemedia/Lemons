@@ -76,26 +76,82 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:a9a6331a2bba908039864b40b5a47b59e"><td class="memTemplParams" colspan="2">template&lt;class T , class ContainerType , class UnaryPredicate , class UnaryFunc1 , class UnaryFunc2 &gt; </td></tr>
+<tr class="memitem:a9a6331a2bba908039864b40b5a47b59e"><td class="memTemplItemLeft" align="right" valign="top">constexpr void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1alg.html#a9a6331a2bba908039864b40b5a47b59e">call_or</a> (const ContainerType &amp;container, UnaryPredicate &amp;&amp;p, UnaryFunc1 &amp;&amp;f1, UnaryFunc2 &amp;&amp;f2)</td></tr>
+<tr class="separator:a9a6331a2bba908039864b40b5a47b59e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1f0318fa7bccd9e581271f7a2708dd17"><td class="memTemplParams" colspan="2">template&lt;class ContainerType , class T &gt; </td></tr>
 <tr class="memitem:a1f0318fa7bccd9e581271f7a2708dd17"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1alg.html#a1f0318fa7bccd9e581271f7a2708dd17">contains</a> (const ContainerType &amp;container, const T &amp;value)</td></tr>
 <tr class="separator:a1f0318fa7bccd9e581271f7a2708dd17"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9ba81f050767be5183e403e287981132"><td class="memTemplParams" colspan="2">template&lt;class ContainerType , class UnaryPredicate &gt; </td></tr>
-<tr class="memitem:a9ba81f050767be5183e403e287981132"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1alg.html#a9ba81f050767be5183e403e287981132">contains_if</a> (const ContainerType &amp;container, UnaryPredicate p)</td></tr>
-<tr class="separator:a9ba81f050767be5183e403e287981132"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a45df0f36f931a895b408382c0bbd0fe7"><td class="memTemplParams" colspan="2">template&lt;class ContainerType , class T , class UnaryPredicate &gt; </td></tr>
-<tr class="memitem:a45df0f36f931a895b408382c0bbd0fe7"><td class="memTemplItemLeft" align="right" valign="top">constexpr T &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1alg.html#a45df0f36f931a895b408382c0bbd0fe7">contains_or</a> (const ContainerType &amp;container, T &amp;defaultValue, UnaryPredicate p)</td></tr>
-<tr class="separator:a45df0f36f931a895b408382c0bbd0fe7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2fbd7283a3ee24d38839ef2f3a2d08c9"><td class="memTemplParams" colspan="2">template&lt;class T , class ContainerType , class UnaryPredicate , std::enable_if_t&lt; std::is_default_constructible_v&lt; T &gt; &gt; *  = nullptr&gt; </td></tr>
-<tr class="memitem:a2fbd7283a3ee24d38839ef2f3a2d08c9"><td class="memTemplItemLeft" align="right" valign="top">constexpr T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1alg.html#a2fbd7283a3ee24d38839ef2f3a2d08c9">contains_or_default</a> (const ContainerType &amp;container, UnaryPredicate p)</td></tr>
-<tr class="separator:a2fbd7283a3ee24d38839ef2f3a2d08c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4b1caebd7e8a2acfe495c7191b2de58c"><td class="memTemplParams" colspan="2">template&lt;class T , class ContainerType , class UnaryPredicate &gt; </td></tr>
-<tr class="memitem:a4b1caebd7e8a2acfe495c7191b2de58c"><td class="memTemplItemLeft" align="right" valign="top">constexpr T *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1alg.html#a4b1caebd7e8a2acfe495c7191b2de58c">contains_or_null</a> (const ContainerType &amp;container, UnaryPredicate p)</td></tr>
-<tr class="separator:a4b1caebd7e8a2acfe495c7191b2de58c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac0607385c1b0bfc5368f1bdcb4e3f285"><td class="memTemplParams" colspan="2">template&lt;class ContainerType , class UnaryPredicate &gt; </td></tr>
-<tr class="memitem:ac0607385c1b0bfc5368f1bdcb4e3f285"><td class="memTemplItemLeft" align="right" valign="top">constexpr int&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1alg.html#ac0607385c1b0bfc5368f1bdcb4e3f285">num_of</a> (const ContainerType &amp;container, UnaryPredicate p)</td></tr>
-<tr class="separator:ac0607385c1b0bfc5368f1bdcb4e3f285"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0536740644f83b05c112b79d6e2b9e01"><td class="memTemplParams" colspan="2">template&lt;class ContainerType , class UnaryPredicate &gt; </td></tr>
+<tr class="memitem:a0536740644f83b05c112b79d6e2b9e01"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1alg.html#a0536740644f83b05c112b79d6e2b9e01">contains_if</a> (const ContainerType &amp;container, UnaryPredicate &amp;&amp;p)</td></tr>
+<tr class="separator:a0536740644f83b05c112b79d6e2b9e01"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a82cad6622e8a909080875186b098de13"><td class="memTemplParams" colspan="2">template&lt;class ContainerType , class T , class UnaryPredicate &gt; </td></tr>
+<tr class="memitem:a82cad6622e8a909080875186b098de13"><td class="memTemplItemLeft" align="right" valign="top">constexpr const T &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1alg.html#a82cad6622e8a909080875186b098de13">contains_or</a> (const ContainerType &amp;container, const T &amp;defaultValue, UnaryPredicate &amp;&amp;p)</td></tr>
+<tr class="separator:a82cad6622e8a909080875186b098de13"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a89b964396b3c630cfee9b5e9dfdbef58"><td class="memTemplParams" colspan="2">template&lt;class ContainerType , class T , class UnaryPredicate &gt; </td></tr>
+<tr class="memitem:a89b964396b3c630cfee9b5e9dfdbef58"><td class="memTemplItemLeft" align="right" valign="top">constexpr T &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1alg.html#a89b964396b3c630cfee9b5e9dfdbef58">contains_or</a> (const ContainerType &amp;container, T &amp;defaultValue, UnaryPredicate &amp;&amp;p)</td></tr>
+<tr class="separator:a89b964396b3c630cfee9b5e9dfdbef58"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa180b06c283e569b07cef4db0d081723"><td class="memTemplParams" colspan="2">template&lt;class T , class ContainerType , class UnaryPredicate , std::enable_if_t&lt; std::is_default_constructible_v&lt; T &gt; &gt; *  = nullptr&gt; </td></tr>
+<tr class="memitem:aa180b06c283e569b07cef4db0d081723"><td class="memTemplItemLeft" align="right" valign="top">constexpr T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1alg.html#aa180b06c283e569b07cef4db0d081723">contains_or_default</a> (const ContainerType &amp;container, UnaryPredicate &amp;&amp;p)</td></tr>
+<tr class="separator:aa180b06c283e569b07cef4db0d081723"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a68e3a4482bc9d85a5be7623c425bd69c"><td class="memTemplParams" colspan="2">template&lt;class T , class ContainerType , class UnaryPredicate &gt; </td></tr>
+<tr class="memitem:a68e3a4482bc9d85a5be7623c425bd69c"><td class="memTemplItemLeft" align="right" valign="top">constexpr T *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1alg.html#a68e3a4482bc9d85a5be7623c425bd69c">contains_or_null</a> (const ContainerType &amp;container, UnaryPredicate &amp;&amp;p)</td></tr>
+<tr class="separator:a68e3a4482bc9d85a5be7623c425bd69c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a84d35683f4150bd67f0d1c6b2199fbf2"><td class="memTemplParams" colspan="2">template&lt;class ContainerType , class UnaryPredicate &gt; </td></tr>
+<tr class="memitem:a84d35683f4150bd67f0d1c6b2199fbf2"><td class="memTemplItemLeft" align="right" valign="top">constexpr int&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1alg.html#a84d35683f4150bd67f0d1c6b2199fbf2">num_of</a> (const ContainerType &amp;container, UnaryPredicate &amp;&amp;p)</td></tr>
+<tr class="separator:a84d35683f4150bd67f0d1c6b2199fbf2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="a9a6331a2bba908039864b40b5a47b59e" name="a9a6331a2bba908039864b40b5a47b59e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9a6331a2bba908039864b40b5a47b59e">&#9670;&nbsp;</a></span>call_or()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T , class ContainerType , class UnaryPredicate , class UnaryFunc1 , class UnaryFunc2 &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr void lemons::alg::call_or </td>
+          <td>(</td>
+          <td class="paramtype">const ContainerType &amp;&#160;</td>
+          <td class="paramname"><em>container</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UnaryPredicate &amp;&amp;&#160;</td>
+          <td class="paramname"><em>p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UnaryFunc1 &amp;&amp;&#160;</td>
+          <td class="paramname"><em>f1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UnaryFunc2 &amp;&amp;&#160;</td>
+          <td class="paramname"><em>f2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a1f0318fa7bccd9e581271f7a2708dd17" name="a1f0318fa7bccd9e581271f7a2708dd17"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1f0318fa7bccd9e581271f7a2708dd17">&#9670;&nbsp;</a></span>contains()</h2>
 
@@ -134,8 +190,8 @@ template&lt;class ContainerType , class T &gt; </div>
 
 </div>
 </div>
-<a id="a9ba81f050767be5183e403e287981132" name="a9ba81f050767be5183e403e287981132"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9ba81f050767be5183e403e287981132">&#9670;&nbsp;</a></span>contains_if()</h2>
+<a id="a0536740644f83b05c112b79d6e2b9e01" name="a0536740644f83b05c112b79d6e2b9e01"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0536740644f83b05c112b79d6e2b9e01">&#9670;&nbsp;</a></span>contains_if()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -154,7 +210,7 @@ template&lt;class ContainerType , class UnaryPredicate &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">UnaryPredicate&#160;</td>
+          <td class="paramtype">UnaryPredicate &amp;&amp;&#160;</td>
           <td class="paramname"><em>p</em>&#160;</td>
         </tr>
         <tr>
@@ -172,8 +228,52 @@ template&lt;class ContainerType , class UnaryPredicate &gt; </div>
 
 </div>
 </div>
-<a id="a45df0f36f931a895b408382c0bbd0fe7" name="a45df0f36f931a895b408382c0bbd0fe7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a45df0f36f931a895b408382c0bbd0fe7">&#9670;&nbsp;</a></span>contains_or()</h2>
+<a id="a82cad6622e8a909080875186b098de13" name="a82cad6622e8a909080875186b098de13"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a82cad6622e8a909080875186b098de13">&#9670;&nbsp;</a></span>contains_or() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class ContainerType , class T , class UnaryPredicate &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr const T &amp; lemons::alg::contains_or </td>
+          <td>(</td>
+          <td class="paramtype">const ContainerType &amp;&#160;</td>
+          <td class="paramname"><em>container</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const T &amp;&#160;</td>
+          <td class="paramname"><em>defaultValue</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UnaryPredicate &amp;&amp;&#160;</td>
+          <td class="paramname"><em>p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a89b964396b3c630cfee9b5e9dfdbef58" name="a89b964396b3c630cfee9b5e9dfdbef58"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a89b964396b3c630cfee9b5e9dfdbef58">&#9670;&nbsp;</a></span>contains_or() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -198,7 +298,7 @@ template&lt;class ContainerType , class T , class UnaryPredicate &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">UnaryPredicate&#160;</td>
+          <td class="paramtype">UnaryPredicate &amp;&amp;&#160;</td>
           <td class="paramname"><em>p</em>&#160;</td>
         </tr>
         <tr>
@@ -216,8 +316,8 @@ template&lt;class ContainerType , class T , class UnaryPredicate &gt; </div>
 
 </div>
 </div>
-<a id="a2fbd7283a3ee24d38839ef2f3a2d08c9" name="a2fbd7283a3ee24d38839ef2f3a2d08c9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2fbd7283a3ee24d38839ef2f3a2d08c9">&#9670;&nbsp;</a></span>contains_or_default()</h2>
+<a id="aa180b06c283e569b07cef4db0d081723" name="aa180b06c283e569b07cef4db0d081723"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa180b06c283e569b07cef4db0d081723">&#9670;&nbsp;</a></span>contains_or_default()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -236,7 +336,7 @@ template&lt;class T , class ContainerType , class UnaryPredicate , std::enable_i
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">UnaryPredicate&#160;</td>
+          <td class="paramtype">UnaryPredicate &amp;&amp;&#160;</td>
           <td class="paramname"><em>p</em>&#160;</td>
         </tr>
         <tr>
@@ -254,8 +354,8 @@ template&lt;class T , class ContainerType , class UnaryPredicate , std::enable_i
 
 </div>
 </div>
-<a id="a4b1caebd7e8a2acfe495c7191b2de58c" name="a4b1caebd7e8a2acfe495c7191b2de58c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4b1caebd7e8a2acfe495c7191b2de58c">&#9670;&nbsp;</a></span>contains_or_null()</h2>
+<a id="a68e3a4482bc9d85a5be7623c425bd69c" name="a68e3a4482bc9d85a5be7623c425bd69c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a68e3a4482bc9d85a5be7623c425bd69c">&#9670;&nbsp;</a></span>contains_or_null()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -274,7 +374,7 @@ template&lt;class T , class ContainerType , class UnaryPredicate &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">UnaryPredicate&#160;</td>
+          <td class="paramtype">UnaryPredicate &amp;&amp;&#160;</td>
           <td class="paramname"><em>p</em>&#160;</td>
         </tr>
         <tr>
@@ -292,8 +392,8 @@ template&lt;class T , class ContainerType , class UnaryPredicate &gt; </div>
 
 </div>
 </div>
-<a id="ac0607385c1b0bfc5368f1bdcb4e3f285" name="ac0607385c1b0bfc5368f1bdcb4e3f285"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac0607385c1b0bfc5368f1bdcb4e3f285">&#9670;&nbsp;</a></span>num_of()</h2>
+<a id="a84d35683f4150bd67f0d1c6b2199fbf2" name="a84d35683f4150bd67f0d1c6b2199fbf2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a84d35683f4150bd67f0d1c6b2199fbf2">&#9670;&nbsp;</a></span>num_of()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -312,7 +412,7 @@ template&lt;class ContainerType , class UnaryPredicate &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">UnaryPredicate&#160;</td>
+          <td class="paramtype">UnaryPredicate &amp;&amp;&#160;</td>
           <td class="paramname"><em>p</em>&#160;</td>
         </tr>
         <tr>
@@ -333,7 +433,7 @@ template&lt;class ContainerType , class UnaryPredicate &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Feb 6 2022 00:54:28 for Lemons by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3
+Generated on Mon Feb 7 2022 00:47:06 for Lemons by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3
 </small></address>
 </body>
 </html>

@@ -92,6 +92,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a823758f43b0d1f5cb9f2a50956db8cce"><td class="memTemplParams" colspan="2">template&lt;typename ValueType &gt; </td></tr>
 <tr class="memitem:a823758f43b0d1f5cb9f2a50956db8cce"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1dsp_1_1windowing.html#a823758f43b0d1f5cb9f2a50956db8cce">applyWindow</a> (ValueType *const inputSamples, int numSamples, const <a class="el" href="namespacelemons_1_1dsp_1_1windowing.html#a98e88624f88e91cb2d121ee446cc48fa">WindowingFunction</a>&lt; ValueType &gt; &amp;func)</td></tr>
 <tr class="separator:a823758f43b0d1f5cb9f2a50956db8cce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab10e25d364d46c55ffa106c1fcbb1851"><td class="memTemplParams" colspan="2">template&lt;typename ValueType &gt; </td></tr>
+<tr class="memitem:ab10e25d364d46c55ffa106c1fcbb1851"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1dsp_1_1windowing.html#ab10e25d364d46c55ffa106c1fcbb1851">applyWindowAndCopy</a> (const ValueType *const inputSamples, ValueType *const outputSamples, int numSamples, const <a class="el" href="namespacelemons_1_1dsp_1_1windowing.html#a98e88624f88e91cb2d121ee446cc48fa">WindowingFunction</a>&lt; ValueType &gt; &amp;func)</td></tr>
+<tr class="separator:ab10e25d364d46c55ffa106c1fcbb1851"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0ecab844dfe229c1414511ed431bfb37"><td class="memTemplParams" colspan="2">template&lt;typename ValueType &gt; </td></tr>
 <tr class="memitem:a0ecab844dfe229c1414511ed431bfb37"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1dsp_1_1windowing.html#a0ecab844dfe229c1414511ed431bfb37">makeWindow</a> (ValueType *const windowOut, int windowSize, const <a class="el" href="namespacelemons_1_1dsp_1_1windowing.html#a98e88624f88e91cb2d121ee446cc48fa">WindowingFunction</a>&lt; ValueType &gt; &amp;func)</td></tr>
 <tr class="separator:a0ecab844dfe229c1414511ed431bfb37"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -127,6 +130,48 @@ template&lt;typename ValueType &gt; </div>
           <td>(</td>
           <td class="paramtype">ValueType *const&#160;</td>
           <td class="paramname"><em>inputSamples</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numSamples</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespacelemons_1_1dsp_1_1windowing.html#a98e88624f88e91cb2d121ee446cc48fa">WindowingFunction</a>&lt; ValueType &gt; &amp;&#160;</td>
+          <td class="paramname"><em>func</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab10e25d364d46c55ffa106c1fcbb1851" name="ab10e25d364d46c55ffa106c1fcbb1851"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab10e25d364d46c55ffa106c1fcbb1851">&#9670;&nbsp;</a></span>applyWindowAndCopy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename ValueType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void lemons::dsp::windowing::applyWindowAndCopy </td>
+          <td>(</td>
+          <td class="paramtype">const ValueType *const&#160;</td>
+          <td class="paramname"><em>inputSamples</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">ValueType *const&#160;</td>
+          <td class="paramname"><em>outputSamples</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -189,7 +234,7 @@ template&lt;typename ValueType &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Feb 6 2022 00:54:29 for Lemons by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3
+Generated on Mon Feb 7 2022 00:47:06 for Lemons by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3
 </small></address>
 </body>
 </html>

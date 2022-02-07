@@ -358,6 +358,7 @@
     <includes id="_buffer_utils_8h" name="BufferUtils.h" local="yes" imported="no">util/BufferUtils.h</includes>
     <includes id="_mono_stereo_converter_8h" name="MonoStereoConverter.h" local="yes" imported="no">util/MonoStereoConverter.h</includes>
     <includes id="_windowing_8h" name="Windowing.h" local="yes" imported="no">util/Windowing.h</includes>
+    <includes id="_realtime_type_traits_8h" name="RealtimeTypeTraits.h" local="yes" imported="no">util/RealtimeTypeTraits.h</includes>
     <includes id="_audio_file_8h" name="AudioFile.h" local="yes" imported="no">audio_files/AudioFile.h</includes>
     <includes id="_audio_file_cache_8h" name="AudioFileCache.h" local="yes" imported="no">audio_files/AudioFileCache.h</includes>
     <includes id="_audio_file_player_8h" name="AudioFilePlayer.h" local="yes" imported="no">audio_files/AudioFilePlayer.h</includes>
@@ -681,6 +682,35 @@
     </member>
   </compound>
   <compound kind="file">
+    <name>RealtimeTypeTraits.h</name>
+    <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/Audio/lemons_dsp/util/</path>
+    <filename>_realtime_type_traits_8h.html</filename>
+    <class kind="struct">lemons::dsp::is_realtime_copy_assignable</class>
+    <class kind="struct">lemons::dsp::is_realtime_copy_constructable</class>
+    <class kind="struct">lemons::dsp::is_realtime_move_assignable</class>
+    <class kind="struct">lemons::dsp::is_realtime_move_constructable</class>
+    <class kind="struct">lemons::dsp::detail::is_rt_safe</class>
+    <class kind="struct">lemons::dsp::detail::is_rt_safe&lt; std::map&lt; T, U &gt;, move_tag, Tag &gt;</class>
+    <class kind="struct">lemons::dsp::detail::is_rt_safe&lt; std::set&lt; T &gt;, move_tag, Tag &gt;</class>
+    <class kind="struct">lemons::dsp::detail::is_rt_safe&lt; std::unordered_map&lt; T, U &gt;, move_tag, Tag &gt;</class>
+    <class kind="struct">lemons::dsp::detail::is_rt_safe&lt; std::unordered_set&lt; T &gt;, move_tag, Tag &gt;</class>
+    <class kind="struct">lemons::dsp::detail::is_rt_safe&lt; std::vector&lt; T &gt;, move_tag, Tag &gt;</class>
+    <class kind="struct">lemons::dsp::detail::is_rt_safe&lt; T, copy_tag, assignable_tag &gt;</class>
+    <class kind="struct">lemons::dsp::detail::is_rt_safe&lt; T, copy_tag, constructible_tag &gt;</class>
+    <class kind="struct">lemons::dsp::detail::is_rt_safe&lt; T, move_tag, assignable_tag &gt;</class>
+    <class kind="struct">lemons::dsp::detail::is_rt_safe&lt; T, move_tag, constructible_tag &gt;</class>
+    <namespace>lemons</namespace>
+    <namespace>lemons::dsp</namespace>
+    <namespace>lemons::dsp::detail</namespace>
+    <member kind="function">
+      <type>constexpr bool</type>
+      <name>atomicIsLockFree</name>
+      <anchorfile>namespacelemons_1_1dsp.html</anchorfile>
+      <anchor>a27efdda8edfde71d782f6062703e7095</anchor>
+      <arglist>()</arglist>
+    </member>
+  </compound>
+  <compound kind="file">
     <name>ValueSmoother.h</name>
     <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/Audio/lemons_dsp/util/</path>
     <filename>_value_smoother_8h.html</filename>
@@ -708,6 +738,13 @@
       <anchorfile>namespacelemons_1_1dsp_1_1windowing.html</anchorfile>
       <anchor>a823758f43b0d1f5cb9f2a50956db8cce</anchor>
       <arglist>(ValueType *const inputSamples, int numSamples, const WindowingFunction&lt; ValueType &gt; &amp;func)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>applyWindowAndCopy</name>
+      <anchorfile>namespacelemons_1_1dsp_1_1windowing.html</anchorfile>
+      <anchor>ab10e25d364d46c55ffa106c1fcbb1851</anchor>
+      <arglist>(const ValueType *const inputSamples, ValueType *const outputSamples, int numSamples, const WindowingFunction&lt; ValueType &gt; &amp;func)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -1517,6 +1554,13 @@
     <namespace>lemons</namespace>
     <namespace>lemons::alg</namespace>
     <member kind="function">
+      <type>constexpr void</type>
+      <name>call_or</name>
+      <anchorfile>namespacelemons_1_1alg.html</anchorfile>
+      <anchor>a9a6331a2bba908039864b40b5a47b59e</anchor>
+      <arglist>(const ContainerType &amp;container, UnaryPredicate &amp;&amp;p, UnaryFunc1 &amp;&amp;f1, UnaryFunc2 &amp;&amp;f2)</arglist>
+    </member>
+    <member kind="function">
       <type>constexpr bool</type>
       <name>contains</name>
       <anchorfile>namespacelemons_1_1alg.html</anchorfile>
@@ -1527,36 +1571,43 @@
       <type>constexpr bool</type>
       <name>contains_if</name>
       <anchorfile>namespacelemons_1_1alg.html</anchorfile>
-      <anchor>a9ba81f050767be5183e403e287981132</anchor>
-      <arglist>(const ContainerType &amp;container, UnaryPredicate p)</arglist>
+      <anchor>a0536740644f83b05c112b79d6e2b9e01</anchor>
+      <arglist>(const ContainerType &amp;container, UnaryPredicate &amp;&amp;p)</arglist>
+    </member>
+    <member kind="function">
+      <type>constexpr const T &amp;</type>
+      <name>contains_or</name>
+      <anchorfile>namespacelemons_1_1alg.html</anchorfile>
+      <anchor>a82cad6622e8a909080875186b098de13</anchor>
+      <arglist>(const ContainerType &amp;container, const T &amp;defaultValue, UnaryPredicate &amp;&amp;p)</arglist>
     </member>
     <member kind="function">
       <type>constexpr T &amp;</type>
       <name>contains_or</name>
       <anchorfile>namespacelemons_1_1alg.html</anchorfile>
-      <anchor>a45df0f36f931a895b408382c0bbd0fe7</anchor>
-      <arglist>(const ContainerType &amp;container, T &amp;defaultValue, UnaryPredicate p)</arglist>
+      <anchor>a89b964396b3c630cfee9b5e9dfdbef58</anchor>
+      <arglist>(const ContainerType &amp;container, T &amp;defaultValue, UnaryPredicate &amp;&amp;p)</arglist>
     </member>
     <member kind="function">
       <type>constexpr T</type>
       <name>contains_or_default</name>
       <anchorfile>namespacelemons_1_1alg.html</anchorfile>
-      <anchor>a2fbd7283a3ee24d38839ef2f3a2d08c9</anchor>
-      <arglist>(const ContainerType &amp;container, UnaryPredicate p)</arglist>
+      <anchor>aa180b06c283e569b07cef4db0d081723</anchor>
+      <arglist>(const ContainerType &amp;container, UnaryPredicate &amp;&amp;p)</arglist>
     </member>
     <member kind="function">
       <type>constexpr T *</type>
       <name>contains_or_null</name>
       <anchorfile>namespacelemons_1_1alg.html</anchorfile>
-      <anchor>a4b1caebd7e8a2acfe495c7191b2de58c</anchor>
-      <arglist>(const ContainerType &amp;container, UnaryPredicate p)</arglist>
+      <anchor>a68e3a4482bc9d85a5be7623c425bd69c</anchor>
+      <arglist>(const ContainerType &amp;container, UnaryPredicate &amp;&amp;p)</arglist>
     </member>
     <member kind="function">
       <type>constexpr int</type>
       <name>num_of</name>
       <anchorfile>namespacelemons_1_1alg.html</anchorfile>
-      <anchor>ac0607385c1b0bfc5368f1bdcb4e3f285</anchor>
-      <arglist>(const ContainerType &amp;container, UnaryPredicate p)</arglist>
+      <anchor>a84d35683f4150bd67f0d1c6b2199fbf2</anchor>
+      <arglist>(const ContainerType &amp;container, UnaryPredicate &amp;&amp;p)</arglist>
     </member>
   </compound>
   <compound kind="file">
@@ -1651,18 +1702,11 @@
     <filename>_threading_8h.html</filename>
     <namespace>lemons</namespace>
     <member kind="function">
-      <type>constexpr bool</type>
-      <name>atomicIsLockFree</name>
-      <anchorfile>namespacelemons.html</anchorfile>
-      <anchor>a928235c83ffb3c67b20ab431a04efd29</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
       <type>void</type>
       <name>multiThreadedFor</name>
       <anchorfile>namespacelemons.html</anchorfile>
-      <anchor>aec8d86f9d3c52fd49c0093bca2710a18</anchor>
-      <arglist>(T start, T end, T interval, juce::ThreadPool *threadPool, std::function&lt; void(T idx)&gt; &amp;&amp;callback)</arglist>
+      <anchor>a0a9d5542c55f429969de1b8aab6d70ce</anchor>
+      <arglist>(std::function&lt; void(T idx)&gt; &amp;&amp;callback, T start, T end, T interval=1, juce::ThreadPool *threadPool=nullptr)</arglist>
     </member>
   </compound>
   <compound kind="file">
@@ -1696,17 +1740,17 @@
     </member>
     <member kind="function">
       <type>String</type>
-      <name>getDemangledName</name>
+      <name>getDemangledTypeName</name>
       <anchorfile>namespacelemons.html</anchorfile>
-      <anchor>ab1901a2a73a18d7de9f07f59d9947615</anchor>
-      <arglist>(const ObjectType *c)</arglist>
+      <anchor>a2e75083509089d33e4b6fcbb95a8d947</anchor>
+      <arglist>(const ObjectType &amp;object)</arglist>
     </member>
     <member kind="function">
       <type>String</type>
       <name>getDemangledTypeName</name>
       <anchorfile>namespacelemons.html</anchorfile>
-      <anchor>a2e75083509089d33e4b6fcbb95a8d947</anchor>
-      <arglist>(const ObjectType &amp;object)</arglist>
+      <anchor>a3afca32fdf5c4aedc747866701b0957f</anchor>
+      <arglist>(const ObjectType *c)</arglist>
     </member>
   </compound>
   <compound kind="file">
@@ -5867,8 +5911,8 @@
       <type>void</type>
       <name>for_each</name>
       <anchorfile>structlemons_1_1_constructed_array.html</anchorfile>
-      <anchor>a9eac9808ec27c7468fc4ff34b17b6c2c</anchor>
-      <arglist>(std::function&lt; void(ObjectType &amp;)&gt; func)</arglist>
+      <anchor>a180d6fd99dcb0d77e4a94691d37d45bf</anchor>
+      <arglist>(UnaryFunction &amp;&amp;func) const</arglist>
     </member>
     <member kind="function">
       <type>const juce::OwnedArray&lt; ObjectType &gt; *</type>
@@ -10418,6 +10462,92 @@
       <anchor>a6b091945117c5ffccf7d42e4ba1ae20a</anchor>
       <arglist>(ValueType)</arglist>
     </member>
+  </compound>
+  <compound kind="struct">
+    <name>lemons::dsp::is_realtime_copy_assignable</name>
+    <filename>structlemons_1_1dsp_1_1is__realtime__copy__assignable.html</filename>
+    <templarg>typename T</templarg>
+    <base>is_rt_safe&lt; T, detail::copy_tag, detail::assignable_tag &gt;</base>
+  </compound>
+  <compound kind="struct">
+    <name>lemons::dsp::is_realtime_copy_constructable</name>
+    <filename>structlemons_1_1dsp_1_1is__realtime__copy__constructable.html</filename>
+    <templarg>typename T</templarg>
+    <base>is_rt_safe&lt; T, detail::copy_tag, detail::constructible_tag &gt;</base>
+  </compound>
+  <compound kind="struct">
+    <name>lemons::dsp::is_realtime_move_assignable</name>
+    <filename>structlemons_1_1dsp_1_1is__realtime__move__assignable.html</filename>
+    <templarg>typename T</templarg>
+    <base>is_rt_safe&lt; T, detail::move_tag, detail::assignable_tag &gt;</base>
+  </compound>
+  <compound kind="struct">
+    <name>lemons::dsp::is_realtime_move_constructable</name>
+    <filename>structlemons_1_1dsp_1_1is__realtime__move__constructable.html</filename>
+    <templarg>typename T</templarg>
+    <base>is_rt_safe&lt; T, detail::move_tag, detail::constructible_tag &gt;</base>
+  </compound>
+  <compound kind="struct">
+    <name>lemons::dsp::detail::is_rt_safe</name>
+    <filename>structlemons_1_1dsp_1_1detail_1_1is__rt__safe.html</filename>
+    <templarg>typename T</templarg>
+    <templarg>typename Tag1</templarg>
+    <templarg>typename Tag2</templarg>
+  </compound>
+  <compound kind="struct">
+    <name>lemons::dsp::detail::is_rt_safe&lt; std::map&lt; T, U &gt;, move_tag, Tag &gt;</name>
+    <filename>structlemons_1_1dsp_1_1detail_1_1is__rt__safe_3_01std_1_1map_3_01_t_00_01_u_01_4_00_01move__tag_00_01_tag_01_4.html</filename>
+    <templarg>typename T</templarg>
+    <templarg>typename U</templarg>
+    <templarg>typename Tag</templarg>
+  </compound>
+  <compound kind="struct">
+    <name>lemons::dsp::detail::is_rt_safe&lt; std::set&lt; T &gt;, move_tag, Tag &gt;</name>
+    <filename>structlemons_1_1dsp_1_1detail_1_1is__rt__safe_3_01std_1_1set_3_01_t_01_4_00_01move__tag_00_01_tag_01_4.html</filename>
+    <templarg>typename T</templarg>
+    <templarg>typename Tag</templarg>
+    <base>is_rt_safe&lt; T, move_tag, Tag &gt;</base>
+  </compound>
+  <compound kind="struct">
+    <name>lemons::dsp::detail::is_rt_safe&lt; std::unordered_map&lt; T, U &gt;, move_tag, Tag &gt;</name>
+    <filename>structlemons_1_1dsp_1_1detail_1_1is__rt__safe_3_01std_1_1unordered__map_3_01_t_00_01_u_01_4_00_01move__tag_00_01_tag_01_4.html</filename>
+    <templarg>typename T</templarg>
+    <templarg>typename U</templarg>
+    <templarg>typename Tag</templarg>
+  </compound>
+  <compound kind="struct">
+    <name>lemons::dsp::detail::is_rt_safe&lt; std::unordered_set&lt; T &gt;, move_tag, Tag &gt;</name>
+    <filename>structlemons_1_1dsp_1_1detail_1_1is__rt__safe_3_01std_1_1unordered__set_3_01_t_01_4_00_01move__tag_00_01_tag_01_4.html</filename>
+    <templarg>typename T</templarg>
+    <templarg>typename Tag</templarg>
+    <base>is_rt_safe&lt; T, move_tag, Tag &gt;</base>
+  </compound>
+  <compound kind="struct">
+    <name>lemons::dsp::detail::is_rt_safe&lt; std::vector&lt; T &gt;, move_tag, Tag &gt;</name>
+    <filename>structlemons_1_1dsp_1_1detail_1_1is__rt__safe_3_01std_1_1vector_3_01_t_01_4_00_01move__tag_00_01_tag_01_4.html</filename>
+    <templarg>typename T</templarg>
+    <templarg>typename Tag</templarg>
+    <base>is_rt_safe&lt; T, move_tag, Tag &gt;</base>
+  </compound>
+  <compound kind="struct">
+    <name>lemons::dsp::detail::is_rt_safe&lt; T, copy_tag, assignable_tag &gt;</name>
+    <filename>structlemons_1_1dsp_1_1detail_1_1is__rt__safe_3_01_t_00_01copy__tag_00_01assignable__tag_01_4.html</filename>
+    <templarg>typename T</templarg>
+  </compound>
+  <compound kind="struct">
+    <name>lemons::dsp::detail::is_rt_safe&lt; T, copy_tag, constructible_tag &gt;</name>
+    <filename>structlemons_1_1dsp_1_1detail_1_1is__rt__safe_3_01_t_00_01copy__tag_00_01constructible__tag_01_4.html</filename>
+    <templarg>typename T</templarg>
+  </compound>
+  <compound kind="struct">
+    <name>lemons::dsp::detail::is_rt_safe&lt; T, move_tag, assignable_tag &gt;</name>
+    <filename>structlemons_1_1dsp_1_1detail_1_1is__rt__safe_3_01_t_00_01move__tag_00_01assignable__tag_01_4.html</filename>
+    <templarg>typename T</templarg>
+  </compound>
+  <compound kind="struct">
+    <name>lemons::dsp::detail::is_rt_safe&lt; T, move_tag, constructible_tag &gt;</name>
+    <filename>structlemons_1_1dsp_1_1detail_1_1is__rt__safe_3_01_t_00_01move__tag_00_01constructible__tag_01_4.html</filename>
+    <templarg>typename T</templarg>
   </compound>
   <compound kind="struct">
     <name>lemons::is_specialization</name>
@@ -24966,35 +25096,35 @@
       <type>constexpr</type>
       <name>Version</name>
       <anchorfile>structlemons_1_1_version.html</anchorfile>
-      <anchor>afae79708babdd5845257f743b2abb91b</anchor>
-      <arglist>()=default</arglist>
+      <anchor>a94b1e73b1f4f0ce898dcbceceef174fa</anchor>
+      <arglist>() noexcept=default</arglist>
     </member>
     <member kind="function">
       <type>constexpr</type>
       <name>Version</name>
       <anchorfile>structlemons_1_1_version.html</anchorfile>
-      <anchor>a9c4c37f17104c344004e040b99fa3668</anchor>
-      <arglist>(int maj, int min, int p)</arglist>
+      <anchor>a08ce66b6de8f10e3e9599732c84e9822</anchor>
+      <arglist>(int maj, int min, int p) noexcept</arglist>
     </member>
     <member kind="function">
-      <type>void</type>
+      <type>constexpr void</type>
       <name>bumpMajor</name>
       <anchorfile>structlemons_1_1_version.html</anchorfile>
-      <anchor>a2b906ed4d93957ad4e93e4c712236081</anchor>
+      <anchor>a11b40d7dccc4f9eda4fb91a558cbd870</anchor>
       <arglist>() noexcept</arglist>
     </member>
     <member kind="function">
-      <type>void</type>
+      <type>constexpr void</type>
       <name>bumpMinor</name>
       <anchorfile>structlemons_1_1_version.html</anchorfile>
-      <anchor>abc6b9609562d8f6ea37b71bdc1d6b366</anchor>
+      <anchor>acc08a84d99686ce67959c18ee02e6990</anchor>
       <arglist>() noexcept</arglist>
     </member>
     <member kind="function">
-      <type>void</type>
+      <type>constexpr void</type>
       <name>bumpPatch</name>
       <anchorfile>structlemons_1_1_version.html</anchorfile>
-      <anchor>ab01ffcc37bd2c9e5cc355d891afc32d3</anchor>
+      <anchor>ac1939d46667fdc1777bd6abac98d9c03</anchor>
       <arglist>() noexcept</arglist>
     </member>
     <member kind="function">
@@ -25321,20 +25451,6 @@
     <class kind="struct">lemons::ValueSmoother</class>
     <class kind="struct">lemons::Version</class>
     <member kind="function">
-      <type>constexpr bool</type>
-      <name>atomicIsLockFree</name>
-      <anchorfile>namespacelemons.html</anchorfile>
-      <anchor>a928235c83ffb3c67b20ab431a04efd29</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>String</type>
-      <name>getDemangledName</name>
-      <anchorfile>namespacelemons.html</anchorfile>
-      <anchor>ab1901a2a73a18d7de9f07f59d9947615</anchor>
-      <arglist>(const ObjectType *c)</arglist>
-    </member>
-    <member kind="function">
       <type>String</type>
       <name>getDemangledTypeName</name>
       <anchorfile>namespacelemons.html</anchorfile>
@@ -25342,11 +25458,18 @@
       <arglist>(const ObjectType &amp;object)</arglist>
     </member>
     <member kind="function">
+      <type>String</type>
+      <name>getDemangledTypeName</name>
+      <anchorfile>namespacelemons.html</anchorfile>
+      <anchor>a3afca32fdf5c4aedc747866701b0957f</anchor>
+      <arglist>(const ObjectType *c)</arglist>
+    </member>
+    <member kind="function">
       <type>void</type>
       <name>multiThreadedFor</name>
       <anchorfile>namespacelemons.html</anchorfile>
-      <anchor>aec8d86f9d3c52fd49c0093bca2710a18</anchor>
-      <arglist>(T start, T end, T interval, juce::ThreadPool *threadPool, std::function&lt; void(T idx)&gt; &amp;&amp;callback)</arglist>
+      <anchor>a0a9d5542c55f429969de1b8aab6d70ce</anchor>
+      <arglist>(std::function&lt; void(T idx)&gt; &amp;&amp;callback, T start, T end, T interval=1, juce::ThreadPool *threadPool=nullptr)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -25360,6 +25483,13 @@
     <name>lemons::alg</name>
     <filename>namespacelemons_1_1alg.html</filename>
     <member kind="function">
+      <type>constexpr void</type>
+      <name>call_or</name>
+      <anchorfile>namespacelemons_1_1alg.html</anchorfile>
+      <anchor>a9a6331a2bba908039864b40b5a47b59e</anchor>
+      <arglist>(const ContainerType &amp;container, UnaryPredicate &amp;&amp;p, UnaryFunc1 &amp;&amp;f1, UnaryFunc2 &amp;&amp;f2)</arglist>
+    </member>
+    <member kind="function">
       <type>constexpr bool</type>
       <name>contains</name>
       <anchorfile>namespacelemons_1_1alg.html</anchorfile>
@@ -25370,36 +25500,43 @@
       <type>constexpr bool</type>
       <name>contains_if</name>
       <anchorfile>namespacelemons_1_1alg.html</anchorfile>
-      <anchor>a9ba81f050767be5183e403e287981132</anchor>
-      <arglist>(const ContainerType &amp;container, UnaryPredicate p)</arglist>
+      <anchor>a0536740644f83b05c112b79d6e2b9e01</anchor>
+      <arglist>(const ContainerType &amp;container, UnaryPredicate &amp;&amp;p)</arglist>
+    </member>
+    <member kind="function">
+      <type>constexpr const T &amp;</type>
+      <name>contains_or</name>
+      <anchorfile>namespacelemons_1_1alg.html</anchorfile>
+      <anchor>a82cad6622e8a909080875186b098de13</anchor>
+      <arglist>(const ContainerType &amp;container, const T &amp;defaultValue, UnaryPredicate &amp;&amp;p)</arglist>
     </member>
     <member kind="function">
       <type>constexpr T &amp;</type>
       <name>contains_or</name>
       <anchorfile>namespacelemons_1_1alg.html</anchorfile>
-      <anchor>a45df0f36f931a895b408382c0bbd0fe7</anchor>
-      <arglist>(const ContainerType &amp;container, T &amp;defaultValue, UnaryPredicate p)</arglist>
+      <anchor>a89b964396b3c630cfee9b5e9dfdbef58</anchor>
+      <arglist>(const ContainerType &amp;container, T &amp;defaultValue, UnaryPredicate &amp;&amp;p)</arglist>
     </member>
     <member kind="function">
       <type>constexpr T</type>
       <name>contains_or_default</name>
       <anchorfile>namespacelemons_1_1alg.html</anchorfile>
-      <anchor>a2fbd7283a3ee24d38839ef2f3a2d08c9</anchor>
-      <arglist>(const ContainerType &amp;container, UnaryPredicate p)</arglist>
+      <anchor>aa180b06c283e569b07cef4db0d081723</anchor>
+      <arglist>(const ContainerType &amp;container, UnaryPredicate &amp;&amp;p)</arglist>
     </member>
     <member kind="function">
       <type>constexpr T *</type>
       <name>contains_or_null</name>
       <anchorfile>namespacelemons_1_1alg.html</anchorfile>
-      <anchor>a4b1caebd7e8a2acfe495c7191b2de58c</anchor>
-      <arglist>(const ContainerType &amp;container, UnaryPredicate p)</arglist>
+      <anchor>a68e3a4482bc9d85a5be7623c425bd69c</anchor>
+      <arglist>(const ContainerType &amp;container, UnaryPredicate &amp;&amp;p)</arglist>
     </member>
     <member kind="function">
       <type>constexpr int</type>
       <name>num_of</name>
       <anchorfile>namespacelemons_1_1alg.html</anchorfile>
-      <anchor>ac0607385c1b0bfc5368f1bdcb4e3f285</anchor>
-      <arglist>(const ContainerType &amp;container, UnaryPredicate p)</arglist>
+      <anchor>a84d35683f4150bd67f0d1c6b2199fbf2</anchor>
+      <arglist>(const ContainerType &amp;container, UnaryPredicate &amp;&amp;p)</arglist>
     </member>
   </compound>
   <compound kind="namespace">
@@ -25580,6 +25717,7 @@
     <name>lemons::dsp</name>
     <filename>namespacelemons_1_1dsp.html</filename>
     <namespace>lemons::dsp::buffers</namespace>
+    <namespace>lemons::dsp::detail</namespace>
     <namespace>lemons::dsp::filters</namespace>
     <namespace>lemons::dsp::formats</namespace>
     <namespace>lemons::dsp::FX</namespace>
@@ -25596,6 +25734,10 @@
     <class kind="class">lemons::dsp::CircularBuffer</class>
     <class kind="class">lemons::dsp::Engine</class>
     <class kind="class">lemons::dsp::EngineChain</class>
+    <class kind="struct">lemons::dsp::is_realtime_copy_assignable</class>
+    <class kind="struct">lemons::dsp::is_realtime_copy_constructable</class>
+    <class kind="struct">lemons::dsp::is_realtime_move_assignable</class>
+    <class kind="struct">lemons::dsp::is_realtime_move_constructable</class>
     <class kind="class">lemons::dsp::LambdaSynth</class>
     <class kind="class">lemons::dsp::LatencyEngine</class>
     <class kind="struct">lemons::dsp::MidiProcessorEngine</class>
@@ -25634,6 +25776,13 @@
       <enumvalue file="group__lemons__stereo__conversion.html" anchor="ggaaf020aad6edbe51634e978b1d97a37e2a97ed31f67756738d6c8d74a1ee8c565d">rightOnly</enumvalue>
       <enumvalue file="group__lemons__stereo__conversion.html" anchor="ggaaf020aad6edbe51634e978b1d97a37e2a0d2a8602a2cd80a62be55f9bc60e1f22">mixToMono</enumvalue>
     </member>
+    <member kind="function">
+      <type>constexpr bool</type>
+      <name>atomicIsLockFree</name>
+      <anchorfile>namespacelemons_1_1dsp.html</anchorfile>
+      <anchor>a27efdda8edfde71d782f6062703e7095</anchor>
+      <arglist>()</arglist>
+    </member>
   </compound>
   <compound kind="namespace">
     <name>lemons::dsp::buffers</name>
@@ -25659,6 +25808,20 @@
       <anchor>ga331071a0a2e71744a995d3a4e346b731</anchor>
       <arglist>(AudioBuffer&lt; SampleType &gt; &amp;bufferToAlias, int startSample, int numSamples, int numChannels=-1, int channelOffset=0)</arglist>
     </member>
+  </compound>
+  <compound kind="namespace">
+    <name>lemons::dsp::detail</name>
+    <filename>namespacelemons_1_1dsp_1_1detail.html</filename>
+    <class kind="struct">lemons::dsp::detail::is_rt_safe</class>
+    <class kind="struct">lemons::dsp::detail::is_rt_safe&lt; std::map&lt; T, U &gt;, move_tag, Tag &gt;</class>
+    <class kind="struct">lemons::dsp::detail::is_rt_safe&lt; std::set&lt; T &gt;, move_tag, Tag &gt;</class>
+    <class kind="struct">lemons::dsp::detail::is_rt_safe&lt; std::unordered_map&lt; T, U &gt;, move_tag, Tag &gt;</class>
+    <class kind="struct">lemons::dsp::detail::is_rt_safe&lt; std::unordered_set&lt; T &gt;, move_tag, Tag &gt;</class>
+    <class kind="struct">lemons::dsp::detail::is_rt_safe&lt; std::vector&lt; T &gt;, move_tag, Tag &gt;</class>
+    <class kind="struct">lemons::dsp::detail::is_rt_safe&lt; T, copy_tag, assignable_tag &gt;</class>
+    <class kind="struct">lemons::dsp::detail::is_rt_safe&lt; T, copy_tag, constructible_tag &gt;</class>
+    <class kind="struct">lemons::dsp::detail::is_rt_safe&lt; T, move_tag, assignable_tag &gt;</class>
+    <class kind="struct">lemons::dsp::detail::is_rt_safe&lt; T, move_tag, constructible_tag &gt;</class>
   </compound>
   <compound kind="namespace">
     <name>lemons::dsp::filters</name>
@@ -25881,6 +26044,13 @@
       <anchorfile>namespacelemons_1_1dsp_1_1windowing.html</anchorfile>
       <anchor>a823758f43b0d1f5cb9f2a50956db8cce</anchor>
       <arglist>(ValueType *const inputSamples, int numSamples, const WindowingFunction&lt; ValueType &gt; &amp;func)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>applyWindowAndCopy</name>
+      <anchorfile>namespacelemons_1_1dsp_1_1windowing.html</anchorfile>
+      <anchor>ab10e25d364d46c55ffa106c1fcbb1851</anchor>
+      <arglist>(const ValueType *const inputSamples, ValueType *const outputSamples, int numSamples, const WindowingFunction&lt; ValueType &gt; &amp;func)</arglist>
     </member>
     <member kind="function">
       <type>void</type>

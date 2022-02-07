@@ -9,7 +9,7 @@ var searchData=
   ['normalize_6',['normalize',['../classlemons_1_1plugin_1_1_parameter.html#a66e69398bed84704f86ccf89916ae13f',1,'lemons::plugin::Parameter']]],
   ['nosamplesareclipping_7',['noSamplesAreClipping',['../group__lemons__dsp__unit__tests.html#ga91d1e7095657d0593a3baba099b5ed36',1,'lemons::tests']]],
   ['notecleared_8',['noteCleared',['../classlemons_1_1dsp_1_1_synth_voice_base.html#ac6f8d7ef8ea554d84807f66996eeab2a',1,'lemons::dsp::SynthVoiceBase']]],
-  ['num_5fof_9',['num_of',['../namespacelemons_1_1alg.html#ac0607385c1b0bfc5368f1bdcb4e3f285',1,'lemons::alg']]],
+  ['num_5fof_9',['num_of',['../namespacelemons_1_1alg.html#a84d35683f4150bd67f0d1c6b2199fbf2',1,'lemons::alg']]],
   ['numberiseven_10',['numberIsEven',['../group__lemons__math.html#ga7b8815e02637942415c8e71fdd58453f',1,'lemons::math']]],
   ['numchannels_11',['numChannels',['../classlemons_1_1dsp_1_1_audio_fifo.html#a4fea99cc444fb7e167422c3fec90bcf2',1,'lemons::dsp::AudioFifo']]],
   ['numprograms_12',['numPrograms',['../structlemons_1_1plugin_1_1_program_manager.html#a39c895c24be13ed4ee75879d6a176d5e',1,'lemons::plugin::ProgramManager']]],
