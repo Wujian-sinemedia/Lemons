@@ -16,7 +16,7 @@
 #pragma once
 
 
-namespace lemons::music
+namespace lemons::music::scales
 {
 
 class KeySignature final : public Scale
@@ -102,9 +102,9 @@ private:
 
 	int numAccidentals { 0 };
 
-	bool isFlat { false };
+	const bool isFlat { false };
 
-	Type type { Type::Major };
+	const Type type { Type::Major };
 };
 
-}  // namespace lemons::music
+}  // namespace lemons::music::scales

@@ -13,7 +13,7 @@
  * ======================================================================================
  */
 
-namespace lemons::music
+namespace lemons::music::scales
 {
 
 bool Scale::operator== (const Scale& other) const
@@ -134,4 +134,4 @@ String Scale::getRootAsString() const noexcept
 	return pitchClassToString (getPitchClassOfRoot(), getNumSharps() > getNumFlats());
 }
 
-}  // namespace lemons::music
+}  // namespace lemons::music::scales

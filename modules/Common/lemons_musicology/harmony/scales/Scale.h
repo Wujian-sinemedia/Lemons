@@ -15,14 +15,13 @@
 
 #pragma once
 
-namespace lemons::music
+namespace lemons::music::scales
 {
 
 /*
  - pentatonic
  - octatonic
  - whole tone
- - chromatic
  - neapolitan
  - blues scale
  */
@@ -67,4 +66,4 @@ struct Scale
 	[[nodiscard]] virtual String getRootAsString() const noexcept;
 };
 
-}  // namespace lemons::music
+}  // namespace lemons::music::scales

@@ -15,7 +15,7 @@
 
 #pragma once
 
-namespace lemons::music
+namespace lemons::music::scales
 {
 
 class Mode final : public Scale
@@ -34,9 +34,13 @@ public:
 	};
 
 	constexpr explicit Mode (Type typeToUse, int pitchClassOfRoot) noexcept
-		: type (typeToUse), rootPitchClass (pitchClassOfRoot)
+		: type (typeToUse), rootPitchClass (makeValidPitchClass (pitchClassOfRoot))
 	{
-		rootPitchClass %= 12;
+	}
+
+	constexpr Mode (const Mode& other) noexcept
+		: type (other.type), rootPitchClass (other.rootPitchClass)
+	{
 	}
 
 	[[nodiscard]] static Mode fromStringDescription (const String& description);
@@ -65,9 +69,9 @@ public:
 
 private:
 
-	Type type { Type::Ionian };
+	const Type type { Type::Ionian };
 
-	int rootPitchClass { 0 };
+	const int rootPitchClass { 0 };
 };
 
-}  // namespace lemons::music
+}  // namespace lemons::music::scales

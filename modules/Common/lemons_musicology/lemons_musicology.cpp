@@ -22,6 +22,7 @@
 #include "harmony/Interval.cpp"
 
 #include "harmony/scales/Scale.cpp"
+#include "harmony/scales/Chromatic.cpp"
 #include "harmony/scales/KeySignature.cpp"
 #include "harmony/scales/Mode.cpp"
 

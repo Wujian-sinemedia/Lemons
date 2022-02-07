@@ -13,7 +13,7 @@
  * ======================================================================================
  */
 
-namespace lemons::music
+namespace lemons::music::scales
 {
 
 KeySignature KeySignature::fromStringDescription (const String& description)
@@ -214,4 +214,4 @@ int KeySignature::getPitchClassOfScaleDegree (int scaleDegree) const noexcept
 	return makeValidPitchClass (getPitchClassOfRoot() + scaleDegree);
 }
 
-}  // namespace lemons::music
+}  // namespace lemons::music::scales

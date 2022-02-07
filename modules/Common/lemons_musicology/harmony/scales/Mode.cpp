@@ -13,7 +13,7 @@
  * ======================================================================================
  */
 
-namespace lemons::music
+namespace lemons::music::scales
 {
 
 juce::Array<int> Mode::getIntervalsAsSemitones() const
@@ -138,4 +138,4 @@ int Mode::notesPerOctave() const noexcept
 	return 8;
 }
 
-}  // namespace lemons::music
+}  // namespace lemons::music::scales

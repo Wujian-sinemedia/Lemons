@@ -15,7 +15,7 @@
 
 #pragma once
 
-namespace lemons::music
+namespace lemons::music::scales
 {
 
 constexpr KeySignature::KeySignature (Type typeToUse, bool isSharps, int pitchClassOfRoot) noexcept
@@ -150,4 +150,4 @@ constexpr bool KeySignature::isMinorKey() const noexcept
 	return ! isMajorKey();
 }
 
-}  // namespace lemons::music
+}  // namespace lemons::music::scales

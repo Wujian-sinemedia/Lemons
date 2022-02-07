@@ -15,38 +15,43 @@
 
 #pragma once
 
-/*-------------------------------------------------------------------------------------
+namespace lemons::music::scales
+{
 
- BEGIN_JUCE_MODULE_DECLARATION
+class Chromatic final : public Scale
+{
+public:
 
- ID:                 lemons_musicology
- vendor:             Lemons
- version:            0.0.1
- name:               lemons_musicology
- description:        Utility classes for describing musical information
- website:            http://benthevining.github.io/Lemons/
- license:            GPL-3.0
- minimumCppStandard: 17
- dependencies:       lemons_core
+	constexpr explicit Chromatic (int pitchClassToStartOn) noexcept
+		: startingPitchClass (makeValidPitchClass (pitchClassToStartOn))
+	{
+	}
 
- END_JUCE_MODULE_DECLARATION
+	constexpr Chromatic (const Chromatic& other) noexcept
+		: startingPitchClass (other.startingPitchClass)
+	{
+	}
 
- -------------------------------------------------------------------------------------*/
+	[[nodiscard]] static Chromatic fromStringDescription (const String& string);
 
+	[[nodiscard]] bool operator== (const Chromatic& other) const;
+	[[nodiscard]] bool operator!= (const Chromatic& other) const;
 
-#include "util/PitchUtils.h"
-#include "util/StringFunctions.h"
+	[[nodiscard]] juce::Array<int> getIntervalsAsSemitones() const final;
 
-#include "harmony/Pitch.h"
-#include "harmony/Interval.h"
-#include "harmony/Interval_impl.h"
+	[[nodiscard]] int getNumSharps() const noexcept final;
 
-#include "harmony/scales/Scale.h"
-#include "harmony/scales/Chromatic.h"
-#include "harmony/scales/KeySignature.h"
-#include "harmony/scales/KeySignature_impl.h"
-#include "harmony/scales/Mode.h"
+	[[nodiscard]] int getNumFlats() const noexcept final;
 
-//#include "rhythm/TimeSignature.h"
-//
-//#include "harmony/Chord.h"
+	[[nodiscard]] int getPitchClassOfRoot() const noexcept final;
+
+	[[nodiscard]] String getStringDescription() const final;
+
+	[[nodiscard]] int notesPerOctave() const noexcept final;
+
+private:
+
+	const int startingPitchClass { 0 };
+};
+
+}  // namespace lemons::music::scales

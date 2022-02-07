@@ -13,40 +13,59 @@
  * ======================================================================================
  */
 
-#pragma once
+namespace lemons::music::scales
+{
 
-/*-------------------------------------------------------------------------------------
+bool Chromatic::operator== (const Chromatic& other) const
+{
+	return startingPitchClass == other.startingPitchClass;
+}
 
- BEGIN_JUCE_MODULE_DECLARATION
+bool Chromatic::operator!= (const Chromatic& other) const
+{
+	return ! (*this == other);
+}
 
- ID:                 lemons_musicology
- vendor:             Lemons
- version:            0.0.1
- name:               lemons_musicology
- description:        Utility classes for describing musical information
- website:            http://benthevining.github.io/Lemons/
- license:            GPL-3.0
- minimumCppStandard: 17
- dependencies:       lemons_core
+juce::Array<int> Chromatic::getIntervalsAsSemitones() const
+{
+	juce::Array<int> intervals;
 
- END_JUCE_MODULE_DECLARATION
+	for (auto i = 0; i < 12; ++i)
+		intervals.add (1);
 
- -------------------------------------------------------------------------------------*/
+	return intervals;
+}
 
+int Chromatic::getNumSharps() const noexcept
+{
+	return 7;
+}
 
-#include "util/PitchUtils.h"
-#include "util/StringFunctions.h"
+int Chromatic::getNumFlats() const noexcept
+{
+	return 7;
+}
 
-#include "harmony/Pitch.h"
-#include "harmony/Interval.h"
-#include "harmony/Interval_impl.h"
+int Chromatic::getPitchClassOfRoot() const noexcept
+{
+	return startingPitchClass;
+}
 
-#include "harmony/scales/Scale.h"
-#include "harmony/scales/Chromatic.h"
-#include "harmony/scales/KeySignature.h"
-#include "harmony/scales/KeySignature_impl.h"
-#include "harmony/scales/Mode.h"
+String Chromatic::getStringDescription() const
+{
+	return pitchClassToString (startingPitchClass) + " chromatic";
+}
 
-//#include "rhythm/TimeSignature.h"
-//
-//#include "harmony/Chord.h"
+int Chromatic::notesPerOctave() const noexcept
+{
+	return 12;
+}
+
+Chromatic Chromatic::fromStringDescription (const String& string)
+{
+	const auto rootString = string.upToFirstOccurrenceOf ("chromatic", false, true).trim();
+
+	return Chromatic { stringToPitchClass (rootString) };
+}
+
+}  // namespace lemons::music::scales
