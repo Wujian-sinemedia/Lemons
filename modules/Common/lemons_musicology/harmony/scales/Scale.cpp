@@ -16,46 +16,37 @@
 namespace lemons::music
 {
 
-KeySignature KeySignature::fromStringDescription (const String& description)
+bool Scale::operator== (const Scale& other) const
 {
-	const auto isMajor = ! description.containsIgnoreCase ("minor");
-
-	const auto rootDesc = description.upToFirstOccurrenceOf (" ", false, false).trim();
-
-	const auto root = stringToPitchClass (rootDesc);
-
-	if (rootDesc.endsWithChar (getSharpSymbol()) || rootDesc.endsWithChar ('#'))
-		return KeySignature { isMajor, true, root };
-
-	if (rootDesc.endsWithChar (getFlatSymbol()) || (rootDesc.endsWithChar ('b') && rootDesc.length() > 1))
-		return KeySignature { isMajor, false, root };
-
-	const auto use_sharps = root == 2 || root == 4 || root == 7 || root == 9 || root == 11;
-
-	return KeySignature { isMajor, use_sharps, root };
+	return getPitchClassOfRoot() == other.getPitchClassOfRoot() && getIntervalsAsSemitones() == other.getIntervalsAsSemitones();
 }
 
-String KeySignature::getRootAsString() const noexcept
+bool Scale::operator!= (const Scale& other) const
 {
-	return pitchClassToString (getPitchClassOfRoot(), ! isFlat);
+	return ! (*this == other);
 }
 
-String KeySignature::getStringDescription() const noexcept
+juce::Array<Interval> Scale::getIntervals() const
 {
-	const auto res = getRootAsString();
+	juce::Array<Interval> intervals;
 
-	if (isMajor)
-		return res + " major";
+	for (const auto interval : getIntervalsAsSemitones())
+		intervals.add (Interval::fromNumSemitones (interval));
 
-	return res + " minor";
+	return intervals;
 }
 
-String KeySignature::getScaleDegreeAsString (int scaleDegree) const noexcept
+bool Scale::containsPitch (const Pitch& pitch) const
 {
-	return pitchClassToString (getPitchClassOfScaleDegree (scaleDegree), ! isFlat);
+	return containsPitchClass (pitch.getPitchClass());
 }
 
-bool KeySignature::containsPitchClass (int pitchClass) const
+bool Scale::containsPitch (int midiNoteNumber) const
+{
+	return containsPitchClass (midiNoteNumber % 12);
+}
+
+bool Scale::containsPitchClass (int pitchClass) const
 {
 	jassert (pitchClass >= 0 && pitchClass <= 11);
 
@@ -72,36 +63,18 @@ bool KeySignature::containsPitchClass (int pitchClass) const
 	return false;
 }
 
-bool KeySignature::containsPitch (const Pitch& pitch) const
+juce::Array<int> Scale::getPitchClasses() const
 {
-	return containsPitchClass (pitch.getPitchClass());
+	juce::Array<int> pitchClasses;
+
+	for (int i = 0; i <= 11; ++i)
+		if (containsPitchClass (i))
+			pitchClasses.add (i);
+
+	return pitchClasses;
 }
 
-bool KeySignature::containsPitch (int midiNoteNumber) const
-{
-	return containsPitchClass (midiNoteNumber % 11);
-}
-
-juce::Array<int> KeySignature::getIntervalsAsSemitones() const
-{
-	if (isMajor)
-		return { 2, 2, 1, 2, 2, 2, 1 };
-
-	// natural minor. TO DO: add support for harmonic & melodic minor....
-	return { 2, 1, 2, 2, 1, 2, 2 };
-}
-
-juce::Array<Interval> KeySignature::getIntervals() const
-{
-	juce::Array<Interval> intervals;
-
-	for (const auto interval : getIntervalsAsSemitones())
-		intervals.add (Interval::fromNumSemitones (interval));
-
-	return intervals;
-}
-
-juce::Array<Pitch> KeySignature::getPitches (int octaveNumber) const
+juce::Array<Pitch> Scale::getPitches (int octaveNumber) const
 {
 	const auto startingNote = [this, octaveNumber]
 	{
@@ -121,7 +94,7 @@ juce::Array<Pitch> KeySignature::getPitches (int octaveNumber) const
 	return pitches;
 }
 
-juce::Array<Pitch> KeySignature::getPitches (int lowestMidiNote, int highestMidiNote) const
+juce::Array<Pitch> Scale::getPitches (int lowestMidiNote, int highestMidiNote) const
 {
 	const auto startingNote = [this, &lowestMidiNote]
 	{
@@ -148,11 +121,23 @@ juce::Array<Pitch> KeySignature::getPitches (int lowestMidiNote, int highestMidi
 		if (idx >= intervals.size())
 		{
 			idx = 0;
-			++octaveOffset;
+			octaveOffset += 8;
 		}
 	}
 
 	return pitches;
+}
+
+Pitch Scale::getRoot (int octaveNumber) const noexcept
+{
+	const auto octaveStart = (octaveNumber + 1) * 12;
+
+	return Pitch { octaveStart + getPitchClassOfRoot() };
+}
+
+String Scale::getRootAsString() const noexcept
+{
+	return pitchClassToString (getPitchClassOfRoot(), getNumSharps() > getNumFlats());
 }
 
 }  // namespace lemons::music

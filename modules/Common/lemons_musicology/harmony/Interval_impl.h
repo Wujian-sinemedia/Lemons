@@ -26,6 +26,9 @@ constexpr bool Interval::intervalIsPerfectKind() noexcept
 constexpr Interval::Interval (int kindToUse, Quality qualityToUse) noexcept
 	: quality (qualityToUse), kind (kindToUse)
 {
+	jassert (kind != 1);
+	jassert (kind >= 0 && kind <= 8);
+
 	if (intervalIsPerfectKind())
 		jassert (quality != Quality::Major && quality != Quality::Minor);
 	else
@@ -55,8 +58,10 @@ constexpr Interval Interval::fromNumSemitones (int semitones) noexcept
 		case (10) : return Interval { 7, Quality::Minor };
 		case (11) : return Interval { 7, Quality::Major };
 		case (12) : return Interval { 8, Quality::Perfect };
-		default : jassertfalse; return Interval { 0, Quality::Perfect };
 	}
+
+	jassertfalse;
+	return Interval { 0, Quality::Perfect };
 }
 
 constexpr Interval Interval::fromPitches (int midiPitch1, int midiPitch2) noexcept
@@ -271,8 +276,10 @@ constexpr int Interval::getNumSemitones() const noexcept
 		case (6) : return major_or_minor (9);
 		case (7) : return major_or_minor (11);
 		case (8) : return perfect (12);
-		default : jassertfalse; return 0;
 	}
+
+	jassertfalse;
+	return 0;
 }
 
 constexpr int Interval::getKind() const noexcept

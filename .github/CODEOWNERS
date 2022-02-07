@@ -74,6 +74,7 @@ modules/Audio/lemons_dsp/util/MonoStereoConverter_tests.cpp benthevining
 modules/Audio/lemons_dsp/util/RealtimeTypeTraits.h benthevining
 modules/Audio/lemons_dsp/util/ValueSmoother.cpp benthevining
 modules/Audio/lemons_dsp/util/ValueSmoother.h benthevining
+modules/Audio/lemons_dsp/util/Windowing.h benthevining
 modules/Audio/lemons_dsp/util/serializing.cpp benthevining
 modules/Audio/lemons_dsp/util/serializing.h benthevining
 modules/Audio/lemons_dsp/util/serializing_tests.cpp benthevining
@@ -141,6 +142,8 @@ modules/Common/lemons_core/unit_tests/test.h benthevining
 modules/Common/lemons_musicology/harmony/Interval.h benthevining
 modules/Common/lemons_musicology/harmony/KeySignature.h benthevining
 modules/Common/lemons_musicology/harmony/Pitch.h benthevining
+modules/Common/lemons_musicology/harmony/scales/KeySignature.h benthevining
+modules/Common/lemons_musicology/harmony/scales/KeySignature_impl.h benthevining
 modules/Common/lemons_musicology/lemons_musicology.cpp benthevining
 modules/Common/lemons_musicology/lemons_musicology.h benthevining
 modules/Connectivity/LemonsConnectivityModules.cmake benthevining
@@ -208,6 +211,7 @@ modules/Plugins/lemons_plugin/processors/ProcessorBase.h benthevining
 modules/Plugins/lemons_plugin/state/ParameterList.cpp benthevining
 modules/Plugins/lemons_plugin/state/ParameterList.h benthevining
 modules/Plugins/lemons_plugin/state/PluginState.cpp benthevining
+modules/Plugins/lemons_plugin/state/ProgramManager.h benthevining
 modules/Plugins/lemons_plugin/unit_tests/audio_processor_test.h benthevining
 modules/Plugins/lemons_plugin_gui/PresetBar/PresetBar.cpp benthevining
 modules/Plugins/lemons_plugin_gui/PresetBar/PresetBar.h benthevining
@@ -235,7 +239,9 @@ util/PluginMetadataEditor/metadata_editor_gui/parameter_layout/ParameterLayoutCo
 util/PluginMetadataEditor/metadata_editor_gui/parameter_layout/ParameterLayoutComponent.h benthevining
 util/PluginMetadataEditor/metadata_editor_gui/processor_attributes/BusesLayoutComponent.cpp benthevining
 util/PluginMetadataEditor/metadata_editor_gui/processor_attributes/ProcessorAttributeComponent.h benthevining
+util/Templates/CMakeLists.txt benthevining
 util/Templates/app/Source/modules/new_app_gui/GUI/GUI.cpp benthevining
+util/Templates/plugin/Source/Main.cpp benthevining
 util/Templates/plugin/Source/modules/new_dsp/Processor/Processor.cpp benthevining
 util/Templates/plugin/Source/modules/new_dsp/new_dsp.cpp benthevining
 util/Templates/plugin/Source/modules/new_gui/GUI/GUI.h benthevining
@@ -249,6 +255,7 @@ util/assets/samples/inst_79.wav benthevining
 util/assets/samples/inst_84.flac benthevining
 util/assets/samples/vox_72.wav benthevining
 util/cmake/modules/config_files/LemonsRunClean.cmake benthevining
+util/cmake/modules/config_files/scripts/install_linux.cmake benthevining
 util/cmake/modules/config_files/scripts/install_pips.cmake benthevining
 util/cmake/modules/config_files/scripts/install_win.cmake benthevining
 util/cmake/modules/config_files/scripts/mac_install_homebrew.sh benthevining

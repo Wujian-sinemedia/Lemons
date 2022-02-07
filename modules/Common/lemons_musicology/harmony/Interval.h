@@ -22,6 +22,11 @@ class Interval final
 {
 public:
 
+	/*
+	 - get inverse
+	 - get "just interval" as fraction(s)
+	 */
+
 	enum class Quality
 	{
 		Diminished,

@@ -13,22 +13,61 @@
  * ======================================================================================
  */
 
-#include "lemons_musicology.h"
+#pragma once
 
+namespace lemons::music
+{
 
-#include "util/StringFunctions.cpp"
+class Mode final : public Scale
+{
+public:
 
-#include "harmony/Pitch.cpp"
-#include "harmony/Interval.cpp"
+	enum class Type
+	{
+		Ionian,
+		Dorian,
+		Phrygian,
+		Lydian,
+		Mixolydian,
+		Aeolian,
+		Locrian
+	};
 
-#include "harmony/scales/Scale.cpp"
-#include "harmony/scales/KeySignature.cpp"
-#include "harmony/scales/Mode.cpp"
+	constexpr explicit Mode (Type typeToUse, int pitchClassOfRoot) noexcept
+		: type (typeToUse), rootPitchClass (pitchClassOfRoot)
+	{
+		rootPitchClass %= 12;
+	}
 
-//#include "rhythm/TimeSignature.cpp"
-//
-//#include "harmony/Chord.cpp"
+	[[nodiscard]] static Mode fromStringDescription (const String& description);
 
-#if LEMONS_UNIT_TESTS
-#	include "util/StringFunctions_tests.cpp"
-#endif
+	[[nodiscard]] constexpr bool operator== (const Mode& other) const noexcept
+	{
+		return type == other.type && rootPitchClass == other.rootPitchClass;
+	}
+
+	[[nodiscard]] constexpr bool operator!= (const Mode& other) const noexcept
+	{
+		return ! (*this == other);
+	}
+
+	[[nodiscard]] juce::Array<int> getIntervalsAsSemitones() const final;
+
+	[[nodiscard]] int getNumSharps() const noexcept final;
+
+	[[nodiscard]] int getNumFlats() const noexcept final;
+
+	[[nodiscard]] int getPitchClassOfRoot() const noexcept final;
+
+	[[nodiscard]] String getStringDescription() const final;
+
+	[[nodiscard]] int notesPerOctave() const noexcept final;
+
+private:
+
+	Type type { Type::Ionian };
+
+	int rootPitchClass { 0 };
+};
+
+}  // namespace lemons::music

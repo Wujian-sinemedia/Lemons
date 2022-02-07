@@ -39,8 +39,11 @@
 #include "harmony/Pitch.h"
 #include "harmony/Interval.h"
 #include "harmony/Interval_impl.h"
-#include "harmony/KeySignature.h"
-#include "harmony/KeySignature_impl.h"
+
+#include "harmony/scales/Scale.h"
+#include "harmony/scales/KeySignature.h"
+#include "harmony/scales/KeySignature_impl.h"
+#include "harmony/scales/Mode.h"
 
 //#include "rhythm/TimeSignature.h"
 //

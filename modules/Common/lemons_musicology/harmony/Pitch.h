@@ -78,6 +78,8 @@ public:
 
 	[[nodiscard]] String toString() const noexcept;
 
+	// to/from solfege syllables?
+
 private:
 
 	double midiPitch { 60. };

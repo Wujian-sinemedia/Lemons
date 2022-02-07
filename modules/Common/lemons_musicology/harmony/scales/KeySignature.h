@@ -19,16 +19,26 @@
 namespace lemons::music
 {
 
-class KeySignature final
+class KeySignature final : public Scale
 {
 public:
+
+	enum class Type
+	{
+		Major,
+		NaturalMinor,
+		HarmonicMinor
+		// MelodicMinor
+	};
 
 	/** Creates a key signature object representing C major. */
 	constexpr KeySignature() noexcept;
 
-	constexpr explicit KeySignature (int numSharpsOrFlats, bool isSharps, bool isMajorKey) noexcept;
+	constexpr explicit KeySignature (int numSharpsOrFlats, bool isSharps, Type typeToUse) noexcept;
 
-	constexpr explicit KeySignature (bool isMajorKey, bool isSharps, int pitchClassOfRoot) noexcept;
+	constexpr explicit KeySignature (Type typeToUse, bool isSharps, int pitchClassOfRoot) noexcept;
+
+	constexpr explicit KeySignature (Type typeToUse, int pitchClassOfRoot) noexcept;
 
 	[[nodiscard]] static KeySignature fromStringDescription (const String& description);
 
@@ -64,39 +74,35 @@ public:
 
 	[[nodiscard]] constexpr bool isMinorKey() const noexcept;
 
-	[[nodiscard]] constexpr int getNumSharps() const noexcept;
-
-	[[nodiscard]] constexpr int getNumFlats() const noexcept;
-
-	[[nodiscard]] constexpr int getPitchClassOfRoot() const noexcept;
-
-	[[nodiscard]] String getRootAsString() const noexcept;
-
-	[[nodiscard]] String getStringDescription() const noexcept;
-
 	[[nodiscard]] constexpr int getPitchClassOfScaleDegree (int scaleDegree) const noexcept;
 
 	[[nodiscard]] String getScaleDegreeAsString (int scaleDegree) const noexcept;
 
-	[[nodiscard]] bool containsPitchClass (int pitchClass) const;
+	[[nodiscard]] String getStringDescription() const final;
 
-	[[nodiscard]] bool containsPitch (const Pitch& pitch) const;
+	[[nodiscard]] int getPitchClassOfRoot() const noexcept final;
 
-	[[nodiscard]] bool containsPitch (int midiNoteNumber) const;
+	[[nodiscard]] int getNumSharps() const noexcept final;
 
-	[[nodiscard]] juce::Array<int> getIntervalsAsSemitones() const;
+	[[nodiscard]] int getNumFlats() const noexcept final;
 
-	[[nodiscard]] juce::Array<Interval> getIntervals() const;
+	[[nodiscard]] juce::Array<int> getIntervalsAsSemitones() const final;
 
-	[[nodiscard]] juce::Array<Pitch> getPitches (int octaveNumber) const;
+	[[nodiscard]] int notesPerOctave() const noexcept final;
 
-	[[nodiscard]] juce::Array<Pitch> getPitches (int lowestMidiNote, int highestMidiNote) const;
+	[[nodiscard]] String getRootAsString() const noexcept final;
 
 private:
 
+	[[nodiscard]] static constexpr bool useSharpsForRootByDefault (int root) noexcept;
+
+	[[nodiscard]] static constexpr bool rootHasEnharmonicKey (int root) noexcept;
+
 	int numAccidentals { 0 };
 
-	bool isFlat { false }, isMajor { true };
+	bool isFlat { false };
+
+	Type type { Type::Major };
 };
 
 }  // namespace lemons::music

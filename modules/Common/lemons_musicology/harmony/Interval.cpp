@@ -28,7 +28,6 @@ String Interval::getKindAsString() const
 	switch (kind)
 	{
 		case (0) : return "unison";
-		case (1) : jassertfalse; return "";
 		case (2) : return "second";
 		case (3) : return "third";
 		case (4) : return "fourth";
@@ -36,8 +35,10 @@ String Interval::getKindAsString() const
 		case (6) : return "sixth";
 		case (7) : return "seventh";
 		case (8) : return "octave";
-		default : jassertfalse; return "";
 	}
+
+	jassertfalse;
+	return "";
 }
 
 String Interval::getQualityAsString (bool useShort) const
@@ -51,7 +52,6 @@ String Interval::getQualityAsString (bool useShort) const
 			case (Quality::Perfect) : return "P";
 			case (Quality::Augmented) : return "A";
 			case (Quality::Diminished) : return "d";
-			default : jassertfalse; return "";
 		}
 	}
 
@@ -62,8 +62,10 @@ String Interval::getQualityAsString (bool useShort) const
 		case (Quality::Perfect) : return "Perfect";
 		case (Quality::Augmented) : return "Augmented";
 		case (Quality::Diminished) : return "Diminished";
-		default : jassertfalse; return "";
 	}
+
+	jassertfalse;
+	return "";
 }
 
 String Interval::getStringDescription (bool useShort) const
@@ -121,7 +123,6 @@ Interval Interval::fromStringDescription (const String& string)
 			return Interval::Quality::Diminished;
 
 		jassertfalse;
-
 		return Interval::Quality::Major;
 	}();
 
@@ -152,7 +153,6 @@ Interval Interval::fromStringDescription (const String& string)
 			return 8;
 
 		jassertfalse;
-
 		return 0;
 	}();
 
