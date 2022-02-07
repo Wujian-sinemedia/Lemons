@@ -34,9 +34,9 @@ public:
 
 	constexpr KeySignature (const KeySignature& other) noexcept;
 
-	constexpr bool operator== (const KeySignature& other) const noexcept;
+	[[nodiscard]] constexpr bool operator== (const KeySignature& other) const noexcept;
 
-	constexpr bool operator!= (const KeySignature& other) const noexcept;
+	[[nodiscard]] constexpr bool operator!= (const KeySignature& other) const noexcept;
 
 	[[nodiscard]] constexpr KeySignature getRelativeKey() const noexcept;
 
@@ -80,7 +80,9 @@ public:
 
 	[[nodiscard]] bool containsPitchClass (int pitchClass) const;
 
-	[[nodiscard]] juce::Array<int> getIntervals() const;
+	[[nodiscard]] juce::Array<int> getIntervalsAsSemitones() const;
+
+	[[nodiscard]] juce::Array<Interval> getIntervals() const;
 
 private:
 

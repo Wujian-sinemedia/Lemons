@@ -36,9 +36,9 @@
 
 #include "util/StringFunctions.h"
 
+#include "harmony/Interval.h"
 #include "harmony/KeySignature.h"
 
 //#include "rhythm/TimeSignature.h"
 //
-//#include "harmony/Interval.h"
 //#include "harmony/Chord.h"

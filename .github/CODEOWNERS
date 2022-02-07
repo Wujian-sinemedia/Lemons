@@ -36,6 +36,7 @@ modules/Audio/lemons_audio_effects/panning/MonoToStereoPanner.cpp benthevining
 modules/Audio/lemons_audio_effects/panning/StereoPanner.cpp benthevining
 modules/Audio/lemons_audio_effects/time/Delay.h benthevining
 modules/Audio/lemons_dsp/audio_files/AudioFile.cpp benthevining
+modules/Audio/lemons_dsp/audio_files/AudioFileCache.cpp benthevining
 modules/Audio/lemons_dsp/engines/AudioEngine.cpp benthevining
 modules/Audio/lemons_dsp/engines/AudioEngine.h benthevining
 modules/Audio/lemons_dsp/engines/AudioEngine_tests.cpp benthevining
@@ -95,6 +96,7 @@ modules/Audio/lemons_psola/analysis/PitchDetector.h benthevining
 modules/Audio/lemons_psola/analysis/PitchDetector_tests.cpp benthevining
 modules/Audio/lemons_psola/analysis/analyzer.cpp benthevining
 modules/Audio/lemons_psola/lemons_psola.cpp benthevining
+modules/Audio/lemons_psola/resynthesis/IntervalShifter.cpp benthevining
 modules/Audio/lemons_psola/resynthesis/IntervalShifter.h benthevining
 modules/Audio/lemons_psola/resynthesis/IntervalShifter_tests.cpp benthevining
 modules/Audio/lemons_psola/resynthesis/MidiShifter.cpp benthevining
@@ -136,6 +138,7 @@ modules/Common/lemons_core/unit_tests/runner.h benthevining
 modules/Common/lemons_core/unit_tests/test.cpp benthevining
 modules/Common/lemons_core/unit_tests/test.h benthevining
 modules/Common/lemons_musicology/lemons_musicology.cpp benthevining
+modules/Common/lemons_musicology/lemons_musicology.h benthevining
 modules/Connectivity/LemonsConnectivityModules.cmake benthevining
 modules/Connectivity/lemons_osc/lemons_osc.cpp benthevining
 modules/Connectivity/lemons_osc/lemons_osc.h benthevining
@@ -157,6 +160,7 @@ modules/GUI/lemons_gui/device/gps/GPS.cpp benthevining
 modules/GUI/lemons_gui/device/gps/GPS.h benthevining
 modules/GUI/lemons_gui/device/gps/GPS_apple.mm benthevining
 modules/GUI/lemons_gui/device/gps/GPS_windows.cpp benthevining
+modules/GUI/lemons_gui/device/motion/DeviceMotion.cpp benthevining
 modules/GUI/lemons_gui/device/motion/DeviceMotion_android.cpp benthevining
 modules/GUI/lemons_gui/device/motion/DeviceMotion_ios.mm benthevining
 modules/GUI/lemons_gui/lemons_gui.cpp benthevining
@@ -167,6 +171,7 @@ modules/GUI/lemons_gui/utilities/colors.h benthevining
 modules/GUI/lemons_gui/utilities/cursor.cpp benthevining
 modules/GUI/lemons_gui/utilities/cursor.h benthevining
 modules/GUI/lemons_gui/utilities/serializing.cpp benthevining
+modules/GUI/lemons_gui/utilities/serializing.h benthevining
 modules/GUI/lemons_gui/utilities/util.h benthevining
 modules/GUI/lemons_spline/lemons_spline.h benthevining
 modules/LemonsAppModules.cmake benthevining

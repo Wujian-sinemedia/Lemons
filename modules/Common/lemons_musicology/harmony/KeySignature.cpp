@@ -300,7 +300,7 @@ bool KeySignature::containsPitchClass (int pitchClass) const
 
 	const auto root = getPitchClassOfRoot();
 
-	for (const auto interval : getIntervals())
+	for (const auto interval : getIntervalsAsSemitones())
 	{
 		const auto degreeClass = (root + interval) % 12;
 
@@ -311,13 +311,23 @@ bool KeySignature::containsPitchClass (int pitchClass) const
 	return false;
 }
 
-juce::Array<int> KeySignature::getIntervals() const
+juce::Array<int> KeySignature::getIntervalsAsSemitones() const
 {
-	if (major)
+	if (isMajor)
 		return { 2, 2, 1, 2, 2, 2, 1 };
 
 	// natural minor. TO DO: add support for harmonic & melodic minor....
 	return { 2, 1, 2, 2, 1, 2, 2 };
+}
+
+juce::Array<Interval> KeySignature::getIntervals() const
+{
+	juce::Array<Interval> intervals;
+
+	for (const auto interval : getIntervalsAsSemitones())
+		intervals.add (Interval::fromNumSemitones (interval));
+
+	return intervals;
 }
 
 }  // namespace lemons::music
