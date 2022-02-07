@@ -191,11 +191,4 @@ bool KeySignature::isDominantKeyOf (const KeySignature& other) const noexcept
 	return getPitchClassOfRoot() == makeValidPitchClass (other.getPitchClassOfRoot() + 7);
 }
 
-int KeySignature::getPitchClassOfScaleDegree (int scaleDegree) const noexcept
-{
-	scaleDegree %= 8;
-
-	return makeValidPitchClass (getPitchClassOfRoot() + scaleDegree);
-}
-
 }  // namespace lemons::music::scales

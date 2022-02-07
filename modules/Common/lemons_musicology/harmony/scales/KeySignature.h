@@ -74,9 +74,7 @@ public:
 
 	[[nodiscard]] constexpr bool isMinorKey() const noexcept;
 
-	[[nodiscard]] int getPitchClassOfScaleDegree (int scaleDegree) const noexcept;
-
-	[[nodiscard]] String getScaleDegreeAsString (int scaleDegree) const noexcept;
+	[[nodiscard]] String getScaleDegreeAsString (int scaleDegree) const noexcept final;
 
 	[[nodiscard]] String getStringDescription() const final;
 

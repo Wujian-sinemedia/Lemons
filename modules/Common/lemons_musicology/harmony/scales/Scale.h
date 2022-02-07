@@ -58,6 +58,10 @@ struct Scale
 	[[nodiscard]] virtual int notesPerOctave() const noexcept = 0;
 
 	[[nodiscard]] virtual String getRootAsString() const noexcept;
+
+	[[nodiscard]] int getPitchClassOfScaleDegree (int scaleDegree) const noexcept;
+
+	[[nodiscard]] virtual String getScaleDegreeAsString (int scaleDegree) const noexcept;
 };
 
 }  // namespace lemons::music::scales

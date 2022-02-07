@@ -134,4 +134,14 @@ String Scale::getRootAsString() const noexcept
 	return pitchClassToString (getPitchClassOfRoot());
 }
 
+int Scale::getPitchClassOfScaleDegree (int scaleDegree) const noexcept
+{
+	return makeValidPitchClass (getPitchClassOfRoot() + (scaleDegree % notesPerOctave()));
+}
+
+String Scale::getScaleDegreeAsString (int scaleDegree) const noexcept
+{
+	return pitchClassToString (getPitchClassOfScaleDegree (scaleDegree));
+}
+
 }  // namespace lemons::music::scales
