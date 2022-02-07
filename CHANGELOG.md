@@ -1,5 +1,19 @@
 # Lemons changelog
 
+## [1.12.0](http://github.com/benthevining/Lemons/compare/v1.11.0...v1.12.0) (2022-02-07)
+
+
+### Features
+
+* added a chromatic scale class [skip ci] ([62b02d1](http://github.com/benthevining/Lemons/commit/62b02d1331e354571ba5c85c86c97136bc717bbf))
+* added a whole tone scale class [skip ci] ([009cc1a](http://github.com/benthevining/Lemons/commit/009cc1a57735dd5a48156ee48dd501348ea73f56))
+* added an octatonic scale class ([9c76e82](http://github.com/benthevining/Lemons/commit/9c76e825cdfbcbaae660532d88c1469d758e0e50))
+
+
+### Bug Fixes
+
+* fixed usage of nonliteral KeySignature type in Mode's constexpr functions ([5cf2a22](http://github.com/benthevining/Lemons/commit/5cf2a22fc60414ce41fec7a1929f64eb2755f0e3))
+
 ## [1.11.0](http://github.com/benthevining/Lemons/compare/v1.10.0...v1.11.0) (2022-02-07)
 
 
