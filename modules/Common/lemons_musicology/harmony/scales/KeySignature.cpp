@@ -20,10 +20,10 @@ KeySignature KeySignature::fromStringDescription (const String& description)
 {
 	const auto type = [&description]
 	{
-		if (! description.containsIgnoreCase ("minor"))
+		if (! description.containsIgnoreCase (TRANS ("minor")))
 			return Type::Major;
 
-		if (description.containsIgnoreCase ("harmonic"))
+		if (description.containsIgnoreCase (TRANS ("harmonic")))
 			return Type::HarmonicMinor;
 
 		return Type::NaturalMinor;
@@ -44,12 +44,12 @@ String KeySignature::getStringDescription() const
 	const auto res = getRootAsString();
 
 	if (type == Type::Major)
-		return res + " major";
+		return res + " " + TRANS ("major");
 
 	if (type == Type::HarmonicMinor)
-		return res + " harmonic minor";
+		return res + " " + TRANS ("harmonic minor");
 
-	return res + " minor";
+	return res + " " + TRANS ("minor");
 }
 
 String KeySignature::getScaleDegreeAsString (int scaleDegree) const noexcept

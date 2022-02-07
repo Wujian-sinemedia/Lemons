@@ -43,6 +43,7 @@
 
 #include "harmony/scales/Scale.h"
 #include "harmony/scales/Chromatic.h"
+#include "harmony/scales/WholeTone.h"
 #include "harmony/scales/KeySignature.h"
 #include "harmony/scales/KeySignature_impl.h"
 #include "harmony/scales/Mode.h"

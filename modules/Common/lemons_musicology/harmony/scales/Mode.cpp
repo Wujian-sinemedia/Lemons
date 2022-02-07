@@ -83,17 +83,17 @@ String Mode::getStringDescription() const
 	{
 		switch (t)
 		{
-			case (Type::Ionian) : return "ionian";
-			case (Type::Dorian) : return "dorian";
-			case (Type::Phrygian) : return "phrygian";
-			case (Type::Lydian) : return "lydian";
-			case (Type::Mixolydian) : return "mixolydian";
-			case (Type::Aeolian) : return "aeolian";
-			case (Type::Locrian) : return "locrian";
+			case (Type::Ionian) : return TRANS ("ionian");
+			case (Type::Dorian) : return TRANS ("dorian");
+			case (Type::Phrygian) : return TRANS ("phrygian");
+			case (Type::Lydian) : return TRANS ("lydian");
+			case (Type::Mixolydian) : return TRANS ("mixolydian");
+			case (Type::Aeolian) : return TRANS ("aeolian");
+			case (Type::Locrian) : return TRANS ("locrian");
 		}
 
 		jassertfalse;
-		return "";
+		return String {};
 	}();
 
 	return pitchClassToString (rootPitchClass) + " " + typeString;
@@ -103,25 +103,25 @@ Mode Mode::fromStringDescription (const String& description)
 {
 	const auto type = [typeString = description.fromFirstOccurrenceOf (" ", false, false).trim()]
 	{
-		if (typeString.equalsIgnoreCase ("ionian"))
+		if (typeString.equalsIgnoreCase (TRANS ("ionian")))
 			return Type::Ionian;
 
-		if (typeString.equalsIgnoreCase ("dorian"))
+		if (typeString.equalsIgnoreCase (TRANS ("dorian")))
 			return Type::Dorian;
 
-		if (typeString.equalsIgnoreCase ("phrygian"))
+		if (typeString.equalsIgnoreCase (TRANS ("phrygian")))
 			return Type::Phrygian;
 
-		if (typeString.equalsIgnoreCase ("lydian"))
+		if (typeString.equalsIgnoreCase (TRANS ("lydian")))
 			return Type::Lydian;
 
-		if (typeString.equalsIgnoreCase ("mixolydian"))
+		if (typeString.equalsIgnoreCase (TRANS ("mixolydian")))
 			return Type::Mixolydian;
 
-		if (typeString.equalsIgnoreCase ("aeolian"))
+		if (typeString.equalsIgnoreCase (TRANS ("aeolian")))
 			return Type::Aeolian;
 
-		if (typeString.equalsIgnoreCase ("locrian"))
+		if (typeString.equalsIgnoreCase (TRANS ("locrian")))
 			return Type::Locrian;
 
 		jassertfalse;

@@ -13,30 +13,57 @@
  * ======================================================================================
  */
 
-#pragma once
-
-
-namespace lemons::music
+namespace lemons::music::scales
 {
 
-constexpr bool isValidPitchClass (int pitchClass) noexcept
+bool WholeTone::operator== (const WholeTone& other) const
 {
-	return pitchClass >= 0 && pitchClass <= 11;
+	return startingPitchClass == other.startingPitchClass;
 }
 
-constexpr int makeValidPitchClass (int pitchClass) noexcept
+bool WholeTone::operator!= (const WholeTone& other) const
 {
-	return pitchClass % 12;
+	return ! (*this == other);
 }
 
-constexpr int octaveNumberOfMidiNote (int midiNote) noexcept
+juce::Array<int> WholeTone::getIntervalsAsSemitones() const
 {
-	return midiNote / 12 - 1;
+	juce::Array<int> intervals;
+
+	for (auto i = 0; i < 6; ++i)
+		intervals.add (2);
+
+	return intervals;
 }
 
-constexpr int lowestNoteOfMidiOctave (int octaveNumber) noexcept
+int WholeTone::getNumSharps() const noexcept
 {
-	return (octaveNumber + 1) * 12;
 }
 
-}  // namespace lemons::music
+int WholeTone::getNumFlats() const noexcept
+{
+}
+
+int WholeTone::getPitchClassOfRoot() const noexcept
+{
+	return startingPitchClass;
+}
+
+String WholeTone::getStringDescription() const
+{
+	return pitchClassToString (startingPitchClass) + TRANS (" whole tone");
+}
+
+int WholeTone::notesPerOctave() const noexcept
+{
+	return 6;
+}
+
+WholeTone WholeTone::fromStringDescription (const String& string)
+{
+	const auto rootString = string.upToFirstOccurrenceOf (TRANS ("whole tone"), false, true).trim();
+
+	return WholeTone { stringToPitchClass (rootString) };
+}
+
+}  // namespace lemons::music::scales

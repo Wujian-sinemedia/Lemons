@@ -53,7 +53,7 @@ int Chromatic::getPitchClassOfRoot() const noexcept
 
 String Chromatic::getStringDescription() const
 {
-	return pitchClassToString (startingPitchClass) + " chromatic";
+	return pitchClassToString (startingPitchClass) + " " + TRANS ("chromatic");
 }
 
 int Chromatic::notesPerOctave() const noexcept
@@ -63,7 +63,7 @@ int Chromatic::notesPerOctave() const noexcept
 
 Chromatic Chromatic::fromStringDescription (const String& string)
 {
-	const auto rootString = string.upToFirstOccurrenceOf ("chromatic", false, true).trim();
+	const auto rootString = string.upToFirstOccurrenceOf (TRANS ("chromatic"), false, true).trim();
 
 	return Chromatic { stringToPitchClass (rootString) };
 }

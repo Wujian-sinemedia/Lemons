@@ -15,28 +15,43 @@
 
 #pragma once
 
-
-namespace lemons::music
+namespace lemons::music::scales
 {
 
-constexpr bool isValidPitchClass (int pitchClass) noexcept
+class WholeTone final : public Scale
 {
-	return pitchClass >= 0 && pitchClass <= 11;
-}
+public:
 
-constexpr int makeValidPitchClass (int pitchClass) noexcept
-{
-	return pitchClass % 12;
-}
+	constexpr explicit WholeTone (int pitchClassOfRoot) noexcept
+		: startingPitchClass (makeValidPitchClass (pitchClassOfRoot))
+	{
+	}
 
-constexpr int octaveNumberOfMidiNote (int midiNote) noexcept
-{
-	return midiNote / 12 - 1;
-}
+	constexpr WholeTone (const WholeTone& other) noexcept
+		: startingPitchClass (other.startingPitchClass)
+	{
+	}
 
-constexpr int lowestNoteOfMidiOctave (int octaveNumber) noexcept
-{
-	return (octaveNumber + 1) * 12;
-}
+	[[nodiscard]] static WholeTone fromStringDescription (const String& string);
 
-}  // namespace lemons::music
+	[[nodiscard]] bool operator== (const WholeTone& other) const;
+	[[nodiscard]] bool operator!= (const WholeTone& other) const;
+
+	[[nodiscard]] juce::Array<int> getIntervalsAsSemitones() const final;
+
+	[[nodiscard]] int getNumSharps() const noexcept final;
+
+	[[nodiscard]] int getNumFlats() const noexcept final;
+
+	[[nodiscard]] int getPitchClassOfRoot() const noexcept final;
+
+	[[nodiscard]] String getStringDescription() const final;
+
+	[[nodiscard]] int notesPerOctave() const noexcept final;
+
+private:
+
+	const int startingPitchClass { 0 };
+};
+
+}  // namespace lemons::music::scales

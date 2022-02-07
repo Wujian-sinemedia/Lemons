@@ -21,7 +21,6 @@ namespace lemons::music::scales
 /*
  - pentatonic
  - octatonic
- - whole tone
  - neapolitan
  - blues scale
  */
