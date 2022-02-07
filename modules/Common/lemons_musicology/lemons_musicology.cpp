@@ -18,8 +18,13 @@
 
 #include "util/StringFunctions.cpp"
 
+#include "harmony/KeySignature.cpp"
+
 //#include "rhythm/TimeSignature.cpp"
 //
 //#include "harmony/Chord.cpp"
 //#include "harmony/Interval.cpp"
-//#include "harmony/KeySignature.cpp"
+
+#if LEMONS_UNIT_TESTS
+#	include "util/StringFunctions_tests.cpp"
+#endif

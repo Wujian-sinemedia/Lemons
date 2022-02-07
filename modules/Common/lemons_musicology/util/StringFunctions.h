@@ -75,26 +75,3 @@ using juce::String;
 [[nodiscard]] int midiPanStringToInt (const String& string) noexcept;
 
 }  // namespace lemons::music
-
-
-/*---------------------------------------------------------------------------------------------------------------------------------*/
-
-#if LEMONS_UNIT_TESTS
-
-namespace lemons::tests
-{
-
-struct StringFunctionsTests : public CoreTest
-{
-	StringFunctionsTests();
-
-private:
-
-	void runTest() final;
-};
-
-static StringFunctionsTests stringFunctionsTest;
-
-}  // namespace lemons::tests
-
-#endif
