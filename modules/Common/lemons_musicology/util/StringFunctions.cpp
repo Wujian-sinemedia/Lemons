@@ -88,7 +88,7 @@ static const char* const flatNoteNames[] = {
 
 String pitchClassToString (int pitchClass, bool asSharps) noexcept
 {
-	pitchClass %= 11;
+	pitchClass %= 12;
 
 	jassert (pitchClass >= 0 && pitchClass <= 11);
 

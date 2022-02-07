@@ -30,21 +30,41 @@ public:
 
 	explicit Pitch (const String& pitchString) noexcept;
 
-	constexpr Pitch (const Pitch& other) noexcept;
+	constexpr Pitch (const Pitch& other) noexcept
+		: midiPitch (other.midiPitch)
+	{
+	}
 
-	[[nodiscard]] constexpr bool operator== (const Pitch& other) const noexcept;
-	[[nodiscard]] constexpr bool operator!= (const Pitch& other) const noexcept;
+	[[nodiscard]] constexpr bool operator== (const Pitch& other) const noexcept
+	{
+		return midiPitch == other.midiPitch;
+	}
+
+	[[nodiscard]] constexpr bool operator!= (const Pitch& other) const noexcept
+	{
+		return ! (*this == other);
+	}
 
 	[[nodiscard]] bool approximatelyEqual (const Pitch& other) const noexcept;
 
-	[[nodiscard]] constexpr bool operator> (const Pitch& other) const noexcept;
-	[[nodiscard]] constexpr bool operator< (const Pitch& other) const noexcept;
+	[[nodiscard]] constexpr bool operator> (const Pitch& other) const noexcept
+	{
+		return midiPitch > other.midiPitch;
+	}
+
+	[[nodiscard]] constexpr bool operator< (const Pitch& other) const noexcept
+	{
+		return midiPitch < other.midiPitch;
+	}
 
 	[[nodiscard]] double getFreqHz() const noexcept;
 
 	[[nodiscard]] int getRoundedFreqHz() const noexcept;
 
-	[[nodiscard]] constexpr double getMidiPitch() const noexcept;
+	[[nodiscard]] constexpr double getMidiPitch() const noexcept
+	{
+		return midiPitch;
+	}
 
 	[[nodiscard]] int getRoundedMidiPitch() const noexcept;
 

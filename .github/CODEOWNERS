@@ -24,6 +24,7 @@ CMakeLists.txt benthevining
 CODEOWNERS benthevining
 README.md benthevining
 modules/Audio/lemons_audio_effects/AudioEffects/AudioEffect.cpp benthevining
+modules/Audio/lemons_audio_effects/AudioEffects/AudioEffectEngine.h benthevining
 modules/Audio/lemons_audio_effects/dynamics/Compressor.cpp benthevining
 modules/Audio/lemons_audio_effects/dynamics/Limiter.h benthevining
 modules/Audio/lemons_audio_effects/dynamics/SmoothedGain.h benthevining
@@ -137,7 +138,9 @@ modules/Common/lemons_core/unit_tests/runner.cpp benthevining
 modules/Common/lemons_core/unit_tests/runner.h benthevining
 modules/Common/lemons_core/unit_tests/test.cpp benthevining
 modules/Common/lemons_core/unit_tests/test.h benthevining
+modules/Common/lemons_musicology/harmony/Interval.h benthevining
 modules/Common/lemons_musicology/harmony/KeySignature.h benthevining
+modules/Common/lemons_musicology/harmony/Pitch.h benthevining
 modules/Common/lemons_musicology/lemons_musicology.cpp benthevining
 modules/Common/lemons_musicology/lemons_musicology.h benthevining
 modules/Connectivity/LemonsConnectivityModules.cmake benthevining
@@ -154,6 +157,7 @@ modules/GUI/lemons_gui/components/popups/PopupComponent.h benthevining
 modules/GUI/lemons_gui/components/popups/SaveToFilePrompt.cpp benthevining
 modules/GUI/lemons_gui/components/popups/SaveToFilePrompt.h benthevining
 modules/GUI/lemons_gui/components/popups/VersionBumpPrompt.h benthevining
+modules/GUI/lemons_gui/components/sliders.cpp benthevining
 modules/GUI/lemons_gui/device/DeviceRotation.h benthevining
 modules/GUI/lemons_gui/device/autolock/AutoLock.cpp benthevining
 modules/GUI/lemons_gui/device/autolock/AutoLock.h benthevining
@@ -186,6 +190,7 @@ modules/Plugins/lemons_plugin/metadata/EditorAttributes.h benthevining
 modules/Plugins/lemons_plugin/metadata/ParameterTraits.cpp benthevining
 modules/Plugins/lemons_plugin/metadata/ParameterTraits.h benthevining
 modules/Plugins/lemons_plugin/metadata/PluginMetadata.cpp benthevining
+modules/Plugins/lemons_plugin/metadata/PluginMetadata.h benthevining
 modules/Plugins/lemons_plugin/metadata/ProcessorAttributes.cpp benthevining
 modules/Plugins/lemons_plugin/parameters/ModulationManager/LFO.cpp benthevining
 modules/Plugins/lemons_plugin/parameters/ModulationManager/ModulationManager.cpp benthevining
@@ -215,6 +220,7 @@ modules/Plugins/lemons_plugin_gui/parameters/ParameterMidiMappings.h benthevinin
 modules/Plugins/lemons_plugin_gui/plugin_library/PluginLibraryComponent.h benthevining
 scripts/install_deps.cmake benthevining
 scripts/lemons_config.json benthevining
+util/CMakeLists.txt benthevining
 util/CommandLineUtils/FontSerializer/Main.cpp benthevining
 util/CommandLineUtils/RSAKeyGenerator/CMakeLists.txt benthevining
 util/CommandLineUtils/TranslationFileGenerator/CMakeLists.txt benthevining

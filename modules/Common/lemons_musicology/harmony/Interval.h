@@ -79,6 +79,8 @@ public:
 
 private:
 
+	[[nodiscard]] constexpr bool intervalIsPerfectKind() noexcept;
+
 	Quality quality { Quality::Major };
 
 	int kind { 0 };

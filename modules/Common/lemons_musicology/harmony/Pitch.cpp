@@ -21,34 +21,9 @@ Pitch::Pitch (const String& pitchString) noexcept
 {
 }
 
-constexpr Pitch::Pitch (const Pitch& other) noexcept
-	: midiPitch (other.midiPitch)
-{
-}
-
-constexpr bool Pitch::operator== (const Pitch& other) const noexcept
-{
-	return midiPitch == other.midiPitch;
-}
-
-constexpr bool Pitch::operator!= (const Pitch& other) const noexcept
-{
-	return ! (*this == other);
-}
-
 bool Pitch::approximatelyEqual (const Pitch& other) const noexcept
 {
 	return juce::roundToInt (midiPitch) == juce::roundToInt (other.midiPitch);
-}
-
-constexpr bool Pitch::operator> (const Pitch& other) const noexcept
-{
-	return midiPitch > other.midiPitch;
-}
-
-constexpr bool Pitch::operator< (const Pitch& other) const noexcept
-{
-	return midiPitch < other.midiPitch;
 }
 
 double Pitch::getFreqHz() const noexcept
@@ -61,11 +36,6 @@ int Pitch::getRoundedFreqHz() const noexcept
 	return juce::roundToInt (getFreqHz());
 }
 
-constexpr double Pitch::getMidiPitch() const noexcept
-{
-	return midiPitch;
-}
-
 int Pitch::getRoundedMidiPitch() const noexcept
 {
 	return juce::roundToInt (midiPitch);
@@ -73,7 +43,7 @@ int Pitch::getRoundedMidiPitch() const noexcept
 
 int Pitch::getPitchClass() const noexcept
 {
-	return juce::roundToInt (midiPitch) % 11;
+	return juce::roundToInt (midiPitch) % 12;
 }
 
 int Pitch::getOctaveNumber() const noexcept

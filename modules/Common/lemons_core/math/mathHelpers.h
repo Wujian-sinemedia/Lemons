@@ -25,6 +25,15 @@ namespace lemons::math
  @{
  */
 
+template <typename T>
+[[nodiscard]] constexpr T abs (T val)
+{
+	if (val < T (0))
+		return -val;
+
+	return val;
+}
+
 
 /** Returns true if the number is divisible by the divisor with no remainder. */
 [[nodiscard]] constexpr bool isDivisibleBy (int number, int divisor) noexcept
