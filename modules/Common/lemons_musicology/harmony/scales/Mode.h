@@ -63,44 +63,9 @@ public:
 
 	[[nodiscard]] int notesPerOctave() const noexcept final;
 
-	[[nodiscard]] constexpr int getNumSharps() const noexcept
-	{
-		const auto addedSharps = [t = type]
-		{
-			if (t == Type::Lydian)
-				return 1;
+	[[nodiscard]] int getNumSharps() const noexcept;
 
-			return 0;
-		}();
-
-		const auto parallelMajor = KeySignature { KeySignature::Type::Major, rootPitchClass };
-
-		return parallelMajor.getNumSharps() + addedSharps;
-	}
-
-	[[nodiscard]] constexpr int getNumFlats() const noexcept
-	{
-		const auto addedFlats = [t = type]
-		{
-			switch (t)
-			{
-				case (Type::Ionian) : return 0;
-				case (Type::Dorian) : return 2;
-				case (Type::Phrygian) : return 4;
-				case (Type::Lydian) : return 0;
-				case (Type::Mixolydian) : return 1;
-				case (Type::Aeolian) : return 3;
-				case (Type::Locrian) : return 5;
-			}
-
-			jassertfalse;
-			return 0;
-		}();
-
-		const auto parallelMajor = KeySignature { KeySignature::Type::Major, rootPitchClass };
-
-		return parallelMajor.getNumFlats() + addedFlats;
-	}
+	[[nodiscard]] int getNumFlats() const noexcept;
 
 private:
 

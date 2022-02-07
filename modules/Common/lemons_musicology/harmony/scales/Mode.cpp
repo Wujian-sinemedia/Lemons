@@ -99,4 +99,43 @@ int Mode::notesPerOctave() const noexcept
 	return 8;
 }
 
+int Mode::getNumSharps() const noexcept
+{
+	const auto addedSharps = [t = type]
+	{
+		if (t == Type::Lydian)
+			return 1;
+
+		return 0;
+	}();
+
+	const auto parallelMajor = KeySignature { KeySignature::Type::Major, rootPitchClass };
+
+	return parallelMajor.getNumSharps() + addedSharps;
+}
+
+int Mode::getNumFlats() const noexcept
+{
+	const auto addedFlats = [t = type]
+	{
+		switch (t)
+		{
+			case (Type::Ionian) : return 0;
+			case (Type::Dorian) : return 2;
+			case (Type::Phrygian) : return 4;
+			case (Type::Lydian) : return 0;
+			case (Type::Mixolydian) : return 1;
+			case (Type::Aeolian) : return 3;
+			case (Type::Locrian) : return 5;
+		}
+
+		jassertfalse;
+		return 0;
+	}();
+
+	const auto parallelMajor = KeySignature { KeySignature::Type::Major, rootPitchClass };
+
+	return parallelMajor.getNumFlats() + addedFlats;
+}
+
 }  // namespace lemons::music::scales
