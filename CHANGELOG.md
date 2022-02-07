@@ -1,5 +1,14 @@
 # Lemons changelog
 
+## [1.10.0](http://github.com/benthevining/Lemons/compare/v1.9.0...v1.10.0) (2022-02-07)
+
+
+### Features
+
+* added a key signature class ([2e11012](http://github.com/benthevining/Lemons/commit/2e110125c75b4d15a95e123adaae896b357e9402))
+* added a pitch class ([413fd05](http://github.com/benthevining/Lemons/commit/413fd0522cf564d5c5d97fc668b4e749fcd78c7d))
+* added an interval class ([28e814f](http://github.com/benthevining/Lemons/commit/28e814f7670dcef947325055ac28dcc089119043))
+
 ## [1.9.0](http://github.com/benthevining/Lemons/compare/v1.8.0...v1.9.0) (2022-02-06)
 
 
