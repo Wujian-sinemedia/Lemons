@@ -15,31 +15,52 @@
 
 #pragma once
 
-/*-------------------------------------------------------------------------------------
+namespace lemons::music
+{
 
- BEGIN_JUCE_MODULE_DECLARATION
+class Pitch final
+{
+public:
 
- ID:                 lemons_musicology
- vendor:             Lemons
- version:            0.0.1
- name:               lemons_musicology
- description:        Utility classes for describing musical information
- website:            http://benthevining.github.io/Lemons/
- license:            GPL-3.0
- minimumCppStandard: 17
- dependencies:       lemons_core
+	template <typename T>
+	constexpr explicit Pitch (T midiNote) noexcept
+		: midiPitch (static_cast<double> (midiNote))
+	{
+	}
 
- END_JUCE_MODULE_DECLARATION
+	explicit Pitch (const String& pitchString) noexcept;
 
- -------------------------------------------------------------------------------------*/
+	constexpr Pitch (const Pitch& other) noexcept;
 
+	[[nodiscard]] constexpr bool operator== (const Pitch& other) const noexcept;
+	[[nodiscard]] constexpr bool operator!= (const Pitch& other) const noexcept;
 
-#include "util/StringFunctions.h"
+	[[nodiscard]] bool approximatelyEqual (const Pitch& other) const noexcept;
 
-#include "harmony/Pitch.h"
-#include "harmony/Interval.h"
-#include "harmony/KeySignature.h"
+	[[nodiscard]] constexpr bool operator> (const Pitch& other) const noexcept;
+	[[nodiscard]] constexpr bool operator< (const Pitch& other) const noexcept;
 
-//#include "rhythm/TimeSignature.h"
-//
-//#include "harmony/Chord.h"
+	[[nodiscard]] double getFreqHz() const noexcept;
+
+	[[nodiscard]] int getRoundedFreqHz() const noexcept;
+
+	[[nodiscard]] constexpr double getMidiPitch() const noexcept;
+
+	[[nodiscard]] int getRoundedMidiPitch() const noexcept;
+
+	[[nodiscard]] int getPitchClass() const noexcept;
+
+	[[nodiscard]] int getOctaveNumber() const noexcept;
+
+	[[nodiscard]] bool isBlackKey() const noexcept;
+
+	[[nodiscard]] bool isWhiteKey() const noexcept;
+
+	[[nodiscard]] String toString() const noexcept;
+
+private:
+
+	double midiPitch { 60. };
+};
+
+}  // namespace lemons::music

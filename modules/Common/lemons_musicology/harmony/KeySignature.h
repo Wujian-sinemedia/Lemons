@@ -80,9 +80,17 @@ public:
 
 	[[nodiscard]] bool containsPitchClass (int pitchClass) const;
 
+	[[nodiscard]] bool containsPitch (const Pitch& pitch) const;
+
+	[[nodiscard]] bool containsPitch (int midiNoteNumber) const;
+
 	[[nodiscard]] juce::Array<int> getIntervalsAsSemitones() const;
 
 	[[nodiscard]] juce::Array<Interval> getIntervals() const;
+
+	[[nodiscard]] juce::Array<Pitch> getPitches (int octaveNumber) const;
+
+	[[nodiscard]] juce::Array<Pitch> getPitches (int lowestMidiNote, int highestMidiNote) const;
 
 private:
 

@@ -311,6 +311,16 @@ bool KeySignature::containsPitchClass (int pitchClass) const
 	return false;
 }
 
+bool KeySignature::containsPitch (const Pitch& pitch) const
+{
+	return containsPitchClass (pitch.getPitchClass());
+}
+
+bool KeySignature::containsPitch (int midiNoteNumber) const
+{
+	return containsPitchClass (midiNoteNumber % 11);
+}
+
 juce::Array<int> KeySignature::getIntervalsAsSemitones() const
 {
 	if (isMajor)
@@ -328,6 +338,60 @@ juce::Array<Interval> KeySignature::getIntervals() const
 		intervals.add (Interval::fromNumSemitones (interval));
 
 	return intervals;
+}
+
+juce::Array<Pitch> KeySignature::getPitches (int octaveNumber) const
+{
+	const auto startingNote = [this, octaveNumber]
+	{
+		auto starting = (octaveNumber + 1) * 12;
+
+		while (! containsPitch (starting))
+			++starting;
+
+		return starting;
+	}();
+
+	juce::Array<Pitch> pitches;
+
+	for (const auto interval : getIntervalsAsSemitones())
+		pitches.add (Pitch { startingNote + interval });
+
+	return pitches;
+}
+
+juce::Array<Pitch> KeySignature::getPitches (int lowestMidiNote, int highestMidiNote) const
+{
+	const auto startingNote = [this, &lowestMidiNote]
+	{
+		while (! containsPitch (lowestMidiNote))
+			++lowestMidiNote;
+
+		return lowestMidiNote;
+	}();
+
+	juce::Array<Pitch> pitches;
+
+	const auto intervals = getIntervalsAsSemitones();
+
+	int idx { 0 }, octaveOffset { 0 };
+
+	auto lastNote = startingNote;
+
+	while (lastNote <= highestMidiNote)
+	{
+		lastNote = startingNote + octaveOffset + intervals.getUnchecked (idx++);
+
+		pitches.add (Pitch { lastNote });
+
+		if (idx >= intervals.size())
+		{
+			idx = 0;
+			++octaveOffset;
+		}
+	}
+
+	return pitches;
 }
 
 }  // namespace lemons::music

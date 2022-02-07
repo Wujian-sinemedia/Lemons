@@ -18,6 +18,7 @@
 
 #include "util/StringFunctions.cpp"
 
+#include "harmony/Pitch.cpp"
 #include "harmony/Interval.cpp"
 #include "harmony/KeySignature.cpp"
 

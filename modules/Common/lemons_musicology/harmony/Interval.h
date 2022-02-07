@@ -35,6 +35,10 @@ public:
 
 	[[nodiscard]] static constexpr Interval fromNumSemitones (int semitones) noexcept;
 
+	[[nodiscard]] static Interval fromPitches (const Pitch& pitch1, const Pitch& pitch2) noexcept;
+
+	[[nodiscard]] static constexpr Interval fromPitches (int midiPitch1, int midiPitch2) noexcept;
+
 	constexpr Interval (const Interval& other) noexcept;
 
 	[[nodiscard]] static Interval fromStringDescription (const String& string);

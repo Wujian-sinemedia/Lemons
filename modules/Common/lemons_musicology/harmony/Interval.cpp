@@ -16,7 +16,15 @@
 namespace lemons::music
 {
 
-constexpr bool intervalIsPerfectKind (int kind)
+constexpr int const_abs (int val) noexcept
+{
+	if (val < 0)
+		return -val;
+
+	return val;
+}
+
+constexpr bool intervalIsPerfectKind (int kind) noexcept
 {
 	return kind == 0 || kind == 4 || kind == 5 || kind == 8;
 }
@@ -33,6 +41,8 @@ constexpr Interval::Interval (int kindToUse, Quality qualityToUse) noexcept
 
 constexpr Interval Interval::fromNumSemitones (int semitones) noexcept
 {
+	semitones = const_abs (semitones);
+
 	semitones %= 12;
 
 	jassert (semitones >= 0 && semitones <= 12);
@@ -56,6 +66,16 @@ constexpr Interval Interval::fromNumSemitones (int semitones) noexcept
 	}
 }
 
+Interval Interval::fromPitches (const Pitch& pitch1, const Pitch& pitch2) noexcept
+{
+	return fromNumSemitones (pitch1.getRoundedMidiPitch() - pitch2.getRoundedMidiPitch());
+}
+
+constexpr Interval Interval::fromPitches (int midiPitch1, int midiPitch2) noexcept
+{
+	return fromNumSemitones (midiPitch1 - midiPitch2);
+}
+
 constexpr Interval::Interval (const Interval& other) noexcept
 	: Interval (other.kind, other.quality)
 {
@@ -68,7 +88,7 @@ constexpr Interval Interval::operator+ (const Interval& other) const noexcept
 
 constexpr Interval Interval::operator- (const Interval& other) const noexcept
 {
-	return fromNumSemitones (std::abs (getNumSemitones() - other.getNumSemitones()));
+	return fromNumSemitones (getNumSemitones() - other.getNumSemitones());
 }
 
 constexpr Interval Interval::operator+ (int semitonesToAdd) const noexcept
@@ -78,7 +98,7 @@ constexpr Interval Interval::operator+ (int semitonesToAdd) const noexcept
 
 constexpr Interval Interval::operator- (int semitonesToSubtract) const noexcept
 {
-	return fromNumSemitones (std::abs (getNumSemitones() - semitonesToSubtract));
+	return fromNumSemitones (getNumSemitones() - semitonesToSubtract);
 }
 
 constexpr bool Interval::operator== (const Interval& other) const noexcept
