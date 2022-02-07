@@ -151,4 +151,94 @@ int KeySignature::notesPerOctave() const noexcept
 	return 8;
 }
 
+bool KeySignature::hasEnharmonicKey() const noexcept
+{
+	return rootHasEnharmonicKey (getPitchClassOfRoot());
+}
+
+KeySignature KeySignature::getEnharmonicKey() const noexcept
+{
+	const auto root = getPitchClassOfRoot();
+
+	if (! rootHasEnharmonicKey (root))
+		return { *this };
+
+	return KeySignature { type, ! isFlat, root };
+}
+
+bool KeySignature::isEnharmonicKeyOf (const KeySignature& other) const noexcept
+{
+	return getPitchClassOfRoot() == other.getPitchClassOfRoot() && type == other.type && isFlat != other.isFlat;
+}
+
+KeySignature KeySignature::getRelativeKey() const noexcept
+{
+	const auto otherType = [t = type]
+	{
+		if (t == Type::Major)
+			return Type::NaturalMinor;
+
+		return Type::Major;
+	}();
+
+	return KeySignature { numAccidentals, isFlat, otherType };
+}
+
+KeySignature KeySignature::getParallelKey() const noexcept
+{
+	const auto otherType = [t = type]
+	{
+		if (t == Type::Major)
+			return Type::NaturalMinor;
+
+		return Type::Major;
+	}();
+
+	return KeySignature { otherType, isFlat, getPitchClassOfRoot() };
+}
+
+bool KeySignature::isParallelKeyOf (const KeySignature& other) const noexcept
+{
+	const auto oppositeTonality = [t1 = type, t2 = other.type]
+	{
+		if (t1 == Type::Major)
+			return t2 != Type::Major;
+
+		return t2 == Type::Major;
+	}();
+
+	return oppositeTonality && isFlat == other.isFlat && getPitchClassOfRoot() == other.getPitchClassOfRoot();
+}
+
+KeySignature KeySignature::getDominantKey() const noexcept
+{
+	const auto dominant = (getPitchClassOfRoot() + 7) % 12;
+
+	return KeySignature { Type::Major, ! isFlat, dominant };
+}
+
+bool KeySignature::isDominantKeyOf (const KeySignature& other) const noexcept
+{
+	if (type != Type::Major)
+		return false;
+
+	if (isFlat != other.isFlat)
+		return false;
+
+	const auto expectedRoot = (other.getPitchClassOfRoot() + 7) % 12;
+
+	return getPitchClassOfRoot() == expectedRoot;
+}
+
+int KeySignature::getPitchClassOfScaleDegree (int scaleDegree) const noexcept
+{
+	scaleDegree %= 8;
+
+	jassert (scaleDegree >= 0 && scaleDegree <= 8);
+
+	const auto pitchClass = getPitchClassOfRoot() + scaleDegree;
+
+	return pitchClass % 12;
+}
+
 }  // namespace lemons::music

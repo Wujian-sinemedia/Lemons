@@ -48,23 +48,23 @@ public:
 
 	[[nodiscard]] constexpr bool operator!= (const KeySignature& other) const noexcept;
 
-	[[nodiscard]] constexpr KeySignature getRelativeKey() const noexcept;
+	[[nodiscard]] KeySignature getRelativeKey() const noexcept;
 
 	[[nodiscard]] constexpr bool isRelativeKeyOf (const KeySignature& other) const noexcept;
 
-	[[nodiscard]] constexpr KeySignature getParallelKey() const noexcept;
+	[[nodiscard]] KeySignature getParallelKey() const noexcept;
 
-	[[nodiscard]] constexpr bool isParallelKeyOf (const KeySignature& other) const noexcept;
+	[[nodiscard]] bool isParallelKeyOf (const KeySignature& other) const noexcept;
 
-	[[nodiscard]] constexpr bool hasEnharmonicKey() const noexcept;
+	[[nodiscard]] bool hasEnharmonicKey() const noexcept;
 
-	[[nodiscard]] constexpr KeySignature getEnharmonicKey() const noexcept;
+	[[nodiscard]] KeySignature getEnharmonicKey() const noexcept;
 
-	[[nodiscard]] constexpr bool isEnharmonicKeyOf (const KeySignature& other) const noexcept;
+	[[nodiscard]] bool isEnharmonicKeyOf (const KeySignature& other) const noexcept;
 
-	[[nodiscard]] constexpr KeySignature getDominantKey() const noexcept;
+	[[nodiscard]] KeySignature getDominantKey() const noexcept;
 
-	[[nodiscard]] constexpr bool isDominantKeyOf (const KeySignature& other) const noexcept;
+	[[nodiscard]] bool isDominantKeyOf (const KeySignature& other) const noexcept;
 
 	[[nodiscard]] constexpr bool isFlatKey() const noexcept;
 
@@ -74,7 +74,7 @@ public:
 
 	[[nodiscard]] constexpr bool isMinorKey() const noexcept;
 
-	[[nodiscard]] constexpr int getPitchClassOfScaleDegree (int scaleDegree) const noexcept;
+	[[nodiscard]] int getPitchClassOfScaleDegree (int scaleDegree) const noexcept;
 
 	[[nodiscard]] String getScaleDegreeAsString (int scaleDegree) const noexcept;
 

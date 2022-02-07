@@ -102,19 +102,6 @@ constexpr KeySignature::KeySignature (const KeySignature& other) noexcept
 {
 }
 
-constexpr KeySignature KeySignature::getRelativeKey() const noexcept
-{
-	const auto otherType = [t = type]
-	{
-		if (t == Type::Major)
-			return Type::NaturalMinor;
-
-		return Type::Major;
-	}();
-
-	return KeySignature { numAccidentals, isFlat, otherType };
-}
-
 constexpr bool KeySignature::isRelativeKeyOf (const KeySignature& other) const noexcept
 {
 	const auto oppositeTonality = [t1 = type, t2 = other.type]
@@ -128,75 +115,9 @@ constexpr bool KeySignature::isRelativeKeyOf (const KeySignature& other) const n
 	return oppositeTonality && numAccidentals == other.numAccidentals && isFlat == other.isFlat;
 }
 
-constexpr KeySignature KeySignature::getParallelKey() const noexcept
-{
-	const auto otherType = [t = type]
-	{
-		if (t == Type::Major)
-			return Type::NaturalMinor;
-
-		return Type::Major;
-	}();
-
-	return KeySignature { otherType, isFlat, getPitchClassOfRoot() };
-}
-
-constexpr bool KeySignature::isParallelKeyOf (const KeySignature& other) const noexcept
-{
-	const auto oppositeTonality = [t1 = type, t2 = other.type]
-	{
-		if (t1 == Type::Major)
-			return t2 != Type::Major;
-
-		return t2 == Type::Major;
-	}();
-
-	return oppositeTonality && isFlat == other.isFlat && getPitchClassOfRoot() == other.getPitchClassOfRoot();
-}
-
-constexpr bool KeySignature::hasEnharmonicKey() const noexcept
-{
-	return rootHasEnharmonicKey (getPitchClassOfRoot());
-}
-
 constexpr bool KeySignature::rootHasEnharmonicKey (int root) noexcept
 {
 	return root == 11 || root == 8 || root == 6 || root == 3 || root == 1;
-}
-
-constexpr KeySignature KeySignature::getEnharmonicKey() const noexcept
-{
-	const auto root = getPitchClassOfRoot();
-
-	if (! rootHasEnharmonicKey (root))
-		return { *this };
-
-	return KeySignature { type, ! isFlat, root };
-}
-
-constexpr bool KeySignature::isEnharmonicKeyOf (const KeySignature& other) const noexcept
-{
-	return getPitchClassOfRoot() == other.getPitchClassOfRoot() && type == other.type && isFlat != other.isFlat;
-}
-
-constexpr KeySignature KeySignature::getDominantKey() const noexcept
-{
-	const auto dominant = (getPitchClassOfRoot() + 7) % 12;
-
-	return KeySignature { Type::Major, ! isFlat, dominant };
-}
-
-constexpr bool KeySignature::isDominantKeyOf (const KeySignature& other) const noexcept
-{
-	if (type != Type::Major)
-		return false;
-
-	if (isFlat != other.isFlat)
-		return false;
-
-	const auto expectedRoot = (other.getPitchClassOfRoot() + 7) % 12;
-
-	return getPitchClassOfRoot() == expectedRoot;
 }
 
 constexpr bool KeySignature::operator== (const KeySignature& other) const noexcept
@@ -227,17 +148,6 @@ constexpr bool KeySignature::isMajorKey() const noexcept
 constexpr bool KeySignature::isMinorKey() const noexcept
 {
 	return ! isMajorKey();
-}
-
-constexpr int KeySignature::getPitchClassOfScaleDegree (int scaleDegree) const noexcept
-{
-	scaleDegree %= 8;
-
-	jassert (scaleDegree >= 0 && scaleDegree <= 8);
-
-	const auto pitchClass = getPitchClassOfRoot() + scaleDegree;
-
-	return pitchClass % 12;
 }
 
 }  // namespace lemons::music

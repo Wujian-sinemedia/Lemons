@@ -21,6 +21,7 @@ namespace lemons::music
 /*
  - pentatonic
  - octatonic
+ - chromatic
  */
 
 struct Scale

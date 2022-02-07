@@ -35,6 +35,11 @@ constexpr Interval::Interval (int kindToUse, Quality qualityToUse) noexcept
 		jassert (quality != Quality::Perfect);
 }
 
+constexpr Interval::Interval()
+	: Interval (0, Quality::Perfect)
+{
+}
+
 constexpr Interval Interval::fromNumSemitones (int semitones) noexcept
 {
 	semitones = math::abs (semitones);
@@ -295,6 +300,120 @@ constexpr Interval::Quality Interval::getQuality() const noexcept
 constexpr int Interval::getCents_EqualTemperament() const noexcept
 {
 	return getNumSemitones() * 100;
+}
+
+constexpr Interval Interval::getInverse() const noexcept
+{
+	switch (getNumSemitones())
+	{
+		case (0) :
+		{
+			switch (kind)
+			{
+				case (0) : return Interval { 8, Quality::Perfect };
+				case (2) : return Interval { 7, Quality::Augmented };
+			}
+		}
+		case (1) :
+		{
+			switch (kind)
+			{
+				case (0) : return Interval { 8, Quality::Diminished };
+				case (2) : return Interval { 7, Quality::Major };
+			}
+		}
+		case (2) :
+		{
+			switch (kind)
+			{
+				case (2) : return Interval { 7, Quality::Minor };
+				case (3) : return Interval { 6, Quality::Augmented };
+			}
+		}
+		case (3) :
+		{
+			switch (kind)
+			{
+				case (2) : return Interval { 7, Quality::Diminished };
+				case (3) : return Interval { 6, Quality::Major };
+			}
+		}
+		case (4) :
+		{
+			switch (kind)
+			{
+				case (3) : return Interval { 6, Quality::Minor };
+				case (4) : return Interval { 5, Quality::Augmented };
+			}
+		}
+		case (5) :
+		{
+			switch (kind)
+			{
+				case (3) : return Interval { 6, Quality::Diminished };
+				case (4) : return Interval { 5, Quality::Perfect };
+			}
+		}
+		case (6) :
+		{
+			switch (kind)
+			{
+				case (4) : return Interval { 5, Quality::Diminished };
+				case (5) : return Interval { 4, Quality::Augmented };
+			}
+		}
+		case (7) :
+		{
+			switch (kind)
+			{
+				case (5) : return Interval { 4, Quality::Perfect };
+				case (6) : return Interval { 3, Quality::Augmented };
+			}
+		}
+		case (8) :
+		{
+			switch (kind)
+			{
+				case (5) : return Interval { 4, Quality::Diminished };
+				case (6) : return Interval { 3, Quality::Major };
+			}
+		}
+		case (9) :
+		{
+			switch (kind)
+			{
+				case (6) : return Interval { 3, Quality::Minor };
+				case (7) : return Interval { 2, Quality::Augmented };
+			}
+		}
+		case (10) :
+		{
+			switch (kind)
+			{
+				case (6) : return Interval { 3, Quality::Diminished };
+				case (7) : return Interval { 2, Quality::Major };
+			}
+		}
+		case (11) :
+		{
+			switch (kind)
+			{
+				case (7) : return Interval { 2, Quality::Minor };
+				case (8) : return Interval { 0, Quality::Augmented };
+			}
+		}
+		case (12) :
+		{
+			switch (kind)
+			{
+				case (7) : return Interval { 2, Quality::Diminished };
+				case (8) : return Interval { 0, Quality::Perfect };
+			}
+		}
+	}
+
+	jassertfalse;
+	return {};
 }
 
 }  // namespace lemons::music

@@ -23,8 +23,7 @@ class Interval final
 public:
 
 	/*
-	 - get inverse
-	 - get "just interval" as fraction(s)
+	 - get "just interval" as fraction(s) ?
 	 */
 
 	enum class Quality
@@ -35,6 +34,9 @@ public:
 		Augmented,
 		Perfect
 	};
+
+	/** creates an interval representing a perfect unison */
+	constexpr Interval();
 
 	constexpr explicit Interval (int kindToUse, Quality qualityToUse) noexcept;
 
@@ -65,6 +67,8 @@ public:
 
 	constexpr Interval& operator++() noexcept;
 	constexpr Interval& operator--() noexcept;
+
+	[[nodiscard]] constexpr Interval getInverse() const noexcept;
 
 	[[nodiscard]] constexpr int getNumSemitones() const noexcept;
 
