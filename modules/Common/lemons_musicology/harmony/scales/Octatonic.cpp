@@ -13,41 +13,68 @@
  * ======================================================================================
  */
 
-#pragma once
-
 namespace lemons::music::scales
 {
 
-class WholeTone final : public Scale
+bool Octatonic::operator== (const Octatonic& other) const
 {
-public:
+	return startWithHalfStep == other.startWithHalfStep && pitchClassOfRoot == other.pitchClassOfRoot;
+}
 
-	constexpr explicit WholeTone (int pitchClassOfRoot) noexcept
-		: startingPitchClass (makeValidPitchClass (pitchClassOfRoot))
+bool Octatonic::operator!= (const Octatonic& other) const
+{
+	return ! (*this == other);
+}
+
+juce::Array<int> Octatonic::getIntervalsAsSemitones() const
+{
+	juce::Array<int> intervals;
+
+	auto semitone = startWithHalfStep;
+
+	for (auto i = 0; i < 8; ++i)
 	{
+		if (semitone)
+			intervals.add (1);
+		else
+			intervals.add (2);
+
+		semitone = ! semitone;
 	}
 
-	constexpr WholeTone (const WholeTone& other) noexcept
-		: startingPitchClass (other.startingPitchClass)
+	return intervals;
+}
+
+int Octatonic::getPitchClassOfRoot() const noexcept
+{
+	return pitchClassOfRoot;
+}
+
+String Octatonic::getStringDescription() const
+{
+	const auto kindString = [halfWhole = startWithHalfStep]
 	{
-	}
+		if (halfWhole)
+			return TRANS ("half/whole");
 
-	[[nodiscard]] static WholeTone fromStringDescription (const String& string);
+		return TRANS ("whole/half");
+	}();
 
-	[[nodiscard]] bool operator== (const WholeTone& other) const;
-	[[nodiscard]] bool operator!= (const WholeTone& other) const;
+	return pitchClassToString (pitchClassOfRoot) + " " + kindString + " " + TRANS ("octatonic");
+}
 
-	[[nodiscard]] juce::Array<int> getIntervalsAsSemitones() const final;
+int Octatonic::notesPerOctave() const noexcept
+{
+	return 8;
+}
 
-	[[nodiscard]] int getPitchClassOfRoot() const noexcept final;
+Octatonic Octatonic::fromStringDescription (const String& string)
+{
+	const auto halfWhole = string.containsIgnoreCase (TRANS ("half/whole"));
 
-	[[nodiscard]] String getStringDescription() const final;
+	const auto rootString = string.upToFirstOccurrenceOf (" ", false, false).trim();
 
-	[[nodiscard]] int notesPerOctave() const noexcept final;
-
-private:
-
-	const int startingPitchClass { 0 };
-};
+	return Octatonic { stringToPitchClass (rootString), halfWhole };
+}
 
 }  // namespace lemons::music::scales

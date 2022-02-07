@@ -131,7 +131,7 @@ Pitch Scale::getRoot (int octaveNumber) const noexcept
 
 String Scale::getRootAsString() const noexcept
 {
-	return pitchClassToString (getPitchClassOfRoot(), getNumSharps() > getNumFlats());
+	return pitchClassToString (getPitchClassOfRoot());
 }
 
 }  // namespace lemons::music::scales

@@ -82,9 +82,9 @@ public:
 
 	[[nodiscard]] int getPitchClassOfRoot() const noexcept final;
 
-	[[nodiscard]] int getNumSharps() const noexcept final;
+	[[nodiscard]] constexpr int getNumSharps() const noexcept;
 
-	[[nodiscard]] int getNumFlats() const noexcept final;
+	[[nodiscard]] constexpr int getNumFlats() const noexcept;
 
 	[[nodiscard]] juce::Array<int> getIntervalsAsSemitones() const final;
 

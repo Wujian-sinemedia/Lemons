@@ -18,24 +18,24 @@
 namespace lemons::music::scales
 {
 
-class WholeTone final : public Scale
+class Octatonic final : public Scale
 {
 public:
 
-	constexpr explicit WholeTone (int pitchClassOfRoot) noexcept
-		: startingPitchClass (makeValidPitchClass (pitchClassOfRoot))
+	constexpr explicit Octatonic (int pitchClassToStartOn, bool startWithSemitone) noexcept
+		: startWithHalfStep (startWithSemitone), pitchClassOfRoot (makeValidPitchClass (pitchClassToStartOn))
 	{
 	}
 
-	constexpr WholeTone (const WholeTone& other) noexcept
-		: startingPitchClass (other.startingPitchClass)
+	constexpr Octatonic (const Octatonic& other) noexcept
+		: startWithHalfStep (other.startWithHalfStep), pitchClassOfRoot (other.pitchClassOfRoot)
 	{
 	}
 
-	[[nodiscard]] static WholeTone fromStringDescription (const String& string);
+	[[nodiscard]] static Octatonic fromStringDescription (const String& string);
 
-	[[nodiscard]] bool operator== (const WholeTone& other) const;
-	[[nodiscard]] bool operator!= (const WholeTone& other) const;
+	[[nodiscard]] bool operator== (const Octatonic& other) const;
+	[[nodiscard]] bool operator!= (const Octatonic& other) const;
 
 	[[nodiscard]] juce::Array<int> getIntervalsAsSemitones() const final;
 
@@ -47,7 +47,9 @@ public:
 
 private:
 
-	const int startingPitchClass { 0 };
+	bool startWithHalfStep { true };
+
+	int pitchClassOfRoot { 0 };
 };
 
 }  // namespace lemons::music::scales

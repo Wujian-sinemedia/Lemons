@@ -150,4 +150,20 @@ constexpr bool KeySignature::isMinorKey() const noexcept
 	return ! isMajorKey();
 }
 
+constexpr int KeySignature::getNumSharps() const noexcept
+{
+	if (isFlat)
+		return 0;
+
+	return numAccidentals;
+}
+
+constexpr int KeySignature::getNumFlats() const noexcept
+{
+	if (! isFlat)
+		return 0;
+
+	return numAccidentals;
+}
+
 }  // namespace lemons::music::scales

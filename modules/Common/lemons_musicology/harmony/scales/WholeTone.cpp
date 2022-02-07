@@ -36,14 +36,6 @@ juce::Array<int> WholeTone::getIntervalsAsSemitones() const
 	return intervals;
 }
 
-int WholeTone::getNumSharps() const noexcept
-{
-}
-
-int WholeTone::getNumFlats() const noexcept
-{
-}
-
 int WholeTone::getPitchClassOfRoot() const noexcept
 {
 	return startingPitchClass;

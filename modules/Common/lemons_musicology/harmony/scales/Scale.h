@@ -20,7 +20,6 @@ namespace lemons::music::scales
 
 /*
  - pentatonic
- - octatonic
  - neapolitan
  - blues scale
  */
@@ -49,10 +48,6 @@ struct Scale
 	[[nodiscard]] juce::Array<Pitch> getPitches (int octaveNumber) const;
 
 	[[nodiscard]] juce::Array<Pitch> getPitches (int lowestMidiNote, int highestMidiNote) const;
-
-	[[nodiscard]] virtual int getNumSharps() const noexcept = 0;
-
-	[[nodiscard]] virtual int getNumFlats() const noexcept = 0;
 
 	[[nodiscard]] virtual int getPitchClassOfRoot() const noexcept = 0;
 

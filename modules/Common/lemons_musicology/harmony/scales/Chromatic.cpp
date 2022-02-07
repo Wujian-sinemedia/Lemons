@@ -36,16 +36,6 @@ juce::Array<int> Chromatic::getIntervalsAsSemitones() const
 	return intervals;
 }
 
-int Chromatic::getNumSharps() const noexcept
-{
-	return 7;
-}
-
-int Chromatic::getNumFlats() const noexcept
-{
-	return 7;
-}
-
 int Chromatic::getPitchClassOfRoot() const noexcept
 {
 	return startingPitchClass;

@@ -15,6 +15,7 @@
 
 #pragma once
 
+#include <array>
 
 namespace lemons::music
 {
@@ -37,6 +38,16 @@ constexpr int octaveNumberOfMidiNote (int midiNote) noexcept
 constexpr int lowestNoteOfMidiOctave (int octaveNumber) noexcept
 {
 	return (octaveNumber + 1) * 12;
+}
+
+constexpr std::array<int, 7> getSharpsOrder()
+{
+	return { 5, 0, 7, 2, 9, 4, 11 };
+}
+
+constexpr std::array<int, 7> getFlatsOrder()
+{
+	return { 11, 4, 9, 2, 7, 0, 5 };
 }
 
 }  // namespace lemons::music

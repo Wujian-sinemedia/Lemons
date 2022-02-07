@@ -39,10 +39,6 @@ public:
 
 	[[nodiscard]] juce::Array<int> getIntervalsAsSemitones() const final;
 
-	[[nodiscard]] int getNumSharps() const noexcept final;
-
-	[[nodiscard]] int getNumFlats() const noexcept final;
-
 	[[nodiscard]] int getPitchClassOfRoot() const noexcept final;
 
 	[[nodiscard]] String getStringDescription() const final;

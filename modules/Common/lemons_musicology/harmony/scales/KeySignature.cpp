@@ -71,22 +71,6 @@ juce::Array<int> KeySignature::getIntervalsAsSemitones() const
 	return {};
 }
 
-int KeySignature::getNumSharps() const noexcept
-{
-	if (isFlat)
-		return 0;
-
-	return numAccidentals;
-}
-
-int KeySignature::getNumFlats() const noexcept
-{
-	if (! isFlat)
-		return 0;
-
-	return numAccidentals;
-}
-
 int KeySignature::getPitchClassOfRoot() const noexcept
 {
 	struct MajorMinorPair final

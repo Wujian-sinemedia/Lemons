@@ -9,6 +9,7 @@
 # This file is also being managed automatically by the gitown tool.
 .clang-format benthevining
 .clang-tidy benthevining
+.cmake-format.json benthevining
 .ecrc benthevining
 .gitattributes benthevining
 .github/CODEOWNERS benthevining
@@ -35,6 +36,7 @@ modules/Audio/lemons_audio_effects/misc/Reverb.cpp benthevining
 modules/Audio/lemons_audio_effects/misc/Saturation.cpp benthevining
 modules/Audio/lemons_audio_effects/panning/MonoToStereoPanner.cpp benthevining
 modules/Audio/lemons_audio_effects/panning/StereoPanner.cpp benthevining
+modules/Audio/lemons_audio_effects/panning/StereoPanner.h benthevining
 modules/Audio/lemons_audio_effects/time/Delay.h benthevining
 modules/Audio/lemons_dsp/audio_files/AudioFile.cpp benthevining
 modules/Audio/lemons_dsp/audio_files/AudioFileCache.cpp benthevining
@@ -48,6 +50,7 @@ modules/Audio/lemons_dsp/engines/EngineChain.h benthevining
 modules/Audio/lemons_dsp/engines/LatencyEngine.cpp benthevining
 modules/Audio/lemons_dsp/engines/LatencyEngine_tests.cpp benthevining
 modules/Audio/lemons_dsp/engines/MidiProcessorEngine.h benthevining
+modules/Audio/lemons_dsp/fifos/AudioAndMidiFIFO.h benthevining
 modules/Audio/lemons_dsp/fifos/AudioAndMidiFIFO_tests.cpp benthevining
 modules/Audio/lemons_dsp/fifos/AudioFifo_tests.cpp benthevining
 modules/Audio/lemons_dsp/fifos/CircularBuffer.cpp benthevining
@@ -143,6 +146,8 @@ modules/Common/lemons_core/unit_tests/test.h benthevining
 modules/Common/lemons_musicology/harmony/Interval.h benthevining
 modules/Common/lemons_musicology/harmony/KeySignature.h benthevining
 modules/Common/lemons_musicology/harmony/Pitch.h benthevining
+modules/Common/lemons_musicology/harmony/scales/Chromatic.cpp benthevining
+modules/Common/lemons_musicology/harmony/scales/Chromatic.h benthevining
 modules/Common/lemons_musicology/harmony/scales/KeySignature.cpp benthevining
 modules/Common/lemons_musicology/harmony/scales/KeySignature.h benthevining
 modules/Common/lemons_musicology/harmony/scales/KeySignature_impl.h benthevining
@@ -249,6 +254,7 @@ util/PluginMetadataEditor/metadata_editor_gui/processor_attributes/ProcessorAttr
 util/Templates/CMakeLists.txt benthevining
 util/Templates/app/Source/modules/new_app_gui/GUI/GUI.cpp benthevining
 util/Templates/plugin/Source/Main.cpp benthevining
+util/Templates/plugin/Source/modules/new_dsp/Engine/Engine.cpp benthevining
 util/Templates/plugin/Source/modules/new_dsp/Processor/Processor.cpp benthevining
 util/Templates/plugin/Source/modules/new_dsp/new_dsp.cpp benthevining
 util/Templates/plugin/Source/modules/new_gui/GUI/GUI.h benthevining
