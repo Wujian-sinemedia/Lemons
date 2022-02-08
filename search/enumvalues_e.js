@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['xml_0',['XML',['../group__lemons__files.html#ggad8666caaa02a1d74f5e234b8900b5390a3501bb093d363810b671059b9cfed3f8',1,'lemons::files']]]
+  ['triangle_0',['Triangle',['../group__lemons__oscillators.html#gga1771007d411d4f6426cc3773961dfa5da5e5500cb2b82eb72d550de644bd1b64b',1,'lemons::dsp::osc']]]
 ];

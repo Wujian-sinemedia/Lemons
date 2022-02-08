@@ -26,6 +26,7 @@ var searchData=
   ['hasbinarydata_23',['hasBinaryData',['../group__lemons__binary.html#ga45e0f639b83a42ca3121fdff8dcdcb70',1,'lemons::binary']]],
   ['hasconnection_24',['hasConnection',['../structlemons_1_1plugin_1_1_meta_parameter_base.html#a3278474081ef25ce238b52d8ad78dcf0',1,'lemons::plugin::MetaParameterBase']]],
   ['haseditor_25',['hasEditor',['../structlemons_1_1plugin_1_1_processor_with_editor.html#a00f7ca93bd01d20850375d3bb0522b9b',1,'lemons::plugin::ProcessorWithEditor::hasEditor()'],['../structlemons_1_1plugin_1_1_processor_with_generic_editor.html#a01b15535389b4b56d5d31999dc39c52a',1,'lemons::plugin::ProcessorWithGenericEditor::hasEditor()']]],
-  ['hassameaspectratioas_26',['hasSameAspectRatioAs',['../structlemons_1_1_dimensions.html#ac784c9887251c92ee4a3c475035fca2c',1,'lemons::Dimensions']]],
-  ['hassamemajorversion_27',['hasSameMajorVersion',['../structlemons_1_1_version.html#a309963d20eb0e640fed90907c378e5b0',1,'lemons::Version']]]
+  ['hasenharmonickey_26',['hasEnharmonicKey',['../classlemons_1_1music_1_1scales_1_1_key_signature.html#a12d4b03b7c4c0609b8b595d3b7185bae',1,'lemons::music::scales::KeySignature']]],
+  ['hassameaspectratioas_27',['hasSameAspectRatioAs',['../structlemons_1_1_dimensions.html#ac784c9887251c92ee4a3c475035fca2c',1,'lemons::Dimensions']]],
+  ['hassamemajorversion_28',['hasSameMajorVersion',['../structlemons_1_1_version.html#a309963d20eb0e640fed90907c378e5b0',1,'lemons::Version']]]
 ];

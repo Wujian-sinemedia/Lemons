@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['allpass_0',['AllPass',['../namespacelemons_1_1dsp_1_1_f_x.html#a2a75c0c88cd8cbd576add3c0d4db1d14a3f1176ed061437aff6d76b860d5969f6',1,'lemons::dsp::FX']]]
+  ['aeolian_0',['Aeolian',['../classlemons_1_1music_1_1scales_1_1_mode.html#a4a896aa0663fd836c9efb2747e7fc49da71c7913b150c35a82ad53ae6b3be4d21',1,'lemons::music::scales::Mode']]],
+  ['allpass_1',['AllPass',['../namespacelemons_1_1dsp_1_1_f_x.html#a2a75c0c88cd8cbd576add3c0d4db1d14a3f1176ed061437aff6d76b860d5969f6',1,'lemons::dsp::FX']]],
+  ['augmented_2',['Augmented',['../classlemons_1_1music_1_1_interval.html#a5a677d72fb8a097e3f341402120a7d7cab45f39670f767b2c62c8d6b211cbcb1a',1,'lemons::music::Interval']]]
 ];

@@ -23,12 +23,14 @@ var searchData=
   ['handletempometaevent_20',['handleTempoMetaEvent',['../classlemons_1_1midi_1_1_routing_processor.html#a31783576c661a336a56f404a32cfe8bf',1,'lemons::midi::RoutingProcessor']]],
   ['handletextmetaevent_21',['handleTextMetaEvent',['../classlemons_1_1midi_1_1_routing_processor.html#a7d27c4cce75b94601b0419d0d0fe098c',1,'lemons::midi::RoutingProcessor']]],
   ['handletimesignaturemetaevent_22',['handleTimeSignatureMetaEvent',['../classlemons_1_1midi_1_1_routing_processor.html#a4825dba79bea376cf6086de7b646eebb',1,'lemons::midi::RoutingProcessor']]],
-  ['hasbinarydata_23',['hasBinaryData',['../group__lemons__binary.html#ga45e0f639b83a42ca3121fdff8dcdcb70',1,'lemons::binary']]],
-  ['hasconnection_24',['hasConnection',['../structlemons_1_1plugin_1_1_meta_parameter_base.html#a3278474081ef25ce238b52d8ad78dcf0',1,'lemons::plugin::MetaParameterBase']]],
-  ['haseditor_25',['hasEditor',['../structlemons_1_1plugin_1_1_processor_attributes.html#addcdcc643a9e2e16d261baaf534b831c',1,'lemons::plugin::ProcessorAttributes::hasEditor()'],['../structlemons_1_1plugin_1_1_processor_with_editor.html#a00f7ca93bd01d20850375d3bb0522b9b',1,'lemons::plugin::ProcessorWithEditor::hasEditor()'],['../structlemons_1_1plugin_1_1_processor_with_generic_editor.html#a01b15535389b4b56d5d31999dc39c52a',1,'lemons::plugin::ProcessorWithGenericEditor::hasEditor()']]],
-  ['hassameaspectratioas_26',['hasSameAspectRatioAs',['../structlemons_1_1_dimensions.html#ac784c9887251c92ee4a3c475035fca2c',1,'lemons::Dimensions']]],
-  ['hassamemajorversion_27',['hasSameMajorVersion',['../structlemons_1_1_version.html#a309963d20eb0e640fed90907c378e5b0',1,'lemons::Version']]],
-  ['high_28',['High',['../group__lemons__unit__testing.html#ggabe71616eeadecd56537dd9a10376223ca655d20c1ca69519ca647684edbb2db35',1,'lemons::tests']]],
-  ['highpass_29',['HighPass',['../namespacelemons_1_1dsp_1_1_f_x.html#a2a75c0c88cd8cbd576add3c0d4db1d14ae9456dc865a19e434997ea20bb5373f6',1,'lemons::dsp::FX']]],
-  ['highshelf_30',['HighShelf',['../namespacelemons_1_1dsp_1_1_f_x.html#a2a75c0c88cd8cbd576add3c0d4db1d14aaafe3de5c829706a2fda73dd43fd740e',1,'lemons::dsp::FX']]]
+  ['harmonicminor_23',['HarmonicMinor',['../classlemons_1_1music_1_1scales_1_1_key_signature.html#a84690467a855bf1403a7b27f1b439183ae61508e9a3d1f13ff47ad5b65b34de32',1,'lemons::music::scales::KeySignature']]],
+  ['hasbinarydata_24',['hasBinaryData',['../group__lemons__binary.html#ga45e0f639b83a42ca3121fdff8dcdcb70',1,'lemons::binary']]],
+  ['hasconnection_25',['hasConnection',['../structlemons_1_1plugin_1_1_meta_parameter_base.html#a3278474081ef25ce238b52d8ad78dcf0',1,'lemons::plugin::MetaParameterBase']]],
+  ['haseditor_26',['hasEditor',['../structlemons_1_1plugin_1_1_processor_attributes.html#addcdcc643a9e2e16d261baaf534b831c',1,'lemons::plugin::ProcessorAttributes::hasEditor()'],['../structlemons_1_1plugin_1_1_processor_with_editor.html#a00f7ca93bd01d20850375d3bb0522b9b',1,'lemons::plugin::ProcessorWithEditor::hasEditor()'],['../structlemons_1_1plugin_1_1_processor_with_generic_editor.html#a01b15535389b4b56d5d31999dc39c52a',1,'lemons::plugin::ProcessorWithGenericEditor::hasEditor()']]],
+  ['hasenharmonickey_27',['hasEnharmonicKey',['../classlemons_1_1music_1_1scales_1_1_key_signature.html#a12d4b03b7c4c0609b8b595d3b7185bae',1,'lemons::music::scales::KeySignature']]],
+  ['hassameaspectratioas_28',['hasSameAspectRatioAs',['../structlemons_1_1_dimensions.html#ac784c9887251c92ee4a3c475035fca2c',1,'lemons::Dimensions']]],
+  ['hassamemajorversion_29',['hasSameMajorVersion',['../structlemons_1_1_version.html#a309963d20eb0e640fed90907c378e5b0',1,'lemons::Version']]],
+  ['high_30',['High',['../group__lemons__unit__testing.html#ggabe71616eeadecd56537dd9a10376223ca655d20c1ca69519ca647684edbb2db35',1,'lemons::tests']]],
+  ['highpass_31',['HighPass',['../namespacelemons_1_1dsp_1_1_f_x.html#a2a75c0c88cd8cbd576add3c0d4db1d14ae9456dc865a19e434997ea20bb5373f6',1,'lemons::dsp::FX']]],
+  ['highshelf_32',['HighShelf',['../namespacelemons_1_1dsp_1_1_f_x.html#a2a75c0c88cd8cbd576add3c0d4db1d14aaafe3de5c829706a2fda73dd43fd740e',1,'lemons::dsp::FX']]]
 ];

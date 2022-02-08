@@ -25,10 +25,11 @@ var searchData=
   ['psola_22',['psola',['../namespacelemons_1_1dsp_1_1psola.html',1,'lemons::dsp']]],
   ['ranges_23',['ranges',['../namespacelemons_1_1ranges.html',1,'lemons']]],
   ['rsa_24',['rsa',['../namespacelemons_1_1rsa.html',1,'lemons']]],
-  ['scanning_25',['scanning',['../namespacelemons_1_1plugin_1_1scanning.html',1,'lemons::plugin']]],
-  ['serializing_26',['serializing',['../namespacelemons_1_1serializing.html',1,'lemons']]],
-  ['synth_27',['synth',['../namespacelemons_1_1dsp_1_1synth.html',1,'lemons::dsp']]],
-  ['tests_28',['tests',['../namespacelemons_1_1tests.html',1,'lemons']]],
-  ['util_29',['util',['../namespacelemons_1_1gui_1_1util.html',1,'lemons::gui']]],
-  ['windowing_30',['windowing',['../namespacelemons_1_1dsp_1_1windowing.html',1,'lemons::dsp']]]
+  ['scales_25',['scales',['../namespacelemons_1_1music_1_1scales.html',1,'lemons::music']]],
+  ['scanning_26',['scanning',['../namespacelemons_1_1plugin_1_1scanning.html',1,'lemons::plugin']]],
+  ['serializing_27',['serializing',['../namespacelemons_1_1serializing.html',1,'lemons']]],
+  ['synth_28',['synth',['../namespacelemons_1_1dsp_1_1synth.html',1,'lemons::dsp']]],
+  ['tests_29',['tests',['../namespacelemons_1_1tests.html',1,'lemons']]],
+  ['util_30',['util',['../namespacelemons_1_1gui_1_1util.html',1,'lemons::gui']]],
+  ['windowing_31',['windowing',['../namespacelemons_1_1dsp_1_1windowing.html',1,'lemons::dsp']]]
 ];

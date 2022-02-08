@@ -27,5 +27,6 @@ var searchData=
   ['loadprocessorattributes_24',['loadProcessorAttributes',['../group__lemons__files.html#gab2d6ab95437d9c715997be684126035d',1,'lemons::files']]],
   ['loadstate_25',['loadState',['../classlemons_1_1plugin_1_1_processor_base.html#a93d4cfaaa37c0b29eebf687075aaf67a',1,'lemons::plugin::ProcessorBase']]],
   ['loadvaluetree_26',['loadValueTree',['../group__lemons__files.html#ga83377ad1e44d9e25ff0a5879975230c9',1,'lemons::files::loadValueTree(const File &amp;file)'],['../group__lemons__files.html#gaa4e640b5ec2d9c0d43ff33e1209376ea',1,'lemons::files::loadValueTree(const String &amp;fileContents)']]],
-  ['logimportantmessage_27',['logImportantMessage',['../classlemons_1_1tests_1_1_test.html#a9c44d91c08ff84c15bbe15f6b37e35a0',1,'lemons::tests::Test']]]
+  ['logimportantmessage_27',['logImportantMessage',['../classlemons_1_1tests_1_1_test.html#a9c44d91c08ff84c15bbe15f6b37e35a0',1,'lemons::tests::Test']]],
+  ['lowestnoteofmidioctave_28',['lowestNoteOfMidiOctave',['../namespacelemons_1_1music.html#aa9f7180b23b864f066e9e8da88eaa4af',1,'lemons::music']]]
 ];

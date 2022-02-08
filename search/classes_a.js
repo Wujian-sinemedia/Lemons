@@ -13,11 +13,12 @@ var searchData=
   ['midirouter_10',['MidiRouter',['../classlemons_1_1dsp_1_1synth_1_1_midi_manager_1_1_midi_router.html',1,'lemons::dsp::synth::MidiManager']]],
   ['midishifter_11',['MidiShifter',['../classlemons_1_1dsp_1_1psola_1_1_midi_shifter.html',1,'lemons::dsp::psola']]],
   ['miditest_12',['MidiTest',['../structlemons_1_1tests_1_1_midi_test.html',1,'lemons::tests']]],
-  ['modulationmanager_13',['ModulationManager',['../classlemons_1_1plugin_1_1_modulation_manager.html',1,'lemons::plugin']]],
-  ['monostereoconverter_14',['MonoStereoConverter',['../classlemons_1_1dsp_1_1_mono_stereo_converter.html',1,'lemons::dsp']]],
-  ['monotostereopanner_15',['MonoToStereoPanner',['../classlemons_1_1dsp_1_1_f_x_1_1_mono_to_stereo_panner.html',1,'lemons::dsp::FX']]],
-  ['mtsclient_16',['MtsClient',['../classlemons_1_1midi_1_1_mts_client.html',1,'lemons::midi']]],
-  ['multifilter_17',['MultiFilter',['../structlemons_1_1dsp_1_1filters_1_1_multi_filter.html',1,'lemons::dsp::filters']]],
-  ['multifilter_3c_20float_20_3e_18',['MultiFilter&lt; float &gt;',['../structlemons_1_1dsp_1_1filters_1_1_multi_filter.html',1,'lemons::dsp::filters']]],
-  ['multifilter_3c_20sampletype_2c_202_20_3e_19',['MultiFilter&lt; SampleType, 2 &gt;',['../structlemons_1_1dsp_1_1filters_1_1_multi_filter.html',1,'lemons::dsp::filters']]]
+  ['mode_13',['Mode',['../classlemons_1_1music_1_1scales_1_1_mode.html',1,'lemons::music::scales']]],
+  ['modulationmanager_14',['ModulationManager',['../classlemons_1_1plugin_1_1_modulation_manager.html',1,'lemons::plugin']]],
+  ['monostereoconverter_15',['MonoStereoConverter',['../classlemons_1_1dsp_1_1_mono_stereo_converter.html',1,'lemons::dsp']]],
+  ['monotostereopanner_16',['MonoToStereoPanner',['../classlemons_1_1dsp_1_1_f_x_1_1_mono_to_stereo_panner.html',1,'lemons::dsp::FX']]],
+  ['mtsclient_17',['MtsClient',['../classlemons_1_1midi_1_1_mts_client.html',1,'lemons::midi']]],
+  ['multifilter_18',['MultiFilter',['../structlemons_1_1dsp_1_1filters_1_1_multi_filter.html',1,'lemons::dsp::filters']]],
+  ['multifilter_3c_20float_20_3e_19',['MultiFilter&lt; float &gt;',['../structlemons_1_1dsp_1_1filters_1_1_multi_filter.html',1,'lemons::dsp::filters']]],
+  ['multifilter_3c_20sampletype_2c_202_20_3e_20',['MultiFilter&lt; SampleType, 2 &gt;',['../structlemons_1_1dsp_1_1filters_1_1_multi_filter.html',1,'lemons::dsp::filters']]]
 ];
