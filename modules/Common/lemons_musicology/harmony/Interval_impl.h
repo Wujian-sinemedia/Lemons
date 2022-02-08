@@ -24,7 +24,7 @@ constexpr bool Interval::intervalIsPerfectKind() noexcept
 }
 
 constexpr Interval::Interval (int kindToUse, Quality qualityToUse) noexcept
-	: quality (qualityToUse), kind (kindToUse)
+	: quality (qualityToUse), kind (kindToUse % 9)
 {
 	jassert (kind != 1);
 	jassert (kind >= 0 && kind <= 8);
@@ -116,12 +116,18 @@ constexpr bool Interval::isEnharmonicTo (const Interval& other) const noexcept
 
 constexpr bool Interval::operator> (const Interval& other) const noexcept
 {
-	return getNumSemitones() > other.getNumSemitones();
+	if (getNumSemitones() > other.getNumSemitones())
+		return true;
+
+	return kind > other.kind;
 }
 
 constexpr bool Interval::operator< (const Interval& other) const noexcept
 {
-	return getNumSemitones() < other.getNumSemitones();
+	if (getNumSemitones() < other.getNumSemitones())
+		return true;
+
+	return kind < other.kind;
 }
 
 constexpr Interval& Interval::operator++() noexcept

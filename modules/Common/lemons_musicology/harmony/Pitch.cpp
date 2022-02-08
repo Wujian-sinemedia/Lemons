@@ -63,9 +63,9 @@ bool Pitch::isWhiteKey() const noexcept
 	return ! isBlackKey();
 }
 
-String Pitch::toString() const noexcept
+String Pitch::toString (bool asSharps) const noexcept
 {
-	return pitchToString (juce::roundToInt (midiPitch));
+	return pitchToString (juce::roundToInt (midiPitch), asSharps);
 }
 
 }  // namespace lemons::music

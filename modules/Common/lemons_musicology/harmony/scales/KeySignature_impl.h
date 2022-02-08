@@ -166,4 +166,9 @@ constexpr int KeySignature::getNumFlats() const noexcept
 	return numAccidentals;
 }
 
+constexpr KeySignature::Type KeySignature::getKeyType() const noexcept
+{
+	return type;
+}
+
 }  // namespace lemons::music::scales

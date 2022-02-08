@@ -18,49 +18,82 @@
 namespace lemons::music::scales
 {
 
-/*
- - pentatonic
- - neapolitan
- - blues scale
+/** A base class for any kind of scale.
+	This class is intended for scales that are symmetrical in any octave, and are symmetrical whether ascending or descending.
  */
-
 struct Scale
 {
+	/** Default constructor. */
 	constexpr Scale() = default;
 
+	/** Destructor. */
 	virtual ~Scale() = default;
 
+	/** Returns true if the other scale has the same root pitch class and interval set as this one.
+	 */
 	[[nodiscard]] bool operator== (const Scale& other) const;
+
+	/** Returns true if the other scale's root pitch class or interval set are different than this one's.
+	 */
 	[[nodiscard]] bool operator!= (const Scale& other) const;
 
+	/** Subclasses must implement this to return an array of integers representing the intervals in this scale as a series of semitone steps.
+	 */
 	[[nodiscard]] virtual juce::Array<int> getIntervalsAsSemitones() const = 0;
 
+	/** Returns an array of Interval objects that represent the intervals in this scale. */
 	[[nodiscard]] juce::Array<Interval> getIntervals() const;
 
+	/** Returns true if this scale contains the passed pitch class.
+		@param pitchClass A pitch class integer, from 0 to 11.
+	 */
 	[[nodiscard]] bool containsPitchClass (int pitchClass) const;
 
+	/** Returns true if this scale contains the passed pitch. */
 	[[nodiscard]] bool containsPitch (const Pitch& pitch) const;
 
+	/** Returns true if this scale contains the passed pitch. */
 	[[nodiscard]] bool containsPitch (int midiNoteNumber) const;
 
+	/** Returns an array of integers representing the pitch classes in this scale.
+	 */
 	[[nodiscard]] juce::Array<int> getPitchClasses() const;
 
+	/** Returns an array of pitch objects representing one octave of this scale, at the given octave number.
+		@param octaveNumber The MIDI octave number to produce pitches for.
+	 */
 	[[nodiscard]] juce::Array<Pitch> getPitches (int octaveNumber) const;
 
+	/** Returns an array of pitch objects representing this scale between a lowest and highest MIDI pitch.
+	 */
 	[[nodiscard]] juce::Array<Pitch> getPitches (int lowestMidiNote, int highestMidiNote) const;
 
+	/** Subclasses must implement this to return the pitch class of the root (or tonic) note of the scale as an integer between 0 and 11, with 0 being C and 11 being B.
+	 */
 	[[nodiscard]] virtual int getPitchClassOfRoot() const noexcept = 0;
 
+	/** Returns a pitch object representing the root of this scale in the specified MIDI octave number. */
 	[[nodiscard]] Pitch getRoot (int octaveNumber) const noexcept;
 
+	/** Subclasses must implement this to return a string description of this scale, ideally one that will allow the scale to be reconstructed later from only this string. */
 	[[nodiscard]] virtual String getStringDescription() const = 0;
 
+	/** Subclasses must implement this to return the number of notes per octave in this scale. */
 	[[nodiscard]] virtual int notesPerOctave() const noexcept = 0;
 
+	/** Returns a string description of the root of this scale.
+		@see pitchClassToString()
+	 */
 	[[nodiscard]] virtual String getRootAsString() const noexcept;
 
+	/** Returns the pitch class of a given scale degree.
+		If the passed scale degree is greater than the value returned by notesPerOctave(), it will be truncated using the modulus operator.
+	 */
 	[[nodiscard]] int getPitchClassOfScaleDegree (int scaleDegree) const noexcept;
 
+	/** Returns a string representation of the pitch at a given scale degree.
+		@see getPitchClassOfScaleDegree(), pitchClassToString()
+	 */
 	[[nodiscard]] virtual String getScaleDegreeAsString (int scaleDegree) const noexcept;
 };
 

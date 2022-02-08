@@ -269,4 +269,16 @@ juce::Array<double> Interval::getCents_JustIntonation() const
 	return {};
 }
 
+/*--------------------------------------------------------------------------------------------------------*/
+
+Pitch operator+ (const Pitch& pitch, const Interval& interval) noexcept
+{
+	return Pitch { pitch.getRoundedMidiPitch() + interval.getNumSemitones() };
+}
+
+Pitch operator- (const Pitch& pitch, const Interval& interval) noexcept
+{
+	return Pitch { pitch.getRoundedMidiPitch() - interval.getNumSemitones() };
+}
+
 }  // namespace lemons::music

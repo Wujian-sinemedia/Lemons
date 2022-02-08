@@ -18,38 +18,65 @@
 namespace lemons::music::scales
 {
 
+/** Represents an octatonic scale.
+	Octatonic scales are scales that alternate between whole and half steps; thus there are two variations -- one starting with a whole step, and one starting with a half step.
+ */
 class Octatonic final : public Scale
 {
 public:
 
+	/** Creates an octatonic scale object.
+		@param pitchClassToStartOn The pitch class of the root of this scale, as an integer between 0 and 11.
+		@param startWithSemitone True if this scale should start with a half step; otherwise, it will start with a whole step.
+	 */
 	constexpr explicit Octatonic (int pitchClassToStartOn, bool startWithSemitone) noexcept
 		: startWithHalfStep (startWithSemitone), pitchClassOfRoot (makeValidPitchClass (pitchClassToStartOn))
 	{
 	}
 
+	/** Copy constructor. */
 	constexpr Octatonic (const Octatonic& other) noexcept
 		: startWithHalfStep (other.startWithHalfStep), pitchClassOfRoot (other.pitchClassOfRoot)
 	{
 	}
 
+	/** Creates an octatonic scale object from a string description of one.
+		@see getStringDescription()
+	 */
 	[[nodiscard]] static Octatonic fromStringDescription (const String& string);
 
+	/** Returns true if the other octatonic scale is equal to this one. */
 	[[nodiscard]] bool operator== (const Octatonic& other) const;
+
+	/** Returns true if the other octatonic scale is not equal to this one. */
 	[[nodiscard]] bool operator!= (const Octatonic& other) const;
 
+	/** Returns a sequence of alternating 2's and 1's.
+	 */
 	[[nodiscard]] juce::Array<int> getIntervalsAsSemitones() const final;
 
+	/** Returns the pitch class of the root of this scale. */
 	[[nodiscard]] int getPitchClassOfRoot() const noexcept final;
 
+	/** Returns true if this octatonic scale starts with a half step. */
+	[[nodiscard]] constexpr bool startsWithHalfStep() const noexcept
+	{
+		return startWithHalfStep;
+	}
+
+	/** Returns a string description of this scale, for example, "D whole/half octatonic".
+		@see fromStringDescription()
+	 */
 	[[nodiscard]] String getStringDescription() const final;
 
+	/** Returns 8. */
 	[[nodiscard]] int notesPerOctave() const noexcept final;
 
 private:
 
-	bool startWithHalfStep { true };
+	const bool startWithHalfStep { true };
 
-	int pitchClassOfRoot { 0 };
+	const int pitchClassOfRoot { 0 };
 };
 
 }  // namespace lemons::music::scales
