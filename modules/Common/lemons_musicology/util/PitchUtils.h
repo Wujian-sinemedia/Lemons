@@ -20,20 +20,6 @@
 namespace lemons::music
 {
 
-/** Returns true if the passed integer is a valid representation of a pitch class. Valid pitch classes are between 0 and 11 (inclusive).
- */
-constexpr bool isValidPitchClass (int pitchClass) noexcept
-{
-	return pitchClass >= 0 && pitchClass <= 11;
-}
-
-/** Creates a valid pitch class integer from the passed integer using the modulus operator.
- */
-constexpr int makeValidPitchClass (int pitchClass) noexcept
-{
-	return pitchClass % 12;
-}
-
 /** Returns the octave number of a given MIDI pitch.
  */
 constexpr int octaveNumberOfMidiNote (int midiNote) noexcept
@@ -45,21 +31,22 @@ constexpr int octaveNumberOfMidiNote (int midiNote) noexcept
  */
 constexpr int lowestNoteOfMidiOctave (int octaveNumber) noexcept
 {
+	jassert (octaveNumber >= 0);
 	return (octaveNumber + 1) * 12;
 }
 
-/** Returns a list of pitch class integers representing the order of the sharps -- F, C, G, D, A, E, B.
+/** Returns an array of pitch class objects representing each sharp in the order they appear in key signatures -- F, C, G, D, A, E, B.
  */
-constexpr std::array<int, 7> getSharpsOrder()
+constexpr std::array<PitchClass, 7> getSharpsOrder()
 {
-	return { 5, 0, 7, 2, 9, 4, 11 };
+	return { PitchClass { 6 }, PitchClass { 1 }, PitchClass { 8 }, PitchClass { 3 }, PitchClass { 10 }, PitchClass { 5 }, PitchClass { 12 } };
 }
 
-/** Returns a list of pitch class integers representing the order of the flats -- B, E, A, D, G, C, F.
+/** Returns an array of pitch class objects representing each flat in the order they appear in key signatures -- B, E, A, D, G, C, F.
  */
-constexpr std::array<int, 7> getFlatsOrder()
+constexpr std::array<PitchClass, 7> getFlatsOrder()
 {
-	return { 11, 4, 9, 2, 7, 0, 5 };
+	return { PitchClass { 10 }, PitchClass { 3 }, PitchClass { 8 }, PitchClass { 1 }, PitchClass { 6 }, PitchClass { 11 }, PitchClass { 4 } };
 }
 
 }  // namespace lemons::music

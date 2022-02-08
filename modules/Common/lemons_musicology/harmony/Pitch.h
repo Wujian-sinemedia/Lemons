@@ -31,6 +31,12 @@ public:
 	{
 	}
 
+	/** Creates a pitch object from a pitch class and a MIDI octave number. */
+	constexpr explicit Pitch (const PitchClass& pitchClass, int midiOctave) noexcept
+		: midiPitch (static_cast<double> (lowestNoteOfMidiOctave (midiOctave) + pitchClass.getAsInt()))
+	{
+	}
+
 	/** Creates a pitch object from a string representation of a pitch, for example "C4".
 		@see stringToPitch()
 	 */
@@ -51,7 +57,7 @@ public:
 	/** Returns true if the two pitch objects are not exactly equal. */
 	[[nodiscard]] constexpr bool operator!= (const Pitch& other) const noexcept
 	{
-		return ! (*this == other);
+		return midiPitch != other.midiPitch;
 	}
 
 	/** Returns true if the two pitch objects round to the same nearest MIDI note. */

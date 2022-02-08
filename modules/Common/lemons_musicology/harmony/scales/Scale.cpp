@@ -49,11 +49,11 @@ bool Scale::containsPitch (int midiNoteNumber) const
 
 bool Scale::containsPitchClass (const PitchClass& pitchClass) const
 {
-	const auto root = getPitchClassOfRoot();
+	const auto root = getPitchClassOfRoot().getAsInt();
 
 	return alg::contains_if (getIntervalsAsSemitones(),
 							 [pitchClass, root] (int interval)
-							 { return pitchClass == makeValidPitchClass (root + interval); });
+							 { return pitchClass == PitchClass { root + interval }; });
 }
 
 juce::Array<PitchClass> Scale::getPitchClasses() const

@@ -183,7 +183,7 @@ bool KeySignature::isParallelKeyOf (const KeySignature& other) const noexcept
 
 KeySignature KeySignature::getDominantKey() const noexcept
 {
-	const auto dominant = makeValidPitchClass (getPitchClassOfRoot() + 7);
+	const PitchClass dominant { getPitchClassOfRoot() + 7 };
 
 	return KeySignature { Type::Major, dominant };
 }
@@ -193,7 +193,9 @@ bool KeySignature::isDominantKeyOf (const KeySignature& other) const noexcept
 	if (type != Type::Major)
 		return false;
 
-	return getPitchClassOfRoot() == makeValidPitchClass (other.getPitchClassOfRoot() + 7);
+	const PitchClass dominant { getPitchClassOfRoot() + 7 };
+
+	return getPitchClassOfRoot() == dominant;
 }
 
 }  // namespace lemons::music::scales

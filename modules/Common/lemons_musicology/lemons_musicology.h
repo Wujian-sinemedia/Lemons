@@ -34,10 +34,11 @@
  -------------------------------------------------------------------------------------*/
 
 
+#include "harmony/PitchClass.h"
+
 #include "util/PitchUtils.h"
 #include "util/StringFunctions.h"
 
-#include "harmony/PitchClass.h"
 #include "harmony/Pitch.h"
 #include "harmony/Interval.h"
 #include "harmony/Interval_impl.h"

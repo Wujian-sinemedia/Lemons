@@ -15,8 +15,12 @@
 
 #pragma once
 
+#include <juce_core/juce_core.h>
+
 namespace lemons::music
 {
+
+using juce::String;
 
 struct PitchClass final
 {
