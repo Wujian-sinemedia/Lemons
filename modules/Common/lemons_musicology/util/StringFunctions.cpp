@@ -54,7 +54,7 @@ int stringToPitch (const String& string) noexcept
 
 	const auto octave = string.retainCharacters ("0123456789").getIntValue();
 
-	return (octave * 12) + pitchClassInt + 12;
+	return lowestNoteOfMidiOctave (octave) + pitchClassInt;
 }
 
 

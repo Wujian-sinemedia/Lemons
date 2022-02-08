@@ -148,6 +148,7 @@ modules/Common/lemons_musicology/harmony/Interval.cpp benthevining
 modules/Common/lemons_musicology/harmony/Interval.h benthevining
 modules/Common/lemons_musicology/harmony/KeySignature.h benthevining
 modules/Common/lemons_musicology/harmony/Pitch.h benthevining
+modules/Common/lemons_musicology/harmony/PitchClass.cpp benthevining
 modules/Common/lemons_musicology/harmony/PitchClass.h benthevining
 modules/Common/lemons_musicology/harmony/scales/Chromatic.cpp benthevining
 modules/Common/lemons_musicology/harmony/scales/Chromatic.h benthevining

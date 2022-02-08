@@ -65,9 +65,7 @@ inline int stringToPitchClass (const String& string) noexcept
 	{
 		if (numChars > 0)
 		{
-			const auto base = pitchClassName.toLowerCase()[0];
-
-			switch (base)
+			switch (pitchClassName.toLowerCase()[0])
 			{
 				case 'c' : return 0;
 				case 'd' : return 2;
@@ -95,6 +93,7 @@ inline int stringToPitchClass (const String& string) noexcept
 	if (pitchClass < 0)
 	{
 		jassertfalse;
+		return -1;
 	}
 
 	return pitchClass % 12;
