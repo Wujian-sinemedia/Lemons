@@ -75,6 +75,9 @@ $(function() {
   <div class="headertitle"><div class="title">lemons::music::scales::WholeTone Class Reference<span class="mlabels"><span class="mlabel">final</span></span></div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>A class that represents a whole tone scale.  
+ <a href="classlemons_1_1music_1_1scales_1_1_whole_tone.html#details">More...</a></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Inheritance diagram for lemons::music::scales::WholeTone:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
@@ -87,54 +90,79 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a79425bb7fc4e92953dc2b67b2b796dfc"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1music_1_1scales_1_1_whole_tone.html#a79425bb7fc4e92953dc2b67b2b796dfc">WholeTone</a> (const <a class="el" href="classlemons_1_1music_1_1scales_1_1_whole_tone.html">WholeTone</a> &amp;other) noexcept</td></tr>
+<tr class="memdesc:a79425bb7fc4e92953dc2b67b2b796dfc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy constructor.  <a href="classlemons_1_1music_1_1scales_1_1_whole_tone.html#a79425bb7fc4e92953dc2b67b2b796dfc">More...</a><br /></td></tr>
 <tr class="separator:a79425bb7fc4e92953dc2b67b2b796dfc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4cd0455d3447259099e64ba041932afd"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1music_1_1scales_1_1_whole_tone.html#a4cd0455d3447259099e64ba041932afd">WholeTone</a> (int pitchClassOfRoot) noexcept</td></tr>
+<tr class="memdesc:a4cd0455d3447259099e64ba041932afd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a whole tone scale object with the given pitch class as its root.  <a href="classlemons_1_1music_1_1scales_1_1_whole_tone.html#a4cd0455d3447259099e64ba041932afd">More...</a><br /></td></tr>
 <tr class="separator:a4cd0455d3447259099e64ba041932afd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a93a56c3b7606575e4b4cdb1474444a65"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1music_1_1scales_1_1_scale.html#a93a56c3b7606575e4b4cdb1474444a65">containsPitch</a> (const <a class="el" href="classlemons_1_1music_1_1_pitch.html">Pitch</a> &amp;pitch) const</td></tr>
+<tr class="memdesc:a93a56c3b7606575e4b4cdb1474444a65"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if this scale contains the passed pitch.  <a href="structlemons_1_1music_1_1scales_1_1_scale.html#a93a56c3b7606575e4b4cdb1474444a65">More...</a><br /></td></tr>
 <tr class="separator:a93a56c3b7606575e4b4cdb1474444a65"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0332b287ed65bba70ca5709fb1420c57"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1music_1_1scales_1_1_scale.html#a0332b287ed65bba70ca5709fb1420c57">containsPitch</a> (int midiNoteNumber) const</td></tr>
+<tr class="memdesc:a0332b287ed65bba70ca5709fb1420c57"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if this scale contains the passed pitch.  <a href="structlemons_1_1music_1_1scales_1_1_scale.html#a0332b287ed65bba70ca5709fb1420c57">More...</a><br /></td></tr>
 <tr class="separator:a0332b287ed65bba70ca5709fb1420c57"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad39019f722ebfaf71f22d9238d12e1e4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1music_1_1scales_1_1_scale.html#ad39019f722ebfaf71f22d9238d12e1e4">containsPitchClass</a> (int pitchClass) const</td></tr>
+<tr class="memdesc:ad39019f722ebfaf71f22d9238d12e1e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if this scale contains the passed pitch class.  <a href="structlemons_1_1music_1_1scales_1_1_scale.html#ad39019f722ebfaf71f22d9238d12e1e4">More...</a><br /></td></tr>
 <tr class="separator:ad39019f722ebfaf71f22d9238d12e1e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad1c54c8586dffc823756622b3a29c309"><td class="memItemLeft" align="right" valign="top">juce::Array&lt; <a class="el" href="classlemons_1_1music_1_1_interval.html">Interval</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1music_1_1scales_1_1_scale.html#ad1c54c8586dffc823756622b3a29c309">getIntervals</a> () const</td></tr>
+<tr class="memdesc:ad1c54c8586dffc823756622b3a29c309"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns an array of <a class="el" href="classlemons_1_1music_1_1_interval.html" title="A class that represents a musical interval between two pitches.">Interval</a> objects that represent the intervals in this scale.  <a href="structlemons_1_1music_1_1scales_1_1_scale.html#ad1c54c8586dffc823756622b3a29c309">More...</a><br /></td></tr>
 <tr class="separator:ad1c54c8586dffc823756622b3a29c309"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7c9ff530f0a9caff979a866f64265ef4"><td class="memItemLeft" align="right" valign="top">juce::Array&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1music_1_1scales_1_1_whole_tone.html#a7c9ff530f0a9caff979a866f64265ef4">getIntervalsAsSemitones</a> () const final</td></tr>
+<tr class="memdesc:a7c9ff530f0a9caff979a866f64265ef4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns an array of 6 2's, since every interval in this scale is a whole step.  <a href="classlemons_1_1music_1_1scales_1_1_whole_tone.html#a7c9ff530f0a9caff979a866f64265ef4">More...</a><br /></td></tr>
 <tr class="separator:a7c9ff530f0a9caff979a866f64265ef4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3dd55c01941b2248693dca0bb870432a"><td class="memItemLeft" align="right" valign="top">juce::Array&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1music_1_1scales_1_1_scale.html#a3dd55c01941b2248693dca0bb870432a">getPitchClasses</a> () const</td></tr>
+<tr class="memdesc:a3dd55c01941b2248693dca0bb870432a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns an array of integers representing the pitch classes in this scale.  <a href="structlemons_1_1music_1_1scales_1_1_scale.html#a3dd55c01941b2248693dca0bb870432a">More...</a><br /></td></tr>
 <tr class="separator:a3dd55c01941b2248693dca0bb870432a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad00532018f27907f15975d00788b04aa"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1music_1_1scales_1_1_whole_tone.html#ad00532018f27907f15975d00788b04aa">getPitchClassOfRoot</a> () const noexcept final</td></tr>
+<tr class="memdesc:ad00532018f27907f15975d00788b04aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the pitch class of the root of this scale.  <a href="classlemons_1_1music_1_1scales_1_1_whole_tone.html#ad00532018f27907f15975d00788b04aa">More...</a><br /></td></tr>
 <tr class="separator:ad00532018f27907f15975d00788b04aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a14dcfc275986adac0966050afd821224"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1music_1_1scales_1_1_scale.html#a14dcfc275986adac0966050afd821224">getPitchClassOfScaleDegree</a> (int scaleDegree) const noexcept</td></tr>
+<tr class="memdesc:a14dcfc275986adac0966050afd821224"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the pitch class of a given scale degree.  <a href="structlemons_1_1music_1_1scales_1_1_scale.html#a14dcfc275986adac0966050afd821224">More...</a><br /></td></tr>
 <tr class="separator:a14dcfc275986adac0966050afd821224"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2417b5b3feb949ac2c6b251597341c50"><td class="memItemLeft" align="right" valign="top">juce::Array&lt; <a class="el" href="classlemons_1_1music_1_1_pitch.html">Pitch</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1music_1_1scales_1_1_scale.html#a2417b5b3feb949ac2c6b251597341c50">getPitches</a> (int lowestMidiNote, int highestMidiNote) const</td></tr>
+<tr class="memdesc:a2417b5b3feb949ac2c6b251597341c50"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns an array of pitch objects representing this scale between a lowest and highest MIDI pitch.  <a href="structlemons_1_1music_1_1scales_1_1_scale.html#a2417b5b3feb949ac2c6b251597341c50">More...</a><br /></td></tr>
 <tr class="separator:a2417b5b3feb949ac2c6b251597341c50"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae5a08c3ea4f5670abcd0fed13c28c562"><td class="memItemLeft" align="right" valign="top">juce::Array&lt; <a class="el" href="classlemons_1_1music_1_1_pitch.html">Pitch</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1music_1_1scales_1_1_scale.html#ae5a08c3ea4f5670abcd0fed13c28c562">getPitches</a> (int octaveNumber) const</td></tr>
+<tr class="memdesc:ae5a08c3ea4f5670abcd0fed13c28c562"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns an array of pitch objects representing one octave of this scale, at the given octave number.  <a href="structlemons_1_1music_1_1scales_1_1_scale.html#ae5a08c3ea4f5670abcd0fed13c28c562">More...</a><br /></td></tr>
 <tr class="separator:ae5a08c3ea4f5670abcd0fed13c28c562"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2f7ed1030839522f5249ffabcc7b7c88"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classlemons_1_1music_1_1_pitch.html">Pitch</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1music_1_1scales_1_1_scale.html#a2f7ed1030839522f5249ffabcc7b7c88">getRoot</a> (int octaveNumber) const noexcept</td></tr>
+<tr class="memdesc:a2f7ed1030839522f5249ffabcc7b7c88"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a pitch object representing the root of this scale in the specified MIDI octave number.  <a href="structlemons_1_1music_1_1scales_1_1_scale.html#a2f7ed1030839522f5249ffabcc7b7c88">More...</a><br /></td></tr>
 <tr class="separator:a2f7ed1030839522f5249ffabcc7b7c88"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5b284d0df5c76c341a8b440e76c2b7d5"><td class="memItemLeft" align="right" valign="top">virtual String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1music_1_1scales_1_1_scale.html#a5b284d0df5c76c341a8b440e76c2b7d5">getRootAsString</a> () const noexcept</td></tr>
+<tr class="memdesc:a5b284d0df5c76c341a8b440e76c2b7d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a string description of the root of this scale.  <a href="structlemons_1_1music_1_1scales_1_1_scale.html#a5b284d0df5c76c341a8b440e76c2b7d5">More...</a><br /></td></tr>
 <tr class="separator:a5b284d0df5c76c341a8b440e76c2b7d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7fca924d4f5efe9917a04017a6fc4cc6"><td class="memItemLeft" align="right" valign="top">virtual String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1music_1_1scales_1_1_scale.html#a7fca924d4f5efe9917a04017a6fc4cc6">getScaleDegreeAsString</a> (int scaleDegree) const noexcept</td></tr>
+<tr class="memdesc:a7fca924d4f5efe9917a04017a6fc4cc6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a string representation of the pitch at a given scale degree.  <a href="structlemons_1_1music_1_1scales_1_1_scale.html#a7fca924d4f5efe9917a04017a6fc4cc6">More...</a><br /></td></tr>
 <tr class="separator:a7fca924d4f5efe9917a04017a6fc4cc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1ca38c9e034d97c319ae13a167de996f"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1music_1_1scales_1_1_whole_tone.html#a1ca38c9e034d97c319ae13a167de996f">getStringDescription</a> () const final</td></tr>
+<tr class="memdesc:a1ca38c9e034d97c319ae13a167de996f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a string description of this scale, for example, "C# whole tone".  <a href="classlemons_1_1music_1_1scales_1_1_whole_tone.html#a1ca38c9e034d97c319ae13a167de996f">More...</a><br /></td></tr>
 <tr class="separator:a1ca38c9e034d97c319ae13a167de996f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9f78494bd2d6dd05ffbe4d56a18ff434"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1music_1_1scales_1_1_whole_tone.html#a9f78494bd2d6dd05ffbe4d56a18ff434">notesPerOctave</a> () const noexcept final</td></tr>
+<tr class="memdesc:a9f78494bd2d6dd05ffbe4d56a18ff434"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns 6.  <a href="classlemons_1_1music_1_1scales_1_1_whole_tone.html#a9f78494bd2d6dd05ffbe4d56a18ff434">More...</a><br /></td></tr>
 <tr class="separator:a9f78494bd2d6dd05ffbe4d56a18ff434"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad2376e266a0f4fa74cb605aea30a2a44"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1music_1_1scales_1_1_scale.html#ad2376e266a0f4fa74cb605aea30a2a44">operator!=</a> (const <a class="el" href="structlemons_1_1music_1_1scales_1_1_scale.html">Scale</a> &amp;other) const</td></tr>
+<tr class="memdesc:ad2376e266a0f4fa74cb605aea30a2a44"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the other scale's root pitch class or interval set are different than this one's.  <a href="structlemons_1_1music_1_1scales_1_1_scale.html#ad2376e266a0f4fa74cb605aea30a2a44">More...</a><br /></td></tr>
 <tr class="separator:ad2376e266a0f4fa74cb605aea30a2a44"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a008de7d4e35569d922b6b97534d82e17"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1music_1_1scales_1_1_whole_tone.html#a008de7d4e35569d922b6b97534d82e17">operator!=</a> (const <a class="el" href="classlemons_1_1music_1_1scales_1_1_whole_tone.html">WholeTone</a> &amp;other) const</td></tr>
+<tr class="memdesc:a008de7d4e35569d922b6b97534d82e17"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the other whole tone scale does not have the same root as this one.  <a href="classlemons_1_1music_1_1scales_1_1_whole_tone.html#a008de7d4e35569d922b6b97534d82e17">More...</a><br /></td></tr>
 <tr class="separator:a008de7d4e35569d922b6b97534d82e17"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3955318861425daa4809d4529159f3ad"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1music_1_1scales_1_1_scale.html#a3955318861425daa4809d4529159f3ad">operator==</a> (const <a class="el" href="structlemons_1_1music_1_1scales_1_1_scale.html">Scale</a> &amp;other) const</td></tr>
+<tr class="memdesc:a3955318861425daa4809d4529159f3ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the other scale has the same root pitch class and interval set as this one.  <a href="structlemons_1_1music_1_1scales_1_1_scale.html#a3955318861425daa4809d4529159f3ad">More...</a><br /></td></tr>
 <tr class="separator:a3955318861425daa4809d4529159f3ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaa687df3fabdadfb1f0093a2e4ab2174"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1music_1_1scales_1_1_whole_tone.html#aaa687df3fabdadfb1f0093a2e4ab2174">operator==</a> (const <a class="el" href="classlemons_1_1music_1_1scales_1_1_whole_tone.html">WholeTone</a> &amp;other) const</td></tr>
+<tr class="memdesc:aaa687df3fabdadfb1f0093a2e4ab2174"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the other whole tone scale has the same root as this one.  <a href="classlemons_1_1music_1_1scales_1_1_whole_tone.html#aaa687df3fabdadfb1f0093a2e4ab2174">More...</a><br /></td></tr>
 <tr class="separator:aaa687df3fabdadfb1f0093a2e4ab2174"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a42fc2218dd0f8903dbd85546d81bfc7f"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classlemons_1_1music_1_1scales_1_1_whole_tone.html">WholeTone</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1music_1_1scales_1_1_whole_tone.html#a42fc2218dd0f8903dbd85546d81bfc7f">fromStringDescription</a> (const String &amp;string)</td></tr>
+<tr class="memdesc:a42fc2218dd0f8903dbd85546d81bfc7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a whole tone scale object from a string description of one.  <a href="classlemons_1_1music_1_1scales_1_1_whole_tone.html#a42fc2218dd0f8903dbd85546d81bfc7f">More...</a><br /></td></tr>
 <tr class="separator:a42fc2218dd0f8903dbd85546d81bfc7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p >A class that represents a whole tone scale. </p>
+<p >Whole tone scale objects only differ from one another by their starting pitch. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a4cd0455d3447259099e64ba041932afd" name="a4cd0455d3447259099e64ba041932afd"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4cd0455d3447259099e64ba041932afd">&#9670;&nbsp;</a></span>WholeTone() <span class="overload">[1/2]</span></h2>
 
@@ -158,6 +186,8 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Creates a whole tone scale object with the given pitch class as its root. </p>
 
 </div>
 </div>
@@ -184,6 +214,8 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Copy constructor. </p>
 
 </div>
 </div>
@@ -212,6 +244,8 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Returns true if this scale contains the passed pitch. </p>
+
 </div>
 </div>
 <a id="a0332b287ed65bba70ca5709fb1420c57" name="a0332b287ed65bba70ca5709fb1420c57"></a>
@@ -237,6 +271,8 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Returns true if this scale contains the passed pitch. </p>
 
 </div>
 </div>
@@ -264,6 +300,14 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Returns true if this scale contains the passed pitch class. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pitchClass</td><td>A pitch class integer, from 0 to 11. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a42fc2218dd0f8903dbd85546d81bfc7f" name="a42fc2218dd0f8903dbd85546d81bfc7f"></a>
@@ -290,6 +334,9 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Creates a whole tone scale object from a string description of one. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classlemons_1_1music_1_1scales_1_1_whole_tone.html#a1ca38c9e034d97c319ae13a167de996f" title="Returns a string description of this scale, for example, &quot;C# whole tone&quot;.">getStringDescription()</a> </dd></dl>
+
 </div>
 </div>
 <a id="ad1c54c8586dffc823756622b3a29c309" name="ad1c54c8586dffc823756622b3a29c309"></a>
@@ -315,6 +362,8 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Returns an array of <a class="el" href="classlemons_1_1music_1_1_interval.html" title="A class that represents a musical interval between two pitches.">Interval</a> objects that represent the intervals in this scale. </p>
+
 </div>
 </div>
 <a id="a7c9ff530f0a9caff979a866f64265ef4" name="a7c9ff530f0a9caff979a866f64265ef4"></a>
@@ -339,6 +388,8 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Returns an array of 6 2's, since every interval in this scale is a whole step. </p>
 
 <p>Implements <a class="el" href="structlemons_1_1music_1_1scales_1_1_scale.html#a234cc563b692e214e5861940019ce843">lemons::music::scales::Scale</a>.</p>
 
@@ -367,6 +418,8 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Returns an array of integers representing the pitch classes in this scale. </p>
+
 </div>
 </div>
 <a id="ad00532018f27907f15975d00788b04aa" name="ad00532018f27907f15975d00788b04aa"></a>
@@ -391,6 +444,8 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Returns the pitch class of the root of this scale. </p>
 
 <p>Implements <a class="el" href="structlemons_1_1music_1_1scales_1_1_scale.html#abe14e30c296b5acbee5b1f44057067f7">lemons::music::scales::Scale</a>.</p>
 
@@ -419,6 +474,9 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Returns the pitch class of a given scale degree. </p>
+<p >If the passed scale degree is greater than the value returned by <a class="el" href="classlemons_1_1music_1_1scales_1_1_whole_tone.html#a9f78494bd2d6dd05ffbe4d56a18ff434" title="Returns 6.">notesPerOctave()</a>, it will be truncated using the modulus operator. </p>
 
 </div>
 </div>
@@ -456,6 +514,8 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Returns an array of pitch objects representing this scale between a lowest and highest MIDI pitch. </p>
+
 </div>
 </div>
 <a id="ae5a08c3ea4f5670abcd0fed13c28c562" name="ae5a08c3ea4f5670abcd0fed13c28c562"></a>
@@ -481,6 +541,14 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Returns an array of pitch objects representing one octave of this scale, at the given octave number. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">octaveNumber</td><td>The MIDI octave number to produce pitches for. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -508,6 +576,8 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Returns a pitch object representing the root of this scale in the specified MIDI octave number. </p>
+
 </div>
 </div>
 <a id="a5b284d0df5c76c341a8b440e76c2b7d5" name="a5b284d0df5c76c341a8b440e76c2b7d5"></a>
@@ -532,6 +602,9 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Returns a string description of the root of this scale. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="namespacelemons_1_1music.html#a24e7bde0524b225883f031c887db9fb4" title="Returns a string description of a pitch class in the range 0-11, with 0 being &#39;C&#39;,...">pitchClassToString()</a> </dd></dl>
 
 <p>Reimplemented in <a class="el" href="classlemons_1_1music_1_1scales_1_1_key_signature.html#a4d1c8995204a6aa38c0ccf57a98fed49">lemons::music::scales::KeySignature</a>.</p>
 
@@ -561,6 +634,9 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Returns a string representation of the pitch at a given scale degree. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="structlemons_1_1music_1_1scales_1_1_scale.html#a14dcfc275986adac0966050afd821224" title="Returns the pitch class of a given scale degree.">getPitchClassOfScaleDegree()</a>, <a class="el" href="namespacelemons_1_1music.html#a24e7bde0524b225883f031c887db9fb4" title="Returns a string description of a pitch class in the range 0-11, with 0 being &#39;C&#39;,...">pitchClassToString()</a> </dd></dl>
+
 <p>Reimplemented in <a class="el" href="classlemons_1_1music_1_1scales_1_1_key_signature.html#a8e4afe296ffe52442e39b7cd219d86db">lemons::music::scales::KeySignature</a>.</p>
 
 </div>
@@ -588,6 +664,9 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Returns a string description of this scale, for example, "C# whole tone". </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classlemons_1_1music_1_1scales_1_1_whole_tone.html#a42fc2218dd0f8903dbd85546d81bfc7f" title="Creates a whole tone scale object from a string description of one.">fromStringDescription()</a> </dd></dl>
+
 <p>Implements <a class="el" href="structlemons_1_1music_1_1scales_1_1_scale.html#ae9e33d33c9d9237aac32a29673c2643e">lemons::music::scales::Scale</a>.</p>
 
 </div>
@@ -614,6 +693,8 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Returns 6. </p>
 
 <p>Implements <a class="el" href="structlemons_1_1music_1_1scales_1_1_scale.html#a6bde814e792dc0dca6a5f8cb71f3a6f2">lemons::music::scales::Scale</a>.</p>
 
@@ -643,6 +724,8 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Returns true if the other scale's root pitch class or interval set are different than this one's. </p>
+
 </div>
 </div>
 <a id="a008de7d4e35569d922b6b97534d82e17" name="a008de7d4e35569d922b6b97534d82e17"></a>
@@ -660,6 +743,8 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns true if the other whole tone scale does not have the same root as this one. </p>
 
 </div>
 </div>
@@ -687,6 +772,8 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Returns true if the other scale has the same root pitch class and interval set as this one. </p>
+
 </div>
 </div>
 <a id="aaa687df3fabdadfb1f0093a2e4ab2174" name="aaa687df3fabdadfb1f0093a2e4ab2174"></a>
@@ -705,6 +792,8 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Returns true if the other whole tone scale has the same root as this one. </p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
@@ -713,7 +802,7 @@ Static Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Feb 8 2022 00:49:27 for Lemons by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3
+Generated on Tue Feb 8 2022 01:35:41 for Lemons by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3
 </small></address>
 </body>
 </html>

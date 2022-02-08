@@ -1896,6 +1896,20 @@
     <class kind="class">lemons::music::Interval</class>
     <namespace>lemons</namespace>
     <namespace>lemons::music</namespace>
+    <member kind="function">
+      <type>Pitch</type>
+      <name>operator+</name>
+      <anchorfile>namespacelemons_1_1music.html</anchorfile>
+      <anchor>a2a783fe9423658609b53291a09337046</anchor>
+      <arglist>(const Pitch &amp;pitch, const Interval &amp;interval) noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>Pitch</type>
+      <name>operator-</name>
+      <anchorfile>namespacelemons_1_1music.html</anchorfile>
+      <anchor>a54b37f3bca235a1255530b3d386611c4</anchor>
+      <arglist>(const Pitch &amp;pitch, const Interval &amp;interval) noexcept</arglist>
+    </member>
   </compound>
   <compound kind="file">
     <name>Interval_impl.h</name>
@@ -11176,6 +11190,13 @@
       <arglist>() const final</arglist>
     </member>
     <member kind="function">
+      <type>constexpr Type</type>
+      <name>getKeyType</name>
+      <anchorfile>classlemons_1_1music_1_1scales_1_1_key_signature.html</anchorfile>
+      <anchor>a4ce83aae1022f8f1fe52b09002b8a897</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="function">
       <type>constexpr int</type>
       <name>getNumFlats</name>
       <anchorfile>classlemons_1_1music_1_1scales_1_1_key_signature.html</anchorfile>
@@ -16338,6 +16359,13 @@
       <anchor>a3955318861425daa4809d4529159f3ad</anchor>
       <arglist>(const Scale &amp;other) const</arglist>
     </member>
+    <member kind="function">
+      <type>constexpr bool</type>
+      <name>startsWithHalfStep</name>
+      <anchorfile>classlemons_1_1music_1_1scales_1_1_octatonic.html</anchorfile>
+      <anchor>adb3cce8d539af856dde1229158feee78</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
     <member kind="function" static="yes">
       <type>static Octatonic</type>
       <name>fromStringDescription</name>
@@ -18747,8 +18775,8 @@
       <type>String</type>
       <name>toString</name>
       <anchorfile>classlemons_1_1music_1_1_pitch.html</anchorfile>
-      <anchor>a28d74f811a99b3c28ee8537f4f9deb31</anchor>
-      <arglist>() const noexcept</arglist>
+      <anchor>a37e52c4e86c546758841ffbcf0819602</anchor>
+      <arglist>(bool asSharps=true) const noexcept</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -28205,6 +28233,20 @@
       <anchorfile>namespacelemons_1_1music.html</anchorfile>
       <anchor>a894b6edfde0e18e7ccc46d3d5d2dafd3</anchor>
       <arglist>(int midiNote) noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>Pitch</type>
+      <name>operator+</name>
+      <anchorfile>namespacelemons_1_1music.html</anchorfile>
+      <anchor>a2a783fe9423658609b53291a09337046</anchor>
+      <arglist>(const Pitch &amp;pitch, const Interval &amp;interval) noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>Pitch</type>
+      <name>operator-</name>
+      <anchorfile>namespacelemons_1_1music.html</anchorfile>
+      <anchor>a54b37f3bca235a1255530b3d386611c4</anchor>
+      <arglist>(const Pitch &amp;pitch, const Interval &amp;interval) noexcept</arglist>
     </member>
     <member kind="function">
       <type>String</type>

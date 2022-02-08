@@ -1,8 +1,8 @@
 <map id="lemons::music::scales::Scale" name="lemons::music::scales::Scale">
-<area shape="rect" id="node1" title=" " alt="" coords="5,136,159,177"/>
-<area shape="rect" id="node2" href="$classlemons_1_1music_1_1scales_1_1_chromatic.html" title=" " alt="" coords="207,5,360,47"/>
-<area shape="rect" id="node3" href="$classlemons_1_1music_1_1scales_1_1_key_signature.html" title=" " alt="" coords="207,71,360,112"/>
-<area shape="rect" id="node4" href="$classlemons_1_1music_1_1scales_1_1_mode.html" title=" " alt="" coords="207,136,360,177"/>
-<area shape="rect" id="node5" href="$classlemons_1_1music_1_1scales_1_1_octatonic.html" title=" " alt="" coords="207,201,360,243"/>
-<area shape="rect" id="node6" href="$classlemons_1_1music_1_1scales_1_1_whole_tone.html" title=" " alt="" coords="207,267,360,308"/>
+<area shape="rect" id="node1" title="A base class for any kind of scale." alt="" coords="5,136,159,177"/>
+<area shape="rect" id="node2" href="$classlemons_1_1music_1_1scales_1_1_chromatic.html" title="A class representing a chromatic scale." alt="" coords="207,5,360,47"/>
+<area shape="rect" id="node3" href="$classlemons_1_1music_1_1scales_1_1_key_signature.html" title="This class represents any traditional Western key signature (eg, major, natural minor,..." alt="" coords="207,71,360,112"/>
+<area shape="rect" id="node4" href="$classlemons_1_1music_1_1scales_1_1_mode.html" title="Represents a modal scale." alt="" coords="207,136,360,177"/>
+<area shape="rect" id="node5" href="$classlemons_1_1music_1_1scales_1_1_octatonic.html" title="Represents an octatonic scale." alt="" coords="207,201,360,243"/>
+<area shape="rect" id="node6" href="$classlemons_1_1music_1_1scales_1_1_whole_tone.html" title="A class that represents a whole tone scale." alt="" coords="207,267,360,308"/>
 </map>

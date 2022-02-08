@@ -1,4 +1,4 @@
 <map id="lemons::music::scales::KeySignature" name="lemons::music::scales::KeySignature">
-<area shape="rect" id="node1" title=" " alt="" coords="5,95,159,136"/>
-<area shape="rect" id="node2" href="$structlemons_1_1music_1_1scales_1_1_scale.html" title=" " alt="" coords="5,5,159,47"/>
+<area shape="rect" id="node1" title="This class represents any traditional Western key signature (eg, major, natural minor,..." alt="" coords="5,95,159,136"/>
+<area shape="rect" id="node2" href="$structlemons_1_1music_1_1scales_1_1_scale.html" title="A base class for any kind of scale." alt="" coords="5,5,159,47"/>
 </map>

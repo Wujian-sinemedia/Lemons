@@ -74,46 +74,68 @@ $(function() {
   <div class="headertitle"><div class="title">lemons::music::Pitch Class Reference<span class="mlabels"><span class="mlabel">final</span></span></div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>This class is a simple wrapper around a MIDI pitch, with some convenient functions for representing it certain ways.  
+ <a href="classlemons_1_1music_1_1_pitch.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a8de4f1c10382acb6f1405406462b14e2"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1music_1_1_pitch.html#a8de4f1c10382acb6f1405406462b14e2">Pitch</a> (const <a class="el" href="classlemons_1_1music_1_1_pitch.html">Pitch</a> &amp;other) noexcept</td></tr>
+<tr class="memdesc:a8de4f1c10382acb6f1405406462b14e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy constructor.  <a href="classlemons_1_1music_1_1_pitch.html#a8de4f1c10382acb6f1405406462b14e2">More...</a><br /></td></tr>
 <tr class="separator:a8de4f1c10382acb6f1405406462b14e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0f16748d234f45f39539562d79a0d0fc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1music_1_1_pitch.html#a0f16748d234f45f39539562d79a0d0fc">Pitch</a> (const String &amp;pitchString) noexcept</td></tr>
+<tr class="memdesc:a0f16748d234f45f39539562d79a0d0fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a pitch object from a string representation of a pitch, for example "C4".  <a href="classlemons_1_1music_1_1_pitch.html#a0f16748d234f45f39539562d79a0d0fc">More...</a><br /></td></tr>
 <tr class="separator:a0f16748d234f45f39539562d79a0d0fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a37160682c3dacc36e66fb69a5c74c93b"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a37160682c3dacc36e66fb69a5c74c93b"><td class="memTemplItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classlemons_1_1music_1_1_pitch.html#a37160682c3dacc36e66fb69a5c74c93b">Pitch</a> (T midiNote) noexcept</td></tr>
+<tr class="memdesc:a37160682c3dacc36e66fb69a5c74c93b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a pitch object from a MIDI pitch, which can be passed to the constructor as any scalar arithmetic type.  <a href="classlemons_1_1music_1_1_pitch.html#a37160682c3dacc36e66fb69a5c74c93b">More...</a><br /></td></tr>
 <tr class="separator:a37160682c3dacc36e66fb69a5c74c93b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a08622aba335d4295789a67cf8cbad6c1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1music_1_1_pitch.html#a08622aba335d4295789a67cf8cbad6c1">approximatelyEqual</a> (const <a class="el" href="classlemons_1_1music_1_1_pitch.html">Pitch</a> &amp;other) const noexcept</td></tr>
+<tr class="memdesc:a08622aba335d4295789a67cf8cbad6c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the two pitch objects round to the same nearest MIDI note.  <a href="classlemons_1_1music_1_1_pitch.html#a08622aba335d4295789a67cf8cbad6c1">More...</a><br /></td></tr>
 <tr class="separator:a08622aba335d4295789a67cf8cbad6c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:accf1fade6d4f14d690da0fe33b5a11ae"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1music_1_1_pitch.html#accf1fade6d4f14d690da0fe33b5a11ae">getFreqHz</a> () const noexcept</td></tr>
+<tr class="memdesc:accf1fade6d4f14d690da0fe33b5a11ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns this pitch as a frequency in Hz.  <a href="classlemons_1_1music_1_1_pitch.html#accf1fade6d4f14d690da0fe33b5a11ae">More...</a><br /></td></tr>
 <tr class="separator:accf1fade6d4f14d690da0fe33b5a11ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a508cf2f6dc01c77f33ab3a5f28b8acbc"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1music_1_1_pitch.html#a508cf2f6dc01c77f33ab3a5f28b8acbc">getMidiPitch</a> () const noexcept</td></tr>
+<tr class="memdesc:a508cf2f6dc01c77f33ab3a5f28b8acbc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the MIDI pitch that this pitch object represents.  <a href="classlemons_1_1music_1_1_pitch.html#a508cf2f6dc01c77f33ab3a5f28b8acbc">More...</a><br /></td></tr>
 <tr class="separator:a508cf2f6dc01c77f33ab3a5f28b8acbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a962f171419bddece57a97fd5dd333f25"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1music_1_1_pitch.html#a962f171419bddece57a97fd5dd333f25">getOctaveNumber</a> () const noexcept</td></tr>
+<tr class="memdesc:a962f171419bddece57a97fd5dd333f25"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns this pitch object's MIDI octave number.  <a href="classlemons_1_1music_1_1_pitch.html#a962f171419bddece57a97fd5dd333f25">More...</a><br /></td></tr>
 <tr class="separator:a962f171419bddece57a97fd5dd333f25"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad6291f35e58678a9aa9cc86b8eba8663"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1music_1_1_pitch.html#ad6291f35e58678a9aa9cc86b8eba8663">getPitchClass</a> () const noexcept</td></tr>
+<tr class="memdesc:ad6291f35e58678a9aa9cc86b8eba8663"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns this pitch object's pitch class as an integer from 0 to 11, with 0 being C and 11 being B.  <a href="classlemons_1_1music_1_1_pitch.html#ad6291f35e58678a9aa9cc86b8eba8663">More...</a><br /></td></tr>
 <tr class="separator:ad6291f35e58678a9aa9cc86b8eba8663"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa0a6b6bb5fa6ed400dfe71001a212150"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1music_1_1_pitch.html#aa0a6b6bb5fa6ed400dfe71001a212150">getRoundedFreqHz</a> () const noexcept</td></tr>
+<tr class="memdesc:aa0a6b6bb5fa6ed400dfe71001a212150"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns this pitch as a frequency in Hz, rounded to the nearest integer.  <a href="classlemons_1_1music_1_1_pitch.html#aa0a6b6bb5fa6ed400dfe71001a212150">More...</a><br /></td></tr>
 <tr class="separator:aa0a6b6bb5fa6ed400dfe71001a212150"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa5c76a967fcbac2a3000f4b34b98cc2b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1music_1_1_pitch.html#aa5c76a967fcbac2a3000f4b34b98cc2b">getRoundedMidiPitch</a> () const noexcept</td></tr>
+<tr class="memdesc:aa5c76a967fcbac2a3000f4b34b98cc2b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns this pitch object's MIDI pitch, rounded to the nearest integer MIDI note.  <a href="classlemons_1_1music_1_1_pitch.html#aa5c76a967fcbac2a3000f4b34b98cc2b">More...</a><br /></td></tr>
 <tr class="separator:aa5c76a967fcbac2a3000f4b34b98cc2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aadfd5957ade590d3af67c3d3d5171687"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1music_1_1_pitch.html#aadfd5957ade590d3af67c3d3d5171687">isBlackKey</a> () const noexcept</td></tr>
+<tr class="memdesc:aadfd5957ade590d3af67c3d3d5171687"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if this pitch's nearest integer MIDI note is a black key on a standard keyboard.  <a href="classlemons_1_1music_1_1_pitch.html#aadfd5957ade590d3af67c3d3d5171687">More...</a><br /></td></tr>
 <tr class="separator:aadfd5957ade590d3af67c3d3d5171687"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae729b925b38de2fe5b3faa812cd9df40"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1music_1_1_pitch.html#ae729b925b38de2fe5b3faa812cd9df40">isWhiteKey</a> () const noexcept</td></tr>
+<tr class="memdesc:ae729b925b38de2fe5b3faa812cd9df40"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if this pitch's nearest integer MIDI note is a white key on a standard keyboard.  <a href="classlemons_1_1music_1_1_pitch.html#ae729b925b38de2fe5b3faa812cd9df40">More...</a><br /></td></tr>
 <tr class="separator:ae729b925b38de2fe5b3faa812cd9df40"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3a56855e109dd4c9ca179905797a94f4"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1music_1_1_pitch.html#a3a56855e109dd4c9ca179905797a94f4">operator!=</a> (const <a class="el" href="classlemons_1_1music_1_1_pitch.html">Pitch</a> &amp;other) const noexcept</td></tr>
+<tr class="memdesc:a3a56855e109dd4c9ca179905797a94f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the two pitch objects are not exactly equal.  <a href="classlemons_1_1music_1_1_pitch.html#a3a56855e109dd4c9ca179905797a94f4">More...</a><br /></td></tr>
 <tr class="separator:a3a56855e109dd4c9ca179905797a94f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:addf1df48cc00e0f0521cc2ac9264933e"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1music_1_1_pitch.html#addf1df48cc00e0f0521cc2ac9264933e">operator&lt;</a> (const <a class="el" href="classlemons_1_1music_1_1_pitch.html">Pitch</a> &amp;other) const noexcept</td></tr>
+<tr class="memdesc:addf1df48cc00e0f0521cc2ac9264933e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if this pitch is lower than the other one.  <a href="classlemons_1_1music_1_1_pitch.html#addf1df48cc00e0f0521cc2ac9264933e">More...</a><br /></td></tr>
 <tr class="separator:addf1df48cc00e0f0521cc2ac9264933e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6dd6941117f409914e8432422be87f3e"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1music_1_1_pitch.html#a6dd6941117f409914e8432422be87f3e">operator==</a> (const <a class="el" href="classlemons_1_1music_1_1_pitch.html">Pitch</a> &amp;other) const noexcept</td></tr>
+<tr class="memdesc:a6dd6941117f409914e8432422be87f3e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the two pitch objects are exactly equal.  <a href="classlemons_1_1music_1_1_pitch.html#a6dd6941117f409914e8432422be87f3e">More...</a><br /></td></tr>
 <tr class="separator:a6dd6941117f409914e8432422be87f3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9cd3cb027a7703fe46fd5155664f4c93"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1music_1_1_pitch.html#a9cd3cb027a7703fe46fd5155664f4c93">operator&gt;</a> (const <a class="el" href="classlemons_1_1music_1_1_pitch.html">Pitch</a> &amp;other) const noexcept</td></tr>
+<tr class="memdesc:a9cd3cb027a7703fe46fd5155664f4c93"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if this pitch is higher than the other one.  <a href="classlemons_1_1music_1_1_pitch.html#a9cd3cb027a7703fe46fd5155664f4c93">More...</a><br /></td></tr>
 <tr class="separator:a9cd3cb027a7703fe46fd5155664f4c93"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a28d74f811a99b3c28ee8537f4f9deb31"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1music_1_1_pitch.html#a28d74f811a99b3c28ee8537f4f9deb31">toString</a> () const noexcept</td></tr>
-<tr class="separator:a28d74f811a99b3c28ee8537f4f9deb31"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a37e52c4e86c546758841ffbcf0819602"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1music_1_1_pitch.html#a37e52c4e86c546758841ffbcf0819602">toString</a> (bool asSharps=true) const noexcept</td></tr>
+<tr class="memdesc:a37e52c4e86c546758841ffbcf0819602"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a string representation of this pitch object.  <a href="classlemons_1_1music_1_1_pitch.html#a37e52c4e86c546758841ffbcf0819602">More...</a><br /></td></tr>
+<tr class="separator:a37e52c4e86c546758841ffbcf0819602"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p >This class is a simple wrapper around a MIDI pitch, with some convenient functions for representing it certain ways. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a37160682c3dacc36e66fb69a5c74c93b" name="a37160682c3dacc36e66fb69a5c74c93b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a37160682c3dacc36e66fb69a5c74c93b">&#9670;&nbsp;</a></span>Pitch() <span class="overload">[1/3]</span></h2>
 
@@ -139,6 +161,8 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Creates a pitch object from a MIDI pitch, which can be passed to the constructor as any scalar arithmetic type. </p>
 
 </div>
 </div>
@@ -166,6 +190,9 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Creates a pitch object from a string representation of a pitch, for example "C4". </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="namespacelemons_1_1music.html#ac8e2cb0708990e7bc8c175b72c176540" title="Converts a string description of a pitch to a MIDI note number.">stringToPitch()</a> </dd></dl>
+
 </div>
 </div>
 <a id="a8de4f1c10382acb6f1405406462b14e2" name="a8de4f1c10382acb6f1405406462b14e2"></a>
@@ -191,6 +218,8 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Copy constructor. </p>
 
 </div>
 </div>
@@ -219,6 +248,8 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Returns true if the two pitch objects round to the same nearest MIDI note. </p>
+
 </div>
 </div>
 <a id="accf1fade6d4f14d690da0fe33b5a11ae" name="accf1fade6d4f14d690da0fe33b5a11ae"></a>
@@ -243,6 +274,9 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Returns this pitch as a frequency in Hz. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="group__lemons__math.html#ga8e334d4926a3b6dc44ea8c3cacf56070" title="Converts a MIDI note to a frequency in Hz.">math::midiToFreq()</a> </dd></dl>
 
 </div>
 </div>
@@ -269,6 +303,8 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Returns the MIDI pitch that this pitch object represents. </p>
+
 </div>
 </div>
 <a id="a962f171419bddece57a97fd5dd333f25" name="a962f171419bddece57a97fd5dd333f25"></a>
@@ -293,6 +329,9 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Returns this pitch object's MIDI octave number. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="namespacelemons_1_1music.html#a894b6edfde0e18e7ccc46d3d5d2dafd3" title="Returns the octave number of a given MIDI pitch.">octaveNumberOfMidiNote()</a> </dd></dl>
 
 </div>
 </div>
@@ -319,6 +358,9 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Returns this pitch object's pitch class as an integer from 0 to 11, with 0 being C and 11 being B. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="namespacelemons_1_1music.html#a5246e3c8cebb468a52a6a33329ae884b" title="Creates a valid pitch class integer from the passed integer using the modulus operator.">makeValidPitchClass()</a> </dd></dl>
+
 </div>
 </div>
 <a id="aa0a6b6bb5fa6ed400dfe71001a212150" name="aa0a6b6bb5fa6ed400dfe71001a212150"></a>
@@ -343,6 +385,8 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Returns this pitch as a frequency in Hz, rounded to the nearest integer. </p>
 
 </div>
 </div>
@@ -369,6 +413,8 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Returns this pitch object's MIDI pitch, rounded to the nearest integer MIDI note. </p>
+
 </div>
 </div>
 <a id="aadfd5957ade590d3af67c3d3d5171687" name="aadfd5957ade590d3af67c3d3d5171687"></a>
@@ -394,6 +440,8 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Returns true if this pitch's nearest integer MIDI note is a black key on a standard keyboard. </p>
+
 </div>
 </div>
 <a id="ae729b925b38de2fe5b3faa812cd9df40" name="ae729b925b38de2fe5b3faa812cd9df40"></a>
@@ -418,6 +466,8 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Returns true if this pitch's nearest integer MIDI note is a white key on a standard keyboard. </p>
 
 </div>
 </div>
@@ -445,6 +495,8 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Returns true if the two pitch objects are not exactly equal. </p>
+
 </div>
 </div>
 <a id="addf1df48cc00e0f0521cc2ac9264933e" name="addf1df48cc00e0f0521cc2ac9264933e"></a>
@@ -470,6 +522,8 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Returns true if this pitch is lower than the other one. </p>
 
 </div>
 </div>
@@ -497,6 +551,8 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Returns true if the two pitch objects are exactly equal. </p>
+
 </div>
 </div>
 <a id="a9cd3cb027a7703fe46fd5155664f4c93" name="a9cd3cb027a7703fe46fd5155664f4c93"></a>
@@ -523,10 +579,12 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Returns true if this pitch is higher than the other one. </p>
+
 </div>
 </div>
-<a id="a28d74f811a99b3c28ee8537f4f9deb31" name="a28d74f811a99b3c28ee8537f4f9deb31"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a28d74f811a99b3c28ee8537f4f9deb31">&#9670;&nbsp;</a></span>toString()</h2>
+<a id="a37e52c4e86c546758841ffbcf0819602" name="a37e52c4e86c546758841ffbcf0819602"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a37e52c4e86c546758841ffbcf0819602">&#9670;&nbsp;</a></span>toString()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -537,7 +595,8 @@ template&lt;typename T &gt; </div>
         <tr>
           <td class="memname">String lemons::music::Pitch::toString </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>asSharps</em> = <code>true</code></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
@@ -548,6 +607,15 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Returns a string representation of this pitch object. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">asSharps</td><td>When true, the string representation will use sharp symbols for any needed accidentals; otherwise, flats will be used. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="namespacelemons_1_1music.html#a5804ae9d6aaefcb24f65bdf38e8a1832" title="Converts a MIDI pitch to a string representation; e.g.">pitchToString()</a> </dd></dl>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
@@ -556,7 +624,7 @@ template&lt;typename T &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Feb 8 2022 00:49:27 for Lemons by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3
+Generated on Tue Feb 8 2022 01:35:41 for Lemons by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3
 </small></address>
 </body>
 </html>

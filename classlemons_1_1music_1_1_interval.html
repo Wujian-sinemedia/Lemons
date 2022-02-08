@@ -76,6 +76,9 @@ $(function() {
   <div class="headertitle"><div class="title">lemons::music::Interval Class Reference<span class="mlabels"><span class="mlabel">final</span></span></div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>A class that represents a musical interval between two pitches.  
+ <a href="classlemons_1_1music_1_1_interval.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
 Public Types</h2></td></tr>
@@ -88,70 +91,100 @@ Public Types</h2></td></tr>
 &#160;&#160;<a class="el" href="classlemons_1_1music_1_1_interval.html#a5a677d72fb8a097e3f341402120a7d7ca56cdd7e9e3cef1974f4075c03a80332d">Perfect</a>
 <br />
  }</td></tr>
+<tr class="memdesc:a5a677d72fb8a097e3f341402120a7d7c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Describes the quality of the interval.  <a href="classlemons_1_1music_1_1_interval.html#a5a677d72fb8a097e3f341402120a7d7c">More...</a><br /></td></tr>
 <tr class="separator:a5a677d72fb8a097e3f341402120a7d7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:aa580ca56ea42022929b9b8c149302f87"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1music_1_1_interval.html#aa580ca56ea42022929b9b8c149302f87">Interval</a> ()</td></tr>
-<tr class="memdesc:aa580ca56ea42022929b9b8c149302f87"><td class="mdescLeft">&#160;</td><td class="mdescRight">creates an interval representing a perfect unison  <a href="classlemons_1_1music_1_1_interval.html#aa580ca56ea42022929b9b8c149302f87">More...</a><br /></td></tr>
+<tr class="memdesc:aa580ca56ea42022929b9b8c149302f87"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an interval representing a perfect unison.  <a href="classlemons_1_1music_1_1_interval.html#aa580ca56ea42022929b9b8c149302f87">More...</a><br /></td></tr>
 <tr class="separator:aa580ca56ea42022929b9b8c149302f87"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae85b3e18ffeb6f1f998c3829505818d0"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1music_1_1_interval.html#ae85b3e18ffeb6f1f998c3829505818d0">Interval</a> (const <a class="el" href="classlemons_1_1music_1_1_interval.html">Interval</a> &amp;other) noexcept</td></tr>
+<tr class="memdesc:ae85b3e18ffeb6f1f998c3829505818d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy constructor.  <a href="classlemons_1_1music_1_1_interval.html#ae85b3e18ffeb6f1f998c3829505818d0">More...</a><br /></td></tr>
 <tr class="separator:ae85b3e18ffeb6f1f998c3829505818d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aac35173c35d6bce37cc26ae9c3f841c8"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1music_1_1_interval.html#aac35173c35d6bce37cc26ae9c3f841c8">Interval</a> (int kindToUse, <a class="el" href="classlemons_1_1music_1_1_interval.html#a5a677d72fb8a097e3f341402120a7d7c">Quality</a> qualityToUse) noexcept</td></tr>
+<tr class="memdesc:aac35173c35d6bce37cc26ae9c3f841c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an interval with a specified kind and quality.  <a href="classlemons_1_1music_1_1_interval.html#aac35173c35d6bce37cc26ae9c3f841c8">More...</a><br /></td></tr>
 <tr class="separator:aac35173c35d6bce37cc26ae9c3f841c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa5487fb09be98d97a4754baa98f34ef9"><td class="memItemLeft" align="right" valign="top">constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1music_1_1_interval.html#aa5487fb09be98d97a4754baa98f34ef9">getCents_EqualTemperament</a> () const noexcept</td></tr>
+<tr class="memdesc:aa5487fb09be98d97a4754baa98f34ef9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of cents this interval represents in equal temperament.  <a href="classlemons_1_1music_1_1_interval.html#aa5487fb09be98d97a4754baa98f34ef9">More...</a><br /></td></tr>
 <tr class="separator:aa5487fb09be98d97a4754baa98f34ef9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5b58d5209ed56083544b0a3dd91a860b"><td class="memItemLeft" align="right" valign="top">juce::Array&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1music_1_1_interval.html#a5b58d5209ed56083544b0a3dd91a860b">getCents_JustIntonation</a> () const</td></tr>
+<tr class="memdesc:a5b58d5209ed56083544b0a3dd91a860b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns an array of possible cents values this interval can represent in just intonation, taking enharmonic spelling into account.  <a href="classlemons_1_1music_1_1_interval.html#a5b58d5209ed56083544b0a3dd91a860b">More...</a><br /></td></tr>
 <tr class="separator:a5b58d5209ed56083544b0a3dd91a860b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a71b4a02fcd75366a40a749505f2432e2"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="classlemons_1_1music_1_1_interval.html">Interval</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1music_1_1_interval.html#a71b4a02fcd75366a40a749505f2432e2">getInverse</a> () const noexcept</td></tr>
+<tr class="memdesc:a71b4a02fcd75366a40a749505f2432e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the interval that is the inverse of this one, taking enharmonic spellings into account.  <a href="classlemons_1_1music_1_1_interval.html#a71b4a02fcd75366a40a749505f2432e2">More...</a><br /></td></tr>
 <tr class="separator:a71b4a02fcd75366a40a749505f2432e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2a75c1b95efecc5309e87b7eb71eb976"><td class="memItemLeft" align="right" valign="top">constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1music_1_1_interval.html#a2a75c1b95efecc5309e87b7eb71eb976">getKind</a> () const noexcept</td></tr>
+<tr class="memdesc:a2a75c1b95efecc5309e87b7eb71eb976"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the kind of this interval as an integer.  <a href="classlemons_1_1music_1_1_interval.html#a2a75c1b95efecc5309e87b7eb71eb976">More...</a><br /></td></tr>
 <tr class="separator:a2a75c1b95efecc5309e87b7eb71eb976"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ada7f9a356b4e9179cfe7264c60f51cfa"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1music_1_1_interval.html#ada7f9a356b4e9179cfe7264c60f51cfa">getKindAsString</a> () const</td></tr>
+<tr class="memdesc:ada7f9a356b4e9179cfe7264c60f51cfa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a string description of this interval's kind.  <a href="classlemons_1_1music_1_1_interval.html#ada7f9a356b4e9179cfe7264c60f51cfa">More...</a><br /></td></tr>
 <tr class="separator:ada7f9a356b4e9179cfe7264c60f51cfa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af6ad03bd4aea9c5d8f398abb9f03524e"><td class="memItemLeft" align="right" valign="top">constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1music_1_1_interval.html#af6ad03bd4aea9c5d8f398abb9f03524e">getNumSemitones</a> () const noexcept</td></tr>
+<tr class="memdesc:af6ad03bd4aea9c5d8f398abb9f03524e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of semitones that this interval represents.  <a href="classlemons_1_1music_1_1_interval.html#af6ad03bd4aea9c5d8f398abb9f03524e">More...</a><br /></td></tr>
 <tr class="separator:af6ad03bd4aea9c5d8f398abb9f03524e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3bc08e7a155fe63d1e2c1e9d8a998eb8"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="classlemons_1_1music_1_1_interval.html#a5a677d72fb8a097e3f341402120a7d7c">Quality</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1music_1_1_interval.html#a3bc08e7a155fe63d1e2c1e9d8a998eb8">getQuality</a> () const noexcept</td></tr>
+<tr class="memdesc:a3bc08e7a155fe63d1e2c1e9d8a998eb8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the quality of this interval.  <a href="classlemons_1_1music_1_1_interval.html#a3bc08e7a155fe63d1e2c1e9d8a998eb8">More...</a><br /></td></tr>
 <tr class="separator:a3bc08e7a155fe63d1e2c1e9d8a998eb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3839ca984d9d2869bb59611aace0960d"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1music_1_1_interval.html#a3839ca984d9d2869bb59611aace0960d">getQualityAsString</a> (bool useShort=false) const</td></tr>
+<tr class="memdesc:a3839ca984d9d2869bb59611aace0960d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a string description of this interval's quality.  <a href="classlemons_1_1music_1_1_interval.html#a3839ca984d9d2869bb59611aace0960d">More...</a><br /></td></tr>
 <tr class="separator:a3839ca984d9d2869bb59611aace0960d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adbd35e502795bea50157d29ac5f48fc6"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1music_1_1_interval.html#adbd35e502795bea50157d29ac5f48fc6">getStringDescription</a> (bool useShort=false) const</td></tr>
+<tr class="memdesc:adbd35e502795bea50157d29ac5f48fc6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a string description of this interval.  <a href="classlemons_1_1music_1_1_interval.html#adbd35e502795bea50157d29ac5f48fc6">More...</a><br /></td></tr>
 <tr class="separator:adbd35e502795bea50157d29ac5f48fc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad898ca6032695ea0735ae32d55f25f1c"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1music_1_1_interval.html#ad898ca6032695ea0735ae32d55f25f1c">isEnharmonicTo</a> (const <a class="el" href="classlemons_1_1music_1_1_interval.html">Interval</a> &amp;other) const noexcept</td></tr>
+<tr class="memdesc:ad898ca6032695ea0735ae32d55f25f1c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the two intervals represent the same number of semitones, regardless of their enharmonic spelling.  <a href="classlemons_1_1music_1_1_interval.html#ad898ca6032695ea0735ae32d55f25f1c">More...</a><br /></td></tr>
 <tr class="separator:ad898ca6032695ea0735ae32d55f25f1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5238d6e26c644de55ab6e93f3e241320"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1music_1_1_interval.html#a5238d6e26c644de55ab6e93f3e241320">operator!=</a> (const <a class="el" href="classlemons_1_1music_1_1_interval.html">Interval</a> &amp;other) const noexcept</td></tr>
+<tr class="memdesc:a5238d6e26c644de55ab6e93f3e241320"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the two intervals are not exactly equal.  <a href="classlemons_1_1music_1_1_interval.html#a5238d6e26c644de55ab6e93f3e241320">More...</a><br /></td></tr>
 <tr class="separator:a5238d6e26c644de55ab6e93f3e241320"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa1b96e6112241348e2114b8f4e591c30"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="classlemons_1_1music_1_1_interval.html">Interval</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1music_1_1_interval.html#aa1b96e6112241348e2114b8f4e591c30">operator+</a> (const <a class="el" href="classlemons_1_1music_1_1_interval.html">Interval</a> &amp;other) const noexcept</td></tr>
+<tr class="memdesc:aa1b96e6112241348e2114b8f4e591c30"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds another interval object to this one.  <a href="classlemons_1_1music_1_1_interval.html#aa1b96e6112241348e2114b8f4e591c30">More...</a><br /></td></tr>
 <tr class="separator:aa1b96e6112241348e2114b8f4e591c30"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a08712bee8630c572a57fea048c664946"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="classlemons_1_1music_1_1_interval.html">Interval</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1music_1_1_interval.html#a08712bee8630c572a57fea048c664946">operator+</a> (int semitonesToAdd) const noexcept</td></tr>
+<tr class="memdesc:a08712bee8630c572a57fea048c664946"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a number of semitones to this interval.  <a href="classlemons_1_1music_1_1_interval.html#a08712bee8630c572a57fea048c664946">More...</a><br /></td></tr>
 <tr class="separator:a08712bee8630c572a57fea048c664946"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2feda0a376d800bf6ee9cdb510cc209e"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="classlemons_1_1music_1_1_interval.html">Interval</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1music_1_1_interval.html#a2feda0a376d800bf6ee9cdb510cc209e">operator++</a> () noexcept</td></tr>
+<tr class="memdesc:a2feda0a376d800bf6ee9cdb510cc209e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Increments this interval by one semitone, preserving the kind by manipulating the quality where possible.  <a href="classlemons_1_1music_1_1_interval.html#a2feda0a376d800bf6ee9cdb510cc209e">More...</a><br /></td></tr>
 <tr class="separator:a2feda0a376d800bf6ee9cdb510cc209e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1341bd51edcbe6fe69fff2e18de15e63"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="classlemons_1_1music_1_1_interval.html">Interval</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1music_1_1_interval.html#a1341bd51edcbe6fe69fff2e18de15e63">operator-</a> (const <a class="el" href="classlemons_1_1music_1_1_interval.html">Interval</a> &amp;other) const noexcept</td></tr>
+<tr class="memdesc:a1341bd51edcbe6fe69fff2e18de15e63"><td class="mdescLeft">&#160;</td><td class="mdescRight">Subtracts another interval object from this one.  <a href="classlemons_1_1music_1_1_interval.html#a1341bd51edcbe6fe69fff2e18de15e63">More...</a><br /></td></tr>
 <tr class="separator:a1341bd51edcbe6fe69fff2e18de15e63"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a50d8a623d9e1948be8e12b15b91666e4"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="classlemons_1_1music_1_1_interval.html">Interval</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1music_1_1_interval.html#a50d8a623d9e1948be8e12b15b91666e4">operator-</a> (int semitonesToSubtract) const noexcept</td></tr>
+<tr class="memdesc:a50d8a623d9e1948be8e12b15b91666e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Subtracts a number of semitones from this interval.  <a href="classlemons_1_1music_1_1_interval.html#a50d8a623d9e1948be8e12b15b91666e4">More...</a><br /></td></tr>
 <tr class="separator:a50d8a623d9e1948be8e12b15b91666e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a132de3cf6616aa933634f899726f0fd5"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="classlemons_1_1music_1_1_interval.html">Interval</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1music_1_1_interval.html#a132de3cf6616aa933634f899726f0fd5">operator--</a> () noexcept</td></tr>
+<tr class="memdesc:a132de3cf6616aa933634f899726f0fd5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Decrements this interval by one semitone, preserving the kind by manipulating the quality where possible.  <a href="classlemons_1_1music_1_1_interval.html#a132de3cf6616aa933634f899726f0fd5">More...</a><br /></td></tr>
 <tr class="separator:a132de3cf6616aa933634f899726f0fd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a687df6982a4cda5bc7562cb3bcd6c864"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1music_1_1_interval.html#a687df6982a4cda5bc7562cb3bcd6c864">operator&lt;</a> (const <a class="el" href="classlemons_1_1music_1_1_interval.html">Interval</a> &amp;other) const noexcept</td></tr>
+<tr class="memdesc:a687df6982a4cda5bc7562cb3bcd6c864"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if this interval is semantically smaller than the other one, taking enharmonic spellings into account.  <a href="classlemons_1_1music_1_1_interval.html#a687df6982a4cda5bc7562cb3bcd6c864">More...</a><br /></td></tr>
 <tr class="separator:a687df6982a4cda5bc7562cb3bcd6c864"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3c495a4b5bfba0f0636e3a7880f90a8d"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1music_1_1_interval.html#a3c495a4b5bfba0f0636e3a7880f90a8d">operator==</a> (const <a class="el" href="classlemons_1_1music_1_1_interval.html">Interval</a> &amp;other) const noexcept</td></tr>
+<tr class="memdesc:a3c495a4b5bfba0f0636e3a7880f90a8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the two intervals are exactly equal &ndash; that is, have the same kind and quality.  <a href="classlemons_1_1music_1_1_interval.html#a3c495a4b5bfba0f0636e3a7880f90a8d">More...</a><br /></td></tr>
 <tr class="separator:a3c495a4b5bfba0f0636e3a7880f90a8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a868e51cbd492c98e513c54632debd076"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1music_1_1_interval.html#a868e51cbd492c98e513c54632debd076">operator&gt;</a> (const <a class="el" href="classlemons_1_1music_1_1_interval.html">Interval</a> &amp;other) const noexcept</td></tr>
+<tr class="memdesc:a868e51cbd492c98e513c54632debd076"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if this interval is semantically larger than the other one, taking enharmonic spellings into account.  <a href="classlemons_1_1music_1_1_interval.html#a868e51cbd492c98e513c54632debd076">More...</a><br /></td></tr>
 <tr class="separator:a868e51cbd492c98e513c54632debd076"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a832306708859de4ef18a806ea8808be8"><td class="memItemLeft" align="right" valign="top">static constexpr <a class="el" href="classlemons_1_1music_1_1_interval.html">Interval</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1music_1_1_interval.html#a832306708859de4ef18a806ea8808be8">fromNumSemitones</a> (int semitones) noexcept</td></tr>
+<tr class="memdesc:a832306708859de4ef18a806ea8808be8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an interval from a number of semitones.  <a href="classlemons_1_1music_1_1_interval.html#a832306708859de4ef18a806ea8808be8">More...</a><br /></td></tr>
 <tr class="separator:a832306708859de4ef18a806ea8808be8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae83b56334b06cda4cb48ebe5ad2492ea"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classlemons_1_1music_1_1_interval.html">Interval</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1music_1_1_interval.html#ae83b56334b06cda4cb48ebe5ad2492ea">fromPitches</a> (const <a class="el" href="classlemons_1_1music_1_1_pitch.html">Pitch</a> &amp;pitch1, const <a class="el" href="classlemons_1_1music_1_1_pitch.html">Pitch</a> &amp;pitch2) noexcept</td></tr>
+<tr class="memdesc:ae83b56334b06cda4cb48ebe5ad2492ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an interval from the distance between two pitch objects.  <a href="classlemons_1_1music_1_1_interval.html#ae83b56334b06cda4cb48ebe5ad2492ea">More...</a><br /></td></tr>
 <tr class="separator:ae83b56334b06cda4cb48ebe5ad2492ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a570e6d763e3e3a83fc10aa2410589666"><td class="memItemLeft" align="right" valign="top">static constexpr <a class="el" href="classlemons_1_1music_1_1_interval.html">Interval</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1music_1_1_interval.html#a570e6d763e3e3a83fc10aa2410589666">fromPitches</a> (int midiPitch1, int midiPitch2) noexcept</td></tr>
+<tr class="memdesc:a570e6d763e3e3a83fc10aa2410589666"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an interval from the distance between two MIDI pitches.  <a href="classlemons_1_1music_1_1_interval.html#a570e6d763e3e3a83fc10aa2410589666">More...</a><br /></td></tr>
 <tr class="separator:a570e6d763e3e3a83fc10aa2410589666"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abc4344f1b007891873711a39ccb12dd0"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classlemons_1_1music_1_1_interval.html">Interval</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1music_1_1_interval.html#abc4344f1b007891873711a39ccb12dd0">fromStringDescription</a> (const String &amp;string)</td></tr>
+<tr class="memdesc:abc4344f1b007891873711a39ccb12dd0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an interval from a string description of one.  <a href="classlemons_1_1music_1_1_interval.html#abc4344f1b007891873711a39ccb12dd0">More...</a><br /></td></tr>
 <tr class="separator:abc4344f1b007891873711a39ccb12dd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Enumeration Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p >A class that represents a musical interval between two pitches. </p>
+<p >This class is meant for intervals that are an octave or smaller, and that can be expressed as a whole number of semitones. </p>
+</div><h2 class="groupheader">Member Enumeration Documentation</h2>
 <a id="a5a677d72fb8a097e3f341402120a7d7c" name="a5a677d72fb8a097e3f341402120a7d7c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5a677d72fb8a097e3f341402120a7d7c">&#9670;&nbsp;</a></span>Quality</h2>
 
@@ -171,6 +204,9 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Describes the quality of the interval. </p>
+<p >Note that not all possible quality values are valid for every possible interval type; a "major fifth" or a "perfect third" do not exist. </p>
 <table class="fieldtable">
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a5a677d72fb8a097e3f341402120a7d7ca539ef79c5675bdcd6fead7bc93643d98" name="a5a677d72fb8a097e3f341402120a7d7ca539ef79c5675bdcd6fead7bc93643d98"></a>Diminished&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a5a677d72fb8a097e3f341402120a7d7ca6fed0c378a4b4e8c1e7dc5c16dabb388" name="a5a677d72fb8a097e3f341402120a7d7ca6fed0c378a4b4e8c1e7dc5c16dabb388"></a>Minor&#160;</td><td class="fielddoc"></td></tr>
@@ -205,7 +241,7 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>creates an interval representing a perfect unison </p>
+<p>Creates an interval representing a perfect unison. </p>
 
 </div>
 </div>
@@ -243,6 +279,15 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Creates an interval with a specified kind and quality. </p>
+<p >If the kind or quality parameters are invalid, an assertion will be thrown. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">kindToUse</td><td>The kind of interval to create &ndash; 0 for unison, 2 for second, 3 for third, etc. Note that 1 is not a valid value, and values greater than 8 will be reduced to their equivalent intervals that are within one octave (ie, using the modulus operator). </td></tr>
+    <tr><td class="paramname">qualityToUse</td><td>The quality of interval to create. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="ae85b3e18ffeb6f1f998c3829505818d0" name="ae85b3e18ffeb6f1f998c3829505818d0"></a>
@@ -268,6 +313,8 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Copy constructor. </p>
 
 </div>
 </div>
@@ -295,6 +342,9 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Creates an interval from a number of semitones. </p>
+<p >This uses reasonable defaults, always preferring major, minor, or perfect intervals when available instead of augmented or diminished. </p>
 
 <p class="reference">References <a class="el" href="group__lemons__math.html#gac5b886632a7eb216bae2a8423403105d">lemons::math::abs()</a>.</p>
 
@@ -334,6 +384,8 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Creates an interval from the distance between two pitch objects. </p>
+
 </div>
 </div>
 <a id="a570e6d763e3e3a83fc10aa2410589666" name="a570e6d763e3e3a83fc10aa2410589666"></a>
@@ -370,6 +422,8 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Creates an interval from the distance between two MIDI pitches. </p>
+
 </div>
 </div>
 <a id="abc4344f1b007891873711a39ccb12dd0" name="abc4344f1b007891873711a39ccb12dd0"></a>
@@ -396,6 +450,9 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Creates an interval from a string description of one. </p>
+<p >The passed string can be a long or short description. </p>
+
 </div>
 </div>
 <a id="aa5487fb09be98d97a4754baa98f34ef9" name="aa5487fb09be98d97a4754baa98f34ef9"></a>
@@ -421,6 +478,8 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Returns the number of cents this interval represents in equal temperament. </p>
+
 <p class="reference">References <a class="el" href="classlemons_1_1music_1_1_interval.html#af6ad03bd4aea9c5d8f398abb9f03524e">getNumSemitones()</a>.</p>
 
 </div>
@@ -439,6 +498,8 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns an array of possible cents values this interval can represent in just intonation, taking enharmonic spelling into account. </p>
 
 <p class="reference">References <a class="el" href="classlemons_1_1music_1_1_interval.html#a5a677d72fb8a097e3f341402120a7d7ca3b329734e45b57e60f3df64c2cf412a9">Major</a>.</p>
 
@@ -467,6 +528,9 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Returns the interval that is the inverse of this one, taking enharmonic spellings into account. </p>
+<p >An interval and its inverse add together to form a perfect octave &ndash; for example, a major second's inverse is a minor seventh, a perfect fourth's inverse is a perfect fifth, etc. </p>
+
 <p class="reference">References <a class="el" href="classlemons_1_1music_1_1_interval.html#a5a677d72fb8a097e3f341402120a7d7cab45f39670f767b2c62c8d6b211cbcb1a">Augmented</a>, <a class="el" href="classlemons_1_1music_1_1_interval.html#a5a677d72fb8a097e3f341402120a7d7ca539ef79c5675bdcd6fead7bc93643d98">Diminished</a>, <a class="el" href="classlemons_1_1music_1_1_interval.html#af6ad03bd4aea9c5d8f398abb9f03524e">getNumSemitones()</a>, <a class="el" href="classlemons_1_1music_1_1_interval.html#a5a677d72fb8a097e3f341402120a7d7ca3b329734e45b57e60f3df64c2cf412a9">Major</a>, <a class="el" href="classlemons_1_1music_1_1_interval.html#a5a677d72fb8a097e3f341402120a7d7ca6fed0c378a4b4e8c1e7dc5c16dabb388">Minor</a>, and <a class="el" href="classlemons_1_1music_1_1_interval.html#a5a677d72fb8a097e3f341402120a7d7ca56cdd7e9e3cef1974f4075c03a80332d">Perfect</a>.</p>
 
 </div>
@@ -494,6 +558,9 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Returns the kind of this interval as an integer. </p>
+<p >0 represents unison, 2 is a second, 3 is a third, etc. </p>
+
 </div>
 </div>
 <a id="ada7f9a356b4e9179cfe7264c60f51cfa" name="ada7f9a356b4e9179cfe7264c60f51cfa"></a>
@@ -510,6 +577,8 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns a string description of this interval's kind. </p>
 
 </div>
 </div>
@@ -535,6 +604,8 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Returns the number of semitones that this interval represents. </p>
 
 <p class="reference">References <a class="el" href="classlemons_1_1music_1_1_interval.html#a5a677d72fb8a097e3f341402120a7d7cab45f39670f767b2c62c8d6b211cbcb1a">Augmented</a>, <a class="el" href="classlemons_1_1music_1_1_interval.html#a5a677d72fb8a097e3f341402120a7d7ca539ef79c5675bdcd6fead7bc93643d98">Diminished</a>, <a class="el" href="classlemons_1_1music_1_1_interval.html#a5a677d72fb8a097e3f341402120a7d7ca3b329734e45b57e60f3df64c2cf412a9">Major</a>, <a class="el" href="classlemons_1_1music_1_1_interval.html#a5a677d72fb8a097e3f341402120a7d7ca6fed0c378a4b4e8c1e7dc5c16dabb388">Minor</a>, and <a class="el" href="classlemons_1_1music_1_1_interval.html#a5a677d72fb8a097e3f341402120a7d7ca56cdd7e9e3cef1974f4075c03a80332d">Perfect</a>.</p>
 
@@ -565,6 +636,8 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Returns the quality of this interval. </p>
+
 </div>
 </div>
 <a id="a3839ca984d9d2869bb59611aace0960d" name="a3839ca984d9d2869bb59611aace0960d"></a>
@@ -583,6 +656,8 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Returns a string description of this interval's quality. </p>
+
 </div>
 </div>
 <a id="adbd35e502795bea50157d29ac5f48fc6" name="adbd35e502795bea50157d29ac5f48fc6"></a>
@@ -600,6 +675,14 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns a string description of this interval. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">useShort</td><td>When true, a shorthand version of the description will be returned &ndash; for example, "M2" instead of "Major second", etc. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -627,6 +710,8 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Returns true if the two intervals represent the same number of semitones, regardless of their enharmonic spelling. </p>
+
 </div>
 </div>
 <a id="a5238d6e26c644de55ab6e93f3e241320" name="a5238d6e26c644de55ab6e93f3e241320"></a>
@@ -652,6 +737,9 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Returns true if the two intervals are not exactly equal. </p>
+<p >Note that this will return true for intervals that represent the same number of semitones but are spelled differently. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="classlemons_1_1music_1_1_interval.html#ad898ca6032695ea0735ae32d55f25f1c" title="Returns true if the two intervals represent the same number of semitones, regardless of their enharmo...">isEnharmonicTo()</a> </dd></dl>
 
 </div>
 </div>
@@ -679,6 +767,9 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Adds another interval object to this one. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classlemons_1_1music_1_1_interval.html#a832306708859de4ef18a806ea8808be8" title="Creates an interval from a number of semitones.">fromNumSemitones()</a> </dd></dl>
+
 </div>
 </div>
 <a id="a08712bee8630c572a57fea048c664946" name="a08712bee8630c572a57fea048c664946"></a>
@@ -705,6 +796,9 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Adds a number of semitones to this interval. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classlemons_1_1music_1_1_interval.html#a832306708859de4ef18a806ea8808be8" title="Creates an interval from a number of semitones.">fromNumSemitones()</a> </dd></dl>
+
 </div>
 </div>
 <a id="a2feda0a376d800bf6ee9cdb510cc209e" name="a2feda0a376d800bf6ee9cdb510cc209e"></a>
@@ -729,6 +823,9 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Increments this interval by one semitone, preserving the kind by manipulating the quality where possible. </p>
+<p >For example, a major second will increment to an augmented second, rather than a minor third. </p>
 
 <p class="reference">References <a class="el" href="classlemons_1_1music_1_1_interval.html#a5a677d72fb8a097e3f341402120a7d7cab45f39670f767b2c62c8d6b211cbcb1a">Augmented</a>, <a class="el" href="classlemons_1_1music_1_1_interval.html#a5a677d72fb8a097e3f341402120a7d7ca539ef79c5675bdcd6fead7bc93643d98">Diminished</a>, <a class="el" href="classlemons_1_1music_1_1_interval.html#a5a677d72fb8a097e3f341402120a7d7ca3b329734e45b57e60f3df64c2cf412a9">Major</a>, <a class="el" href="classlemons_1_1music_1_1_interval.html#a5a677d72fb8a097e3f341402120a7d7ca6fed0c378a4b4e8c1e7dc5c16dabb388">Minor</a>, and <a class="el" href="classlemons_1_1music_1_1_interval.html#a5a677d72fb8a097e3f341402120a7d7ca56cdd7e9e3cef1974f4075c03a80332d">Perfect</a>.</p>
 
@@ -758,6 +855,9 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Subtracts another interval object from this one. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classlemons_1_1music_1_1_interval.html#a832306708859de4ef18a806ea8808be8" title="Creates an interval from a number of semitones.">fromNumSemitones()</a> </dd></dl>
+
 </div>
 </div>
 <a id="a50d8a623d9e1948be8e12b15b91666e4" name="a50d8a623d9e1948be8e12b15b91666e4"></a>
@@ -784,6 +884,9 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Subtracts a number of semitones from this interval. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classlemons_1_1music_1_1_interval.html#a832306708859de4ef18a806ea8808be8" title="Creates an interval from a number of semitones.">fromNumSemitones()</a> </dd></dl>
+
 </div>
 </div>
 <a id="a132de3cf6616aa933634f899726f0fd5" name="a132de3cf6616aa933634f899726f0fd5"></a>
@@ -808,6 +911,9 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Decrements this interval by one semitone, preserving the kind by manipulating the quality where possible. </p>
+<p >For example, a minor second will decrement to a diminished second, rather than a perfect unison. </p>
 
 <p class="reference">References <a class="el" href="classlemons_1_1music_1_1_interval.html#a5a677d72fb8a097e3f341402120a7d7cab45f39670f767b2c62c8d6b211cbcb1a">Augmented</a>, <a class="el" href="classlemons_1_1music_1_1_interval.html#a5a677d72fb8a097e3f341402120a7d7ca539ef79c5675bdcd6fead7bc93643d98">Diminished</a>, <a class="el" href="classlemons_1_1music_1_1_interval.html#a5a677d72fb8a097e3f341402120a7d7ca3b329734e45b57e60f3df64c2cf412a9">Major</a>, <a class="el" href="classlemons_1_1music_1_1_interval.html#a5a677d72fb8a097e3f341402120a7d7ca6fed0c378a4b4e8c1e7dc5c16dabb388">Minor</a>, and <a class="el" href="classlemons_1_1music_1_1_interval.html#a5a677d72fb8a097e3f341402120a7d7ca56cdd7e9e3cef1974f4075c03a80332d">Perfect</a>.</p>
 
@@ -837,6 +943,9 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Returns true if this interval is semantically smaller than the other one, taking enharmonic spellings into account. </p>
+<p >For example, this will tell you that an augmented fourth is "smaller" than a diminished fifth. </p>
+
 </div>
 </div>
 <a id="a3c495a4b5bfba0f0636e3a7880f90a8d" name="a3c495a4b5bfba0f0636e3a7880f90a8d"></a>
@@ -862,6 +971,9 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Returns true if the two intervals are exactly equal &ndash; that is, have the same kind and quality. </p>
+<p >Note that this will return false for intervals that represent the same number of semitones but are spelled differently. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="classlemons_1_1music_1_1_interval.html#ad898ca6032695ea0735ae32d55f25f1c" title="Returns true if the two intervals represent the same number of semitones, regardless of their enharmo...">isEnharmonicTo()</a> </dd></dl>
 
 </div>
 </div>
@@ -889,6 +1001,9 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Returns true if this interval is semantically larger than the other one, taking enharmonic spellings into account. </p>
+<p >For example, this will tell you that a diminished fifth is "larger" than an augmented fourth. </p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
@@ -898,7 +1013,7 @@ Static Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Feb 8 2022 00:49:27 for Lemons by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3
+Generated on Tue Feb 8 2022 01:35:41 for Lemons by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3
 </small></address>
 </body>
 </html>
