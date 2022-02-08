@@ -43,13 +43,12 @@ bool Scale::containsPitch (const Pitch& pitch) const
 
 bool Scale::containsPitch (int midiNoteNumber) const
 {
-	return containsPitchClass (midiNoteNumber);
+	const PitchClass pc { midiNoteNumber };
+	return containsPitchClass (pc);
 }
 
-bool Scale::containsPitchClass (int pitchClass) const
+bool Scale::containsPitchClass (const PitchClass& pitchClass) const
 {
-	pitchClass = makeValidPitchClass (pitchClass);
-
 	const auto root = getPitchClassOfRoot();
 
 	return alg::contains_if (getIntervalsAsSemitones(),
@@ -57,13 +56,17 @@ bool Scale::containsPitchClass (int pitchClass) const
 							 { return pitchClass == makeValidPitchClass (root + interval); });
 }
 
-juce::Array<int> Scale::getPitchClasses() const
+juce::Array<PitchClass> Scale::getPitchClasses() const
 {
-	juce::Array<int> pitchClasses;
+	juce::Array<PitchClass> pitchClasses;
 
-	for (auto i = 0; i <= 11; ++i)
-		if (containsPitchClass (i))
-			pitchClasses.add (i);
+	for (auto i = 0; i <= notesPerOctave(); ++i)
+	{
+		const PitchClass pc { i };
+
+		if (containsPitchClass (pc))
+			pitchClasses.add (pc);
+	}
 
 	return pitchClasses;
 }
@@ -131,17 +134,17 @@ Pitch Scale::getRoot (int octaveNumber) const noexcept
 
 String Scale::getRootAsString() const noexcept
 {
-	return pitchClassToString (getPitchClassOfRoot());
+	return getPitchClassOfRoot().getAsString();
 }
 
-int Scale::getPitchClassOfScaleDegree (int scaleDegree) const noexcept
+PitchClass Scale::getPitchClassOfScaleDegree (int scaleDegree) const noexcept
 {
-	return makeValidPitchClass (getPitchClassOfRoot() + (scaleDegree % notesPerOctave()));
+	return PitchClass { scaleDegree % notesPerOctave() };
 }
 
 String Scale::getScaleDegreeAsString (int scaleDegree) const noexcept
 {
-	return pitchClassToString (getPitchClassOfScaleDegree (scaleDegree));
+	return getPitchClassOfScaleDegree (scaleDegree).getAsString();
 }
 
 }  // namespace lemons::music::scales

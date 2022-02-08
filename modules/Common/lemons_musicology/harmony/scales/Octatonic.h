@@ -26,11 +26,20 @@ class Octatonic final : public Scale
 public:
 
 	/** Creates an octatonic scale object.
-		@param pitchClassToStartOn The pitch class of the root of this scale, as an integer between 0 and 11.
+		@param pitchClassToStartOn The pitch class of the root of this scale.
 		@param startWithSemitone True if this scale should start with a half step; otherwise, it will start with a whole step.
 	 */
-	constexpr explicit Octatonic (int pitchClassToStartOn, bool startWithSemitone) noexcept
-		: startWithHalfStep (startWithSemitone), pitchClassOfRoot (makeValidPitchClass (pitchClassToStartOn))
+	constexpr explicit Octatonic (const PitchClass& pitchClassToStartOn, bool startWithSemitone) noexcept
+		: startWithHalfStep (startWithSemitone), pitchClassOfRoot (pitchClassToStartOn)
+	{
+	}
+
+	/** Creates an octatonic scale object.
+		@param noteToStartOn The MIDI note to start on.
+		@param startWithSemitone True if this scale should start with a half step; otherwise, it will start with a whole step.
+	 */
+	constexpr explicit Octatonic (int noteToStartOn, bool startWithSemitone) noexcept
+		: startWithHalfStep (startWithSemitone), pitchClassOfRoot (noteToStartOn)
 	{
 	}
 
@@ -56,7 +65,7 @@ public:
 	[[nodiscard]] juce::Array<int> getIntervalsAsSemitones() const final;
 
 	/** Returns the pitch class of the root of this scale. */
-	[[nodiscard]] int getPitchClassOfRoot() const noexcept final;
+	[[nodiscard]] PitchClass getPitchClassOfRoot() const noexcept final;
 
 	/** Returns true if this octatonic scale starts with a half step. */
 	[[nodiscard]] constexpr bool startsWithHalfStep() const noexcept
@@ -76,7 +85,7 @@ private:
 
 	const bool startWithHalfStep { true };
 
-	const int pitchClassOfRoot { 0 };
+	const PitchClass pitchClassOfRoot { 0 };
 };
 
 }  // namespace lemons::music::scales

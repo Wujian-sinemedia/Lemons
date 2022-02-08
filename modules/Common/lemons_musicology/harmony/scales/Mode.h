@@ -37,8 +37,14 @@ public:
 	};
 
 	/** Creates a modal scale object with the given type and root. */
-	constexpr explicit Mode (Type typeToUse, int pitchClassOfRoot) noexcept
-		: type (typeToUse), rootPitchClass (makeValidPitchClass (pitchClassOfRoot))
+	constexpr explicit Mode (Type typeToUse, const PitchClass& pitchClassOfRoot) noexcept
+		: type (typeToUse), rootPitchClass (pitchClassOfRoot)
+	{
+	}
+
+	/** Creates a modal scale of the given type, starting on the given MIDI note. */
+	constexpr explicit Mode (Type typeToUse, int rootNote) noexcept
+		: type (typeToUse), rootPitchClass (rootNote)
 	{
 	}
 
@@ -69,7 +75,7 @@ public:
 	[[nodiscard]] juce::Array<int> getIntervalsAsSemitones() const final;
 
 	/** Returns the pitch class of the root of this mode. */
-	[[nodiscard]] int getPitchClassOfRoot() const noexcept final;
+	[[nodiscard]] PitchClass getPitchClassOfRoot() const noexcept final;
 
 	/** Returns a string description of this mode, for example, "E lydian". */
 	[[nodiscard]] String getStringDescription() const final;
@@ -87,7 +93,7 @@ private:
 
 	const Type type { Type::Ionian };
 
-	const int rootPitchClass { 0 };
+	const PitchClass rootPitchClass { 0 };
 };
 
 }  // namespace lemons::music::scales

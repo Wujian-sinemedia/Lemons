@@ -48,16 +48,30 @@ public:
 	/** Creates a key signature with a given root.
 		@param typeToUse The type of this key signature.
 		@param isSharps If true, sharps will be used; otherwise, flats will be used.
-		@param pitchClassOfRoot The pitch class of the scale's root, as an integer between 0 and 11.
+		@param rootNote The MIDI pitch of the scale's root note.
 	 */
-	constexpr explicit KeySignature (Type typeToUse, bool isSharps, int pitchClassOfRoot) noexcept;
+	constexpr explicit KeySignature (Type typeToUse, bool isSharps, int rootNote) noexcept;
+
+	/** Creates a key signature with a given root.
+		@param typeToUse The type of this key signature.
+		@param isSharps If true, sharps will be used; otherwise, flats will be used.
+		@param pitchClassOfRoot The pitch class of the scale's root.
+	 */
+	constexpr explicit KeySignature (Type typeToUse, bool isSharps, const PitchClass& pitchClassOfRoot) noexcept;
+
+	/** Creates a key signature with a given root.
+		This constructor infers whether to use sharps or flats based on the root and type.
+		@param typeToUse The type of this key signature.
+		@param rootPitch The MIDI pitch of the scale's root.
+	 */
+	constexpr explicit KeySignature (Type typeToUse, int rootPitch) noexcept;
 
 	/** Creates a key signature with a given root.
 		This constructor infers whether to use sharps or flats based on the root and type.
 		@param typeToUse The type of this key signature.
 		@param pitchClassOfRoot The pitch class of the scale's root, as an integer between 0 and 11.
 	 */
-	constexpr explicit KeySignature (Type typeToUse, int pitchClassOfRoot) noexcept;
+	constexpr explicit KeySignature (Type typeToUse, const PitchClass& pitchClassOfRoot) noexcept;
 
 	/** Creates a key signature object from a string description of one.
 		@see getStringDescription()
@@ -127,7 +141,7 @@ public:
 	[[nodiscard]] String getStringDescription() const final;
 
 	/** Returns the pitch class of this scale's root. */
-	[[nodiscard]] int getPitchClassOfRoot() const noexcept final;
+	[[nodiscard]] PitchClass getPitchClassOfRoot() const noexcept final;
 
 	/** If this key is spelled with sharps, this returns the number of sharps in the key. Otherwise this returns 0. */
 	[[nodiscard]] constexpr int getNumSharps() const noexcept;
@@ -146,7 +160,7 @@ public:
 
 private:
 
-	[[nodiscard]] static constexpr bool useSharpsForRootByDefault (int root) noexcept;
+	[[nodiscard]] static constexpr bool useSharpsForRootByDefault (const PitchClass& root) noexcept;
 
 	[[nodiscard]] static constexpr bool rootHasEnharmonicKey (int root) noexcept;
 

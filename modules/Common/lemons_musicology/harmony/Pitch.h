@@ -90,7 +90,7 @@ public:
 	/** Returns this pitch object's pitch class as an integer from 0 to 11, with 0 being C and 11 being B.
 		@see makeValidPitchClass()
 	 */
-	[[nodiscard]] int getPitchClass() const noexcept;
+	[[nodiscard]] PitchClass getPitchClass() const noexcept;
 
 	/** Returns this pitch object's MIDI octave number.
 		@see octaveNumberOfMidiNote()

@@ -18,17 +18,20 @@
 namespace lemons::music::scales
 {
 
-constexpr KeySignature::KeySignature (Type typeToUse, bool isSharps, int pitchClassOfRoot) noexcept
+constexpr KeySignature::KeySignature (Type typeToUse, bool isSharps, int rootNote) noexcept
+	: KeySignature (typeToUse, isSharps, PitchClass { rootNote })
+{
+}
+
+constexpr KeySignature::KeySignature (Type typeToUse, bool isSharps, const PitchClass& pitchClassOfRoot) noexcept
 	: type (typeToUse), isFlat (! isSharps)
 {
-	pitchClassOfRoot = makeValidPitchClass (pitchClassOfRoot);
-
 	struct MajorMinorPair final
 	{
 		int numMajorAccidentals, numMinorAccidentals;
 	};
 
-	const auto pair = [root = pitchClassOfRoot, flat = isFlat]() -> MajorMinorPair
+	const auto pair = [root = pitchClassOfRoot.getAsInt(), flat = isFlat]() -> MajorMinorPair
 	{
 		if (flat)
 		{
@@ -76,14 +79,21 @@ constexpr KeySignature::KeySignature (Type typeToUse, bool isSharps, int pitchCl
 	jassert (numAccidentals >= 0 && numAccidentals <= 7);
 }
 
-constexpr KeySignature::KeySignature (Type typeToUse, int pitchClassOfRoot) noexcept
+constexpr KeySignature::KeySignature (Type typeToUse, int rootPitch) noexcept
+	: KeySignature (typeToUse, PitchClass { rootPitch })
+{
+}
+
+constexpr KeySignature::KeySignature (Type typeToUse, const PitchClass& pitchClassOfRoot) noexcept
 	: KeySignature (typeToUse, useSharpsForRootByDefault (pitchClassOfRoot), pitchClassOfRoot)
 {
 }
 
-constexpr bool KeySignature::useSharpsForRootByDefault (int root) noexcept
+constexpr bool KeySignature::useSharpsForRootByDefault (const PitchClass& root) noexcept
 {
-	return root == 2 || root == 4 || root == 7 || root == 9 || root == 11;
+	const auto r = root.getAsInt();
+
+	return r == 2 || r == 4 || r == 7 || r == 9 || r == 11;
 }
 
 constexpr KeySignature::KeySignature() noexcept

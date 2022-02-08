@@ -23,7 +23,7 @@ bool Chromatic::operator== (const Chromatic& other) const
 
 bool Chromatic::operator!= (const Chromatic& other) const
 {
-	return ! (*this == other);
+	return startingPitchClass != other.startingPitchClass;
 }
 
 juce::Array<int> Chromatic::getIntervalsAsSemitones() const
@@ -36,14 +36,14 @@ juce::Array<int> Chromatic::getIntervalsAsSemitones() const
 	return intervals;
 }
 
-int Chromatic::getPitchClassOfRoot() const noexcept
+PitchClass Chromatic::getPitchClassOfRoot() const noexcept
 {
 	return startingPitchClass;
 }
 
 String Chromatic::getStringDescription() const
 {
-	return pitchClassToString (startingPitchClass) + " " + TRANS ("chromatic");
+	return startingPitchClass.getAsString() + " " + TRANS ("chromatic");
 }
 
 int Chromatic::notesPerOctave() const noexcept
@@ -53,9 +53,9 @@ int Chromatic::notesPerOctave() const noexcept
 
 Chromatic Chromatic::fromStringDescription (const String& string)
 {
-	const auto rootString = string.upToFirstOccurrenceOf (TRANS ("chromatic"), false, true).trim();
+	const PitchClass pc { string.upToFirstOccurrenceOf (TRANS ("chromatic"), false, true).trim() };
 
-	return Chromatic { stringToPitchClass (rootString) };
+	return Chromatic { pc };
 }
 
 }  // namespace lemons::music::scales

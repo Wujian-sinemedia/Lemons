@@ -25,9 +25,15 @@ class Chromatic final : public Scale
 {
 public:
 
+	/** Creates a chromatic scale that starts on the specified MIDI pitch. */
+	constexpr explicit Chromatic (int noteToStartOn) noexcept
+		: startingPitchClass (noteToStartOn)
+	{
+	}
+
 	/** Creates a chromatic scale that starts on the specified pitch class. */
-	constexpr explicit Chromatic (int pitchClassToStartOn) noexcept
-		: startingPitchClass (makeValidPitchClass (pitchClassToStartOn))
+	constexpr explicit Chromatic (const PitchClass& pitchClass) noexcept
+		: startingPitchClass (pitchClass)
 	{
 	}
 
@@ -52,7 +58,7 @@ public:
 	[[nodiscard]] juce::Array<int> getIntervalsAsSemitones() const final;
 
 	/** Returns the pitch class that this chromatic scale starts on. */
-	[[nodiscard]] int getPitchClassOfRoot() const noexcept final;
+	[[nodiscard]] PitchClass getPitchClassOfRoot() const noexcept final;
 
 	/** Returns a string description of this scale, for example, "C chromatic". */
 	[[nodiscard]] String getStringDescription() const final;
@@ -62,7 +68,7 @@ public:
 
 private:
 
-	const int startingPitchClass { 0 };
+	const PitchClass startingPitchClass { 0 };
 };
 
 }  // namespace lemons::music::scales

@@ -45,19 +45,18 @@ struct Scale
 	[[nodiscard]] juce::Array<Interval> getIntervals() const;
 
 	/** Returns true if this scale contains the passed pitch class.
-		@param pitchClass A pitch class integer, from 0 to 11.
 	 */
-	[[nodiscard]] bool containsPitchClass (int pitchClass) const;
+	[[nodiscard]] bool containsPitchClass (const PitchClass& pitchClass) const;
 
 	/** Returns true if this scale contains the passed pitch. */
 	[[nodiscard]] bool containsPitch (const Pitch& pitch) const;
 
-	/** Returns true if this scale contains the passed pitch. */
+	/** Returns true if this scale contains the passed MIDI note number. */
 	[[nodiscard]] bool containsPitch (int midiNoteNumber) const;
 
-	/** Returns an array of integers representing the pitch classes in this scale.
+	/** Returns the pitch classes present in one octave of this scale.
 	 */
-	[[nodiscard]] juce::Array<int> getPitchClasses() const;
+	[[nodiscard]] juce::Array<PitchClass> getPitchClasses() const;
 
 	/** Returns an array of pitch objects representing one octave of this scale, at the given octave number.
 		@param octaveNumber The MIDI octave number to produce pitches for.
@@ -68,9 +67,9 @@ struct Scale
 	 */
 	[[nodiscard]] juce::Array<Pitch> getPitches (int lowestMidiNote, int highestMidiNote) const;
 
-	/** Subclasses must implement this to return the pitch class of the root (or tonic) note of the scale as an integer between 0 and 11, with 0 being C and 11 being B.
+	/** Subclasses must implement this to return the pitch class of the root (or tonic) note of the scale.
 	 */
-	[[nodiscard]] virtual int getPitchClassOfRoot() const noexcept = 0;
+	[[nodiscard]] virtual PitchClass getPitchClassOfRoot() const noexcept = 0;
 
 	/** Returns a pitch object representing the root of this scale in the specified MIDI octave number. */
 	[[nodiscard]] Pitch getRoot (int octaveNumber) const noexcept;
@@ -89,7 +88,7 @@ struct Scale
 	/** Returns the pitch class of a given scale degree.
 		If the passed scale degree is greater than the value returned by notesPerOctave(), it will be truncated using the modulus operator.
 	 */
-	[[nodiscard]] int getPitchClassOfScaleDegree (int scaleDegree) const noexcept;
+	[[nodiscard]] PitchClass getPitchClassOfScaleDegree (int scaleDegree) const noexcept;
 
 	/** Returns a string representation of the pitch at a given scale degree.
 		@see getPitchClassOfScaleDegree(), pitchClassToString()

@@ -31,74 +31,13 @@ const juce_wchar getNaturalSymbol() noexcept
 	return *juce::CharPointer_UTF8 ("\xe2\x99\xae");
 }
 
-int stringToPitchClass (const String& string) noexcept
-{
-	jassert (! string.isEmpty());
-
-	const auto pitchClassTokens = juce::String ("abcdefg#") + getSharpSymbol() + getFlatSymbol() + getNaturalSymbol();
-	const auto pitchClassName	= string.toLowerCase().retainCharacters (pitchClassTokens);
-
-	const auto numChars = pitchClassName.length();
-
-	auto pitchClass = [numChars, &pitchClassName]()
-	{
-		if (numChars > 0)
-		{
-			const auto base = pitchClassName.toLowerCase()[0];
-
-			switch (base)
-			{
-				case 'c' : return 0;
-				case 'd' : return 2;
-				case 'e' : return 4;
-				case 'f' : return 5;
-				case 'g' : return 7;
-				case 'a' : return 9;
-				case 'b' : return 11;
-			}
-		}
-
-		return -1;
-	}();
-
-	if (numChars > 1 && pitchClass >= 0)
-	{
-		const auto sharpOrFlat = pitchClassName[1];
-
-		if (sharpOrFlat == getSharpSymbol() || sharpOrFlat == '#')
-			++pitchClass;
-		else if (sharpOrFlat == getFlatSymbol() || sharpOrFlat == 'b')
-			--pitchClass;
-	}
-
-	return makeValidPitchClass (pitchClass);
-}
-
-
-static const char* const sharpNoteNames[] = {
-	"C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"
-};
-
-static const char* const flatNoteNames[] = {
-	"C", "Db", "D", "Eb", "E", "F", "Gb", "G", "Ab", "A", "Bb", "B"
-};
-
-String pitchClassToString (int pitchClass, bool asSharps) noexcept
-{
-	pitchClass = makeValidPitchClass (pitchClass);
-
-	if (asSharps)
-		return sharpNoteNames[pitchClass];
-
-	return flatNoteNames[pitchClass];
-}
-
-
 String pitchToString (int midiNoteNumber, bool asSharps) noexcept
 {
 	jassert (midiNoteNumber >= 0 && midiNoteNumber <= 127);
 
-	const auto noteName = pitchClassToString (makeValidPitchClass (midiNoteNumber), asSharps);
+	const PitchClass pitchClass { midiNoteNumber };
+
+	const auto noteName = pitchClass.getAsString (asSharps);
 
 	const auto octave = octaveNumberOfMidiNote (midiNoteNumber);
 
@@ -109,14 +48,13 @@ int stringToPitch (const String& string) noexcept
 {
 	jassert (! string.isEmpty());
 
-	const auto pitchClass = stringToPitchClass (string);
+	const PitchClass pitchClass { string };
 
-	if (! isValidPitchClass (pitchClass))
-		return -1;
+	const auto pitchClassInt = pitchClass.getAsInt();
 
 	const auto octave = string.retainCharacters ("0123456789").getIntValue();
 
-	return (octave * 12) + pitchClass + 12;
+	return (octave * 12) + pitchClassInt + 12;
 }
 
 

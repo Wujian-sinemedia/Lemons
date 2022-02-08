@@ -45,7 +45,7 @@ juce::Array<int> Octatonic::getIntervalsAsSemitones() const
 	return intervals;
 }
 
-int Octatonic::getPitchClassOfRoot() const noexcept
+PitchClass Octatonic::getPitchClassOfRoot() const noexcept
 {
 	return pitchClassOfRoot;
 }
@@ -60,7 +60,7 @@ String Octatonic::getStringDescription() const
 		return TRANS ("whole/half");
 	}();
 
-	return pitchClassToString (pitchClassOfRoot) + " " + kindString + " " + TRANS ("octatonic");
+	return pitchClassOfRoot.getAsString() + " " + kindString + " " + TRANS ("octatonic");
 }
 
 int Octatonic::notesPerOctave() const noexcept
@@ -72,9 +72,9 @@ Octatonic Octatonic::fromStringDescription (const String& string)
 {
 	const auto halfWhole = string.containsIgnoreCase (TRANS ("half/whole"));
 
-	const auto rootString = string.upToFirstOccurrenceOf (" ", false, false).trim();
+	const PitchClass pc { string.upToFirstOccurrenceOf (" ", false, false).trim() };
 
-	return Octatonic { stringToPitchClass (rootString), halfWhole };
+	return Octatonic { pc, halfWhole };
 }
 
 }  // namespace lemons::music::scales

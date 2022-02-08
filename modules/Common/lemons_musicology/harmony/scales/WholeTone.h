@@ -26,8 +26,14 @@ class WholeTone final : public Scale
 public:
 
 	/** Creates a whole tone scale object with the given pitch class as its root. */
-	constexpr explicit WholeTone (int pitchClassOfRoot) noexcept
-		: startingPitchClass (makeValidPitchClass (pitchClassOfRoot))
+	constexpr explicit WholeTone (const PitchClass& pitchClassOfRoot) noexcept
+		: startingPitchClass (pitchClassOfRoot)
+	{
+	}
+
+	/** Creates a whole tone scale starting on the given MIDI note. */
+	constexpr explicit WholeTone (int rootNote) noexcept
+		: startingPitchClass (rootNote)
 	{
 	}
 
@@ -52,7 +58,7 @@ public:
 	[[nodiscard]] juce::Array<int> getIntervalsAsSemitones() const final;
 
 	/** Returns the pitch class of the root of this scale. */
-	[[nodiscard]] int getPitchClassOfRoot() const noexcept final;
+	[[nodiscard]] PitchClass getPitchClassOfRoot() const noexcept final;
 
 	/** Returns a string description of this scale, for example, "C# whole tone".
 		@see fromStringDescription()
@@ -64,7 +70,7 @@ public:
 
 private:
 
-	const int startingPitchClass { 0 };
+	const PitchClass startingPitchClass { 0 };
 };
 
 }  // namespace lemons::music::scales

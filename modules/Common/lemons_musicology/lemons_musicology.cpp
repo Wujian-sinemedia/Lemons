@@ -18,6 +18,7 @@
 
 #include "util/StringFunctions.cpp"
 
+#include "harmony/PitchClass.cpp"
 #include "harmony/Pitch.cpp"
 #include "harmony/Interval.cpp"
 
@@ -34,4 +35,5 @@
 
 #if LEMONS_UNIT_TESTS
 #	include "util/StringFunctions_tests.cpp"
+#	include "harmony/PitchClass_tests.cpp"
 #endif

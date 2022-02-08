@@ -23,7 +23,7 @@ bool WholeTone::operator== (const WholeTone& other) const
 
 bool WholeTone::operator!= (const WholeTone& other) const
 {
-	return ! (*this == other);
+	return startingPitchClass != other.startingPitchClass;
 }
 
 juce::Array<int> WholeTone::getIntervalsAsSemitones() const
@@ -36,14 +36,14 @@ juce::Array<int> WholeTone::getIntervalsAsSemitones() const
 	return intervals;
 }
 
-int WholeTone::getPitchClassOfRoot() const noexcept
+PitchClass WholeTone::getPitchClassOfRoot() const noexcept
 {
 	return startingPitchClass;
 }
 
 String WholeTone::getStringDescription() const
 {
-	return pitchClassToString (startingPitchClass) + TRANS (" whole tone");
+	return startingPitchClass.getAsString() + " " + TRANS ("whole tone");
 }
 
 int WholeTone::notesPerOctave() const noexcept
@@ -53,9 +53,9 @@ int WholeTone::notesPerOctave() const noexcept
 
 WholeTone WholeTone::fromStringDescription (const String& string)
 {
-	const auto rootString = string.upToFirstOccurrenceOf (TRANS ("whole tone"), false, true).trim();
+	const PitchClass pc { string.upToFirstOccurrenceOf (TRANS ("whole tone"), false, true).trim() };
 
-	return WholeTone { stringToPitchClass (rootString) };
+	return WholeTone { pc };
 }
 
 }  // namespace lemons::music::scales

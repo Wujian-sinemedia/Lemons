@@ -41,9 +41,9 @@ int Pitch::getRoundedMidiPitch() const noexcept
 	return juce::roundToInt (midiPitch);
 }
 
-int Pitch::getPitchClass() const noexcept
+PitchClass Pitch::getPitchClass() const noexcept
 {
-	return makeValidPitchClass (juce::roundToInt (midiPitch));
+	return PitchClass { juce::roundToInt (midiPitch) };
 }
 
 int Pitch::getOctaveNumber() const noexcept

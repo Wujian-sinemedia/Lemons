@@ -36,7 +36,7 @@ KeySignature KeySignature::fromStringDescription (const String& description)
 
 String KeySignature::getRootAsString() const noexcept
 {
-	return pitchClassToString (getPitchClassOfRoot(), ! isFlat);
+	return getPitchClassOfRoot().getAsString (! isFlat);
 }
 
 String KeySignature::getStringDescription() const
@@ -54,7 +54,7 @@ String KeySignature::getStringDescription() const
 
 String KeySignature::getScaleDegreeAsString (int scaleDegree) const noexcept
 {
-	return pitchClassToString (getPitchClassOfScaleDegree (scaleDegree), ! isFlat);
+	return getPitchClassOfScaleDegree (scaleDegree).getAsString (! isFlat);
 }
 
 
@@ -71,7 +71,7 @@ juce::Array<int> KeySignature::getIntervalsAsSemitones() const
 	return {};
 }
 
-int KeySignature::getPitchClassOfRoot() const noexcept
+PitchClass KeySignature::getPitchClassOfRoot() const noexcept
 {
 	struct MajorMinorPair final
 	{
@@ -114,10 +114,15 @@ int KeySignature::getPitchClassOfRoot() const noexcept
 		return { 0, 9 };
 	}();
 
-	if (type == Type::Major)
-		return pair.majorRoot;
+	const auto pitchClassInt = [&pair, t = type]
+	{
+		if (t == Type::Major)
+			return pair.majorRoot;
 
-	return pair.minorRoot;
+		return pair.minorRoot;
+	}();
+
+	return PitchClass { pitchClassInt };
 }
 
 int KeySignature::notesPerOctave() const noexcept

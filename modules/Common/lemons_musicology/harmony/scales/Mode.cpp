@@ -33,7 +33,7 @@ juce::Array<int> Mode::getIntervalsAsSemitones() const
 	return {};
 }
 
-int Mode::getPitchClassOfRoot() const noexcept
+PitchClass Mode::getPitchClassOfRoot() const noexcept
 {
 	return rootPitchClass;
 }
@@ -57,7 +57,7 @@ String Mode::getStringDescription() const
 		return String {};
 	}();
 
-	return pitchClassToString (rootPitchClass) + " " + typeString;
+	return rootPitchClass.getAsString() + " " + typeString;
 }
 
 Mode Mode::fromStringDescription (const String& description)
@@ -89,9 +89,9 @@ Mode Mode::fromStringDescription (const String& description)
 		return Type::Ionian;
 	}();
 
-	const auto root = stringToPitchClass (description.upToFirstOccurrenceOf (" ", false, false).trim());
+	const PitchClass pc { description.upToFirstOccurrenceOf (" ", false, false).trim() };
 
-	return Mode { type, root };
+	return Mode { type, pc };
 }
 
 int Mode::notesPerOctave() const noexcept
