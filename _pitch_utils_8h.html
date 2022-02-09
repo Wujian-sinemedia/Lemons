@@ -84,21 +84,15 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ac76e45d1768cca5677c1e06c123d48e2"><td class="memItemLeft" align="right" valign="top">constexpr std::array&lt; int, 7 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1music.html#ac76e45d1768cca5677c1e06c123d48e2">lemons::music::getFlatsOrder</a> ()</td></tr>
-<tr class="memdesc:ac76e45d1768cca5677c1e06c123d48e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a list of pitch class integers representing the order of the flats &ndash; B, E, A, D, G, C, F.  <a href="namespacelemons_1_1music.html#ac76e45d1768cca5677c1e06c123d48e2">More...</a><br /></td></tr>
-<tr class="separator:ac76e45d1768cca5677c1e06c123d48e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae907f6c4e808e7dcdae341052869995f"><td class="memItemLeft" align="right" valign="top">constexpr std::array&lt; int, 7 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1music.html#ae907f6c4e808e7dcdae341052869995f">lemons::music::getSharpsOrder</a> ()</td></tr>
-<tr class="memdesc:ae907f6c4e808e7dcdae341052869995f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a list of pitch class integers representing the order of the sharps &ndash; F, C, G, D, A, E, B.  <a href="namespacelemons_1_1music.html#ae907f6c4e808e7dcdae341052869995f">More...</a><br /></td></tr>
-<tr class="separator:ae907f6c4e808e7dcdae341052869995f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9e3a575c6189021177ec65315cf5e772"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1music.html#a9e3a575c6189021177ec65315cf5e772">lemons::music::isValidPitchClass</a> (int pitchClass) noexcept</td></tr>
-<tr class="memdesc:a9e3a575c6189021177ec65315cf5e772"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the passed integer is a valid representation of a pitch class.  <a href="namespacelemons_1_1music.html#a9e3a575c6189021177ec65315cf5e772">More...</a><br /></td></tr>
-<tr class="separator:a9e3a575c6189021177ec65315cf5e772"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5a54b376389197e72d50121cf615b301"><td class="memItemLeft" align="right" valign="top">constexpr std::array&lt; PitchClass, 7 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1music.html#a5a54b376389197e72d50121cf615b301">lemons::music::getFlatsOrder</a> () noexcept</td></tr>
+<tr class="memdesc:a5a54b376389197e72d50121cf615b301"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns an array of pitch class objects representing each flat in the order they appear in key signatures &ndash; B, E, A, D, G, C, F.  <a href="namespacelemons_1_1music.html#a5a54b376389197e72d50121cf615b301">More...</a><br /></td></tr>
+<tr class="separator:a5a54b376389197e72d50121cf615b301"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afed42d8dc989daf0f50587f40226fe96"><td class="memItemLeft" align="right" valign="top">constexpr std::array&lt; PitchClass, 7 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1music.html#afed42d8dc989daf0f50587f40226fe96">lemons::music::getSharpsOrder</a> () noexcept</td></tr>
+<tr class="memdesc:afed42d8dc989daf0f50587f40226fe96"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns an array of pitch class objects representing each sharp in the order they appear in key signatures &ndash; F, C, G, D, A, E, B.  <a href="namespacelemons_1_1music.html#afed42d8dc989daf0f50587f40226fe96">More...</a><br /></td></tr>
+<tr class="separator:afed42d8dc989daf0f50587f40226fe96"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa9f7180b23b864f066e9e8da88eaa4af"><td class="memItemLeft" align="right" valign="top">constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1music.html#aa9f7180b23b864f066e9e8da88eaa4af">lemons::music::lowestNoteOfMidiOctave</a> (int octaveNumber) noexcept</td></tr>
 <tr class="memdesc:aa9f7180b23b864f066e9e8da88eaa4af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the lowest note of a given MIDI octave number (that octave's C key).  <a href="namespacelemons_1_1music.html#aa9f7180b23b864f066e9e8da88eaa4af">More...</a><br /></td></tr>
 <tr class="separator:aa9f7180b23b864f066e9e8da88eaa4af"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5246e3c8cebb468a52a6a33329ae884b"><td class="memItemLeft" align="right" valign="top">constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1music.html#a5246e3c8cebb468a52a6a33329ae884b">lemons::music::makeValidPitchClass</a> (int pitchClass) noexcept</td></tr>
-<tr class="memdesc:a5246e3c8cebb468a52a6a33329ae884b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a valid pitch class integer from the passed integer using the modulus operator.  <a href="namespacelemons_1_1music.html#a5246e3c8cebb468a52a6a33329ae884b">More...</a><br /></td></tr>
-<tr class="separator:a5246e3c8cebb468a52a6a33329ae884b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a894b6edfde0e18e7ccc46d3d5d2dafd3"><td class="memItemLeft" align="right" valign="top">constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1music.html#a894b6edfde0e18e7ccc46d3d5d2dafd3">lemons::music::octaveNumberOfMidiNote</a> (int midiNote) noexcept</td></tr>
 <tr class="memdesc:a894b6edfde0e18e7ccc46d3d5d2dafd3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the octave number of a given MIDI pitch.  <a href="namespacelemons_1_1music.html#a894b6edfde0e18e7ccc46d3d5d2dafd3">More...</a><br /></td></tr>
 <tr class="separator:a894b6edfde0e18e7ccc46d3d5d2dafd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -106,7 +100,7 @@ Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Feb 8 2022 01:35:40 for Lemons by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3
+Generated on Wed Feb 9 2022 00:50:26 for Lemons by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3
 </small></address>
 </body>
 </html>

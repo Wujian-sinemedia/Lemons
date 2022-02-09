@@ -83,6 +83,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a8de4f1c10382acb6f1405406462b14e2"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1music_1_1_pitch.html#a8de4f1c10382acb6f1405406462b14e2">Pitch</a> (const <a class="el" href="classlemons_1_1music_1_1_pitch.html">Pitch</a> &amp;other) noexcept</td></tr>
 <tr class="memdesc:a8de4f1c10382acb6f1405406462b14e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy constructor.  <a href="classlemons_1_1music_1_1_pitch.html#a8de4f1c10382acb6f1405406462b14e2">More...</a><br /></td></tr>
 <tr class="separator:a8de4f1c10382acb6f1405406462b14e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a45842c99aba3fa00cdfbf4d4f0db4300"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1music_1_1_pitch.html#a45842c99aba3fa00cdfbf4d4f0db4300">Pitch</a> (const <a class="el" href="structlemons_1_1music_1_1_pitch_class.html">PitchClass</a> &amp;pitchClass, int midiOctave) noexcept</td></tr>
+<tr class="memdesc:a45842c99aba3fa00cdfbf4d4f0db4300"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a pitch object from a pitch class and a MIDI octave number.  <a href="classlemons_1_1music_1_1_pitch.html#a45842c99aba3fa00cdfbf4d4f0db4300">More...</a><br /></td></tr>
+<tr class="separator:a45842c99aba3fa00cdfbf4d4f0db4300"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0f16748d234f45f39539562d79a0d0fc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1music_1_1_pitch.html#a0f16748d234f45f39539562d79a0d0fc">Pitch</a> (const String &amp;pitchString) noexcept</td></tr>
 <tr class="memdesc:a0f16748d234f45f39539562d79a0d0fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a pitch object from a string representation of a pitch, for example "C4".  <a href="classlemons_1_1music_1_1_pitch.html#a0f16748d234f45f39539562d79a0d0fc">More...</a><br /></td></tr>
 <tr class="separator:a0f16748d234f45f39539562d79a0d0fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -102,9 +105,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a962f171419bddece57a97fd5dd333f25"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1music_1_1_pitch.html#a962f171419bddece57a97fd5dd333f25">getOctaveNumber</a> () const noexcept</td></tr>
 <tr class="memdesc:a962f171419bddece57a97fd5dd333f25"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns this pitch object's MIDI octave number.  <a href="classlemons_1_1music_1_1_pitch.html#a962f171419bddece57a97fd5dd333f25">More...</a><br /></td></tr>
 <tr class="separator:a962f171419bddece57a97fd5dd333f25"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad6291f35e58678a9aa9cc86b8eba8663"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1music_1_1_pitch.html#ad6291f35e58678a9aa9cc86b8eba8663">getPitchClass</a> () const noexcept</td></tr>
-<tr class="memdesc:ad6291f35e58678a9aa9cc86b8eba8663"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns this pitch object's pitch class as an integer from 0 to 11, with 0 being C and 11 being B.  <a href="classlemons_1_1music_1_1_pitch.html#ad6291f35e58678a9aa9cc86b8eba8663">More...</a><br /></td></tr>
-<tr class="separator:ad6291f35e58678a9aa9cc86b8eba8663"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f02874c34a848a89be084780f6b7368"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structlemons_1_1music_1_1_pitch_class.html">PitchClass</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1music_1_1_pitch.html#a8f02874c34a848a89be084780f6b7368">getPitchClass</a> () const noexcept</td></tr>
+<tr class="memdesc:a8f02874c34a848a89be084780f6b7368"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns this pitch object's pitch class as an integer from 0 to 11, with 0 being C and 11 being B.  <a href="classlemons_1_1music_1_1_pitch.html#a8f02874c34a848a89be084780f6b7368">More...</a><br /></td></tr>
+<tr class="separator:a8f02874c34a848a89be084780f6b7368"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa0a6b6bb5fa6ed400dfe71001a212150"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1music_1_1_pitch.html#aa0a6b6bb5fa6ed400dfe71001a212150">getRoundedFreqHz</a> () const noexcept</td></tr>
 <tr class="memdesc:aa0a6b6bb5fa6ed400dfe71001a212150"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns this pitch as a frequency in Hz, rounded to the nearest integer.  <a href="classlemons_1_1music_1_1_pitch.html#aa0a6b6bb5fa6ed400dfe71001a212150">More...</a><br /></td></tr>
 <tr class="separator:aa0a6b6bb5fa6ed400dfe71001a212150"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -137,7 +140,7 @@ Public Member Functions</h2></td></tr>
 <div class="textblock"><p >This class is a simple wrapper around a MIDI pitch, with some convenient functions for representing it certain ways. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a37160682c3dacc36e66fb69a5c74c93b" name="a37160682c3dacc36e66fb69a5c74c93b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a37160682c3dacc36e66fb69a5c74c93b">&#9670;&nbsp;</a></span>Pitch() <span class="overload">[1/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a37160682c3dacc36e66fb69a5c74c93b">&#9670;&nbsp;</a></span>Pitch() <span class="overload">[1/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -166,8 +169,46 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
+<a id="a45842c99aba3fa00cdfbf4d4f0db4300" name="a45842c99aba3fa00cdfbf4d4f0db4300"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a45842c99aba3fa00cdfbf4d4f0db4300">&#9670;&nbsp;</a></span>Pitch() <span class="overload">[2/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr lemons::music::Pitch::Pitch </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structlemons_1_1music_1_1_pitch_class.html">PitchClass</a> &amp;&#160;</td>
+          <td class="paramname"><em>pitchClass</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>midiOctave</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Creates a pitch object from a pitch class and a MIDI octave number. </p>
+
+</div>
+</div>
 <a id="a0f16748d234f45f39539562d79a0d0fc" name="a0f16748d234f45f39539562d79a0d0fc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0f16748d234f45f39539562d79a0d0fc">&#9670;&nbsp;</a></span>Pitch() <span class="overload">[2/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f16748d234f45f39539562d79a0d0fc">&#9670;&nbsp;</a></span>Pitch() <span class="overload">[3/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -196,7 +237,7 @@ template&lt;typename T &gt; </div>
 </div>
 </div>
 <a id="a8de4f1c10382acb6f1405406462b14e2" name="a8de4f1c10382acb6f1405406462b14e2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8de4f1c10382acb6f1405406462b14e2">&#9670;&nbsp;</a></span>Pitch() <span class="overload">[3/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a8de4f1c10382acb6f1405406462b14e2">&#9670;&nbsp;</a></span>Pitch() <span class="overload">[4/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -335,8 +376,8 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<a id="ad6291f35e58678a9aa9cc86b8eba8663" name="ad6291f35e58678a9aa9cc86b8eba8663"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad6291f35e58678a9aa9cc86b8eba8663">&#9670;&nbsp;</a></span>getPitchClass()</h2>
+<a id="a8f02874c34a848a89be084780f6b7368" name="a8f02874c34a848a89be084780f6b7368"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f02874c34a848a89be084780f6b7368">&#9670;&nbsp;</a></span>getPitchClass()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -345,7 +386,7 @@ template&lt;typename T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">int lemons::music::Pitch::getPitchClass </td>
+          <td class="memname"><a class="el" href="structlemons_1_1music_1_1_pitch_class.html">PitchClass</a> lemons::music::Pitch::getPitchClass </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -359,7 +400,7 @@ template&lt;typename T &gt; </div>
 </div><div class="memdoc">
 
 <p>Returns this pitch object's pitch class as an integer from 0 to 11, with 0 being C and 11 being B. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="namespacelemons_1_1music.html#a5246e3c8cebb468a52a6a33329ae884b" title="Creates a valid pitch class integer from the passed integer using the modulus operator.">makeValidPitchClass()</a> </dd></dl>
+<dl class="section see"><dt>See also</dt><dd>makeValidPitchClass() </dd></dl>
 
 </div>
 </div>
@@ -624,7 +665,7 @@ template&lt;typename T &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Feb 8 2022 01:35:41 for Lemons by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3
+Generated on Wed Feb 9 2022 00:50:27 for Lemons by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3
 </small></address>
 </body>
 </html>

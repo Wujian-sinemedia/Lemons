@@ -1927,6 +1927,14 @@
     <namespace>lemons::music</namespace>
   </compound>
   <compound kind="file">
+    <name>PitchClass.h</name>
+    <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/Common/lemons_musicology/harmony/</path>
+    <filename>_pitch_class_8h.html</filename>
+    <class kind="struct">lemons::music::PitchClass</class>
+    <namespace>lemons</namespace>
+    <namespace>lemons::music</namespace>
+  </compound>
+  <compound kind="file">
     <name>Chromatic.h</name>
     <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/Common/lemons_musicology/harmony/scales/</path>
     <filename>_chromatic_8h.html</filename>
@@ -1992,6 +2000,7 @@
     <name>lemons_musicology.h</name>
     <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/Common/lemons_musicology/</path>
     <filename>lemons__musicology_8h.html</filename>
+    <includes id="_pitch_class_8h" name="PitchClass.h" local="yes" imported="no">harmony/PitchClass.h</includes>
     <includes id="_pitch_utils_8h" name="PitchUtils.h" local="yes" imported="no">util/PitchUtils.h</includes>
     <includes id="_string_functions_8h" name="StringFunctions.h" local="yes" imported="no">util/StringFunctions.h</includes>
     <includes id="_pitch_8h" name="Pitch.h" local="yes" imported="no">harmony/Pitch.h</includes>
@@ -2012,25 +2021,18 @@
     <namespace>lemons</namespace>
     <namespace>lemons::music</namespace>
     <member kind="function">
-      <type>constexpr std::array&lt; int, 7 &gt;</type>
+      <type>constexpr std::array&lt; PitchClass, 7 &gt;</type>
       <name>getFlatsOrder</name>
       <anchorfile>namespacelemons_1_1music.html</anchorfile>
-      <anchor>ac76e45d1768cca5677c1e06c123d48e2</anchor>
-      <arglist>()</arglist>
+      <anchor>a5a54b376389197e72d50121cf615b301</anchor>
+      <arglist>() noexcept</arglist>
     </member>
     <member kind="function">
-      <type>constexpr std::array&lt; int, 7 &gt;</type>
+      <type>constexpr std::array&lt; PitchClass, 7 &gt;</type>
       <name>getSharpsOrder</name>
       <anchorfile>namespacelemons_1_1music.html</anchorfile>
-      <anchor>ae907f6c4e808e7dcdae341052869995f</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>constexpr bool</type>
-      <name>isValidPitchClass</name>
-      <anchorfile>namespacelemons_1_1music.html</anchorfile>
-      <anchor>a9e3a575c6189021177ec65315cf5e772</anchor>
-      <arglist>(int pitchClass) noexcept</arglist>
+      <anchor>afed42d8dc989daf0f50587f40226fe96</anchor>
+      <arglist>() noexcept</arglist>
     </member>
     <member kind="function">
       <type>constexpr int</type>
@@ -2038,13 +2040,6 @@
       <anchorfile>namespacelemons_1_1music.html</anchorfile>
       <anchor>aa9f7180b23b864f066e9e8da88eaa4af</anchor>
       <arglist>(int octaveNumber) noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>constexpr int</type>
-      <name>makeValidPitchClass</name>
-      <anchorfile>namespacelemons_1_1music.html</anchorfile>
-      <anchor>a5246e3c8cebb468a52a6a33329ae884b</anchor>
-      <arglist>(int pitchClass) noexcept</arglist>
     </member>
     <member kind="function">
       <type>constexpr int</type>
@@ -2098,13 +2093,6 @@
     </member>
     <member kind="function">
       <type>String</type>
-      <name>pitchClassToString</name>
-      <anchorfile>namespacelemons_1_1music.html</anchorfile>
-      <anchor>a24e7bde0524b225883f031c887db9fb4</anchor>
-      <arglist>(int pitchClass, bool asSharps=true) noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>String</type>
       <name>pitchToString</name>
       <anchorfile>namespacelemons_1_1music.html</anchorfile>
       <anchor>a5804ae9d6aaefcb24f65bdf38e8a1832</anchor>
@@ -2116,13 +2104,6 @@
       <anchorfile>namespacelemons_1_1music.html</anchorfile>
       <anchor>ac8e2cb0708990e7bc8c175b72c176540</anchor>
       <arglist>(const String &amp;string) noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>int</type>
-      <name>stringToPitchClass</name>
-      <anchorfile>namespacelemons_1_1music.html</anchorfile>
-      <anchor>a3311159f9fd29afa5a7b238b0e361ce4</anchor>
-      <arglist>(const String &amp;pitchClassName) noexcept</arglist>
     </member>
   </compound>
   <compound kind="file">
@@ -5697,8 +5678,15 @@
       <type>constexpr</type>
       <name>Chromatic</name>
       <anchorfile>classlemons_1_1music_1_1scales_1_1_chromatic.html</anchorfile>
-      <anchor>af269287aeb7d8a0dcbf79eca4a955250</anchor>
-      <arglist>(int pitchClassToStartOn) noexcept</arglist>
+      <anchor>a7df44dc179ea66b22d27c688ef3a5e1a</anchor>
+      <arglist>(const PitchClass &amp;pitchClass) noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>constexpr</type>
+      <name>Chromatic</name>
+      <anchorfile>classlemons_1_1music_1_1scales_1_1_chromatic.html</anchorfile>
+      <anchor>a60ef276c96afdaa07c9ed70c551e60bc</anchor>
+      <arglist>(int noteToStartOn) noexcept</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
@@ -5718,8 +5706,8 @@
       <type>bool</type>
       <name>containsPitchClass</name>
       <anchorfile>structlemons_1_1music_1_1scales_1_1_scale.html</anchorfile>
-      <anchor>ad39019f722ebfaf71f22d9238d12e1e4</anchor>
-      <arglist>(int pitchClass) const</arglist>
+      <anchor>a5fb566ef177eec914dde0fa0098de3d3</anchor>
+      <arglist>(const PitchClass &amp;pitchClass) const</arglist>
     </member>
     <member kind="function">
       <type>juce::Array&lt; Interval &gt;</type>
@@ -5736,24 +5724,24 @@
       <arglist>() const final</arglist>
     </member>
     <member kind="function">
-      <type>juce::Array&lt; int &gt;</type>
+      <type>juce::Array&lt; PitchClass &gt;</type>
       <name>getPitchClasses</name>
       <anchorfile>structlemons_1_1music_1_1scales_1_1_scale.html</anchorfile>
-      <anchor>a3dd55c01941b2248693dca0bb870432a</anchor>
+      <anchor>ab89074d29065e1728f8abedfea52f986</anchor>
       <arglist>() const</arglist>
     </member>
     <member kind="function">
-      <type>int</type>
+      <type>PitchClass</type>
       <name>getPitchClassOfRoot</name>
       <anchorfile>classlemons_1_1music_1_1scales_1_1_chromatic.html</anchorfile>
-      <anchor>aa9d5632c33ee9986f7ba49d8f7b40a06</anchor>
+      <anchor>a97c79729f3b03a92f05fc54467d1c4fc</anchor>
       <arglist>() const noexcept final</arglist>
     </member>
     <member kind="function">
-      <type>int</type>
+      <type>PitchClass</type>
       <name>getPitchClassOfScaleDegree</name>
       <anchorfile>structlemons_1_1music_1_1scales_1_1_scale.html</anchorfile>
-      <anchor>a14dcfc275986adac0966050afd821224</anchor>
+      <anchor>a3948e2061e5a62c6270dbe556f47cea7</anchor>
       <arglist>(int scaleDegree) const noexcept</arglist>
     </member>
     <member kind="function">
@@ -11130,15 +11118,29 @@
       <type>constexpr</type>
       <name>KeySignature</name>
       <anchorfile>classlemons_1_1music_1_1scales_1_1_key_signature.html</anchorfile>
-      <anchor>ab23ef15e7bb665c9ec2a350b66db0a9c</anchor>
-      <arglist>(Type typeToUse, bool isSharps, int pitchClassOfRoot) noexcept</arglist>
+      <anchor>a451db0ae2b8994d0f507e92c834f3b42</anchor>
+      <arglist>(Type typeToUse, bool isSharps, const PitchClass &amp;pitchClassOfRoot) noexcept</arglist>
     </member>
     <member kind="function">
       <type>constexpr</type>
       <name>KeySignature</name>
       <anchorfile>classlemons_1_1music_1_1scales_1_1_key_signature.html</anchorfile>
-      <anchor>a6c10e8a9dbbc1b9f68b7f7f6ef6c0c55</anchor>
-      <arglist>(Type typeToUse, int pitchClassOfRoot) noexcept</arglist>
+      <anchor>aabaa9eae10d28bd1b9cd6c3548589ae0</anchor>
+      <arglist>(Type typeToUse, bool isSharps, int rootNote) noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>constexpr</type>
+      <name>KeySignature</name>
+      <anchorfile>classlemons_1_1music_1_1scales_1_1_key_signature.html</anchorfile>
+      <anchor>a0fb5ffffc953713f4331730452dbaf03</anchor>
+      <arglist>(Type typeToUse, const PitchClass &amp;pitchClassOfRoot) noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>constexpr</type>
+      <name>KeySignature</name>
+      <anchorfile>classlemons_1_1music_1_1scales_1_1_key_signature.html</anchorfile>
+      <anchor>ab81e34a235b17a6c5dfc928fdd3ddb81</anchor>
+      <arglist>(Type typeToUse, int rootPitch) noexcept</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
@@ -11158,8 +11160,8 @@
       <type>bool</type>
       <name>containsPitchClass</name>
       <anchorfile>structlemons_1_1music_1_1scales_1_1_scale.html</anchorfile>
-      <anchor>ad39019f722ebfaf71f22d9238d12e1e4</anchor>
-      <arglist>(int pitchClass) const</arglist>
+      <anchor>a5fb566ef177eec914dde0fa0098de3d3</anchor>
+      <arglist>(const PitchClass &amp;pitchClass) const</arglist>
     </member>
     <member kind="function">
       <type>KeySignature</type>
@@ -11218,24 +11220,24 @@
       <arglist>() const noexcept</arglist>
     </member>
     <member kind="function">
-      <type>juce::Array&lt; int &gt;</type>
+      <type>juce::Array&lt; PitchClass &gt;</type>
       <name>getPitchClasses</name>
       <anchorfile>structlemons_1_1music_1_1scales_1_1_scale.html</anchorfile>
-      <anchor>a3dd55c01941b2248693dca0bb870432a</anchor>
+      <anchor>ab89074d29065e1728f8abedfea52f986</anchor>
       <arglist>() const</arglist>
     </member>
     <member kind="function">
-      <type>int</type>
+      <type>PitchClass</type>
       <name>getPitchClassOfRoot</name>
       <anchorfile>classlemons_1_1music_1_1scales_1_1_key_signature.html</anchorfile>
-      <anchor>ad7837c61a8c644f14bf05fd5d7ea5210</anchor>
+      <anchor>aa9ccc5210251ac006fe2ec37ccadd9cc</anchor>
       <arglist>() const noexcept final</arglist>
     </member>
     <member kind="function">
-      <type>int</type>
+      <type>PitchClass</type>
       <name>getPitchClassOfScaleDegree</name>
       <anchorfile>structlemons_1_1music_1_1scales_1_1_scale.html</anchorfile>
-      <anchor>a14dcfc275986adac0966050afd821224</anchor>
+      <anchor>a3948e2061e5a62c6270dbe556f47cea7</anchor>
       <arglist>(int scaleDegree) const noexcept</arglist>
     </member>
     <member kind="function">
@@ -15483,8 +15485,15 @@
       <type>constexpr</type>
       <name>Mode</name>
       <anchorfile>classlemons_1_1music_1_1scales_1_1_mode.html</anchorfile>
-      <anchor>a522991170399e5c473035ddbc36e732b</anchor>
-      <arglist>(Type typeToUse, int pitchClassOfRoot) noexcept</arglist>
+      <anchor>aab3a79e2789fb6bac8e43cbcf6415bc5</anchor>
+      <arglist>(Type typeToUse, const PitchClass &amp;pitchClassOfRoot) noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>constexpr</type>
+      <name>Mode</name>
+      <anchorfile>classlemons_1_1music_1_1scales_1_1_mode.html</anchorfile>
+      <anchor>a2de5912923a67484226722bc1acd368f</anchor>
+      <arglist>(Type typeToUse, int rootNote) noexcept</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
@@ -15504,8 +15513,8 @@
       <type>bool</type>
       <name>containsPitchClass</name>
       <anchorfile>structlemons_1_1music_1_1scales_1_1_scale.html</anchorfile>
-      <anchor>ad39019f722ebfaf71f22d9238d12e1e4</anchor>
-      <arglist>(int pitchClass) const</arglist>
+      <anchor>a5fb566ef177eec914dde0fa0098de3d3</anchor>
+      <arglist>(const PitchClass &amp;pitchClass) const</arglist>
     </member>
     <member kind="function">
       <type>juce::Array&lt; Interval &gt;</type>
@@ -15536,24 +15545,24 @@
       <arglist>() const noexcept</arglist>
     </member>
     <member kind="function">
-      <type>juce::Array&lt; int &gt;</type>
+      <type>juce::Array&lt; PitchClass &gt;</type>
       <name>getPitchClasses</name>
       <anchorfile>structlemons_1_1music_1_1scales_1_1_scale.html</anchorfile>
-      <anchor>a3dd55c01941b2248693dca0bb870432a</anchor>
+      <anchor>ab89074d29065e1728f8abedfea52f986</anchor>
       <arglist>() const</arglist>
     </member>
     <member kind="function">
-      <type>int</type>
+      <type>PitchClass</type>
       <name>getPitchClassOfRoot</name>
       <anchorfile>classlemons_1_1music_1_1scales_1_1_mode.html</anchorfile>
-      <anchor>a53fc9a2f7b262bc9cc438178bcbaeb4e</anchor>
+      <anchor>a0c8ed5b2ab4c6682bf489a79563b2649</anchor>
       <arglist>() const noexcept final</arglist>
     </member>
     <member kind="function">
-      <type>int</type>
+      <type>PitchClass</type>
       <name>getPitchClassOfScaleDegree</name>
       <anchorfile>structlemons_1_1music_1_1scales_1_1_scale.html</anchorfile>
-      <anchor>a14dcfc275986adac0966050afd821224</anchor>
+      <anchor>a3948e2061e5a62c6270dbe556f47cea7</anchor>
       <arglist>(int scaleDegree) const noexcept</arglist>
     </member>
     <member kind="function">
@@ -16223,8 +16232,15 @@
       <type>constexpr</type>
       <name>Octatonic</name>
       <anchorfile>classlemons_1_1music_1_1scales_1_1_octatonic.html</anchorfile>
-      <anchor>af628fda5347df35adc49d3d9aaa0e255</anchor>
-      <arglist>(int pitchClassToStartOn, bool startWithSemitone) noexcept</arglist>
+      <anchor>a68e44825d9770c56b45afad77a169e2b</anchor>
+      <arglist>(const PitchClass &amp;pitchClassToStartOn, bool startWithSemitone) noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>constexpr</type>
+      <name>Octatonic</name>
+      <anchorfile>classlemons_1_1music_1_1scales_1_1_octatonic.html</anchorfile>
+      <anchor>a33e2eba1870c860814c6865f54caa8e3</anchor>
+      <arglist>(int noteToStartOn, bool startWithSemitone) noexcept</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
@@ -16244,8 +16260,8 @@
       <type>bool</type>
       <name>containsPitchClass</name>
       <anchorfile>structlemons_1_1music_1_1scales_1_1_scale.html</anchorfile>
-      <anchor>ad39019f722ebfaf71f22d9238d12e1e4</anchor>
-      <arglist>(int pitchClass) const</arglist>
+      <anchor>a5fb566ef177eec914dde0fa0098de3d3</anchor>
+      <arglist>(const PitchClass &amp;pitchClass) const</arglist>
     </member>
     <member kind="function">
       <type>juce::Array&lt; Interval &gt;</type>
@@ -16262,24 +16278,24 @@
       <arglist>() const final</arglist>
     </member>
     <member kind="function">
-      <type>juce::Array&lt; int &gt;</type>
+      <type>juce::Array&lt; PitchClass &gt;</type>
       <name>getPitchClasses</name>
       <anchorfile>structlemons_1_1music_1_1scales_1_1_scale.html</anchorfile>
-      <anchor>a3dd55c01941b2248693dca0bb870432a</anchor>
+      <anchor>ab89074d29065e1728f8abedfea52f986</anchor>
       <arglist>() const</arglist>
     </member>
     <member kind="function">
-      <type>int</type>
+      <type>PitchClass</type>
       <name>getPitchClassOfRoot</name>
       <anchorfile>classlemons_1_1music_1_1scales_1_1_octatonic.html</anchorfile>
-      <anchor>a11baec1bf527ca6025615fca53b46fb5</anchor>
+      <anchor>a5db1e17220b7a742f89ab6d80666b43e</anchor>
       <arglist>() const noexcept final</arglist>
     </member>
     <member kind="function">
-      <type>int</type>
+      <type>PitchClass</type>
       <name>getPitchClassOfScaleDegree</name>
       <anchorfile>structlemons_1_1music_1_1scales_1_1_scale.html</anchorfile>
-      <anchor>a14dcfc275986adac0966050afd821224</anchor>
+      <anchor>a3948e2061e5a62c6270dbe556f47cea7</anchor>
       <arglist>(int scaleDegree) const noexcept</arglist>
     </member>
     <member kind="function">
@@ -18667,6 +18683,13 @@
       <arglist>(const Pitch &amp;other) noexcept</arglist>
     </member>
     <member kind="function">
+      <type>constexpr</type>
+      <name>Pitch</name>
+      <anchorfile>classlemons_1_1music_1_1_pitch.html</anchorfile>
+      <anchor>a45842c99aba3fa00cdfbf4d4f0db4300</anchor>
+      <arglist>(const PitchClass &amp;pitchClass, int midiOctave) noexcept</arglist>
+    </member>
+    <member kind="function">
       <type></type>
       <name>Pitch</name>
       <anchorfile>classlemons_1_1music_1_1_pitch.html</anchorfile>
@@ -18709,10 +18732,10 @@
       <arglist>() const noexcept</arglist>
     </member>
     <member kind="function">
-      <type>int</type>
+      <type>PitchClass</type>
       <name>getPitchClass</name>
       <anchorfile>classlemons_1_1music_1_1_pitch.html</anchorfile>
-      <anchor>ad6291f35e58678a9aa9cc86b8eba8663</anchor>
+      <anchor>a8f02874c34a848a89be084780f6b7368</anchor>
       <arglist>() const noexcept</arglist>
     </member>
     <member kind="function">
@@ -18830,6 +18853,80 @@
       <anchorfile>classlemons_1_1midi_1_1_pitch_bend_tracker.html</anchorfile>
       <anchor>ae38e06837eef06755386d0fcecdf15fb</anchor>
       <arglist>(int newStUp, int newStDown) noexcept</arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>lemons::music::PitchClass</name>
+    <filename>structlemons_1_1music_1_1_pitch_class.html</filename>
+    <member kind="function">
+      <type>constexpr</type>
+      <name>PitchClass</name>
+      <anchorfile>structlemons_1_1music_1_1_pitch_class.html</anchorfile>
+      <anchor>ada2da7c5f9d86977e6bb630bf3075f5d</anchor>
+      <arglist>(const PitchClass &amp;other) noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>PitchClass</name>
+      <anchorfile>structlemons_1_1music_1_1_pitch_class.html</anchorfile>
+      <anchor>a236c431d5a68c2095f6f7660e324698f</anchor>
+      <arglist>(const String &amp;stringDescription) noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>constexpr</type>
+      <name>PitchClass</name>
+      <anchorfile>structlemons_1_1music_1_1_pitch_class.html</anchorfile>
+      <anchor>aae6e9e90f1cbc892bb6a5224362ada1d</anchor>
+      <arglist>(int midiPitch) noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>constexpr int</type>
+      <name>getAsInt</name>
+      <anchorfile>structlemons_1_1music_1_1_pitch_class.html</anchorfile>
+      <anchor>af68b4e2875c0ff451ea8f60a50145e54</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>String</type>
+      <name>getAsString</name>
+      <anchorfile>structlemons_1_1music_1_1_pitch_class.html</anchorfile>
+      <anchor>a83600f489fe2d3a99b8e91b6a307ed21</anchor>
+      <arglist>(bool asSharps=true, bool useUnicodeAccidentals=false, bool useNaturalSymbol=false) const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>constexpr bool</type>
+      <name>isBlackKey</name>
+      <anchorfile>structlemons_1_1music_1_1_pitch_class.html</anchorfile>
+      <anchor>a22ef807fc02a624b1dfee238e8d5b3ed</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>constexpr bool</type>
+      <name>isWhiteKey</name>
+      <anchorfile>structlemons_1_1music_1_1_pitch_class.html</anchorfile>
+      <anchor>a4fb33d2e81547b67514ff5a1e19f5ff4</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>constexpr</type>
+      <name>operator int</name>
+      <anchorfile>structlemons_1_1music_1_1_pitch_class.html</anchorfile>
+      <anchor>aa00f3942651331e62850aa9ffbcce309</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>constexpr bool</type>
+      <name>operator!=</name>
+      <anchorfile>structlemons_1_1music_1_1_pitch_class.html</anchorfile>
+      <anchor>a2eda1c7f27e746c2d50c1e7de0feace8</anchor>
+      <arglist>(const PitchClass &amp;other) const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>constexpr bool</type>
+      <name>operator==</name>
+      <anchorfile>structlemons_1_1music_1_1_pitch_class.html</anchorfile>
+      <anchor>ab0e853e83969eea2a26267b0fc22c05b</anchor>
+      <arglist>(const PitchClass &amp;other) const noexcept</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -20870,8 +20967,8 @@
       <type>bool</type>
       <name>containsPitchClass</name>
       <anchorfile>structlemons_1_1music_1_1scales_1_1_scale.html</anchorfile>
-      <anchor>ad39019f722ebfaf71f22d9238d12e1e4</anchor>
-      <arglist>(int pitchClass) const</arglist>
+      <anchor>a5fb566ef177eec914dde0fa0098de3d3</anchor>
+      <arglist>(const PitchClass &amp;pitchClass) const</arglist>
     </member>
     <member kind="function">
       <type>juce::Array&lt; Interval &gt;</type>
@@ -20888,24 +20985,24 @@
       <arglist>() const =0</arglist>
     </member>
     <member kind="function">
-      <type>juce::Array&lt; int &gt;</type>
+      <type>juce::Array&lt; PitchClass &gt;</type>
       <name>getPitchClasses</name>
       <anchorfile>structlemons_1_1music_1_1scales_1_1_scale.html</anchorfile>
-      <anchor>a3dd55c01941b2248693dca0bb870432a</anchor>
+      <anchor>ab89074d29065e1728f8abedfea52f986</anchor>
       <arglist>() const</arglist>
     </member>
     <member kind="function" virtualness="pure">
-      <type>virtual int</type>
+      <type>virtual PitchClass</type>
       <name>getPitchClassOfRoot</name>
       <anchorfile>structlemons_1_1music_1_1scales_1_1_scale.html</anchorfile>
-      <anchor>abe14e30c296b5acbee5b1f44057067f7</anchor>
+      <anchor>a4db88d66d89bed37dbbb5b24931e20e0</anchor>
       <arglist>() const noexcept=0</arglist>
     </member>
     <member kind="function">
-      <type>int</type>
+      <type>PitchClass</type>
       <name>getPitchClassOfScaleDegree</name>
       <anchorfile>structlemons_1_1music_1_1scales_1_1_scale.html</anchorfile>
-      <anchor>a14dcfc275986adac0966050afd821224</anchor>
+      <anchor>a3948e2061e5a62c6270dbe556f47cea7</anchor>
       <arglist>(int scaleDegree) const noexcept</arglist>
     </member>
     <member kind="function">
@@ -26825,6 +26922,13 @@
       <type>constexpr</type>
       <name>WholeTone</name>
       <anchorfile>classlemons_1_1music_1_1scales_1_1_whole_tone.html</anchorfile>
+      <anchor>a736a69fe20b006156d1155ae85f3e76c</anchor>
+      <arglist>(const PitchClass &amp;pitchClassOfRoot) noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>constexpr</type>
+      <name>WholeTone</name>
+      <anchorfile>classlemons_1_1music_1_1scales_1_1_whole_tone.html</anchorfile>
       <anchor>a79425bb7fc4e92953dc2b67b2b796dfc</anchor>
       <arglist>(const WholeTone &amp;other) noexcept</arglist>
     </member>
@@ -26832,8 +26936,8 @@
       <type>constexpr</type>
       <name>WholeTone</name>
       <anchorfile>classlemons_1_1music_1_1scales_1_1_whole_tone.html</anchorfile>
-      <anchor>a4cd0455d3447259099e64ba041932afd</anchor>
-      <arglist>(int pitchClassOfRoot) noexcept</arglist>
+      <anchor>a3c404bbf1e0c0acef41149e1bd599739</anchor>
+      <arglist>(int rootNote) noexcept</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
@@ -26853,8 +26957,8 @@
       <type>bool</type>
       <name>containsPitchClass</name>
       <anchorfile>structlemons_1_1music_1_1scales_1_1_scale.html</anchorfile>
-      <anchor>ad39019f722ebfaf71f22d9238d12e1e4</anchor>
-      <arglist>(int pitchClass) const</arglist>
+      <anchor>a5fb566ef177eec914dde0fa0098de3d3</anchor>
+      <arglist>(const PitchClass &amp;pitchClass) const</arglist>
     </member>
     <member kind="function">
       <type>juce::Array&lt; Interval &gt;</type>
@@ -26871,24 +26975,24 @@
       <arglist>() const final</arglist>
     </member>
     <member kind="function">
-      <type>juce::Array&lt; int &gt;</type>
+      <type>juce::Array&lt; PitchClass &gt;</type>
       <name>getPitchClasses</name>
       <anchorfile>structlemons_1_1music_1_1scales_1_1_scale.html</anchorfile>
-      <anchor>a3dd55c01941b2248693dca0bb870432a</anchor>
+      <anchor>ab89074d29065e1728f8abedfea52f986</anchor>
       <arglist>() const</arglist>
     </member>
     <member kind="function">
-      <type>int</type>
+      <type>PitchClass</type>
       <name>getPitchClassOfRoot</name>
       <anchorfile>classlemons_1_1music_1_1scales_1_1_whole_tone.html</anchorfile>
-      <anchor>ad00532018f27907f15975d00788b04aa</anchor>
+      <anchor>af1f54d8e5a69ead258f3409219e81fb2</anchor>
       <arglist>() const noexcept final</arglist>
     </member>
     <member kind="function">
-      <type>int</type>
+      <type>PitchClass</type>
       <name>getPitchClassOfScaleDegree</name>
       <anchorfile>structlemons_1_1music_1_1scales_1_1_scale.html</anchorfile>
-      <anchor>a14dcfc275986adac0966050afd821224</anchor>
+      <anchor>a3948e2061e5a62c6270dbe556f47cea7</anchor>
       <arglist>(int scaleDegree) const noexcept</arglist>
     </member>
     <member kind="function">
@@ -28157,12 +28261,13 @@
     <namespace>lemons::music::scales</namespace>
     <class kind="class">lemons::music::Interval</class>
     <class kind="class">lemons::music::Pitch</class>
+    <class kind="struct">lemons::music::PitchClass</class>
     <member kind="function">
-      <type>constexpr std::array&lt; int, 7 &gt;</type>
+      <type>constexpr std::array&lt; PitchClass, 7 &gt;</type>
       <name>getFlatsOrder</name>
       <anchorfile>namespacelemons_1_1music.html</anchorfile>
-      <anchor>ac76e45d1768cca5677c1e06c123d48e2</anchor>
-      <arglist>()</arglist>
+      <anchor>a5a54b376389197e72d50121cf615b301</anchor>
+      <arglist>() noexcept</arglist>
     </member>
     <member kind="function">
       <type>const juce_wchar</type>
@@ -28179,11 +28284,11 @@
       <arglist>() noexcept</arglist>
     </member>
     <member kind="function">
-      <type>constexpr std::array&lt; int, 7 &gt;</type>
+      <type>constexpr std::array&lt; PitchClass, 7 &gt;</type>
       <name>getSharpsOrder</name>
       <anchorfile>namespacelemons_1_1music.html</anchorfile>
-      <anchor>ae907f6c4e808e7dcdae341052869995f</anchor>
-      <arglist>()</arglist>
+      <anchor>afed42d8dc989daf0f50587f40226fe96</anchor>
+      <arglist>() noexcept</arglist>
     </member>
     <member kind="function">
       <type>const juce_wchar</type>
@@ -28193,25 +28298,11 @@
       <arglist>() noexcept</arglist>
     </member>
     <member kind="function">
-      <type>constexpr bool</type>
-      <name>isValidPitchClass</name>
-      <anchorfile>namespacelemons_1_1music.html</anchorfile>
-      <anchor>a9e3a575c6189021177ec65315cf5e772</anchor>
-      <arglist>(int pitchClass) noexcept</arglist>
-    </member>
-    <member kind="function">
       <type>constexpr int</type>
       <name>lowestNoteOfMidiOctave</name>
       <anchorfile>namespacelemons_1_1music.html</anchorfile>
       <anchor>aa9f7180b23b864f066e9e8da88eaa4af</anchor>
       <arglist>(int octaveNumber) noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>constexpr int</type>
-      <name>makeValidPitchClass</name>
-      <anchorfile>namespacelemons_1_1music.html</anchorfile>
-      <anchor>a5246e3c8cebb468a52a6a33329ae884b</anchor>
-      <arglist>(int pitchClass) noexcept</arglist>
     </member>
     <member kind="function">
       <type>String</type>
@@ -28250,13 +28341,6 @@
     </member>
     <member kind="function">
       <type>String</type>
-      <name>pitchClassToString</name>
-      <anchorfile>namespacelemons_1_1music.html</anchorfile>
-      <anchor>a24e7bde0524b225883f031c887db9fb4</anchor>
-      <arglist>(int pitchClass, bool asSharps=true) noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>String</type>
       <name>pitchToString</name>
       <anchorfile>namespacelemons_1_1music.html</anchorfile>
       <anchor>a5804ae9d6aaefcb24f65bdf38e8a1832</anchor>
@@ -28268,13 +28352,6 @@
       <anchorfile>namespacelemons_1_1music.html</anchorfile>
       <anchor>ac8e2cb0708990e7bc8c175b72c176540</anchor>
       <arglist>(const String &amp;string) noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>int</type>
-      <name>stringToPitchClass</name>
-      <anchorfile>namespacelemons_1_1music.html</anchorfile>
-      <anchor>a3311159f9fd29afa5a7b238b0e361ce4</anchor>
-      <arglist>(const String &amp;pitchClassName) noexcept</arglist>
     </member>
   </compound>
   <compound kind="namespace">

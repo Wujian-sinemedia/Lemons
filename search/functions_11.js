@@ -110,9 +110,8 @@ var searchData=
   ['storesamples_107',['storeSamples',['../classlemons_1_1dsp_1_1_circular_buffer.html#abe5324c65dfbb09f3ed0e8f753498567',1,'lemons::dsp::CircularBuffer::storeSamples(const SampleType *const samples, int numSamples)'],['../classlemons_1_1dsp_1_1_circular_buffer.html#a2a4e8eed89a54f705eaf8d64ba2516c0',1,'lemons::dsp::CircularBuffer::storeSamples(const AudioBuffer&lt; SampleType &gt; &amp;samples, int channel=0)']]],
   ['streamengine_108',['StreamEngine',['../classlemons_1_1dsp_1_1_stream_engine.html#a21d12f5fad24914217dae7b12f9f560c',1,'lemons::dsp::StreamEngine']]],
   ['stringtopitch_109',['stringToPitch',['../namespacelemons_1_1music.html#ac8e2cb0708990e7bc8c175b72c176540',1,'lemons::music']]],
-  ['stringtopitchclass_110',['stringToPitchClass',['../namespacelemons_1_1music.html#a3311159f9fd29afa5a7b238b0e361ce4',1,'lemons::music']]],
-  ['subtest_111',['Subtest',['../structlemons_1_1tests_1_1_test_1_1_subtest.html#ae3c4208cb073662962ba76080d7115e8',1,'lemons::tests::Test::Subtest']]],
-  ['swapnodes_112',['swapNodes',['../classlemons_1_1dsp_1_1_engine_chain.html#ae9f7a80cc7a6ad012fe73a8468bc0f57',1,'lemons::dsp::EngineChain']]],
-  ['swapnodesatindices_113',['swapNodesAtIndices',['../classlemons_1_1dsp_1_1_engine_chain.html#a5c5dce38ae105e0a4c71b43e8b72a5f4',1,'lemons::dsp::EngineChain']]],
-  ['synthvoicebase_114',['SynthVoiceBase',['../classlemons_1_1dsp_1_1_synth_voice_base.html#a9a2bbb3c6cf5e7bf282adcec1b42cb29',1,'lemons::dsp::SynthVoiceBase']]]
+  ['subtest_110',['Subtest',['../structlemons_1_1tests_1_1_test_1_1_subtest.html#ae3c4208cb073662962ba76080d7115e8',1,'lemons::tests::Test::Subtest']]],
+  ['swapnodes_111',['swapNodes',['../classlemons_1_1dsp_1_1_engine_chain.html#ae9f7a80cc7a6ad012fe73a8468bc0f57',1,'lemons::dsp::EngineChain']]],
+  ['swapnodesatindices_112',['swapNodesAtIndices',['../classlemons_1_1dsp_1_1_engine_chain.html#a5c5dce38ae105e0a4c71b43e8b72a5f4',1,'lemons::dsp::EngineChain']]],
+  ['synthvoicebase_113',['SynthVoiceBase',['../classlemons_1_1dsp_1_1_synth_voice_base.html#a9a2bbb3c6cf5e7bf282adcec1b42cb29',1,'lemons::dsp::SynthVoiceBase']]]
 ];
