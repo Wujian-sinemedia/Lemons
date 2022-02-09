@@ -24,6 +24,7 @@ namespace lemons::music
  */
 constexpr int octaveNumberOfMidiNote (int midiNote) noexcept
 {
+	jassert (midiNote >= 0);
 	return midiNote / 12 - 1;
 }
 

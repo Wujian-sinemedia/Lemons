@@ -94,6 +94,7 @@ modules/Audio/lemons_midi/tuning/mts_client.cpp benthevining
 modules/Audio/lemons_midi/tuning/mts_client.h benthevining
 modules/Audio/lemons_midi/utilities/VelocityHelper.cpp benthevining
 modules/Audio/lemons_midi/utilities/serializing.h benthevining
+modules/Audio/lemons_midi/utilities/serializing_tests.cpp benthevining
 modules/Audio/lemons_psola/analysis/PeakFinder.cpp benthevining
 modules/Audio/lemons_psola/analysis/PeakFinder.h benthevining
 modules/Audio/lemons_psola/analysis/PeakFinder_tests.cpp benthevining
@@ -116,6 +117,7 @@ modules/Audio/lemons_synth/Synth/helpers/MidiManager.cpp benthevining
 modules/Audio/lemons_synth/Synth/helpers/MidiManager.h benthevining
 modules/Audio/lemons_synth/Synth/helpers/PanningManager.h benthevining
 modules/Audio/lemons_synth/Synth/helpers/VoiceAllocator.cpp benthevining
+modules/Audio/lemons_synth/Synth/helpers/VoiceAllocator.h benthevining
 modules/Audio/lemons_synth/Synth/synth_impl/SynthMidi.cpp benthevining
 modules/Audio/lemons_synth/SynthVoice/TimbreMod.h benthevining
 modules/Audio/lemons_synth/lemons_synth.cpp benthevining
@@ -147,6 +149,7 @@ modules/Common/lemons_core/unit_tests/test.h benthevining
 modules/Common/lemons_musicology/harmony/Interval.cpp benthevining
 modules/Common/lemons_musicology/harmony/Interval.h benthevining
 modules/Common/lemons_musicology/harmony/KeySignature.h benthevining
+modules/Common/lemons_musicology/harmony/Pitch.cpp benthevining
 modules/Common/lemons_musicology/harmony/Pitch.h benthevining
 modules/Common/lemons_musicology/harmony/PitchClass.cpp benthevining
 modules/Common/lemons_musicology/harmony/PitchClass.h benthevining
@@ -162,6 +165,7 @@ modules/Common/lemons_musicology/harmony/scales/Scale.h benthevining
 modules/Common/lemons_musicology/harmony/scales/WholeTone.cpp benthevining
 modules/Common/lemons_musicology/lemons_musicology.cpp benthevining
 modules/Common/lemons_musicology/lemons_musicology.h benthevining
+modules/Common/lemons_musicology/util/PitchUtils.h benthevining
 modules/Connectivity/LemonsConnectivityModules.cmake benthevining
 modules/Connectivity/lemons_osc/lemons_osc.cpp benthevining
 modules/Connectivity/lemons_osc/lemons_osc.h benthevining
@@ -225,6 +229,7 @@ modules/Plugins/lemons_plugin/parameters/types/MeterParameter.cpp benthevining
 modules/Plugins/lemons_plugin/parameters/types/Specializations.h benthevining
 modules/Plugins/lemons_plugin/parameters/utils/detail.cpp benthevining
 modules/Plugins/lemons_plugin/parameters/utils/detail.h benthevining
+modules/Plugins/lemons_plugin/processors/BasicProcessor.cpp benthevining
 modules/Plugins/lemons_plugin/processors/ProcessorBase.h benthevining
 modules/Plugins/lemons_plugin/state/ParameterList.cpp benthevining
 modules/Plugins/lemons_plugin/state/ParameterList.h benthevining

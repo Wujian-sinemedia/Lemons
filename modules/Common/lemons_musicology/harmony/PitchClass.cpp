@@ -18,6 +18,9 @@ namespace lemons::music
 
 String PitchClass::getAsString (bool asSharps, bool useUnicodeAccidentals, bool useNaturalSymbol) const noexcept
 {
+	if (useNaturalSymbol)
+		jassert (useUnicodeAccidentals);
+
 	const constexpr char* const sharpNoteNames[] = {
 		"C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"
 	};
@@ -57,11 +60,14 @@ inline int stringToPitchClass (const String& string) noexcept
 	jassert (! string.isEmpty());
 
 	const auto pitchClassTokens = String ("abcdefg#") + getSharpSymbol() + getFlatSymbol() + getNaturalSymbol();
-	const auto pitchClassName	= string.toLowerCase().retainCharacters (pitchClassTokens);
+
+	const auto pitchClassName = string.trim().toLowerCase().retainCharacters (pitchClassTokens);
 
 	const auto numChars = pitchClassName.length();
 
-	auto pitchClass = [numChars, &pitchClassName]()
+	jassert (numChars > 0);
+
+	const auto pitchClass = [numChars, &pitchClassName]()
 	{
 		if (numChars > 0)
 		{
@@ -80,23 +86,24 @@ inline int stringToPitchClass (const String& string) noexcept
 		return -1;
 	}();
 
-	if (numChars > 1 && pitchClass >= 0)
-	{
-		const auto sharpOrFlat = pitchClassName[1];
-
-		if (sharpOrFlat == getSharpSymbol() || sharpOrFlat == '#')
-			++pitchClass;
-		else if (sharpOrFlat == getFlatSymbol() || sharpOrFlat == 'b')
-			--pitchClass;
-	}
-
 	if (pitchClass < 0)
 	{
 		jassertfalse;
 		return -1;
 	}
 
-	return pitchClass % 12;
+	if (numChars > 1)
+	{
+		const auto sharpOrFlat = pitchClassName[1];
+
+		if (sharpOrFlat == getSharpSymbol() || sharpOrFlat == '#')
+			return pitchClass + 1;
+
+		if (sharpOrFlat == getFlatSymbol() || sharpOrFlat == 'b')
+			return pitchClass - 1;
+	}
+
+	return pitchClass;
 }
 
 PitchClass::PitchClass (const String& stringDescription) noexcept

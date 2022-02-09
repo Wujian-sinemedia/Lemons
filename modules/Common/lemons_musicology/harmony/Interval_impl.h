@@ -18,6 +18,21 @@
 namespace lemons::music
 {
 
+constexpr bool Interval::isValidQualityForKind (Quality quality, int kind) noexcept
+{
+	if (kind == 0 || kind == 4 || kind == 5 || kind == 8)
+	{
+		const auto base = quality != Quality::Major && quality != Quality::Minor;
+
+		if (kind == 0)
+			return base && quality != Quality::Diminished;
+
+		return base;
+	}
+
+	return quality != Quality::Perfect;
+}
+
 constexpr bool Interval::intervalIsPerfectKind() noexcept
 {
 	return kind == 0 || kind == 4 || kind == 5 || kind == 8;
@@ -29,10 +44,7 @@ constexpr Interval::Interval (int kindToUse, Quality qualityToUse) noexcept
 	jassert (kind != 1);
 	jassert (kind >= 0 && kind <= 8);
 
-	if (intervalIsPerfectKind())
-		jassert (quality != Quality::Major && quality != Quality::Minor);
-	else
-		jassert (quality != Quality::Perfect);
+	jassert (isValidQualityForKind (quality, kind));
 }
 
 constexpr Interval::Interval()
@@ -42,13 +54,7 @@ constexpr Interval::Interval()
 
 constexpr Interval Interval::fromNumSemitones (int semitones) noexcept
 {
-	semitones = math::abs (semitones);
-
-	semitones %= 12;
-
-	jassert (semitones >= 0 && semitones <= 12);
-
-	switch (semitones)
+	switch (math::abs (semitones) % 13)
 	{
 		case (0) : return Interval { 0, Quality::Perfect };
 		case (1) : return Interval { 2, Quality::Minor };
@@ -132,14 +138,28 @@ constexpr bool Interval::operator< (const Interval& other) const noexcept
 
 constexpr Interval& Interval::operator++() noexcept
 {
+	if (kind == 8 && quality == Quality::Augmented)
+		return *this;
+
 	auto incrementKind = [this]
 	{
+		const auto wasFourth = kind == 4;
+
 		++kind;
 
+		if (kind == 1) kind = 2;
+
 		if (intervalIsPerfectKind())
-			quality = Quality::Perfect;
+		{
+			if (wasFourth)
+				quality = Quality::Perfect;
+			else
+				quality = Quality::Augmented;
+		}
 		else
+		{
 			quality = Quality::Major;
+		}
 	};
 
 	if (intervalIsPerfectKind())
@@ -193,14 +213,35 @@ constexpr Interval& Interval::operator++() noexcept
 
 constexpr Interval& Interval::operator--() noexcept
 {
+	if (kind == 0 && quality == Quality::Perfect)
+		return *this;
+
+	if (kind == 2 && quality == Quality::Diminished)
+	{
+		kind	= 0;
+		quality = Quality::Perfect;
+		return *this;
+	}
+
 	auto decrementKind = [this]
 	{
+		const auto wasFifth = kind == 5;
+
 		--kind;
 
+		if (kind == 1) kind = 0;
+
 		if (intervalIsPerfectKind())
-			quality = Quality::Perfect;
+		{
+			if (wasFifth)
+				quality = Quality::Perfect;
+			else
+				quality = Quality::Diminished;
+		}
 		else
+		{
 			quality = Quality::Minor;
+		}
 	};
 
 	if (intervalIsPerfectKind())

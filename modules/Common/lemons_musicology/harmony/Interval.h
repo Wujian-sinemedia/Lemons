@@ -27,6 +27,7 @@ public:
 
 	/** Describes the quality of the interval.
 		Note that not all possible quality values are valid for every possible interval type; a "major fifth" or a "perfect third" do not exist.
+		@see isValidQualityForKind()
 	 */
 	enum class Quality
 	{
@@ -44,6 +45,7 @@ public:
 		If the kind or quality parameters are invalid, an assertion will be thrown.
 		@param kindToUse The kind of interval to create -- 0 for unison, 2 for second, 3 for third, etc. Note that 1 is not a valid value, and values greater than 8 will be reduced to their equivalent intervals that are within one octave (ie, using the modulus operator).
 		@param qualityToUse The quality of interval to create.
+		@see isValidQualityForKind()
 	 */
 	constexpr explicit Interval (int kindToUse, Quality qualityToUse) noexcept;
 
@@ -62,7 +64,7 @@ public:
 	constexpr Interval (const Interval& other) noexcept;
 
 	/** Creates an interval from a string description of one.
-		The passed string can be a long or short description.
+		The passed string can be a long or short description, eg, "Major second" or "M2", etc.
 	 */
 	[[nodiscard]] static Interval fromStringDescription (const String& string);
 
@@ -114,11 +116,15 @@ public:
 
 	/** Increments this interval by one semitone, preserving the kind by manipulating the quality where possible.
 		For example, a major second will increment to an augmented second, rather than a minor third.
+		A perfect octave will increment to an augmented octave.
+		Calling the increment operator on an augmented octave will do nothing.
 	 */
 	constexpr Interval& operator++() noexcept;
 
 	/** Decrements this interval by one semitone, preserving the kind by manipulating the quality where possible.
 		For example, a minor second will decrement to a diminished second, rather than a perfect unison.
+		In the special case of a diminished second, it will decrement to a perfect unison (even though these two intervals are enharmonically equivalent).
+		Calling the decrement operator on a perfect unison will do nothing.
 	 */
 	constexpr Interval& operator--() noexcept;
 
@@ -135,7 +141,7 @@ public:
 	 */
 	[[nodiscard]] constexpr int getKind() const noexcept;
 
-	/** Returns a string description of this interval's kind. */
+	/** Returns a string description of this interval's kind, eg, "second", "third", etc. */
 	[[nodiscard]] String getKindAsString() const;
 
 	/** Returns the quality of this interval. */
@@ -155,6 +161,12 @@ public:
 	/** Returns an array of possible cents values this interval can represent in just intonation, taking enharmonic spelling into account.
 	 */
 	[[nodiscard]] juce::Array<double> getCents_JustIntonation() const;
+
+	/** Returns true if the quality is valid for the given kind of interval.
+		For example, a perfect fourth or fifth is valid, while a perfect third or perfect second is not. A major or minor third is valid, while a major fourth or minor fifth is not.
+		Note the special case that a diminished unison is invalid; unisons can only be perfect or augmented.
+	 */
+	[[nodiscard]] static constexpr bool isValidQualityForKind (Quality quality, int kind) noexcept;
 
 private:
 

@@ -35,7 +35,7 @@ private:
 
 		beginTest ("MIDI pitch / String conversion");
 
-		const auto testPair = [&] (int midiNote, const String& string)
+		auto testPair = [this] (int midiNote, const String& string)
 		{
 			expectEquals (pitchToString (midiNote), string);
 			expectEquals (stringToPitch (string), midiNote);
@@ -45,7 +45,7 @@ private:
 		testPair (86, "D6");
 		testPair (41, "F2");
 
-		const auto testAccidental = [&] (int midiNote, const String& flatString, const String& sharpString)
+		auto testAccidental = [this] (int midiNote, const String& flatString, const String& sharpString)
 		{
 			expectEquals (pitchToString (midiNote, true), sharpString);
 			expectEquals (pitchToString (midiNote, false), flatString);
@@ -61,7 +61,7 @@ private:
 
 		beginTest ("MIDI pan / string conversion");
 
-		const auto testMidiPan = [&] (int pan, const String& string)
+		auto testMidiPan = [this] (int pan, const String& string)
 		{
 			expectEquals (midiPanIntToString (pan), string);
 			expectEquals (midiPanStringToInt (string), pan);

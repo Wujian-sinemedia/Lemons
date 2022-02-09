@@ -36,4 +36,5 @@
 #if LEMONS_UNIT_TESTS
 #	include "util/StringFunctions_tests.cpp"
 #	include "harmony/PitchClass_tests.cpp"
+#	include "harmony/Interval_tests.cpp"
 #endif

@@ -53,9 +53,7 @@ int Pitch::getOctaveNumber() const noexcept
 
 bool Pitch::isBlackKey() const noexcept
 {
-	const auto pitchClass = getPitchClass();
-
-	return pitchClass == 1 || pitchClass == 3 || pitchClass == 6 || pitchClass == 8 || pitchClass == 10;
+	return getPitchClass().isBlackKey();
 }
 
 bool Pitch::isWhiteKey() const noexcept

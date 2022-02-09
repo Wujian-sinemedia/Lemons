@@ -35,7 +35,7 @@ private:
 
 		beginTest ("pitch class / string conversion");
 
-		const auto testPitchClass = [&] (int pitchClass, const String& string)
+		auto testPitchClass = [this] (int pitchClass, const String& string)
 		{
 			const PitchClass fromString { string };
 			const PitchClass fromInt { pitchClass };
@@ -53,7 +53,7 @@ private:
 		testPitchClass (9, "A");
 		testPitchClass (11, "B");
 
-		const auto testPitchClassAccidental = [&] (int pitchClass, const String& sharpString, const String& flatString)
+		auto testPitchClassAccidental = [this] (int pitchClass, const String& sharpString, const String& flatString)
 		{
 			const PitchClass fromSharpString { sharpString };
 			const PitchClass fromFlatString { flatString };
