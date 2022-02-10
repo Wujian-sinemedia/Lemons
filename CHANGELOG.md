@@ -1,5 +1,17 @@
 # Lemons changelog
 
+## [1.14.0](http://github.com/benthevining/Lemons/compare/v1.13.0...v1.14.0) (2022-02-10)
+
+
+### Features
+
+* implemented isCapsLockOn() for Linux ([3b08161](http://github.com/benthevining/Lemons/commit/3b08161346f8daba30db1eeb869e309cc6b8e897))
+
+
+### Bug Fixes
+
+* undefining KeyPress macro after including libX11 ([590af31](http://github.com/benthevining/Lemons/commit/590af311f1d062fb8c3ad96e4531e563ab0f724d))
+
 ## [1.13.0](http://github.com/benthevining/Lemons/compare/v1.12.0...v1.13.0) (2022-02-10)
 
 
