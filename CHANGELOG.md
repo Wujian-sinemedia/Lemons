@@ -1,5 +1,12 @@
 # Lemons changelog
 
+### [1.14.1](http://github.com/benthevining/Lemons/compare/v1.14.0...v1.14.1) (2022-02-10)
+
+
+### Bug Fixes
+
+* fixed lambda capture bug ([7b31eb6](http://github.com/benthevining/Lemons/commit/7b31eb60afe38698123b1a60af8d4cb497fff380))
+
 ## [1.14.0](http://github.com/benthevining/Lemons/compare/v1.13.0...v1.14.0) (2022-02-10)
 
 
