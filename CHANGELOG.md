@@ -1,5 +1,12 @@
 # Lemons changelog
 
+## [1.13.0](http://github.com/benthevining/Lemons/compare/v1.12.0...v1.13.0) (2022-02-10)
+
+
+### Features
+
+* added a compound interval class ([c4eec32](http://github.com/benthevining/Lemons/commit/c4eec32c757cb77219c7a82f1f433a592a35ca55))
+
 ## [1.12.0](http://github.com/benthevining/Lemons/compare/v1.11.0...v1.12.0) (2022-02-07)
 
 
