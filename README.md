@@ -62,6 +62,7 @@ Here's a list of the juce modules in this repository:
 	- lemons_dmx
 	- lemons_osc
 - GUI
+	- lemons_device
 	- lemons_gui
 - Plugins
 	- lemons_plugin

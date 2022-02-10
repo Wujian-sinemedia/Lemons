@@ -28,25 +28,13 @@
  license:            GPL-3.0
  minimumCppStandard: 17
  dependencies:       lemons_core juce_gui_extra
- iOSFrameworks:      CoreGraphics CoreLocation AppKit CoreMotion
- OSXFrameworks:      CoreGraphics CoreLocation AppKit
+ iOSFrameworks:      CoreGraphics
+ OSXFrameworks:      CoreGraphics
  linuxLibs:          X11
 
  END_JUCE_MODULE_DECLARATION
 
 -------------------------------------------------------------------------------------*/
-
-
-//==============================================================================
-/** Config: LEMONS_ENABLE_GPS_LOCATION_SERVICES
-
- Set this to 1 to enable GPS location services.
- */
-#ifndef LEMONS_ENABLE_GPS_LOCATION_SERVICES
-#	define LEMONS_ENABLE_GPS_LOCATION_SERVICES 0
-#endif
-
-//==============================================================================
 
 
 #include "unit_tests/gui_tests.h"
@@ -65,12 +53,6 @@
 #include "components/popups/PopupComponent.h"
 #include "components/popups/VersionBumpPrompt.h"
 #include "components/popups/SaveToFilePrompt.h"
-
-#include "device/DeviceRotation.h"
-#include "device/autolock/AutoLock.h"
-#include "device/motion/DeviceMotion.h"
-
-#include "device/gps/GPS.h"
 
 #include "app/DefaultWindow.h"
 #include "app/GuiApp.h"

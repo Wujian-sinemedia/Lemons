@@ -13,25 +13,4 @@
  * ======================================================================================
  */
 
-namespace lemons::files
-{
-
-Listener::Listener (const File&				fileToWatch,
-					std::function<void()>&& callback)
-	: callbackFunc (callback), file (fileToWatch)
-{
-	lastModTime = file.getLastModificationTime().toMilliseconds();
-}
-
-void Listener::check()
-{
-	const auto newModTime = file.getLastModificationTime().toMilliseconds();
-
-	if (newModTime != lastModTime)
-	{
-		lastModTime = newModTime;
-		callbackFunc();
-	}
-}
-
-}  // namespace lemons::files
+#include "lemons_device.cpp"

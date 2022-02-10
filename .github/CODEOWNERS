@@ -15,6 +15,7 @@
 .github/CODEOWNERS benthevining
 .github/FUNDING.yml benthevining
 .github/ISSUE_TEMPLATE/config.yml benthevining
+.github/dependabot.yml benthevining
 .github/workflows/test_and_release.yml benthevining
 .github/workflows/tests.yml benthevining
 .gitignore benthevining
@@ -124,6 +125,7 @@ modules/Audio/lemons_synth/SynthVoice/TimbreMod.h benthevining
 modules/Audio/lemons_synth/lemons_synth.cpp benthevining
 modules/Audio/lemons_synth/lemons_synth.h benthevining
 modules/Common/lemons_core/binary_data/translations.h benthevining
+modules/Common/lemons_core/files/FileUtilities.h benthevining
 modules/Common/lemons_core/lemons_core.h benthevining
 modules/Common/lemons_core/localization/TranslationFiles.cpp benthevining
 modules/Common/lemons_core/localization/languages.cpp benthevining
@@ -136,6 +138,7 @@ modules/Common/lemons_core/misc/Dimensions.h benthevining
 modules/Common/lemons_core/misc/Preprocessor.h benthevining
 modules/Common/lemons_core/misc/StringUtils.h benthevining
 modules/Common/lemons_core/misc/Threading.h benthevining
+modules/Common/lemons_core/misc/Timers.h benthevining
 modules/Common/lemons_core/misc/TypeTraits.h benthevining
 modules/Common/lemons_core/misc/Version.h benthevining
 modules/Common/lemons_core/misc/rsa.h benthevining
@@ -176,6 +179,11 @@ modules/Connectivity/lemons_osc/lemons_osc.h benthevining
 modules/Connectivity/lemons_osc/util/serializing.h benthevining
 modules/Connectivity/lemons_osc/util/util.h benthevining
 modules/GUI/LemonsGUIModules.cmake benthevining
+modules/GUI/lemons_device/lemons_device.cpp benthevining
+modules/GUI/lemons_device/motion/DeviceMotion.cpp benthevining
+modules/GUI/lemons_device/motion/DeviceMotion.h benthevining
+modules/GUI/lemons_device/motion/DeviceMotion_android.cpp benthevining
+modules/GUI/lemons_device/rotation/DeviceRotation.h benthevining
 modules/GUI/lemons_gui/app/DefaultWindow.cpp benthevining
 modules/GUI/lemons_gui/app/DefaultWindow.h benthevining
 modules/GUI/lemons_gui/components/Label.cpp benthevining

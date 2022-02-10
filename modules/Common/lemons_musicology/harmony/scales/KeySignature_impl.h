@@ -24,7 +24,7 @@ constexpr KeySignature::KeySignature (Type typeToUse, bool isSharps, int rootNot
 }
 
 constexpr KeySignature::KeySignature (Type typeToUse, bool isSharps, const PitchClass& pitchClassOfRoot) noexcept
-	: type (typeToUse), isFlat (! isSharps)
+	: isFlat (! isSharps), type (typeToUse)
 {
 	struct MajorMinorPair final
 	{

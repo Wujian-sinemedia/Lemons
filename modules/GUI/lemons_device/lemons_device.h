@@ -13,25 +13,42 @@
  * ======================================================================================
  */
 
-namespace lemons::files
-{
+#pragma once
 
-Listener::Listener (const File&				fileToWatch,
-					std::function<void()>&& callback)
-	: callbackFunc (callback), file (fileToWatch)
-{
-	lastModTime = file.getLastModificationTime().toMilliseconds();
-}
+/*-------------------------------------------------------------------------------------
 
-void Listener::check()
-{
-	const auto newModTime = file.getLastModificationTime().toMilliseconds();
+ BEGIN_JUCE_MODULE_DECLARATION
 
-	if (newModTime != lastModTime)
-	{
-		lastModTime = newModTime;
-		callbackFunc();
-	}
-}
+ ID:                 lemons_device
+ vendor:             Lemons
+ version:            0.0.1
+ name:               lemons_device
+ description:        Classes for interacting with the device's physical state
+ website:            http://benthevining.github.io/Lemons/
+ license:            GPL-3.0
+ minimumCppStandard: 17
+ dependencies:       lemons_core juce_gui_basics
+ iOSFrameworks:      AppKit CoreLocation CoreMotion
+ OSXFrameworks:      AppKit CoreLocation
 
-}  // namespace lemons::files
+ END_JUCE_MODULE_DECLARATION
+
+-------------------------------------------------------------------------------------*/
+
+
+//==============================================================================
+/** Config: LEMONS_ENABLE_GPS_LOCATION_SERVICES
+
+ Set this to 1 to enable GPS location services.
+ */
+#ifndef LEMONS_ENABLE_GPS_LOCATION_SERVICES
+#	define LEMONS_ENABLE_GPS_LOCATION_SERVICES 0
+#endif
+
+//==============================================================================
+
+
+#include "rotation/DeviceRotation.h"
+#include "autolock/AutoLock.h"
+#include "motion/DeviceMotion.h"
+#include "gps/GPS.h"

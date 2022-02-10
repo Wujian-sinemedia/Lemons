@@ -54,20 +54,17 @@ bool GPSLocation::isLocationAvailable()
 
 GPSLocation GPSLocation::getCurrentLocation()
 {
-	// If you reach this, you need to prompt the user to enable using the location
-	// services!
+	// If you reach this, you need to prompt the user to enable using the location services!
 	jassert ([CLLocationManager authorizationStatus] != kCLAuthorizationStatusNotDetermined);
 
-	id<NSApplicationDelegate> appDelegate =
-		[[NSApplication sharedApplication] delegate];
+	id<NSApplicationDelegate> appDelegate = [[NSApplication sharedApplication] delegate];
 
 	if (auto* locationManager = [appDelegate locationManager])
 		locationManager.startUpdatingLocation();
 
 	if (isLocationAvailable())
 	{
-		id<NSApplicationDelegate> appDelegate =
-			[[NSApplication sharedApplication] delegate];
+		id<NSApplicationDelegate> appDelegate = [[NSApplication sharedApplication] delegate];
 		if (auto* locationManager = [appDelegate getLocationManager])
 		{
 			return GPSLocation {

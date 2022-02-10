@@ -29,7 +29,7 @@ String PitchClass::getAsString (bool asSharps, bool useUnicodeAccidentals, bool 
 		"C", "Db", "D", "Eb", "E", "F", "Gb", "G", "Ab", "A", "Bb", "B"
 	};
 
-	const auto base = [sharps = asSharps, idx = pitchClass, &sharpNoteNames, &flatNoteNames]
+	const auto base = [sharps = asSharps, idx = pitchClass]
 	{
 		if (sharps)
 			return sharpNoteNames[idx];

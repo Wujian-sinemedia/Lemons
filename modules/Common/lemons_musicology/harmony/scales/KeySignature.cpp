@@ -193,7 +193,7 @@ bool KeySignature::isDominantKeyOf (const KeySignature& other) const noexcept
 	if (type != Type::Major)
 		return false;
 
-	const PitchClass dominant { getPitchClassOfRoot() + 7 };
+	const PitchClass dominant { other.getPitchClassOfRoot() + 7 };
 
 	return getPitchClassOfRoot() == dominant;
 }
