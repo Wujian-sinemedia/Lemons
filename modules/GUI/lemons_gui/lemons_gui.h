@@ -30,6 +30,7 @@
  dependencies:       lemons_core juce_gui_extra
  iOSFrameworks:      CoreGraphics CoreLocation AppKit CoreMotion
  OSXFrameworks:      CoreGraphics CoreLocation AppKit
+ linuxLibs:          X11
 
  END_JUCE_MODULE_DECLARATION
 

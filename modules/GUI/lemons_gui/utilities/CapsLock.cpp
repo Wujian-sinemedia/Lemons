@@ -18,7 +18,7 @@
 #elif JUCE_MAC
 #	include <CoreGraphics/CoreGraphics.h>
 #else
-// not currently implemented for Linux
+#	include <X11/XKBlib.h>
 #endif
 
 namespace lemons::gui::util
@@ -26,18 +26,30 @@ namespace lemons::gui::util
 
 bool isCapsLockOn()
 {
-	bool result = false;
-
 #if JUCE_WINDOWS
-	result = (GetKeyState (VK_CAPITAL) & 0x0001) != 0;
+
+	return (GetKeyState (VK_CAPITAL) & 0x0001) != 0;
+
 #elif JUCE_MAC
+
 	const auto flags = CGEventSourceFlagsState (kCGEventSourceStateHIDSystemState);
-	result			 = (kCGEventFlagMaskAlphaShift & flags) != 0;
+	return (kCGEventFlagMaskAlphaShift & flags) != 0;
+
 #else
-	// not currently implemented for Linux
+
+	if (auto* display = XOpenDisplay (getenv ("DISPLAY")))
+	{
+		unsigned state;
+
+		if (XkbGetIndicatorState (display, XkbUseCoreKbd, &state) != Success)
+			return false;
+
+		return state & 1;
+	}
+
 #endif
 
-	return result;
+	return false;
 }
 
 }  // namespace lemons::gui::util
