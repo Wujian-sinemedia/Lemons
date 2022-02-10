@@ -47,7 +47,7 @@ constexpr Interval::Interval (int kindToUse, Quality qualityToUse) noexcept
 	jassert (isValidQualityForKind (quality, kind));
 }
 
-constexpr Interval::Interval()
+constexpr Interval::Interval() noexcept
 	: Interval (0, Quality::Perfect)
 {
 }

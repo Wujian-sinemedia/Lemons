@@ -20,6 +20,7 @@ namespace lemons::music
 
 /** A class that represents a musical interval between two pitches.
 	This class is meant for intervals that are an octave or smaller, and that can be expressed as a whole number of semitones.
+	To represent intervals larger than an octave, use the CompoundInterval class.
  */
 class Interval final
 {
@@ -39,7 +40,7 @@ public:
 	};
 
 	/** Creates an interval representing a perfect unison. */
-	constexpr Interval();
+	constexpr Interval() noexcept;
 
 	/** Creates an interval with a specified kind and quality.
 		If the kind or quality parameters are invalid, an assertion will be thrown.

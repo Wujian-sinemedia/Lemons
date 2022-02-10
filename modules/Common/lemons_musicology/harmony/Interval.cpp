@@ -23,8 +23,6 @@ Interval Interval::fromPitches (const Pitch& pitch1, const Pitch& pitch2) noexce
 
 String Interval::getKindAsString() const
 {
-	jassert (kind >= 0 && kind <= 8);
-
 	switch (kind)
 	{
 		case (0) : return "unison";

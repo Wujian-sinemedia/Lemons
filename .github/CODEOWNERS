@@ -115,6 +115,7 @@ modules/Audio/lemons_synth/Synth/Synth.cpp benthevining
 modules/Audio/lemons_synth/Synth/Synth.h benthevining
 modules/Audio/lemons_synth/Synth/helpers/MidiManager.cpp benthevining
 modules/Audio/lemons_synth/Synth/helpers/MidiManager.h benthevining
+modules/Audio/lemons_synth/Synth/helpers/PanningManager.cpp benthevining
 modules/Audio/lemons_synth/Synth/helpers/PanningManager.h benthevining
 modules/Audio/lemons_synth/Synth/helpers/VoiceAllocator.cpp benthevining
 modules/Audio/lemons_synth/Synth/helpers/VoiceAllocator.h benthevining
@@ -288,6 +289,7 @@ util/cmake/modules/config_files/scripts/install_win.cmake benthevining
 util/cmake/modules/config_files/scripts/mac_install_homebrew.sh benthevining
 util/cmake/modules/cpack/LemonsDefaultCpackSettings.cmake benthevining
 util/cmake/modules/cpack/scripts/rpm/rpmPostInstall.sh benthevining
+util/cmake/modules/general/BVBrandFlags.cmake benthevining
 util/cmake/modules/general/LemonsCmakeDevTools.cmake benthevining
 util/cmake/modules/general/LemonsDefaultProjectSettings.cmake benthevining
 util/cmake/modules/general/LemonsFileUtils.cmake benthevining

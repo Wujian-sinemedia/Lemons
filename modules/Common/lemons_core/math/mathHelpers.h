@@ -25,8 +25,9 @@ namespace lemons::math
  @{
  */
 
+/** A constexpr-enabled absolute value function. */
 template <typename T>
-[[nodiscard]] constexpr T abs (T val)
+[[nodiscard]] constexpr T abs (T val) noexcept
 {
 	if (val < T (0))
 		return -val;

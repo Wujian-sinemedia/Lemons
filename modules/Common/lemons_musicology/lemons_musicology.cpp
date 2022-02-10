@@ -21,7 +21,7 @@
 #include "harmony/PitchClass.cpp"
 #include "harmony/Pitch.cpp"
 #include "harmony/Interval.cpp"
-
+#include "harmony/CompoundInterval.cpp"
 #include "harmony/scales/Scale.cpp"
 #include "harmony/scales/Chromatic.cpp"
 #include "harmony/scales/Octatonic.cpp"
