@@ -13,7 +13,7 @@ var searchData=
   ['initializetranslations_10',['initializeTranslations',['../group__lemons__binary.html#ga4962f8d8921a03dc8a328f6149fa32b5',1,'lemons::locale']]],
   ['initialsize_11',['initialSize',['../structlemons_1_1plugin_1_1_editor_attributes.html#a0ff5b0acdd7966ca1de1cccaca358072',1,'lemons::plugin::EditorAttributes']]],
   ['intensity_12',['Intensity',['../group__lemons__unit__testing.html#gabe71616eeadecd56537dd9a10376223c',1,'lemons::tests']]],
-  ['interval_13',['Interval',['../classlemons_1_1music_1_1_interval.html#aac35173c35d6bce37cc26ae9c3f841c8',1,'lemons::music::Interval::Interval(int kindToUse, Quality qualityToUse) noexcept'],['../classlemons_1_1music_1_1_interval.html#aa580ca56ea42022929b9b8c149302f87',1,'lemons::music::Interval::Interval()'],['../classlemons_1_1music_1_1_interval.html#ae85b3e18ffeb6f1f998c3829505818d0',1,'lemons::music::Interval::Interval(const Interval &amp;other) noexcept'],['../classlemons_1_1music_1_1_interval.html',1,'lemons::music::Interval']]],
+  ['interval_13',['Interval',['../classlemons_1_1music_1_1_interval.html#aa580ca56ea42022929b9b8c149302f87',1,'lemons::music::Interval::Interval()'],['../classlemons_1_1music_1_1_interval.html#ae85b3e18ffeb6f1f998c3829505818d0',1,'lemons::music::Interval::Interval(const Interval &amp;other) noexcept'],['../classlemons_1_1music_1_1_interval.html#aac35173c35d6bce37cc26ae9c3f841c8',1,'lemons::music::Interval::Interval(int kindToUse, Quality qualityToUse) noexcept'],['../classlemons_1_1music_1_1_interval.html',1,'lemons::music::Interval']]],
   ['interval_2eh_14',['Interval.h',['../_interval_8h.html',1,'']]],
   ['interval_5fimpl_2eh_15',['Interval_impl.h',['../_interval__impl_8h.html',1,'']]],
   ['intervalshifter_16',['IntervalShifter',['../classlemons_1_1dsp_1_1psola_1_1_interval_shifter.html',1,'lemons::dsp::psola']]],
@@ -48,7 +48,7 @@ var searchData=
   ['isaudiofile_45',['isAudioFile',['../namespacelemons_1_1files.html#a8d383edb688ecb64088d1700766df9a6',1,'lemons::files']]],
   ['isautomatable_46',['isAutomatable',['../structlemons_1_1plugin_1_1_parameter_traits.html#a4153bb102fa4b29bc0283c82f448a844',1,'lemons::plugin::ParameterTraits::isAutomatable()'],['../classlemons_1_1plugin_1_1_parameter.html#abcae02c6785e36a8fd3b7a34cba8911b',1,'lemons::plugin::Parameter::isAutomatable()']]],
   ['isautomatedpitch_47',['isAutomatedPitch',['../classlemons_1_1dsp_1_1synth_1_1_automated_harmony_voice.html#afadc2a1e80d61b77dec6f6eee246605f',1,'lemons::dsp::synth::AutomatedHarmonyVoice']]],
-  ['isblackkey_48',['isBlackKey',['../classlemons_1_1music_1_1_pitch.html#aadfd5957ade590d3af67c3d3d5171687',1,'lemons::music::Pitch::isBlackKey()'],['../structlemons_1_1music_1_1_pitch_class.html#a22ef807fc02a624b1dfee238e8d5b3ed',1,'lemons::music::PitchClass::isBlackKey()']]],
+  ['isblackkey_48',['isBlackKey',['../structlemons_1_1music_1_1_pitch_class.html#a22ef807fc02a624b1dfee238e8d5b3ed',1,'lemons::music::PitchClass::isBlackKey()'],['../classlemons_1_1music_1_1_pitch.html#aadfd5957ade590d3af67c3d3d5171687',1,'lemons::music::Pitch::isBlackKey()']]],
   ['isbypassed_49',['isBypassed',['../structlemons_1_1dsp_1_1_engine_chain_1_1_node.html#a9d8df45593401a7402a671586b34a3dc',1,'lemons::dsp::EngineChain::Node']]],
   ['iscapslockon_50',['isCapsLockOn',['../namespacelemons_1_1gui_1_1util.html#a82b519e508af2430229b665c3054e8b2',1,'lemons::gui::util']]],
   ['ischanging_51',['isChanging',['../classlemons_1_1plugin_1_1_parameter.html#a89a3783fca20082cb1ded6ec34a60fcd',1,'lemons::plugin::Parameter']]],
@@ -93,8 +93,9 @@ var searchData=
   ['isvalidchannel_90',['isValidChannel',['../namespacelemons_1_1dmx.html#a5c09e0d1bff95f98322a293a8f47f9ad',1,'lemons::dmx']]],
   ['isvalidchannelvalue_91',['isValidChannelValue',['../namespacelemons_1_1dmx.html#af536e3dc7eb2db1132bfb809e2426ea5',1,'lemons::dmx']]],
   ['isvalidport_92',['isValidPort',['../namespacelemons_1_1osc.html#aec1ce08b4c820a7c77e047357199bfc9',1,'lemons::osc']]],
-  ['isvertical_93',['isVertical',['../classlemons_1_1plugin_1_1_state_toggle_buttons.html#ab1c2e7e17a85d59a632677a5e4d62f2d',1,'lemons::plugin::StateToggleButtons']]],
-  ['isvisible_94',['isVisible',['../classlemons_1_1gui_1_1components_1_1_popup.html#ab3b4a0d6df9d3d06f34ba841ec02bf8e',1,'lemons::gui::components::Popup::isVisible()'],['../structlemons_1_1gui_1_1components_1_1_optional_component.html#a116960dfb2c5fd309aed63335af36ddb',1,'lemons::gui::components::OptionalComponent::isVisible()'],['../structlemons_1_1gui_1_1components_1_1_swappable_component.html#ad5b372feedab1eae03313013c898d7de',1,'lemons::gui::components::SwappableComponent::isVisible()']]],
-  ['isvoiceactive_95',['isVoiceActive',['../classlemons_1_1dsp_1_1_synth_voice_base.html#af226880e9b8807ed388a3880f14b792a',1,'lemons::dsp::SynthVoiceBase']]],
-  ['iswhitekey_96',['isWhiteKey',['../classlemons_1_1music_1_1_pitch.html#ae729b925b38de2fe5b3faa812cd9df40',1,'lemons::music::Pitch::isWhiteKey()'],['../structlemons_1_1music_1_1_pitch_class.html#a4fb33d2e81547b67514ff5a1e19f5ff4',1,'lemons::music::PitchClass::isWhiteKey()']]]
+  ['isvalidqualityforkind_93',['isValidQualityForKind',['../classlemons_1_1music_1_1_interval.html#a37e0e6bf5e714a9aec43a73a58ae6f88',1,'lemons::music::Interval']]],
+  ['isvertical_94',['isVertical',['../classlemons_1_1plugin_1_1_state_toggle_buttons.html#ab1c2e7e17a85d59a632677a5e4d62f2d',1,'lemons::plugin::StateToggleButtons']]],
+  ['isvisible_95',['isVisible',['../classlemons_1_1gui_1_1components_1_1_popup.html#ab3b4a0d6df9d3d06f34ba841ec02bf8e',1,'lemons::gui::components::Popup::isVisible()'],['../structlemons_1_1gui_1_1components_1_1_optional_component.html#a116960dfb2c5fd309aed63335af36ddb',1,'lemons::gui::components::OptionalComponent::isVisible()'],['../structlemons_1_1gui_1_1components_1_1_swappable_component.html#ad5b372feedab1eae03313013c898d7de',1,'lemons::gui::components::SwappableComponent::isVisible()']]],
+  ['isvoiceactive_96',['isVoiceActive',['../classlemons_1_1dsp_1_1_synth_voice_base.html#af226880e9b8807ed388a3880f14b792a',1,'lemons::dsp::SynthVoiceBase']]],
+  ['iswhitekey_97',['isWhiteKey',['../classlemons_1_1music_1_1_pitch.html#ae729b925b38de2fe5b3faa812cd9df40',1,'lemons::music::Pitch::isWhiteKey()'],['../structlemons_1_1music_1_1_pitch_class.html#a4fb33d2e81547b67514ff5a1e19f5ff4',1,'lemons::music::PitchClass::isWhiteKey()']]]
 ];

@@ -10863,6 +10863,13 @@
       <anchor>abc4344f1b007891873711a39ccb12dd0</anchor>
       <arglist>(const String &amp;string)</arglist>
     </member>
+    <member kind="function" static="yes">
+      <type>static constexpr bool</type>
+      <name>isValidQualityForKind</name>
+      <anchorfile>classlemons_1_1music_1_1_interval.html</anchorfile>
+      <anchor>a37e0e6bf5e714a9aec43a73a58ae6f88</anchor>
+      <arglist>(Quality quality, int kind) noexcept</arglist>
+    </member>
   </compound>
   <compound kind="class">
     <name>lemons::dsp::psola::IntervalShifter</name>

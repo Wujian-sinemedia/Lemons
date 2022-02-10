@@ -118,7 +118,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a2a75c1b95efecc5309e87b7eb71eb976"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the kind of this interval as an integer.  <a href="classlemons_1_1music_1_1_interval.html#a2a75c1b95efecc5309e87b7eb71eb976">More...</a><br /></td></tr>
 <tr class="separator:a2a75c1b95efecc5309e87b7eb71eb976"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ada7f9a356b4e9179cfe7264c60f51cfa"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1music_1_1_interval.html#ada7f9a356b4e9179cfe7264c60f51cfa">getKindAsString</a> () const</td></tr>
-<tr class="memdesc:ada7f9a356b4e9179cfe7264c60f51cfa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a string description of this interval's kind.  <a href="classlemons_1_1music_1_1_interval.html#ada7f9a356b4e9179cfe7264c60f51cfa">More...</a><br /></td></tr>
+<tr class="memdesc:ada7f9a356b4e9179cfe7264c60f51cfa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a string description of this interval's kind, eg, "second", "third", etc.  <a href="classlemons_1_1music_1_1_interval.html#ada7f9a356b4e9179cfe7264c60f51cfa">More...</a><br /></td></tr>
 <tr class="separator:ada7f9a356b4e9179cfe7264c60f51cfa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af6ad03bd4aea9c5d8f398abb9f03524e"><td class="memItemLeft" align="right" valign="top">constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1music_1_1_interval.html#af6ad03bd4aea9c5d8f398abb9f03524e">getNumSemitones</a> () const noexcept</td></tr>
 <tr class="memdesc:af6ad03bd4aea9c5d8f398abb9f03524e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of semitones that this interval represents.  <a href="classlemons_1_1music_1_1_interval.html#af6ad03bd4aea9c5d8f398abb9f03524e">More...</a><br /></td></tr>
@@ -180,6 +180,9 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:abc4344f1b007891873711a39ccb12dd0"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classlemons_1_1music_1_1_interval.html">Interval</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1music_1_1_interval.html#abc4344f1b007891873711a39ccb12dd0">fromStringDescription</a> (const String &amp;string)</td></tr>
 <tr class="memdesc:abc4344f1b007891873711a39ccb12dd0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an interval from a string description of one.  <a href="classlemons_1_1music_1_1_interval.html#abc4344f1b007891873711a39ccb12dd0">More...</a><br /></td></tr>
 <tr class="separator:abc4344f1b007891873711a39ccb12dd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a37e0e6bf5e714a9aec43a73a58ae6f88"><td class="memItemLeft" align="right" valign="top">static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1music_1_1_interval.html#a37e0e6bf5e714a9aec43a73a58ae6f88">isValidQualityForKind</a> (<a class="el" href="classlemons_1_1music_1_1_interval.html#a5a677d72fb8a097e3f341402120a7d7c">Quality</a> quality, int kind) noexcept</td></tr>
+<tr class="memdesc:a37e0e6bf5e714a9aec43a73a58ae6f88"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the quality is valid for the given kind of interval.  <a href="classlemons_1_1music_1_1_interval.html#a37e0e6bf5e714a9aec43a73a58ae6f88">More...</a><br /></td></tr>
+<tr class="separator:a37e0e6bf5e714a9aec43a73a58ae6f88"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >A class that represents a musical interval between two pitches. </p>
@@ -206,7 +209,7 @@ Static Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Describes the quality of the interval. </p>
-<p >Note that not all possible quality values are valid for every possible interval type; a "major fifth" or a "perfect third" do not exist. </p>
+<p >Note that not all possible quality values are valid for every possible interval type; a "major fifth" or a "perfect third" do not exist. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="classlemons_1_1music_1_1_interval.html#a37e0e6bf5e714a9aec43a73a58ae6f88" title="Returns true if the quality is valid for the given kind of interval.">isValidQualityForKind()</a> </dd></dl>
 <table class="fieldtable">
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a5a677d72fb8a097e3f341402120a7d7ca539ef79c5675bdcd6fead7bc93643d98" name="a5a677d72fb8a097e3f341402120a7d7ca539ef79c5675bdcd6fead7bc93643d98"></a>Diminished&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a5a677d72fb8a097e3f341402120a7d7ca6fed0c378a4b4e8c1e7dc5c16dabb388" name="a5a677d72fb8a097e3f341402120a7d7ca6fed0c378a4b4e8c1e7dc5c16dabb388"></a>Minor&#160;</td><td class="fielddoc"></td></tr>
@@ -287,6 +290,7 @@ Static Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classlemons_1_1music_1_1_interval.html#a37e0e6bf5e714a9aec43a73a58ae6f88" title="Returns true if the quality is valid for the given kind of interval.">isValidQualityForKind()</a> </dd></dl>
 
 </div>
 </div>
@@ -451,7 +455,7 @@ Static Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Creates an interval from a string description of one. </p>
-<p >The passed string can be a long or short description. </p>
+<p >The passed string can be a long or short description, eg, "Major second" or "M2", etc. </p>
 
 </div>
 </div>
@@ -578,7 +582,7 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Returns a string description of this interval's kind. </p>
+<p>Returns a string description of this interval's kind, eg, "second", "third", etc. </p>
 
 </div>
 </div>
@@ -714,6 +718,45 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a37e0e6bf5e714a9aec43a73a58ae6f88" name="a37e0e6bf5e714a9aec43a73a58ae6f88"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a37e0e6bf5e714a9aec43a73a58ae6f88">&#9670;&nbsp;</a></span>isValidQualityForKind()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr bool lemons::music::Interval::isValidQualityForKind </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classlemons_1_1music_1_1_interval.html#a5a677d72fb8a097e3f341402120a7d7c">Quality</a>&#160;</td>
+          <td class="paramname"><em>quality</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>kind</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns true if the quality is valid for the given kind of interval. </p>
+<p >For example, a perfect fourth or fifth is valid, while a perfect third or perfect second is not. A major or minor third is valid, while a major fourth or minor fifth is not. Note the special case that a diminished unison is invalid; unisons can only be perfect or augmented. </p>
+
+</div>
+</div>
 <a id="a5238d6e26c644de55ab6e93f3e241320" name="a5238d6e26c644de55ab6e93f3e241320"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5238d6e26c644de55ab6e93f3e241320">&#9670;&nbsp;</a></span>operator!=()</h2>
 
@@ -825,7 +868,7 @@ Static Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Increments this interval by one semitone, preserving the kind by manipulating the quality where possible. </p>
-<p >For example, a major second will increment to an augmented second, rather than a minor third. </p>
+<p >For example, a major second will increment to an augmented second, rather than a minor third. A perfect octave will increment to an augmented octave. Calling the increment operator on an augmented octave will do nothing. </p>
 
 <p class="reference">References <a class="el" href="classlemons_1_1music_1_1_interval.html#a5a677d72fb8a097e3f341402120a7d7cab45f39670f767b2c62c8d6b211cbcb1a">Augmented</a>, <a class="el" href="classlemons_1_1music_1_1_interval.html#a5a677d72fb8a097e3f341402120a7d7ca539ef79c5675bdcd6fead7bc93643d98">Diminished</a>, <a class="el" href="classlemons_1_1music_1_1_interval.html#a5a677d72fb8a097e3f341402120a7d7ca3b329734e45b57e60f3df64c2cf412a9">Major</a>, <a class="el" href="classlemons_1_1music_1_1_interval.html#a5a677d72fb8a097e3f341402120a7d7ca6fed0c378a4b4e8c1e7dc5c16dabb388">Minor</a>, and <a class="el" href="classlemons_1_1music_1_1_interval.html#a5a677d72fb8a097e3f341402120a7d7ca56cdd7e9e3cef1974f4075c03a80332d">Perfect</a>.</p>
 
@@ -913,7 +956,7 @@ Static Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Decrements this interval by one semitone, preserving the kind by manipulating the quality where possible. </p>
-<p >For example, a minor second will decrement to a diminished second, rather than a perfect unison. </p>
+<p >For example, a minor second will decrement to a diminished second, rather than a perfect unison. In the special case of a diminished second, it will decrement to a perfect unison (even though these two intervals are enharmonically equivalent). Calling the decrement operator on a perfect unison will do nothing. </p>
 
 <p class="reference">References <a class="el" href="classlemons_1_1music_1_1_interval.html#a5a677d72fb8a097e3f341402120a7d7cab45f39670f767b2c62c8d6b211cbcb1a">Augmented</a>, <a class="el" href="classlemons_1_1music_1_1_interval.html#a5a677d72fb8a097e3f341402120a7d7ca539ef79c5675bdcd6fead7bc93643d98">Diminished</a>, <a class="el" href="classlemons_1_1music_1_1_interval.html#a5a677d72fb8a097e3f341402120a7d7ca3b329734e45b57e60f3df64c2cf412a9">Major</a>, <a class="el" href="classlemons_1_1music_1_1_interval.html#a5a677d72fb8a097e3f341402120a7d7ca6fed0c378a4b4e8c1e7dc5c16dabb388">Minor</a>, and <a class="el" href="classlemons_1_1music_1_1_interval.html#a5a677d72fb8a097e3f341402120a7d7ca56cdd7e9e3cef1974f4075c03a80332d">Perfect</a>.</p>
 
@@ -1013,7 +1056,7 @@ Static Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Feb 9 2022 00:50:27 for Lemons by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3
+Generated on Thu Feb 10 2022 00:48:33 for Lemons by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3
 </small></address>
 </body>
 </html>
