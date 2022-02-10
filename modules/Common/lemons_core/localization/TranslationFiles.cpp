@@ -18,7 +18,7 @@ namespace lemons::locale
 
 String writeTranslationFileHeader (const String& language, bool languageName)
 {
-	const auto language_name = [languageName, language]
+	const auto language_name = [languageName, &language]
 	{
 		if (languageName)
 			return language;
@@ -37,8 +37,113 @@ String writeTranslationFileHeader (const String& language, bool languageName)
 
 	if (! countries.isEmpty())
 		header << "countries: " << countries.joinIntoString (" ") << juce::newLine;
+	else
+		header << "countries: [write list of country codes for this language here]" << juce::newLine;
 
 	return header;
+}
+
+
+[[nodiscard]] inline juce_wchar readEscapedChar (String::CharPointerType& p) noexcept
+{
+	auto c = *p;
+
+	switch (c)
+	{
+		case '"' : break;
+		case '\\' : break;
+		case '/' : break;
+
+		case 'b' : c = '\b'; break;
+		case 'f' : c = '\f'; break;
+		case 'n' : c = '\n'; break;
+		case 'r' : c = '\r'; break;
+		case 't' : c = '\t'; break;
+
+		case 'x' :
+			++p;
+			c = 0;
+
+			for (auto i = 4; --i >= 0;)
+			{
+				const auto digitValue = juce::CharacterFunctions::getHexDigitValue (*p);
+
+				if (digitValue < 0)
+					break;
+
+				++p;
+				c = (c << 4) + (juce_wchar) digitValue;	 // NOLINT
+			}
+
+			break;
+
+		case '0' : [[fallthrough]];
+		case '1' : [[fallthrough]];
+		case '2' : [[fallthrough]];
+		case '3' : [[fallthrough]];
+		case '4' : [[fallthrough]];
+		case '5' : [[fallthrough]];
+		case '6' : [[fallthrough]];
+		case '7' : [[fallthrough]];
+		case '8' : [[fallthrough]];
+		case '9' :
+			c = 0;
+
+			for (auto i = 4; --i >= 0;)
+			{
+				const auto digitValue = (int) (*p - '0');  // NOLINT
+
+				if (digitValue < 0 || digitValue > 7)
+					break;
+
+				++p;
+				c = (c << 3) + (juce_wchar) digitValue;	 // NOLINT
+			}
+
+			break;
+
+		default :
+			break;
+	}
+
+	return c;
+}
+
+
+inline void parseStringLiteral (String::CharPointerType& p, juce::MemoryOutputStream& out) noexcept
+{
+	p.incrementToEndOfWhitespace();
+
+	if (p.getAndAdvance() == '"')
+	{
+		auto start = p;
+
+		do
+		{
+			auto c = *p;
+
+			if (c == '"')
+			{
+				out << String (start, p);
+				++p;
+				parseStringLiteral (p, out);
+				return;
+			}
+
+			if (c == 0)
+				break;
+
+			if (c == '\\')
+			{
+				out << String (start, p);
+				++p;
+				out << String::charToString (readEscapedChar (p));
+				start = p + 1;
+			}
+
+			++p;
+		} while (true);
+	}
 }
 
 
@@ -47,53 +152,38 @@ String writeTranslationFileHeader (const String& language, bool languageName)
 	if (! file.existsAsFile())
 		return {};
 
-	static const StringArray stringsToFind { "translate", "TRANS" };
+	if (! file.hasFileExtension ("h;hpp;c;cpp;mm"))
+		return {};
 
-	StringArray fileLines;
-	file.readLines (fileLines);
+	StringArray strings;
 
-	StringArray phrases;
+	auto content = file.loadFileAsString();
+	auto p		 = content.getCharPointer();
 
-	for (const auto& line : fileLines)
+	do
 	{
-		if (line.isEmpty())
-			continue;
+		p = juce::CharacterFunctions::find (p, juce::CharPointer_ASCII ("TRANS"));
 
-		const auto lineLength = line.length();
+		if (p.isEmpty())
+			break;
 
-		for (const auto& stringToFind : stringsToFind)
+		p += 5;
+		p.incrementToEndOfWhitespace();
+
+		if (*p == '(')
 		{
-			int idx { 0 };
+			++p;
+			juce::MemoryOutputStream text;
+			parseStringLiteral (p, text);
 
-			while (idx < lineLength)
-			{
-				const auto begin = line.indexOfWholeWord (stringToFind);
+			const auto s = text.toString();
 
-				if (begin == -1)
-					break;
-
-				const auto restOfString = line.substring (idx + stringToFind.length());
-
-				const auto firstQuoteIdx = restOfString.indexOfChar ('"');
-
-				if (firstQuoteIdx == -1)
-					break;
-
-				const auto afterFirstQuote = restOfString.substring (firstQuoteIdx + 1);
-
-				const auto endIdx = afterFirstQuote.indexOfChar ('"');
-
-				if (endIdx == -1)
-					break;
-
-				phrases.add (afterFirstQuote.substring (0, endIdx));
-
-				idx = endIdx + 1;
-			}
+			if (s.isNotEmpty() && ! strings.contains (s))
+				strings.add (s);
 		}
-	}
+	} while (true);
 
-	return phrases;
+	return strings;
 }
 
 StringArray getPhrasesToBeTranslated (const File& rootDir)
@@ -114,7 +204,6 @@ StringArray getPhrasesToBeTranslated (const File& rootDir)
 	phrases.removeDuplicates (true);
 	phrases.removeEmptyStrings();
 	phrases.trim();
-
 	phrases.sortNatural();
 
 	return phrases;
@@ -128,7 +217,6 @@ void generateTranslationFiles (const File& rootDir, const StringArray& languageC
 
 	for (const auto& phrase : getPhrasesToBeTranslated (rootDir))
 		fileBody << phrase.quoted() << " = \"\"" << juce::newLine;
-
 
 	for (const auto& language : languageCodes)
 	{

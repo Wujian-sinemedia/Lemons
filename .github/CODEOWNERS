@@ -125,6 +125,7 @@ modules/Audio/lemons_synth/lemons_synth.cpp benthevining
 modules/Audio/lemons_synth/lemons_synth.h benthevining
 modules/Common/lemons_core/binary_data/translations.h benthevining
 modules/Common/lemons_core/lemons_core.h benthevining
+modules/Common/lemons_core/localization/TranslationFiles.cpp benthevining
 modules/Common/lemons_core/localization/languages.cpp benthevining
 modules/Common/lemons_core/misc/Algorithm.h benthevining
 modules/Common/lemons_core/misc/ArgParser.cpp benthevining
