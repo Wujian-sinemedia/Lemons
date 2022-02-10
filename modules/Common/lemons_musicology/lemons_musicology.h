@@ -40,9 +40,10 @@
 #include "util/StringFunctions.h"
 
 #include "harmony/Pitch.h"
-#include "harmony/Interval.h"
-#include "harmony/Interval_impl.h"
-#include "harmony/CompoundInterval.h"
+#include "harmony/intervals/Interval.h"
+#include "harmony/intervals/Interval_impl.h"
+#include "harmony/intervals/CompoundInterval.h"
+#include "harmony/intervals/CompoundInterval_impl.h"
 #include "harmony/scales/Scale.h"
 #include "harmony/scales/Chromatic.h"
 #include "harmony/scales/Octatonic.h"

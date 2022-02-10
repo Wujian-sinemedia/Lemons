@@ -64,6 +64,9 @@ public:
 	/** Copy constructor. */
 	constexpr Interval (const Interval& other) noexcept;
 
+	/** Assignment operator. */
+	constexpr Interval& operator= (const Interval& other) noexcept;
+
 	/** Creates an interval from a string description of one.
 		The passed string can be a long or short description, eg, "Major second" or "M2", etc.
 	 */
@@ -129,6 +132,12 @@ public:
 	 */
 	constexpr Interval& operator--() noexcept;
 
+	/** Returns a new pitch object that represents the note this interval's distance above or below the passed pitch object.
+		@param other The pitch object to start from.
+		@param above When true, the returned pitch will be this interval's distance above the passed pitch. When false, the returned pitch will be this interval's distance below the passed pitch.
+	 */
+	[[nodiscard]] Pitch applyToPitch (const Pitch& other, bool above) const noexcept;
+
 	/** Returns the interval that is the inverse of this one, taking enharmonic spellings into account.
 		An interval and its inverse add together to form a perfect octave -- for example, a major second's inverse is a minor seventh, a perfect fourth's inverse is a perfect fifth, etc.
 	 */
@@ -139,6 +148,7 @@ public:
 
 	/** Returns the kind of this interval as an integer.
 		0 represents unison, 2 is a second, 3 is a third, etc.
+		Note that this will never return 1.
 	 */
 	[[nodiscard]] constexpr int getKind() const noexcept;
 

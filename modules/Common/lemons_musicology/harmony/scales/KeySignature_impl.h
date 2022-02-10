@@ -112,6 +112,14 @@ constexpr KeySignature::KeySignature (const KeySignature& other) noexcept
 {
 }
 
+constexpr KeySignature& KeySignature::operator= (const KeySignature& other) noexcept
+{
+	numAccidentals = other.numAccidentals;
+	isFlat		   = other.isFlat;
+	type		   = other.type;
+	return *this;
+}
+
 constexpr bool KeySignature::isRelativeKeyOf (const KeySignature& other) const noexcept
 {
 	return hasOppositeTonality (other) && numAccidentals == other.numAccidentals && isFlat == other.isFlat;

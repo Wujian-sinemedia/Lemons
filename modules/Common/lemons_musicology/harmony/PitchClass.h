@@ -22,8 +22,13 @@ namespace lemons::music
 
 using juce::String;
 
+/** A struct that represents a pitch class.
+	This class is agnostic to enharmonic spellings; thus, C-sharp and D-flat are considered the same pitch class.
+ */
 struct PitchClass final
 {
+	/** Creates a pitch class from an integer, where 0 is C, 1 is C#/Db, and 11 is B.
+	 */
 	constexpr explicit PitchClass (int midiPitch) noexcept
 		: pitchClass (midiPitch % 12)
 	{
@@ -36,26 +41,38 @@ struct PitchClass final
 	 */
 	explicit PitchClass (const String& stringDescription) noexcept;
 
+	/** Copy constructor. */
 	constexpr PitchClass (const PitchClass& other) noexcept
 		: pitchClass (other.pitchClass)
 	{
 	}
 
+	/** Assignment operator. */
+	constexpr PitchClass& operator= (const PitchClass& other) noexcept
+	{
+		pitchClass = other.pitchClass;
+		return *this;
+	}
+
+	/** Returns true if the two pitch classes are equal. */
 	[[nodiscard]] constexpr bool operator== (const PitchClass& other) const noexcept
 	{
 		return pitchClass == other.pitchClass;
 	}
 
+	/** Returns true if the two pitch classes are not equal. */
 	[[nodiscard]] constexpr bool operator!= (const PitchClass& other) const noexcept
 	{
 		return pitchClass != other.pitchClass;
 	}
 
+	/** Returns true if this pitch class represents a black key on a standard keyboard. */
 	[[nodiscard]] constexpr bool isBlackKey() const noexcept
 	{
 		return pitchClass == 1 || pitchClass == 3 || pitchClass == 6 || pitchClass == 8 || pitchClass == 10;
 	}
 
+	/** Returns true if this pitch class represents a white key on a standard keyboard. */
 	[[nodiscard]] constexpr bool isWhiteKey() const noexcept
 	{
 		return ! isBlackKey();
@@ -70,11 +87,13 @@ struct PitchClass final
 									  bool useUnicodeAccidentals = false,
 									  bool useNaturalSymbol		 = false) const noexcept;
 
+	/** Returns this pitch class as an integer between 0 and 11, where 0 is C and 11 is B. */
 	constexpr operator int() const noexcept
 	{
 		return pitchClass;
 	}
 
+	/** Returns this pitch class as an integer between 0 and 11, where 0 is C and 11 is B. */
 	[[nodiscard]] constexpr int getAsInt() const noexcept
 	{
 		return pitchClass;
@@ -82,7 +101,7 @@ struct PitchClass final
 
 private:
 
-	const int pitchClass { 0 };
+	int pitchClass { 0 };
 };
 
 }  // namespace lemons::music

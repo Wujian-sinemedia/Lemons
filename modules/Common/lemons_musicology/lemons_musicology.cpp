@@ -20,8 +20,8 @@
 
 #include "harmony/PitchClass.cpp"
 #include "harmony/Pitch.cpp"
-#include "harmony/Interval.cpp"
-#include "harmony/CompoundInterval.cpp"
+#include "harmony/intervals/Interval.cpp"
+#include "harmony/intervals/CompoundInterval.cpp"
 #include "harmony/scales/Scale.cpp"
 #include "harmony/scales/Chromatic.cpp"
 #include "harmony/scales/Octatonic.cpp"
@@ -36,5 +36,6 @@
 #if LEMONS_UNIT_TESTS
 #	include "util/StringFunctions_tests.cpp"
 #	include "harmony/PitchClass_tests.cpp"
-#	include "harmony/Interval_tests.cpp"
+#	include "harmony/intervals/Interval_tests.cpp"
+#	include "harmony/intervals/CompoundInterval_tests.cpp"
 #endif

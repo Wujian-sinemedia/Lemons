@@ -43,6 +43,13 @@ public:
 	{
 	}
 
+	/** Assignment operator. */
+	constexpr WholeTone& operator= (const WholeTone& other) noexcept
+	{
+		startingPitchClass = other.startingPitchClass;
+		return *this;
+	}
+
 	/** Creates a whole tone scale object from a string description of one.
 		@see getStringDescription()
 	 */
@@ -70,7 +77,7 @@ public:
 
 private:
 
-	const PitchClass startingPitchClass { 0 };
+	PitchClass startingPitchClass { 0 };
 };
 
 }  // namespace lemons::music::scales

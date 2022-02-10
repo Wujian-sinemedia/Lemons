@@ -54,6 +54,14 @@ public:
 	{
 	}
 
+	/** Assignment operator. */
+	constexpr Mode& operator= (const Mode& other) noexcept
+	{
+		type		   = other.type;
+		rootPitchClass = other.rootPitchClass;
+		return *this;
+	}
+
 	/** Creates a modal scale object from a string description of one.
 		@see getStringDescription()
 	 */
@@ -91,9 +99,9 @@ public:
 
 private:
 
-	const Type type { Type::Ionian };
+	Type type { Type::Ionian };
 
-	const PitchClass rootPitchClass { 0 };
+	PitchClass rootPitchClass { 0 };
 };
 
 }  // namespace lemons::music::scales

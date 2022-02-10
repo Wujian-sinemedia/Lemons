@@ -267,6 +267,17 @@ juce::Array<double> Interval::getCents_JustIntonation() const
 	return {};
 }
 
+Pitch Interval::applyToPitch (const Pitch& other, bool above) const noexcept
+{
+	const auto semitones = getNumSemitones();
+	const auto starting	 = other.getRoundedMidiPitch();
+
+	if (above)
+		return Pitch { starting + semitones };
+
+	return Pitch { starting - semitones };
+}
+
 /*--------------------------------------------------------------------------------------------------------*/
 
 Pitch operator+ (const Pitch& pitch, const Interval& interval) noexcept

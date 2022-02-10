@@ -85,6 +85,13 @@ constexpr Interval::Interval (const Interval& other) noexcept
 {
 }
 
+constexpr Interval& Interval::operator= (const Interval& other) noexcept
+{
+	kind	= other.kind;
+	quality = other.quality;
+	return *this;
+}
+
 constexpr Interval Interval::operator+ (const Interval& other) const noexcept
 {
 	return fromNumSemitones (getNumSemitones() + other.getNumSemitones());

@@ -48,6 +48,13 @@ public:
 	{
 	}
 
+	/** Assignment operator. */
+	constexpr Pitch& operator= (const Pitch& other) noexcept
+	{
+		midiPitch = other.midiPitch;
+		return *this;
+	}
+
 	/** Returns true if the two pitch objects are exactly equal. */
 	[[nodiscard]] constexpr bool operator== (const Pitch& other) const noexcept
 	{
@@ -117,7 +124,7 @@ public:
 
 private:
 
-	const double midiPitch { 60. };
+	double midiPitch { 60. };
 };
 
 }  // namespace lemons::music

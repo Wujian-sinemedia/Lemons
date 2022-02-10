@@ -41,4 +41,27 @@ String CompoundInterval::getStringDescription (bool useShort) const
 	return interval.getQualityAsString (false) + " " + String (getKind());
 }
 
+Pitch CompoundInterval::applyToPitch (const Pitch& other, bool above) const noexcept
+{
+	const auto semitones = getNumSemitones();
+	const auto starting	 = other.getRoundedMidiPitch();
+
+	if (above)
+		return Pitch { starting + semitones };
+
+	return Pitch { starting - semitones };
+}
+
+/*-------------------------------------------------------------------------------------------------------------------*/
+
+Pitch operator+ (const Pitch& pitch, const CompoundInterval& interval) noexcept
+{
+	return Pitch { pitch.getRoundedMidiPitch() + interval.getNumSemitones() };
+}
+
+Pitch operator- (const Pitch& pitch, const CompoundInterval& interval) noexcept
+{
+	return Pitch { pitch.getRoundedMidiPitch() - interval.getNumSemitones() };
+}
+
 }  // namespace lemons::music

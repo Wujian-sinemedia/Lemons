@@ -49,6 +49,14 @@ public:
 	{
 	}
 
+	/** Assignment operator. */
+	constexpr Octatonic& operator= (const Octatonic& other) noexcept
+	{
+		startWithHalfStep = other.startWithHalfStep;
+		pitchClassOfRoot  = other.pitchClassOfRoot;
+		return *this;
+	}
+
 	/** Creates an octatonic scale object from a string description of one.
 		@see getStringDescription()
 	 */
@@ -83,9 +91,9 @@ public:
 
 private:
 
-	const bool startWithHalfStep { true };
+	bool startWithHalfStep { true };
 
-	const PitchClass pitchClassOfRoot { 0 };
+	PitchClass pitchClassOfRoot { 0 };
 };
 
 }  // namespace lemons::music::scales

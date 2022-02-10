@@ -81,6 +81,9 @@ public:
 	/** Copy constructor. */
 	constexpr KeySignature (const KeySignature& other) noexcept;
 
+	/** Assignment operator. */
+	constexpr KeySignature& operator= (const KeySignature& other) noexcept;
+
 	/** Returns true if the other key signature is semantically equivalent to this one. */
 	[[nodiscard]] constexpr bool operator== (const KeySignature& other) const noexcept;
 
@@ -168,9 +171,9 @@ private:
 
 	int numAccidentals { 0 };
 
-	const bool isFlat { false };
+	bool isFlat { false };
 
-	const Type type { Type::Major };
+	Type type { Type::Major };
 };
 
 }  // namespace lemons::music::scales

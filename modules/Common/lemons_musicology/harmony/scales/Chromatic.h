@@ -43,6 +43,13 @@ public:
 	{
 	}
 
+	/** Assignment operator. */
+	constexpr Chromatic& operator= (const Chromatic& other) noexcept
+	{
+		startingPitchClass = other.startingPitchClass;
+		return *this;
+	}
+
 	/** Creates a chromatic scale object from a string description of one.
 		@see getStringDescription()
 	 */
@@ -68,7 +75,7 @@ public:
 
 private:
 
-	const PitchClass startingPitchClass { 0 };
+	PitchClass startingPitchClass { 0 };
 };
 
 }  // namespace lemons::music::scales
