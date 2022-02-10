@@ -53,3 +53,5 @@ bool isCapsLockOn()
 }
 
 }  // namespace lemons::gui::util
+
+#undef KeyPress	 // X11 defines this symbol as a macro
