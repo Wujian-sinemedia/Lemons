@@ -1,5 +1,12 @@
 # Lemons changelog
 
+## [1.15.0](http://github.com/benthevining/Lemons/compare/v1.14.1...v1.15.0) (2022-02-11)
+
+
+### Features
+
+* added a microtonal interval class ([1266a7c](http://github.com/benthevining/Lemons/commit/1266a7ca2408c6f498ce683fef4bf7f8782de76a))
+
 ### [1.14.1](http://github.com/benthevining/Lemons/compare/v1.14.0...v1.14.1) (2022-02-10)
 
 
