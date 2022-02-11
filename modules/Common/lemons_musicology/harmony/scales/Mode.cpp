@@ -138,4 +138,15 @@ int Mode::getNumFlats() const noexcept
 	return parallelMajor.getNumFlats() + addedFlats;
 }
 
+KeySignature Mode::getKeySignature() const noexcept
+{
+	if (type == Type::Aeolian)
+		return KeySignature { KeySignature::Type::NaturalMinor, rootPitchClass.getAsInt() };
+
+	if (const auto flats = getNumFlats(); flats > 0)
+		return KeySignature { flats, false, KeySignature::Type::Major };
+
+	return KeySignature { getNumSharps(), true, KeySignature::Type::Major };
+}
+
 }  // namespace lemons::music::scales

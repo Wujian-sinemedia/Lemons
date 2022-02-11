@@ -44,6 +44,7 @@
 #include "harmony/intervals/Interval_impl.h"
 #include "harmony/intervals/CompoundInterval.h"
 #include "harmony/intervals/CompoundInterval_impl.h"
+#include "harmony/intervals/MicrotonalInterval.h"
 #include "harmony/scales/Scale.h"
 #include "harmony/scales/Chromatic.h"
 #include "harmony/scales/Octatonic.h"
@@ -51,6 +52,7 @@
 #include "harmony/scales/KeySignature.h"
 #include "harmony/scales/KeySignature_impl.h"
 #include "harmony/scales/Mode.h"
+//#include "harmony/scales/Pentatonic.h"
 
 //#include "rhythm/TimeSignature.h"
 //

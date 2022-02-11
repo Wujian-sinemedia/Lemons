@@ -97,6 +97,9 @@ public:
 	/** Returns the number of flats that make up the key signature for this mode. */
 	[[nodiscard]] int getNumFlats() const noexcept;
 
+	/** Returns an equivalent key signature for this mode. The returned key signature contains all the same pitch classes as this mode. */
+	[[nodiscard]] KeySignature getKeySignature() const noexcept;
+
 private:
 
 	Type type { Type::Ionian };

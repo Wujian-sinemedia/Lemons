@@ -71,6 +71,7 @@ modules/Audio/lemons_dsp/oscillators/choosable.h benthevining
 modules/Audio/lemons_dsp/oscillators/oscillator_tests.cpp benthevining
 modules/Audio/lemons_dsp/sample_streams/StreamEngine.h benthevining
 modules/Audio/lemons_dsp/sample_streams/WhiteNoiseGenerator.h benthevining
+modules/Audio/lemons_dsp/sample_streams/oscillator.h benthevining
 modules/Audio/lemons_dsp/unit_tests/dsp_test.cpp benthevining
 modules/Audio/lemons_dsp/unit_tests/dsp_test.h benthevining
 modules/Audio/lemons_dsp/util/AudioFormats.cpp benthevining
@@ -125,6 +126,7 @@ modules/Audio/lemons_synth/SynthVoice/TimbreMod.h benthevining
 modules/Audio/lemons_synth/lemons_synth.cpp benthevining
 modules/Audio/lemons_synth/lemons_synth.h benthevining
 modules/Common/lemons_core/binary_data/translations.h benthevining
+modules/Common/lemons_core/files/FileUtilities.cpp benthevining
 modules/Common/lemons_core/files/FileUtilities.h benthevining
 modules/Common/lemons_core/lemons_core.h benthevining
 modules/Common/lemons_core/localization/TranslationFiles.cpp benthevining
@@ -283,10 +285,12 @@ util/Templates/app/Source/Main.cpp benthevining
 util/Templates/app/Source/modules/new_app_gui/GUI/GUI.cpp benthevining
 util/Templates/plugin/Source/Main.cpp benthevining
 util/Templates/plugin/Source/modules/new_dsp/Engine/Engine.cpp benthevining
+util/Templates/plugin/Source/modules/new_dsp/Engine/Engine.h benthevining
 util/Templates/plugin/Source/modules/new_dsp/Processor/Processor.cpp benthevining
 util/Templates/plugin/Source/modules/new_dsp/new_dsp.cpp benthevining
 util/Templates/plugin/Source/modules/new_gui/GUI/GUI.h benthevining
 util/Templates/plugin/Source/modules/new_gui/new_gui.cpp benthevining
+util/Templates/plugin/Source/modules/new_gui/new_gui.h benthevining
 util/Templates/plugin/Source/modules/new_state/new_state.cpp benthevining
 util/Templates/plugin/Source/modules/new_state/new_state.h benthevining
 util/Templates/plugin/Source/modules/new_state/state/Parameters.h benthevining

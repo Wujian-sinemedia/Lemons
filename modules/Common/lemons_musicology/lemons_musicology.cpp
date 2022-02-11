@@ -28,6 +28,7 @@
 #include "harmony/scales/WholeTone.cpp"
 #include "harmony/scales/KeySignature.cpp"
 #include "harmony/scales/Mode.cpp"
+//#include "harmony/scales/Pentatonic.cpp"
 
 //#include "rhythm/TimeSignature.cpp"
 //
