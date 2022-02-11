@@ -9,7 +9,7 @@ var searchData=
   ['lemons_5fdefault_5fapp_5fname_6',['LEMONS_DEFAULT_APP_NAME',['../_default_window_8h.html#a54fb2895bd43426bc8f9710b1d9ccf7e',1,'DefaultWindow.h']]],
   ['lemons_5fdefault_5fapp_5fversion_7',['LEMONS_DEFAULT_APP_VERSION',['../_default_window_8h.html#aa2f41a9802e40c2f7d44a7e465bf8dcf',1,'DefaultWindow.h']]],
   ['lemons_5fdsp_5fengine_5ffactory_8',['LEMONS_DSP_ENGINE_FACTORY',['../lemons__dsp_8h.html#a0da37d98878788002eb7e3aa0c51abae',1,'lemons_dsp.h']]],
-  ['lemons_5fenable_5fgps_5flocation_5fservices_9',['LEMONS_ENABLE_GPS_LOCATION_SERVICES',['../lemons__gui_8h.html#a78ea9b79e9501a3334f72e7b9064e812',1,'lemons_gui.h']]],
+  ['lemons_5fenable_5fgps_5flocation_5fservices_9',['LEMONS_ENABLE_GPS_LOCATION_SERVICES',['../lemons__device_8h.html#a78ea9b79e9501a3334f72e7b9064e812',1,'lemons_device.h']]],
   ['lemons_5fhas_5fbinary_5fdata_10',['LEMONS_HAS_BINARY_DATA',['../lemons__core_8h.html#ac0144ab361e1a4e53a852a2d91a1d42c',1,'lemons_core.h']]],
   ['lemons_5fproject_5fversion_5fmajor_11',['LEMONS_PROJECT_VERSION_MAJOR',['../_version_8h.html#a52ab1f8b6b9e166d12b4b96739838d5a',1,'Version.h']]],
   ['lemons_5fproject_5fversion_5fminor_12',['LEMONS_PROJECT_VERSION_MINOR',['../_version_8h.html#a906eafb2e72e1937dae95a1154cb1d4d',1,'Version.h']]],

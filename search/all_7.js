@@ -30,7 +30,8 @@ var searchData=
   ['hasenharmonickey_27',['hasEnharmonicKey',['../classlemons_1_1music_1_1scales_1_1_key_signature.html#a12d4b03b7c4c0609b8b595d3b7185bae',1,'lemons::music::scales::KeySignature']]],
   ['hassameaspectratioas_28',['hasSameAspectRatioAs',['../structlemons_1_1_dimensions.html#ac784c9887251c92ee4a3c475035fca2c',1,'lemons::Dimensions']]],
   ['hassamemajorversion_29',['hasSameMajorVersion',['../structlemons_1_1_version.html#a309963d20eb0e640fed90907c378e5b0',1,'lemons::Version']]],
-  ['high_30',['High',['../group__lemons__unit__testing.html#ggabe71616eeadecd56537dd9a10376223ca655d20c1ca69519ca647684edbb2db35',1,'lemons::tests']]],
-  ['highpass_31',['HighPass',['../namespacelemons_1_1dsp_1_1_f_x.html#a2a75c0c88cd8cbd576add3c0d4db1d14ae9456dc865a19e434997ea20bb5373f6',1,'lemons::dsp::FX']]],
-  ['highshelf_32',['HighShelf',['../namespacelemons_1_1dsp_1_1_f_x.html#a2a75c0c88cd8cbd576add3c0d4db1d14aaafe3de5c829706a2fda73dd43fd740e',1,'lemons::dsp::FX']]]
+  ['hassamesimpleinterval_30',['hasSameSimpleInterval',['../classlemons_1_1music_1_1_compound_interval.html#a1ef94a3b0a23a068d04548ca08e07db7',1,'lemons::music::CompoundInterval']]],
+  ['high_31',['High',['../group__lemons__unit__testing.html#ggabe71616eeadecd56537dd9a10376223ca655d20c1ca69519ca647684edbb2db35',1,'lemons::tests']]],
+  ['highpass_32',['HighPass',['../namespacelemons_1_1dsp_1_1_f_x.html#a2a75c0c88cd8cbd576add3c0d4db1d14ae9456dc865a19e434997ea20bb5373f6',1,'lemons::dsp::FX']]],
+  ['highshelf_33',['HighShelf',['../namespacelemons_1_1dsp_1_1_f_x.html#a2a75c0c88cd8cbd576add3c0d4db1d14aaafe3de5c829706a2fda73dd43fd740e',1,'lemons::dsp::FX']]]
 ];

@@ -83,6 +83,9 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1music_1_1_compound_interval.html">CompoundInterval</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A class for representing intervals larger than an octave.  <a href="classlemons_1_1music_1_1_compound_interval.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1music_1_1_interval.html">Interval</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A class that represents a musical interval between two pitches.  <a href="classlemons_1_1music_1_1_interval.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -90,6 +93,7 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This class is a simple wrapper around a MIDI pitch, with some convenient functions for representing it certain ways.  <a href="classlemons_1_1music_1_1_pitch.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1music_1_1_pitch_class.html">PitchClass</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A struct that represents a pitch class.  <a href="structlemons_1_1music_1_1_pitch_class.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
@@ -121,9 +125,15 @@ Functions</h2></td></tr>
 <tr class="memitem:a894b6edfde0e18e7ccc46d3d5d2dafd3"><td class="memItemLeft" align="right" valign="top">constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1music.html#a894b6edfde0e18e7ccc46d3d5d2dafd3">octaveNumberOfMidiNote</a> (int midiNote) noexcept</td></tr>
 <tr class="memdesc:a894b6edfde0e18e7ccc46d3d5d2dafd3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the octave number of a given MIDI pitch.  <a href="namespacelemons_1_1music.html#a894b6edfde0e18e7ccc46d3d5d2dafd3">More...</a><br /></td></tr>
 <tr class="separator:a894b6edfde0e18e7ccc46d3d5d2dafd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aafd03aded2656f6f75083d1b35819d8a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classlemons_1_1music_1_1_pitch.html">Pitch</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1music.html#aafd03aded2656f6f75083d1b35819d8a">operator+</a> (const <a class="el" href="classlemons_1_1music_1_1_pitch.html">Pitch</a> &amp;pitch, const <a class="el" href="classlemons_1_1music_1_1_compound_interval.html">CompoundInterval</a> &amp;interval) noexcept</td></tr>
+<tr class="memdesc:aafd03aded2656f6f75083d1b35819d8a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a compound interval to the given pitch and returns a new pitch object at the resulting pitch.  <a href="namespacelemons_1_1music.html#aafd03aded2656f6f75083d1b35819d8a">More...</a><br /></td></tr>
+<tr class="separator:aafd03aded2656f6f75083d1b35819d8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2a783fe9423658609b53291a09337046"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classlemons_1_1music_1_1_pitch.html">Pitch</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1music.html#a2a783fe9423658609b53291a09337046">operator+</a> (const <a class="el" href="classlemons_1_1music_1_1_pitch.html">Pitch</a> &amp;pitch, const <a class="el" href="classlemons_1_1music_1_1_interval.html">Interval</a> &amp;interval) noexcept</td></tr>
 <tr class="memdesc:a2a783fe9423658609b53291a09337046"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds an interval to the given pitch and returns a new pitch object at the resulting pitch.  <a href="namespacelemons_1_1music.html#a2a783fe9423658609b53291a09337046">More...</a><br /></td></tr>
 <tr class="separator:a2a783fe9423658609b53291a09337046"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae00bbf79c711a11e737b40d2fd79e666"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classlemons_1_1music_1_1_pitch.html">Pitch</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1music.html#ae00bbf79c711a11e737b40d2fd79e666">operator-</a> (const <a class="el" href="classlemons_1_1music_1_1_pitch.html">Pitch</a> &amp;pitch, const <a class="el" href="classlemons_1_1music_1_1_compound_interval.html">CompoundInterval</a> &amp;interval) noexcept</td></tr>
+<tr class="memdesc:ae00bbf79c711a11e737b40d2fd79e666"><td class="mdescLeft">&#160;</td><td class="mdescRight">Subtracts a compound interval from the given pitch and returns a new pitch object at the resulting pitch.  <a href="namespacelemons_1_1music.html#ae00bbf79c711a11e737b40d2fd79e666">More...</a><br /></td></tr>
+<tr class="separator:ae00bbf79c711a11e737b40d2fd79e666"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a54b37f3bca235a1255530b3d386611c4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classlemons_1_1music_1_1_pitch.html">Pitch</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1music.html#a54b37f3bca235a1255530b3d386611c4">operator-</a> (const <a class="el" href="classlemons_1_1music_1_1_pitch.html">Pitch</a> &amp;pitch, const <a class="el" href="classlemons_1_1music_1_1_interval.html">Interval</a> &amp;interval) noexcept</td></tr>
 <tr class="memdesc:a54b37f3bca235a1255530b3d386611c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Subtracts an interval from the given pitch and returns a new pitch object at the resulting pitch.  <a href="namespacelemons_1_1music.html#a54b37f3bca235a1255530b3d386611c4">More...</a><br /></td></tr>
 <tr class="separator:a54b37f3bca235a1255530b3d386611c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -384,8 +394,46 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="aafd03aded2656f6f75083d1b35819d8a" name="aafd03aded2656f6f75083d1b35819d8a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aafd03aded2656f6f75083d1b35819d8a">&#9670;&nbsp;</a></span>operator+() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classlemons_1_1music_1_1_pitch.html">Pitch</a> lemons::music::operator+ </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classlemons_1_1music_1_1_pitch.html">Pitch</a> &amp;&#160;</td>
+          <td class="paramname"><em>pitch</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classlemons_1_1music_1_1_compound_interval.html">CompoundInterval</a> &amp;&#160;</td>
+          <td class="paramname"><em>interval</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Adds a compound interval to the given pitch and returns a new pitch object at the resulting pitch. </p>
+
+</div>
+</div>
 <a id="a2a783fe9423658609b53291a09337046" name="a2a783fe9423658609b53291a09337046"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2a783fe9423658609b53291a09337046">&#9670;&nbsp;</a></span>operator+()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a783fe9423658609b53291a09337046">&#9670;&nbsp;</a></span>operator+() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -422,8 +470,46 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="ae00bbf79c711a11e737b40d2fd79e666" name="ae00bbf79c711a11e737b40d2fd79e666"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae00bbf79c711a11e737b40d2fd79e666">&#9670;&nbsp;</a></span>operator-() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classlemons_1_1music_1_1_pitch.html">Pitch</a> lemons::music::operator- </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classlemons_1_1music_1_1_pitch.html">Pitch</a> &amp;&#160;</td>
+          <td class="paramname"><em>pitch</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classlemons_1_1music_1_1_compound_interval.html">CompoundInterval</a> &amp;&#160;</td>
+          <td class="paramname"><em>interval</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Subtracts a compound interval from the given pitch and returns a new pitch object at the resulting pitch. </p>
+
+</div>
+</div>
 <a id="a54b37f3bca235a1255530b3d386611c4" name="a54b37f3bca235a1255530b3d386611c4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a54b37f3bca235a1255530b3d386611c4">&#9670;&nbsp;</a></span>operator-()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a54b37f3bca235a1255530b3d386611c4">&#9670;&nbsp;</a></span>operator-() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -538,7 +624,7 @@ Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Feb 10 2022 00:48:33 for Lemons by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3
+Generated on Fri Feb 11 2022 00:54:50 for Lemons by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3
 </small></address>
 </body>
 </html>

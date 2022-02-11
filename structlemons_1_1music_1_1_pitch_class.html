@@ -74,33 +74,50 @@ $(function() {
   <div class="headertitle"><div class="title">lemons::music::PitchClass Struct Reference<span class="mlabels"><span class="mlabel">final</span></span></div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>A struct that represents a pitch class.  
+ <a href="structlemons_1_1music_1_1_pitch_class.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ada2da7c5f9d86977e6bb630bf3075f5d"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1music_1_1_pitch_class.html#ada2da7c5f9d86977e6bb630bf3075f5d">PitchClass</a> (const <a class="el" href="structlemons_1_1music_1_1_pitch_class.html">PitchClass</a> &amp;other) noexcept</td></tr>
+<tr class="memdesc:ada2da7c5f9d86977e6bb630bf3075f5d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy constructor.  <a href="structlemons_1_1music_1_1_pitch_class.html#ada2da7c5f9d86977e6bb630bf3075f5d">More...</a><br /></td></tr>
 <tr class="separator:ada2da7c5f9d86977e6bb630bf3075f5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a236c431d5a68c2095f6f7660e324698f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1music_1_1_pitch_class.html#a236c431d5a68c2095f6f7660e324698f">PitchClass</a> (const String &amp;stringDescription) noexcept</td></tr>
 <tr class="memdesc:a236c431d5a68c2095f6f7660e324698f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a pitch class from a string description of one.  <a href="structlemons_1_1music_1_1_pitch_class.html#a236c431d5a68c2095f6f7660e324698f">More...</a><br /></td></tr>
 <tr class="separator:a236c431d5a68c2095f6f7660e324698f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aae6e9e90f1cbc892bb6a5224362ada1d"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1music_1_1_pitch_class.html#aae6e9e90f1cbc892bb6a5224362ada1d">PitchClass</a> (int midiPitch) noexcept</td></tr>
+<tr class="memdesc:aae6e9e90f1cbc892bb6a5224362ada1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a pitch class from an integer, where 0 is C, 1 is C#/Db, and 11 is B.  <a href="structlemons_1_1music_1_1_pitch_class.html#aae6e9e90f1cbc892bb6a5224362ada1d">More...</a><br /></td></tr>
 <tr class="separator:aae6e9e90f1cbc892bb6a5224362ada1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af68b4e2875c0ff451ea8f60a50145e54"><td class="memItemLeft" align="right" valign="top">constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1music_1_1_pitch_class.html#af68b4e2875c0ff451ea8f60a50145e54">getAsInt</a> () const noexcept</td></tr>
+<tr class="memdesc:af68b4e2875c0ff451ea8f60a50145e54"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns this pitch class as an integer between 0 and 11, where 0 is C and 11 is B.  <a href="structlemons_1_1music_1_1_pitch_class.html#af68b4e2875c0ff451ea8f60a50145e54">More...</a><br /></td></tr>
 <tr class="separator:af68b4e2875c0ff451ea8f60a50145e54"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a83600f489fe2d3a99b8e91b6a307ed21"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1music_1_1_pitch_class.html#a83600f489fe2d3a99b8e91b6a307ed21">getAsString</a> (bool asSharps=true, bool useUnicodeAccidentals=false, bool useNaturalSymbol=false) const noexcept</td></tr>
 <tr class="memdesc:a83600f489fe2d3a99b8e91b6a307ed21"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a string description of this pitch class.  <a href="structlemons_1_1music_1_1_pitch_class.html#a83600f489fe2d3a99b8e91b6a307ed21">More...</a><br /></td></tr>
 <tr class="separator:a83600f489fe2d3a99b8e91b6a307ed21"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a22ef807fc02a624b1dfee238e8d5b3ed"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1music_1_1_pitch_class.html#a22ef807fc02a624b1dfee238e8d5b3ed">isBlackKey</a> () const noexcept</td></tr>
+<tr class="memdesc:a22ef807fc02a624b1dfee238e8d5b3ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if this pitch class represents a black key on a standard keyboard.  <a href="structlemons_1_1music_1_1_pitch_class.html#a22ef807fc02a624b1dfee238e8d5b3ed">More...</a><br /></td></tr>
 <tr class="separator:a22ef807fc02a624b1dfee238e8d5b3ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4fb33d2e81547b67514ff5a1e19f5ff4"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1music_1_1_pitch_class.html#a4fb33d2e81547b67514ff5a1e19f5ff4">isWhiteKey</a> () const noexcept</td></tr>
+<tr class="memdesc:a4fb33d2e81547b67514ff5a1e19f5ff4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if this pitch class represents a white key on a standard keyboard.  <a href="structlemons_1_1music_1_1_pitch_class.html#a4fb33d2e81547b67514ff5a1e19f5ff4">More...</a><br /></td></tr>
 <tr class="separator:a4fb33d2e81547b67514ff5a1e19f5ff4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa00f3942651331e62850aa9ffbcce309"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1music_1_1_pitch_class.html#aa00f3942651331e62850aa9ffbcce309">operator int</a> () const noexcept</td></tr>
+<tr class="memdesc:aa00f3942651331e62850aa9ffbcce309"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns this pitch class as an integer between 0 and 11, where 0 is C and 11 is B.  <a href="structlemons_1_1music_1_1_pitch_class.html#aa00f3942651331e62850aa9ffbcce309">More...</a><br /></td></tr>
 <tr class="separator:aa00f3942651331e62850aa9ffbcce309"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2eda1c7f27e746c2d50c1e7de0feace8"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1music_1_1_pitch_class.html#a2eda1c7f27e746c2d50c1e7de0feace8">operator!=</a> (const <a class="el" href="structlemons_1_1music_1_1_pitch_class.html">PitchClass</a> &amp;other) const noexcept</td></tr>
+<tr class="memdesc:a2eda1c7f27e746c2d50c1e7de0feace8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the two pitch classes are not equal.  <a href="structlemons_1_1music_1_1_pitch_class.html#a2eda1c7f27e746c2d50c1e7de0feace8">More...</a><br /></td></tr>
 <tr class="separator:a2eda1c7f27e746c2d50c1e7de0feace8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2611ac7eae5a0ce4a9fe131512a88bff"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="structlemons_1_1music_1_1_pitch_class.html">PitchClass</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1music_1_1_pitch_class.html#a2611ac7eae5a0ce4a9fe131512a88bff">operator=</a> (const <a class="el" href="structlemons_1_1music_1_1_pitch_class.html">PitchClass</a> &amp;other) noexcept</td></tr>
+<tr class="memdesc:a2611ac7eae5a0ce4a9fe131512a88bff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assignment operator.  <a href="structlemons_1_1music_1_1_pitch_class.html#a2611ac7eae5a0ce4a9fe131512a88bff">More...</a><br /></td></tr>
+<tr class="separator:a2611ac7eae5a0ce4a9fe131512a88bff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab0e853e83969eea2a26267b0fc22c05b"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1music_1_1_pitch_class.html#ab0e853e83969eea2a26267b0fc22c05b">operator==</a> (const <a class="el" href="structlemons_1_1music_1_1_pitch_class.html">PitchClass</a> &amp;other) const noexcept</td></tr>
+<tr class="memdesc:ab0e853e83969eea2a26267b0fc22c05b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the two pitch classes are equal.  <a href="structlemons_1_1music_1_1_pitch_class.html#ab0e853e83969eea2a26267b0fc22c05b">More...</a><br /></td></tr>
 <tr class="separator:ab0e853e83969eea2a26267b0fc22c05b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p >A struct that represents a pitch class. </p>
+<p >This class is agnostic to enharmonic spellings; thus, C-sharp and D-flat are considered the same pitch class. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="aae6e9e90f1cbc892bb6a5224362ada1d" name="aae6e9e90f1cbc892bb6a5224362ada1d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aae6e9e90f1cbc892bb6a5224362ada1d">&#9670;&nbsp;</a></span>PitchClass() <span class="overload">[1/3]</span></h2>
 
@@ -124,6 +141,8 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Creates a pitch class from an integer, where 0 is C, 1 is C#/Db, and 11 is B. </p>
 
 </div>
 </div>
@@ -180,6 +199,8 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Copy constructor. </p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -205,6 +226,8 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Returns this pitch class as an integer between 0 and 11, where 0 is C and 11 is B. </p>
 
 </div>
 </div>
@@ -283,6 +306,8 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Returns true if this pitch class represents a black key on a standard keyboard. </p>
+
 <p class="reference">Referenced by <a class="el" href="structlemons_1_1music_1_1_pitch_class.html#a4fb33d2e81547b67514ff5a1e19f5ff4">isWhiteKey()</a>.</p>
 
 </div>
@@ -309,6 +334,8 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Returns true if this pitch class represents a white key on a standard keyboard. </p>
 
 <p class="reference">References <a class="el" href="structlemons_1_1music_1_1_pitch_class.html#a22ef807fc02a624b1dfee238e8d5b3ed">isBlackKey()</a>.</p>
 
@@ -337,6 +364,8 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Returns this pitch class as an integer between 0 and 11, where 0 is C and 11 is B. </p>
+
 </div>
 </div>
 <a id="a2eda1c7f27e746c2d50c1e7de0feace8" name="a2eda1c7f27e746c2d50c1e7de0feace8"></a>
@@ -362,6 +391,36 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Returns true if the two pitch classes are not equal. </p>
+
+</div>
+</div>
+<a id="a2611ac7eae5a0ce4a9fe131512a88bff" name="a2611ac7eae5a0ce4a9fe131512a88bff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2611ac7eae5a0ce4a9fe131512a88bff">&#9670;&nbsp;</a></span>operator=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr <a class="el" href="structlemons_1_1music_1_1_pitch_class.html">PitchClass</a> &amp; lemons::music::PitchClass::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structlemons_1_1music_1_1_pitch_class.html">PitchClass</a> &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Assignment operator. </p>
 
 </div>
 </div>
@@ -389,6 +448,8 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Returns true if the two pitch classes are equal. </p>
+
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
@@ -397,7 +458,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Feb 10 2022 00:48:33 for Lemons by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3
+Generated on Fri Feb 11 2022 00:54:50 for Lemons by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3
 </small></address>
 </body>
 </html>

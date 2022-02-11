@@ -1430,8 +1430,8 @@
       <type>constexpr T</type>
       <name>abs</name>
       <anchorfile>group__lemons__math.html</anchorfile>
-      <anchor>gac5b886632a7eb216bae2a8423403105d</anchor>
-      <arglist>(T val)</arglist>
+      <anchor>gafa4959ad159b141be2d8e91787d50793</anchor>
+      <arglist>(T val) noexcept</arglist>
     </member>
     <member kind="function">
       <type>PeriodType</type>
@@ -1890,8 +1890,37 @@
     </member>
   </compound>
   <compound kind="file">
+    <name>CompoundInterval.h</name>
+    <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/Common/lemons_musicology/harmony/intervals/</path>
+    <filename>_compound_interval_8h.html</filename>
+    <class kind="class">lemons::music::CompoundInterval</class>
+    <namespace>lemons</namespace>
+    <namespace>lemons::music</namespace>
+    <member kind="function">
+      <type>Pitch</type>
+      <name>operator+</name>
+      <anchorfile>namespacelemons_1_1music.html</anchorfile>
+      <anchor>aafd03aded2656f6f75083d1b35819d8a</anchor>
+      <arglist>(const Pitch &amp;pitch, const CompoundInterval &amp;interval) noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>Pitch</type>
+      <name>operator-</name>
+      <anchorfile>namespacelemons_1_1music.html</anchorfile>
+      <anchor>ae00bbf79c711a11e737b40d2fd79e666</anchor>
+      <arglist>(const Pitch &amp;pitch, const CompoundInterval &amp;interval) noexcept</arglist>
+    </member>
+  </compound>
+  <compound kind="file">
+    <name>CompoundInterval_impl.h</name>
+    <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/Common/lemons_musicology/harmony/intervals/</path>
+    <filename>_compound_interval__impl_8h.html</filename>
+    <namespace>lemons</namespace>
+    <namespace>lemons::music</namespace>
+  </compound>
+  <compound kind="file">
     <name>Interval.h</name>
-    <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/Common/lemons_musicology/harmony/</path>
+    <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/Common/lemons_musicology/harmony/intervals/</path>
     <filename>_interval_8h.html</filename>
     <class kind="class">lemons::music::Interval</class>
     <namespace>lemons</namespace>
@@ -1913,7 +1942,7 @@
   </compound>
   <compound kind="file">
     <name>Interval_impl.h</name>
-    <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/Common/lemons_musicology/harmony/</path>
+    <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/Common/lemons_musicology/harmony/intervals/</path>
     <filename>_interval__impl_8h.html</filename>
     <namespace>lemons</namespace>
     <namespace>lemons::music</namespace>
@@ -2004,8 +2033,10 @@
     <includes id="_pitch_utils_8h" name="PitchUtils.h" local="yes" imported="no">util/PitchUtils.h</includes>
     <includes id="_string_functions_8h" name="StringFunctions.h" local="yes" imported="no">util/StringFunctions.h</includes>
     <includes id="_pitch_8h" name="Pitch.h" local="yes" imported="no">harmony/Pitch.h</includes>
-    <includes id="_interval_8h" name="Interval.h" local="yes" imported="no">harmony/Interval.h</includes>
-    <includes id="_interval__impl_8h" name="Interval_impl.h" local="yes" imported="no">harmony/Interval_impl.h</includes>
+    <includes id="_interval_8h" name="Interval.h" local="yes" imported="no">harmony/intervals/Interval.h</includes>
+    <includes id="_interval__impl_8h" name="Interval_impl.h" local="yes" imported="no">harmony/intervals/Interval_impl.h</includes>
+    <includes id="_compound_interval_8h" name="CompoundInterval.h" local="yes" imported="no">harmony/intervals/CompoundInterval.h</includes>
+    <includes id="_compound_interval__impl_8h" name="CompoundInterval_impl.h" local="yes" imported="no">harmony/intervals/CompoundInterval_impl.h</includes>
     <includes id="_scale_8h" name="Scale.h" local="yes" imported="no">harmony/scales/Scale.h</includes>
     <includes id="_chromatic_8h" name="Chromatic.h" local="yes" imported="no">harmony/scales/Chromatic.h</includes>
     <includes id="_octatonic_8h" name="Octatonic.h" local="yes" imported="no">harmony/scales/Octatonic.h</includes>
@@ -2534,6 +2565,60 @@
     <namespace>lemons::gui::util</namespace>
   </compound>
   <compound kind="file">
+    <name>AutoLock.h</name>
+    <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/GUI/lemons_device/autolock/</path>
+    <filename>_auto_lock_8h.html</filename>
+    <namespace>lemons</namespace>
+    <member kind="function">
+      <type>void</type>
+      <name>setAutoLockEnabled</name>
+      <anchorfile>group__lemons__device.html</anchorfile>
+      <anchor>ga5a5b2cd2a233eba3e8638e95c1f3798c</anchor>
+      <arglist>(bool shouldBeEnabled)</arglist>
+    </member>
+  </compound>
+  <compound kind="file">
+    <name>GPS.h</name>
+    <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/GUI/lemons_device/gps/</path>
+    <filename>_g_p_s_8h.html</filename>
+    <class kind="class">lemons::GPSLocation</class>
+    <namespace>lemons</namespace>
+  </compound>
+  <compound kind="file">
+    <name>lemons_device.h</name>
+    <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/GUI/lemons_device/</path>
+    <filename>lemons__device_8h.html</filename>
+    <includes id="_device_rotation_8h" name="DeviceRotation.h" local="yes" imported="no">rotation/DeviceRotation.h</includes>
+    <includes id="_auto_lock_8h" name="AutoLock.h" local="yes" imported="no">autolock/AutoLock.h</includes>
+    <includes id="_device_motion_8h" name="DeviceMotion.h" local="yes" imported="no">motion/DeviceMotion.h</includes>
+    <includes id="_g_p_s_8h" name="GPS.h" local="yes" imported="no">gps/GPS.h</includes>
+    <member kind="define">
+      <type>#define</type>
+      <name>LEMONS_ENABLE_GPS_LOCATION_SERVICES</name>
+      <anchorfile>lemons__device_8h.html</anchorfile>
+      <anchor>a78ea9b79e9501a3334f72e7b9064e812</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="file">
+    <name>DeviceMotion.h</name>
+    <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/GUI/lemons_device/motion/</path>
+    <filename>_device_motion_8h.html</filename>
+    <class kind="struct">lemons::DeviceMotion::Coords</class>
+    <class kind="class">lemons::DeviceMotion</class>
+    <class kind="struct">lemons::DeviceMotion::Listener</class>
+    <namespace>lemons</namespace>
+  </compound>
+  <compound kind="file">
+    <name>DeviceRotation.h</name>
+    <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/GUI/lemons_device/rotation/</path>
+    <filename>_device_rotation_8h.html</filename>
+    <class kind="struct">lemons::DeviceRotation</class>
+    <class kind="struct">lemons::DeviceRotation::Listener</class>
+    <class kind="struct">lemons::DeviceRotation::ScopedDisabler</class>
+    <namespace>lemons</namespace>
+  </compound>
+  <compound kind="file">
     <name>DefaultWindow.h</name>
     <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/GUI/lemons_gui/app/</path>
     <filename>_default_window_8h.html</filename>
@@ -2630,44 +2715,6 @@
     <namespace>lemons::gui::components</namespace>
   </compound>
   <compound kind="file">
-    <name>AutoLock.h</name>
-    <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/GUI/lemons_gui/device/autolock/</path>
-    <filename>_auto_lock_8h.html</filename>
-    <namespace>lemons</namespace>
-    <member kind="function">
-      <type>void</type>
-      <name>setAutoLockEnabled</name>
-      <anchorfile>group__lemons__device.html</anchorfile>
-      <anchor>ga5a5b2cd2a233eba3e8638e95c1f3798c</anchor>
-      <arglist>(bool shouldBeEnabled)</arglist>
-    </member>
-  </compound>
-  <compound kind="file">
-    <name>DeviceRotation.h</name>
-    <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/GUI/lemons_gui/device/</path>
-    <filename>_device_rotation_8h.html</filename>
-    <class kind="struct">lemons::DeviceRotation</class>
-    <class kind="struct">lemons::DeviceRotation::Listener</class>
-    <class kind="struct">lemons::DeviceRotation::ScopedDisabler</class>
-    <namespace>lemons</namespace>
-  </compound>
-  <compound kind="file">
-    <name>GPS.h</name>
-    <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/GUI/lemons_gui/device/gps/</path>
-    <filename>_g_p_s_8h.html</filename>
-    <class kind="class">lemons::GPSLocation</class>
-    <namespace>lemons</namespace>
-  </compound>
-  <compound kind="file">
-    <name>DeviceMotion.h</name>
-    <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/GUI/lemons_gui/device/motion/</path>
-    <filename>_device_motion_8h.html</filename>
-    <class kind="struct">lemons::DeviceMotion::Coords</class>
-    <class kind="class">lemons::DeviceMotion</class>
-    <class kind="struct">lemons::DeviceMotion::Listener</class>
-    <namespace>lemons</namespace>
-  </compound>
-  <compound kind="file">
     <name>lemons_gui.h</name>
     <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/GUI/lemons_gui/</path>
     <filename>lemons__gui_8h.html</filename>
@@ -2685,19 +2732,8 @@
     <includes id="_popup_component_8h" name="PopupComponent.h" local="yes" imported="no">components/popups/PopupComponent.h</includes>
     <includes id="_version_bump_prompt_8h" name="VersionBumpPrompt.h" local="yes" imported="no">components/popups/VersionBumpPrompt.h</includes>
     <includes id="_save_to_file_prompt_8h" name="SaveToFilePrompt.h" local="yes" imported="no">components/popups/SaveToFilePrompt.h</includes>
-    <includes id="_device_rotation_8h" name="DeviceRotation.h" local="yes" imported="no">device/DeviceRotation.h</includes>
-    <includes id="_auto_lock_8h" name="AutoLock.h" local="yes" imported="no">device/autolock/AutoLock.h</includes>
-    <includes id="_device_motion_8h" name="DeviceMotion.h" local="yes" imported="no">device/motion/DeviceMotion.h</includes>
-    <includes id="_g_p_s_8h" name="GPS.h" local="yes" imported="no">device/gps/GPS.h</includes>
     <includes id="_default_window_8h" name="DefaultWindow.h" local="yes" imported="no">app/DefaultWindow.h</includes>
     <includes id="_gui_app_8h" name="GuiApp.h" local="yes" imported="no">app/GuiApp.h</includes>
-    <member kind="define">
-      <type>#define</type>
-      <name>LEMONS_ENABLE_GPS_LOCATION_SERVICES</name>
-      <anchorfile>lemons__gui_8h.html</anchorfile>
-      <anchor>a78ea9b79e9501a3334f72e7b9064e812</anchor>
-      <arglist></arglist>
-    </member>
   </compound>
   <compound kind="file">
     <name>gui_tests.h</name>
@@ -5808,6 +5844,13 @@
       <arglist>(const Scale &amp;other) const</arglist>
     </member>
     <member kind="function">
+      <type>constexpr Chromatic &amp;</type>
+      <name>operator=</name>
+      <anchorfile>classlemons_1_1music_1_1scales_1_1_chromatic.html</anchorfile>
+      <anchor>a10d7c608d01dfd329cb3986fba83cfe6</anchor>
+      <arglist>(const Chromatic &amp;other) noexcept</arglist>
+    </member>
+    <member kind="function">
       <type>bool</type>
       <name>operator==</name>
       <anchorfile>classlemons_1_1music_1_1scales_1_1_chromatic.html</anchorfile>
@@ -6040,6 +6083,164 @@
       <anchorfile>structlemons_1_1gui_1_1components_1_1_component_array.html</anchorfile>
       <anchor>a27d9f750e3e748bae62a9fdff540e2c2</anchor>
       <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>lemons::music::CompoundInterval</name>
+    <filename>classlemons_1_1music_1_1_compound_interval.html</filename>
+    <member kind="function">
+      <type>constexpr</type>
+      <name>CompoundInterval</name>
+      <anchorfile>classlemons_1_1music_1_1_compound_interval.html</anchorfile>
+      <anchor>a63a0db2798d415338dc1e719d33a4937</anchor>
+      <arglist>(const CompoundInterval &amp;other) noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>constexpr</type>
+      <name>CompoundInterval</name>
+      <anchorfile>classlemons_1_1music_1_1_compound_interval.html</anchorfile>
+      <anchor>a486ad0f0f36c0497c904e3423bbfd162</anchor>
+      <arglist>(int kind, Interval::Quality quality) noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>constexpr</type>
+      <name>CompoundInterval</name>
+      <anchorfile>classlemons_1_1music_1_1_compound_interval.html</anchorfile>
+      <anchor>abde77330164c1921f6d4933a63e80d53</anchor>
+      <arglist>(int numSemitones) noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>constexpr</type>
+      <name>CompoundInterval</name>
+      <anchorfile>classlemons_1_1music_1_1_compound_interval.html</anchorfile>
+      <anchor>a7ed731c97ae5d65f544ab12ea2d8197a</anchor>
+      <arglist>(int octaves, const Interval &amp;simpleInterval) noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>Pitch</type>
+      <name>applyToPitch</name>
+      <anchorfile>classlemons_1_1music_1_1_compound_interval.html</anchorfile>
+      <anchor>a847deecde734b8917ab232f7e916ae56</anchor>
+      <arglist>(const Pitch &amp;other, bool above) const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>constexpr int</type>
+      <name>getCents_EqualTemperament</name>
+      <anchorfile>classlemons_1_1music_1_1_compound_interval.html</anchorfile>
+      <anchor>a285ac7461d609f041389afa23f088e1f</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::Array&lt; double &gt;</type>
+      <name>getCents_JustIntonation</name>
+      <anchorfile>classlemons_1_1music_1_1_compound_interval.html</anchorfile>
+      <anchor>a6120ad2cddbc40da3715ff95a463e877</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>constexpr int</type>
+      <name>getKind</name>
+      <anchorfile>classlemons_1_1music_1_1_compound_interval.html</anchorfile>
+      <anchor>a95b880c4403e92857e92f92fbf20fdf4</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>constexpr int</type>
+      <name>getNumOctaves</name>
+      <anchorfile>classlemons_1_1music_1_1_compound_interval.html</anchorfile>
+      <anchor>afb436324e9f36890ec2c3d09ca5ef128</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>constexpr int</type>
+      <name>getNumSemitones</name>
+      <anchorfile>classlemons_1_1music_1_1_compound_interval.html</anchorfile>
+      <anchor>aec4895a15c78ebcd56e303ce1b847781</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>constexpr Interval::Quality</type>
+      <name>getQuality</name>
+      <anchorfile>classlemons_1_1music_1_1_compound_interval.html</anchorfile>
+      <anchor>a6f69fe27ac2d90d2c65a832f2a433a4c</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>constexpr Interval</type>
+      <name>getSimpleInterval</name>
+      <anchorfile>classlemons_1_1music_1_1_compound_interval.html</anchorfile>
+      <anchor>a99536936edbe5c3e762b08c5ccf0ee01</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>String</type>
+      <name>getStringDescription</name>
+      <anchorfile>classlemons_1_1music_1_1_compound_interval.html</anchorfile>
+      <anchor>aa675d008f93d61a4665702f084e22fcf</anchor>
+      <arglist>(bool useShort=false) const</arglist>
+    </member>
+    <member kind="function">
+      <type>constexpr bool</type>
+      <name>hasSameSimpleInterval</name>
+      <anchorfile>classlemons_1_1music_1_1_compound_interval.html</anchorfile>
+      <anchor>a1ef94a3b0a23a068d04548ca08e07db7</anchor>
+      <arglist>(const CompoundInterval &amp;other) const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>constexpr bool</type>
+      <name>isEnharmonicTo</name>
+      <anchorfile>classlemons_1_1music_1_1_compound_interval.html</anchorfile>
+      <anchor>a4b74f3b498035351355c63a558a4b644</anchor>
+      <arglist>(const CompoundInterval &amp;other) const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>constexpr bool</type>
+      <name>operator!=</name>
+      <anchorfile>classlemons_1_1music_1_1_compound_interval.html</anchorfile>
+      <anchor>a5d19085d9f478de100de8abf0f2aa152</anchor>
+      <arglist>(const CompoundInterval &amp;other) const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>constexpr bool</type>
+      <name>operator&lt;</name>
+      <anchorfile>classlemons_1_1music_1_1_compound_interval.html</anchorfile>
+      <anchor>a76eb8ce39b6993d582a400d7473c6e79</anchor>
+      <arglist>(const CompoundInterval &amp;other) const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>constexpr CompoundInterval &amp;</type>
+      <name>operator=</name>
+      <anchorfile>classlemons_1_1music_1_1_compound_interval.html</anchorfile>
+      <anchor>af8748b47196aff839ccff7ddd56daaa4</anchor>
+      <arglist>(const CompoundInterval &amp;other) noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>constexpr bool</type>
+      <name>operator==</name>
+      <anchorfile>classlemons_1_1music_1_1_compound_interval.html</anchorfile>
+      <anchor>a68bdc8822fffb356b8ae497ebe6933a4</anchor>
+      <arglist>(const CompoundInterval &amp;other) const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>constexpr bool</type>
+      <name>operator&gt;</name>
+      <anchorfile>classlemons_1_1music_1_1_compound_interval.html</anchorfile>
+      <anchor>a73065366abd9be49b95a5b4670eeb1d6</anchor>
+      <arglist>(const CompoundInterval &amp;other) const noexcept</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static CompoundInterval</type>
+      <name>fromPitches</name>
+      <anchorfile>classlemons_1_1music_1_1_compound_interval.html</anchorfile>
+      <anchor>abb0d713845ba8caeb2ed6c726541a005</anchor>
+      <arglist>(const Pitch &amp;pitch1, const Pitch &amp;pitch2) noexcept</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static constexpr CompoundInterval</type>
+      <name>fromPitches</name>
+      <anchorfile>classlemons_1_1music_1_1_compound_interval.html</anchorfile>
+      <anchor>a65f4824a9673f68519a43b5e2b77076e</anchor>
+      <arglist>(int midiPitch1, int midiPitch2) noexcept</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -10678,8 +10879,8 @@
       <type>constexpr</type>
       <name>Interval</name>
       <anchorfile>classlemons_1_1music_1_1_interval.html</anchorfile>
-      <anchor>aa580ca56ea42022929b9b8c149302f87</anchor>
-      <arglist>()</arglist>
+      <anchor>af523b55359ad03828a048bdabf319175</anchor>
+      <arglist>() noexcept</arglist>
     </member>
     <member kind="function">
       <type>constexpr</type>
@@ -10694,6 +10895,13 @@
       <anchorfile>classlemons_1_1music_1_1_interval.html</anchorfile>
       <anchor>aac35173c35d6bce37cc26ae9c3f841c8</anchor>
       <arglist>(int kindToUse, Quality qualityToUse) noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>Pitch</type>
+      <name>applyToPitch</name>
+      <anchorfile>classlemons_1_1music_1_1_interval.html</anchorfile>
+      <anchor>af446ac115155a4224b74bc13c659d2e6</anchor>
+      <arglist>(const Pitch &amp;other, bool above) const noexcept</arglist>
     </member>
     <member kind="function">
       <type>constexpr int</type>
@@ -10820,6 +11028,13 @@
       <anchorfile>classlemons_1_1music_1_1_interval.html</anchorfile>
       <anchor>a687df6982a4cda5bc7562cb3bcd6c864</anchor>
       <arglist>(const Interval &amp;other) const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>constexpr Interval &amp;</type>
+      <name>operator=</name>
+      <anchorfile>classlemons_1_1music_1_1_interval.html</anchorfile>
+      <anchor>ac76dc4cfa1e794377f68771c0a582ae5</anchor>
+      <arglist>(const Interval &amp;other) noexcept</arglist>
     </member>
     <member kind="function">
       <type>constexpr bool</type>
@@ -11379,6 +11594,13 @@
       <anchorfile>structlemons_1_1music_1_1scales_1_1_scale.html</anchorfile>
       <anchor>ad2376e266a0f4fa74cb605aea30a2a44</anchor>
       <arglist>(const Scale &amp;other) const</arglist>
+    </member>
+    <member kind="function">
+      <type>constexpr KeySignature &amp;</type>
+      <name>operator=</name>
+      <anchorfile>classlemons_1_1music_1_1scales_1_1_key_signature.html</anchorfile>
+      <anchor>aa232f382c5d3a293beda10b1079a190d</anchor>
+      <arglist>(const KeySignature &amp;other) noexcept</arglist>
     </member>
     <member kind="function">
       <type>constexpr bool</type>
@@ -15636,6 +15858,13 @@
       <arglist>(const Scale &amp;other) const</arglist>
     </member>
     <member kind="function">
+      <type>constexpr Mode &amp;</type>
+      <name>operator=</name>
+      <anchorfile>classlemons_1_1music_1_1scales_1_1_mode.html</anchorfile>
+      <anchor>a76831bfb196c25700ed46be58667a9a2</anchor>
+      <arglist>(const Mode &amp;other) noexcept</arglist>
+    </member>
+    <member kind="function">
       <type>constexpr bool</type>
       <name>operator==</name>
       <anchorfile>classlemons_1_1music_1_1scales_1_1_mode.html</anchorfile>
@@ -16367,6 +16596,13 @@
       <anchorfile>structlemons_1_1music_1_1scales_1_1_scale.html</anchorfile>
       <anchor>ad2376e266a0f4fa74cb605aea30a2a44</anchor>
       <arglist>(const Scale &amp;other) const</arglist>
+    </member>
+    <member kind="function">
+      <type>constexpr Octatonic &amp;</type>
+      <name>operator=</name>
+      <anchorfile>classlemons_1_1music_1_1scales_1_1_octatonic.html</anchorfile>
+      <anchor>ab193f020968e1f628504181f7f3a9ff2</anchor>
+      <arglist>(const Octatonic &amp;other) noexcept</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
@@ -18788,6 +19024,13 @@
       <arglist>(const Pitch &amp;other) const noexcept</arglist>
     </member>
     <member kind="function">
+      <type>constexpr Pitch &amp;</type>
+      <name>operator=</name>
+      <anchorfile>classlemons_1_1music_1_1_pitch.html</anchorfile>
+      <anchor>a1ceab367cdc669ed9f9852e37efe5bd9</anchor>
+      <arglist>(const Pitch &amp;other) noexcept</arglist>
+    </member>
+    <member kind="function">
       <type>constexpr bool</type>
       <name>operator==</name>
       <anchorfile>classlemons_1_1music_1_1_pitch.html</anchorfile>
@@ -18927,6 +19170,13 @@
       <anchorfile>structlemons_1_1music_1_1_pitch_class.html</anchorfile>
       <anchor>a2eda1c7f27e746c2d50c1e7de0feace8</anchor>
       <arglist>(const PitchClass &amp;other) const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>constexpr PitchClass &amp;</type>
+      <name>operator=</name>
+      <anchorfile>structlemons_1_1music_1_1_pitch_class.html</anchorfile>
+      <anchor>a2611ac7eae5a0ce4a9fe131512a88bff</anchor>
+      <arglist>(const PitchClass &amp;other) noexcept</arglist>
     </member>
     <member kind="function">
       <type>constexpr bool</type>
@@ -27066,6 +27316,13 @@
       <arglist>(const WholeTone &amp;other) const</arglist>
     </member>
     <member kind="function">
+      <type>constexpr WholeTone &amp;</type>
+      <name>operator=</name>
+      <anchorfile>classlemons_1_1music_1_1scales_1_1_whole_tone.html</anchorfile>
+      <anchor>a57888f2b090b02e44fcff019aa1f95d7</anchor>
+      <arglist>(const WholeTone &amp;other) noexcept</arglist>
+    </member>
+    <member kind="function">
       <type>bool</type>
       <name>operator==</name>
       <anchorfile>structlemons_1_1music_1_1scales_1_1_scale.html</anchorfile>
@@ -28160,8 +28417,8 @@
       <type>constexpr T</type>
       <name>abs</name>
       <anchorfile>group__lemons__math.html</anchorfile>
-      <anchor>gac5b886632a7eb216bae2a8423403105d</anchor>
-      <arglist>(T val)</arglist>
+      <anchor>gafa4959ad159b141be2d8e91787d50793</anchor>
+      <arglist>(T val) noexcept</arglist>
     </member>
     <member kind="function">
       <type>PeriodType</type>
@@ -28266,6 +28523,7 @@
     <name>lemons::music</name>
     <filename>namespacelemons_1_1music.html</filename>
     <namespace>lemons::music::scales</namespace>
+    <class kind="class">lemons::music::CompoundInterval</class>
     <class kind="class">lemons::music::Interval</class>
     <class kind="class">lemons::music::Pitch</class>
     <class kind="struct">lemons::music::PitchClass</class>
@@ -28336,8 +28594,22 @@
       <type>Pitch</type>
       <name>operator+</name>
       <anchorfile>namespacelemons_1_1music.html</anchorfile>
+      <anchor>aafd03aded2656f6f75083d1b35819d8a</anchor>
+      <arglist>(const Pitch &amp;pitch, const CompoundInterval &amp;interval) noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>Pitch</type>
+      <name>operator+</name>
+      <anchorfile>namespacelemons_1_1music.html</anchorfile>
       <anchor>a2a783fe9423658609b53291a09337046</anchor>
       <arglist>(const Pitch &amp;pitch, const Interval &amp;interval) noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>Pitch</type>
+      <name>operator-</name>
+      <anchorfile>namespacelemons_1_1music.html</anchorfile>
+      <anchor>ae00bbf79c711a11e737b40d2fd79e666</anchor>
+      <arglist>(const Pitch &amp;pitch, const CompoundInterval &amp;interval) noexcept</arglist>
     </member>
     <member kind="function">
       <type>Pitch</type>
@@ -29301,8 +29573,8 @@
     <class kind="struct">lemons::DeviceMotion::Coords</class>
     <class kind="class">lemons::DeviceMotion</class>
     <class kind="struct">lemons::DeviceRotation</class>
-    <class kind="struct">lemons::DeviceRotation::Listener</class>
     <class kind="struct">lemons::DeviceMotion::Listener</class>
+    <class kind="struct">lemons::DeviceRotation::Listener</class>
     <class kind="struct">lemons::DeviceRotation::ScopedDisabler</class>
     <member kind="function">
       <type>void</type>
@@ -29659,8 +29931,8 @@
       <type>constexpr T</type>
       <name>abs</name>
       <anchorfile>group__lemons__math.html</anchorfile>
-      <anchor>gac5b886632a7eb216bae2a8423403105d</anchor>
-      <arglist>(T val)</arglist>
+      <anchor>gafa4959ad159b141be2d8e91787d50793</anchor>
+      <arglist>(T val) noexcept</arglist>
     </member>
     <member kind="function">
       <type>PeriodType</type>

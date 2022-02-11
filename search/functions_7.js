@@ -28,5 +28,6 @@ var searchData=
   ['haseditor_25',['hasEditor',['../structlemons_1_1plugin_1_1_processor_with_editor.html#a00f7ca93bd01d20850375d3bb0522b9b',1,'lemons::plugin::ProcessorWithEditor::hasEditor()'],['../structlemons_1_1plugin_1_1_processor_with_generic_editor.html#a01b15535389b4b56d5d31999dc39c52a',1,'lemons::plugin::ProcessorWithGenericEditor::hasEditor()']]],
   ['hasenharmonickey_26',['hasEnharmonicKey',['../classlemons_1_1music_1_1scales_1_1_key_signature.html#a12d4b03b7c4c0609b8b595d3b7185bae',1,'lemons::music::scales::KeySignature']]],
   ['hassameaspectratioas_27',['hasSameAspectRatioAs',['../structlemons_1_1_dimensions.html#ac784c9887251c92ee4a3c475035fca2c',1,'lemons::Dimensions']]],
-  ['hassamemajorversion_28',['hasSameMajorVersion',['../structlemons_1_1_version.html#a309963d20eb0e640fed90907c378e5b0',1,'lemons::Version']]]
+  ['hassamemajorversion_28',['hasSameMajorVersion',['../structlemons_1_1_version.html#a309963d20eb0e640fed90907c378e5b0',1,'lemons::Version']]],
+  ['hassamesimpleinterval_29',['hasSameSimpleInterval',['../classlemons_1_1music_1_1_compound_interval.html#a1ef94a3b0a23a068d04548ca08e07db7',1,'lemons::music::CompoundInterval']]]
 ];

@@ -7,9 +7,11 @@ var searchData=
   ['cmakemodules_2emd_4',['CMakeModules.md',['../_c_make_modules_8md.html',1,'']]],
   ['coeffecients_2eh_5',['Coeffecients.h',['../_coeffecients_8h.html',1,'']]],
   ['colors_2eh_6',['colors.h',['../colors_8h.html',1,'']]],
-  ['compressor_2eh_7',['Compressor.h',['../_compressor_8h.html',1,'']]],
-  ['constructedarray_2eh_8',['ConstructedArray.h',['../_constructed_array_8h.html',1,'']]],
-  ['cursor_2eh_9',['cursor.h',['../cursor_8h.html',1,'']]],
-  ['serializing_2eh_10',['serializing.h',['../_common_2lemons__core_2serializing_2serializing_8h.html',1,'(Global Namespace)'],['../_connectivity_2lemons__osc_2util_2serializing_8h.html',1,'(Global Namespace)']]],
-  ['util_2eh_11',['util.h',['../_connectivity_2lemons__dmx_2util_2util_8h.html',1,'(Global Namespace)'],['../_connectivity_2lemons__osc_2util_2util_8h.html',1,'(Global Namespace)']]]
+  ['compoundinterval_2eh_7',['CompoundInterval.h',['../_compound_interval_8h.html',1,'']]],
+  ['compoundinterval_5fimpl_2eh_8',['CompoundInterval_impl.h',['../_compound_interval__impl_8h.html',1,'']]],
+  ['compressor_2eh_9',['Compressor.h',['../_compressor_8h.html',1,'']]],
+  ['constructedarray_2eh_10',['ConstructedArray.h',['../_constructed_array_8h.html',1,'']]],
+  ['cursor_2eh_11',['cursor.h',['../cursor_8h.html',1,'']]],
+  ['serializing_2eh_12',['serializing.h',['../_common_2lemons__core_2serializing_2serializing_8h.html',1,'(Global Namespace)'],['../_connectivity_2lemons__osc_2util_2serializing_8h.html',1,'(Global Namespace)']]],
+  ['util_2eh_13',['util.h',['../_connectivity_2lemons__dmx_2util_2util_8h.html',1,'(Global Namespace)'],['../_connectivity_2lemons__osc_2util_2util_8h.html',1,'(Global Namespace)']]]
 ];
