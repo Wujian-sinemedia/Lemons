@@ -1,5 +1,12 @@
 # Lemons changelog
 
+### [1.16.1](http://github.com/benthevining/Lemons/compare/v1.16.0...v1.16.1) (2022-02-12)
+
+
+### Bug Fixes
+
+* added support for using dnf to install deps on Redhat ([082c2cd](http://github.com/benthevining/Lemons/commit/082c2cdd10419a04693709518b04f2c2bf2ee87d))
+
 ## [1.16.0](http://github.com/benthevining/Lemons/compare/v1.15.0...v1.16.0) (2022-02-12)
 
 
