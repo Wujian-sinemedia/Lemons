@@ -31,7 +31,14 @@ else()
 	if(APT)
 		set (apt_program "${APT}" CACHE INTERNAL "")
 	else()
-		message (FATAL_ERROR "Neither apt or apt-get can be found!")
+
+		find_program (DNF dnf)
+
+		if(DNF)
+			set (apt_program "${DNF}" CACHE INTERNAL "")
+		else()
+			message (FATAL_ERROR "No package manager program can be found!")
+		endif()
 	endif()
 endif()
 
