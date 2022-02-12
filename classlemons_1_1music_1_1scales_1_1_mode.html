@@ -130,6 +130,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a76fa26d571dfff1129909c4fdc1184a3"><td class="memItemLeft" align="right" valign="top">juce::Array&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1music_1_1scales_1_1_mode.html#a76fa26d571dfff1129909c4fdc1184a3">getIntervalsAsSemitones</a> () const final</td></tr>
 <tr class="memdesc:a76fa26d571dfff1129909c4fdc1184a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the set of intervals that make up this mode.  <a href="classlemons_1_1music_1_1scales_1_1_mode.html#a76fa26d571dfff1129909c4fdc1184a3">More...</a><br /></td></tr>
 <tr class="separator:a76fa26d571dfff1129909c4fdc1184a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a685d524f677d1405530176a76923461a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classlemons_1_1music_1_1scales_1_1_key_signature.html">KeySignature</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1music_1_1scales_1_1_mode.html#a685d524f677d1405530176a76923461a">getKeySignature</a> () const noexcept</td></tr>
+<tr class="memdesc:a685d524f677d1405530176a76923461a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns an equivalent key signature for this mode.  <a href="classlemons_1_1music_1_1scales_1_1_mode.html#a685d524f677d1405530176a76923461a">More...</a><br /></td></tr>
+<tr class="separator:a685d524f677d1405530176a76923461a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0acb052011a9fe697cd0c8624520b1e0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1music_1_1scales_1_1_mode.html#a0acb052011a9fe697cd0c8624520b1e0">getNumFlats</a> () const noexcept</td></tr>
 <tr class="memdesc:a0acb052011a9fe697cd0c8624520b1e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of flats that make up the key signature for this mode.  <a href="classlemons_1_1music_1_1scales_1_1_mode.html#a0acb052011a9fe697cd0c8624520b1e0">More...</a><br /></td></tr>
 <tr class="separator:a0acb052011a9fe697cd0c8624520b1e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -499,6 +502,36 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a685d524f677d1405530176a76923461a" name="a685d524f677d1405530176a76923461a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a685d524f677d1405530176a76923461a">&#9670;&nbsp;</a></span>getKeySignature()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classlemons_1_1music_1_1scales_1_1_key_signature.html">KeySignature</a> lemons::music::scales::Mode::getKeySignature </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns an equivalent key signature for this mode. </p>
+<p >The returned key signature contains all the same pitch classes as this mode. </p>
+
+<p class="reference">References <a class="el" href="classlemons_1_1music_1_1scales_1_1_mode.html#a4a896aa0663fd836c9efb2747e7fc49da2dfbe3d304372906c238010701613654">Ionian</a>.</p>
+
+</div>
+</div>
 <a id="a0acb052011a9fe697cd0c8624520b1e0" name="a0acb052011a9fe697cd0c8624520b1e0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0acb052011a9fe697cd0c8624520b1e0">&#9670;&nbsp;</a></span>getNumFlats()</h2>
 
@@ -523,8 +556,6 @@ Static Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Returns the number of flats that make up the key signature for this mode. </p>
-
-<p class="reference">References <a class="el" href="classlemons_1_1music_1_1scales_1_1_mode.html#a4a896aa0663fd836c9efb2747e7fc49da2dfbe3d304372906c238010701613654">Ionian</a>.</p>
 
 </div>
 </div>
@@ -1005,7 +1036,7 @@ Static Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Feb 11 2022 00:54:51 for Lemons by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3
+Generated on Sat Feb 12 2022 00:53:51 for Lemons by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3
 </small></address>
 </body>
 </html>

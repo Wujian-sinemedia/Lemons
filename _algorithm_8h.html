@@ -84,9 +84,9 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a9a6331a2bba908039864b40b5a47b59e"><td class="memTemplParams" colspan="2">template&lt;class T , class ContainerType , class UnaryPredicate , class UnaryFunc1 , class UnaryFunc2 &gt; </td></tr>
-<tr class="memitem:a9a6331a2bba908039864b40b5a47b59e"><td class="memTemplItemLeft" align="right" valign="top">constexpr void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1alg.html#a9a6331a2bba908039864b40b5a47b59e">lemons::alg::call_or</a> (const ContainerType &amp;container, UnaryPredicate &amp;&amp;p, UnaryFunc1 &amp;&amp;f1, UnaryFunc2 &amp;&amp;f2)</td></tr>
-<tr class="separator:a9a6331a2bba908039864b40b5a47b59e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae69e434fc4842d6dd51eeb18c5e79425"><td class="memTemplParams" colspan="2">template&lt;class Container1 , class Container2 , class Callable &gt; </td></tr>
+<tr class="memitem:ae69e434fc4842d6dd51eeb18c5e79425"><td class="memTemplItemLeft" align="right" valign="top">constexpr void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1alg.html#ae69e434fc4842d6dd51eeb18c5e79425">lemons::alg::call_both</a> (const Container1 &amp;container1, const Container2 &amp;container2, Callable &amp;&amp;callable)</td></tr>
+<tr class="separator:ae69e434fc4842d6dd51eeb18c5e79425"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1f0318fa7bccd9e581271f7a2708dd17"><td class="memTemplParams" colspan="2">template&lt;class ContainerType , class T &gt; </td></tr>
 <tr class="memitem:a1f0318fa7bccd9e581271f7a2708dd17"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1alg.html#a1f0318fa7bccd9e581271f7a2708dd17">lemons::alg::contains</a> (const ContainerType &amp;container, const T &amp;value)</td></tr>
 <tr class="separator:a1f0318fa7bccd9e581271f7a2708dd17"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -99,20 +99,35 @@ Functions</h2></td></tr>
 <tr class="memitem:a89b964396b3c630cfee9b5e9dfdbef58"><td class="memTemplParams" colspan="2">template&lt;class ContainerType , class T , class UnaryPredicate &gt; </td></tr>
 <tr class="memitem:a89b964396b3c630cfee9b5e9dfdbef58"><td class="memTemplItemLeft" align="right" valign="top">constexpr T &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1alg.html#a89b964396b3c630cfee9b5e9dfdbef58">lemons::alg::contains_or</a> (const ContainerType &amp;container, T &amp;defaultValue, UnaryPredicate &amp;&amp;p)</td></tr>
 <tr class="separator:a89b964396b3c630cfee9b5e9dfdbef58"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa180b06c283e569b07cef4db0d081723"><td class="memTemplParams" colspan="2">template&lt;class T , class ContainerType , class UnaryPredicate , std::enable_if_t&lt; std::is_default_constructible_v&lt; T &gt; &gt; *  = nullptr&gt; </td></tr>
-<tr class="memitem:aa180b06c283e569b07cef4db0d081723"><td class="memTemplItemLeft" align="right" valign="top">constexpr T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1alg.html#aa180b06c283e569b07cef4db0d081723">lemons::alg::contains_or_default</a> (const ContainerType &amp;container, UnaryPredicate &amp;&amp;p)</td></tr>
-<tr class="separator:aa180b06c283e569b07cef4db0d081723"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa99457664acae3598eb233cc84c05df1"><td class="memTemplParams" colspan="2">template&lt;class T , class ContainerType , class UnaryPredicate &gt; </td></tr>
+<tr class="memitem:aa99457664acae3598eb233cc84c05df1"><td class="memTemplItemLeft" align="right" valign="top">constexpr T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1alg.html#aa99457664acae3598eb233cc84c05df1">lemons::alg::contains_or_default</a> (const ContainerType &amp;container, UnaryPredicate &amp;&amp;p)</td></tr>
+<tr class="separator:aa99457664acae3598eb233cc84c05df1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a68e3a4482bc9d85a5be7623c425bd69c"><td class="memTemplParams" colspan="2">template&lt;class T , class ContainerType , class UnaryPredicate &gt; </td></tr>
 <tr class="memitem:a68e3a4482bc9d85a5be7623c425bd69c"><td class="memTemplItemLeft" align="right" valign="top">constexpr T *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1alg.html#a68e3a4482bc9d85a5be7623c425bd69c">lemons::alg::contains_or_null</a> (const ContainerType &amp;container, UnaryPredicate &amp;&amp;p)</td></tr>
 <tr class="separator:a68e3a4482bc9d85a5be7623c425bd69c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a84d35683f4150bd67f0d1c6b2199fbf2"><td class="memTemplParams" colspan="2">template&lt;class ContainerType , class UnaryPredicate &gt; </td></tr>
 <tr class="memitem:a84d35683f4150bd67f0d1c6b2199fbf2"><td class="memTemplItemLeft" align="right" valign="top">constexpr int&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1alg.html#a84d35683f4150bd67f0d1c6b2199fbf2">lemons::alg::num_of</a> (const ContainerType &amp;container, UnaryPredicate &amp;&amp;p)</td></tr>
 <tr class="separator:a84d35683f4150bd67f0d1c6b2199fbf2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6468dbdead94b02d296eec7d9d55f8ff"><td class="memTemplParams" colspan="2">template&lt;class ContainerType &gt; </td></tr>
+<tr class="memitem:a6468dbdead94b02d296eec7d9d55f8ff"><td class="memTemplItemLeft" align="right" valign="top">constexpr void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1alg.html#a6468dbdead94b02d296eec7d9d55f8ff">lemons::alg::removeDuplicates</a> (ContainerType &amp;container)</td></tr>
+<tr class="separator:a6468dbdead94b02d296eec7d9d55f8ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d3f3e45ca61982282c751212e8c2d00"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a9d3f3e45ca61982282c751212e8c2d00"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1alg.html#a9d3f3e45ca61982282c751212e8c2d00">lemons::alg::removeDuplicates</a> (juce::Array&lt; T &gt; &amp;array)</td></tr>
+<tr class="separator:a9d3f3e45ca61982282c751212e8c2d00"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8bc4660c7ac22415f7ed709e7ebbb4d4"><td class="memTemplParams" colspan="2">template&lt;class ContainerType &gt; </td></tr>
+<tr class="memitem:a8bc4660c7ac22415f7ed709e7ebbb4d4"><td class="memTemplItemLeft" align="right" valign="top">constexpr void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1alg.html#a8bc4660c7ac22415f7ed709e7ebbb4d4">lemons::alg::reverse</a> (ContainerType &amp;container)</td></tr>
+<tr class="separator:a8bc4660c7ac22415f7ed709e7ebbb4d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af991a9e702cec6ab34e305848fb1021f"><td class="memTemplParams" colspan="2">template&lt;class ContainerType &gt; </td></tr>
+<tr class="memitem:af991a9e702cec6ab34e305848fb1021f"><td class="memTemplItemLeft" align="right" valign="top">constexpr void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1alg.html#af991a9e702cec6ab34e305848fb1021f">lemons::alg::sort</a> (ContainerType &amp;container, bool forward=true)</td></tr>
+<tr class="separator:af991a9e702cec6ab34e305848fb1021f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a12f52784e8bef396b239ac14ace7eed0"><td class="memTemplParams" colspan="2">template&lt;class ContainerType , class Comparison &gt; </td></tr>
+<tr class="memitem:a12f52784e8bef396b239ac14ace7eed0"><td class="memTemplItemLeft" align="right" valign="top">constexpr void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1alg.html#a12f52784e8bef396b239ac14ace7eed0">lemons::alg::sort</a> (ContainerType &amp;container, Comparison &amp;&amp;predicate, bool forward=true)</td></tr>
+<tr class="separator:a12f52784e8bef396b239ac14ace7eed0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Feb 11 2022 00:54:16 for Lemons by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3
+Generated on Sat Feb 12 2022 00:53:50 for Lemons by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3
 </small></address>
 </body>
 </html>

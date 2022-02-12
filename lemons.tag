@@ -1562,10 +1562,10 @@
     <namespace>lemons::alg</namespace>
     <member kind="function">
       <type>constexpr void</type>
-      <name>call_or</name>
+      <name>call_both</name>
       <anchorfile>namespacelemons_1_1alg.html</anchorfile>
-      <anchor>a9a6331a2bba908039864b40b5a47b59e</anchor>
-      <arglist>(const ContainerType &amp;container, UnaryPredicate &amp;&amp;p, UnaryFunc1 &amp;&amp;f1, UnaryFunc2 &amp;&amp;f2)</arglist>
+      <anchor>ae69e434fc4842d6dd51eeb18c5e79425</anchor>
+      <arglist>(const Container1 &amp;container1, const Container2 &amp;container2, Callable &amp;&amp;callable)</arglist>
     </member>
     <member kind="function">
       <type>constexpr bool</type>
@@ -1599,7 +1599,7 @@
       <type>constexpr T</type>
       <name>contains_or_default</name>
       <anchorfile>namespacelemons_1_1alg.html</anchorfile>
-      <anchor>aa180b06c283e569b07cef4db0d081723</anchor>
+      <anchor>aa99457664acae3598eb233cc84c05df1</anchor>
       <arglist>(const ContainerType &amp;container, UnaryPredicate &amp;&amp;p)</arglist>
     </member>
     <member kind="function">
@@ -1615,6 +1615,41 @@
       <anchorfile>namespacelemons_1_1alg.html</anchorfile>
       <anchor>a84d35683f4150bd67f0d1c6b2199fbf2</anchor>
       <arglist>(const ContainerType &amp;container, UnaryPredicate &amp;&amp;p)</arglist>
+    </member>
+    <member kind="function">
+      <type>constexpr void</type>
+      <name>removeDuplicates</name>
+      <anchorfile>namespacelemons_1_1alg.html</anchorfile>
+      <anchor>a6468dbdead94b02d296eec7d9d55f8ff</anchor>
+      <arglist>(ContainerType &amp;container)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>removeDuplicates</name>
+      <anchorfile>namespacelemons_1_1alg.html</anchorfile>
+      <anchor>a9d3f3e45ca61982282c751212e8c2d00</anchor>
+      <arglist>(juce::Array&lt; T &gt; &amp;array)</arglist>
+    </member>
+    <member kind="function">
+      <type>constexpr void</type>
+      <name>reverse</name>
+      <anchorfile>namespacelemons_1_1alg.html</anchorfile>
+      <anchor>a8bc4660c7ac22415f7ed709e7ebbb4d4</anchor>
+      <arglist>(ContainerType &amp;container)</arglist>
+    </member>
+    <member kind="function">
+      <type>constexpr void</type>
+      <name>sort</name>
+      <anchorfile>namespacelemons_1_1alg.html</anchorfile>
+      <anchor>af991a9e702cec6ab34e305848fb1021f</anchor>
+      <arglist>(ContainerType &amp;container, bool forward=true)</arglist>
+    </member>
+    <member kind="function">
+      <type>constexpr void</type>
+      <name>sort</name>
+      <anchorfile>namespacelemons_1_1alg.html</anchorfile>
+      <anchor>a12f52784e8bef396b239ac14ace7eed0</anchor>
+      <arglist>(ContainerType &amp;container, Comparison &amp;&amp;predicate, bool forward=true)</arglist>
     </member>
   </compound>
   <compound kind="file">
@@ -1890,6 +1925,14 @@
     </member>
   </compound>
   <compound kind="file">
+    <name>Chord.h</name>
+    <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/Common/lemons_musicology/harmony/</path>
+    <filename>_chord_8h.html</filename>
+    <class kind="class">lemons::music::Chord</class>
+    <namespace>lemons</namespace>
+    <namespace>lemons::music</namespace>
+  </compound>
+  <compound kind="file">
     <name>CompoundInterval.h</name>
     <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/Common/lemons_musicology/harmony/intervals/</path>
     <filename>_compound_interval_8h.html</filename>
@@ -1946,6 +1989,28 @@
     <filename>_interval__impl_8h.html</filename>
     <namespace>lemons</namespace>
     <namespace>lemons::music</namespace>
+  </compound>
+  <compound kind="file">
+    <name>MicrotonalInterval.h</name>
+    <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/Common/lemons_musicology/harmony/intervals/</path>
+    <filename>_microtonal_interval_8h.html</filename>
+    <class kind="class">lemons::music::MicrotonalInterval</class>
+    <namespace>lemons</namespace>
+    <namespace>lemons::music</namespace>
+    <member kind="function">
+      <type>constexpr Pitch</type>
+      <name>operator+</name>
+      <anchorfile>namespacelemons_1_1music.html</anchorfile>
+      <anchor>afb3ae59ad987048b89ea9c070a9cfcf4</anchor>
+      <arglist>(const Pitch &amp;pitch, const MicrotonalInterval &amp;interval) noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>constexpr Pitch</type>
+      <name>operator-</name>
+      <anchorfile>namespacelemons_1_1music.html</anchorfile>
+      <anchor>ae9cec85610607fe76e5fee66d270bcb6</anchor>
+      <arglist>(const Pitch &amp;pitch, const MicrotonalInterval &amp;interval) noexcept</arglist>
+    </member>
   </compound>
   <compound kind="file">
     <name>Pitch.h</name>
@@ -2037,6 +2102,7 @@
     <includes id="_interval__impl_8h" name="Interval_impl.h" local="yes" imported="no">harmony/intervals/Interval_impl.h</includes>
     <includes id="_compound_interval_8h" name="CompoundInterval.h" local="yes" imported="no">harmony/intervals/CompoundInterval.h</includes>
     <includes id="_compound_interval__impl_8h" name="CompoundInterval_impl.h" local="yes" imported="no">harmony/intervals/CompoundInterval_impl.h</includes>
+    <includes id="_microtonal_interval_8h" name="MicrotonalInterval.h" local="yes" imported="no">harmony/intervals/MicrotonalInterval.h</includes>
     <includes id="_scale_8h" name="Scale.h" local="yes" imported="no">harmony/scales/Scale.h</includes>
     <includes id="_chromatic_8h" name="Chromatic.h" local="yes" imported="no">harmony/scales/Chromatic.h</includes>
     <includes id="_octatonic_8h" name="Octatonic.h" local="yes" imported="no">harmony/scales/Octatonic.h</includes>
@@ -2044,6 +2110,7 @@
     <includes id="_key_signature_8h" name="KeySignature.h" local="yes" imported="no">harmony/scales/KeySignature.h</includes>
     <includes id="_key_signature__impl_8h" name="KeySignature_impl.h" local="yes" imported="no">harmony/scales/KeySignature_impl.h</includes>
     <includes id="_mode_8h" name="Mode.h" local="yes" imported="no">harmony/scales/Mode.h</includes>
+    <includes id="_chord_8h" name="Chord.h" local="yes" imported="no">harmony/Chord.h</includes>
   </compound>
   <compound kind="file">
     <name>PitchUtils.h</name>
@@ -5697,6 +5764,115 @@
       <anchorfile>classlemons_1_1midi_1_1_chopping_processor.html</anchorfile>
       <anchor>aa5093954f0601f45d5442fb70b88282d</anchor>
       <arglist>(const MidiMessage &amp;m) const</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>lemons::music::Chord</name>
+    <filename>classlemons_1_1music_1_1_chord.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>Chord</name>
+      <anchorfile>classlemons_1_1music_1_1_chord.html</anchorfile>
+      <anchor>a3788fcae2cbad4c82e6a7edb89b3e33e</anchor>
+      <arglist>(const Chord &amp;other)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>Chord</name>
+      <anchorfile>classlemons_1_1music_1_1_chord.html</anchorfile>
+      <anchor>a864c5df56c0a2a92a284f69313e28f08</anchor>
+      <arglist>(const std::initializer_list&lt; int &gt; &amp;midiNotes)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>Chord</name>
+      <anchorfile>classlemons_1_1music_1_1_chord.html</anchorfile>
+      <anchor>a62bbd342ea1de5ff509b8b2535e0b0df</anchor>
+      <arglist>(const std::initializer_list&lt; Pitch &gt; &amp;midiNotes)</arglist>
+    </member>
+    <member kind="function">
+      <type>Chord</type>
+      <name>applyInterval</name>
+      <anchorfile>classlemons_1_1music_1_1_chord.html</anchorfile>
+      <anchor>a59535e4c5fdeb92c47de966836dde9d3</anchor>
+      <arglist>(const Interval &amp;interval, bool above)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>contains</name>
+      <anchorfile>classlemons_1_1music_1_1_chord.html</anchorfile>
+      <anchor>ada026305a57a889d1eacc93479a6020c</anchor>
+      <arglist>(const Pitch &amp;pitch) const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>contains</name>
+      <anchorfile>classlemons_1_1music_1_1_chord.html</anchorfile>
+      <anchor>a19f580c2705a99ae60a004638136babb</anchor>
+      <arglist>(const PitchClass &amp;pitchClass) const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>contains</name>
+      <anchorfile>classlemons_1_1music_1_1_chord.html</anchorfile>
+      <anchor>a1154a4073486ce70ba0474eb0419b409</anchor>
+      <arglist>(int midiNote) const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>fitsInScale</name>
+      <anchorfile>classlemons_1_1music_1_1_chord.html</anchorfile>
+      <anchor>a8924685e8d56498e5b415f9afdf965ee</anchor>
+      <arglist>(const scales::Scale &amp;scale) const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>Pitch</type>
+      <name>getHighestPitch</name>
+      <anchorfile>classlemons_1_1music_1_1_chord.html</anchorfile>
+      <anchor>a9f8f6f806b55001c25a45265025ca757</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::Array&lt; Interval &gt;</type>
+      <name>getIntervals</name>
+      <anchorfile>classlemons_1_1music_1_1_chord.html</anchorfile>
+      <anchor>a5d9df6c6333436db176706dc1d8247a2</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>Pitch</type>
+      <name>getLowestPitch</name>
+      <anchorfile>classlemons_1_1music_1_1_chord.html</anchorfile>
+      <anchor>a6ab0261c3e827becb5616d272ad9cf97</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>getNumPitches</name>
+      <anchorfile>classlemons_1_1music_1_1_chord.html</anchorfile>
+      <anchor>acbd713bcedd3e8c8ace3996ade64d21d</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>getNumUniquePitchClasses</name>
+      <anchorfile>classlemons_1_1music_1_1_chord.html</anchorfile>
+      <anchor>a305e7250881baddb530fa6f37dbee5fa</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::Array&lt; PitchClass &gt;</type>
+      <name>getPitchClasses</name>
+      <anchorfile>classlemons_1_1music_1_1_chord.html</anchorfile>
+      <anchor>a1890629e71ccdbd8c2fd7b8ffefaec7d</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>Chord &amp;</type>
+      <name>operator=</name>
+      <anchorfile>classlemons_1_1music_1_1_chord.html</anchorfile>
+      <anchor>a2e20c09b2ca95c2c4cebc268d6ff51dc</anchor>
+      <arglist>(const Chord &amp;other)</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -14319,6 +14495,80 @@
     </member>
   </compound>
   <compound kind="class">
+    <name>lemons::music::MicrotonalInterval</name>
+    <filename>classlemons_1_1music_1_1_microtonal_interval.html</filename>
+    <member kind="function">
+      <type>constexpr</type>
+      <name>MicrotonalInterval</name>
+      <anchorfile>classlemons_1_1music_1_1_microtonal_interval.html</anchorfile>
+      <anchor>ac96257f4c959ee169ce216ee24b44821</anchor>
+      <arglist>(const MicrotonalInterval &amp;other)</arglist>
+    </member>
+    <member kind="function">
+      <type>constexpr</type>
+      <name>MicrotonalInterval</name>
+      <anchorfile>classlemons_1_1music_1_1_microtonal_interval.html</anchorfile>
+      <anchor>acfdc425a88293c949ae4858b41f38627</anchor>
+      <arglist>(double numSemitones)</arglist>
+    </member>
+    <member kind="function">
+      <type>constexpr Pitch</type>
+      <name>applyToPitch</name>
+      <anchorfile>classlemons_1_1music_1_1_microtonal_interval.html</anchorfile>
+      <anchor>a4477df0fc71116a90cb9a47b4f75ac28</anchor>
+      <arglist>(const Pitch &amp;other, bool above) const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>constexpr double</type>
+      <name>getCents</name>
+      <anchorfile>classlemons_1_1music_1_1_microtonal_interval.html</anchorfile>
+      <anchor>aaf478f601b172f6e396517570923ea4f</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>constexpr double</type>
+      <name>getSemitones</name>
+      <anchorfile>classlemons_1_1music_1_1_microtonal_interval.html</anchorfile>
+      <anchor>a7decc17ce8021facbd810a2c522fb188</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>constexpr bool</type>
+      <name>operator!=</name>
+      <anchorfile>classlemons_1_1music_1_1_microtonal_interval.html</anchorfile>
+      <anchor>a9c1e8e2d952f31957ec55437d2486858</anchor>
+      <arglist>(const MicrotonalInterval &amp;other)</arglist>
+    </member>
+    <member kind="function">
+      <type>constexpr bool</type>
+      <name>operator&lt;</name>
+      <anchorfile>classlemons_1_1music_1_1_microtonal_interval.html</anchorfile>
+      <anchor>a01db40e2bc23f0326262a2dabfa97109</anchor>
+      <arglist>(const MicrotonalInterval &amp;other)</arglist>
+    </member>
+    <member kind="function">
+      <type>constexpr MicrotonalInterval &amp;</type>
+      <name>operator=</name>
+      <anchorfile>classlemons_1_1music_1_1_microtonal_interval.html</anchorfile>
+      <anchor>ac1da8bf30fef353af07b2c653cbb2f67</anchor>
+      <arglist>(const MicrotonalInterval &amp;other)</arglist>
+    </member>
+    <member kind="function">
+      <type>constexpr bool</type>
+      <name>operator==</name>
+      <anchorfile>classlemons_1_1music_1_1_microtonal_interval.html</anchorfile>
+      <anchor>a70bb640ed2085ef0b618fc8a4cf5de16</anchor>
+      <arglist>(const MicrotonalInterval &amp;other)</arglist>
+    </member>
+    <member kind="function">
+      <type>constexpr bool</type>
+      <name>operator&gt;</name>
+      <anchorfile>classlemons_1_1music_1_1_microtonal_interval.html</anchorfile>
+      <anchor>a9c2191cb5d664886e97f9dc153c2314b</anchor>
+      <arglist>(const MicrotonalInterval &amp;other)</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
     <name>lemons::midi::MidiFIFO</name>
     <filename>classlemons_1_1midi_1_1_midi_f_i_f_o.html</filename>
     <member kind="function">
@@ -15758,6 +16008,13 @@
       <anchorfile>classlemons_1_1music_1_1scales_1_1_mode.html</anchorfile>
       <anchor>a76fa26d571dfff1129909c4fdc1184a3</anchor>
       <arglist>() const final</arglist>
+    </member>
+    <member kind="function">
+      <type>KeySignature</type>
+      <name>getKeySignature</name>
+      <anchorfile>classlemons_1_1music_1_1scales_1_1_mode.html</anchorfile>
+      <anchor>a685d524f677d1405530176a76923461a</anchor>
+      <arglist>() const noexcept</arglist>
     </member>
     <member kind="function">
       <type>int</type>
@@ -19000,6 +19257,13 @@
       <name>isBlackKey</name>
       <anchorfile>classlemons_1_1music_1_1_pitch.html</anchorfile>
       <anchor>aadfd5957ade590d3af67c3d3d5171687</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isMicrotone</name>
+      <anchorfile>classlemons_1_1music_1_1_pitch.html</anchorfile>
+      <anchor>a1899a3860064202876ceff32153bdd23</anchor>
       <arglist>() const noexcept</arglist>
     </member>
     <member kind="function">
@@ -27456,10 +27720,10 @@
     <filename>namespacelemons_1_1alg.html</filename>
     <member kind="function">
       <type>constexpr void</type>
-      <name>call_or</name>
+      <name>call_both</name>
       <anchorfile>namespacelemons_1_1alg.html</anchorfile>
-      <anchor>a9a6331a2bba908039864b40b5a47b59e</anchor>
-      <arglist>(const ContainerType &amp;container, UnaryPredicate &amp;&amp;p, UnaryFunc1 &amp;&amp;f1, UnaryFunc2 &amp;&amp;f2)</arglist>
+      <anchor>ae69e434fc4842d6dd51eeb18c5e79425</anchor>
+      <arglist>(const Container1 &amp;container1, const Container2 &amp;container2, Callable &amp;&amp;callable)</arglist>
     </member>
     <member kind="function">
       <type>constexpr bool</type>
@@ -27493,7 +27757,7 @@
       <type>constexpr T</type>
       <name>contains_or_default</name>
       <anchorfile>namespacelemons_1_1alg.html</anchorfile>
-      <anchor>aa180b06c283e569b07cef4db0d081723</anchor>
+      <anchor>aa99457664acae3598eb233cc84c05df1</anchor>
       <arglist>(const ContainerType &amp;container, UnaryPredicate &amp;&amp;p)</arglist>
     </member>
     <member kind="function">
@@ -27509,6 +27773,41 @@
       <anchorfile>namespacelemons_1_1alg.html</anchorfile>
       <anchor>a84d35683f4150bd67f0d1c6b2199fbf2</anchor>
       <arglist>(const ContainerType &amp;container, UnaryPredicate &amp;&amp;p)</arglist>
+    </member>
+    <member kind="function">
+      <type>constexpr void</type>
+      <name>removeDuplicates</name>
+      <anchorfile>namespacelemons_1_1alg.html</anchorfile>
+      <anchor>a6468dbdead94b02d296eec7d9d55f8ff</anchor>
+      <arglist>(ContainerType &amp;container)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>removeDuplicates</name>
+      <anchorfile>namespacelemons_1_1alg.html</anchorfile>
+      <anchor>a9d3f3e45ca61982282c751212e8c2d00</anchor>
+      <arglist>(juce::Array&lt; T &gt; &amp;array)</arglist>
+    </member>
+    <member kind="function">
+      <type>constexpr void</type>
+      <name>reverse</name>
+      <anchorfile>namespacelemons_1_1alg.html</anchorfile>
+      <anchor>a8bc4660c7ac22415f7ed709e7ebbb4d4</anchor>
+      <arglist>(ContainerType &amp;container)</arglist>
+    </member>
+    <member kind="function">
+      <type>constexpr void</type>
+      <name>sort</name>
+      <anchorfile>namespacelemons_1_1alg.html</anchorfile>
+      <anchor>af991a9e702cec6ab34e305848fb1021f</anchor>
+      <arglist>(ContainerType &amp;container, bool forward=true)</arglist>
+    </member>
+    <member kind="function">
+      <type>constexpr void</type>
+      <name>sort</name>
+      <anchorfile>namespacelemons_1_1alg.html</anchorfile>
+      <anchor>a12f52784e8bef396b239ac14ace7eed0</anchor>
+      <arglist>(ContainerType &amp;container, Comparison &amp;&amp;predicate, bool forward=true)</arglist>
     </member>
   </compound>
   <compound kind="namespace">
@@ -28523,8 +28822,10 @@
     <name>lemons::music</name>
     <filename>namespacelemons_1_1music.html</filename>
     <namespace>lemons::music::scales</namespace>
+    <class kind="class">lemons::music::Chord</class>
     <class kind="class">lemons::music::CompoundInterval</class>
     <class kind="class">lemons::music::Interval</class>
+    <class kind="class">lemons::music::MicrotonalInterval</class>
     <class kind="class">lemons::music::Pitch</class>
     <class kind="struct">lemons::music::PitchClass</class>
     <member kind="function">
@@ -28605,6 +28906,13 @@
       <arglist>(const Pitch &amp;pitch, const Interval &amp;interval) noexcept</arglist>
     </member>
     <member kind="function">
+      <type>constexpr Pitch</type>
+      <name>operator+</name>
+      <anchorfile>namespacelemons_1_1music.html</anchorfile>
+      <anchor>afb3ae59ad987048b89ea9c070a9cfcf4</anchor>
+      <arglist>(const Pitch &amp;pitch, const MicrotonalInterval &amp;interval) noexcept</arglist>
+    </member>
+    <member kind="function">
       <type>Pitch</type>
       <name>operator-</name>
       <anchorfile>namespacelemons_1_1music.html</anchorfile>
@@ -28617,6 +28925,13 @@
       <anchorfile>namespacelemons_1_1music.html</anchorfile>
       <anchor>a54b37f3bca235a1255530b3d386611c4</anchor>
       <arglist>(const Pitch &amp;pitch, const Interval &amp;interval) noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>constexpr Pitch</type>
+      <name>operator-</name>
+      <anchorfile>namespacelemons_1_1music.html</anchorfile>
+      <anchor>ae9cec85610607fe76e5fee66d270bcb6</anchor>
+      <arglist>(const Pitch &amp;pitch, const MicrotonalInterval &amp;interval) noexcept</arglist>
     </member>
     <member kind="function">
       <type>String</type>
