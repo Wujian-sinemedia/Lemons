@@ -53,7 +53,6 @@
 #include "harmony/scales/KeySignature_impl.h"
 #include "harmony/scales/Mode.h"
 //#include "harmony/scales/Pentatonic.h"
+#include "harmony/Chord.h"
 
 //#include "rhythm/TimeSignature.h"
-//
-//#include "harmony/Chord.h"

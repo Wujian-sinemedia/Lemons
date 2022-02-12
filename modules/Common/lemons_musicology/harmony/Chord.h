@@ -13,62 +13,54 @@
  * ======================================================================================
  */
 
+#pragma once
+
 namespace lemons::music
 {
 
-Pitch::Pitch (const String& pitchString) noexcept
-	: midiPitch (static_cast<double> (stringToPitch (pitchString)))
+class Chord final
 {
-}
+public:
 
-bool Pitch::approximatelyEqual (const Pitch& other) const noexcept
-{
-	return juce::roundToInt (midiPitch) == juce::roundToInt (other.midiPitch);
-}
+	explicit Chord (const std::initializer_list<int>& midiNotes);
 
-double Pitch::getFreqHz() const noexcept
-{
-	return math::midiToFreq (midiPitch);
-}
+	explicit Chord (const std::initializer_list<Pitch>& midiNotes);
 
-int Pitch::getRoundedFreqHz() const noexcept
-{
-	return juce::roundToInt (getFreqHz());
-}
+	Chord (const Chord& other);
 
-int Pitch::getRoundedMidiPitch() const noexcept
-{
-	return juce::roundToInt (midiPitch);
-}
+	Chord& operator= (const Chord& other);
 
-PitchClass Pitch::getPitchClass() const noexcept
-{
-	return PitchClass { juce::roundToInt (midiPitch) };
-}
+	[[nodiscard]] int getNumPitches() const;
 
-int Pitch::getOctaveNumber() const noexcept
-{
-	return octaveNumberOfMidiNote (juce::roundToInt (midiPitch));
-}
+	[[nodiscard]] Pitch getLowestPitch() const;
 
-bool Pitch::isBlackKey() const noexcept
-{
-	return getPitchClass().isBlackKey();
-}
+	[[nodiscard]] Pitch getHighestPitch() const;
 
-bool Pitch::isWhiteKey() const noexcept
-{
-	return ! isBlackKey();
-}
+	[[nodiscard]] bool contains (const PitchClass& pitchClass) const noexcept;
 
-String Pitch::toString (bool asSharps) const noexcept
-{
-	return pitchToString (juce::roundToInt (midiPitch), asSharps);
-}
+	[[nodiscard]] bool contains (const Pitch& pitch) const noexcept;
 
-bool Pitch::isMicrotone() const noexcept
-{
-	return std::floor (midiPitch) != midiPitch;
-}
+	[[nodiscard]] bool contains (int midiNote) const noexcept;
+
+	[[nodiscard]] bool fitsInScale (const scales::Scale& scale) const noexcept;
+
+	[[nodiscard]] juce::Array<Interval> getIntervals() const;
+
+	[[nodiscard]] juce::Array<PitchClass> getPitchClasses() const;
+
+	[[nodiscard]] int getNumUniquePitchClasses() const;
+
+	[[nodiscard]] Chord applyInterval (const Interval& interval, bool above);
+
+	// isMajor, isMinor, isDiminished, isDomSeventh ...
+
+	// get root note
+
+	// iterator (iterate as Pitch objects)
+
+private:
+
+	juce::Array<Pitch> pitches;
+};
 
 }  // namespace lemons::music

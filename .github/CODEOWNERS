@@ -42,6 +42,7 @@ modules/Audio/lemons_audio_effects/panning/StereoPanner.h benthevining
 modules/Audio/lemons_audio_effects/time/Delay.h benthevining
 modules/Audio/lemons_dsp/audio_files/AudioFile.cpp benthevining
 modules/Audio/lemons_dsp/audio_files/AudioFileCache.cpp benthevining
+modules/Audio/lemons_dsp/audio_files/AudioFile_tests.cpp benthevining
 modules/Audio/lemons_dsp/engines/AudioEngine.cpp benthevining
 modules/Audio/lemons_dsp/engines/AudioEngine.h benthevining
 modules/Audio/lemons_dsp/engines/AudioEngine_tests.cpp benthevining
@@ -76,6 +77,7 @@ modules/Audio/lemons_dsp/unit_tests/dsp_test.cpp benthevining
 modules/Audio/lemons_dsp/unit_tests/dsp_test.h benthevining
 modules/Audio/lemons_dsp/util/AudioFormats.cpp benthevining
 modules/Audio/lemons_dsp/util/BufferUtils.cpp benthevining
+modules/Audio/lemons_dsp/util/BufferUtils.h benthevining
 modules/Audio/lemons_dsp/util/MonoStereoConverter_tests.cpp benthevining
 modules/Audio/lemons_dsp/util/RealtimeTypeTraits.h benthevining
 modules/Audio/lemons_dsp/util/ValueSmoother.cpp benthevining
@@ -131,6 +133,7 @@ modules/Common/lemons_core/files/FileUtilities.h benthevining
 modules/Common/lemons_core/lemons_core.h benthevining
 modules/Common/lemons_core/localization/TranslationFiles.cpp benthevining
 modules/Common/lemons_core/localization/languages.cpp benthevining
+modules/Common/lemons_core/math/Ranges_tests.cpp benthevining
 modules/Common/lemons_core/misc/Algorithm.h benthevining
 modules/Common/lemons_core/misc/ArgParser.cpp benthevining
 modules/Common/lemons_core/misc/ArgParser.h benthevining
@@ -181,6 +184,7 @@ modules/Connectivity/lemons_osc/lemons_osc.h benthevining
 modules/Connectivity/lemons_osc/util/serializing.h benthevining
 modules/Connectivity/lemons_osc/util/util.h benthevining
 modules/GUI/LemonsGUIModules.cmake benthevining
+modules/GUI/lemons_device/gps/GPS_android.cpp benthevining
 modules/GUI/lemons_device/lemons_device.cpp benthevining
 modules/GUI/lemons_device/motion/DeviceMotion.cpp benthevining
 modules/GUI/lemons_device/motion/DeviceMotion.h benthevining
@@ -249,6 +253,7 @@ modules/Plugins/lemons_plugin/processors/ProcessorBase.h benthevining
 modules/Plugins/lemons_plugin/state/ParameterList.cpp benthevining
 modules/Plugins/lemons_plugin/state/ParameterList.h benthevining
 modules/Plugins/lemons_plugin/state/PluginState.cpp benthevining
+modules/Plugins/lemons_plugin/state/ProgramManager.cpp benthevining
 modules/Plugins/lemons_plugin/state/ProgramManager.h benthevining
 modules/Plugins/lemons_plugin/unit_tests/audio_processor_test.h benthevining
 modules/Plugins/lemons_plugin_gui/PresetBar/PresetBar.cpp benthevining

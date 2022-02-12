@@ -89,6 +89,18 @@ constexpr void removeDuplicates (ContainerType& container)
 	container.erase (std::unique (container.begin(), container.end()), container.end());
 }
 
+template <typename T>
+void removeDuplicates (juce::Array<T>& array)
+{
+	juce::Array<T> unique;
+
+	for (const auto& item : array)
+		if (! unique.contains (item))
+			unique.add (item);
+
+	array = unique;
+}
+
 template <class ContainerType>
 constexpr void reverse (ContainerType& container)
 {

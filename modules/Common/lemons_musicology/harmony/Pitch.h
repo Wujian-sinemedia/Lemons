@@ -122,6 +122,10 @@ public:
 	 */
 	[[nodiscard]] String toString (bool asSharps = true) const noexcept;
 
+	/** Returns true if this pitch does not correspond exactly with any of the keys on a piano tuned to equal temperament.
+	 */
+	[[nodiscard]] bool isMicrotone() const noexcept;
+
 private:
 
 	double midiPitch { 60. };

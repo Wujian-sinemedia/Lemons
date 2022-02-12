@@ -29,10 +29,9 @@
 #include "harmony/scales/KeySignature.cpp"
 #include "harmony/scales/Mode.cpp"
 //#include "harmony/scales/Pentatonic.cpp"
+#include "harmony/Chord.cpp"
 
 //#include "rhythm/TimeSignature.cpp"
-//
-//#include "harmony/Chord.cpp"
 
 #if LEMONS_UNIT_TESTS
 #	include "util/StringFunctions_tests.cpp"
