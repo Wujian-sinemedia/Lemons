@@ -1,5 +1,12 @@
 # Lemons changelog
 
+## [1.16.0](http://github.com/benthevining/Lemons/compare/v1.15.0...v1.16.0) (2022-02-12)
+
+
+### Features
+
+* added a chord class ([a5e6104](http://github.com/benthevining/Lemons/commit/a5e6104e5b7ab9076f86196bd43c8787220c5494))
+
 ## [1.15.0](http://github.com/benthevining/Lemons/compare/v1.14.1...v1.15.0) (2022-02-11)
 
 
