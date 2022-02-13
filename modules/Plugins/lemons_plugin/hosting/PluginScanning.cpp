@@ -206,6 +206,19 @@ Category::SubcategoryNamingCallback Category::getDefaultSubcategoryNamingCallbac
 	{ return d.pluginFormatName; };
 }
 
+template <files::FileType Type>
+void Category::saveToFile (const File& file) const
+{
+	const auto xml = createKnownPluginList()->createXml();
+
+	files::saveValueTree<Type> (file, ValueTree::fromXml (*xml));
+}
+
+template void Category::saveToFile<files::FileType::XML> (const File&) const;
+template void Category::saveToFile<files::FileType::JSON> (const File&) const;
+template void Category::saveToFile<files::FileType::Opaque> (const File&) const;
+
+/*------------------------------------------------------------------------------------------------------------------------*/
 
 std::unique_ptr<Category> scanDirectory (juce::FileSearchPath rootDirectory,
 										 const File&		  blacklistFile,
@@ -227,6 +240,7 @@ std::unique_ptr<Category> scanDirectory (juce::FileSearchPath rootDirectory,
 
 }  // namespace lemons::plugin::scanning
 
+/*------------------------------------------------------------------------------------------------------------------------*/
 
 namespace juce
 {

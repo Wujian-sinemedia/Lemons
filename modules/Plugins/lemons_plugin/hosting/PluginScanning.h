@@ -56,6 +56,9 @@ struct Category
 
 	[[nodiscard]] std::unique_ptr<juce::KnownPluginList> createKnownPluginList() const;
 
+	template <files::FileType Type = files::FileType::JSON>
+	void saveToFile (const File& file) const;
+
 	[[nodiscard]] static SortingCallback getDefaultSortingCallback (SortMethod method);
 
 	[[nodiscard]] static SubcategoryNamingCallback getDefaultSubcategoryNamingCallback (SortMethod method);

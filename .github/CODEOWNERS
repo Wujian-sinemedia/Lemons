@@ -29,6 +29,7 @@ modules/Audio/lemons_audio_effects/AudioEffects/AudioEffect.cpp benthevining
 modules/Audio/lemons_audio_effects/AudioEffects/AudioEffectEngine.h benthevining
 modules/Audio/lemons_audio_effects/dynamics/Compressor.cpp benthevining
 modules/Audio/lemons_audio_effects/dynamics/Limiter.h benthevining
+modules/Audio/lemons_audio_effects/dynamics/NoiseGate.cpp benthevining
 modules/Audio/lemons_audio_effects/dynamics/SmoothedGain.h benthevining
 modules/Audio/lemons_audio_effects/lemons_audio_effects.cpp benthevining
 modules/Audio/lemons_audio_effects/lemons_audio_effects.h benthevining
@@ -134,6 +135,7 @@ modules/Common/lemons_core/lemons_core.h benthevining
 modules/Common/lemons_core/localization/TranslationFiles.cpp benthevining
 modules/Common/lemons_core/localization/languages.cpp benthevining
 modules/Common/lemons_core/math/Ranges_tests.cpp benthevining
+modules/Common/lemons_core/math/math_tests.cpp benthevining
 modules/Common/lemons_core/misc/Algorithm.h benthevining
 modules/Common/lemons_core/misc/ArgParser.cpp benthevining
 modules/Common/lemons_core/misc/ArgParser.h benthevining
@@ -181,6 +183,7 @@ modules/Common/lemons_musicology/util/PitchUtils.h benthevining
 modules/Connectivity/LemonsConnectivityModules.cmake benthevining
 modules/Connectivity/lemons_osc/lemons_osc.cpp benthevining
 modules/Connectivity/lemons_osc/lemons_osc.h benthevining
+modules/Connectivity/lemons_osc/util/serializing.cpp benthevining
 modules/Connectivity/lemons_osc/util/serializing.h benthevining
 modules/Connectivity/lemons_osc/util/util.h benthevining
 modules/GUI/LemonsGUIModules.cmake benthevining
@@ -258,6 +261,7 @@ modules/Plugins/lemons_plugin/state/ProgramManager.h benthevining
 modules/Plugins/lemons_plugin/unit_tests/audio_processor_test.h benthevining
 modules/Plugins/lemons_plugin_gui/PresetBar/PresetBar.cpp benthevining
 modules/Plugins/lemons_plugin_gui/PresetBar/PresetBar.h benthevining
+modules/Plugins/lemons_plugin_gui/PresetBar/PresetBrowserComponent/PresetBrowserComponent.cpp benthevining
 modules/Plugins/lemons_plugin_gui/PresetBar/PresetBrowserComponent/PresetBrowserComponent.h benthevining
 modules/Plugins/lemons_plugin_gui/PresetBar/StateToggleButtons.h benthevining
 modules/Plugins/lemons_plugin_gui/buttons/Buttons.cpp benthevining
