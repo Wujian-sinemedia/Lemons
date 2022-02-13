@@ -71,8 +71,10 @@ modules/Audio/lemons_dsp/oscillators/basic_types.h benthevining
 modules/Audio/lemons_dsp/oscillators/choosable.cpp benthevining
 modules/Audio/lemons_dsp/oscillators/choosable.h benthevining
 modules/Audio/lemons_dsp/oscillators/oscillator_tests.cpp benthevining
+modules/Audio/lemons_dsp/sample_streams/SampleStream.cpp benthevining
 modules/Audio/lemons_dsp/sample_streams/StreamEngine.h benthevining
 modules/Audio/lemons_dsp/sample_streams/WhiteNoiseGenerator.h benthevining
+modules/Audio/lemons_dsp/sample_streams/oscillator.cpp benthevining
 modules/Audio/lemons_dsp/sample_streams/oscillator.h benthevining
 modules/Audio/lemons_dsp/unit_tests/dsp_test.cpp benthevining
 modules/Audio/lemons_dsp/unit_tests/dsp_test.h benthevining
@@ -253,6 +255,7 @@ modules/Plugins/lemons_plugin/parameters/parameter_tests.cpp benthevining
 modules/Plugins/lemons_plugin/parameters/types/MetaParameter.cpp benthevining
 modules/Plugins/lemons_plugin/parameters/types/MetaParameter.h benthevining
 modules/Plugins/lemons_plugin/parameters/types/MeterParameter.cpp benthevining
+modules/Plugins/lemons_plugin/parameters/types/ParameterTypes.cpp benthevining
 modules/Plugins/lemons_plugin/parameters/types/Specializations.h benthevining
 modules/Plugins/lemons_plugin/parameters/utils/detail.cpp benthevining
 modules/Plugins/lemons_plugin/parameters/utils/detail.h benthevining

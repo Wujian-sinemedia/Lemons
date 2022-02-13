@@ -1,4 +1,3 @@
-
 /*
  * ======================================================================================
  *
@@ -16,36 +15,17 @@
 
 #pragma once
 
-/*-------------------------------------------------------------------------------------
+#include <lemons_musicology/lemons_musicology.h>
 
- BEGIN_JUCE_MODULE_DECLARATION
+namespace lemons::midi
+{
 
- ID:                 lemons_midi
- vendor:             Lemons
- version:            0.0.1
- name:               lemons_midi
- description:        Midi utilities
- website:            http://benthevining.github.io/Lemons/
- license:            GPL-3.0
- minimumCppStandard: 17
- dependencies:       juce_audio_basics lemons_musicology
+/** Attempts to estimate the key signature of the MIDI using the Krumhansl-Schmuckler key finding algorithm.
+ */
+[[nodiscard]] music::scales::KeySignature estimateKey (const MidiBuffer& midi);
 
- END_JUCE_MODULE_DECLARATION
+/** Attempts to estimate the key signature of the MIDI using the Krumhansl-Schmuckler key finding algorithm.
+ */
+[[nodiscard]] music::scales::KeySignature estimateKey (const MidiFile& midi);
 
--------------------------------------------------------------------------------------*/
-
-
-#include "unit_tests/midi_tests.h"
-
-#include "utilities/serializing.h"
-#include "utilities/MidiUtilities.h"
-#include "utilities/MidiFIFO.h"
-#include "utilities/VelocityHelper.h"
-#include "utilities/KeyDetection.h"
-
-#include "tuning/mts_client.h"
-#include "tuning/PitchbendTracker.h"
-#include "tuning/PitchPipeline.h"
-
-#include "processors/processors.h"
-#include "processors/MidiChoppingProcessor.h"
+}  // namespace lemons::midi

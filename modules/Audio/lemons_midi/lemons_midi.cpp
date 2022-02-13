@@ -23,6 +23,7 @@
 #include "utilities/MidiUtilities.cpp"
 #include "utilities/VelocityHelper.cpp"
 #include "utilities/serializing.cpp"
+#include "utilities/KeyDetection.cpp"
 
 #include "processors/MidiChoppingProcessor.cpp"
 #include "processors/processors.cpp"
