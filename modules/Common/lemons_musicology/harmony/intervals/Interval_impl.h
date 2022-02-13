@@ -69,6 +69,7 @@ constexpr Interval Interval::fromNumSemitones (int semitones) noexcept
 		case (10) : return Interval { 7, Quality::Minor };
 		case (11) : return Interval { 7, Quality::Major };
 		case (12) : return Interval { 8, Quality::Perfect };
+		case (13) : return Interval { 8, Quality::Augmented };
 	}
 
 	jassertfalse;
@@ -464,6 +465,8 @@ constexpr Interval Interval::getInverse() const noexcept
 				case (8) : return Interval { 0, Quality::Perfect };
 			}
 		}
+		case (13) :
+			return Interval { 0, Quality::Augmented };
 	}
 
 	jassertfalse;

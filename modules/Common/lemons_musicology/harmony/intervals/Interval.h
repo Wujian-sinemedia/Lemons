@@ -173,6 +173,9 @@ public:
 	 */
 	[[nodiscard]] juce::Array<double> getCents_JustIntonation() const;
 
+	/** Returns an array of fraction objects representing possible just intervals for this interval. */
+	[[nodiscard]] juce::Array<math::Fraction<int>> getJustRatios() const;
+
 	/** Returns true if the quality is valid for the given kind of interval.
 		For example, a perfect fourth or fifth is valid, while a perfect third or perfect second is not. A major or minor third is valid, while a major fourth or minor fifth is not.
 		Note the special case that a diminished unison is invalid; unisons can only be perfect or augmented.
