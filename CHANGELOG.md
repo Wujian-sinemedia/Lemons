@@ -1,5 +1,12 @@
 # Lemons changelog
 
+## [1.18.0](http://github.com/benthevining/Lemons/compare/v1.17.0...v1.18.0) (2022-02-13)
+
+
+### Features
+
+* added a padded text table class ([e09ed51](http://github.com/benthevining/Lemons/commit/e09ed510a7aa5b1c4f48d1a95cf7a76eaec78485))
+
 ## [1.17.0](http://github.com/benthevining/Lemons/compare/v1.16.1...v1.17.0) (2022-02-13)
 
 
