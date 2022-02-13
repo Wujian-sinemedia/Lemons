@@ -1,5 +1,12 @@
 # Lemons changelog
 
+## [1.19.0](http://github.com/benthevining/Lemons/compare/v1.18.0...v1.19.0) (2022-02-13)
+
+
+### Features
+
+* added a MIDI key detection algorithm ([6bb4332](http://github.com/benthevining/Lemons/commit/6bb433263682feecd7166157b320becb0ea3e05a))
+
 ## [1.18.0](http://github.com/benthevining/Lemons/compare/v1.17.0...v1.18.0) (2022-02-13)
 
 
