@@ -1,5 +1,12 @@
 # Lemons changelog
 
+## [1.17.0](http://github.com/benthevining/Lemons/compare/v1.16.1...v1.17.0) (2022-02-13)
+
+
+### Features
+
+* added a plugin scanner command line utility ([1c4f5f1](http://github.com/benthevining/Lemons/commit/1c4f5f1114881939a16be06aedf7db13313b4e93))
+
 ### [1.16.1](http://github.com/benthevining/Lemons/compare/v1.16.0...v1.16.1) (2022-02-12)
 
 
