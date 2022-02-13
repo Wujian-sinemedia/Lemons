@@ -23,6 +23,8 @@ void multiThreadedFor (std::function<void (T idx)>&& callback,
 					   T start, T end, T interval = 1,
 					   juce::ThreadPool* threadPool = nullptr)
 {
+	jassert (callback != nullptr);
+
 	if (threadPool == nullptr)
 	{
 		for (auto i = start; i < end; i += interval)

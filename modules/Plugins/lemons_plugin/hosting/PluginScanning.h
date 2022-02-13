@@ -22,7 +22,8 @@ namespace lemons::plugin::scanning
 
 
 [[nodiscard]] std::unique_ptr<juce::KnownPluginList> scanDirectoryForPlugins (juce::FileSearchPath rootDirectory,
-																			  const File&		   blacklistFile);
+																			  const File&		   blacklistFile,
+																			  juce::ThreadPool*	   threadPool = nullptr);
 
 
 struct Category
@@ -78,7 +79,8 @@ private:
 [[nodiscard]] std::unique_ptr<Category> scanDirectory (juce::FileSearchPath rootDirectory,
 													   const File&			blacklistFile,
 													   Category::SortMethod sortMethod,
-													   const String&		rootCategoryName = "Plugins");
+													   const String&		rootCategoryName = "Plugins",
+													   juce::ThreadPool*	threadPool		 = nullptr);
 
 }  // namespace lemons::plugin::scanning
 
@@ -87,10 +89,10 @@ namespace juce
 {
 
 template <>
-struct VariantConverter<PluginDescription>
+struct VariantConverter<PluginDescription> final
 {
-	static PluginDescription fromVar (const var& v);
-	static var				 toVar (const PluginDescription& d);
+	[[nodiscard]] static PluginDescription fromVar (const var& v);
+	[[nodiscard]] static var			   toVar (const PluginDescription& d);
 };
 
 }  // namespace juce

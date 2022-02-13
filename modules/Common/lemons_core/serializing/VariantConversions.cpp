@@ -204,7 +204,7 @@ var VariantConverter<StringPairArray>::toVar (const StringPairArray& a)
 
 	jassert (keys.size() == values.size());
 
-	for (int i = 0; i < keys.size(); ++i)
+	for (auto i = 0; i < keys.size(); ++i)
 	{
 		obj.setProperty (keys.strings.getUnchecked (i),
 						 values.strings.getUnchecked (i));

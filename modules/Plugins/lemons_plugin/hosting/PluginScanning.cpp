@@ -33,22 +33,26 @@ juce::AudioPluginFormatManager& getDefaultPluginFormatManager()
 
 
 std::unique_ptr<juce::KnownPluginList> scanDirectoryForPlugins (juce::FileSearchPath rootDirectory,
-																const File&			 blacklistFile)
+																const File&			 blacklistFile,
+																juce::ThreadPool*	 threadPool)
 {
 	auto list = std::make_unique<juce::KnownPluginList>();
 
-	for (auto* format : getDefaultPluginFormatManager().getFormats())
-	{
-		juce::PluginDirectoryScanner scanner { *list, *format, rootDirectory, true, blacklistFile, false };
+	multiThreadedFor<int> ([kpl = list.get(), &rootDirectory, &blacklistFile] (int idx)
+						   {
+		auto* format = getDefaultPluginFormatManager().getFormats().getUnchecked (idx);
 
-		while (true)
+		juce::PluginDirectoryScanner scanner { *kpl, *format, rootDirectory, true, blacklistFile, false };
+
+		String name;
+
+		do
 		{
-			String name;
-
 			if (! scanner.scanNextFile (true, name))
 				break;
 		}
-	}
+		while (true); },
+						   0, getDefaultPluginFormatManager().getNumFormats(), 1, threadPool);
 
 	return list;
 }
@@ -206,14 +210,15 @@ Category::SubcategoryNamingCallback Category::getDefaultSubcategoryNamingCallbac
 std::unique_ptr<Category> scanDirectory (juce::FileSearchPath rootDirectory,
 										 const File&		  blacklistFile,
 										 Category::SortMethod sortMethod,
-										 const String&		  rootCategoryName)
+										 const String&		  rootCategoryName,
+										 juce::ThreadPool*	  threadPool)
 {
+	const auto list = scanDirectoryForPlugins (rootDirectory, blacklistFile, threadPool);
+	const auto tree = juce::KnownPluginList::createTree (list->getTypes(), getSortingMethod (sortMethod));
+
 	auto category = std::make_unique<Category> (rootCategoryName, sortMethod,
 												Category::getDefaultSortingCallback (sortMethod),
 												Category::getDefaultSubcategoryNamingCallback (sortMethod));
-
-	const auto list = scanDirectoryForPlugins (rootDirectory, blacklistFile);
-	const auto tree = juce::KnownPluginList::createTree (list->getTypes(), getSortingMethod (sortMethod));
 
 	category->addFromPluginTree (*tree);
 
