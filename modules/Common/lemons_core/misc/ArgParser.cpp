@@ -39,24 +39,33 @@ void ArgParser::addArgument (const String& argOrFlags,
 
 void ArgParser::printHelp() const
 {
+	TextTable table;
+
 	for (const auto& arg : args)
 	{
-		std::cout << "[ " << arg.argOrFlags << " ]";
+		table.addColumnToCurrentRow ("[ " + arg.argOrFlags + " ]");
+		table.addColumnToCurrentRow (":");
 
 		if (! arg.help.isEmpty())
-			std::cout << " : " << arg.help;
-
-		if (! arg.options.isEmpty())
-			std::cout << " - Options: " << arg.options.joinIntoString (" ");
+			table.addColumnToCurrentRow (arg.help);
 
 		if (arg.required)
-			std::cout << " - [R]";
+			table.addColumnToCurrentRow ("[R]");
+		else
+			table.addColumnToCurrentRow ("");
+
+		if (! arg.options.isEmpty())
+			table.addColumnToCurrentRow ("- Options: " + arg.options.joinIntoString (" "));
+		else
+			table.addColumnToCurrentRow ("");
 
 		if (! arg.defaultValue.isEmpty())
-			std::cout << " - Default: " << arg.defaultValue;
+			table.addColumnToCurrentRow ("- Default: " + arg.defaultValue);
 
-		std::cout << std::endl;
+		table.startNewRow();
 	}
+
+	std::cout << "Usage:" << juce::newLine << table.toString ("", " ", "");
 }
 
 String ArgParser::operator[] (const String& argOrFlags) const

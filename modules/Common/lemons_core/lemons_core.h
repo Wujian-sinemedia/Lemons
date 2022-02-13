@@ -67,7 +67,6 @@
 
 #include "misc/TypeTraits.h"
 #include "misc/Algorithm.h"
-#include "misc/StringUtils.h"
 #include "misc/Version.h"
 #include "misc/Dimensions.h"
 #include "misc/ConstructedArray.h"
@@ -75,6 +74,9 @@
 #include "misc/rsa.h"
 #include "misc/Threading.h"
 #include "misc/ArgParser.h"
+
+#include "text/StringUtils.h"
+#include "text/TextTable.h"
 
 #include "unit_tests/test.h"
 #include "unit_tests/runner.h"

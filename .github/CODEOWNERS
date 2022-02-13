@@ -88,6 +88,7 @@ modules/Audio/lemons_dsp/util/serializing.cpp benthevining
 modules/Audio/lemons_dsp/util/serializing.h benthevining
 modules/Audio/lemons_dsp/util/serializing_tests.cpp benthevining
 modules/Audio/lemons_midi/lemons_midi.cpp benthevining
+modules/Audio/lemons_midi/lemons_midi.h benthevining
 modules/Audio/lemons_midi/processors/MidiChoppingProcessor.cpp benthevining
 modules/Audio/lemons_midi/processors/MidiChoppingProcessor.h benthevining
 modules/Audio/lemons_midi/processors/processors.cpp benthevining
@@ -97,6 +98,7 @@ modules/Audio/lemons_midi/tuning/PitchbendTracker.cpp benthevining
 modules/Audio/lemons_midi/tuning/PitchbendTracker.h benthevining
 modules/Audio/lemons_midi/tuning/mts_client.cpp benthevining
 modules/Audio/lemons_midi/tuning/mts_client.h benthevining
+modules/Audio/lemons_midi/utilities/MidiUtilities.cpp benthevining
 modules/Audio/lemons_midi/utilities/VelocityHelper.cpp benthevining
 modules/Audio/lemons_midi/utilities/serializing.h benthevining
 modules/Audio/lemons_midi/utilities/serializing_tests.cpp benthevining
@@ -125,12 +127,14 @@ modules/Audio/lemons_synth/Synth/helpers/PanningManager.h benthevining
 modules/Audio/lemons_synth/Synth/helpers/VoiceAllocator.cpp benthevining
 modules/Audio/lemons_synth/Synth/helpers/VoiceAllocator.h benthevining
 modules/Audio/lemons_synth/Synth/synth_impl/SynthMidi.cpp benthevining
+modules/Audio/lemons_synth/SynthVoice/SynthVoice.cpp benthevining
 modules/Audio/lemons_synth/SynthVoice/TimbreMod.h benthevining
 modules/Audio/lemons_synth/lemons_synth.cpp benthevining
 modules/Audio/lemons_synth/lemons_synth.h benthevining
 modules/Common/lemons_core/binary_data/translations.h benthevining
 modules/Common/lemons_core/files/FileUtilities.cpp benthevining
 modules/Common/lemons_core/files/FileUtilities.h benthevining
+modules/Common/lemons_core/lemons_core.cpp benthevining
 modules/Common/lemons_core/lemons_core.h benthevining
 modules/Common/lemons_core/localization/TranslationFiles.cpp benthevining
 modules/Common/lemons_core/localization/languages.cpp benthevining
@@ -154,6 +158,7 @@ modules/Common/lemons_core/serializing/VariantConversions.cpp benthevining
 modules/Common/lemons_core/serializing/VariantConversions.h benthevining
 modules/Common/lemons_core/serializing/VariantConversions_tests.cpp benthevining
 modules/Common/lemons_core/serializing/arrays.h benthevining
+modules/Common/lemons_core/text/StringUtils.cpp benthevining
 modules/Common/lemons_core/unit_tests/runner.cpp benthevining
 modules/Common/lemons_core/unit_tests/runner.h benthevining
 modules/Common/lemons_core/unit_tests/test.cpp benthevining
@@ -263,6 +268,7 @@ modules/Plugins/lemons_plugin_gui/PresetBar/PresetBar.cpp benthevining
 modules/Plugins/lemons_plugin_gui/PresetBar/PresetBar.h benthevining
 modules/Plugins/lemons_plugin_gui/PresetBar/PresetBrowserComponent/PresetBrowserComponent.cpp benthevining
 modules/Plugins/lemons_plugin_gui/PresetBar/PresetBrowserComponent/PresetBrowserComponent.h benthevining
+modules/Plugins/lemons_plugin_gui/PresetBar/PresetSavingComponent/PresetSavingComponent.cpp benthevining
 modules/Plugins/lemons_plugin_gui/PresetBar/StateToggleButtons.h benthevining
 modules/Plugins/lemons_plugin_gui/buttons/Buttons.cpp benthevining
 modules/Plugins/lemons_plugin_gui/buttons/Buttons.h benthevining
@@ -274,6 +280,7 @@ modules/Plugins/lemons_plugin_gui/sliders/SliderBase.h benthevining
 scripts/install_deps.cmake benthevining
 scripts/lemons_config.json benthevining
 util/CMakeLists.txt benthevining
+util/CommandLineUtils/CMakeLists.txt benthevining
 util/CommandLineUtils/FontSerializer/CMakeLists.txt benthevining
 util/CommandLineUtils/FontSerializer/Main.cpp benthevining
 util/CommandLineUtils/RSAKeyGenerator/CMakeLists.txt benthevining
@@ -330,6 +337,7 @@ util/cmake/modules/juce/LemonsAppUtilities.cmake benthevining
 util/cmake/modules/juce/LemonsAssetsHelpers.cmake benthevining
 util/cmake/modules/juce/LemonsJuceModuleUtilities.cmake benthevining
 util/cmake/modules/platform/scripts/lemons_ios_settings.cmake benthevining
+util/cmake/modules/platform/scripts/lemons_macos_settings.cmake benthevining
 util/cmake/modules/platform/scripts/lemons_windows_settings.cmake benthevining
 util/cmake/modules/plugins/AAX/LemonsAAXUtils.cmake benthevining
 util/cmake/modules/plugins/AAX/LemonsCreateAAXSDKTarget.cmake benthevining
