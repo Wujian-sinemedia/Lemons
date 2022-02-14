@@ -112,6 +112,12 @@ Typedefs</h2></td></tr>
 Functions</h2></td></tr>
 <tr class="memitem:ga98b403cf67be59389bdcae888bdb4a6a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__lemons__midi.html#ga98b403cf67be59389bdcae888bdb4a6a">copyRangeOfMidiBuffer</a> (const MidiBuffer &amp;readingBuffer, MidiBuffer &amp;destBuffer, int startSampleOfInput, int startSampleOfOutput, int numSamples)</td></tr>
 <tr class="separator:ga98b403cf67be59389bdcae888bdb4a6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a21742b259cf14bc4876156a7fe9bdc3d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classlemons_1_1music_1_1scales_1_1_key_signature.html">music::scales::KeySignature</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1midi.html#a21742b259cf14bc4876156a7fe9bdc3d">estimateKey</a> (const MidiBuffer &amp;midi)</td></tr>
+<tr class="memdesc:a21742b259cf14bc4876156a7fe9bdc3d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attempts to estimate the key signature of the MIDI using the Krumhansl-Schmuckler key finding algorithm.  <a href="namespacelemons_1_1midi.html#a21742b259cf14bc4876156a7fe9bdc3d">More...</a><br /></td></tr>
+<tr class="separator:a21742b259cf14bc4876156a7fe9bdc3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a52913a39a5b64852db3edc8f12d38ad1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classlemons_1_1music_1_1scales_1_1_key_signature.html">music::scales::KeySignature</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1midi.html#a52913a39a5b64852db3edc8f12d38ad1">estimateKey</a> (const MidiFile &amp;midi)</td></tr>
+<tr class="memdesc:a52913a39a5b64852db3edc8f12d38ad1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attempts to estimate the key signature of the MIDI using the Krumhansl-Schmuckler key finding algorithm.  <a href="namespacelemons_1_1midi.html#a52913a39a5b64852db3edc8f12d38ad1">More...</a><br /></td></tr>
+<tr class="separator:a52913a39a5b64852db3edc8f12d38ad1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga07960c8ccf7e391f88b2d61bd6aac0db"><td class="memItemLeft" align="right" valign="top">MidiBuffer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__lemons__midi.html#ga07960c8ccf7e391f88b2d61bd6aac0db">midiBufferFromFile</a> (const MidiFile &amp;file, int trackToRead=-1)</td></tr>
 <tr class="memdesc:ga07960c8ccf7e391f88b2d61bd6aac0db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a MIDI file object to a MIDI buffer.  <a href="group__lemons__midi.html#ga07960c8ccf7e391f88b2d61bd6aac0db">More...</a><br /></td></tr>
 <tr class="separator:ga07960c8ccf7e391f88b2d61bd6aac0db"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -136,10 +142,51 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="a21742b259cf14bc4876156a7fe9bdc3d" name="a21742b259cf14bc4876156a7fe9bdc3d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a21742b259cf14bc4876156a7fe9bdc3d">&#9670;&nbsp;</a></span>estimateKey() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classlemons_1_1music_1_1scales_1_1_key_signature.html">music::scales::KeySignature</a> lemons::midi::estimateKey </td>
+          <td>(</td>
+          <td class="paramtype">const MidiBuffer &amp;&#160;</td>
+          <td class="paramname"><em>midi</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Attempts to estimate the key signature of the MIDI using the Krumhansl-Schmuckler key finding algorithm. </p>
+
+</div>
+</div>
+<a id="a52913a39a5b64852db3edc8f12d38ad1" name="a52913a39a5b64852db3edc8f12d38ad1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a52913a39a5b64852db3edc8f12d38ad1">&#9670;&nbsp;</a></span>estimateKey() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classlemons_1_1music_1_1scales_1_1_key_signature.html">music::scales::KeySignature</a> lemons::midi::estimateKey </td>
+          <td>(</td>
+          <td class="paramtype">const MidiFile &amp;&#160;</td>
+          <td class="paramname"><em>midi</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Attempts to estimate the key signature of the MIDI using the Krumhansl-Schmuckler key finding algorithm. </p>
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Feb 13 2022 00:50:48 for Lemons by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3
+Generated on Mon Feb 14 2022 00:45:20 for Lemons by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3
 </small></address>
 </body>
 </html>

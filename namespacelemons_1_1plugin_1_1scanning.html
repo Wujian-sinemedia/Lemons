@@ -84,10 +84,10 @@ Classes</h2></td></tr>
 Functions</h2></td></tr>
 <tr class="memitem:abd35adc2059cb149c6132f04f61da888"><td class="memItemLeft" align="right" valign="top">juce::AudioPluginFormatManager &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1plugin_1_1scanning.html#abd35adc2059cb149c6132f04f61da888">getDefaultPluginFormatManager</a> ()</td></tr>
 <tr class="separator:abd35adc2059cb149c6132f04f61da888"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0db6989ff2c515b6f9fefd699b36c8dd"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="structlemons_1_1plugin_1_1scanning_1_1_category.html">Category</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1plugin_1_1scanning.html#a0db6989ff2c515b6f9fefd699b36c8dd">scanDirectory</a> (juce::FileSearchPath rootDirectory, const File &amp;blacklistFile, <a class="el" href="structlemons_1_1plugin_1_1scanning_1_1_category.html#a8d22298a2210c2324227771d233d8f8b">Category::SortMethod</a> sortMethod, const String &amp;rootCategoryName=&quot;Plugins&quot;)</td></tr>
-<tr class="separator:a0db6989ff2c515b6f9fefd699b36c8dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac75b3892722214accd7b62cff79bc69d"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; juce::KnownPluginList &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1plugin_1_1scanning.html#ac75b3892722214accd7b62cff79bc69d">scanDirectoryForPlugins</a> (juce::FileSearchPath rootDirectory, const File &amp;blacklistFile)</td></tr>
-<tr class="separator:ac75b3892722214accd7b62cff79bc69d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abbed01740310e735775d1a1a8b3b772d"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="structlemons_1_1plugin_1_1scanning_1_1_category.html">Category</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1plugin_1_1scanning.html#abbed01740310e735775d1a1a8b3b772d">scanDirectory</a> (juce::FileSearchPath rootDirectory, const File &amp;blacklistFile, <a class="el" href="structlemons_1_1plugin_1_1scanning_1_1_category.html#a8d22298a2210c2324227771d233d8f8b">Category::SortMethod</a> sortMethod, const String &amp;rootCategoryName=&quot;Plugins&quot;, juce::ThreadPool *threadPool=nullptr)</td></tr>
+<tr class="separator:abbed01740310e735775d1a1a8b3b772d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad0e4b53ab93df4ddb639654cc6cf2379"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; juce::KnownPluginList &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1plugin_1_1scanning.html#ad0e4b53ab93df4ddb639654cc6cf2379">scanDirectoryForPlugins</a> (juce::FileSearchPath rootDirectory, const File &amp;blacklistFile, juce::ThreadPool *threadPool=nullptr)</td></tr>
+<tr class="separator:ad0e4b53ab93df4ddb639654cc6cf2379"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="abd35adc2059cb149c6132f04f61da888" name="abd35adc2059cb149c6132f04f61da888"></a>
@@ -107,8 +107,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a0db6989ff2c515b6f9fefd699b36c8dd" name="a0db6989ff2c515b6f9fefd699b36c8dd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0db6989ff2c515b6f9fefd699b36c8dd">&#9670;&nbsp;</a></span>scanDirectory()</h2>
+<a id="abbed01740310e735775d1a1a8b3b772d" name="abbed01740310e735775d1a1a8b3b772d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abbed01740310e735775d1a1a8b3b772d">&#9670;&nbsp;</a></span>scanDirectory()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -135,7 +135,13 @@ Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const String &amp;&#160;</td>
-          <td class="paramname"><em>rootCategoryName</em> = <code>&quot;Plugins&quot;</code>&#160;</td>
+          <td class="paramname"><em>rootCategoryName</em> = <code>&quot;Plugins&quot;</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">juce::ThreadPool *&#160;</td>
+          <td class="paramname"><em>threadPool</em> = <code>nullptr</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -147,8 +153,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ac75b3892722214accd7b62cff79bc69d" name="ac75b3892722214accd7b62cff79bc69d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac75b3892722214accd7b62cff79bc69d">&#9670;&nbsp;</a></span>scanDirectoryForPlugins()</h2>
+<a id="ad0e4b53ab93df4ddb639654cc6cf2379" name="ad0e4b53ab93df4ddb639654cc6cf2379"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad0e4b53ab93df4ddb639654cc6cf2379">&#9670;&nbsp;</a></span>scanDirectoryForPlugins()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -163,7 +169,13 @@ Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const File &amp;&#160;</td>
-          <td class="paramname"><em>blacklistFile</em>&#160;</td>
+          <td class="paramname"><em>blacklistFile</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">juce::ThreadPool *&#160;</td>
+          <td class="paramname"><em>threadPool</em> = <code>nullptr</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -178,7 +190,7 @@ Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Feb 13 2022 00:50:49 for Lemons by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3
+Generated on Mon Feb 14 2022 00:45:21 for Lemons by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3
 </small></address>
 </body>
 </html>

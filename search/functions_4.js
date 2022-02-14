@@ -10,6 +10,7 @@ var searchData=
   ['endgesture_7',['endGesture',['../classlemons_1_1plugin_1_1_parameter.html#a6dcc681b173e3682f071e0423343e12f',1,'lemons::plugin::Parameter']]],
   ['engine_8',['Engine',['../classlemons_1_1dsp_1_1_engine.html#aff2070d0265ee64b3377e7551525efa6',1,'lemons::dsp::Engine::Engine()'],['../classlemons_1_1dsp_1_1osc_1_1_engine.html#a05a966fb7982dd20d1baa0c53ed4e061',1,'lemons::dsp::osc::Engine::Engine()']]],
   ['eq_9',['EQ',['../classlemons_1_1dsp_1_1_f_x_1_1_e_q.html#a2dcdb60a42bb68a1f447336ee6127d1e',1,'lemons::dsp::FX::EQ']]],
-  ['executeunittests_10',['executeUnitTests',['../group__lemons__unit__testing.html#gab1e68eefc1493b062789e0ccc18695ff',1,'lemons::tests']]],
-  ['existsondisk_11',['existsOnDisk',['../structlemons_1_1dsp_1_1_audio_file.html#a050fe18f621b82247d6e43c1049b0c4f',1,'lemons::dsp::AudioFile']]]
+  ['estimatekey_10',['estimateKey',['../namespacelemons_1_1midi.html#a21742b259cf14bc4876156a7fe9bdc3d',1,'lemons::midi::estimateKey(const MidiBuffer &amp;midi)'],['../namespacelemons_1_1midi.html#a52913a39a5b64852db3edc8f12d38ad1',1,'lemons::midi::estimateKey(const MidiFile &amp;midi)']]],
+  ['executeunittests_11',['executeUnitTests',['../group__lemons__unit__testing.html#gab1e68eefc1493b062789e0ccc18695ff',1,'lemons::tests']]],
+  ['existsondisk_12',['existsOnDisk',['../structlemons_1_1dsp_1_1_audio_file.html#a050fe18f621b82247d6e43c1049b0c4f',1,'lemons::dsp::AudioFile']]]
 ];

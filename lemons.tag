@@ -770,6 +770,7 @@
     <includes id="_midi_utilities_8h" name="MidiUtilities.h" local="yes" imported="no">utilities/MidiUtilities.h</includes>
     <includes id="_midi_f_i_f_o_8h" name="MidiFIFO.h" local="yes" imported="no">utilities/MidiFIFO.h</includes>
     <includes id="_velocity_helper_8h" name="VelocityHelper.h" local="yes" imported="no">utilities/VelocityHelper.h</includes>
+    <includes id="_key_detection_8h" name="KeyDetection.h" local="yes" imported="no">utilities/KeyDetection.h</includes>
     <includes id="mts__client_8h" name="mts_client.h" local="yes" imported="no">tuning/mts_client.h</includes>
     <includes id="_pitchbend_tracker_8h" name="PitchbendTracker.h" local="yes" imported="no">tuning/PitchbendTracker.h</includes>
     <includes id="_pitch_pipeline_8h" name="PitchPipeline.h" local="yes" imported="no">tuning/PitchPipeline.h</includes>
@@ -850,6 +851,28 @@
       <anchorfile>group__lemons__midi__unit__tests.html</anchorfile>
       <anchor>gac131c73da0a08f4127224d450c02270e</anchor>
       <arglist>(const MidiBuffer &amp;buffer1, const MidiBuffer &amp;buffer2)</arglist>
+    </member>
+  </compound>
+  <compound kind="file">
+    <name>KeyDetection.h</name>
+    <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/Audio/lemons_midi/utilities/</path>
+    <filename>_key_detection_8h.html</filename>
+    <includes id="lemons__musicology_8h" name="lemons_musicology.h" local="no" imported="no">lemons_musicology/lemons_musicology.h</includes>
+    <namespace>lemons</namespace>
+    <namespace>lemons::midi</namespace>
+    <member kind="function">
+      <type>music::scales::KeySignature</type>
+      <name>estimateKey</name>
+      <anchorfile>namespacelemons_1_1midi.html</anchorfile>
+      <anchor>a21742b259cf14bc4876156a7fe9bdc3d</anchor>
+      <arglist>(const MidiBuffer &amp;midi)</arglist>
+    </member>
+    <member kind="function">
+      <type>music::scales::KeySignature</type>
+      <name>estimateKey</name>
+      <anchorfile>namespacelemons_1_1midi.html</anchorfile>
+      <anchor>a52913a39a5b64852db3edc8f12d38ad1</anchor>
+      <arglist>(const MidiFile &amp;midi)</arglist>
     </member>
   </compound>
   <compound kind="file">
@@ -1284,7 +1307,6 @@
     <filename>lemons__core_8h.html</filename>
     <includes id="_type_traits_8h" name="TypeTraits.h" local="yes" imported="no">misc/TypeTraits.h</includes>
     <includes id="_algorithm_8h" name="Algorithm.h" local="yes" imported="no">misc/Algorithm.h</includes>
-    <includes id="_string_utils_8h" name="StringUtils.h" local="yes" imported="no">misc/StringUtils.h</includes>
     <includes id="_version_8h" name="Version.h" local="yes" imported="no">misc/Version.h</includes>
     <includes id="_dimensions_8h" name="Dimensions.h" local="yes" imported="no">misc/Dimensions.h</includes>
     <includes id="_constructed_array_8h" name="ConstructedArray.h" local="yes" imported="no">misc/ConstructedArray.h</includes>
@@ -1292,6 +1314,8 @@
     <includes id="rsa_8h" name="rsa.h" local="yes" imported="no">misc/rsa.h</includes>
     <includes id="_threading_8h" name="Threading.h" local="yes" imported="no">misc/Threading.h</includes>
     <includes id="_arg_parser_8h" name="ArgParser.h" local="yes" imported="no">misc/ArgParser.h</includes>
+    <includes id="_string_utils_8h" name="StringUtils.h" local="yes" imported="no">text/StringUtils.h</includes>
+    <includes id="_text_table_8h" name="TextTable.h" local="yes" imported="no">text/TextTable.h</includes>
     <includes id="test_8h" name="test.h" local="yes" imported="no">unit_tests/test.h</includes>
     <includes id="runner_8h" name="runner.h" local="yes" imported="no">unit_tests/runner.h</includes>
     <includes id="_file_utilities_8h" name="FileUtilities.h" local="yes" imported="no">files/FileUtilities.h</includes>
@@ -1718,27 +1742,6 @@
     </member>
   </compound>
   <compound kind="file">
-    <name>StringUtils.h</name>
-    <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/Common/lemons_core/misc/</path>
-    <filename>_string_utils_8h.html</filename>
-    <namespace>lemons</namespace>
-    <namespace>lemons::cstring</namespace>
-    <member kind="function">
-      <type>bool</type>
-      <name>areSame</name>
-      <anchorfile>namespacelemons_1_1cstring.html</anchorfile>
-      <anchor>a08c465eb78204866f74fc900232a8a9f</anchor>
-      <arglist>(const char *string1, const char *string2)</arglist>
-    </member>
-    <member kind="function">
-      <type>int</type>
-      <name>length</name>
-      <anchorfile>namespacelemons_1_1cstring.html</anchorfile>
-      <anchor>a257c056b9043895b26182f83abc40ad6</anchor>
-      <arglist>(const char *string)</arglist>
-    </member>
-  </compound>
-  <compound kind="file">
     <name>Threading.h</name>
     <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/Common/lemons_core/misc/</path>
     <filename>_threading_8h.html</filename>
@@ -1881,6 +1884,34 @@
     <class kind="struct">juce::VariantConverter&lt; ValueTree &gt;</class>
     <class kind="struct">juce::VariantConverter&lt; XmlElement &gt;</class>
     <namespace>juce</namespace>
+  </compound>
+  <compound kind="file">
+    <name>StringUtils.h</name>
+    <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/Common/lemons_core/text/</path>
+    <filename>_string_utils_8h.html</filename>
+    <namespace>lemons</namespace>
+    <namespace>lemons::cstring</namespace>
+    <member kind="function">
+      <type>bool</type>
+      <name>areSame</name>
+      <anchorfile>namespacelemons_1_1cstring.html</anchorfile>
+      <anchor>a08c465eb78204866f74fc900232a8a9f</anchor>
+      <arglist>(const char *string1, const char *string2)</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>length</name>
+      <anchorfile>namespacelemons_1_1cstring.html</anchorfile>
+      <anchor>a257c056b9043895b26182f83abc40ad6</anchor>
+      <arglist>(const char *string)</arglist>
+    </member>
+  </compound>
+  <compound kind="file">
+    <name>TextTable.h</name>
+    <path>/Users/runner/work/Lemons/Lemons/util/doxygen/build/Common/lemons_core/text/</path>
+    <filename>_text_table_8h.html</filename>
+    <class kind="class">lemons::TextTable</class>
+    <namespace>lemons</namespace>
   </compound>
   <compound kind="file">
     <name>runner.h</name>
@@ -2895,15 +2926,15 @@
       <type>std::unique_ptr&lt; Category &gt;</type>
       <name>scanDirectory</name>
       <anchorfile>namespacelemons_1_1plugin_1_1scanning.html</anchorfile>
-      <anchor>a0db6989ff2c515b6f9fefd699b36c8dd</anchor>
-      <arglist>(juce::FileSearchPath rootDirectory, const File &amp;blacklistFile, Category::SortMethod sortMethod, const String &amp;rootCategoryName=&quot;Plugins&quot;)</arglist>
+      <anchor>abbed01740310e735775d1a1a8b3b772d</anchor>
+      <arglist>(juce::FileSearchPath rootDirectory, const File &amp;blacklistFile, Category::SortMethod sortMethod, const String &amp;rootCategoryName=&quot;Plugins&quot;, juce::ThreadPool *threadPool=nullptr)</arglist>
     </member>
     <member kind="function">
       <type>std::unique_ptr&lt; juce::KnownPluginList &gt;</type>
       <name>scanDirectoryForPlugins</name>
       <anchorfile>namespacelemons_1_1plugin_1_1scanning.html</anchorfile>
-      <anchor>ac75b3892722214accd7b62cff79bc69d</anchor>
-      <arglist>(juce::FileSearchPath rootDirectory, const File &amp;blacklistFile)</arglist>
+      <anchor>ad0e4b53ab93df4ddb639654cc6cf2379</anchor>
+      <arglist>(juce::FileSearchPath rootDirectory, const File &amp;blacklistFile, juce::ThreadPool *threadPool=nullptr)</arglist>
     </member>
   </compound>
   <compound kind="file">
@@ -5536,6 +5567,13 @@
       <anchorfile>structlemons_1_1plugin_1_1scanning_1_1_category.html</anchorfile>
       <anchor>a650cdac1fe3780f97f4d014a2d282e49</anchor>
       <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>saveToFile</name>
+      <anchorfile>structlemons_1_1plugin_1_1scanning_1_1_category.html</anchorfile>
+      <anchor>aab6aff70a8a41af96d394d1b0ac970ed</anchor>
+      <arglist>(const File &amp;file) const</arglist>
     </member>
     <member kind="function" static="yes">
       <type>static SortingCallback</type>
@@ -11099,6 +11137,13 @@
       <anchorfile>classlemons_1_1music_1_1_interval.html</anchorfile>
       <anchor>a71b4a02fcd75366a40a749505f2432e2</anchor>
       <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::Array&lt; math::Fraction&lt; int &gt; &gt;</type>
+      <name>getJustRatios</name>
+      <anchorfile>classlemons_1_1music_1_1_interval.html</anchorfile>
+      <anchor>a590d0d377391f55f5568fdc6259ae52d</anchor>
+      <arglist>() const</arglist>
     </member>
     <member kind="function">
       <type>constexpr int</type>
@@ -24870,6 +24915,73 @@
     </member>
   </compound>
   <compound kind="class">
+    <name>lemons::TextTable</name>
+    <filename>classlemons_1_1_text_table.html</filename>
+    <member kind="function">
+      <type>void</type>
+      <name>addColumnToCurrentRow</name>
+      <anchorfile>classlemons_1_1_text_table.html</anchorfile>
+      <anchor>ada9defe52c13da488bd9e49a353f551b</anchor>
+      <arglist>(const String &amp;text)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>clear</name>
+      <anchorfile>classlemons_1_1_text_table.html</anchorfile>
+      <anchor>aa5aeddc75e58a36965edf76642a4f703</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>getNumColumns</name>
+      <anchorfile>classlemons_1_1_text_table.html</anchorfile>
+      <anchor>ad84a59763af83f303f715828ce4a224b</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>getNumRows</name>
+      <anchorfile>classlemons_1_1_text_table.html</anchorfile>
+      <anchor>ac218e4dcccddb6298cf3dab4c2f6af88</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::StringArray</type>
+      <name>getRows</name>
+      <anchorfile>classlemons_1_1_text_table.html</anchorfile>
+      <anchor>a770fdc5e943cd381a9994c17d7d2668a</anchor>
+      <arglist>(const String &amp;rowPrefix, const String &amp;columnSeparator, const String &amp;rowSuffix) const</arglist>
+    </member>
+    <member kind="function">
+      <type>TextTable &amp;</type>
+      <name>operator++</name>
+      <anchorfile>classlemons_1_1_text_table.html</anchorfile>
+      <anchor>a3aba951d63e22abbd7e0c92d0698d8fc</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>TextTable &amp;</type>
+      <name>operator&lt;&lt;</name>
+      <anchorfile>classlemons_1_1_text_table.html</anchorfile>
+      <anchor>af56c8ea0e72c6d4b4575668be4c290e7</anchor>
+      <arglist>(const String &amp;text)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>startNewRow</name>
+      <anchorfile>classlemons_1_1_text_table.html</anchorfile>
+      <anchor>a7032b5b5f1d61a072f5dbc9ea22eb00f</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>String</type>
+      <name>toString</name>
+      <anchorfile>classlemons_1_1_text_table.html</anchorfile>
+      <anchor>aa441d6b1843e722948fa4da017afc7a4</anchor>
+      <arglist>(const String &amp;rowPrefix, const String &amp;columnSeparator, const String &amp;rowSuffix) const</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
     <name>lemons::dsp::synth::TimbreMod</name>
     <filename>classlemons_1_1dsp_1_1synth_1_1_timbre_mod.html</filename>
     <templarg>typename SampleType</templarg>
@@ -27684,6 +27796,7 @@
     <class kind="class">lemons::GuiApp</class>
     <class kind="struct">lemons::is_specialization</class>
     <class kind="struct">lemons::is_specialization&lt; Template&lt; Args... &gt;, Template &gt;</class>
+    <class kind="class">lemons::TextTable</class>
     <class kind="struct">lemons::ValueSmoother</class>
     <class kind="struct">lemons::Version</class>
     <member kind="function">
@@ -28804,6 +28917,20 @@
       <arglist>(const MidiBuffer &amp;readingBuffer, MidiBuffer &amp;destBuffer, int startSampleOfInput, int startSampleOfOutput, int numSamples)</arglist>
     </member>
     <member kind="function">
+      <type>music::scales::KeySignature</type>
+      <name>estimateKey</name>
+      <anchorfile>namespacelemons_1_1midi.html</anchorfile>
+      <anchor>a21742b259cf14bc4876156a7fe9bdc3d</anchor>
+      <arglist>(const MidiBuffer &amp;midi)</arglist>
+    </member>
+    <member kind="function">
+      <type>music::scales::KeySignature</type>
+      <name>estimateKey</name>
+      <anchorfile>namespacelemons_1_1midi.html</anchorfile>
+      <anchor>a52913a39a5b64852db3edc8f12d38ad1</anchor>
+      <arglist>(const MidiFile &amp;midi)</arglist>
+    </member>
+    <member kind="function">
       <type>MidiBuffer</type>
       <name>midiBufferFromFile</name>
       <anchorfile>group__lemons__midi.html</anchorfile>
@@ -29188,15 +29315,15 @@
       <type>std::unique_ptr&lt; Category &gt;</type>
       <name>scanDirectory</name>
       <anchorfile>namespacelemons_1_1plugin_1_1scanning.html</anchorfile>
-      <anchor>a0db6989ff2c515b6f9fefd699b36c8dd</anchor>
-      <arglist>(juce::FileSearchPath rootDirectory, const File &amp;blacklistFile, Category::SortMethod sortMethod, const String &amp;rootCategoryName=&quot;Plugins&quot;)</arglist>
+      <anchor>abbed01740310e735775d1a1a8b3b772d</anchor>
+      <arglist>(juce::FileSearchPath rootDirectory, const File &amp;blacklistFile, Category::SortMethod sortMethod, const String &amp;rootCategoryName=&quot;Plugins&quot;, juce::ThreadPool *threadPool=nullptr)</arglist>
     </member>
     <member kind="function">
       <type>std::unique_ptr&lt; juce::KnownPluginList &gt;</type>
       <name>scanDirectoryForPlugins</name>
       <anchorfile>namespacelemons_1_1plugin_1_1scanning.html</anchorfile>
-      <anchor>ac75b3892722214accd7b62cff79bc69d</anchor>
-      <arglist>(juce::FileSearchPath rootDirectory, const File &amp;blacklistFile)</arglist>
+      <anchor>ad0e4b53ab93df4ddb639654cc6cf2379</anchor>
+      <arglist>(juce::FileSearchPath rootDirectory, const File &amp;blacklistFile, juce::ThreadPool *threadPool=nullptr)</arglist>
     </member>
   </compound>
   <compound kind="namespace">
